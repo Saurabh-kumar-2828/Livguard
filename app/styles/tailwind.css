@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    html {
+        scroll-behavior: smooth;
+
+        --gj-header-height: 4rem;
+        --gj-mobile-ui-height: 4rem;
+        /* --gj-px-screen-edge: clamp(1.5rem, 1.5rem + clamp(0, calc((10vw - 480px) / 600px), 1) * 8.5rem, 10rem); */
+        /* --gj-px-screen-edge: clamp(1.5rem, 5%, 10rem); */
+        /* --gj-px-screen-edge: clamp(1.5rem, 5vw, 10rem); */
+        --gj-px-screen-edge: 5vw;
+        --gj-py-section-divider: clamp(2rem, 5vw, 6rem);
+        --gj-py-standard-2: clamp(0.5rem, 1.25vw, 1.5rem);
+        --gj-py-standard-1: clamp(1rem, 2.5vw, 3rem);
+        --gj-py-standard: clamp(1.6rem, 4vw, 4.8rem);
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+    }
+
+    .tw-font-body {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .tw-font-body\+1 {
+        font-size: 1.25rem;
+        line-height: 1.5;
+    }
+
+    .tw-font-body\+2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .tw-font-1\.5rem-400 {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+    .tw-font-2rem-300 {
+        font-size: 2rem;
+        line-height: 1.5;
+        font-weight: 300;
+    }
+
+    .tw-font-2rem-400 {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    .tw-font-2rem-600 {
+        font-size: 2rem;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+
+    .tw-font-h1-2 {
+        font-size: 2.5rem;
+        line-height: 1.5;
+        font-weight: 300;
+    }
+
+    .tw-font-h1-1 {
+        font-size: 2.5rem;
+        line-height: 1.5;
+    }
+
+    .tw-font-h1 {
+        font-size: 2.75rem;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+
+    .tw-px-screen-edge {
+        padding-left: var(--gj-px-screen-edge);
+        padding-right: var(--gj-px-screen-edge);
+    }
+
+    .tw-py-section-divider {
+        height: var(--gj-py-section-divider);
+    }
+
+    .gj-button {
+        @apply tw-text-white;
+        background: linear-gradient(90deg, #00A2ED, #1F40CB);
+        background-size: 200% 100%;
+        animation: gj-button-keyframes 5s ease infinite;
+    }
+
+    @keyframes gj-button-keyframes {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .gj-text-input {
+        @apply tw-p-4 tw-rounded-lg tw-bg-white tw-text-black disabled:tw-text-neutral-800 disabled:tw-bg-neutral-600 read-only:tw-text-neutral-800 read-only:tw-bg-neutral-600 tw-w-full;
+        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    }
+
+    .gj-text-select {
+        @apply tw-p-4 tw-rounded-lg tw-bg-white tw-text-black tw-w-full;
+        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    }
+
+    .gj-text-dark-select {
+        @apply tw-p-4 tw-rounded-lg tw-bg-bg+1 tw-text-white tw-w-full;
+        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    }
+
+    /* #region Scrolling */
+    @keyframes gj-infinite-horizontal-scroll-left-keyframes {
+        from {
+            transform: translateX(100%);
+        }
+
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    .gj-infinite-horizontal-scroll-left {
+        animation-name: gj-infinite-horizontal-scroll-left-keyframes;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes gj-infinite-horizontal-scroll-right-keyframes {
+        from {
+            transform: translateX(-100%);
+        }
+
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+    .gj-infinite-horizontal-scroll-right {
+        animation-name: gj-infinite-horizontal-scroll-right-keyframes;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes gj-infinite-horizontal-scroll-up-keyframes {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(-100%);
+        }
+    }
+
+    .gj-infinite-horizontal-scroll-up {
+        animation-name: gj-infinite-horizontal-scroll-up-keyframes;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes gj-infinite-horizontal-scroll-down-keyframes {
+        from {
+            transform: translateY(-100%);
+        }
+
+        to {
+            transform: translateY(100%);
+        }
+    }
+
+    .gj-infinite-horizontal-scroll-down {
+        animation-name: gj-infinite-horizontal-scroll-down-keyframes;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    /* #endregion */
+
+    .job-listing-card-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 4.5em;
+    }
+}

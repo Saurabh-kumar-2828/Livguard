@@ -1,0 +1,66 @@
+/* #region OurValues */
+/* (14rem * 4 + 1.5rem * 3) / 0.9 = 67.2222rem*/
+#our-values {
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    justify-content: center;
+}
+
+#our-values-heading {
+    max-width: 42.5rem;
+}
+
+@media (max-width: 33.999rem) {
+    #our-values {
+        grid-template-columns: 14rem;
+    }
+
+    #our-values-heading-container {
+        grid-column: 1;
+        justify-self: end;
+        text-align: right;
+    }
+}
+
+@media (min-width: 34rem) and (max-width: 67.999rem) {
+    #our-values {
+        grid-template-columns: 14rem 14rem;
+    }
+
+    #our-values-heading-container {
+        grid-column: 1 / span 2;
+        justify-self: end;
+        text-align: right;
+    }
+}
+
+@media (min-width: 68rem) and (max-width: 99.999rem) {
+    #our-values {
+        grid-template-columns: repeat(4, 14rem);
+    }
+
+    #our-values-heading-container {
+        grid-column: 1 / span 4;
+        justify-self: end;
+        text-align: right;
+    }
+}
+
+@media (min-width: 100rem) {
+    #our-values {
+        grid-template-columns: repeat(4, 14rem) minmax(0, 1fr);
+    }
+
+    #our-values-heading-container {
+        grid-row: 1;
+        grid-column: 5;
+        width: 100%;
+        height: 100%;
+    }
+
+    #our-values-heading {
+        justify-self: end;
+        text-align: right;
+    }
+}
+/* #endregion */
