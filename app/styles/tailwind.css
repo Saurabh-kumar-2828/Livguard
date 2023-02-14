@@ -23,178 +23,73 @@
         overflow-x: hidden;
     }
 
-    .tw-font-body {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
+    .lg-text-h1 {
+        /* @apply tw-text-bold */
 
-    .tw-font-body\+1 {
-        font-size: 1.25rem;
-        line-height: 1.5;
-    }
-
-    .tw-font-body\+2 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5;
-    }
-
-    .tw-font-1\.5rem-400 {
+        font-weight: 700;
         font-size: 1.5rem;
-        line-height: 1.5;
-        font-weight: 400;
     }
 
-    .tw-font-2rem-300 {
-        font-size: 2rem;
-        line-height: 1.5;
-        font-weight: 300;
+    .lg-text-p {
+        /* @apply tw-text-bold */
+
+        font-weight: 500;
+        font-size: 1rem;
     }
 
-    .tw-font-2rem-400 {
-        font-size: 2rem;
-        line-height: 1.5;
+    .lg-bg-primary-500 {
+        @apply tw-bg-primary-500-light dark:tw-bg-primary-500-dark;
     }
 
-    .tw-font-2rem-600 {
-        font-size: 2rem;
-        line-height: 1.5;
-        font-weight: 600;
+    .lg-text-primary-500 {
+        @apply tw-text-primary-500-light dark:tw-text-primary-500-dark;
     }
 
-    .tw-font-h1-2 {
-        font-size: 2.5rem;
-        line-height: 1.5;
-        font-weight: 300;
+    .lg-bg-background-500 {
+        @apply tw-bg-background-500-light dark:tw-bg-background-500-dark;
     }
 
-    .tw-font-h1-1 {
-        font-size: 2.5rem;
-        line-height: 1.5;
+    .lg-text-background-500 {
+        @apply tw-text-background-500-light dark:tw-text-background-500-dark;
     }
 
-    .tw-font-h1 {
-        font-size: 2.75rem;
-        font-weight: bold;
-        line-height: 1.5;
+    .lg-bg-secondary-100 {
+        @apply tw-bg-secondary-100-light dark:tw-bg-secondary-100-dark;
     }
 
-    .tw-px-screen-edge {
-        padding-left: var(--gj-px-screen-edge);
-        padding-right: var(--gj-px-screen-edge);
+    .lg-text-secondary-100 {
+        @apply tw-text-secondary-100-light dark:tw-text-secondary-100-dark;
     }
 
-    .tw-py-section-divider {
-        height: var(--gj-py-section-divider);
+    .lg-bg-secondary-300 {
+        @apply tw-bg-secondary-300-light dark:tw-bg-secondary-300-dark;
     }
 
-    .gj-button {
-        @apply tw-text-white;
-        background: linear-gradient(90deg, #00A2ED, #1F40CB);
-        background-size: 200% 100%;
-        animation: gj-button-keyframes 5s ease infinite;
+    .lg-text-secondary-300 {
+        @apply tw-text-secondary-300-light dark:tw-text-secondary-300-dark;
     }
 
-    @keyframes gj-button-keyframes {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
+    .lg-bg-secondary-500 {
+        @apply tw-bg-secondary-500-light dark:tw-bg-secondary-500-dark;
     }
 
-    .gj-text-input {
-        @apply tw-p-4 tw-rounded-lg tw-bg-white tw-text-black disabled:tw-text-neutral-800 disabled:tw-bg-neutral-600 read-only:tw-text-neutral-800 read-only:tw-bg-neutral-600 tw-w-full;
-        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    .lg-text-secondary-500 {
+        @apply tw-text-secondary-500-light dark:tw-text-secondary-500-dark;
     }
 
-    .gj-text-select {
-        @apply tw-p-4 tw-rounded-lg tw-bg-white tw-text-black tw-w-full;
-        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    .lg-bg-secondary-700 {
+        @apply tw-bg-secondary-700-light dark:tw-bg-secondary-700-dark;
     }
 
-    .gj-text-dark-select {
-        @apply tw-p-4 tw-rounded-lg tw-bg-bg+1 tw-text-white tw-w-full;
-        box-shadow: 0px 9px 13px rgba(0, 0, 0, 0.07);
+    .lg-text-secondary-700 {
+        @apply tw-text-secondary-700-light dark:tw-text-secondary-700-dark;
     }
 
-    /* #region Scrolling */
-    @keyframes gj-infinite-horizontal-scroll-left-keyframes {
-        from {
-            transform: translateX(100%);
-        }
-
-        to {
-            transform: translateX(-100%);
-        }
+    .lg-bg-secondary-900 {
+        @apply tw-bg-secondary-900-light dark:tw-bg-secondary-900-dark;
     }
 
-    .gj-infinite-horizontal-scroll-left {
-        animation-name: gj-infinite-horizontal-scroll-left-keyframes;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-
-    @keyframes gj-infinite-horizontal-scroll-right-keyframes {
-        from {
-            transform: translateX(-100%);
-        }
-
-        to {
-            transform: translateX(100%);
-        }
-    }
-
-    .gj-infinite-horizontal-scroll-right {
-        animation-name: gj-infinite-horizontal-scroll-right-keyframes;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-
-    @keyframes gj-infinite-horizontal-scroll-up-keyframes {
-        from {
-            transform: translateY(100%);
-        }
-
-        to {
-            transform: translateY(-100%);
-        }
-    }
-
-    .gj-infinite-horizontal-scroll-up {
-        animation-name: gj-infinite-horizontal-scroll-up-keyframes;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-
-    @keyframes gj-infinite-horizontal-scroll-down-keyframes {
-        from {
-            transform: translateY(-100%);
-        }
-
-        to {
-            transform: translateY(100%);
-        }
-    }
-
-    .gj-infinite-horizontal-scroll-down {
-        animation-name: gj-infinite-horizontal-scroll-down-keyframes;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-    /* #endregion */
-
-    .job-listing-card-description {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        height: 4.5em;
+    .lg-text-secondary-900 {
+        @apply tw-text-secondary-900-light dark:tw-text-secondary-900-dark;
     }
 }

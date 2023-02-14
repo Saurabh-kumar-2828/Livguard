@@ -1,0 +1,6 @@
+[submodule "app/global-common-typescript"]
+    path = app/global-common-typescript
+    url = ../global-common-typescript.git
+[submodule "app/livguard-common-typescript"]
+    path = app/livguard-common-typescript
+    url = ../livguard-common-typescript.git
