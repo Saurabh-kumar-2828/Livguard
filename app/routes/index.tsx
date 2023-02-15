@@ -33,10 +33,6 @@ export default function () {
     return (
         <PageScaffold userPreferences={userPreferences}>
             <HomePage userPreferences={userPreferences} />
-
-            <Section1 userPreferences={userPreferences} />
-
-            <StickyBottomBar userPreferences={userPreferences} />
         </PageScaffold>
     );
 }
@@ -46,6 +42,8 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
         <>
             <HeroSection userPreferences={userPreferences} />
 
+            <Section1 userPreferences={userPreferences} />
+
             <VerticalSpacer className="tw-h-6" />
 
             <WeAreOneOfAKind />
@@ -53,6 +51,10 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
             <VerticalSpacer className="tw-h-6" />
 
             <PowerPlanner />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <StickyBottomBar userPreferences={userPreferences} />
         </>
     );
 }
