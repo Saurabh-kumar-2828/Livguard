@@ -33,10 +33,6 @@ export default function () {
     return (
         <PageScaffold userPreferences={userPreferences}>
             <HomePage userPreferences={userPreferences} />
-
-            <Section1 userPreferences={userPreferences} />
-
-            <StickyBottomBar userPreferences={userPreferences} />
         </PageScaffold>
     );
 }
@@ -45,6 +41,8 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
+
+            <Section1 userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -65,6 +63,10 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
             <VerticalSpacer className="tw-h-6" />
 
             <PowerfulPurposePowerfulImpact userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <StickyBottomBar userPreferences={userPreferences} />
         </>
     );
 }
