@@ -13,6 +13,8 @@
         "css:build": "postcss app/styles/tailwind.css --output build/tailwind.css"
     },
     "dependencies": {
+        "@headlessui/react": "^1.7.10",
+        "@heroicons/react": "^2.0.15",
         "@remix-run/node": "^1.12.0",
         "@remix-run/react": "^1.12.0",
         "@remix-run/serve": "^1.12.0",

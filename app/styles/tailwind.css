@@ -92,4 +92,16 @@
     .lg-text-secondary-900 {
         @apply tw-text-secondary-900-light dark:tw-text-secondary-900-dark;
     }
+
+    .lg-mobile-title2 {
+        @apply tw-font-bold tw-text-[16px] tw-leading-6 tw-text-left;
+    }
+
+    .lg-mobile-bodyText {
+        @apply tw-font-normal tw-text-[14px] tw-leading-5 tw-text-left;
+    }
+
+    .lg-mobile-heading {
+        @apply tw-font-bold tw-text-[24px] tw-leading-7 tw-text-left;
+    }
 }
