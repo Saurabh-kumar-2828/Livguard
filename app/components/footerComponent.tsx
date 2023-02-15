@@ -7,7 +7,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {UserPreferences} from "~/typeDefinitions";
 
 export function FooterComponent({userPreferences}: {userPreferences: UserPreferences}) {
-    const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
+    // const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
 
     return (
         <div className="tw-p-4">
@@ -80,8 +80,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -113,8 +113,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -153,8 +153,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -202,8 +202,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -227,8 +227,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -268,8 +268,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -297,8 +297,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosureTitle={openDisclosureTitle}
-                    setOpenDisclosureTitle={setOpenDisclosureTitle}
+                    // openDisclosureTitle={openDisclosureTitle}
+                    // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
