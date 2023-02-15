@@ -27,26 +27,15 @@ export function Accordion({
     // }, [openDisclosureTitle]);
 
     return (
-        <Disclosure
-            // defaultOpen={title == openDisclosureTitle}
-        >
+        <Disclosure>
             {({open, close}) => (
-                /* Use the `open` state to conditionally change the direction of an icon. */
-                <div key={`${title}-open`} className={`${title}-open`}>
+                <>
                     <Disclosure.Button
                         className={concatenateNonNullStringsWithSpaces(
                             "tw-p-5 tw-flex tw-justify-between tw-items-center tw-w-full lg-bg-secondary-100",
                             `${open ? "tw-rounded-t-lg" : "tw-rounded-lg"}`,
                         )}
                         ref={ref}
-                        // onClick={() => {
-                        //     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
-                        //     if (isCurrentDisclosureOpen) {
-                        //         setOpenDisclosureTitle(null);
-                        //     } else {
-                        //         setOpenDisclosureTitle(title);
-                        //     }
-                        // }}
                     >
                         <div className="lg-mobile-title2 lg-text-secondary-900">{title}</div>
                         <div className="tw-h-6 tw-w-6 lg-bg-background-500 tw-rounded-md">{open ? <MinusIcon /> : <PlusIcon />}</div>
@@ -62,7 +51,7 @@ export function Accordion({
                     >
                         <Disclosure.Panel className="tw-p-5 tw-pb-10 tw-rounded-b-lg lg-bg-secondary-300 tw-opacity-70 tw-flex tw-flex-col tw-gap-6">{panelItem}</Disclosure.Panel>
                     </Transition>
-                </div>
+                </>
             )}
         </Disclosure>
     );

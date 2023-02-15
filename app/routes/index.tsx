@@ -48,11 +48,23 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-6" />
 
-            <WeAreOneOfAKind />
+            <WeAreOneOfAKind userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-6" />
 
-            <PowerPlanner />
+            <PowerPlanner userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <SolarSolutions userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <DealerLocator userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <PowerfulPurposePowerfulImpact userPreferences={userPreferences} />
         </>
     );
 }
@@ -136,27 +148,26 @@ function Section1({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-export function WeAreOneOfAKind() {
+export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-[#3A3A3A] tw-to-[#000000] tw-px-4 tw-py-6 tw-rounded-lg">
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-heading-style">
-                    <span>We Are</span>
-                    <span className="lg-heading-text-background-primary-500">One of A Kind</span>
+                <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS4H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS4H1T2", userPreferences.language)}} />
+
+                    {/* <div>{getVernacularString("homeS5H1T2", userPreferences.language)}</div> */}
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-title2 tw-text-center">With Livguard, you are always in trusted hands</div>
+                <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS4T2", userPreferences.language)}</div>
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-bodyText tw-text-center">
-                    In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed
-                    partners, & the best quality every time has made us the choice of people nationwide.
-                </div>
+                <div className="lg-text-body tw-text-center">{getVernacularString("homeS4T3", userPreferences.language)}</div>
 
                 <VerticalSpacer className="tw-h-6" />
 
@@ -166,123 +177,250 @@ export function WeAreOneOfAKind() {
     );
 }
 
-export function PowerPlanner() {
+export function PowerPlanner({userPreferences}: {userPreferences: UserPreferences}) {
     const [selectedPropertyType, setSelectedPropertyType] = useState<string | null>(null);
 
     return (
-        <div className="tw-flex tw-flex-col lg-px-screen-edge">
-            <div className="lg-text-heading-style">
-                <>Take Charge of Your Energy </>
-                <span>
-                    With Our <span className="lg-heading-text-background-primary-500">Power Planner</span>
-                </span>
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+                <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-bodyText">{getVernacularString("homeS5T2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-title2 lg-bg-secondary-500 tw-w-full tw-h-[150px]"></div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-title2">{getVernacularString("homeS5T3", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-flex tw-flex-col tw-gap-4">
+                    <ItemBuilder
+                        items={[
+                            {
+                                icon: "",
+                                stepIndex: `${getVernacularString("homeS5Step1T1", userPreferences.language)}`,
+                                stepContent: `${getVernacularString("homeS5Step1T2", userPreferences.language)}`,
+                            },
+                            {
+                                icon: "",
+                                stepIndex: `${getVernacularString("homeS5Step2T1", userPreferences.language)}`,
+                                stepContent: `${getVernacularString("homeS5Step2T2", userPreferences.language)}`,
+                            },
+                            {
+                                icon: "",
+                                stepIndex: `${getVernacularString("homeS5Step3T1", userPreferences.language)}`,
+                                stepContent: `${getVernacularString("homeS5Step3T2", userPreferences.language)}`,
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <div className="lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-grid tw-grid-cols-[auto,minmax(0,1fr)] tw-grid-rows-[auto,auto] tw-gap-x-2" key={itemIndex}>
+                                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-2">
+                                    <div className="lg-bg-secondary-300 tw-h-10 tw-w-10 tw-rounded-full"></div>
+                                </div>
+                                <div className="tw-row-start-1 tw-col-start-2">
+                                    <div className="lg-text-title2 tw-text-left">{item.stepIndex}</div>
+                                </div>
+                                <div className="tw-row-start-2 tw-col-start-2">
+                                    <div className="lg-text-body tw-text-left">{item.stepContent}</div>
+                                </div>
+                            </div>
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
+                <div className="lg-text-body tw-text-center">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr),minmax(0,1fr)] tw-grid-roes-[auto,auto] tw-gap-2">
+                    <ItemBuilder
+                        items={[
+                            {
+                                icon: "",
+                                content: "1 BHK",
+                                value: "1_bhk",
+                            },
+                            {
+                                icon: "",
+                                content: "2 BHK",
+                                value: "2_bhk",
+                            },
+                            {
+                                icon: "",
+                                content: "3 BHK",
+                                value: "3_bhk",
+                            },
+                            {
+                                icon: "",
+                                content: "4 BHK",
+                                value: "4_bhk",
+                            },
+                            {
+                                icon: "",
+                                content: "Villa",
+                                value: "villa",
+                            },
+                            {
+                                icon: "",
+                                content: "Custom",
+                                value: "custom",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-rounded-md tw-flex tw-gap-2 tw-py-3 tw-px-2 hover:tw-cursor-pointer",
+                                    `tw-row-start-${itemIndex / 3 + 1} tw-col-start-${(itemIndex % 3) + 1}`,
+                                    item.value == selectedPropertyType ? "lg-bg-primary-500" : "lg-bg-secondary-500",
+                                )}
+                                key={itemIndex}
+                                onClick={() => setSelectedPropertyType(item.value)}
+                            >
+                                <div className="lg-bg-secondary-700 tw-rounded-full tw-w-6 tw-h-6"></div>
+                                <div className="lg-text-bodyText">{item.content}</div>
+                            </div>
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
             </div>
+        </div>
+    );
+}
 
-            <VerticalSpacer className="tw-h-6" />
+export function SolarSolutions({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center lg-px-screen-edge">
+                <VerticalSpacer className="tw-h-6" />
 
-            <div className="lg-text-bodyText tw-text-center">Get tailored power solutions, use our Power Planner to find the right inverter and inverter battery options for your home.</div>
+                <div className="lg-text-headline">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T2", userPreferences.language)}} />
+                </div>
 
-            <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-4" />
 
-            <div className="lg-text-title2 tw-text-center lg-bg-secondary-500 tw-w-full tw-h-[150px]"></div>
+                <div className="lg-text-body">{getVernacularString("homeS7T2", userPreferences.language)}</div>
 
-            <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-4" />
 
-            <div className="lg-text-title2 tw-text-center">Maximize your Power Potential in 3 easy steps!</div>
+                <div className="lg-text-title2">{getVernacularString("homeS7T3", userPreferences.language)}</div>
 
-            <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-flex tw-flex-col tw-gap-4">
-                <ItemBuilder
-                    items={[
-                        {
-                            icon: "",
-                            stepIndex: "Step 1 :",
-                            stepContent: "Choose your property type",
-                        },
-                        {
-                            icon: "",
-                            stepIndex: "Step 2 :",
-                            stepContent: "Add your preferred devices",
-                        },
-                        {
-                            icon: "",
-                            stepIndex: "Step 3 :",
-                            stepContent: "Set your required backup hours and average load consumption",
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
-                        <div className="lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-grid tw-grid-cols-[auto,minmax(0,1fr)] tw-grid-rows-[auto,auto] tw-gap-x-2" key={itemIndex}>
-                            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-2">
-                                <div className="lg-bg-secondary-300 tw-h-10 tw-w-10 tw-rounded-full"></div>
-                            </div>
-                            <div className="tw-row-start-1 tw-col-start-2">
-                                <div className="lg-text-title2">{item.stepIndex}</div>
-                            </div>
-                            <div className="tw-row-start-2 tw-col-start-2">
-                                <div className="lg-text-title2">{item.stepContent}</div>
-                            </div>
-                        </div>
-                    )}
-                />
+                <div className="lg-bg-secondary-500 tw-w-full tw-h-[400px] tw-rounded-lg"></div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-cta-button">{getVernacularString("homeS7T4", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-6" />
             </div>
+        </div>
+    );
+}
 
-            <VerticalSpacer className="tw-h-6" />
+export function FAQs({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
+                </div>
+            </div>
+        </div>
+    );
+}
 
-            <div className="lg-text-title2 tw-text-center">Let’s start your power planning</div>
-            <div className="lg-text-bodyText tw-text-center">Choose your property type</div>
+export function DealerLocator({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px]">
+                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
+                    <div className="lg-text-headline tw-text-center">
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T2", userPreferences.language)}} />
+                    </div>
 
-            <VerticalSpacer className="tw-h-6" />
+                    <VerticalSpacer className="tw-h-1" />
 
-            <div className="tw-grid tw-grid-cols-[auto,auto,auto] tw-grid-roes-[auto,auto] tw-gap-2">
-                <ItemBuilder
-                    items={[
-                        {
-                            icon: "",
-                            content: "1 BHK",
-                            value: "1_bhk",
-                        },
-                        {
-                            icon: "",
-                            content: "2 BHK",
-                            value: "2_bhk",
-                        },
-                        {
-                            icon: "",
-                            content: "3 BHK",
-                            value: "3_bhk",
-                        },
-                        {
-                            icon: "",
-                            content: "4 BHK",
-                            value: "4_bhk",
-                        },
-                        {
-                            icon: "",
-                            content: "Villa",
-                            value: "villa",
-                        },
-                        {
-                            icon: "",
-                            content: "Custom",
-                            value: "custom",
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
-                        <div
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-rounded-md tw-flex tw-gap-2 tw-py-3 tw-px-2 hover:tw-cursor-pointer",
-                                `tw-row-start-${itemIndex / 3 + 1} tw-col-start-${(itemIndex % 3) + 1}`,
-                                item.value == selectedPropertyType ? "lg-bg-primary-500" : "lg-bg-secondary-500",
-                            )}
-                            key={itemIndex}
-                            onClick={() => setSelectedPropertyType(item.value)}
-                        >
-                            <div className="lg-bg-secondary-700 tw-rounded-full tw-w-6 tw-h-6"></div>
-                            <div className="lg-text-bodyText">{item.content}</div>
-                        </div>
-                    )}
-                />
+                    <div className="lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-px-4 tw-py-5 tw-rounded-lg">
+                <VerticalSpacer className="tw-h-6" />
+
+                <div className="lg-text-headline">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body">{getVernacularString("homeS12T2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <ul className="tw-list-disc tw-ml-5">
+                    <li>
+                        <div className="lg-text-body">{getVernacularString("homeS12T3P1", userPreferences.language)}</div>
+                    </li>
+                    <li>
+                        <div className="lg-text-body">{getVernacularString("homeS12T3P2", userPreferences.language)}</div>
+                    </li>
+                    <li>
+                        <div className="lg-text-body">{getVernacularString("homeS12T3P3", userPreferences.language)}</div>
+                    </li>
+                    <li>
+                        <div className="lg-text-body">{getVernacularString("homeS12T3P4", userPreferences.language)}</div>
+                    </li>
+                </ul>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-bg-secondary-500 tw-w-full tw-h-[200px] tw-rounded-lg"></div>
+            </div>
+        </div>
+    );
+}
+
+
+export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
+                </div>
             </div>
         </div>
     );
