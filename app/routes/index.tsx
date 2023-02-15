@@ -9,6 +9,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
+import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -54,11 +55,27 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-6" />
 
+            <TransformingLives userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
             <SolarSolutions userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-6" />
 
+            <MeetOurLeadership userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <FAQs userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
             <DealerLocator userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -299,7 +316,20 @@ export function PowerPlanner({userPreferences}: {userPreferences: UserPreference
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
+                <div className="lg-cta-button">{getVernacularString("homeS5T6", userPreferences.language)}</div>
+            </div>
+        </div>
+    );
+}
+
+export function TransformingLives({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
+                </div>
             </div>
         </div>
     );
@@ -338,13 +368,70 @@ export function SolarSolutions({userPreferences}: {userPreferences: UserPreferen
     );
 }
 
+export function MeetOurLeadership({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <div className="tw-relative tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] lg-px-screen-edge tw-rounded-lg">
+                    <div className="tw-absolute tw-left-5 -tw-top-5">
+                        <div className="tw-h-32 tw-w-32 lg-bg-secondary-500 tw-rounded-full"></div>
+                    </div>
+
+                    <div className="tw-flex tw-flex-col">
+                        <VerticalSpacer className="tw-h-32" />
+
+                        <div className="lg-text-headline">{getVernacularString("homeS8Slide1T1", userPreferences.language)}</div>
+
+                        <VerticalSpacer className="tw-h-1" />
+
+                        <div className="lg-text-title2">{getVernacularString("homeS8Slide1T2", userPreferences.language)}</div>
+
+                        <VerticalSpacer className="tw-h-4" />
+
+                        <div className="lg-text-body">{getVernacularString("homeS8Slide1T3", userPreferences.language)}</div>
+
+                        <VerticalSpacer className="tw-h-6" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export function FAQs({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-w-full tw-h-[200px] lg-bg-secondary-500 tw-rounded-lg" />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T3P2", userPreferences.language)}</div>
                 </div>
             </div>
         </div>
@@ -369,6 +456,42 @@ export function DealerLocator({userPreferences}: {userPreferences: UserPreferenc
 
                     <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
                 </div>
+            </div>
+        </div>
+    );
+}
+
+export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge">
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-headline ">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-w-full tw-h-[200px] lg-bg-secondary-500 tw-rounded-lg" />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div className="tw-flex tw-justify-evenly">
+                    <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                    <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                    <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                    <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                    <Google className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                    <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
             </div>
         </div>
     );
@@ -413,7 +536,6 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
         </div>
     );
 }
-
 
 export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
     return (

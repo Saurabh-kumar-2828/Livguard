@@ -142,7 +142,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अपने घर का आकार चुनें",
         [Language.Marathi]: "?????",
     },
-
+    homeS5T6: {
+        [Language.English]: "Let’s Plan",
+        [Language.Hindi]: "नतीजा निकालें",
+        [Language.Marathi]: "?????",
+    },
+    homeS6H1T1: {
+        [Language.English]: `<span class=\"lg-text-highlighted\">Transforming Lives</span> With`,
+        [Language.Hindi]: `ग्राहकों के <span class=\"lg-text-highlighted\">बदलते जीवन</span>`,
+        [Language.Marathi]: "?????",
+    },
+    homeS6H1T2: {
+        [Language.English]: "Energy Storage Solutions",
+        [Language.Hindi]: "ऊर्जा संग्रहण समाधानों से",
+        [Language.Marathi]: "?????",
+    },
     homeS7H1T1: {
         [Language.English]: "Pioneers in Rooftop",
         [Language.Hindi]: "?????",
@@ -168,7 +182,62 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सौर ऊर्जा अनुभव करें",
         [Language.Marathi]: "?????",
     },
-
+    homeS8H1T1: {
+        [Language.English]: "Meet Our",
+        [Language.Hindi]: "मिलिए हमारे",
+        [Language.Marathi]: "?????",
+    },
+    homeS8H1T2: {
+        [Language.English]: `<span class=\"lg-text-highlighted\">Leadership</span>`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">मार्गदर्शकों</span> से`,
+        [Language.Marathi]: "?????",
+    },
+    homeS8Slide1T1: {
+        [Language.English]: "Mr. Rakesh Malhotra ",
+        [Language.Hindi]: "श्री. राकेश मल्होत्रा",
+        [Language.Marathi]: "?????",
+    },
+    homeS8Slide1T2: {
+        [Language.English]: "(Founder & Mentor)",
+        [Language.Hindi]: "(संस्थापक और संरक्षक)",
+        [Language.Marathi]: "?????",
+    },
+    homeS8Slide1T3: {
+        [Language.English]: "A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.",
+        [Language.Hindi]:
+            "एक मार्गदर्शक , एक संरक्षक, एक दूरदर्शी, और एक समग्र प्रेरक शक्ति, श्री राकेश मल्होत्रा ​​​​का उद्योग के संपर्क में, उनका जुनून और नए विचारों को जीवन में लाने की उनकी भावना कई अन्य उद्यमियों को प्रेरित करती रही है।",
+        [Language.Marathi]: "?????",
+    },
+    homeS9H1T1: {
+        [Language.English]: "Frequently Asked",
+        [Language.Hindi]: "अक्सर पूछे जाने",
+        [Language.Marathi]: "?????",
+    },
+    homeS9H1T2: {
+        [Language.English]: `<span class=\"lg-text-highlighted\">Questions</span>`,
+        [Language.Hindi]: `वाले <span class=\"lg-text-highlighted\"> सवाल</span>`,
+        [Language.Marathi]: "?????",
+    },
+    homeS9T2P1: {
+        [Language.English]: "Got questions on your mind?",
+        [Language.Hindi]: "क्या आपके मन में कुछ सवाल हैं?",
+        [Language.Marathi]: "?????",
+    },
+    homeS9T2P2: {
+        [Language.English]: "Find your answers here",
+        [Language.Hindi]: "अपने सभी जवाब यहाँ पाइए",
+        [Language.Marathi]: "?????",
+    },
+    homeS9T3P1: {
+        [Language.English]: "Looking for service resolution?",
+        [Language.Hindi]: "सेवा समाधान की खोज में?",
+        [Language.Marathi]: "?????",
+    },
+    homeS9T3P2: {
+        [Language.English]: "Contact us at +91 18001025551 at any day of the week between 8 am to 8 pm, and our team will resolve it within 48 hours!",
+        [Language.Hindi]: "हम सप्ताह के सभी दिन सुबह 8 बजे से रात 8 बजे के बीच +91 18001025551 पर उपलब्ध हैं।हम आपकी समस्या का समाधान 48 घंटों के अंदर करेंगे!",
+        [Language.Marathi]: "?????",
+    },
     homeS10H1T1: {
         [Language.English]: "We Are",
         [Language.Hindi]: "हम हर",
@@ -189,7 +258,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "नज़दीकी डीलर खोजें",
         [Language.Marathi]: "?????",
     },
-
+    homeS11H1T1: {
+        [Language.English]: "Shower Some Love",
+        [Language.Hindi]: "प्यार बरसाएं हमारे",
+        [Language.Marathi]: "?????",
+    },
+    homeS11H1T2: {
+        [Language.English]: `On Our <span class=\"lg-text-highlighted\">Social Handles</span>`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सोशल हैंडल</span> पर!`,
+        [Language.Marathi]: "?????",
+    },
+    homeS11T2: {
+        [Language.English]: "Find Us On",
+        [Language.Hindi]: "हमें यहाँ तलाशें",
+        [Language.Marathi]: "?????",
+    },
     homeS12H1T1: {
         [Language.English]: `Powerful <span class=\"lg-text-highlighted\">Purpose</span>`,
         [Language.Hindi]: `शक्तिशाली <span class=\"lg-text-highlighted\">उद्देश्य</span>`,
