@@ -6,16 +6,14 @@
     html {
         scroll-behavior: smooth;
 
-        --gj-header-height: 4rem;
-        --gj-mobile-ui-height: 4rem;
+        --lg-header-height: 7.8125rem;
+        --lg-mobile-ui-height: 4rem;
         /* --gj-px-screen-edge: clamp(1.5rem, 1.5rem + clamp(0, calc((10vw - 480px) / 600px), 1) * 8.5rem, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5%, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5vw, 10rem); */
-        --gj-px-screen-edge: 5vw;
-        --gj-py-section-divider: clamp(2rem, 5vw, 6rem);
-        --gj-py-standard-2: clamp(0.5rem, 1.25vw, 1.5rem);
-        --gj-py-standard-1: clamp(1rem, 2.5vw, 3rem);
-        --gj-py-standard: clamp(1.6rem, 4vw, 4.8rem);
+        /* --lg-px-screen-edge: 5vw; */
+        --lg-px-screen-edge: 1.5rem;
+        /* --gj-py-section-divider: clamp(2rem, 5vw, 6rem); */
     }
 
     body {
@@ -58,6 +56,12 @@
         font-weight: 700;
 
         @apply tw-text-[0.75rem] md:tw-text-[0.75rem];
+    }
+
+    .lg-text-button {
+        font-weight: 700;
+
+        @apply tw-text-[1rem] md:tw-text-[1.375rem];
     }
 
     .lg-bg-primary-500 {
@@ -116,15 +120,11 @@
         @apply tw-text-secondary-900-light dark:tw-text-secondary-900-dark;
     }
 
-    .lg-mobile-title2 {
-        @apply tw-font-bold tw-text-[16px] tw-leading-6 tw-text-left;
+    .lg-px-screen-edge {
+        @apply tw-px-[var(--lg-px-screen-edge)];
     }
 
-    .lg-mobile-bodyText {
-        @apply tw-font-normal tw-text-[14px] tw-leading-5 tw-text-left;
-    }
-
-    .lg-mobile-heading {
-        @apply tw-font-bold tw-text-[24px] tw-leading-7 tw-text-left;
+    .lg-cta-button {
+        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-4 tw-rounded-full;
     }
 }
