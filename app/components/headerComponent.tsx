@@ -2,6 +2,7 @@ import {Form, useSubmit} from "@remix-run/react";
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {List, Search} from "react-bootstrap-icons";
+import {LanguageIcon} from "@heroicons/react/20/solid";
 
 export function HeaderComponent({userPreferences}: {userPreferences: UserPreferences}) {
     const submit = useSubmit();
@@ -9,10 +10,11 @@ export function HeaderComponent({userPreferences}: {userPreferences: UserPrefere
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch">
             <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 tw-p-4">
-                <div>Customer Care</div>
+                <div>{getVernacularString("homeS1T1", userPreferences.language)}</div>
                 <div className="tw-flex-1"/>
                 <div className="tw-w-px tw-h-6 lg-bg-secondary-900" />
                 <div className="tw-flex-1"/>
+                <LanguageIcon className="tw-w-8 tw-h-8" />
                 <div>
                     <Form
                         method="post"
@@ -21,7 +23,7 @@ export function HeaderComponent({userPreferences}: {userPreferences: UserPrefere
                             submit(e.currentTarget, {replace: true});
                         }}
                     >
-                        <select name="language" className="lg-bg-secondary-100 lg-text-secondary-900 tw-p-2 tw-appearance-none" defaultValue={userPreferences.language}>
+                        <select name="language" className="lg-bg-secondary-300 lg-text-secondary-900 tw-p-2 tw-appearance-none" defaultValue={userPreferences.language}>
                             <option value={Language.English} className="lg-bg-secondary-100">
                                 English
                             </option>

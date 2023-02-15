@@ -6,13 +6,13 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 export function Accordion({
     title,
     panelItem,
-    openDisclosureTitle,
-    setOpenDisclosureTitle,
+    // openDisclosureTitle,
+    // setOpenDisclosureTitle,
 }: {
     title: string;
     panelItem: JSX.Element;
-    openDisclosureTitle: string | null;
-    setOpenDisclosureTitle: React.Dispatch<React.SetStateAction<string | null>>;
+    // openDisclosureTitle: string | null;
+    // setOpenDisclosureTitle: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
     const ref = useRef(null);
 
@@ -27,7 +27,9 @@ export function Accordion({
     // }, [openDisclosureTitle]);
 
     return (
-        <Disclosure defaultOpen={title == openDisclosureTitle}>
+        <Disclosure
+            // defaultOpen={title == openDisclosureTitle}
+        >
             {({open, close}) => (
                 /* Use the `open` state to conditionally change the direction of an icon. */
                 <div key={`${title}-open`} className={`${title}-open`}>
@@ -37,14 +39,14 @@ export function Accordion({
                             `${open ? "tw-rounded-t-lg" : "tw-rounded-lg"}`,
                         )}
                         ref={ref}
-                        onClick={() => {
-                            const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
-                            if (isCurrentDisclosureOpen) {
-                                setOpenDisclosureTitle(null);
-                            } else {
-                                setOpenDisclosureTitle(title);
-                            }
-                        }}
+                        // onClick={() => {
+                        //     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
+                        //     if (isCurrentDisclosureOpen) {
+                        //         setOpenDisclosureTitle(null);
+                        //     } else {
+                        //         setOpenDisclosureTitle(title);
+                        //     }
+                        // }}
                     >
                         <div className="lg-mobile-title2 lg-text-secondary-900">{title}</div>
                         <div className="tw-h-6 tw-w-6 lg-bg-background-500 tw-rounded-md">{open ? <MinusIcon /> : <PlusIcon />}</div>

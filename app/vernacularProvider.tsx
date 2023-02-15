@@ -12,7 +12,7 @@ export function getVernacularString(textContentPiece: string, language: Language
 // @ts-ignore
 const vernacularStrings: {[textContentPiece: string]: {[language: Language]: string}} = {
     "homeS1T1": {
-        [Language.English]: "some random english phrases",
+        [Language.English]: "Customer Care: 18001025551",
         [Language.Hindi]: "सशक्त भारत के लिए असीमित ऊर्जा",
         [Language.Marathi]: "सशक्त asda भारत rty लिए vxcv ऊर्जा",
     },
