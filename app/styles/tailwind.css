@@ -127,4 +127,24 @@
     .lg-cta-button {
         @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-4 tw-rounded-full;
     }
+
+    /* .lg-text-title2 {
+        @apply tw-text-left tw-font-semibold tw-text-[16px] tw-leading-6 sm:tw-leading-7 sm:tw-text-[22px] lg-text-secondary-900 -tw-tracking-[0.015em];
+    }
+
+    .lg-text-bodyText {
+        @apply tw-font-normal tw-text-[14px] tw-leading-5 tw-text-left sm:tw-leading-5 sm:tw-text-[16px] lg-text-secondary-700 -tw-tracking-[0.015em];
+    }
+
+    .lg-text-heading {
+        @apply tw-font-bold tw-text-[24px] tw-leading-7 tw-text-left sm:tw-leading-10 sm:tw-text-[34px] lg-text-secondary-900;
+    } */
+
+    .lg-heading-text-background-primary-500 {
+        @apply lg-bg-primary-500 tw-p-[.125rem] lg-text-secondary-900 tw-rounded-sm tw-max-w-fit tw-place-self-center;
+    }
+
+    .lg-text-heading-style {
+        @apply lg-text-heading tw-text-center tw-flex tw-flex-col tw-gap-2 tw-justify-center;
+    }
 }

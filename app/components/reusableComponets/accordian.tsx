@@ -54,11 +54,11 @@ export function Accordion({
 
                     <Transition
                         enter="tw-transition tw-ease-linear tw-duration-500 tw-transform"
-                        enterFrom="tw-opacity-0 -tw-translate-h-full"
-                        enterTo="tw-opacity-100 tw-translate-h-0"
+                        enterFrom="-tw-translate-h-[7.5rem]"
+                        enterTo="tw-translate-h-0"
                         leave="tw-transition tw-ease-in-out tw-duration-500 tw-transform"
-                        leaveFrom="tw-opacity-100 tw-translate-h-0"
-                        leaveTo="tw-opacity-0 -tw-translate-h-full"
+                        leaveFrom="tw-translate-h-0"
+                        leaveTo="-tw-translate-h-[7.5rem]"
                     >
                         <Disclosure.Panel className="tw-p-5 tw-pb-10 tw-rounded-b-lg lg-bg-secondary-300 tw-opacity-70 tw-flex tw-flex-col tw-gap-6">{panelItem}</Disclosure.Panel>
                     </Transition>
