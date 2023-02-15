@@ -33,6 +33,10 @@ export default function () {
     return (
         <PageScaffold userPreferences={userPreferences}>
             <HomePage userPreferences={userPreferences} />
+
+            <Section1 userPreferences={userPreferences} />
+
+            <StickyBottomBar userPreferences={userPreferences} />
         </PageScaffold>
     );
 }
@@ -55,7 +59,9 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-10rem)] lg-bg-secondary-500 tw-grid tw-grid-rows-[minmax(0,1fr)_auto]">
+        <div className="tw-h-[calc(100vh-var(--lg-header-height)-8.5rem-4.75rem)] tw-grid tw-grid-rows-[minmax(0,1fr)]">
+            <img src="https://images.growthjockey.com/livguard/home/hero.jpg" className="tw-row-start-1 tw-col-start-1 tw-w-full tw-h-full lg-bg-secondary-500 tw-object-cover" />
+
             <div className="tw-row-start-1 tw-col-start-1 lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
                 <div className="lg-text-banner">{getVernacularString("homeS1T1", userPreferences.language)}</div>
 
@@ -74,6 +80,58 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500" />
                 <VerticalSpacer className="tw-h-6" />
             </div>
+        </div>
+    );
+}
+
+function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
+            <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
+                {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+        </div>
+    );
+}
+
+function Section1({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div>
+            <div className="tw-flex tw-flex-col tw-items-center tw-py-8 lg-text-headline">
+                <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
+                <div>{getVernacularString("homeS2T2", userPreferences.language)}</div>
+            </div>
+            test
+            <br />
+            test
+            <br />
+            test
+            <br />
+            test
+            <br />
+            test
+            <br />
         </div>
     );
 }

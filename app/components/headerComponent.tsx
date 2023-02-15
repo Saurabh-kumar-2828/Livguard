@@ -1,16 +1,16 @@
+import {Bars3Icon, LanguageIcon} from "@heroicons/react/20/solid";
 import {Form, useSubmit} from "@remix-run/react";
+import {Search} from "react-bootstrap-icons";
+import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {List, Search} from "react-bootstrap-icons";
-import {Bars3Icon, LanguageIcon} from "@heroicons/react/20/solid";
-import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 
 export function HeaderComponent({userPreferences}: {userPreferences: UserPreferences}) {
     const submit = useSubmit();
 
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch">
-            <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-4">
+            <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                 <div>{getVernacularString("headerS1T1", userPreferences.language)}</div>
                 <div className="tw-flex-1"/>
                 <div className="tw-w-px tw-h-6 lg-bg-secondary-900" />
@@ -24,7 +24,7 @@ export function HeaderComponent({userPreferences}: {userPreferences: UserPrefere
                             submit(e.currentTarget, {replace: true});
                         }}
                     >
-                        <select name="language" className="lg-bg-secondary-300 lg-text-secondary-900 tw-p-2 tw-appearance-none" defaultValue={userPreferences.language}>
+                        <select name="language" className="lg-bg-secondary-300 lg-text-secondary-900 tw-px-2 tw-appearance-none" defaultValue={userPreferences.language}>
                             <option value={Language.English} className="lg-bg-secondary-100">
                                 English
                             </option>

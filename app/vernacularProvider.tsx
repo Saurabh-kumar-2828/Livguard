@@ -38,6 +38,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बदलते भारत के लिए",
         [Language.Marathi]: "हमसे संपर्क करें",
     },
+    "homeS2T1": {
+        [Language.English]: "Energy Storage Solutions",
+        [Language.Hindi]: "ऊर्जा संग्रहण समाधान",
+        [Language.Marathi]: "हमसे संपर्क करें",
+    },
+    "homeS2T2": {
+        [Language.English]: "To Power Up Your Future",
+        [Language.Hindi]: "जिनसे आपका भविष्य रोशन हो",
+        [Language.Marathi]: "हमसे संपर्क करें",
+    },
 
     "invalidKey": {
         [Language.English]: "INVALID STRING REQUESTED",
