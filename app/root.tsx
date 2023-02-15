@@ -41,7 +41,7 @@ export default function App() {
                 <Links />
             </head>
 
-            <body className="lg-bg-background-500 lg-text-secondary-900 tw-text-p">
+            <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
                 <Outlet />
                 <ScrollRestoration />
                 <Scripts />

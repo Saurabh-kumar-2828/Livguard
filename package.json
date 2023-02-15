@@ -23,6 +23,7 @@
         "jsonwebtoken": "^9.0.0",
         "pg": "^8.9.0",
         "react": "^18.2.0",
+        "react-bootstrap-icons": "^1.10.2",
         "react-dom": "^18.2.0",
         "react-toastify": "^9.1.1",
         "uuid": "^9.0.0",

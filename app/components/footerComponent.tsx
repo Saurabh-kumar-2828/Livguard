@@ -7,7 +7,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {UserPreferences} from "~/typeDefinitions";
 
 export function FooterComponent({userPreferences}: {userPreferences: UserPreferences}) {
-    const [openDisclosure, setOpenDisclosure] = useState('About Us');
+    const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
 
     return (
         <div className="tw-p-4">
@@ -20,15 +20,13 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <Form >
-
+                <Form>
                     <div className="tw-relative tw-w-full">
                         <input type="text" name="subscribeMail" placeholder="Enter Your Email To Subscribe" className="lg-bg-secondary-300 lg-text-secondary-700 tw-w-full tw-p-2 tw-rounded-3xl" />
                         <div className="tw-absolute tw-top-0 tw-right-1 tw-bottom-0 tw-m-auto tw-w-7 tw-h-7 tw-rounded-full lg-bg-secondary-100 tw-border">
-                            <ChevronRightIcon  className="tw-m-auto"/>
+                            <ChevronRightIcon className="tw-m-auto" />
                         </div>
                     </div>
-
                 </Form>
 
                 <VerticalSpacer className="tw-h-6" />
@@ -82,8 +80,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -115,8 +113,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -155,8 +153,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -204,8 +202,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -229,8 +227,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -270,8 +268,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-6" />
@@ -299,8 +297,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             )}
                         />
                     }
-                    openDisclosure={openDisclosure}
-                    setOpenDisclosure={setOpenDisclosure}
+                    openDisclosureTitle={openDisclosureTitle}
+                    setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-10" />

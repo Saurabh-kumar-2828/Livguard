@@ -33,6 +33,6 @@ export default function() {
 
 function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-[calc(100vh-7rem)] lg-bg-primary-500">test</div>
+        <div className="tw-h-[calc(100vh-7rem)] lg-bg-secondary-500">test</div>
     );
 }
