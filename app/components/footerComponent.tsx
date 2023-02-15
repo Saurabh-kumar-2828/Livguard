@@ -7,7 +7,8 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {UserPreferences} from "~/typeDefinitions";
 
 export function FooterComponent({userPreferences}: {userPreferences: UserPreferences}) {
-    const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
+    const [openDisclosureTitle, setOpenDisclosureTitle2] = useState<string | null>(null);
+    const setOpenDisclosureTitle = (v) => {console.log("SETTING STATE TO ", v); setOpenDisclosureTitle2(v);};
 
     return (
         <div className="tw-p-4">

@@ -16,31 +16,15 @@ export function Accordion({
 }) {
     const ref = useRef(null);
 
-    const disclosureButtonOnClick = (e, bypassSideEffects) => {
-        const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
+    // useEffect(() => {
+    //     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
 
-        console.log(title, isCurrentDisclosureOpen);
-
-        if (bypassSideEffects == true) {
-            return;
-        }
-
-        if (!isCurrentDisclosureOpen) {
-            setOpenDisclosureTitle(title);
-        } else {
-            setOpenDisclosureTitle(null);
-        }
-    };
-
-    useEffect(() => {
-        const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
-
-        if (isCurrentDisclosureOpen) {
-            if (title != openDisclosureTitle) {
-                ref.current.click(null, true);
-            }
-        }
-    }, [openDisclosureTitle]);
+    //     if (isCurrentDisclosureOpen) {
+    //         if (title != openDisclosureTitle) {
+    //             ref.current.click(null);
+    //         }
+    //     }
+    // }, [openDisclosureTitle]);
 
     return (
         <Disclosure defaultOpen={title == openDisclosureTitle}>
@@ -53,7 +37,14 @@ export function Accordion({
                             `${open ? "tw-rounded-t-lg" : "tw-rounded-lg"}`,
                         )}
                         ref={ref}
-                        onClick={disclosureButtonOnClick}
+                        onClick={() => {
+                            const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
+                            if (isCurrentDisclosureOpen) {
+                                setOpenDisclosureTitle(null);
+                            } else {
+                                setOpenDisclosureTitle(title);
+                            }
+                        }}
                     >
                         <div className="lg-mobile-title2 lg-text-secondary-900">{title}</div>
                         <div className="tw-h-6 tw-w-6 lg-bg-background-500 tw-rounded-md">{open ? <MinusIcon /> : <PlusIcon />}</div>
