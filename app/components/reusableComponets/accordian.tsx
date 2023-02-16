@@ -6,36 +6,20 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 export function Accordion({
     title,
     panelItem,
-    // openDisclosureTitle,
-    // setOpenDisclosureTitle,
-}: {
+}:
+{
     title: string;
     panelItem: JSX.Element;
-    // openDisclosureTitle: string | null;
-    // setOpenDisclosureTitle: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
-    const ref = useRef(null);
-
-    // useEffect(() => {
-    //     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
-
-    //     if (isCurrentDisclosureOpen) {
-    //         if (title != openDisclosureTitle) {
-    //             ref.current.click(null);
-    //         }
-    //     }
-    // }, [openDisclosureTitle]);
-
     return (
         <Disclosure>
-            {({open, close}) => (
+            {({open}) => (
                 <>
                     <Disclosure.Button
                         className={concatenateNonNullStringsWithSpaces(
                             "tw-p-5 tw-flex tw-justify-between tw-items-center tw-w-full lg-bg-secondary-100",
                             `${open ? "tw-rounded-t-lg" : "tw-rounded-lg"}`,
                         )}
-                        ref={ref}
                     >
                         <div className="lg-mobile-title2 lg-text-secondary-900">{title}</div>
                         <div className="tw-h-6 tw-w-6 lg-bg-background-500 tw-rounded-md">{open ? <MinusIcon /> : <PlusIcon />}</div>
@@ -56,3 +40,22 @@ export function Accordion({
         </Disclosure>
     );
 }
+
+
+ // openDisclosureTitle,
+// setOpenDisclosureTitle,
+
+// openDisclosureTitle: string | null;
+    // setOpenDisclosureTitle: React.Dispatch<React.SetStateAction<string | null>>;
+
+ // const ref = useRef(null);
+
+    // useEffect(() => {
+    //     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
+
+    //     if (isCurrentDisclosureOpen) {
+    //         if (title != openDisclosureTitle) {
+    //             ref.current.click(null);
+    //         }
+    //     }
+    // }, [openDisclosureTitle]);

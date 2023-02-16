@@ -48,6 +48,147 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "जिनसे आपका भविष्य रोशन हो",
         [Language.Marathi]: "?????",
     },
+
+    homeS3H1T1: {
+        [Language.English]: "Experience Our",
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">असीमित ऊर्जा</span> के`,
+        [Language.Marathi]: "?????",
+    },
+    homeS3H1T2: {
+        [Language.English]: `<span class=\"lg-text-highlighted\">Energy Solutions</span>`,
+        [Language.Hindi]: "अनुभव का हिस्सा बनिये",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab1H: {
+        [Language.English]: "Automotive Batteries",
+        [Language.Hindi]: "वाहन की बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab1HC1: {
+        [Language.English]: "Energy Solutions",
+        [Language.Hindi]: "ऊर्जा समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab1HC2: {
+        [Language.English]: "Automotive Batteries",
+        [Language.Hindi]: "वाहन की बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab1C: {
+        [Language.English]: "Experience limitless energy with our wide range range of automotive batteries, made to empower your fast-paced lifestyle with high performing products.",
+        [Language.Hindi]:
+            "ऑटोमोटिव बैटरियों की हमारी विस्तृत श्रृंखला के साथ असीमित ऊर्जा का अनुभव करें, जो उच्च प्रदर्शन वाले उत्पादों के साथ आपकी तेज़-तर्रार जीवन शैली को सशक्त बनाने के लिए बनाई गई है।",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab1BT: {
+        [Language.English]: "Explore Batteries",
+        [Language.Hindi]: "बैटरी देखें",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab2H: {
+        [Language.English]: "Home Inverters",
+        [Language.Hindi]: "घर के इन्वर्टर",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab2HC1: {
+        [Language.English]: "Energy Solutions",
+        [Language.Hindi]: "ऊर्जा समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab2HC2: {
+        [Language.English]: "Home Inverters",
+        [Language.Hindi]: "घर के इन्वर्टर",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab2C: {
+        [Language.English]:
+            "Visit our range of home inverters with sleek design made to bring unlimited flow of energy to your home. Backed by its sturdy build, pick the one that suits your home the best.",
+        [Language.Hindi]:
+            "आपके घर में ऊर्जा का असीमित प्रवाह लाने के लिए आकर्षक बनावट वाले होम इनवर्टर की हमारी श्रेणी पर जाएं। इसके मजबूत निर्माण के साथ, वह चुनें जो आपके घर के लिए सबसे उपयुक्त हो।",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab2BT: {
+        [Language.English]: "Explore Inverters",
+        [Language.Hindi]: "इनवर्टर देखें",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab3H: {
+        [Language.English]: "Inverter Batteries",
+        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab3HC1: {
+        [Language.English]: "Energy Solutions",
+        [Language.Hindi]: "ऊर्जा समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab3HC2: {
+        [Language.English]: "Inverter Batteries",
+        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab3C: {
+        [Language.English]: "With industry’s first 3D grid technology, our range of inverter batteries are manufactured to meet the power backup requirements of your family efficiently.",
+        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक के साथ, हमारी इन्वर्टर बैटरी की श्रेणी आपके परिवार की पावर बैकअप आवश्यकताओं को कुशलतापूर्वक पूरा करने के लिए निर्मित की जाती है।",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab3BT: {
+        [Language.English]: "Explore Batteries",
+        [Language.Hindi]: "बैटरी देखें",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab4H: {
+        [Language.English]: "Solar Solutions",
+        [Language.Hindi]: "सौर समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab4HC1: {
+        [Language.English]: "Energy Solutions",
+        [Language.Hindi]: "ऊर्जा समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab4HC2: {
+        [Language.English]: "Solar Solutions",
+        [Language.Hindi]: "सौर समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab4C: {
+        [Language.English]:
+            "Solutions made to fit your specific needs, precisely. We are the experts in Solar Rooftop Solutions, which equip us to always bring the best in class products for your needs.",
+        [Language.Hindi]:
+            "आपकी विशिष्ट आवश्यकताओं को पूरा करने के लिए लाये गये सटीक समाधान। हम सोलर रूफटॉप समाधान के विशेषज्ञ हैं, जो हमें हमेशा आपकी जरूरतों के लिए श्रेणी में सर्वश्रेष्ठ उत्पाद लाने के लिए तैयार करते हैं।",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab4BT: {
+        [Language.English]: "Explore Solar",
+        [Language.Hindi]: "सौर देखें",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab5H: {
+        [Language.English]: "Other Accessories",
+        [Language.Hindi]: "सहायक उपकरण",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab5HC1: {
+        [Language.English]: "Energy Solutions",
+        [Language.Hindi]: "ऊर्जा समाधान",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab5HC2: {
+        [Language.English]: "Other Accessories",
+        [Language.Hindi]: "सहायक उपकरण",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab5C: {
+        [Language.English]: "Explore accessories which perfectly compliment your products, with our curated range of choices. Built with the finest materials, these accessories will last long.",
+        [Language.Hindi]: "हमारे सहायक उपकरणों की श्रेणी आपके घर की ज़रूरतों को भली भाँति समझ कर उनको बेहतर बनाते हैं । यह उपकरण श्रेष्ठ सामग्री से बने हैं जो सालों साल आपका साथ देंगे।",
+        [Language.Marathi]: "?????",
+    },
+    homeS3Tab5BT: {
+        [Language.English]: "Explore Accesories",
+        [Language.Hindi]: "उपकरण देखें",
+        [Language.Marathi]: "?????",
+    },
     homeS4H1T1: {
         [Language.English]: "We Are",
         [Language.Hindi]: "हम श्रेणी में",
@@ -191,7 +332,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS8Slide1T3: {
-        [Language.English]: "A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.",
+        [Language.English]:
+            "A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.",
         [Language.Hindi]:
             "एक मार्गदर्शक , एक संरक्षक, एक दूरदर्शी, और एक समग्र प्रेरक शक्ति, श्री राकेश मल्होत्रा ​​​​का उद्योग के संपर्क में, उनका जुनून और नए विचारों को जीवन में लाने की उनकी भावना कई अन्य उद्यमियों को प्रेरित करती रही है।",
         [Language.Marathi]: "?????",
@@ -296,6 +438,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     homeS12T3P4: {
         [Language.English]: "Ensuring Environmental Stability",
         [Language.Hindi]: "पर्यावरणीय स्थिरता क्षेत्र",
+        [Language.Marathi]: "?????",
+    },
+
+    LP1S1T1: {
+        [Language.English]: "Empowering India With Unlimited Energy",
+        [Language.Hindi]: "सशक्त भारत के लिए असीमित ऊर्जा",
+        [Language.Marathi]: "?????",
+    },
+    LP1S1T2: {
+        [Language.English]: "Transition into a world of Futuristic Products backed by Unmatched Quality",
+        [Language.Hindi]: "बेजोड़ गुणों से बने आधुनिक उपकरणों का अनुभव करें ",
+        [Language.Marathi]: "?????",
+    },
+    LP1S1T3: {
+        [Language.English]: "Connect Now",
+        [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "?????",
     },
 

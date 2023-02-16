@@ -1,20 +1,24 @@
 import {Bars3Icon, LanguageIcon} from "@heroicons/react/20/solid";
-import {Form, useSubmit} from "@remix-run/react";
+import {LoaderFunction} from "@remix-run/node";
+import {Form, useLoaderData, useSubmit} from "@remix-run/react";
 import {Search} from "react-bootstrap-icons";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {Language, UserPreferences} from "~/typeDefinitions";
+import {getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function HeaderComponent({userPreferences}: {userPreferences: UserPreferences}) {
+export function HeaderComponent({userPreferences, redirectTo}: {userPreferences: UserPreferences; redirectTo: string}) {
+    console.log("url in header ===>", redirectTo);
+
     const submit = useSubmit();
 
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch">
             <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                 <div>{getVernacularString("headerS1T1", userPreferences.language)}</div>
-                <div className="tw-flex-1"/>
+                <div className="tw-flex-1" />
                 <div className="tw-w-px tw-h-6 lg-bg-secondary-900" />
-                <div className="tw-flex-1"/>
+                <div className="tw-flex-1" />
                 <LanguageIcon className="tw-w-6 tw-h-6" />
                 <div>
                     <Form
@@ -35,6 +39,8 @@ export function HeaderComponent({userPreferences}: {userPreferences: UserPrefere
                                 मराठी
                             </option>
                         </select>
+
+                        <input type="text" name="redirectTo" value={redirectTo} readOnly className="tw-hidden" />
                     </Form>
                 </div>
             </div>

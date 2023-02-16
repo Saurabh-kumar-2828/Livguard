@@ -33,7 +33,7 @@ export default function () {
 
     return (
         <>
-            <PageScaffold userPreferences={userPreferences}>
+            <PageScaffold userPreferences={userPreferences} redirectTo={'/'}>
                 <HomePage userPreferences={userPreferences} />
             </PageScaffold>{" "}
 
@@ -48,6 +48,10 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
             <HeroSection userPreferences={userPreferences} />
 
             <Section1 userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <EnergySolutions userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -155,6 +159,125 @@ function Section1({userPreferences}: {userPreferences: UserPreferences}) {
         </div>
     );
 }
+
+export function EnergySolutions({userPreferences}: {userPreferences: UserPreferences}) {
+    const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+
+    const tabContent = [
+        {
+            image: "",
+            headingContent1: `${getVernacularString("homeS3Tab1HC1", userPreferences.language)}`,
+            headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
+            content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
+            buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            headingContent1: `${getVernacularString("homeS3Tab2HC1", userPreferences.language)}`,
+            headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
+            content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
+            buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            headingContent1: `${getVernacularString("homeS3Tab3HC1", userPreferences.language)}`,
+            headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
+            content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
+            buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            headingContent1: `${getVernacularString("homeS3Tab4HC1", userPreferences.language)}`,
+            headingContent2: `${getVernacularString("homeS3Tab4HC2", userPreferences.language)}`,
+            content: `${getVernacularString("homeS3Tab4C", userPreferences.language)}`,
+            buttontext: `${getVernacularString("homeS3Tab4BT", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            headingContent1: `${getVernacularString("homeS3Tab5HC1", userPreferences.language)}`,
+            headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
+            content: `${getVernacularString("homeS3Tab5C", userPreferences.language)}`,
+            buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
+        },
+    ];
+
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <VerticalSpacer className="tw-h-6" />
+
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-6" />
+
+                <div className="tw-flex tw-justify-center tw-items-center">
+                    <ItemBuilder
+                        items={[
+                            {
+                                icon: "",
+                                title: `${getVernacularString("homeS3Tab1H", userPreferences.language)}`,
+                            },
+                            {
+                                icon: "",
+                                title: `${getVernacularString("homeS3Tab2H", userPreferences.language)}`,
+                            },
+                            {
+                                icon: "",
+                                title: `${getVernacularString("homeS3Tab3H", userPreferences.language)}`,
+                            },
+                            {
+                                icon: "",
+                                title: `${getVernacularString("homeS3Tab4H", userPreferences.language)}`,
+                            },
+                            {
+                                icon: "",
+                                title: `${getVernacularString("homeS3Tab5H", userPreferences.language)}`,
+                            },
+                        ]}
+                        itemBuilder={(tab, tabIndex) => (
+                            <div className="group tw-flex- tw-flex-col hover:tw-cursor-pointer" key={tabIndex} onClick={(e) => setSelectedTabIndex(tabIndex)}>
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-12 tw-h-12 tw-rounded-full tw-m-auto group-hover:lg-bg-primary-500",
+                                        `${tabIndex == selectedTabIndex ? "lg-bg-primary-500 tw-scale-110" : "lg-bg-secondary-100"}`,
+                                    )}
+                                ></div>
+                                <VerticalSpacer className="tw-h-1" />
+                                <div className="lg-text-icon tw-text-center tw-px-2">{tab.title}</div>
+                            </div>
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-6" />
+
+                <div className="tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center">
+                    <div className="tw-w-full tw-h-[200px] lg-bg-secondary-500 tw-rounded-lg"></div>
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-body">{tabContent[selectedTabIndex].headingContent1}</div>
+
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <div className="lg-text-title1">{tabContent[selectedTabIndex].headingContent2}</div>
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-body">{tabContent[selectedTabIndex].content}</div>
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-cta-button">{tabContent[selectedTabIndex].buttontext}</div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 
 export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPreferences}) {
     return (
