@@ -594,6 +594,217 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 
+    footerDisclosure1H: {
+        [Language.English]: "About Us",
+        [Language.Hindi]: "हमारे बारे में",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T1: {
+        [Language.English]: "Contact Us",
+        [Language.Hindi]: "हमसे संपर्क करें",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T2: {
+        [Language.English]: "Global Reach",
+        [Language.Hindi]: "वैश्विक पहुँच",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T3: {
+        [Language.English]: "Blog",
+        [Language.Hindi]: "ब्लॉग",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T4: {
+        [Language.English]: "Privacy Policy",
+        [Language.Hindi]: "गोपनीयता नीति",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T5: {
+        [Language.English]: "Sales Return Policy",
+        [Language.Hindi]: "बिक्री वापसी नीति",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T6: {
+        [Language.English]: "Terms and conditions",
+        [Language.Hindi]: "नियम और शर्तें",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T7: {
+        [Language.English]: "CSR Policy",
+        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व नीति",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T8: {
+        [Language.English]: "Video Gallery",
+        [Language.Hindi]: "वीडियो गैलरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure1T9: {
+        [Language.English]: "Sitemap",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure2H: {
+        [Language.English]: "Inverters and Batteries",
+        [Language.Hindi]: "इनवर्टर और बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure2T1: {
+        [Language.English]: "Home Inverters",
+        [Language.Hindi]: " घर के इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure2T2: {
+        [Language.English]: "Inverter Batteries",
+        [Language.Hindi]: "इनवर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure2T3: {
+        [Language.English]: "High Capacity Inverters ",
+        [Language.Hindi]: "उच्च क्षमता वाले इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure3H: {
+        [Language.English]: "Automotive Batteries",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure3T1: {
+        [Language.English]: "3-wheeler batteries",
+        [Language.Hindi]: "3-पहिया बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure3T2: {
+        [Language.English]: "Tractor Batteries",
+        [Language.Hindi]: "ट्रैक्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure3T3: {
+        [Language.English]: "Bus and Truck Batteries",
+        [Language.Hindi]: "बस और ट्रक की बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure3T4: {
+        [Language.English]: "2-wheeler Batteries",
+        [Language.Hindi]: "2-पहिया बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure3T5: {
+        [Language.English]: "E-Rickshaw Batteries",
+        [Language.Hindi]: "ई-रिक्शा की बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4H: {
+        [Language.English]: "Solar Solutions",
+        [Language.Hindi]: "सौर समाधान",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T1: {
+        [Language.English]: "Solar Panels",
+        [Language.Hindi]: "सौर पैनल",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T2: {
+        [Language.English]: "Solar Grid Interactive Series",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T3: {
+        [Language.English]: "Solar Inverter",
+        [Language.Hindi]: "सौर इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T4: {
+        [Language.English]: "Solar Management Unit",
+        [Language.Hindi]: "सौर प्रबंधन इकाई",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T5: {
+        [Language.English]: "Solar Charge Controller",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T6: {
+        [Language.English]: "Solar LED Street Light",
+        [Language.Hindi]: "सौर एल ई डी गली की बत्ती",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure4T7: {
+        [Language.English]: "Solar Battery",
+        [Language.Hindi]: "सौर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure5H: {
+        [Language.English]: "Stabilisers",
+        [Language.Hindi]: "स्टेबिलाइजर्स",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure5T1: {
+        [Language.English]: "Digital Stabilisers",
+        [Language.Hindi]: "डिजिटल स्टेबिलाइजर्स",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure6H: {
+        [Language.English]: "How can we help?",
+        [Language.Hindi]: "हम आपकी कैसे सहायता कर सकते हैं?",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure6T1: {
+        [Language.English]: "Battery Finder",
+        [Language.Hindi]: "बैटरी खोजक",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure6T2: {
+        [Language.English]: "Dealer Locator",
+        [Language.Hindi]: "डीलर खोजक",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure6T3: {
+        [Language.English]: "BMHR",
+        [Language.Hindi]: "बी एम ऐच आर",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure6T4: {
+        [Language.English]: "Register Your Product",
+        [Language.Hindi]: "अपना उत्पाद पंजीकृत करें",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure6T5: {
+        [Language.English]: "Service Support",
+        [Language.Hindi]: "सेवा समर्थन",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7H: {
+        [Language.English]: "Investor",
+        [Language.Hindi]: "निवेशक",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7T1: {
+        [Language.English]: "LETPL Annual return– 2021-22",
+        [Language.Hindi]: "LETPL वार्षिक विवरण– 2021-22",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7T2: {
+        [Language.English]: "LBPL Annual return– 2021-22",
+        [Language.Hindi]: "LBPL वार्षिक विवरण– 2021-22",
+        [Language.Marathi]: "?????",
+    },
+    footerContactT1: {
+        [Language.English]: "GET IN TOUCH",
+        [Language.Hindi]: "संपर्क करें",
+        [Language.Marathi]: "?????",
+    },
+    footerContactT2: {
+        [Language.English]: "Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India",
+        [Language.Hindi]: "प्लॉट नंबर २२१, फेज-१, उद्योग विहार, गुरुग्राम १२२०१६ हरियाणा, भारत",
+        [Language.Marathi]: "?????",
+    },
+    footerContactT3: {
+        [Language.English]: "#Energy Unlimited",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
     invalidKey: {
         [Language.English]: "INVALID STRING REQUESTED",
         [Language.Hindi]: "INVALID STRING REQUESTED",

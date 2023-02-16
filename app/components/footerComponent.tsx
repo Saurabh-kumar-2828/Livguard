@@ -34,44 +34,44 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-6" />
 
                 <Accordion
-                    title="About Us"
+                    title={getVernacularString("footerDisclosure1H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "Contact Us",
+                                    title: `${getVernacularString("footerDisclosure1T1", userPreferences.language)}`,
                                     link: "https://livguard.com/contact.php",
                                 },
                                 {
-                                    title: "Global Reach",
+                                    title: `${getVernacularString("footerDisclosure1T2", userPreferences.language)}`,
                                     link: "https://livguard.com/global-reach.php",
                                 },
                                 {
-                                    title: "Blog",
+                                    title: `${getVernacularString("footerDisclosure1T3", userPreferences.language)}`,
                                     link: "https://livguard.com/blog.php",
                                 },
                                 {
-                                    title: "Privacy Policy",
+                                    title: `${getVernacularString("footerDisclosure1T4", userPreferences.language)}`,
                                     link: "https://livguard.com/privacy-policy.php",
                                 },
                                 {
-                                    title: "Sales Return Policy",
+                                    title: `${getVernacularString("footerDisclosure1T5", userPreferences.language)}`,
                                     link: "https://livguard.com/sales-return-policy.php",
                                 },
                                 {
-                                    title: "Terms and Conditions",
+                                    title: `${getVernacularString("footerDisclosure1T6", userPreferences.language)}`,
                                     link: "https://livguard.com/terms-and-conditions.php",
                                 },
                                 {
-                                    title: "CSR Policy",
+                                    title: `${getVernacularString("footerDisclosure1T7", userPreferences.language)}`,
                                     link: "https://www.livguard.com/pdf/CSR%20Policy%20(LBPL).pdf",
                                 },
                                 {
-                                    title: "Video Gallery",
+                                    title: `${getVernacularString("footerDisclosure1T8", userPreferences.language)}`,
                                     link: "https://livguard.com/video-galery.php",
                                 },
                                 {
-                                    title: "Sitemap",
+                                    title: `${getVernacularString("footerDisclosure1T9", userPreferences.language)}`,
                                     link: "https://livguard.com/sitemap.php",
                                 },
                             ]}
@@ -89,20 +89,20 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-6" />
 
                 <Accordion
-                    title="Inverters & Batteries"
+                    title={getVernacularString("footerDisclosure2H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "Home Inverters",
+                                    title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
                                     link: "https://www.livguard.com/inverters-for-home-use/",
                                 },
                                 {
-                                    title: "Inverter Batteries",
+                                    title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
                                     link: "https://www.livguard.com/inverter-batteries/",
                                 },
                                 {
-                                    title: "High Capacity Inverters",
+                                    title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
                                     link: "https://www.livguard.com/high-capacity-inverters/",
                                 },
                             ]}
@@ -121,28 +121,28 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-6" />
                 <Accordion
-                    title="Automotive Battries"
+                    title={getVernacularString("footerDisclosure3H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "3 Wheeler Batteries",
+                                    title: `${getVernacularString("footerDisclosure3T1", userPreferences.language)}`,
                                     link: "https://www.livguard.com/three-wheeler-batteries/",
                                 },
                                 {
-                                    title: "Tractor Batteries",
+                                    title: `${getVernacularString("footerDisclosure3T2", userPreferences.language)}`,
                                     link: "https://www.livguard.com/tractor-batteries/",
                                 },
                                 {
-                                    title: "Bus & Truck Batteries",
+                                    title: `${getVernacularString("footerDisclosure3T3", userPreferences.language)}`,
                                     link: "https://www.livguard.com/bus-and-truck-batteries/",
                                 },
                                 {
-                                    title: "2 Wheeler Batteries",
+                                    title: `${getVernacularString("footerDisclosure3T4", userPreferences.language)}`,
                                     link: "https://www.livguard.com/tow-wheeler-batteries/",
                                 },
                                 {
-                                    title: "E-Rickshaw Batteries",
+                                    title: `${getVernacularString("footerDisclosure3T5", userPreferences.language)}`,
                                     link: "https://www.livguard.com/erickshaw-batteries/",
                                 },
                             ]}
@@ -162,36 +162,36 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-6" />
 
                 <Accordion
-                    title="Solar Solutions"
+                    title={getVernacularString("footerDisclosure4H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "Solar Panels",
+                                    title: `${getVernacularString("footerDisclosure4T1", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-panels-for-home/",
                                 },
                                 {
-                                    title: "Solar Grid Interactive Series",
+                                    title: `${getVernacularString("footerDisclosure4T2", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-grid-interactive-series-for-home/",
                                 },
                                 {
-                                    title: "Solar Inverter",
+                                    title: `${getVernacularString("footerDisclosure4T3", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
                                 },
                                 {
-                                    title: "Solar Management Unit",
+                                    title: `${getVernacularString("footerDisclosure4T4", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-management-unit-for-home/",
                                 },
                                 {
-                                    title: "Solar Management Unit",
+                                    title: `${getVernacularString("footerDisclosure4T5", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-charge-controller-for-home/",
                                 },
                                 {
-                                    title: "Solar Management Unit",
+                                    title: `${getVernacularString("footerDisclosure4T6", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-led-street-light/",
                                 },
                                 {
-                                    title: "Solar Battery",
+                                    title: `${getVernacularString("footerDisclosure4T7", userPreferences.language)}`,
                                     link: "https://www.livguard.com/solar-battery-for-home/",
                                 },
                             ]}
@@ -211,12 +211,12 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-6" />
 
                 <Accordion
-                    title="Stabilizers"
+                    title={getVernacularString("footerDisclosure5H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "Digital Stabilizers",
+                                    title: `${getVernacularString("footerDisclosure5T1", userPreferences.language)}`,
                                     link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
                                 },
                             ]}
@@ -236,28 +236,28 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-6" />
 
                 <Accordion
-                    title="How can we help?"
+                    title={getVernacularString("footerDisclosure6H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "Battery Finder",
+                                    title: `${getVernacularString("footerDisclosure6T1", userPreferences.language)}`,
                                     link: "https://www.livguard.com/battery-finder.php",
                                 },
                                 {
-                                    title: "Dealer Locator",
+                                    title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
                                     link: "https://www.livguard.com/dealer-locator-for-invertors-and-batteries.php",
                                 },
                                 {
-                                    title: "BMHR",
+                                    title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,
                                     link: "https://www.livguard.com/bmhr.php",
                                 },
                                 {
-                                    title: "Register Your Product",
+                                    title: `${getVernacularString("footerDisclosure6T4", userPreferences.language)}`,
                                     link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
                                 },
                                 {
-                                    title: "Service Support",
+                                    title: `${getVernacularString("footerDisclosure6T5", userPreferences.language)}`,
                                     link: "https://www.livguard.com/contact.php",
                                 },
                             ]}
@@ -277,16 +277,16 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-6" />
 
                 <Accordion
-                    title="Investor"
+                    title={getVernacularString("footerDisclosure7H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
                             items={[
                                 {
-                                    title: "LETPL Annual return– 2021-22",
+                                    title: `${getVernacularString("footerDisclosure7T1", userPreferences.language)}`,
                                     link: "https://www.livguard.com/img/annual-return/MGT-7-LETPL-2022.pdf",
                                 },
                                 {
-                                    title: "LBPL Annual return– 2021-22",
+                                    title: `${getVernacularString("footerDisclosure7T2", userPreferences.language)}`,
                                     link: "https://www.livguard.com/img/annual-return/MGT-7-LBPL-2022.pdf",
                                 },
                             ]}
@@ -306,11 +306,11 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-10" />
 
                 <div className="tw-flex tw-flex-col lg-text-secondary-900 tw-px-10">
-                    <div className="lg-mobile-title2 tw-text-center">GET IN TOUCH</div>
+                    <div className="lg-mobile-title2 tw-text-center">{getVernacularString("footerContactT1", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-8" />
 
-                    <div className="lg-mobile-bodyText tw-text-center">Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India</div>
+                    <div className="lg-mobile-bodyText tw-text-center">{getVernacularString("footerContactT2", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-6" />
 
@@ -330,7 +330,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-mobile-bodyText tw-text-center">#EnergyUnlimited</div>
+                    <div className="lg-mobile-bodyText tw-text-center">{getVernacularString("footerContactT3", userPreferences.language)}</div>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
