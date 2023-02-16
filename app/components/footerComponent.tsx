@@ -1,16 +1,18 @@
 import {ArrowRightCircleIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import {Form, Link} from "@remix-run/react";
 import React, {useState} from "react";
+import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {Accordion} from "~/components/reusableComponets/accordian";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
+import {getVernacularString} from "~/vernacularProvider";
 
 export function FooterComponent({userPreferences}: {userPreferences: UserPreferences}) {
     // const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
 
     return (
-        <div className="tw-p-4">
+        <div className="lg-px-screen-edge">
             <div className="tw-hidden sm:tw-flex"></div>
 
             <div className="tw-flex tw-flex-col sm:tw-hidden">
@@ -329,10 +331,35 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     <VerticalSpacer className="tw-h-6" />
 
                     <div className="lg-mobile-bodyText tw-text-center">#EnergyUnlimited</div>
-
-                    <VerticalSpacer className="tw-h-6" />
                 </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
             </div>
+        </div>
+    );
+}
+
+export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <VerticalSpacer className="tw-h-6" />
+
+            <div className="tw-flex tw-justify-evenly">
+                <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                <Google className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+            </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <div className="lg-text-body tw-text-center">{getVernacularString("footerCopyWriteText", userPreferences.language)}</div>
+
+            <VerticalSpacer className="tw-h-6" />
         </div>
     );
 }

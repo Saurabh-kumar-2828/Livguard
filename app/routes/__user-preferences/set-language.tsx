@@ -1,7 +1,6 @@
 import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
 import {getNonEmptyStringOrNull} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {commitUserPreferencesCookie, getUserPreferencesCookie} from "~/server/userPreferencesCookie.server";
-import {getUrlFromRequest} from "~/utilities";
 
 export const action: ActionFunction = async ({request}) => {
     const userPreferencesCookie = await getUserPreferencesCookie(request.headers.get("Cookie"));

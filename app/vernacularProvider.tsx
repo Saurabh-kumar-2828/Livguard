@@ -441,20 +441,157 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
 
-    LP1S1T1: {
+    landingPage1S1T1: {
         [Language.English]: "Empowering India With Unlimited Energy",
         [Language.Hindi]: "सशक्त भारत के लिए असीमित ऊर्जा",
         [Language.Marathi]: "?????",
     },
-    LP1S1T2: {
+    landingPage1S1T2: {
         [Language.English]: "Transition into a world of Futuristic Products backed by Unmatched Quality",
         [Language.Hindi]: "बेजोड़ गुणों से बने आधुनिक उपकरणों का अनुभव करें ",
         [Language.Marathi]: "?????",
     },
-    LP1S1T3: {
+    landingPage1S1T3: {
         [Language.English]: "Connect Now",
         [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "?????",
+    },
+
+    landingPageS3HT1: {
+        [Language.English]: "Quality Meets",
+        [Language.Hindi]: `गुणवत्ता और <span class="lg-text-highlighted">विशेषज्ञता</span>`,
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3HT2: {
+        [Language.English]: `<span class="lg-text-highlighted">Expertise</span>`,
+        [Language.Hindi]: "का मेल",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box1T1: {
+        [Language.English]: "21000+",
+        [Language.Hindi]: "21000+",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box1T2: {
+        [Language.English]: "Pincodes Served",
+        [Language.Hindi]: "पिन कोड में उपलब्ध",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box2T1: {
+        [Language.English]: "40+",
+        [Language.Hindi]: "40+",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box2T2: {
+        [Language.English]: "Service Centres",
+        [Language.Hindi]: "सेवा केंद्र",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box3T1: {
+        [Language.English]: "4000+",
+        [Language.Hindi]: "4000+",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box3T2: {
+        [Language.English]: "Dealers & Distributors",
+        [Language.Hindi]: "डीलर और वितरक",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box4T1: {
+        [Language.English]: "1 Cr+",
+        [Language.Hindi]: "1 Cr+",
+        [Language.Marathi]: "?????",
+    },
+    landingPageS3Box4T2: {
+        [Language.English]: "Happy Customers",
+        [Language.Hindi]: "सुखी ग्राहक",
+        [Language.Marathi]: "?????",
+    },
+    review1Name: {
+        [Language.English]: "Thangamani M",
+        [Language.Hindi]: "तंगमणि एम",
+        [Language.Marathi]: "?????",
+    },
+    review1State: {
+        [Language.English]: "Tamil Nadu",
+        [Language.Hindi]: "तमिलनाडु",
+        [Language.Marathi]: "?????",
+    },
+    review1Message: {
+        [Language.English]: `\"Suitable for looking mid price range with long warranty Installation done recently, good product and support and demo given by Livguard.Value for money, will update the review later on backup timing.\"`,
+        [Language.Hindi]: `\"लंबी वारंटी के साथ मध्य मूल्य सीमा देखने के लिए उपयुक्त। स्थापना, हाल ही में की गई, अच्छा उत्पाद और समर्थन और  लिवगार्ड द्वारा दिया गया डेमो। पैसा वसूल,समीक्षा को बाद में बैकअप टाइमिंग पर अपडेट करेंगे\"`,
+        [Language.Marathi]: "?????",
+    },
+    review1ProductName: {
+        [Language.English]: "Inverter Battery",
+        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    review2Name: {
+        [Language.English]: "Ankit",
+        [Language.Hindi]: "अंकित",
+        [Language.Marathi]: "?????",
+    },
+    review2State: {
+        [Language.English]: "Delhi",
+        [Language.Hindi]: "दिल्ली",
+        [Language.Marathi]: "?????",
+    },
+    review2Message: {
+        [Language.English]: `\"It's cheap and best product. This is good looking and nice product and the service of livgaurd is too good and supportive.\"`,
+        [Language.Hindi]: `\"यह सस्ता और बेहतरीन प्रोडक्ट है। यह अच्छा दिखने वाला और अच्छा उत्पाद है और लिवगार्ड की सेवा बहुत अच्छी और सहायक है।\"`,
+        [Language.Marathi]: "?????",
+    },
+    review2ProductName: {
+        [Language.English]: "Inverter Battery",
+        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    review3Name: {
+        [Language.English]: "Ganesh",
+        [Language.Hindi]: "गणेश",
+        [Language.Marathi]: "?????",
+    },
+    review3State: {
+        [Language.English]: "Maharashtra",
+        [Language.Hindi]: "महाराष्ट्र",
+        [Language.Marathi]: "?????",
+    },
+    review3Message: {
+        [Language.English]: `\"Great product. Great product. Go for it without a doubt.\"`,
+        [Language.Hindi]: `\"अच्छा उत्पाद। अच्छा उत्पाद। इसके लिए बिना किसी संदेह के जाएं।\"`,
+        [Language.Marathi]: "?????",
+    },
+    review3ProductName: {
+        [Language.English]: "Inverter Battery",
+        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    review4Name: {
+        [Language.English]: "Dev Chauhan",
+        [Language.Hindi]: "देव चौहान",
+        [Language.Marathi]: "?????",
+    },
+    review4State: {
+        [Language.English]: "Uttar Pradesh",
+        [Language.Hindi]: "उतार प्रदेश",
+        [Language.Marathi]: "?????",
+    },
+    review4Message: {
+        [Language.English]: `\"Deliver on time & battery backup is very good. Installation services was very good.\"`,
+        [Language.Hindi]: `\"समय पर डिलीवरी और बैटरी बैकअप बहुत अच्छा है। स्थापना सेवाएं बहुत अच्छी थीं।\"`,
+        [Language.Marathi]: "?????",
+    },
+    review4ProductName: {
+        [Language.English]: "Inverter Battery",
+        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+
+    footerCopyWriteText: {
+        [Language.English]: "© Livguard 2023. All Rights Reserved",
+        [Language.Hindi]: "© लिवगार्ड 2023। सभी अधिकार सुरक्षित",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 
     invalidKey: {

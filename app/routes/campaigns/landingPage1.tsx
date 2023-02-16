@@ -13,6 +13,7 @@ import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-boo
 import {EnergySolutions, FAQs, PowerPlanner, TransformingLives} from "~/routes";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {HeaderComponent} from "~/components/headerComponent";
+import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -42,7 +43,8 @@ export default function () {
         <>
             <HeaderComponent userPreferences={userPreferences} redirectTo={redirectTo} />
             <LandingPage userPreferences={userPreferences} />
-            <StickyBottomBar userPreferences={userPreferences} />
+            <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
+            {/* <StickyBottomBar userPreferences={userPreferences} /> */}
         </>
     );
 }
@@ -52,30 +54,34 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <EnergySolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
-            <VerticalSpacer className="tw-h-6" />
+            <QualityMeetsExpertise userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-8" />
 
             <PowerPlanner userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <TransformingLives userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <FAQs userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-8" />
         </>
     );
 }
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center">
+        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
             <img src="https://images.growthjockey.com/livguard/home/hero.jpg" className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full lg-bg-secondary-500 tw-object-cover -tw-z-10" />
 
             <div className="tw-row-start-4 tw-col-start-1 lg-text-banner lg-px-screen-edge">{getVernacularString("LP1S1T1", userPreferences.language)}</div>
@@ -119,6 +125,45 @@ function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) 
         </div>
     );
 }
+
+export function QualityMeetsExpertise({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPageS3HT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPageS3HT2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-6" />
+
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-2 tw-text-center">
+                    <div className="tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
+                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box1T1", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-2" />
+                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box1T2", userPreferences.language)}</div>
+                    </div>
+                    <div className="tw-col-start-2 tw-row-start-1 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
+                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box2T1", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-2" />
+                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box2T2", userPreferences.language)}</div>
+                    </div>
+                    <div className="tw-col-start-1 tw-row-start-2 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
+                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box3T1", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-2" />
+                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box3T2", userPreferences.language)}</div>
+                    </div>
+                    <div className="tw-col-start-2 tw-row-start-2 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
+                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box4T1", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-2" />
+                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box4T2", userPreferences.language)}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 
 
 

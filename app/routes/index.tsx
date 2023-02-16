@@ -49,43 +49,43 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <Section1 userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <EnergySolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <WeAreOneOfAKind userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <PowerPlanner userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <TransformingLives userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <SolarSolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <MeetOurLeadership userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <FAQs userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <DealerLocator userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <PowerfulPurposePowerfulImpact userPreferences={userPreferences} />
         </>
@@ -267,7 +267,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-body">{tabContent[selectedTabIndex].content}</div>
+                    <div className="lg-text-body tw-flex-1 tw-h-[unset]">{tabContent[selectedTabIndex].content}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -435,12 +435,94 @@ export function PowerPlanner({userPreferences}: {userPreferences: UserPreference
 }
 
 export function TransformingLives({userPreferences}: {userPreferences: UserPreferences}) {
+    const reviews = [
+        {
+            image: "",
+            name: `${getVernacularString("review1Name", userPreferences.language)}`,
+            rating: 5,
+            state: `${getVernacularString("review1State", userPreferences.language)}`,
+            message: `${getVernacularString("review1Message", userPreferences.language)}`,
+            productImage: "",
+            productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            name: `${getVernacularString("review2Name", userPreferences.language)}`,
+            rating: 5,
+            state: `${getVernacularString("review2State", userPreferences.language)}`,
+            message: `${getVernacularString("review2Message", userPreferences.language)}`,
+            productImage: "",
+            productName: `${getVernacularString("review2ProductN2me", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            name: `${getVernacularString("review3Name", userPreferences.language)}`,
+            rating: 5,
+            state: `${getVernacularString("review3State", userPreferences.language)}`,
+            message: `${getVernacularString("review3Message", userPreferences.language)}`,
+            productImage: "",
+            productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
+        },
+        {
+            image: "",
+            name: `${getVernacularString("review4Name", userPreferences.language)}`,
+            rating: 5,
+            state: `${getVernacularString("review4State", userPreferences.language)}`,
+            message: `${getVernacularString("review4Message", userPreferences.language)}`,
+            productImage: "",
+            productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+        },
+    ];
+
+
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-6" />
+
+                <div className="lg-px-screen-edge tw-rounded-lg lg-bg-secondary-100 tw-flex tw-flex-col">
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="tw-grid tw-grid-cols-[auto,minmax(1fr,0)] tw-grid-rows-[auto,auto,auto] tw-gap-4">
+                        <div className="tw-col-start-1 tw-row-start-1 tw-row-span-3">
+                            <div className="tw-w-20 tw-h-20 lg-bg-secondary-500 tw-rounded-full"></div>
+                        </div>
+                        <div className="tw-col-start-2 tw-row-start-1">
+                            <div className="lg-text-banner">{reviews[0].name}</div>
+                        </div>
+                        <div className="tw-col-start-2 tw-row-start-2">
+                            <div className="tw-w-10 tw-h-4 lg-bg-secondary-500 tw-rounded-full"></div>
+                        </div>
+                        <div className="tw-col-start-2 tw-row-start-3">
+                            <div className="lg-text-body tw-text-bold">{reviews[0].name}</div>
+                        </div>
+                    </div>
+
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="lg-text-body tw-text-center">{reviews[0].message}</div>
+
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="tw-border tw-px-6"></div>
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-justify-center tw-items-center">
+                        <div className="tw-col-start-1">
+                            <div className="tw-w-[120px] tw-h-[120px] lg-bg-secondary-500 tw-rounded-lg">
+                                <div className=""></div>
+                            </div>
+                        </div>
+                        <div className="tw-col-start-2">{reviews[0].productName}</div>
+                    </div>
+
+                    <VerticalSpacer className="tw-h-6" />
                 </div>
             </div>
         </div>
