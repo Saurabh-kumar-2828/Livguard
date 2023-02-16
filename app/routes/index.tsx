@@ -32,9 +32,13 @@ export default function () {
     const {userPreferences} = useLoaderData() as LoaderData;
 
     return (
-        <PageScaffold userPreferences={userPreferences}>
-            <HomePage userPreferences={userPreferences} />
-        </PageScaffold>
+        <>
+            <PageScaffold userPreferences={userPreferences}>
+                <HomePage userPreferences={userPreferences} />
+            </PageScaffold>{" "}
+
+            <StickyBottomBar userPreferences={userPreferences} />
+        </>
     );
 }
 
@@ -80,37 +84,22 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
             <VerticalSpacer className="tw-h-6" />
 
             <PowerfulPurposePowerfulImpact userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-6" />
-
-            <StickyBottomBar userPreferences={userPreferences} />
         </>
     );
 }
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-8.5rem-4.75rem)] tw-grid tw-grid-rows-[minmax(0,1fr)]">
-            <img src="https://images.growthjockey.com/livguard/home/hero.jpg" className="tw-row-start-1 tw-col-start-1 tw-w-full tw-h-full lg-bg-secondary-500 tw-object-cover" />
+        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center">
+            <img src="https://images.growthjockey.com/livguard/home/hero.jpg" className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full lg-bg-secondary-500 tw-object-cover -tw-z-10" />
 
-            <div className="tw-row-start-1 tw-col-start-1 lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-                <div className="lg-text-banner">{getVernacularString("homeS1T1", userPreferences.language)}</div>
+            <div className="tw-row-start-4 tw-col-start-1 lg-text-banner lg-px-screen-edge">{getVernacularString("homeS1T1", userPreferences.language)}</div>
 
-                <VerticalSpacer className="tw-h-2" />
+            <div className="tw-row-start-6 tw-col-start-1 lg-text-title1 lg-px-screen-edge">{getVernacularString("homeS1T2", userPreferences.language)}</div>
 
-                <div className="lg-text-title1">{getVernacularString("homeS1T2", userPreferences.language)}</div>
+            <div className="tw-row-[8] tw-col-start-1 lg-cta-button lg-px-screen-edge">{getVernacularString("homeS1T3", userPreferences.language)}</div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-cta-button">{getVernacularString("homeS1T3", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-1 tw-flex tw-flex-col tw-justify-end tw-items-center">
-                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500" />
-                <VerticalSpacer className="tw-h-6" />
-            </div>
+            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500" />
         </div>
     );
 }

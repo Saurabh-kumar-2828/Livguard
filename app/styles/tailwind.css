@@ -7,7 +7,8 @@
         scroll-behavior: smooth;
 
         --lg-header-height: 6.5rem;
-        --lg-mobile-ui-height: 4rem;
+        /* --lg-mobile-ui-height: 4rem; */
+        --lg-mobile-ui-height: 0rem;
         /* --gj-px-screen-edge: clamp(1.5rem, 1.5rem + clamp(0, calc((10vw - 480px) / 600px), 1) * 8.5rem, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5%, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5vw, 10rem); */
@@ -17,51 +18,84 @@
     }
 
     body {
-        /* font-family: "Poppins", sans-serif; */
         overflow-x: hidden;
     }
 
-    .lg-text-banner {
-        /* font-family: "Poppins", sans-serif; */
+    @font-face {
+        font-family: lg-brueur-text;
         font-weight: 700;
+        /* src: url("/brueur-text.ttf") format("truetype"); */
+        src: url("https://files.growthjockey.com/livguard/fonts/brueur-text.ttf");
+    }
 
-        @apply tw-text-[1.75rem] md:tw-text-[2.625rem];
+    @font-face {
+        font-family: lg-source-sans-3;
+        font-weight: 400;
+        /* src: url("/source-sans-3.ttf") format("truetype"); */
+        src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
+    }
+
+    @font-face {
+        font-family: lg-source-sans-3;
+        font-weight: 600;
+        /* src: url("/source-sans-3.ttf") format("truetype"); */
+        src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
+    }
+
+    .lg-text-banner {
+        font-family: "lg-brueur-text";
+        font-weight: 700;
+        /* TODO: Add letter spacing */
+
+        @apply tw-text-[1.75rem] md:tw-text-[2.625rem] tw-leading-[2rem] md:tw-leading-[3.25rem];
     }
 
     .lg-text-headline {
+        font-family: "lg-brueur-text";
         font-weight: 700;
+        /* TODO: Add letter spacing */
 
-        @apply tw-text-[1.5rem] md:tw-text-[2.125rem];
+        @apply tw-text-[1.5rem] md:tw-text-[2.125rem] tw-leading-[1.75rem] md:tw-leading-[2.5rem];
     }
 
     .lg-text-title1 {
+        font-family: "lg-source-sans-3";
         font-weight: 600;
+        /* TODO: Add letter spacing */
 
-        @apply tw-text-[1.25rem] md:tw-text-[1.75rem];
+        @apply tw-text-[1.25rem] md:tw-text-[1.75rem] tw-leading-[1.75rem] md:tw-leading-[2rem];
     }
 
     .lg-text-title2 {
+        font-family: "lg-source-sans-3";
         font-weight: 600;
+        /* TODO: Add letter spacing */
 
-        @apply tw-text-[1rem] md:tw-text-[1.375rem];
+        @apply tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[1.75rem];
     }
 
     .lg-text-body {
+        font-family: "lg-source-sans-3";
         font-weight: 400;
+        /* TODO: Add letter spacing */
 
-        @apply tw-text-[0.875rem] md:tw-text-[1rem] lg-text-secondary-700;
+        @apply tw-text-[0.875rem] md:tw-text-[1rem] lg-text-secondary-700 tw-leading-[1.25rem] md:tw-leading-[1.5rem];
     }
 
     .lg-text-icon {
+        font-family: "lg-source-sans-3";
         font-weight: 400;
+        /* TODO: Add letter spacing */
 
-        @apply tw-text-[0.75rem] md:tw-text-[0.75rem];
+        @apply tw-text-[0.75rem] md:tw-text-[0.75rem] tw-leading-[0.875rem] md:tw-leading-[0.875rem];
     }
 
     .lg-text-button {
-        font-weight: 700;
+        font-family: "lg-source-sans-3";
+        font-weight: 600;
+        /* TODO: Add letter spacing */
 
-        @apply tw-text-[1rem] md:tw-text-[1.375rem];
+        @apply tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[1.75rem];
     }
 
     .lg-bg-primary-500 {
