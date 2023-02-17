@@ -164,9 +164,6 @@ export function QualityMeetsExpertise({userPreferences}: {userPreferences: UserP
     );
 }
 
-
-
-
 export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">

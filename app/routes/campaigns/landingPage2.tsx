@@ -511,7 +511,6 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
     );
 }
 
-
 export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
@@ -522,8 +521,6 @@ export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
-
-
             </div>
         </div>
     );

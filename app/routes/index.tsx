@@ -87,7 +87,7 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <DealerLocator userPreferences={userPreferences} />
+            <DealerLocator userPreferences={userPreferences} showCTAButton={true} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -673,7 +673,7 @@ export function FAQs({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-export function DealerLocator({userPreferences}: {userPreferences: UserPreferences}) {
+export function DealerLocator({userPreferences, showCTAButton}: {userPreferences: UserPreferences; showCTAButton: boolean}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px]">
@@ -687,9 +687,13 @@ export function DealerLocator({userPreferences}: {userPreferences: UserPreferenc
 
                     <div className="lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-6" />
+                    {showCTAButton && (
+                        <>
+                            <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
+                            <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>

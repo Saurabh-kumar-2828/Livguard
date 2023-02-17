@@ -670,6 +670,94 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
 
+    landingPage3S1T1: {
+        [Language.English]: "Smart & Strong Inverter and Battery Jodis",
+        [Language.Hindi]: "स्मार्ट और दमदार इन्वर्टर और बैटरी की जोड़ी",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S1T2: {
+        [Language.English]: "Empower your home with the perfect jodi to compliment your home needs",
+        [Language.Hindi]: "अपने घर की जरूरतों को पूरा करने के लिए सही जोड़ी के साथ अपने घर को सशक्त बनाएं",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S1T3: {
+        [Language.English]: "Connect Now",
+        [Language.Hindi]: "संपर्क करें",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S3T1: {
+        [Language.English]: "Enter Location,city or Pincode",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S3T2: {
+        [Language.English]: "Use Current Location",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S3T3: {
+        [Language.English]: "Find My Dealer",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
+    landingPage3S7HT1: {
+        [Language.English]: `Tap Into <span class="lg-text-highlighted">Efficiency</span>`,
+        [Language.Hindi]: "लिवगार्ड जोड़ी के साथ",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7HT2: {
+        [Language.English]: "With Livguard Jodis",
+        [Language.Hindi]: `<span class="lg-text-highlighted"> क्षमता </span> में निवेश करें`,
+        [Language.Marathi]: "?????",
+    },
+
+    landingPage3S7Slide1Heading: {
+        [Language.English]: "Effortless Compatibility",
+        [Language.Hindi]: "सहज अनुकूलता",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide1Ccontent: {
+        [Language.English]: "Livguard inverter and inverter battery jodis offer a seamless compatibility which combine together for an uninterrupted flow of energy.",
+        [Language.Hindi]: "लिवगार्ड इन्वर्टर और इन्वर्टर बैटरी जोड़ी एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide1BT: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide2Heading: {
+        [Language.English]: "Seamless Service",
+        [Language.Hindi]: "निरंतर सेवा",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide2Ccontent: {
+        [Language.English]: "With Livguard Jodis at your home, experience the comfort of hassle-free servicing for both the products, whenever you need.",
+        [Language.Hindi]: "अपने घर पर लिवगार्ड जोड़ी के साथ,इन्वर्टर और इन्वर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide2BT: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide3Heading: {
+        [Language.English]: "Long Life",
+        [Language.Hindi]: "लंबा जीवन",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide3Ccontent: {
+        [Language.English]: "The perfect match of inverter and inverter battery in Livguard Jodis ensure a longer , more efficient life of the products for you.",
+        [Language.Hindi]: "लिवगार्ड जोड़ी में इन्वर्टर और इन्वर्टर बैटरी का सही मेल आपके उत्पादों का लंबा, अधिक कुशल जीवन सुनिश्चित करता है।",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3S7Slide3BT: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
     review1Name: {
         [Language.English]: "Thangamani M",
         [Language.Hindi]: "तंगमणि एम",
