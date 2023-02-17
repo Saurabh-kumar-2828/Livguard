@@ -1,15 +1,22 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {useState} from "react";
+import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {PageScaffold} from "~/components/pageScaffold";
+import {CarouselStyle1} from "~/global-common-typescript/components/carouselStyle1";
+import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FullHeightImage} from "~/global-common-typescript/components/fullHeightImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -33,10 +40,9 @@ export default function () {
 
     return (
         <>
-            <PageScaffold userPreferences={userPreferences} redirectTo={'/'}>
+            <PageScaffold userPreferences={userPreferences} redirectTo={"/"}>
                 <HomePage userPreferences={userPreferences} />
-            </PageScaffold>{" "}
-
+            </PageScaffold>
             <StickyBottomBar userPreferences={userPreferences} />
         </>
     );
@@ -47,45 +53,47 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
         <>
             <HeroSection userPreferences={userPreferences} />
 
+            <VerticalSpacer className="tw-h-8" />
+
             <Section1 userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <EnergySolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <WeAreOneOfAKind userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <PowerPlanner userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <TransformingLives userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <SolarSolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <MeetOurLeadership userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <FAQs userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <DealerLocator userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <PowerfulPurposePowerfulImpact userPreferences={userPreferences} />
         </>
@@ -110,30 +118,36 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
 function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
+        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem] tw-text-center">
             <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-500" />
+                <VerticalSpacer className="tw-h-1" />
+                <div className="lg-text-icon">Home<br />Inverters</div>
             </div>
 
             <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-500" />
+                <VerticalSpacer className="tw-h-1" />
+                <div className="lg-text-icon">Other<br />Products</div>
             </div>
 
-            <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
-                {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
-                <div className="lg-text-icon">Something</div>
+            {/* TODO: Figure out the top properly */}
+            <div className="tw-row-start-1 tw-col-start-6 tw-h-[2.875rem] tw-relative tw-top-[-1.7rem] tw-flex tw-flex-col tw-items-center tw-overflow-visible">
+                <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500 tw-flex-none" />
+                <VerticalSpacer className="tw-h-1" />
+                <div className="lg-text-icon">Plan My<br />Power</div>
             </div>
 
             <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-500" />
+                <VerticalSpacer className="tw-h-1" />
+                <div className="lg-text-icon">Find My<br />Dealer</div>
             </div>
 
             <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-500" />
+                <VerticalSpacer className="tw-h-1" />
+                <div className="lg-text-icon">Contact<br />Support</div>
             </div>
         </div>
     );
@@ -142,20 +156,28 @@ function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) 
 function Section1({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div>
-            <div className="tw-flex tw-flex-col tw-items-center tw-py-8 lg-text-headline">
+            <div className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
                 <div>{getVernacularString("homeS2T2", userPreferences.language)}</div>
             </div>
-            test
-            <br />
-            test
-            <br />
-            test
-            <br />
-            test
-            <br />
-            test
-            <br />
+
+            <VerticalSpacer className="tw-h-8" />
+
+            <CarouselStyle1
+                userPreferences={userPreferences}
+                items={[
+                    {
+                        imageName: "img1",
+                        titleTextContentPiece: "homeS2C1T1",
+                        bodyTextContentPiece: "homeS2C1T2",
+                    },
+                    {
+                        imageName: "img2",
+                        titleTextContentPiece: "homeS2C2T1",
+                        bodyTextContentPiece: "homeS2C2T2",
+                    },
+                ]}
+            />
         </div>
     );
 }
@@ -278,7 +300,6 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
     );
 }
 
-
 export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
@@ -325,7 +346,7 @@ export function PowerPlanner({userPreferences}: {userPreferences: UserPreference
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-title2 lg-bg-secondary-500 tw-w-full tw-h-[150px]"></div>
+                <div className="lg-text-title2 lg-bg-secondary-500 tw-w-full tw-h-[150px] tw-rounded-lg"></div>
 
                 <VerticalSpacer className="tw-h-4" />
 
@@ -338,18 +359,18 @@ export function PowerPlanner({userPreferences}: {userPreferences: UserPreference
                         items={[
                             {
                                 icon: "",
-                                stepIndex: `${getVernacularString("homeS5Step1T1", userPreferences.language)}`,
-                                stepContent: `${getVernacularString("homeS5Step1T2", userPreferences.language)}`,
+                                stepIndex: getVernacularString("homeS5Step1T1", userPreferences.language),
+                                stepContent: getVernacularString("homeS5Step1T2", userPreferences.language),
                             },
                             {
                                 icon: "",
-                                stepIndex: `${getVernacularString("homeS5Step2T1", userPreferences.language)}`,
-                                stepContent: `${getVernacularString("homeS5Step2T2", userPreferences.language)}`,
+                                stepIndex: getVernacularString("homeS5Step2T1", userPreferences.language),
+                                stepContent: getVernacularString("homeS5Step2T2", userPreferences.language),
                             },
                             {
                                 icon: "",
-                                stepIndex: `${getVernacularString("homeS5Step3T1", userPreferences.language)}`,
-                                stepContent: `${getVernacularString("homeS5Step3T2", userPreferences.language)}`,
+                                stepIndex: getVernacularString("homeS5Step3T1", userPreferences.language),
+                                stepContent: getVernacularString("homeS5Step3T2", userPreferences.language),
                             },
                         ]}
                         itemBuilder={(item, itemIndex) => (

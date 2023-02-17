@@ -22,7 +22,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "यहाँ खोजें",
         [Language.Marathi]: "?????",
     },
-
     homeS1T1: {
         [Language.English]: "Energy Unlimited",
         [Language.Hindi]: "असीमित ऊर्जा",
@@ -48,7 +47,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "जिनसे आपका भविष्य रोशन हो",
         [Language.Marathi]: "?????",
     },
-
+    homeS2C1T1: {
+        [Language.English]: "Best in Class Services",
+        [Language.Hindi]: "अतुल्य सेवाएँ",
+        [Language.Marathi]: "?????",
+    },
+    homeS2C1T2: {
+        [Language.English]: "Livguard leaves no crumbs when it comes to perfecting their manufacturing processes. With our expertise of over 35 years in battery making, we work to deliver quality products, every time.",
+        [Language.Hindi]: "पूरे भारत में मौजूद 40+ सेवा केंद्रों के साथ लिवगार्ड आपकी असुविधाओं को दूर करने के लिए हमेशा एक कॉल दूर है। आपकी संतुष्टि हमारे लिए हमेशा सबसे महत्त्वपूर्ण है।",
+        [Language.Marathi]: "?????",
+    },
+    homeS2C2T1: {
+        [Language.English]: "Excelling Manufacturing",
+        [Language.Hindi]: "श्रेष्ठ उत्पादन",
+        [Language.Marathi]: "?????",
+    },
+    homeS2C2T2: {
+        [Language.English]: "With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.",
+        [Language.Hindi]: "लिवगार्ड अपनी उत्पादन प्रक्रियाओं को सर्वश्रेष्ठ बनाने में कोई कसर नहीं छोड़ता। हमारे 35+ वर्षों के अनुभव के साथ, हम ग्राहकों तक हमेशा अति-उत्तम समाधान पहुँचाने का प्रयत्न करते हैं।",
+        [Language.Marathi]: "?????",
+    },
     homeS3H1T1: {
         [Language.English]: "Experience Our",
         [Language.Hindi]: `<span class=\"lg-text-highlighted\">असीमित ऊर्जा</span> के`,

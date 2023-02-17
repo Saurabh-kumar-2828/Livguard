@@ -6,6 +6,9 @@
     html {
         scroll-behavior: smooth;
 
+        /* Used to retain the sticky elements while a Dialog is open. Has the side-effect that user can still scroll. */
+        overflow: unset !important;
+
         --lg-header-height: 6.5rem;
         /* --lg-mobile-ui-height: 4rem; */
         --lg-mobile-ui-height: 0rem;
@@ -72,6 +75,14 @@
         /* TODO: Add letter spacing */
 
         @apply tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[1.75rem];
+    }
+
+    .lg-text-body-bold {
+        font-family: "lg-source-sans-3";
+        font-weight: 600;
+        /* TODO: Add letter spacing */
+
+        @apply tw-text-[0.875rem] md:tw-text-[1rem] lg-text-secondary-700 tw-leading-[1.25rem] md:tw-leading-[1.5rem];
     }
 
     .lg-text-body {
@@ -159,7 +170,7 @@
     }
 
     .lg-cta-button {
-        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-4 tw-rounded-full;
+        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full;
     }
 
     .lg-text-highlighted {

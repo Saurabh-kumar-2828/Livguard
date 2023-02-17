@@ -45,7 +45,7 @@ export default function App() {
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
                 <Outlet />
-                <ScrollRestoration />
+                {/* <ScrollRestoration /> */}
                 <Scripts />
                 <LiveReload />
             </body>
