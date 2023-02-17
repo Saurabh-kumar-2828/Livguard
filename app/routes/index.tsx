@@ -520,8 +520,8 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T2", userPreferences.language)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />

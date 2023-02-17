@@ -54,27 +54,27 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <EnergySolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <QualityMeetsExpertise userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <PowerPlanner userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <TransformingLives userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
 
             <FAQs userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10" />
         </>
     );
 }

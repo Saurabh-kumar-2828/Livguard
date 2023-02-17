@@ -53,7 +53,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS2C1T2: {
-        [Language.English]: "Livguard leaves no crumbs when it comes to perfecting their manufacturing processes. With our expertise of over 35 years in battery making, we work to deliver quality products, every time.",
+        [Language.English]:
+            "Livguard leaves no crumbs when it comes to perfecting their manufacturing processes. With our expertise of over 35 years in battery making, we work to deliver quality products, every time.",
         [Language.Hindi]: "पूरे भारत में मौजूद 40+ सेवा केंद्रों के साथ लिवगार्ड आपकी असुविधाओं को दूर करने के लिए हमेशा एक कॉल दूर है। आपकी संतुष्टि हमारे लिए हमेशा सबसे महत्त्वपूर्ण है।",
         [Language.Marathi]: "?????",
     },
@@ -63,8 +64,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS2C2T2: {
-        [Language.English]: "With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.",
-        [Language.Hindi]: "लिवगार्ड अपनी उत्पादन प्रक्रियाओं को सर्वश्रेष्ठ बनाने में कोई कसर नहीं छोड़ता। हमारे 35+ वर्षों के अनुभव के साथ, हम ग्राहकों तक हमेशा अति-उत्तम समाधान पहुँचाने का प्रयत्न करते हैं।",
+        [Language.English]:
+            "With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.",
+        [Language.Hindi]:
+            "लिवगार्ड अपनी उत्पादन प्रक्रियाओं को सर्वश्रेष्ठ बनाने में कोई कसर नहीं छोड़ता। हमारे 35+ वर्षों के अनुभव के साथ, हम ग्राहकों तक हमेशा अति-उत्तम समाधान पहुँचाने का प्रयत्न करते हैं।",
         [Language.Marathi]: "?????",
     },
     homeS3H1T1: {
@@ -474,7 +477,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "?????",
     },
-
     landingPageS3HT1: {
         [Language.English]: "Quality Meets",
         [Language.Hindi]: `गुणवत्ता और <span class="lg-text-highlighted">विशेषज्ञता</span>`,
@@ -525,6 +527,149 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सुखी ग्राहक",
         [Language.Marathi]: "?????",
     },
+    landingPage2S1T1: {
+        [Language.English]: "Go Limitless with Best in Class Products",
+        [Language.Hindi]: "उत्तमता जो आपको असीमित बनाये",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S1T2: {
+        [Language.English]: "Made with experience and manufactured till perfection",
+        [Language.Hindi]: "अपनी कला में अनुभव रखने वाले माहिर लोगों द्वारा बनाये गये उत्पाद",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S1T3: {
+        [Language.English]: "Connect Now",
+        [Language.Hindi]: "संपर्क करें",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4HT1: {
+        [Language.English]: "Explore Unlimited Energy",
+        [Language.Hindi]: "इन्वर्टर और बैटरी की",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4HT2: {
+        [Language.English]: `With Our Top <span class="lg-text-highlighted">Jodis</span>`,
+        [Language.Hindi]: `बेहतरीन <span class="lg-text-highlighted">जोड़ियाँ</span> आपके लिए`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4CTABT: {
+        [Language.English]: "Know More",
+        [Language.Hindi]: "अधिक जानिए",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Title: {
+        [Language.English]: "The Urban Combo",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4KeySpecificationTitle: {
+        [Language.English]: "Key Specifications of The Jodi",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
+    landingPage2S4J1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification1Content: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification2Content: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification3Content: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S4J1Specification4Content: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
+    landingPage2S5HT1: {
+        [Language.English]: "Why",
+        [Language.Hindi]: `<span class="lg-text-highlighted"> लिवगार्ड जोड़ी </span>`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5HT2: {
+        [Language.English]: `<span class="lg-text-highlighted">Livguard Jodi?</span>`,
+        [Language.Hindi]: "बेहतर क्यों  है",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5LivH: {
+        [Language.English]: "Livguard",
+        [Language.Hindi]: "लिवगार्ड",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5T1: {
+        [Language.English]: "AI Charing",
+        [Language.Hindi]: "एआई चार्जिंग",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5T2: {
+        [Language.English]: "3D Grid Technology",
+        [Language.Hindi]: "3डी ग्रिड तकनीक",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5T3: {
+        [Language.English]: "Longer Life",
+        [Language.Hindi]: "लंबी अवधि",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5T4: {
+        [Language.English]: "Better Battery Compatibility",
+        [Language.Hindi]: "बेहतर बैटरी संगति",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S5OBH: {
+        [Language.English]: "Other Brand",
+        [Language.Hindi]: "अन्य ब्रांड",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S7HT1: {
+        [Language.English]: "Explore our",
+        [Language.Hindi]: "आपके लिए",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S7HT2: {
+        [Language.English]: `<span class="lg-text-highlighted">Star Products</span>`,
+        [Language.Hindi]: `हमारे सबसे <span class="lg-text-highlighted">बेहतरीन उत्पाद</span>`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2S7CTABT: {
+        [Language.English]: "View product",
+        [Language.Hindi]: "विस्तार से देखें",
+        [Language.Marathi]: "?????",
+    },
+
     review1Name: {
         [Language.English]: "Thangamani M",
         [Language.Hindi]: "तंगमणि एम",
