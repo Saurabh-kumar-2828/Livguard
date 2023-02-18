@@ -39,3 +39,8 @@ export enum InverterType {
     sine = "Sine Wave",
     square = "Square Wave"
 }
+
+export enum BatteryType {
+    flat = "Flat Plate Battery",
+    tubular = "Tubular Battery",
+}

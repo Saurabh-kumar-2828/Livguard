@@ -173,6 +173,10 @@
         @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full;
     }
 
+    .lg-cta-outline-button {
+        @apply lg-text-button tw-px-12 tw-py-3 tw-rounded-full tw-border-2 lg-text-secondary-500;
+    }
+
     .lg-text-highlighted {
         @apply lg-bg-primary-500 tw-px-1;
     }

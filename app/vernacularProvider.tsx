@@ -790,6 +790,651 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
 
+    //Category Batteries
+    categoryBattriesS1T1: {
+        [Language.English]: "Strong Batteries",
+        [Language.Hindi]: "मजबूत बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS1T2: {
+        [Language.English]: "For A Limitless Experience",
+        [Language.Hindi]: "एक असीम अनुभव के लिए",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS1T3: {
+        [Language.English]: "Batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+        [Language.Hindi]: "दमदार बैकअप वाली बैटरियां,जो आपकी जरूरतों के अनुसार, आपके घर को असीम ऊर्जा से सशक्त बनाने के लिए बनाई गई हैं",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2HT1: {
+        [Language.English]: "Batteries That Are",
+        [Language.Hindi]: "बैटरी जो",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2HT2: {
+        [Language.English]: `<span class="lg-text-highlighted"> Meant To Last </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted"> सालों साल चलें </span>`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide1Heading: {
+        [Language.English]: "Futuristic Design",
+        [Language.Hindi]: "आधुनिक बनावट",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide1Description: {
+        [Language.English]:
+            "Livguard Inverter Batteries are manufactured with PPC Plastic to avoid leakage and keeping in mind the customer’s needs to deliver the safest and aesthetic designs for you",
+        [Language.Hindi]: "लिवगार्ड की बैटरी पी पी सी प्लास्टिक से बनीं हैं, जो बैटरी को लीक होने से बचाती है  और ग्राहकों को हर बार सुंदर और सुरक्षित अनुभव देती हैं।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide2Heading: {
+        [Language.English]: "SuperTUFF 3D Grid",
+        [Language.Hindi]: "सुपरटफ 3डी ग्रिड",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide2Description: {
+        [Language.English]:
+            "With the industry’s first 3D Grid design paired with a double-sided pasting, Livguard Batteries hold negative active material 20% longer, resulting in a longer battery life",
+        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक और दो-तरफ़ पेस्टिंग से बनी लिवगार्ड बैटरी नेगेटिव ऐक्टिव मटेरियल को 20% ज़्यादा रोकती है, जो बैटरी की अवधि भी बढ़ती है।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide3Heading: {
+        [Language.English]: "Assured Warranty",
+        [Language.Hindi]: "सुनिश्चित वारंटी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide3Description: {
+        [Language.English]:
+            "The best-in-class warranties across all ranges as well as low maintenance requirements, make the Livguard Batteries suitable for all customers, whatever their needs may be",
+        [Language.Hindi]: "सभी श्रेणियों में सर्वश्रेष्ठ वारंटी के साथ-साथ कम देखभाल की आवश्यकताएं Livguard बैटरियों को सभी ग्राहकों के लिए उपयुक्त बनाती हैं, चाहे उनकी कोई भी आवश्यकता हो।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide4Heading: {
+        [Language.English]: "Non- Woven Gauntlet",
+        [Language.Hindi]: "गैर-बुना गौंटलेट",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide4Description: {
+        [Language.English]: "The premium high-quality gauntlet provides extra strength to the tubular plate which reduces tube bursting and offers extra backup with a longer battery life",
+        [Language.Hindi]: "प्रीमियम उच्च-क्वालिटी वाला गौंटलेट ट्यूबलर प्लेट को अतिरिक्त ताकत प्रदान करता है जो ट्यूब को फटने से बचाता है और लंबी बैटरी लाइफ के साथ अतिरिक्त बैकअप प्रदान करता है",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4HT1: {
+        [Language.English]: `<span class="lg-text-highlighted"> Our Suggestions </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted"> हमारे सुझाव </span>`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4HT2: {
+        [Language.English]: "Based On Your Choice",
+        [Language.Hindi]: "आपकी पसंद के आधार पर",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4Heading: {
+        [Language.English]: "Select Battery Type",
+        [Language.Hindi]: "बैटरी का टाइप चुनें",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4BTFlat: {
+        [Language.English]: "Flat Plate Battery",
+        [Language.Hindi]: "फ्लैट प्लेट बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4BTTubular: {
+        [Language.English]: "Tubular Batteries",
+        [Language.Hindi]: "ट्यूबुलर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4SpecificationHeading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4BT: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4Slide1Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4Slide1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide1KS1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide1KS1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide1KS2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide1KS2Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide1KS3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide1KS3Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide1KS4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide1KS4Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4Slide2Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS4Slide2Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide2KS1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide2KS1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide2KS2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide2KS2Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide2KS3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide2KS3Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS2Slide2KS4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesSlide2KS4Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5HT1: {
+        [Language.English]: "Side-by-Side Overview",
+        [Language.Hindi]: "बैटरी साथ देखें",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5F1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5F2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5F3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5F4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5F5Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5F6Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5Slide1Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5Slide2Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS5Slide3Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6HT1: {
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis </span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted"> जोड़ियाँ </span>`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6Jodi1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6Jodi2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6Jodi3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6Jodi4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6JodiButtontext: {
+        [Language.English]: "Know More",
+        [Language.Hindi]: "अधिक जानिए",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS6Buttontext: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS8HT1: {
+        [Language.English]: "Choose The Best",
+        [Language.Hindi]: "घर लायें रोशनी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS8HT2: {
+        [Language.English]: `<span class="lg-text-highlighted"> Inverter Battery </span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted"> इनवर्टर बैटरी </span> से`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS8Description: {
+        [Language.English]:
+            "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
+        [Language.Hindi]: "हमारे ख़रीदने की मार्गदर्शिका और उत्पाद कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS8B1T: {
+        [Language.English]: "Buying Guide",
+        [Language.Hindi]: "ख़रीदने की मार्गदर्शिका",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS8B2T: {
+        [Language.English]: "Download Catalog",
+        [Language.Hindi]: "उत्पाद कैटलॉग",
+        [Language.Marathi]: "?????",
+    },
+    categoryBattriesS8BT: {
+        [Language.English]: "Let's Plan Your Power",
+        [Language.Hindi]: "अपनी ऊर्जा को प्लान करें",
+        [Language.Marathi]: "?????",
+    },
+
+    //Category Inverters
+    categoryInvertersS1T1: {
+        [Language.English]: "Smart Inverters",
+        [Language.Hindi]: "स्मार्ट इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS1T2: {
+        [Language.English]: "For A Limitless Experience",
+        [Language.Hindi]: "एक असीम अनुभव के लिए",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS1T3: {
+        [Language.English]: "Inverters made with high-quality materials to ensure an unlimited flow of energy for you.",
+        [Language.Hindi]: "आपके लिए ऊर्जा की असीमित प्रवाह सुनिश्चित करने के लिए उच्च कोटी की सामग्री से बने स्मार्ट इनवर्टर।",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2HT1: {
+        [Language.English]: "Empower Your Home",
+        [Language.Hindi]: "अपने घर को करें सशक्त ",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2HT2: {
+        [Language.English]: `With <span class="lg-text-highlighted"> Livguard Inverters </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted"> लिवगार्ड इनवर्टर </span> के साथ`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide1Heading: {
+        [Language.English]: "New Age Design",
+        [Language.Hindi]: "नए ज़माने की डिज़ाइन",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide1Description: {
+        [Language.English]:
+            "Made with a team of experienced and skilled professionals, Livguard Inverters offer the best-in-class designs which complement your home along with a LED Display which indicates the current state of your inverter.",
+        [Language.Hindi]:
+            "अनुभवी और कुशल पेशेवरों की एक टीम के साथ बनाए गए लिवगार्ड इनवर्टर सर्वश्रेष्ठ बनावट प्रदान करते हैं। इनमें लगी एलईडी डिस्प्ले के साथ आप अपने इन्वर्टर की वर्तमान स्थिति को देख सकते हैं।",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide2Heading: {
+        [Language.English]: "AI Charging",
+        [Language.Hindi]: "एआई चार्जिंग",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide2Description: {
+        [Language.English]:
+            "The AI Charging in our inverters automatically reads the battery’s charging voltage, backup & charge percentage and charges according to the battery needs. It also prevents overcharging for enhanced battery life.",
+        [Language.Hindi]:
+            "हमारे इनवर्टर में एआई चार्जिंग स्वचालित रूप से बैटरी की चार्जिंग वोल्टेज, बैकअप और चार्ज प्रतिशत को पढ़ती है और बैटरी की जरूरतों के अनुसार चार्ज करती है। यह बैटरी की लाइफ बढ़ाने के लिए ज़रूरत से ज़्यादा चार्जिंग को भी रोकती है।",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide3Heading: {
+        [Language.English]: "Assured Warranty",
+        [Language.Hindi]: "सुनिश्चित वारंटी",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide3Description: {
+        [Language.English]:
+            "With Livguard inverters, you can enjoy peace with the long warranty of 3 years. This flat warranty allows you to stay worry-free in case of any damages. Just reach out to us and we will take care of it for you.",
+        [Language.Hindi]:
+            "लिवगार्ड इनवर्टर के साथ, आप 3 साल की लंबी वारंटी के साथ शांति का आनंद ले सकते हैं। यह फ्लैट वारंटी आपको किसी भी नुकसान के मामले में चिंता मुक्त रहने की अनुमति देती है। बस हमसे संपर्क करें और हम आपकी समस्या का समाधान करेंगे।",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide4Heading: {
+        [Language.English]: "Dual Sensor Thermal Protect",
+        [Language.Hindi]: "डुअल सेंसर थर्मल प्रोटेक्ट",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide4Description: {
+        [Language.English]: "With Industry’s first thermal sensor for transformers, the sensor prevents the transformer from overheating and catching fire and enhances the life of your inverter.",
+        [Language.Hindi]: "ट्रांसफॉर्मर के लिए उद्योग के पहले थर्मल सेंसर ट्रांसफॉर्मर को ज़्यादा गरम होने और आग पकड़ने से रोकता है और आपके इन्वर्टर के जीवन को बढ़ाता है।",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4HT1: {
+        [Language.English]: `<span class="lg-text-highlighted"> Our Suggestions </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted"> हमारे सुझाव </span>`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4HT2: {
+        [Language.English]: "Based On Your Choice",
+        [Language.Hindi]: "आपकी पसंद के आधार पर",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4Heading: {
+        [Language.English]: "Select Inverter Type",
+        [Language.Hindi]: "इनवर्टर का टाइप चुनें",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4BTFlat: {
+        [Language.English]: "Sine",
+        [Language.Hindi]: "साइन",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4BTTubular: {
+        [Language.English]: "Square",
+        [Language.Hindi]: "चौकोर",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4SpecificationHeading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4BT: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4Slide1Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4Slide1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide1KS1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide1KS1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide1KS2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide1KS2Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide1KS3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide1KS3Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide1KS4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide1KS4Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4Slide2Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4Slide2Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide2KS1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide2KS1Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide2KS2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide2KS2Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide2KS3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide2KS3Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS2Slide2KS4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersSlide2KS4Description: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5HT1: {
+        [Language.English]: "Side-by-Side Overview",
+        [Language.Hindi]: "इनवर्टर साथ देखें",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5F1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5F2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5F3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5F4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5F5Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5F6Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5Slide1Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5Slide2Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS5Slide3Heading: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6HT1: {
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis </span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted"> जोड़ियाँ </span>`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6Jodi1Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6Jodi2Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6Jodi3Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6Jodi4Title: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6JodiButtontext: {
+        [Language.English]: "Know More",
+        [Language.Hindi]: "अधिक जानिए",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS6Buttontext: {
+        [Language.English]: "?????",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS8HT1: {
+        [Language.English]: "Choose The Best",
+        [Language.Hindi]: "घर लायें रोशनी",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS8HT2: {
+        [Language.English]: `<span class="lg-text-highlighted"> Inverter Battery </span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted"> इनवर्टर बैटरी </span> से`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS8Description: {
+        [Language.English]:
+            "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
+        [Language.Hindi]: "हमारे ख़रीदने की मार्गदर्शिका और उत्पाद कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS8B1T: {
+        [Language.English]: "Buying Guide",
+        [Language.Hindi]: "ख़रीदने की मार्गदर्शिका",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS8B2T: {
+        [Language.English]: "Download Catalog",
+        [Language.Hindi]: "उत्पाद कैटलॉग",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS8BT: {
+        [Language.English]: "Let's Plan Your Power",
+        [Language.Hindi]: "अपनी ऊर्जा को प्लान करें",
+        [Language.Marathi]: "?????",
+    },
+
     review1Name: {
         [Language.English]: "Thangamani M",
         [Language.Hindi]: "तंगमणि एम",
