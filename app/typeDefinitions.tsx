@@ -20,3 +20,17 @@ export enum Theme {
     Dark = "dark",
     Light = "light",
 }
+
+export function languageToHumanFriendlyString(language: Language) {
+    switch (language) {
+        case Language.English:
+            return "English";
+        case Language.Hindi:
+            return "Hindi";
+        case Language.Marathi:
+            return "Marathi";
+        default:
+            const exhaustiveCheck: never = language;
+            throw new Error(`Unexpected value for Language: ${language}`);
+    }
+}

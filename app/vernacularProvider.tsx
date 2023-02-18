@@ -22,6 +22,38 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "यहाँ खोजें",
         [Language.Marathi]: "?????",
     },
+
+    headerMenuS1T1: {
+        [Language.English]: "Inverters & Batteries",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS1T2: {
+        [Language.English]: "Automotive Batteries",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS1T3: {
+        [Language.English]: "Solar Solutions",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS1T4: {
+        [Language.English]: "Accesories",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS1T5: {
+        [Language.English]: "More",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS2T1: {
+        [Language.English]: "Contact Us",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
     homeS1T1: {
         [Language.English]: "Energy Unlimited",
         [Language.Hindi]: "असीमित ऊर्जा",

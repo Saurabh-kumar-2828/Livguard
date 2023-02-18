@@ -1,5 +1,6 @@
 import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
-import {getNonEmptyStringOrNull} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {NonEmptyString} from "~/global-common-typescript/typeDefinitions";
+import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {commitUserPreferencesCookie, getUserPreferencesCookie} from "~/server/userPreferencesCookie.server";
 
 export const action: ActionFunction = async ({request}) => {
@@ -9,8 +10,8 @@ export const action: ActionFunction = async ({request}) => {
 
     const body = await request.formData();
 
-    const language = getNonEmptyStringOrNull(body.get("language") as string);
-    const redirectTo = getNonEmptyStringOrNull(body.get("redirectTo") as string);
+    const language = safeParse<NonEmptyString>(getNonEmptyStringFromUnknown, body.get("language"));
+    const redirectTo = safeParse<NonEmptyString>(getNonEmptyStringFromUnknown, body.get("redirectTo"));
 
     if(redirectTo == null){
         throw "NO redirect URL";

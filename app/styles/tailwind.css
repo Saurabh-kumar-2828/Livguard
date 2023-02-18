@@ -11,7 +11,7 @@
 
         --lg-header-height: 6.5rem;
         /* --lg-mobile-ui-height: 4rem; */
-        --lg-mobile-ui-height: 0rem;
+        --lg-mobile-ui-height: 4rem;
         /* --gj-px-screen-edge: clamp(1.5rem, 1.5rem + clamp(0, calc((10vw - 480px) / 600px), 1) * 8.5rem, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5%, 10rem); */
         /* --gj-px-screen-edge: clamp(1.5rem, 5vw, 10rem); */
@@ -176,4 +176,20 @@
     .lg-text-highlighted {
         @apply lg-bg-primary-500 tw-px-1;
     }
+
+    /* @keyframes animation-text-baseline {
+        0% {
+            transform: translateY(1em);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 100%;
+        }
+    }
+
+    .lg-animation-text-baseline {
+        animation: animation-text-baseline 200ms forwards ease-in;
+    } */
 }
