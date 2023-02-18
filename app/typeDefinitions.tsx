@@ -34,3 +34,8 @@ export function languageToHumanFriendlyString(language: Language) {
             throw new Error(`Unexpected value for Language: ${language}`);
     }
 }
+
+export enum InverterType {
+    sine = "Sine Wave",
+    square = "Square Wave"
+}

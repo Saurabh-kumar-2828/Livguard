@@ -68,7 +68,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <ExploreStarProducts userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-12" />
 
             <TapIntoEfficiency userPreferences={userPreferences} />
 
@@ -179,21 +179,6 @@ export function DealerLocatorWithMap({userPreferences}: {userPreferences: UserPr
 
                     <button type="submit" className="lg-cta-button">{`${getVernacularString("landingPage3S3T3", userPreferences.language)}`}</button>
                 </Form>
-            </div>
-        </div>
-    );
-}
-
-export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
             </div>
         </div>
     );
