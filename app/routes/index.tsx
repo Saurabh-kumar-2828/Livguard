@@ -351,8 +351,6 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
                     <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS4H1T1", userPreferences.language)}} />
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS4H1T2", userPreferences.language)}} />
-
-                        {/* <div>{getVernacularString("homeS5H1T2", userPreferences.language)}</div> */}
                     </div>
                 </DefaultTextAnimation>
 

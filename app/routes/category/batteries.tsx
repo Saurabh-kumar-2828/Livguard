@@ -7,11 +7,17 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {BatteryType, InverterType, UserPreferences} from "~/typeDefinitions";
+import {BatteryType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getRedirectToUrlFromRequest} from "~/utilities";
-import {EmpowerYourHomeComponent, OurSegestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
+import {OurSegestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
+import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {CategoryCarousel1} from "~/components/categoryCarousel1";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -39,7 +45,10 @@ export default function () {
 
     return (
         <>
-            <PageScaffold userPreferences={userPreferences} redirectTo={redirectTo}>
+            <PageScaffold
+                userPreferences={userPreferences}
+                redirectTo={redirectTo}
+            >
                 <CategoryPage userPreferences={userPreferences} />
             </PageScaffold>
             <StickyBottomBar userPreferences={userPreferences} />
@@ -95,55 +104,70 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
-            <img src="https://images.growthjockey.com/livguard/home/hero.jpg" className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full lg-bg-secondary-500 tw-object-cover -tw-z-10" />
+            <CoverImage
+                relativePath="/livguard/category/batteries/hero_image_battery.jpg"
+                className="tw-row-[1/span_12] tw-col-start-1"
+                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+            />
 
-            <div className="tw-row-start-4 tw-col-start-1 lg-text-banner lg-px-screen-edge">{getVernacularString("categoryBattriesS1T1", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+                <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("categoryBattriesS1T1", userPreferences.language)}</div>
+            </DefaultTextAnimation>
 
-            <div className="tw-row-start-6 tw-col-start-1 lg-text-title1 lg-px-screen-edge">{getVernacularString("categoryBattriesS1T2", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
+                <div className="lg-text-title1 lg-px-screen-edge">{getVernacularString("categoryBattriesS1T2", userPreferences.language)}</div>
+            </DefaultTextAnimation>
 
-            <div className="tw-row-[8] tw-col-start-1 lg-text-body lg-px-screen-edge">{getVernacularString("categoryBattriesS1T3", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
+                <div className="lg-text-body lg-px-screen-edge">{getVernacularString("categoryBattriesS1T3", userPreferences.language)}</div>
+            </DefaultTextAnimation>
 
-            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500" />
+            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
         </div>
     );
 }
 
 export function BatteriesAreMentToLast({userPreferences}: {userPreferences: UserPreferences}) {
-    const sectionData: Array<{heading: string; description: string; image: string}> = [
+    const sectionData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
-            heading: `${getVernacularString("categoryBattriesS2Slide1Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBattriesS2Slide1Description", userPreferences.language)}`,
-            image: "",
+            titleTextContentPiece: "categoryBattriesS2Slide1Heading",
+            bodyTextContentPiece: "categoryBattriesS2Slide1Description",
+            imageRelativePath: "/livguard/category/batteries/battery _futuristic_design.jpg",
         },
         {
-            heading: `${getVernacularString("categoryBattriesS2Slide2Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBattriesS2Slide2Description", userPreferences.language)}`,
-            image: "",
+            titleTextContentPiece: "categoryBattriesS2Slide2Heading",
+            bodyTextContentPiece: "categoryBattriesS2Slide2Description",
+            imageRelativePath: "/livguard/category/batteries/battery _supertuff_3d_grid.jpg",
         },
         {
-            heading: `${getVernacularString("categoryBattriesS2Slide3Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBattriesS2Slide3Description", userPreferences.language)}`,
-            image: "",
+            titleTextContentPiece: "categoryBattriesS2Slide3Heading",
+            bodyTextContentPiece: "categoryBattriesS2Slide3Description",
+            imageRelativePath: "/livguard/category/batteries/battery _warranty _low maintenance_aspect.jpg",
         },
         {
-            heading: `${getVernacularString("categoryBattriesS2Slide4Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBattriesS2Slide4Description", userPreferences.language)}`,
-            image: "",
+            titleTextContentPiece: "categoryBattriesS2Slide4Heading",
+            bodyTextContentPiece: "categoryBattriesS2Slide4Description",
+            imageRelativePath: "/livguard/category/batteries/battery _non_woven_gauntlet.jpg",
         },
     ];
 
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
+        <div className="tw-flex tw-flex-col">
+            <div className="lg-text-headline tw-text-center">
+                <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS2HT1", userPreferences.language)}} />
+                </DefaultTextAnimation>
+                <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS2HT2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <EmpowerYourHomeComponent vernacularContent={sectionData[0]} />
+                </DefaultTextAnimation>
             </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <CategoryCarousel1
+                userPreferences={userPreferences}
+                items={sectionData}
+            />
         </div>
     );
 }
@@ -151,110 +175,129 @@ export function BatteriesAreMentToLast({userPreferences}: {userPreferences: User
 export function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferences}) {
     const [secledtedBatteryType, setsecledtedBatteryType] = useState(BatteryType.flat);
 
-    const sectionData: Array<
-        {
-            heading: string;
-            description: string;
-            specificationHeading: string;
-            keySpecifications: Array<{keySpecificationTitle: string;keySpecificationContent:string;keySpecificationIcon:string}>
-            image: string
-        }> = [
+    const sectionData: Array<{
+        heading: string;
+        description: string;
+        specificationHeading: string;
+        keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
+        imageRelativePath: string;
+    }> = [
         {
             heading: `${getVernacularString("categoryBattriesS4Slide1Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBattriesS4Slide1Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBattriesS4SpecificationHeading", userPreferences.language)}`,
-            keySpecifications : [
+            keySpecifications: [
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide1KS1Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide1KS1Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/waranty.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide1KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide1KS2Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide1KS3Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide1KS3Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/3dGrid.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide1KS4Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide1KS4Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/dimensions.png",
                 },
             ],
-            image: "",
+            imageRelativePath: "/livguard/battery images/IT 1048ST.png",
         },
         {
             heading: `${getVernacularString("categoryBattriesS4Slide2Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBattriesS4Slid21Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBattriesS4SpecificationHeading", userPreferences.language)}`,
-            keySpecifications : [
+            keySpecifications: [
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide2KS1Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide2KS1Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/waranty.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide2KS2Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide2KS3Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide2KS3Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/3dGrid.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBattriesS2Slide2KS4Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBattriesSlide2KS4Description", userPreferences.language),
-                    keySpecificationIcon: "",
+                    keySpecificationIconRelativePath: "/livguard/category/icons/dimensions.png",
                 },
             ],
-            image: "",
-        }
+            imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+        },
     ];
 
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col tw-items-center">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS4HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS4HT2", userPreferences.language)}} />
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS4HT1", userPreferences.language)}} />
+                    </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS4HT2", userPreferences.language)}} />
+                    </DefaultTextAnimation>
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryBattriesS4Heading", userPreferences.language)}</div>
+                <DefaultTextAnimation>
+                    <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryBattriesS4Heading", userPreferences.language)}</div>
+                </DefaultTextAnimation>
 
                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-4">
-                    <div
-                        className={concatenateNonNullStringsWithSpaces(
-                            "tw-col-start-1 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                            `${secledtedBatteryType == BatteryType.flat ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
-                        )}
-                        onClick={() => setsecledtedBatteryType(BatteryType.flat)}
-                    >
-                        <div className="tw-h-6 tw-w-6 lg-bg-secondary-500 tw-rounded-full"></div>
-                        <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedBatteryType == BatteryType.flat ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
-                            {getVernacularString("categoryBattriesS4BTFlat", userPreferences.language)}
+                    <DefaultElementAnimation>
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-col-start-1 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                `${secledtedBatteryType == BatteryType.flat ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
+                            )}
+                            onClick={() => setsecledtedBatteryType(BatteryType.flat)}
+                        >
+                            <div className="tw-h-6 tw-w-6">
+                                <FullWidthImage
+                                    relativePath="/livguard/category/icons/flatPlate.png"
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                />
+                            </div>
+                            <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedBatteryType == BatteryType.flat ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
+                                {getVernacularString("categoryBattriesS4BTFlat", userPreferences.language)}
+                            </div>
                         </div>
-                    </div>
+                    </DefaultElementAnimation>
 
-                    <div
-                        className={concatenateNonNullStringsWithSpaces(
-                            "tw-col-start-2 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                            `${secledtedBatteryType == BatteryType.tubular ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
-                        )}
-                        onClick={() => setsecledtedBatteryType(BatteryType.tubular)}
-                    >
-                        <div className="tw-h-6 tw-w-6 lg-bg-secondary-500 tw-rounded-full"></div>
-                        <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedBatteryType == BatteryType.tubular ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
-                            {getVernacularString("categoryBattriesS4BTTubular", userPreferences.language)}
+                    <DefaultElementAnimation>
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-col-start-2 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                `${secledtedBatteryType == BatteryType.tubular ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
+                            )}
+                            onClick={() => setsecledtedBatteryType(BatteryType.tubular)}
+                        >
+                            <div className="tw-h-6 tw-w-6 tw-overflow-hidden">
+                                <FullWidthImage
+                                    relativePath="/livguard/category/icons/tallTubular.png"
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                />
+                            </div>
+                            <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedBatteryType == BatteryType.tubular ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
+                                {getVernacularString("categoryBattriesS4BTTubular", userPreferences.language)}
+                            </div>
                         </div>
-                    </div>
+                    </DefaultElementAnimation>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -266,19 +309,20 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
 
                 <VerticalSpacer className="tw-h-10" />
 
-                <div className="lg-cta-button ">{getVernacularString("categoryBattriesS4BT", userPreferences.language)}</div>
+                <DefaultElementAnimation>
+                    <div className="lg-cta-button ">{getVernacularString("categoryBattriesS4BT", userPreferences.language)}</div>
+                </DefaultElementAnimation>
             </div>
         </div>
     );
 }
 
 export function SideBySideOverviewSection({userPreferences}: {userPreferences: UserPreferences}) {
-    const productOverview: Array<
-        {
-            heading: string;
-            image: string;
-            features: Array<{title: string; highlighted: boolean;}>
-        }> = [
+    const productOverview: Array<{
+        heading: string;
+        image: string;
+        features: Array<{title: string; highlighted: boolean}>;
+    }> = [
         {
             image: "",
             heading: `${getVernacularString("categoryBattriesS5Slide1Heading", userPreferences.language)}`,
@@ -307,7 +351,7 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
                     title: `${getVernacularString("categoryBattriesS5F6Title", userPreferences.language)}`,
                     highlighted: true,
                 },
-            ]
+            ],
         },
         {
             image: "",
@@ -337,7 +381,7 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
                     title: `${getVernacularString("categoryBattriesS5F6Title", userPreferences.language)}`,
                     highlighted: true,
                 },
-            ]
+            ],
         },
         {
             image: "",
@@ -367,7 +411,7 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
                     title: `${getVernacularString("categoryBattriesS5F6Title", userPreferences.language)}`,
                     highlighted: true,
                 },
-            ]
+            ],
         },
     ];
 
@@ -400,31 +444,31 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
 export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPreferences}) {
     const jodisData: Array<{
         title: string;
-        image: string;
+        imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
     }> = [
         {
             title: `${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: false,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi2Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/rural_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: true,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi3Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: true,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi4Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: false,
         },
@@ -434,7 +478,9 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS6HT1", userPreferences.language)}} />
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS6HT1", userPreferences.language)}} />
+                    </DefaultTextAnimation>
                 </div>
             </div>
 
@@ -454,7 +500,9 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-6" />
 
-            <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
+            <DefaultElementAnimation>
+                <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
+            </DefaultElementAnimation>
         </div>
     );
 }
@@ -462,17 +510,17 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
 export function ChooseBestInverterBattery({userPreferences}: {userPreferences: UserPreferences}) {
     const sectionData: {
         description: string;
-        downloadButtons: Array<{icon: string; text: string}>;
+        downloadButtons: Array<{iconRelativePath: string; text: string}>;
         buttonText: string;
     } = {
         description: `${getVernacularString("categoryBattriesS8Description", userPreferences.language)}`,
         downloadButtons: [
             {
-                icon: "",
+                iconRelativePath: "/livguard/category/icons/buyingGuide.png",
                 text: `${getVernacularString("categoryBattriesS8B1T", userPreferences.language)}`,
             },
             {
-                icon: "",
+                iconRelativePath: "/livguard/category/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryBattriesS8B2T", userPreferences.language)}`,
             },
         ],
@@ -483,8 +531,12 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS8HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS8HT2", userPreferences.language)}} />
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS8HT1", userPreferences.language)}} />
+                    </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS8HT2", userPreferences.language)}} />
+                    </DefaultTextAnimation>
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
@@ -494,24 +546,6 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
         </div>
     );
 }
-
-
-
-
-
-export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
-                </div>
-            </div>
-        </div>
-    );
-}
-
 
 function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
     return (

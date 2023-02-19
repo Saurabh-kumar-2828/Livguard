@@ -1,4 +1,3 @@
-import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {useLoaderData} from "react-router";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";

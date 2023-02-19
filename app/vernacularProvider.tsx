@@ -457,8 +457,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     homeS9Q3A: {
-        [Language.English]: "A battery's capacity for charging is expressed in ampere hours (Ah). An inverter battery's capacity is 1Ah if it can deliver 1 amp of electricity for 1 hour. The battery's capacity is 100Ah if it can deliver one amp of electricity for 100 hours. By calculating the load requirements by the number of hours of backup you require, you may determine the amount of inverter battery capacity needed for your home.",
-        [Language.Hindi]: "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इन्वर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने घर के लिए आवश्यक इन्वर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
+        [Language.English]:
+            "A battery's capacity for charging is expressed in ampere hours (Ah). An inverter battery's capacity is 1Ah if it can deliver 1 amp of electricity for 1 hour. The battery's capacity is 100Ah if it can deliver one amp of electricity for 100 hours. By calculating the load requirements by the number of hours of backup you require, you may determine the amount of inverter battery capacity needed for your home.",
+        [Language.Hindi]:
+            "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इन्वर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने घर के लिए आवश्यक इन्वर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
         [Language.Marathi]: "OOOOO",
     },
     homeS9T2P1: {
@@ -1110,22 +1112,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBattriesS6Jodi1Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Urban Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS6Jodi2Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Rural Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS6Jodi3Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Super Life Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS6Jodi4Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Hi-Power Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
@@ -1434,22 +1436,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi1Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Urban Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi2Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Rural Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi3Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Super Life Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi4Title: {
-        [Language.English]: "?????",
+        [Language.English]: "The Hi-Power Jodi",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
@@ -1799,7 +1801,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 
-    "OOOOO": {
+    OOOOO: {
         [Language.English]: "OOOOO",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",

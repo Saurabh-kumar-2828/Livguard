@@ -1,5 +1,10 @@
-import {Features} from "@headlessui/react/dist/utils/render";
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -7,18 +12,34 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 
-export function EmpowerYourHomeComponent({vernacularContent}: {vernacularContent: {heading: string; description: string; image: string}}) {
+export function EmpowerYourHomeComponent({
+    userPreferences,
+    item,
+}: {
+    userPreferences: UserPreferences;
+    item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string};
+}) {
     return (
         <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,5fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
             <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:te-text-left">
-                <div className="tw-text-title1">{vernacularContent.heading}</div>
+                <DefaultTextAnimation>
+                    <div className="lg-text-title1">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                </DefaultTextAnimation>
 
                 <div className="tw-h-2" />
 
-                <div className="tw-text-body">{vernacularContent.description}</div>
+                <DefaultTextAnimation className="tw-flex-1">
+                    <div className="lg-text-body lg-text-secondary-700">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                </DefaultTextAnimation>
             </div>
             <div className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
-                <div className="lg-bg-secondary-500 tw-rounded-lg tw-w-full tw-h-[250px] lg:tw-h-[400px]"></div>
+                <DefaultImageAnimation>
+                    <FullWidthImage
+                        relativePath={item.imageRelativePath}
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        className="tw-rounded-lg"
+                    />
+                </DefaultImageAnimation>
             </div>
         </div>
     );
@@ -33,8 +54,8 @@ export function OurSegestionsComponent({
         heading: string;
         description: string;
         specificationHeading: string;
-        keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIcon: string}>;
-        image: string;
+        keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
+        imageRelativePath: string;
     };
     backgroundColor: string;
 }) {
@@ -42,15 +63,21 @@ export function OurSegestionsComponent({
         <div className={`tw-flex tw-flex-col tw-rounded-lg tw-w-full lg-bg-${backgroundColor}`}>
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="lg-text-title1 tw-text-center">{vernacularContent.heading}</div>
+            <DefaultTextAnimation>
+                <div className="lg-text-title1 tw-text-center">{vernacularContent.heading}</div>
+            </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-text-body tw-text-center">{vernacularContent.description}</div>
+            <DefaultTextAnimation>
+                <div className="tw-text-body tw-text-center">{vernacularContent.description}</div>
+            </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="lg-text-title1 tw-text-center">{vernacularContent.specificationHeading}</div>
+            <DefaultTextAnimation>
+                <div className="lg-text-title1 tw-text-center">{vernacularContent.specificationHeading}</div>
+            </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -59,7 +86,14 @@ export function OurSegestionsComponent({
                     items={vernacularContent.keySpecifications}
                     itemBuilder={(keySpecification, keySpecificationIndex) => (
                         <div className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3 tw-mx-auto`}>
-                            <div className="tw-w-6 tw-h-6 lg-bg-secondary-500 tw-rounded-full"></div>
+                            <div className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center ${backgroundColor == "primary-500" ? "lg-bg-secondary-100" : "lg-bg-primary-500"}`}>
+                                <FixedWidthImage
+                                    relativePath={keySpecification.keySpecificationIconRelativePath}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    width="1.5rem"
+                                    className="tw-place-self-center"
+                                />
+                            </div>
 
                             <div className="tw-flex tw-flex-col tw-gap-1">
                                 <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
@@ -70,20 +104,15 @@ export function OurSegestionsComponent({
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-4" />
 
-            <div className="lg-bg-secondary-500 tw-h-[150px] tw-rounded-lg tw-translate-y-8 tw-mx-4"></div>
+            <div className="tw-rounded-lg tw-translate-y-8 tw-mx-12">
+                <FullWidthImage
+                    relativePath={vernacularContent.imageRelativePath}
+                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                />
+            </div>
         </div>
-
-        // <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,5fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
-        //     <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:te-text-left">
-        //         <div className="tw-text-title1">{vernacularContent.heading}</div>
-        //         <div className="tw-text-body">{vernacularContent.description}</div>
-        //     </div>
-        //     <div className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
-        //         <div className="lg-bg-secondary-500 tw-rounded-lg tw-w-full tw-h-[250px] lg:tw-h-[400px]"></div>
-        //     </div>
-        // </div>
     );
 }
 
@@ -92,7 +121,7 @@ export function ProductCardComponent({
 }: {
     vernacularContent: {
         title: string;
-        image: string;
+        imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
     };
@@ -105,15 +134,26 @@ export function ProductCardComponent({
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-text-body tw-text-center">{vernacularContent.title}</div>
+            <DefaultTextAnimation>
+                <div className="tw-text-body tw-text-center">{vernacularContent.title}</div>
+            </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-h-[100px] lg-bg-secondary-500 tw-rounded-lg"></div>
+            <DefaultImageAnimation>
+                <div className="tw-px-4 tw-rounded-lg">
+                    <FullWidthImage
+                        relativePath={vernacularContent.imageRelativePath}
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    />
+                </div>
+            </DefaultImageAnimation>
 
-            <VerticalSpacer className="tw-h-4" />
+            <VerticalSpacer className="tw-h-1" />
 
-            <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{vernacularContent.buttonText}</div>
+            <DefaultElementAnimation>
+                <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{vernacularContent.buttonText}</div>
+            </DefaultElementAnimation>
         </div>
     );
 }
@@ -123,34 +163,45 @@ export function WhatsBestForYouComponent({
 }: {
     vernacularContent: {
         description: string;
-        downloadButtons: Array<{icon: string; text: string}>;
+        downloadButtons: Array<{iconRelativePath: string; text: string}>;
         buttonText: string;
     };
 }) {
     return (
         <div className="tw-flex tw-flex-col tw-justify-between tw-items-center">
-            <div className="lg-text-body tw-text-center">{vernacularContent.description}</div>
+            <DefaultTextAnimation>
+                <div className="lg-text-body tw-text-center">{vernacularContent.description}</div>
+            </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3">
-                <ItemBuilder
-                    items={vernacularContent.downloadButtons}
-                    itemBuilder={(downloadButton, downloadButtonIndex) => (
-                        <div
-                            className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}
-                            key={downloadButtonIndex}
-                        >
-                            <div className="tw-h-8 tw-min-w-[32px] lg-bg-secondary-500 tw-rounded-full"></div>
-                            <div className="lg-text-title2">{downloadButton.text}</div>
-                        </div>
-                    )}
-                />
-            </div>
+            <DefaultElementAnimation>
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3">
+                    <ItemBuilder
+                        items={vernacularContent.downloadButtons}
+                        itemBuilder={(downloadButton, downloadButtonIndex) => (
+                            <div
+                                className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}
+                                key={downloadButtonIndex}
+                            >
+                                <div className="tw-h-8 tw-min-w-[32px]">
+                                    <FullWidthImage
+                                        relativePath={downloadButton.iconRelativePath}
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    />
+                                </div>
+                                <div className="lg-text-title2">{downloadButton.text}</div>
+                            </div>
+                        )}
+                    />
+                </div>
+            </DefaultElementAnimation>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="lg-cta-button">{vernacularContent.buttonText}</div>
+            <DefaultElementAnimation>
+                <div className="lg-cta-button">{vernacularContent.buttonText}</div>
+            </DefaultElementAnimation>
         </div>
     );
 }
@@ -199,6 +250,8 @@ export function ProductOverviewComponent({
                     )}
                 />
             </div>
+
+            <VerticalSpacer className="tw-h-4" />
         </div>
     );
 }
