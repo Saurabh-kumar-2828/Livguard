@@ -2,14 +2,15 @@ import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon, LanguageIcon} from "@heroicons/react/20/solid";
 import {Form, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
-import {Search, Telephone, X} from "react-bootstrap-icons";
+import {MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {Language, languageToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
+import {Language, languageToHumanFriendlyString, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function HeaderComponent({userPreferences, redirectTo}: {userPreferences: UserPreferences; redirectTo: string}) {
@@ -48,10 +49,34 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
     const languageOptions = [Language.English, Language.Hindi];
     const [selectedLanguage, setSelectedLanguage] = useState(userPreferences.language);
     const languageFormRef = useRef<HTMLFormElement>(null);
+    const previousLanguage = useRef(userPreferences.language);
 
     useEffect(() => {
-        submit(languageFormRef.current, {replace: true});
+        // Used to safegaurd against sending a language change request the moment a user enters the page
+        if (selectedLanguage != previousLanguage.current) {
+            submit(languageFormRef.current, {replace: true});
+            previousLanguage.current = selectedLanguage;
+        }
     }, [selectedLanguage]);
+
+    const themeOptions = [null, Theme.Light, Theme.Dark];
+    const [selectedTheme, setSelectedTheme] = useState(userPreferences.theme);
+    const themeFormRef = useRef<HTMLFormElement>(null);
+    const previousTheme = useRef(userPreferences.theme);
+
+    useEffect(() => {
+        // Used to safegaurd against sending a theme change request the moment a user enters the page
+        if (selectedTheme != previousTheme.current) {
+            submit(themeFormRef.current, {replace: true});
+            previousTheme.current = selectedTheme;
+
+            if (selectedTheme == Theme.Dark || (selectedTheme == null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                document.documentElement.classList.add("tw-dark");
+            } else {
+                document.documentElement.classList.remove("tw-dark");
+            }
+        }
+    }, [selectedTheme]);
 
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
@@ -74,12 +99,12 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                         value={selectedLanguage}
                         onChange={setSelectedLanguage}
                     >
-                        <Listbox.Button className="lg-bg-secondary-300 lg-text-secondary-900 tw-grid tw-grid-cols-[auto_3rem] tw-gap-x-2 tw-items-center">
+                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[auto_3rem] tw-gap-x-2 tw-items-center">
                             <LanguageIcon className="tw-w-6 tw-h-6" />
                             {languageToHumanFriendlyString(selectedLanguage)}
                         </Listbox.Button>
 
-                        <Listbox.Options className="tw-absolute tw-top-12 tw-left-0 tw-right-0 lg-bg-secondary-100 lg-text-secondary-900 tw-rounded-lg">
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-left-0 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                             <ItemBuilder
                                 items={languageOptions}
                                 itemBuilder={(item, itemIndex) => (
@@ -88,7 +113,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                                         key={itemIndex}
                                         as={React.Fragment}
                                     >
-                                        {({active, selected}) => <li className="tw-py-2 tw-text-center">{languageToHumanFriendlyString(item)}</li>}
+                                        {({active, selected}) => <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>{languageToHumanFriendlyString(item)}</li>}
                                     </Listbox.Option>
                                 )}
                                 spaceBuilder={(spaceIndex) => (
@@ -120,7 +145,10 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
             </div>
 
             <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-                <button onClick={tryToOpenMenu}>
+                <button
+                    type="button"
+                    onClick={tryToOpenMenu}
+                >
                     <Bars3Icon className="tw-w-6 tw-h-6" />
                 </button>
                 <HorizontalSpacer className="tw-w-2" />
@@ -133,6 +161,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                 <div className="tw-flex-1" />
 
                 <button
+                    type="button"
                     onClick={tryToOpenSearch}
                     className="tw-flex tw-flex-row tw-items-center"
                 >
@@ -140,6 +169,61 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                     <HorizontalSpacer className="tw-w-2" />
                     <div>{getVernacularString("headerS2T1", userPreferences.language)}</div>
                 </button>
+
+                <HorizontalSpacer className="tw-w-4" />
+
+                <Form
+                    method="post"
+                    action="/set-theme"
+                    ref={themeFormRef}
+                    className="tw-relative"
+                >
+                    <Listbox
+                        value={selectedTheme}
+                        onChange={setSelectedTheme}
+                    >
+                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900">
+                            <MoonStarsFill className="tw-w-6 tw-h-6" />
+                        </Listbox.Button>
+
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 tw-w-28 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                            <ItemBuilder
+                                items={themeOptions}
+                                itemBuilder={(item, itemIndex) => (
+                                    <Listbox.Option
+                                        value={item}
+                                        key={itemIndex}
+                                        as={React.Fragment}
+                                    >
+                                        {({active, selected}) => <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>{themeToHumanFriendlyString(item)}</li>}
+                                    </Listbox.Option>
+                                )}
+                                spaceBuilder={(spaceIndex) => (
+                                    <div
+                                        className="tw-mx-2 tw-h-px lg-bg-secondary-700"
+                                        key={spaceIndex}
+                                    />
+                                )}
+                            />
+                        </Listbox.Options>
+                    </Listbox>
+
+                    <input
+                        type="text"
+                        name="theme"
+                        value={selectedTheme ?? ""}
+                        readOnly
+                        className="tw-hidden"
+                    />
+
+                    <input
+                        type="text"
+                        name="redirectTo"
+                        value={redirectTo}
+                        readOnly
+                        className="tw-hidden"
+                    />
+                </Form>
             </div>
 
             {/* Menu */}
@@ -168,7 +252,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                         <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                     </Transition.Child>
 
-                    <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-overflow-y-auto tw-grid tw-grid-cols tw-pointer-events-none">
+                    <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-overflow-y-auto tw-grid tw-grid-cols">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -179,6 +263,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                             leaveTo="tw-scale-0 tw-rotate-180"
                         >
                             <button
+                                type="button"
                                 className="tw-justify-self-center lg-bg-secondary-300 tw-rounded-full"
                                 onClick={tryToCloseMenu}
                             >
@@ -186,7 +271,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                             </button>
                         </Transition.Child>
 
-                        <VerticalSpacer className="tw-h-6 tw-pointer-events-none" />
+                        <VerticalSpacer className="tw-h-6" />
 
                         <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[minmax(14rem,1fr)_2rem_13.75rem_3rem] tw-justify-items-center tw-relative">
                             <Transition.Child
@@ -292,7 +377,10 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                                 leaveFrom="tw-opacity-full"
                                 leaveTo="tw-opacity-0"
                             >
-                                <button className="lg-cta-button tw-px-4">
+                                <button
+                                    type="button"
+                                    className="lg-cta-button tw-px-4"
+                                >
                                     <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
                                         <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
                                         <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
@@ -311,7 +399,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
             >
                 <Dialog
                     as="div"
-                    className="tw-relative tw-z-50 tw-grid"
+                    className="tw-relative tw-z-50"
                     onClose={tryToCloseSearch}
                 >
                     <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[5.25rem_minmax(0,1fr)]">
@@ -327,7 +415,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                             <div className="tw-w-full lg-bg-secondary-300 tw-p-4">
                                 <input
                                     type="text"
-                                    className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14"
+                                    className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
                                 />
                                 <Search className="tw-absolute tw-top-[1.875rem] tw-left-8 tw-w-6 tw-h-6" />
                             </div>
@@ -355,6 +443,7 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                             leaveTo="tw-scale-0 tw-rotate-180"
                         >
                             <button
+                                type="button"
                                 className="tw-absolute tw-bottom-8 tw-left-1/2 -tw-translate-x-1/2 lg-bg-secondary-300 tw-rounded-full tw-p-3"
                                 onClick={tryToCloseSearch}
                             >

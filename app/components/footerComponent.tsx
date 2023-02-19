@@ -2,7 +2,7 @@ import {ArrowRightCircleIcon, ChevronRightIcon} from "@heroicons/react/20/solid"
 import {Form, Link} from "@remix-run/react";
 import React, {useState} from "react";
 import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
-import {Accordion} from "~/components/reusableComponets/accordian";
+import {Accordion} from "~/components/accordian";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
@@ -18,9 +18,9 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
             <div className="tw-flex tw-flex-col sm:tw-hidden">
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-secondary-900 lg-mobile-heading">Be the first to find out about new stories & latest offers!</div>
+                <div className="lg-text-secondary-900">Be the first to find out about new stories & latest offers!</div>
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Form>
                     <div className="tw-relative tw-w-full">
@@ -31,7 +31,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     </div>
                 </Form>
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure1H", userPreferences.language)}
@@ -76,7 +76,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
                                     <Link to={item.link}>{item.title}</Link>
                                 </div>
                             )}
@@ -86,7 +86,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure2H", userPreferences.language)}
@@ -107,8 +107,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
-                                    <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                    <div className="lg-text-secondary-900">
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
                 <Accordion
                     title={getVernacularString("footerDisclosure3H", userPreferences.language)}
                     panelItem={
@@ -147,8 +147,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
-                                    <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                    <div className="lg-text-secondary-900" key={itemIndex}>
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure4H", userPreferences.language)}
@@ -196,8 +196,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
-                                    <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                    <div className="lg-text-secondary-900" key={itemIndex}>
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure5H", userPreferences.language)}
@@ -221,8 +221,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
-                                    <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                    <div className="lg-text-secondary-900" key={itemIndex}>
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure6H", userPreferences.language)}
@@ -262,8 +262,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
-                                    <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                    <div className="lg-text-secondary-900" key={itemIndex}>
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -274,7 +274,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-3" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure7H", userPreferences.language)}
@@ -291,8 +291,8 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
-                                    <div className="lg-text-secondary-900 lg-mobile-bodyText" key={itemIndex}>
+                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                    <div className="lg-text-secondary-900" key={itemIndex}>
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -306,31 +306,31 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                 <VerticalSpacer className="tw-h-10" />
 
                 <div className="tw-flex tw-flex-col lg-text-secondary-900 tw-px-10">
-                    <div className="lg-mobile-title2 tw-text-center">{getVernacularString("footerContactT1", userPreferences.language)}</div>
+                    <div className="tw-text-center">{getVernacularString("footerContactT1", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-8" />
 
-                    <div className="lg-mobile-bodyText tw-text-center">{getVernacularString("footerContactT2", userPreferences.language)}</div>
+                    <div className="tw-text-center">{getVernacularString("footerContactT2", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-mobile-bodyText tw-text-center tw-underline">+91-124-4987 400</div>
+                    <div className="tw-text-center tw-underline">+91-124-4987 400</div>
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-mobile-bodyText tw-text-center tw-underline">
+                    <div className="tw-text-center tw-underline">
                         <a href="mailto:marketing@livguard.com">marketing@livguard.com</a>
                     </div>
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-mobile-bodyText tw-text-center tw-underline">
+                    <div className="tw-text-center tw-underline">
                         <a href="mailto:export@sar-group.com">export@sar-group.com</a>
                     </div>
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="lg-mobile-bodyText tw-text-center">{getVernacularString("footerContactT3", userPreferences.language)}</div>
+                    <div className="tw-text-center">{getVernacularString("footerContactT3", userPreferences.language)}</div>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />

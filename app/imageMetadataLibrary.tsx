@@ -274,28 +274,28 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "L03bm,%Mjb%M%Mj]f8j[a}f8f7fQ",
         "placeholderColor": "#181828"
     },
-    "/livguard/home/6/Ankit.png": {
+    "/livguard/home/6/4.jpg": {
         "width": 1080,
         "height": 1080,
         "altText": "Dummy alt text",
         "blurHash": "LtM%yC%M_M%g~UoIxZt6E2S5RPoL",
         "placeholderColor": "#f8f8e8"
     },
-    "/livguard/home/6/Dev.png": {
+    "/livguard/home/6/3.jpg": {
         "width": 1080,
         "height": 1080,
         "altText": "Dummy alt text",
         "blurHash": "LyPix6x[?w-pt7aet7t7o~oLaKWC",
         "placeholderColor": "#f8f8f8"
     },
-    "/livguard/home/6/Ganesh.png": {
+    "/livguard/home/6/2.jpg": {
         "width": 1080,
         "height": 1080,
         "altText": "Dummy alt text",
         "blurHash": "LCHA^J}r0i1$~U?G$$n$%}yC$P-7",
         "placeholderColor": "#080808"
     },
-    "/livguard/home/6/Thanga.png": {
+    "/livguard/home/6/1.jpg": {
         "width": 1080,
         "height": 1080,
         "altText": "Dummy alt text",

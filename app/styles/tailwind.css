@@ -82,7 +82,7 @@
         font-weight: 600;
         /* TODO: Add letter spacing */
 
-        @apply tw-text-[0.875rem] md:tw-text-[1rem] lg-text-secondary-700 tw-leading-[1.25rem] md:tw-leading-[1.5rem];
+        @apply tw-text-[0.875rem] md:tw-text-[1rem] tw-leading-[1.25rem] md:tw-leading-[1.5rem] lg-text-secondary-700;
     }
 
     .lg-text-body {
@@ -90,7 +90,7 @@
         font-weight: 400;
         /* TODO: Add letter spacing */
 
-        @apply tw-text-[0.875rem] md:tw-text-[1rem] lg-text-secondary-700 tw-leading-[1.25rem] md:tw-leading-[1.5rem];
+        @apply tw-text-[0.875rem] md:tw-text-[1rem] tw-leading-[1.25rem] md:tw-leading-[1.5rem] lg-text-secondary-700;
     }
 
     .lg-text-icon {

@@ -1,17 +1,17 @@
-import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
+import {Form} from "@remix-run/react";
 import {useLoaderData} from "react-router";
+import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
+import {HeaderComponent} from "~/components/headerComponent";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
+import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
+import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {DealerLocator, EnergySolutions, FAQs, PowerPlanner, TransformingLives} from "~/routes";
 import {getRedirectToUrlFromRequest} from "~/utilities";
-import {HeaderComponent} from "~/components/headerComponent";
-import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
-import {Form} from "@remix-run/react";
+import {getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -62,7 +62,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <PowerPlanner userPreferences={userPreferences} />
+            <PowerPlannerTeaser userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -82,7 +82,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <FAQs userPreferences={userPreferences} />
+            <FaqSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
         </>

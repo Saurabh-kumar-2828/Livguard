@@ -1,14 +1,17 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {useState} from "react";
-import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
+import {Accordion} from "~/components/accordian";
+import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1} from "~/components/carouselStyle1";
+import {CarouselStyle2} from "~/components/carouselStyle2";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {LeadersCarousel} from "~/components/leadersCarousel";
 import {PageScaffold} from "~/components/pageScaffold";
-import {StickyBottomBar} from "~/components/reusableComponets/bottomBar";
+import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -17,12 +20,15 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
     userPreferences: UserPreferences;
+    redirectTo: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -33,19 +39,22 @@ export const loader: LoaderFunction = async ({request}) => {
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
+        redirectTo: getRedirectToUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+
+    // TODO: Scroll to top if required
 
     return (
         <>
             <PageScaffold
                 userPreferences={userPreferences}
-                redirectTo={"/"}
+                redirectTo={redirectTo}
             >
                 <HomePage userPreferences={userPreferences} />
             </PageScaffold>
@@ -74,7 +83,7 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <PowerPlanner userPreferences={userPreferences} />
+            <PowerPlannerTeaser userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -90,11 +99,14 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <FAQs userPreferences={userPreferences} />
+            <FaqSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <DealerLocator userPreferences={userPreferences} showCTAButton={true} />
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCTAButton={true}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -126,7 +138,12 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <button className="lg-cta-button lg-px-screen-edge">{getVernacularString("homeS1T3", userPreferences.language)}</button>
+                <button
+                    type="button"
+                    className="lg-cta-button lg-px-screen-edge"
+                >
+                    {getVernacularString("homeS1T3", userPreferences.language)}
+                </button>
             </DefaultElementAnimation>
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
@@ -222,7 +239,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <FixedWidthImage
                                     relativePath={item.icon}
                                     width="1.5rem"
-                                    className={`${itemIndex == selectedIndex ? "tw-scale-125" : "tw-opacity-75"}`}
+                                    className={`${itemIndex == selectedIndex ? "tw-scale-125" : "tw-opacity-50"}`}
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                 />
                             </div>
@@ -327,7 +344,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-[#3A3A3A] tw-to-[#000000] tw-px-4 tw-py-6 tw-rounded-lg">
+            <div className="tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-secondary-100-light tw-to-background-500-light dark:tw-from-secondary-100-dark dark:tw-to-background-500-dark tw-px-4 tw-pt-6 tw-rounded-lg">
                 <VerticalSpacer className="tw-h-4" />
 
                 <DefaultTextAnimation>
@@ -364,231 +381,57 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
     );
 }
 
-export function PowerPlanner({userPreferences}: {userPreferences: UserPreferences}) {
-    const [selectedPropertyType, setSelectedPropertyType] = useState<string | null>(null);
-
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-                <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-bodyText">{getVernacularString("homeS5T2", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <DefaultImageAnimation>
-                    <FixedWidthImage
-                        relativePath="/livguard/home/5/1.png"
-                        width="10rem"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                    />
-                </DefaultImageAnimation>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-title2">{getVernacularString("homeS5T3", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-flex tw-flex-col tw-gap-4">
-                    <ItemBuilder
-                        items={[
-                            {
-                                icon: "/livguard/home/5/step-1",
-                                stepIndex: getVernacularString("homeS5Step1T1", userPreferences.language),
-                                stepContent: getVernacularString("homeS5Step1T2", userPreferences.language),
-                            },
-                            {
-                                icon: "/livguard/home/5/step-2",
-                                stepIndex: getVernacularString("homeS5Step2T1", userPreferences.language),
-                                stepContent: getVernacularString("homeS5Step2T2", userPreferences.language),
-                            },
-                            {
-                                icon: "/livguard/home/5/step-3",
-                                stepIndex: getVernacularString("homeS5Step3T1", userPreferences.language),
-                                stepContent: getVernacularString("homeS5Step3T2", userPreferences.language),
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <div
-                                className="lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-grid tw-grid-cols-[auto,minmax(0,1fr)] tw-grid-rows-[auto,auto] tw-gap-x-2"
-                                key={itemIndex}
-                            >
-                                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-2">
-                                    <div className="lg-bg-secondary-300 tw-h-10 tw-w-10 tw-rounded-full"></div>
-                                </div>
-                                <div className="tw-row-start-1 tw-col-start-2">
-                                    <div className="lg-text-title2 tw-text-left">{item.stepIndex}</div>
-                                </div>
-                                <div className="tw-row-start-2 tw-col-start-2">
-                                    <div className="lg-text-body tw-text-left">{item.stepContent}</div>
-                                </div>
-                            </div>
-                        )}
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
-                <div className="lg-text-body tw-text-center">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr),minmax(0,1fr)] tw-grid-roes-[auto,auto] tw-gap-2">
-                    <ItemBuilder
-                        items={[
-                            {
-                                icon: "",
-                                content: "1 BHK",
-                                value: "1_bhk",
-                            },
-                            {
-                                icon: "",
-                                content: "2 BHK",
-                                value: "2_bhk",
-                            },
-                            {
-                                icon: "",
-                                content: "3 BHK",
-                                value: "3_bhk",
-                            },
-                            {
-                                icon: "",
-                                content: "4 BHK",
-                                value: "4_bhk",
-                            },
-                            {
-                                icon: "",
-                                content: "Villa",
-                                value: "villa",
-                            },
-                            {
-                                icon: "",
-                                content: "Custom",
-                                value: "custom",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <div
-                                className={concatenateNonNullStringsWithSpaces(
-                                    "tw-rounded-md tw-flex tw-gap-2 tw-py-3 tw-px-2 hover:tw-cursor-pointer",
-                                    `tw-row-start-${itemIndex / 3 + 1} tw-col-start-${(itemIndex % 3) + 1}`,
-                                    item.value == selectedPropertyType ? "lg-bg-primary-500" : "lg-bg-secondary-500",
-                                )}
-                                key={itemIndex}
-                                onClick={() => setSelectedPropertyType(item.value)}
-                            >
-                                <div className="lg-bg-secondary-700 tw-rounded-full tw-w-6 tw-h-6"></div>
-                                <div className="lg-text-bodyText">{item.content}</div>
-                            </div>
-                        )}
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-cta-button">{getVernacularString("homeS5T6", userPreferences.language)}</div>
-            </div>
-        </div>
-    );
-}
-
 export function TransformingLives({userPreferences}: {userPreferences: UserPreferences}) {
-    const reviews = [
-        {
-            image: "",
-            name: `${getVernacularString("review1Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review1State", userPreferences.language)}`,
-            message: `${getVernacularString("review1Message", userPreferences.language)}`,
-            productImage: "",
-            productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
-        },
-        {
-            image: "",
-            name: `${getVernacularString("review2Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review2State", userPreferences.language)}`,
-            message: `${getVernacularString("review2Message", userPreferences.language)}`,
-            productImage: "",
-            productName: `${getVernacularString("review2ProductN2me", userPreferences.language)}`,
-        },
-        {
-            image: "",
-            name: `${getVernacularString("review3Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review3State", userPreferences.language)}`,
-            message: `${getVernacularString("review3Message", userPreferences.language)}`,
-            productImage: "",
-            productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-        },
-        {
-            image: "",
-            name: `${getVernacularString("review4Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review4State", userPreferences.language)}`,
-            message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "",
-            productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
-        },
-    ];
-
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="lg-px-screen-edge tw-rounded-lg lg-bg-secondary-100 tw-flex tw-flex-col">
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="tw-grid tw-grid-cols-[auto,minmax(1fr,0)] tw-grid-rows-[auto,auto,auto] tw-gap-4">
-                        <div className="tw-col-start-1 tw-row-start-1 tw-row-span-3">
-                            <div className="tw-w-20 tw-h-20 lg-bg-secondary-500 tw-rounded-full"></div>
-                        </div>
-                        <div className="tw-col-start-2 tw-row-start-1">
-                            <div className="lg-text-banner">{reviews[0].name}</div>
-                        </div>
-                        <div className="tw-col-start-2 tw-row-start-2">
-                            <div className="tw-w-10 tw-h-4 lg-bg-secondary-500 tw-rounded-full"></div>
-                        </div>
-                        <div className="tw-col-start-2 tw-row-start-3">
-                            <div className="lg-text-body tw-text-bold">{reviews[0].name}</div>
-                        </div>
-                    </div>
-
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="lg-text-body tw-text-center">{reviews[0].message}</div>
-
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="tw-border tw-px-6"></div>
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-justify-center tw-items-center">
-                        <div className="tw-col-start-1">
-                            <div className="tw-w-[120px] tw-h-[120px] lg-bg-secondary-500 tw-rounded-lg">
-                                <div className=""></div>
-                            </div>
-                        </div>
-                        <div className="tw-col-start-2">{reviews[0].productName}</div>
-                    </div>
-
-                    <VerticalSpacer className="tw-h-6" />
-                </div>
+        <div>
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T2", userPreferences.language)}} />
             </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <TestimonialsCarousel
+                userPreferences={userPreferences}
+                testimonials={[
+                    {
+                        image: "/livguard/home/6/1.jpg",
+                        name: `${getVernacularString("review1Name", userPreferences.language)}`,
+                        rating: 5,
+                        state: `${getVernacularString("review1State", userPreferences.language)}`,
+                        message: `${getVernacularString("review1Message", userPreferences.language)}`,
+                        productImage: "",
+                        productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
+                    },
+                    {
+                        image: "/livguard/home/6/2.jpg",
+                        name: `${getVernacularString("review2Name", userPreferences.language)}`,
+                        rating: 5,
+                        state: `${getVernacularString("review2State", userPreferences.language)}`,
+                        message: `${getVernacularString("review2Message", userPreferences.language)}`,
+                        productImage: "",
+                        productName: `${getVernacularString("review2ProductN2me", userPreferences.language)}`,
+                    },
+                    {
+                        image: "/livguard/home/6/3.jpg",
+                        name: `${getVernacularString("review3Name", userPreferences.language)}`,
+                        rating: 5,
+                        state: `${getVernacularString("review3State", userPreferences.language)}`,
+                        message: `${getVernacularString("review3Message", userPreferences.language)}`,
+                        productImage: "",
+                        productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
+                    },
+                    {
+                        image: "/livguard/home/6/4.jpg",
+                        name: `${getVernacularString("review4Name", userPreferences.language)}`,
+                        rating: 5,
+                        state: `${getVernacularString("review4State", userPreferences.language)}`,
+                        message: `${getVernacularString("review4Message", userPreferences.language)}`,
+                        productImage: "",
+                        productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
+                    },
+                ]}
+            />
         </div>
     );
 }
@@ -596,31 +439,48 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
 export function SolarSolutions({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center lg-px-screen-edge">
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="lg-text-headline">
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
+                <div className="tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T2", userPreferences.language)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-body">{getVernacularString("homeS7T2", userPreferences.language)}</div>
+                <div className="tw-px-6 lg-text-body">{getVernacularString("homeS7T2", userPreferences.language)}</div>
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-text-title2">{getVernacularString("homeS7T3", userPreferences.language)}</div>
+                <div className="tw-px-6 lg-text-title2">{getVernacularString("homeS7T3", userPreferences.language)}</div>
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-bg-secondary-500 tw-w-full tw-h-[400px] tw-rounded-lg"></div>
+                <CarouselStyle2
+                    userPreferences={userPreferences}
+                    items={[
+                        {
+                            imageRelativePath: "/livguard/home/7/1.jpg",
+                            titleTextContentPiece: "homeS7S1T1",
+                            bodyTextContentPiece: "homeS7S1T2",
+                        },
+                        {
+                            imageRelativePath: "/livguard/home/7/2.jpg",
+                            titleTextContentPiece: "homeS7S2T1",
+                            bodyTextContentPiece: "homeS7S2T2",
+                        },
+                        {
+                            imageRelativePath: "/livguard/home/7/3.jpg",
+                            titleTextContentPiece: "homeS7S3T1",
+                            bodyTextContentPiece: "homeS7S3T2",
+                        },
+                    ]}
+                />
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-cta-button">{getVernacularString("homeS7T4", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-6" />
+                <div className="tw-self-center tw-px-6">
+                    <div className="lg-cta-button">{getVernacularString("homeS7T4", userPreferences.language)}</div>
+                </div>
             </div>
         </div>
     );
@@ -628,44 +488,42 @@ export function SolarSolutions({userPreferences}: {userPreferences: UserPreferen
 
 export function MeetOurLeadership({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-8" />
-
-                <div className="tw-relative tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] lg-px-screen-edge tw-rounded-lg">
-                    <div className="tw-absolute tw-left-5 -tw-top-5">
-                        <div className="tw-h-32 tw-w-32 lg-bg-secondary-500 tw-rounded-full"></div>
-                    </div>
-
-                    <div className="tw-flex tw-flex-col">
-                        <VerticalSpacer className="tw-h-32" />
-
-                        <div className="lg-text-headline">{getVernacularString("homeS8Slide1T1", userPreferences.language)}</div>
-
-                        <VerticalSpacer className="tw-h-1" />
-
-                        <div className="lg-text-title2">{getVernacularString("homeS8Slide1T2", userPreferences.language)}</div>
-
-                        <VerticalSpacer className="tw-h-4" />
-
-                        <div className="lg-text-body">{getVernacularString("homeS8Slide1T3", userPreferences.language)}</div>
-
-                        <VerticalSpacer className="tw-h-6" />
-                    </div>
-                </div>
+        <div className="tw-flex tw-flex-col">
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T1", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T2", userPreferences.language)}} />
             </div>
+
+            <VerticalSpacer className="tw-h-8" />
+
+            <LeadersCarousel
+                userPreferences={userPreferences}
+                leaders={[
+                    {
+                        image: "/livguard/home/8/1.jpg",
+                        name: "homeS8Slide1T1",
+                        designation: "homeS8Slide1T2",
+                        bio: "homeS8Slide1T3",
+                    },
+                    {
+                        image: "/livguard/home/8/2.jpg",
+                        name: "homeS8Slide2T1",
+                        designation: "homeS8Slide2T2",
+                        bio: "homeS8Slide2T3",
+                    },
+                    {
+                        image: "/livguard/home/8/3.jpg",
+                        name: "homeS8Slide3T1",
+                        designation: "homeS8Slide3T2",
+                        bio: "homeS8Slide3T3",
+                    },
+                ]}
+            />
         </div>
     );
 }
 
-export function FAQs({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
@@ -683,7 +541,38 @@ export function FAQs({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="tw-w-full tw-h-[200px] lg-bg-secondary-500 tw-rounded-lg" />
+                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                    <ItemBuilder
+                        items={[
+                            {
+                                question: "homeS9Q1A",
+                                answer: "homeS9Q1A",
+                            },
+                            {
+                                question: "homeS9Q2A",
+                                answer: "homeS9Q2A",
+                            },
+                            {
+                                question: "homeS9Q3A",
+                                answer: "homeS9Q3A",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <Accordion
+                                title={getVernacularString(item.question, userPreferences.language)}
+                                panelItem={
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
+                                        <div className="lg-text-secondary-900">{getVernacularString(item.answer, userPreferences.language)}</div>
+                                    </div>
+                                }
+                                key={itemIndex}
+                            />
+                        )}
+                    />
+                </div>
 
                 <VerticalSpacer className="tw-h-4" />
 
@@ -745,12 +634,21 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreference
                 <VerticalSpacer className="tw-h-2" />
 
                 <div className="tw-flex tw-justify-evenly">
-                    <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                    <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                    <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                    <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                    <Google className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                    <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                    <a href="https://www.facebook.com/LivguardEnergy/">
+                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a href="https://twitter.com/LivguardEnergy">
+                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a href="https://www.instagram.com/livguardenergy/">
+                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/livguard-energy/">
+                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a href="youtube.com/@LivguardEnergy">
+                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />

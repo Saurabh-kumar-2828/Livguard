@@ -1,23 +1,27 @@
-import {LinksFunction, MetaFunction} from "@remix-run/node";
-import {Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch} from "@remix-run/react";
+import {json, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
+import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {Theme, UserPreferences} from "~/typeDefinitions";
 
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
 
-// // TODO: Figure out some way of enforcing the `LoaderData` type on `loader`
-// type LoaderData = {
-//     userDetails: User | null;
-// };
+type LoaderData = {
+    userPreferences: UserPreferences;
+};
 
-// export const loader: LoaderFunction = async ({request}) => {
-//     // const userDetails = await getAuthenticatedUserDetails(request, {
-//     //     name: true,
-//     // });
+export const loader: LoaderFunction = async ({request}) => {
+    const userPreferences = await getUserPreferencesFromCookies(request);
+    if (userPreferences instanceof Error) {
+        throw userPreferences;
+    }
 
-//     const userDetails = null;
+    const loaderData: LoaderData = {
+        userPreferences: userPreferences,
+    };
 
-//     return json({userDetails: userDetails});
-// };
+    return json(loaderData);
+};
 
 export const meta: MetaFunction = () => ({
     charset: "utf-8",
@@ -34,13 +38,24 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
-    // const {userDetails} = useLoaderData() as LoaderData;
+    const {userPreferences} = useLoaderData() as LoaderData;
 
     return (
         <html lang="en">
             <head>
                 <Meta />
                 <Links />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            if (${userPreferences.theme == Theme.Dark} || (${userPreferences.theme == null} && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                                document.documentElement.classList.add("tw-dark");
+                            } else {
+                                document.documentElement.classList.remove("tw-dark");
+                            }
+                        `,
+                    }}
+                />
             </head>
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">

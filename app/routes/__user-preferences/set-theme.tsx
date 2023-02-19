@@ -10,17 +10,17 @@ export const action: ActionFunction = async ({request}) => {
 
     const body = await request.formData();
 
-    const language = safeParse(getNonEmptyStringFromUnknown, body.get("language"));
+    const theme = safeParse(getNonEmptyStringFromUnknown, body.get("theme"));
     const redirectTo = safeParse(getNonEmptyStringFromUnknown, body.get("redirectTo"));
 
     if (redirectTo == null) {
         throw new Error("No redirect url specified!");
     }
 
-    if (language != null) {
-        userPreferencesCookie.set("language", language);
+    if (theme != null) {
+        userPreferencesCookie.set("theme", theme);
     } else {
-        userPreferencesCookie.unset("language");
+        userPreferencesCookie.unset("theme");
     }
 
     // TODO: Redirect to redirectTo urlSearchParam
