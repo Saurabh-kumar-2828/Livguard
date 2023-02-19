@@ -629,9 +629,11 @@ function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-10" />
 
-            <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
+            <div className="tw-flex tw-items-center tw-justify-center">
+                <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
+            </div>
         </div>
     );
 }
