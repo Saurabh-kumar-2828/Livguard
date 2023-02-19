@@ -10,8 +10,10 @@ import {getRedirectToUrlFromRequest} from "~/utilities";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {PageScaffold} from "~/components/pageScaffold";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useState} from "react";
+import {StarFill} from "react-bootstrap-icons";
+import {ProductCardComponent} from "~/components/category/common";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -67,7 +69,7 @@ type ProductInfo = {
     features: Array<{title: string; value: string}>;
     additionalInfo: Array<{title: string; value: string}>;
     productDescription: {description: string; images: Array<{image: string}>};
-    reviews: Array<any>;
+    reviews: {rating: number; numberOfReviews: number};
 };
 
 function ProductPage({userPreferences, productId}: {userPreferences: UserPreferences; productId: string}) {
@@ -183,7 +185,10 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
                     },
                 ],
             },
-            reviews: [],
+            reviews: {
+                rating: 5,
+                numberOfReviews: 120,
+            },
         },
         "2": {
             images: [
@@ -296,7 +301,10 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
                     },
                 ],
             },
-            reviews: [],
+            reviews: {
+                rating: 4,
+                numberOfReviews: 200,
+            },
         },
     };
 
@@ -325,6 +333,13 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
 
             <VerticalSpacer className="tw-h-10" />
 
+            <ProductRating
+                userPreferences={userPreferences}
+                reviews={productDetails[productId].reviews}
+            />
+
+            <VerticalSpacer className="tw-h-10" />
+
             <TransformingLives userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
@@ -333,6 +348,10 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
                 userPreferences={userPreferences}
                 showCTAButton={true}
             />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <SuggestedProducts userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -493,10 +512,126 @@ function ProductDescription({userPreferences, productDescription}: {userPreferen
     );
 }
 
-function ProductRatings({userPreferences}: {userPreferences: UserPreferences}) {
+
+function ProductRating({userPreferences, reviews}: {userPreferences: UserPreferences; reviews: {rating: number; numberOfReviews: number}}) {
     return (
-        <div>
-            <div></div>
+        <div className="lg-px-screen-edge">
+            <div className="lg-bg-secondary-100 tw-rounded-lg tw-p-6 tw-grid tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-items-center">
+                <div className="tw-col-start-1 tw-flex tw-flex-col tw-gap-3">
+                    <div className="lg-text-headline">{`${reviews.rating}/5`}</div>
+
+                    <div className="lg-text-title2">{`Based on ${reviews.numberOfReviews} Review`}</div>
+
+                    <div className="tw-flex tw-flex-row tw-gap-x-2">
+                        <ItemBuilder
+                            items={getIntegerArrayOfLength(5)}
+                            itemBuilder={(_, itemIndex) => (
+                                <StarFill
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-4 tw-h-4", itemIndex + 1 <= reviews.rating ? "lg-text-primary-500" : "lg-text-secondary-300")}
+                                    key={itemIndex}
+                                />
+                            )}
+                        />
+                    </div>
+                </div>
+
+                <div className="tw-col-start-2 tw-flex tw-flex-col tw-items-center">
+                    <ItemBuilder
+                        items={[
+                            {
+                                startRating : 5,
+                                percentage: 90,
+                            },
+                            {
+                                startRating : 4,
+                                percentage: 50,
+                            },
+                            {
+                                startRating : 3,
+                                percentage: 30,
+                            },
+                            {
+                                startRating : 2,
+                                percentage: 15,
+                            },
+                            {
+                                startRating : 1,
+                                percentage: 10,
+                            },
+                        ]}
+                        itemBuilder={(rating, ratingIndex) => (
+                            <div className="tw-flex tw-flex-row tw-gap-4 tw-items-center" key={ratingIndex}>
+                                <div>{`${rating.startRating} Star`}</div>
+                                <div className="tw-w-[50px] tw-h-[6px] lg-bg-secondary-300 tw-rounded-lg ">
+                                    <div className={`tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-w-[${rating.percentage}%] tw-h-full tw-rounded-lg`}></div>
+                                </div>
+                            </div>
+                        )}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}) {
+    const jodisData: Array<{
+        title: string;
+        image: string;
+        buttonText: string;
+        bestseller: boolean;
+    }> = [
+        {
+            title: `${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
+            image: "",
+            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            bestseller: false,
+        },
+        {
+            title: `${getVernacularString("categoryBattriesS6Jodi2Title", userPreferences.language)}`,
+            image: "",
+            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            bestseller: true,
+        },
+        {
+            title: `${getVernacularString("categoryBattriesS6Jodi3Title", userPreferences.language)}`,
+            image: "",
+            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            bestseller: true,
+        },
+        {
+            title: `${getVernacularString("categoryBattriesS6Jodi4Title", userPreferences.language)}`,
+            image: "",
+            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            bestseller: false,
+        },
+    ];
+
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS6HT1", userPreferences.language)}} />
+                </div>
+            </div>
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+                <ItemBuilder
+                    items={jodisData}
+                    itemBuilder={(jodi, jodiIndex) => (
+                        <ProductCardComponent
+                            vernacularContent={jodi}
+                            key={jodiIndex}
+                        />
+                    )}
+                />
+            </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
         </div>
     );
 }
@@ -532,381 +667,6 @@ function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) 
     );
 }
 
-export function QualityMeetsExpertise({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPageS3HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPageS3HT2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-2 tw-text-center">
-                    <div className="tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
-                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box1T1", userPreferences.language)}</div>
-                        <VerticalSpacer className="tw-h-2" />
-                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box1T2", userPreferences.language)}</div>
-                    </div>
-                    <div className="tw-col-start-2 tw-row-start-1 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
-                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box2T1", userPreferences.language)}</div>
-                        <VerticalSpacer className="tw-h-2" />
-                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box2T2", userPreferences.language)}</div>
-                    </div>
-                    <div className="tw-col-start-1 tw-row-start-2 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
-                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box3T1", userPreferences.language)}</div>
-                        <VerticalSpacer className="tw-h-2" />
-                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box3T2", userPreferences.language)}</div>
-                    </div>
-                    <div className="tw-col-start-2 tw-row-start-2 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
-                        <div className="lg-text-banner">{getVernacularString("landingPageS3Box4T1", userPreferences.language)}</div>
-                        <VerticalSpacer className="tw-h-2" />
-                        <div className="lg-text-titile2">{getVernacularString("landingPageS3Box4T2", userPreferences.language)}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-export function JodiSection({userPreferences}: {userPreferences: UserPreferences}) {
-    const JodiData = [
-        {
-            title: `${getVernacularString("landingPage2S4J1Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J1Description", userPreferences.language)}`,
-            specificationsTitle: `${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`,
-            keySpecifications: [
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J1Specification1Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification1Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J1Specification2Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification2Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J1Specification3Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification3Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J1Specification4Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification4Content", userPreferences.language)}`,
-                },
-            ],
-            jodiImage: "",
-        },
-        {
-            title: `${getVernacularString("landingPage2S4J2Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J2Description", userPreferences.language)}`,
-            specificationsTitle: `${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`,
-            keySpecifications: [
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J2Specification1Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification1Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J2Specification2Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification2Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J2Specification3Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J2Specification4Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification4Content", userPreferences.language)}`,
-                },
-            ],
-            jodiImage: "",
-        },
-        {
-            title: `${getVernacularString("landingPage2S4J3Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J3Description", userPreferences.language)}`,
-            specificationsTitle: `${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`,
-            keySpecifications: [
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J3Specification1Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification1Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J3Specification2Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification2Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J3Specification3Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J3Specification4Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification4Content", userPreferences.language)}`,
-                },
-            ],
-            jodiImage: "",
-        },
-        {
-            title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
-            description: `${getVernacularString("landingPage2S4J4Description", userPreferences.language)}`,
-            specificationsTitle: `${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`,
-            keySpecifications: [
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J4Specification1Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification1Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J4Specification2Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification2Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J4Specification3Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
-                },
-                {
-                    keySpecificationIcon: "",
-                    keySpecificationTitle: `${getVernacularString("landingPage2S4J4Specification4Title", userPreferences.language)}`,
-                    keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification4Content", userPreferences.language)}`,
-                },
-            ],
-            jodiImage: "",
-        },
-    ];
-
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-                <div className="lg-text-headline ">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="lg-bg-secondary-100 tw-rounded-lg tw-w-full tw-px-4">
-                    <VerticalSpacer className="tw-h-5" />
-
-                    <div className="lg-text-title1">{JodiData[0].title}</div>
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <div className="lg-text-body">{JodiData[0].description}</div>
-
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="lg-text-title2">{JodiData[0].specificationsTitle}</div>
-
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
-                        <ItemBuilder
-                            items={JodiData[0].keySpecifications}
-                            itemBuilder={(keySpecification, keySpecificationIndex) => (
-                                <div
-                                    className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3 tw-mx-auto`}
-                                >
-                                    <div className="tw-w-6 tw-h-6 lg-bg-secondary-500 tw-rounded-full"></div>
-
-                                    <div className="tw-flex tw-flex-col tw-gap-1">
-                                        <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
-                                        <div className="lg-text-body">{keySpecification.keySpecificationContent}</div>
-                                    </div>
-                                </div>
-                            )}
-                        />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <div className="tw-h-[100px] lg-bg-secondary-500"></div>
-
-                    <VerticalSpacer className="tw-h-6" />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="lg-cta-button">{getVernacularString("landingPage2S4CTABT", userPreferences.language)}</div>
-            </div>
-        </div>
-    );
-}
-
-export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPreferences}) {
-    const sectionData = [
-        {
-            title: `${getVernacularString("landingPage2S5LivH", userPreferences.language)}`,
-            content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
-            content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
-            content3: `${getVernacularString("landingPage2S5T3", userPreferences.language)}`,
-            content4: `${getVernacularString("landingPage2S5T4", userPreferences.language)}`,
-            highlighted: true,
-        },
-        {
-            title: `${getVernacularString("landingPage2S5OBH", userPreferences.language)}`,
-            content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
-            content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
-            content3: `${getVernacularString("landingPage2S5T3", userPreferences.language)}`,
-            content4: `${getVernacularString("landingPage2S5T4", userPreferences.language)}`,
-            highlighted: false,
-        },
-    ];
-
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-10" />
-
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3">
-                    <ItemBuilder
-                        items={sectionData}
-                        itemBuilder={(item, itemIndex) => (
-                            <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 `}>
-                                <div className="tw-w-[100px] tw-h-[100px] lg-bg-secondary-500 tw-rounded-lg"></div>
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title1">{item.highlighted}</div>
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content1}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content2}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content3}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content4}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    />
-                </div>
-            </div>
-        </div>
-    );
-}
-
-export function ExploreStarProducts({userPreferences}: {userPreferences: UserPreferences}) {
-    const sectionData = [
-        {
-            title: "i-Verter LGS 1100",
-            image: "",
-            bestSeller: false,
-        },
-        {
-            title: "LGS1700PV SW L",
-            image: "",
-            bestSeller: true,
-        },
-        {
-            title: "Invertuff IT 1545TT",
-            image: "",
-            bestSeller: true,
-        },
-        {
-            title: "Invertuff IT 1545TT",
-            image: "",
-            bestSeller: false,
-        },
-    ];
-
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
-                    <ItemBuilder
-                        items={sectionData}
-                        itemBuilder={(product, productIndex) => (
-                            <div className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}>
-                                <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3">
-                                    {product.bestSeller && <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-secondary-300 tw-pt-[2px]"> Best Seller </div>}
-
-                                    <VerticalSpacer className="tw-h-8" />
-
-                                    <div className="tw-text-body tw-text-center">{product.title}</div>
-
-                                    <VerticalSpacer className="tw-h-4" />
-
-                                    <div className="tw-w-full tw-h-[100px] lg-bg-secondary-500 tw-rounded-lg"></div>
-
-                                    <VerticalSpacer className="tw-h-4" />
-
-                                    <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{getVernacularString("landingPage2S7CTABT", userPreferences.language)}</div>
-                                </div>
-                            </div>
-                        )}
-                    />
-                </div>
-            </div>
-        </div>
-    );
-}
 
 export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
     return (
