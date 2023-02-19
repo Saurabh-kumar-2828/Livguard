@@ -9,7 +9,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {BatteryType, InverterType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {DealerLocator, FAQs, ShowerSomeLoveOnSocialHandles} from "~/routes";
+import {DealerLocator, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {EmpowerYourHomeComponent, OurSegestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
 
@@ -81,7 +81,7 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <FAQs userPreferences={userPreferences} />
+            <FaqSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 

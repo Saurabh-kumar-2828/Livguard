@@ -545,15 +545,15 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
                     <ItemBuilder
                         items={[
                             {
-                                question: "homeS9Q1A",
+                                question: "homeS9Q1Q",
                                 answer: "homeS9Q1A",
                             },
                             {
-                                question: "homeS9Q2A",
+                                question: "homeS9Q2Q",
                                 answer: "homeS9Q2A",
                             },
                             {
-                                question: "homeS9Q3A",
+                                question: "homeS9Q3Q",
                                 answer: "homeS9Q3A",
                             },
                         ]}

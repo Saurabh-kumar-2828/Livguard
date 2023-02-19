@@ -18,7 +18,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
             <div className="tw-flex tw-flex-col sm:tw-hidden">
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-secondary-900">Be the first to find out about new stories & latest offers!</div>
+                <div className="lg-text-secondary-900 lg-text-headline">Be the first to find out about new stories & latest offers!</div>
 
                 <VerticalSpacer className="tw-h-3" />
 
