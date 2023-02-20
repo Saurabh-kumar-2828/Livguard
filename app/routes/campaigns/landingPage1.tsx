@@ -104,11 +104,11 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("landingPage1S1T1", userPreferences.language)}</div>
+                <div className="lg-text-banner lg-px-screen-edge tw-text-white">{getVernacularString("landingPage1S1T1", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge">{getVernacularString("landingPage1S1T2", userPreferences.language)}</div>
+                <div className="lg-text-title1 lg-px-screen-edge tw-text-white">{getVernacularString("landingPage1S1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
@@ -120,7 +120,10 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 </button>
             </DefaultElementAnimation>
 
-            <a href="#contactUs" className="tw-row-[11] tw-col-start-1">
+            <a
+                href="#contactUs"
+                className="tw-row-[11] tw-col-start-1"
+            >
                 <ChevronDoubleDownIcon className=" tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
             </a>
         </div>
