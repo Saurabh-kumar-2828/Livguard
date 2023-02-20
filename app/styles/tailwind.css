@@ -182,7 +182,7 @@
     }
 
     .lg-text-input {
-        @apply tw-bg-secondary-900-dark tw-text-secondary-100-dark tw-py-3 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark;
+        @apply tw-w-full tw-bg-secondary-900-dark tw-text-secondary-100-dark tw-py-3 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark;
     }
 
     /* @keyframes animation-text-baseline {
