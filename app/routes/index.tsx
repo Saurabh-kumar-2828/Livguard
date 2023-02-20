@@ -148,22 +148,23 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("homeS1T1", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
+                <div className="lg-text-banner lg-px-screen-edge tw-z-10">{getVernacularString("homeS1T1", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge">{getVernacularString("homeS1T2", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
+                <div className="lg-text-title1 lg-px-screen-edge tw-z-10">{getVernacularString("homeS1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
+            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 tw-z-10">
                 <ContactUsCta
                     userPreferences={userPreferences}
                     textVernacId="homeS1T3"
+                    className="tw-z-10"
                 />
             </DefaultElementAnimation>
 
-            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
         </div>
     );
 }
@@ -908,7 +909,7 @@ export function ContactUsDialog({
 
                             <input
                                 type="text"
-                                className="lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                className="lg-text-input"
                             />
 
                             <VerticalSpacer className="tw-h-4" />
@@ -919,7 +920,7 @@ export function ContactUsDialog({
 
                             <input
                                 type="text"
-                                className="lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                className="lg-text-input"
                             />
 
                             <VerticalSpacer className="tw-h-4" />
@@ -930,7 +931,7 @@ export function ContactUsDialog({
 
                             <input
                                 type="text"
-                                className="lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                className="lg-text-input"
                             />
 
                             <VerticalSpacer className="tw-h-8" />

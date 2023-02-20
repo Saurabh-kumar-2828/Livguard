@@ -144,26 +144,36 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     headerMenuSM5T1: {
-        [Language.English]: "Stabilizer",
+        [Language.English]: "Accessories",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuSM5T2: {
-        [Language.English]: "E-Rikshaw Charger",
+        [Language.English]: "Stabilizer",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuSM5T3: {
+        [Language.English]: "E-Rikshaw Charger",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM5T4: {
         [Language.English]: "Inverter Trolley",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuSM6T1: {
-        [Language.English]: "Locate Dealer",
+        [Language.English]: "More",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuSM6T2: {
+        [Language.English]: "Locate Dealer",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM6T3: {
         [Language.English]: "Register Your Product",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",

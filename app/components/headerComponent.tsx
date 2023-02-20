@@ -634,22 +634,22 @@ function SubMenuDialog({
                                         : currentlyOpenSubMenu == SubMenu.Batteries
                                         ? [
                                               {
-                                                  linkTextTextContentPiece: "headerMenuSM1T2",
+                                                  linkTextTextContentPiece: "headerMenuSM2T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/",
                                               },
                                               {
-                                                  linkTextTextContentPiece: "headerMenuSM1T3",
+                                                  linkTextTextContentPiece: "headerMenuSM2T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/",
                                               },
                                               {
-                                                  linkTextTextContentPiece: "headerMenuSM1T4",
+                                                  linkTextTextContentPiece: "headerMenuSM2T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/",
                                               },
                                               {
-                                                  linkTextTextContentPiece: "headerMenuSM1T5",
+                                                  linkTextTextContentPiece: "headerMenuSM2T5",
                                                   enterClassName: "tw-delay-[400ms]",
                                                   link: "/",
                                               },
