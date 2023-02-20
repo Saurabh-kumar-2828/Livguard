@@ -212,8 +212,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     homeS2C1T2: {
         [Language.English]:
             "With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.",
-        [Language.Hindi]:
-            "पूरे भारत में मौजूद 40+ सेवा केंद्रों के साथ लिवगार्ड आपकी असुविधाओं को दूर करने के लिए हमेशा एक कॉल दूर है। आपकी संतुष्टि हमारे लिए हमेशा सबसे महत्त्वपूर्ण है।",
+        [Language.Hindi]: "पूरे भारत में मौजूद 40+ सेवा केंद्रों के साथ लिवगार्ड आपकी असुविधाओं को दूर करने के लिए हमेशा एक कॉल दूर है। आपकी संतुष्टि हमारे लिए हमेशा सबसे महत्त्वपूर्ण है।",
         [Language.Marathi]: "OOOOO",
     },
     homeS2C2T1: {
@@ -224,7 +223,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     homeS2C2T2: {
         [Language.English]:
             "Livguard leaves no crumbs when it comes to perfecting their manufacturing processes. With our expertise of over 35 years in battery making, we work to deliver quality products, every time.",
-        [Language.Hindi]: "लिवगार्ड अपनी उत्पादन प्रक्रियाओं को सर्वश्रेष्ठ बनाने में कोई कसर नहीं छोड़ता। हमारे 35+ वर्षों के अनुभव के साथ, हम ग्राहकों तक हमेशा अति-उत्तम समाधान पहुँचाने का प्रयत्न करते हैं।",
+        [Language.Hindi]:
+            "लिवगार्ड अपनी उत्पादन प्रक्रियाओं को सर्वश्रेष्ठ बनाने में कोई कसर नहीं छोड़ता। हमारे 35+ वर्षों के अनुभव के साथ, हम ग्राहकों तक हमेशा अति-उत्तम समाधान पहुँचाने का प्रयत्न करते हैं।",
         [Language.Marathi]: "OOOOO",
     },
     homeS3H1T1: {
@@ -2193,6 +2193,27 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     contactUsT8: {
         [Language.English]: "Till then, show some love to our\nsocial handles!",
         [Language.Hindi]: "तब तक हमारे सोशल मीडिया पर प्यार बरसाएँ",
+        [Language.Marathi]: "OOOOO",
+    },
+
+    contactUsFormHT1: {
+        [Language.English]: `Get <span class=\"lg-text-highlighted\">Reliable Power</span>`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">विश्वसनीय शक्ति</span>`,
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsFormHT2: {
+        [Language.English]: "With Livguard",
+        [Language.Hindi]: "लिवगार्ड के साथ",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsFormT3: {
+        [Language.English]: "Connect Today",
+        [Language.Hindi]: "आज ही जुड़ें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsFormT4: {
+        [Language.English]: "Let's Connect",
+        [Language.Hindi]: "सबमिट करें",
         [Language.Marathi]: "OOOOO",
     },
 

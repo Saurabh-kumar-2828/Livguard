@@ -302,7 +302,7 @@ function PowerPlannerIntroduction({userPreferences}: {userPreferences: UserPrefe
                             key={itemIndex}
                         >
                             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-2">
-                                <div className="lg-bg-primary-500 tw-h-12 tw-w-12 tw-rounded-full tw-p-2">
+                                <div className="lg-bg-primary-500 tw-h-12 tw-w-12 tw-rounded-full tw-p-2 tw-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
                                     <FullWidthImage
                                         relativePath={item.icon}
                                         imageCdnProvider={ImageCdnProvider.GrowthJockey}

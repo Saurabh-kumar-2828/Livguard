@@ -91,41 +91,10 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
         console.log("new dealer list", actionData.dealerList);
     }
 
-
-    const containerStyle = {
-        width: "100%",
-        height: "600px",
-        class:"tw-rounded-lg"
-    };
-
-    const center = {
-        lat: -3.745,
-        lng: -38.523,
-    };
-
     return (
         <div className="lg-px-screen-edge tw-flex tw-flex-col">
-            <LoadScript googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY">
-                <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={10}
-                >
-                    {/* Child components, such as markers, info windows, etc. */}
-                {dealerList.length > 0 &&
-                    <ItemBuilder
-                        items={actionData.dealerList}
-                        itemBuilder={(dealer,dealerIndex) => (
-                            <Marker
-                                icon={<Droplet className="tw-h-8 tw-w-8" />}
-                                position={{lat:dealer.latitude,lng:dealer.longitude}}
-                            />
-                        )}
-                    />
-                }
 
-                </GoogleMap>
-            </LoadScript>
+            <GoogleMapView dealerList={dealerList} />
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -200,6 +169,44 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
                 </div>
             )}
         </div>
+    );
+}
+
+function GoogleMapView({dealerList}:{dealerList: Array<Dealer>}){
+
+    const containerStyle = {
+        width: "100%",
+        height: "600px",
+        class: "tw-rounded-lg",
+    };
+
+    const center = {
+        lat: 21.7679,
+        lng: 78.8718,
+    };
+
+    return (
+        <LoadScript googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY">
+            <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={4}
+            >
+                {/* Child components, such as markers, info windows, etc. */}
+                {dealerList.length > 0 && (
+                    <ItemBuilder
+                        items={dealerList}
+                        itemBuilder={(dealer, dealerIndex) => (
+                            <Marker
+                                icon={<Droplet className="tw-h-8 tw-w-8" />}
+                                position={{lat: dealer.latitude, lng: dealer.longitude}}
+                                key={dealerIndex}
+                            />
+                        )}
+                    />
+                )}
+            </GoogleMap>
+        </LoadScript>
     );
 }
 

@@ -302,6 +302,13 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LQC5*hw{IoRP}t$*ELi_^QxGIojF",
         placeholderColor: "#080808",
     },
+    "/livguard/contact form/contact_form_background.jpg": {
+        width: 686,
+        height: 768,
+        altText: "Dummy alt text",
+        blurHash: "L397eN?bof-;~qt7j[oft7fPj[j[",
+        placeholderColor: "#484848",
+    },
     "/livguard/favicon-128.png": {
         width: 128,
         height: 128,
@@ -952,5 +959,19 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         altText: "Dummy alt text",
         blurHash: "L]R.[Z$jjZ%g~qoLoftRRjfkofj[",
         placeholderColor: "#f8f8f8",
+    },
+    "/livguard/temp/Load calculator Bg.jpg": {
+        width: 56,
+        height: 56,
+        altText: "Dummy alt text",
+        blurHash: "LZPyGJ_3S##-|IniWBo1rDRPayoL",
+        placeholderColor: "#d88888",
+    },
+    "/livguard/temp/Load calculator needle.png": {
+        width: 56,
+        height: 56,
+        altText: "Dummy alt text",
+        blurHash: "LeG+UM~qD%RjM{M{RjWB009F%Mof",
+        placeholderColor: "#080808",
     },
 };

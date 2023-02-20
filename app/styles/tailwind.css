@@ -170,7 +170,7 @@
     }
 
     .lg-cta-button {
-        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark tw-block;
+        @apply lg-text-button tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark tw-block;
     }
 
     .lg-cta-outline-button {
@@ -182,7 +182,7 @@
     }
 
     .lg-text-input {
-        @apply tw-bg-secondary-900-dark tw-text-secondary-100-dark tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark;
+        @apply tw-bg-secondary-900-dark tw-text-secondary-100-dark tw-py-3 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark;
     }
 
     /* @keyframes animation-text-baseline {

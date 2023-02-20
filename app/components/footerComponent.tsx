@@ -347,12 +347,36 @@ export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreference
             <VerticalSpacer className="tw-h-6" />
 
             <div className="tw-flex tw-justify-evenly">
-                <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                <Google className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
-                <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px]" />
+                <a
+                    href="https://www.facebook.com/LivguardEnergy/"
+                    target="_blank"
+                >
+                    <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://twitter.com/LivguardEnergy"
+                    target="_blank"
+                >
+                    <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://www.instagram.com/livguardenergy/"
+                    target="_blank"
+                >
+                    <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/company/livguard-energy/"
+                    target="_blank"
+                >
+                    <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://www.youtube.com/@LivguardEnergy"
+                    target="_blank"
+                >
+                    <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
             </div>
 
             <VerticalSpacer className="tw-h-6" />
