@@ -35,15 +35,15 @@ export function JodiCarousel({
                     items={items}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="lg-px-screen-edge"
+                            className="lg-px-screen-edge tw-h-full"
                             key={itemIndex}
                         >
                             <div
-                                className="tw-w-full tw-flex tw-flex-col tw-items-center tw-text-center"
+                                className="tw-w-full tw-flex tw-flex-col tw-h-full"
                                 key={itemIndex}
                             >
-                                <DefaultElementAnimation>
-                                    <div className="tw-flex tw-flex-col tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-w-full">
+                                <DefaultElementAnimation className="tw-h-full">
+                                    <div className="tw-flex tw-flex-col tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-w-full tw-h-full">
                                         <VerticalSpacer className="tw-h-4" />
 
                                         <div className="lg-text-title1">{item.title}</div>

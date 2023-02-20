@@ -1697,22 +1697,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryInvertersS6Jodi1Title: {
         [Language.English]: "The Urban Jodi",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अर्बन कॉम्बो",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi2Title: {
         [Language.English]: "The Rural Jodi",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "रूरल कॉम्बो",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi3Title: {
         [Language.English]: "The Super Life Jodi",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सुपर लाइफ कॉम्बो",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi4Title: {
         [Language.English]: "The Hi-Power Jodi",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हाई-पॉवर कॉम्बो",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6JodiButtontext: {
@@ -1773,8 +1773,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     review1ProductName: {
-        [Language.English]: "Inverter Battery",
-        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.English]: "Inverter",
+        [Language.Hindi]: "इन्वर्टर",
         [Language.Marathi]: "OOOOO",
     },
     review2Name: {
@@ -1813,8 +1813,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     review3ProductName: {
-        [Language.English]: "Inverter Battery",
-        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.English]: "Inverter",
+        [Language.Hindi]: "इन्वर्टर",
         [Language.Marathi]: "OOOOO",
     },
     review4Name: {
@@ -1833,8 +1833,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     review4ProductName: {
-        [Language.English]: "Inverter Battery",
-        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.English]: "Jodi",
+        [Language.Hindi]: "जोड़ि",
         [Language.Marathi]: "OOOOO",
     },
 
@@ -1891,7 +1891,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure1T9: {
         [Language.English]: "Sitemap",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "साइट मैप",
         [Language.Marathi]: "OOOOO",
     },
     footerDisclosure2H: {
@@ -1956,7 +1956,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure4T2: {
         [Language.English]: "Solar Grid Interactive Series",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "सौर ग्रिड इंटरैक्टिव श्रेणी",
         [Language.Marathi]: "OOOOO",
     },
     footerDisclosure4T3: {
@@ -1971,7 +1971,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure4T5: {
         [Language.English]: "Solar Charge Controller",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "सौर चार्ज कंट्रोलर",
         [Language.Marathi]: "OOOOO",
     },
     footerDisclosure4T6: {
@@ -2054,12 +2054,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "#असीमित ऊर्जा",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageBottomBarT1:{
+    landingPageBottomBarT1: {
         [Language.English]: "Find my Dealer",
         [Language.Hindi]: "डीलर खोजें",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageBottomBarT2:{
+    landingPageBottomBarT2: {
         [Language.English]: "Enquire now",
         [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "OOOOO",

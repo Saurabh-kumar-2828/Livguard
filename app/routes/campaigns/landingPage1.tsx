@@ -2,6 +2,7 @@ import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {useLoaderData} from "react-router";
 import {CarouselStyle2} from "~/components/carouselStyle2";
+import {ContactForm} from "~/components/contactUs";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
@@ -46,6 +47,7 @@ export default function () {
             <HeaderComponent
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
+                showMobileMenuIcon={false}
             />
             <LandingPage userPreferences={userPreferences} />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
@@ -58,6 +60,10 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <ContactForm userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -114,10 +120,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 </button>
             </DefaultElementAnimation>
 
-            <a
-                href="#energySolutions"
-                className="tw-row-[11] tw-col-start-1"
-            >
+            <a href="#contactUs" className="tw-row-[11] tw-col-start-1">
                 <ChevronDoubleDownIcon className=" tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
             </a>
         </div>

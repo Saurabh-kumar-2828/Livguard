@@ -1,12 +1,16 @@
 import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {useLoaderData} from "react-router";
+import {ContactForm} from "~/components/contactUs";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {JodiCarousel} from "~/components/jodiCarousel";
+import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -51,7 +55,7 @@ export default function () {
             />
             <LandingPage userPreferences={userPreferences} />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
-            {/* <StickyBottomBar userPreferences={userPreferences} /> */}
+            <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );
 }
@@ -60,6 +64,10 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <ContactForm userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -133,37 +141,6 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
         </div>
     );
 }
-
-// function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
-//     return (
-//         <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
-//             <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
-//                 <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-//                 <div className="lg-text-icon">Something</div>
-//             </div>
-
-//             <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
-//                 <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-//                 <div className="lg-text-icon">Something</div>
-//             </div>
-
-//             <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
-//                 {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
-//                 <div className="lg-text-icon">Something</div>
-//             </div>
-
-//             <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
-//                 <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-//                 <div className="lg-text-icon">Something</div>
-//             </div>
-
-//             <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
-//                 <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-//                 <div className="lg-text-icon">Something</div>
-//             </div>
-//         </div>
-//     );
-// }
 
 export function JodiSection({userPreferences}: {userPreferences: UserPreferences}) {
     const JodiData: Array<{
@@ -294,6 +271,7 @@ export function JodiSection({userPreferences}: {userPreferences: UserPreferences
 export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPreferences}) {
     const sectionData = [
         {
+            image: "/livguard/category/jodi/urban_jodi.png",
             title: `${getVernacularString("landingPage2S5LivH", userPreferences.language)}`,
             content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
             content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
@@ -302,6 +280,7 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
             highlighted: true,
         },
         {
+            image: "/livguard/landingPages/2/other_brands.png",
             title: `${getVernacularString("landingPage2S5OBH", userPreferences.language)}`,
             content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
             content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
@@ -326,7 +305,11 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
                         items={sectionData}
                         itemBuilder={(item, itemIndex) => (
                             <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 `}>
-                                <div className="tw-w-[100px] tw-h-[100px] lg-bg-secondary-500 tw-rounded-lg"></div>
+                                <FixedWidthImage
+                                    relativePath={item.image}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    width="150px"
+                                />
 
                                 <VerticalSpacer className="tw-h-4" />
 
@@ -396,22 +379,22 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
     const sectionData = [
         {
             title: "i-Verter LGS 1100",
-            image: "",
+            image: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
             bestSeller: false,
         },
         {
             title: "LGS1700PV SW L",
-            image: "",
+            image: "/livguard/inverter images/LGS1700PV-SW-L.png",
             bestSeller: true,
         },
         {
-            title: "Invertuff IT 1545TT",
-            image: "",
+            title: "Invertuff IT 1584TT",
+            image: "/livguard/battery images/IT 1584TT.png",
             bestSeller: true,
         },
         {
-            title: "Invertuff IT 1545TT",
-            image: "",
+            title: "Invertuff IT 1248ST",
+            image: "/livguard/battery images/IT 1248ST.png",
             bestSeller: false,
         },
     ];
@@ -430,23 +413,33 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(product, productIndex) => (
-                            <div className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}>
-                                <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3">
-                                    {product.bestSeller && <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-secondary-300 tw-pt-[2px]"> Best Seller </div>}
+                            <DefaultElementAnimation>
+                                <div
+                                    className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}
+                                    key={productIndex}
+                                >
+                                    <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3">
+                                        {product.bestSeller && <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 tw-pt-[2px]"> Best Seller </div>}
 
-                                    <VerticalSpacer className="tw-h-8" />
+                                        <VerticalSpacer className="tw-h-8" />
 
-                                    <div className="tw-text-body tw-text-center">{product.title}</div>
+                                        <div className="tw-text-body tw-text-center">{product.title}</div>
 
-                                    <VerticalSpacer className="tw-h-4" />
+                                        <VerticalSpacer className="tw-h-4" />
 
-                                    <div className="tw-w-full tw-h-[100px] lg-bg-secondary-500 tw-rounded-lg"></div>
+                                        <FullWidthImage
+                                            relativePath={product.image}
+                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        />
 
-                                    <VerticalSpacer className="tw-h-4" />
+                                        <VerticalSpacer className="tw-h-4" />
 
-                                    <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{getVernacularString("landingPage2S7CTABT", userPreferences.language)}</div>
+                                        <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">
+                                            {getVernacularString("landingPage2S7CTABT", userPreferences.language)}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </DefaultElementAnimation>
                         )}
                     />
                 </div>
