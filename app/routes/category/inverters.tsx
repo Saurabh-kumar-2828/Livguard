@@ -548,19 +548,6 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
     );
 }
 
-export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">

@@ -255,19 +255,3 @@ export function ProductOverviewComponent({
         </div>
     );
 }
-
-export function dummy({userPreferences, vernacularContent}: {userPreferences: UserPreferences; vernacularContent: any}) {
-    return (
-        <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,5fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
-            <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:te-text-left">
-                <div className="tw-text-title1">{vernacularContent.heading}</div>
-                <div className="tw-text-body">{vernacularContent.description}</div>
-            </div>
-            <div className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
-                <div className="lg-bg-secondary-500 tw-rounded-lg tw-w-full tw-h-[250px] lg:tw-h-[400px]"></div>
-            </div>
-        </div>
-    );
-}
-
-

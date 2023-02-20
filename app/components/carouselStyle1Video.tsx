@@ -10,7 +10,7 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function CarouselStyle1Video({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{videoAbsolutePath: string; posterRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
+export function CarouselStyle1Video({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{youtubeVideoId: string; videoAspectRatio: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
@@ -31,11 +31,15 @@ export function CarouselStyle1Video({userPreferences, items}: {userPreferences: 
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation>
-                                    <video
-                                        src={item.videoAbsolutePath}
-                                        poster={getAbsolutePathForRelativePath(item.posterRelativePath, ImageCdnProvider.GrowthJockey)}
-                                        controls
-                                    />
+                                    <iframe
+                                        src={`https://www.youtube.com/embed/${item.youtubeVideoId}`}
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                        className="tw-w-full"
+                                        style={{aspectRatio: item.videoAspectRatio}}
+                                    ></iframe>
                                 </DefaultImageAnimation>
 
                                 <VerticalSpacer className="tw-h-4" />

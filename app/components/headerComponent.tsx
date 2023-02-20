@@ -1,27 +1,36 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon, LanguageIcon} from "@heroicons/react/20/solid";
-import {Form, useSubmit} from "@remix-run/react";
+import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
-import {MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
+import {ArrowLeftShort, BrightnessHighFill, BrightnessLowFill, Check2, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {Language, languageToHumanFriendlyString, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
+
+enum MenuState {
+    Closed,
+    Transitioning,
+    Open,
+}
+
+enum SubMenu {
+    Inverters,
+    Batteries,
+    AutomotiveBatteries,
+    SolarSolutions,
+    Accessories,
+    More,
+}
 
 export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon}: {userPreferences: UserPreferences; redirectTo: string; showMobileMenuIcon: boolean}) {
     const submit = useSubmit();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    enum MenuState {
-        Closed,
-        Transitioning,
-        Open,
-    }
     const menuState = useRef<MenuState>(MenuState.Closed);
 
     function tryToOpenMenu() {
@@ -30,20 +39,10 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
         }
     }
 
-    function tryToCloseMenu() {
-        if (menuState.current == MenuState.Open) {
-            setIsMenuOpen(false);
-        }
-    }
-
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     function tryToOpenSearch() {
         setIsSearchOpen(true);
-    }
-
-    function tryToCloseSearch() {
-        setIsSearchOpen(false);
     }
 
     const languageOptions = [Language.English, Language.Hindi];
@@ -104,7 +103,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                             {languageToHumanFriendlyString(selectedLanguage)}
                         </Listbox.Button>
 
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-left-0 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 -tw-left-8 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                             <ItemBuilder
                                 items={languageOptions}
                                 itemBuilder={(item, itemIndex) => (
@@ -114,15 +113,21 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                                         as={React.Fragment}
                                     >
                                         {({active, selected}) => (
-                                            <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>
-                                                {languageToHumanFriendlyString(item)}
+                                            <li
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                    active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                )}
+                                            >
+                                                <div>{languageToHumanFriendlyString(item)}</div>
+                                                {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
                                             </li>
                                         )}
                                     </Listbox.Option>
                                 )}
                                 spaceBuilder={(spaceIndex) => (
                                     <div
-                                        className="tw-mx-2 tw-h-px lg-bg-secondary-700"
+                                        className="tw-h-px lg-bg-secondary-700"
                                         key={spaceIndex}
                                     />
                                 )}
@@ -161,15 +166,29 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     </>
                 )}
 
-                <FixedHeightImage
-                    relativePath="/livguard/logo-256.png"
-                    height="1.5rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                />
+                <div className="tw-block dark:tw-hidden">
+                    <Link to="/">
+                        <FixedHeightImage
+                            relativePath="/livguard/header/logo-100-light.jpg"
+                            height="1.5rem"
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        />
+                    </Link>
+                </div>
+
+                <div className="dark:tw-block tw-hidden">
+                    <Link to="/">
+                        <FixedHeightImage
+                            relativePath="/livguard/header/logo-100-dark.jpg"
+                            height="1.5rem"
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        />
+                    </Link>
+                </div>
 
                 <div className="tw-flex-1" />
 
-                <button
+                {/* <button
                     type="button"
                     onClick={tryToOpenSearch}
                     className="tw-flex tw-flex-row tw-items-center"
@@ -179,7 +198,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     <div>{getVernacularString("headerS2T1", userPreferences.language)}</div>
                 </button>
 
-                <HorizontalSpacer className="tw-w-4" />
+                <HorizontalSpacer className="tw-w-4" /> */}
 
                 <Form
                     method="post"
@@ -192,10 +211,11 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         onChange={setSelectedTheme}
                     >
                         <Listbox.Button className="lg-bg-transparent lg-text-secondary-900">
-                            <MoonStarsFill className="tw-w-6 tw-h-6" />
+                            <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
+                            <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
                         </Listbox.Button>
 
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 tw-w-28 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 tw-w-40 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                             <ItemBuilder
                                 items={themeOptions}
                                 itemBuilder={(item, itemIndex) => (
@@ -205,15 +225,21 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                                         as={React.Fragment}
                                     >
                                         {({active, selected}) => (
-                                            <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>
-                                                {themeToHumanFriendlyString(item)}
+                                            <li
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                    active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                )}
+                                            >
+                                                <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
+                                                {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
                                             </li>
                                         )}
                                     </Listbox.Option>
                                 )}
                                 spaceBuilder={(spaceIndex) => (
                                     <div
-                                        className="tw-mx-2 tw-h-px lg-bg-secondary-700"
+                                        className="tw-h-px lg-bg-secondary-700"
                                         key={spaceIndex}
                                     />
                                 )}
@@ -239,201 +265,306 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 </Form>
             </div>
 
-            {/* Menu */}
-            <Transition
-                show={isMenuOpen}
-                as={React.Fragment}
-                beforeEnter={() => (menuState.current = MenuState.Transitioning)}
-                afterEnter={() => (menuState.current = MenuState.Open)}
-                beforeLeave={() => (menuState.current = MenuState.Transitioning)}
-                afterLeave={() => (menuState.current = MenuState.Closed)}
+            <MenuDialog
+                userPreferences={userPreferences}
+                isMenuOpen={isMenuOpen}
+                setIsMenuOpen={setIsMenuOpen}
+                menuState={menuState}
+            />
+
+            {/* <SearchDialog
+                userPreferences={userPreferences}
+                isSearchOpen={isSearchOpen}
+                setIsSearchOpen={setIsSearchOpen}
+            /> */}
+        </div>
+    );
+}
+
+function MenuDialog({
+    userPreferences,
+    isMenuOpen,
+    setIsMenuOpen,
+    menuState,
+}: {
+    userPreferences: UserPreferences;
+    isMenuOpen: boolean;
+    setIsMenuOpen: React.Dispatch<boolean>;
+    menuState: React.MutableRefObject<MenuState>;
+}) {
+    const navigate = useNavigate();
+
+    const [currentlyOpenSubMenu, setCurrentlyOpenSubMenu] = useState<SubMenu | null>(null);
+    const subMenuState = useRef<MenuState>(MenuState.Closed);
+
+    function tryToOpenSubMenu(subMenu: SubMenu) {
+        if (subMenuState.current == MenuState.Closed) {
+            setCurrentlyOpenSubMenu(subMenu);
+        }
+    }
+
+    function tryToCloseMenu() {
+        if (menuState.current == MenuState.Open) {
+            setIsMenuOpen(false);
+            setCurrentlyOpenSubMenu(null);
+        }
+    }
+
+    return (
+        <Transition
+            show={isMenuOpen}
+            as={React.Fragment}
+            beforeEnter={() => (menuState.current = MenuState.Transitioning)}
+            afterEnter={() => (menuState.current = MenuState.Open)}
+            beforeLeave={() => (menuState.current = MenuState.Transitioning)}
+            afterLeave={() => (menuState.current = MenuState.Closed)}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseMenu}
             >
-                <Dialog
-                    as="div"
-                    className="tw-relative tw-z-50"
-                    onClose={tryToCloseMenu}
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
                 >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-overflow-y-auto tw-grid tw-grid-cols">
                     <Transition.Child
                         as={React.Fragment}
                         enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-opacity-0"
-                        enterTo="tw-opacity-100"
+                        enterFrom="tw-scale-0 tw-rotate-180"
+                        enterTo="tw-scale-100 tw-rotate-0"
                         leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                        leaveFrom="tw-opacity-100"
-                        leaveTo="tw-opacity-0"
+                        leaveFrom="tw-scale-100 tw-rotate-0"
+                        leaveTo="tw-scale-0 tw-rotate-180"
                     >
-                        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                        <button
+                            type="button"
+                            className="tw-justify-self-center tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-full"
+                            onClick={tryToCloseMenu}
+                        >
+                            <X className="tw-w-10 tw-h-10 lg-text-secondary-700" />
+                        </button>
                     </Transition.Child>
 
-                    <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-overflow-y-auto tw-grid tw-grid-cols">
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[17.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"
-                            enterFrom="tw-scale-0 tw-rotate-180"
-                            enterTo="tw-scale-100 tw-rotate-0"
-                            leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                            leaveFrom="tw-scale-100 tw-rotate-0"
-                            leaveTo="tw-scale-0 tw-rotate-180"
-                        >
-                            <button
-                                type="button"
-                                className="tw-justify-self-center lg-bg-secondary-300 tw-rounded-full"
-                                onClick={tryToCloseMenu}
-                            >
-                                <X className="tw-w-10 tw-h-10 lg-text-secondary-700" />
-                            </button>
-                        </Transition.Child>
-
-                        <VerticalSpacer className="tw-h-6" />
-
-                        <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[minmax(14rem,1fr)_2rem_13.75rem_3rem] tw-justify-items-center tw-relative">
-                            <Transition.Child
-                                as={React.Fragment}
-                                enter="tw-ease-out tw-transition-all tw-duration-200"
-                                enterFrom="tw-translate-y-full"
-                                enterTo="tw-translate-y-0"
-                                leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                                leaveFrom="tw-translate-y-0"
-                                leaveTo="tw-translate-y-full"
-                            >
-                                <div className="tw-absolute tw-inset-0 lg-bg-secondary-300 tw-rounded-t-lg -tw-z-10" />
-                            </Transition.Child>
-
-                            <div className="tw-w-full tw-flex tw-flex-col tw-gap-y-4 tw-items-stretch tw-max-h-full tw-overflow-y-auto">
-                                <ItemBuilder
-                                    items={[
-                                        {
-                                            linkTextTextContentPiece: "headerMenuS1T1",
-                                            link: "",
-                                            enterClassName: "tw-delay-[250ms]",
-                                        },
-                                        {
-                                            linkTextTextContentPiece: "headerMenuS1T2",
-                                            link: "",
-                                            enterClassName: "tw-delay-[300ms]",
-                                        },
-                                        {
-                                            linkTextTextContentPiece: "headerMenuS1T3",
-                                            link: "",
-                                            enterClassName: "tw-delay-[350ms]",
-                                        },
-                                        {
-                                            linkTextTextContentPiece: "headerMenuS1T4",
-                                            link: "",
-                                            enterClassName: "tw-delay-[400ms]",
-                                        },
-                                        {
-                                            linkTextTextContentPiece: "headerMenuS1T5",
-                                            link: "",
-                                            enterClassName: "tw-delay-[450ms]",
-                                        },
-                                    ]}
-                                    itemBuilder={(item, itemIndex) => (
-                                        <div
-                                            className="tw-flex tw-flex-row"
-                                            key={itemIndex}
-                                        >
-                                            <Transition.Child
-                                                as={React.Fragment}
-                                                enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
-                                                enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                                enterTo="tw-translate-y-0 tw-opacity-full"
-                                                leave="tw-ease-in tw-transition-all tw-duration-200"
-                                                leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                                leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                                            >
-                                                <div className="tw-flex-1 lg-text-title1">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
-                                            </Transition.Child>
-
-                                            <Transition.Child
-                                                as={React.Fragment}
-                                                enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
-                                                enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                                enterTo="tw-translate-y-0 tw-opacity-full"
-                                                leave="tw-ease-in tw-transition-all tw-duration-200"
-                                                leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                                leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                                            >
-                                                <div className="tw-flex-none tw-w-7 tw-h-7 lg-bg-secondary-500 tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center">
-                                                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                                                </div>
-                                            </Transition.Child>
-                                        </div>
-                                    )}
-                                />
-                            </div>
-
-                            <VerticalSpacer className="tw-h-8" />
-
-                            <Transition.Child
-                                as="div"
-                                enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
-                                enterFrom="tw-opacity-0"
-                                enterTo="tw-opacity-full"
-                                leave="tw-ease-in tw-transition-all tw-duration-200"
-                                leaveFrom="tw-opacity-full"
-                                leaveTo="tw-opacity-0"
-                            >
-                                <FixedHeightImage
-                                    relativePath="/livguard/header/akshay.png"
-                                    height="13.75rem"
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                />
-                            </Transition.Child>
-
-                            <Transition.Child
-                                as={React.Fragment}
-                                enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
-                                enterFrom="tw-opacity-0"
-                                enterTo="tw-opacity-full"
-                                leave="tw-ease-in tw-transition-all tw-duration-200"
-                                leaveFrom="tw-opacity-full"
-                                leaveTo="tw-opacity-0"
-                            >
-                                <button
-                                    type="button"
-                                    className="lg-cta-button tw-px-4"
-                                >
-                                    <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
-                                        <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
-                                        <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
-                                    </div>
-                                </button>
-                            </Transition.Child>
-                        </div>
-                    </Dialog.Panel>
-                </Dialog>
-            </Transition>
-
-            {/* Search */}
-            <Transition
-                show={isSearchOpen}
-                as={React.Fragment}
-            >
-                <Dialog
-                    as="div"
-                    className="tw-relative tw-z-50"
-                    onClose={tryToCloseSearch}
-                >
-                    <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[5.25rem_minmax(0,1fr)]">
-                        <Transition.Child
-                            as={React.Fragment}
-                            enter="tw-ease-out tw-transition-all tw-duration-200"
-                            enterFrom="-tw-translate-y-full"
+                            enterFrom="tw-translate-y-full"
                             enterTo="tw-translate-y-0"
                             leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
                             leaveFrom="tw-translate-y-0"
-                            leaveTo="-tw-translate-y-full"
+                            leaveTo="tw-translate-y-full"
                         >
-                            <div className="tw-w-full lg-bg-secondary-300 tw-p-4">
-                                <input
-                                    type="text"
-                                    className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                />
-                                <Search className="tw-absolute tw-top-[1.875rem] tw-left-8 tw-w-6 tw-h-6" />
-                            </div>
+                            <div className="tw-absolute tw-inset-0 tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-t-lg -tw-z-10" />
                         </Transition.Child>
 
+                        <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-gap-y-4 tw-items-stretch">
+                            <ItemBuilder
+                                items={[
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T1",
+                                        enterClassName: "tw-delay-[250ms]",
+                                        subMenu: SubMenu.Inverters,
+                                        link: null,
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T2",
+                                        enterClassName: "tw-delay-[300ms]",
+                                        subMenu: SubMenu.Batteries,
+                                        link: null,
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T3",
+                                        enterClassName: "tw-delay-[350ms]",
+                                        subMenu: SubMenu.AutomotiveBatteries,
+                                        link: null,
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T4",
+                                        enterClassName: "tw-delay-[400ms]",
+                                        subMenu: null,
+                                        link: "/solar",
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T5",
+                                        enterClassName: "tw-delay-[450ms]",
+                                        subMenu: SubMenu.Accessories,
+                                        link: null,
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T6",
+                                        enterClassName: "tw-delay-[500ms]",
+                                        subMenu: SubMenu.More,
+                                        link: null,
+                                    },
+                                ]}
+                                itemBuilder={(item, itemIndex) => (
+                                    <button
+                                        className="tw-flex tw-flex-row tw-text-left"
+                                        key={itemIndex}
+                                        onClick={() => {
+                                            if (item.subMenu != null) {
+                                                tryToOpenSubMenu(item.subMenu);
+                                            } else {
+                                                navigate(item.link);
+                                            }
+                                        }}
+                                    >
+                                        <Transition.Child
+                                            as={React.Fragment}
+                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
+                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
+                                            enterTo="tw-translate-y-0 tw-opacity-full"
+                                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
+                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                                        >
+                                            <div className="tw-flex-1 lg-text-title1">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
+                                        </Transition.Child>
+
+                                        <Transition.Child
+                                            as={React.Fragment}
+                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
+                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
+                                            enterTo="tw-translate-y-0 tw-opacity-full"
+                                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
+                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                                        >
+                                            <div className="tw-flex-none tw-w-7 tw-h-7 tw-bg-secondary-300-light dark:tw-bg-secondary-500-dark tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center">
+                                                <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                                            </div>
+                                        </Transition.Child>
+                                    </button>
+                                )}
+                            />
+                        </div>
+
+                        <VerticalSpacer className="tw-h-8" />
+
+                        <Transition.Child
+                            as="div"
+                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
+                            enterFrom="tw-opacity-0"
+                            enterTo="tw-opacity-full"
+                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                            leaveFrom="tw-opacity-full"
+                            leaveTo="tw-opacity-0"
+                        >
+                            <FixedHeightImage
+                                relativePath="/livguard/header/akshay.png"
+                                height="13.75rem"
+                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            />
+                        </Transition.Child>
+
+                        <Transition.Child
+                            as={React.Fragment}
+                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
+                            enterFrom="tw-opacity-0"
+                            enterTo="tw-opacity-full"
+                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                            leaveFrom="tw-opacity-full"
+                            leaveTo="tw-opacity-0"
+                        >
+                            <button
+                                type="button"
+                                className="lg-cta-button tw-px-4"
+                            >
+                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
+                                    <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
+                                    <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
+                                </div>
+                            </button>
+                        </Transition.Child>
+                    </div>
+                </Dialog.Panel>
+
+                <SubMenuDialog
+                    userPreferences={userPreferences}
+                    setIsMenuOpen={setIsMenuOpen}
+                    tryToCloseMenu={tryToCloseMenu}
+                    menuState={menuState}
+                    currentlyOpenSubMenu={currentlyOpenSubMenu}
+                    setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+                    subMenuState={subMenuState}
+                />
+            </Dialog>
+        </Transition>
+    );
+}
+
+function SubMenuDialog({
+    userPreferences,
+    setIsMenuOpen,
+    tryToCloseMenu,
+    menuState,
+    currentlyOpenSubMenu,
+    setCurrentlyOpenSubMenu,
+    subMenuState,
+}: {
+    userPreferences: UserPreferences;
+    setIsMenuOpen: React.Dispatch<boolean>;
+    tryToCloseMenu: () => void;
+    menuState: React.MutableRefObject<MenuState>;
+    currentlyOpenSubMenu: SubMenu | null;
+    setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
+    subMenuState: React.MutableRefObject<MenuState>;
+}) {
+    function tryToCloseSubMenu() {
+        if (subMenuState.current == MenuState.Open) {
+            setCurrentlyOpenSubMenu(null);
+        }
+    }
+
+    return (
+        <Transition
+            show={currentlyOpenSubMenu != null}
+            as={React.Fragment}
+            beforeEnter={() => (subMenuState.current = MenuState.Transitioning)}
+            afterEnter={() => (subMenuState.current = MenuState.Open)}
+            beforeLeave={() => (subMenuState.current = MenuState.Transitioning)}
+            afterLeave={() => (subMenuState.current = MenuState.Closed)}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseSubMenu}
+            >
+                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-overflow-y-auto tw-grid tw-grid-cols">
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-scale-0 tw-rotate-180"
+                        enterTo="tw-scale-100 tw-rotate-0"
+                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
+                        leaveFrom="tw-scale-100 tw-rotate-0"
+                        leaveTo="tw-scale-0 tw-rotate-180"
+                    >
+                        <button
+                            type="button"
+                            className="tw-justify-self-center tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-full"
+                            onClick={tryToCloseSubMenu}
+                        >
+                            <ArrowLeftShort className="tw-w-10 tw-h-10 lg-text-secondary-700" />
+                        </button>
+                    </Transition.Child>
+
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[17.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -443,29 +574,299 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                             leaveFrom="tw-translate-x-0"
                             leaveTo="tw-translate-x-full"
                         >
-                            <div className="tw-w-full tw-h-full lg-bg-secondary-100"></div>
+                            <div className="tw-absolute tw-inset-0 tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-t-lg -tw-z-10" />
+                        </Transition.Child>
+
+                        <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-gap-y-4 tw-items-stretch">
+                            <Transition.Child
+                                as={React.Fragment}
+                                // enter="tw-ease-out tw-transition-all tw-delay-[200ms]"
+                                // enterFrom="tw-translate-y-[1em] tw-opacity-0"
+                                // enterTo="tw-translate-y-0 tw-opacity-full"
+                                // leave="tw-ease-in tw-transition-all tw-duration-200"
+                                // leaveFrom="tw-translate-y-0 tw-opacity-full"
+                                // leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                                leave="tw-ease-in tw-transition-all tw-duration-200"
+                                leaveFrom="tw-translate-y-0 tw-opacity-full"
+                                leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                            >
+                                <div
+                                    className="tw-w-fit tw-flex tw-flex-row tw-items-center tw-gap-x-2"
+                                    onClick={tryToCloseSubMenu}
+                                >
+                                    <ArrowLeftShort className="tw-w-4 tw-h-4" />
+                                    <div>
+                                        {currentlyOpenSubMenu == SubMenu.Inverters
+                                            ? getVernacularString("headerMenuSM1T1", userPreferences.language)
+                                            : currentlyOpenSubMenu == SubMenu.Batteries
+                                            ? getVernacularString("headerMenuSM2T1", userPreferences.language)
+                                            : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
+                                            ? getVernacularString("headerMenuSM3T1", userPreferences.language)
+                                            : currentlyOpenSubMenu == SubMenu.SolarSolutions
+                                            ? getVernacularString("headerMenuSM4T1", userPreferences.language)
+                                            : currentlyOpenSubMenu == SubMenu.Accessories
+                                            ? getVernacularString("headerMenuSM5T1", userPreferences.language)
+                                            : null}
+                                    </div>
+                                </div>
+                            </Transition.Child>
+
+                            <ItemBuilder
+                                items={
+                                    currentlyOpenSubMenu == SubMenu.Inverters
+                                        ? [
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T2",
+                                                  enterClassName: "tw-delay-[250ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T3",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T4",
+                                                  enterClassName: "tw-delay-[350ms]",
+                                                  link: "/",
+                                              },
+                                          ]
+                                        : currentlyOpenSubMenu == SubMenu.Batteries
+                                        ? [
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T2",
+                                                  enterClassName: "tw-delay-[250ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T3",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T4",
+                                                  enterClassName: "tw-delay-[350ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM1T5",
+                                                  enterClassName: "tw-delay-[400ms]",
+                                                  link: "/",
+                                              },
+                                          ]
+                                        : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
+                                        ? [
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T2",
+                                                  enterClassName: "tw-delay-[250ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T3",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T4",
+                                                  enterClassName: "tw-delay-[350ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T5",
+                                                  enterClassName: "tw-delay-[400ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T6",
+                                                  enterClassName: "tw-delay-[450ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T7",
+                                                  enterClassName: "tw-delay-[450ms]",
+                                                  link: "/",
+                                              },
+                                          ]
+                                        : currentlyOpenSubMenu == SubMenu.SolarSolutions
+                                        ? []
+                                        : currentlyOpenSubMenu == SubMenu.Accessories
+                                        ? [
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM5T2",
+                                                  enterClassName: "tw-delay-[250ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM5T3",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM5T4",
+                                                  enterClassName: "tw-delay-[350ms]",
+                                                  link: "/",
+                                              },
+                                          ]
+                                        : currentlyOpenSubMenu == SubMenu.More
+                                        ? [
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM6T2",
+                                                  enterClassName: "tw-delay-[250ms]",
+                                                  link: "/",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM6T3",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/",
+                                              },
+                                          ]
+                                        : []
+                                }
+                                itemBuilder={(item, itemIndex) => (
+                                    <Link
+                                        to={item.link}
+                                        className="tw-flex tw-flex-row"
+                                        key={itemIndex}
+                                    >
+                                        <Transition.Child
+                                            as={React.Fragment}
+                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
+                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
+                                            enterTo="tw-translate-y-0 tw-opacity-full"
+                                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
+                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                                        >
+                                            <div className="tw-flex-1 lg-text-title1">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
+                                        </Transition.Child>
+
+                                        <Transition.Child
+                                            as={React.Fragment}
+                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
+                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
+                                            enterTo="tw-translate-y-0 tw-opacity-full"
+                                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
+                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                                        >
+                                            <div className="tw-flex-none tw-w-7 tw-h-7 tw-bg-secondary-300-light dark:tw-bg-secondary-500-dark tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center">
+                                                <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                                            </div>
+                                        </Transition.Child>
+                                    </Link>
+                                )}
+                            />
+                        </div>
+
+                        <VerticalSpacer className="tw-h-8" />
+
+                        <Transition.Child
+                            as="div"
+                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
+                            enterFrom="tw-opacity-0"
+                            enterTo="tw-opacity-full"
+                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                            leaveFrom="tw-opacity-full"
+                            leaveTo="tw-opacity-0"
+                        >
+                            <FixedHeightImage
+                                relativePath="/livguard/header/akshay.png"
+                                height="13.75rem"
+                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            />
                         </Transition.Child>
 
                         <Transition.Child
                             as={React.Fragment}
-                            enter="tw-ease-out tw-transition-all tw-duration-200"
-                            enterFrom="tw-scale-0 tw-rotate-180"
-                            enterTo="tw-scale-100 tw-rotate-0"
-                            leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                            leaveFrom="tw-scale-100 tw-rotate-0"
-                            leaveTo="tw-scale-0 tw-rotate-180"
+                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
+                            enterFrom="tw-opacity-0"
+                            enterTo="tw-opacity-full"
+                            leave="tw-ease-in tw-transition-all tw-duration-200"
+                            leaveFrom="tw-opacity-full"
+                            leaveTo="tw-opacity-0"
                         >
                             <button
                                 type="button"
-                                className="tw-absolute tw-bottom-8 tw-left-1/2 -tw-translate-x-1/2 lg-bg-secondary-300 tw-rounded-full tw-p-3"
-                                onClick={tryToCloseSearch}
+                                className="lg-cta-button tw-px-4"
                             >
-                                <X className="tw-w-10 tw-h-10 lg-text-secondary-700" />
+                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
+                                    <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
+                                    <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
+                                </div>
                             </button>
                         </Transition.Child>
-                    </Dialog.Panel>
-                </Dialog>
-            </Transition>
-        </div>
+                    </div>
+                </Dialog.Panel>
+            </Dialog>
+        </Transition>
+    );
+}
+
+function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPreferences: UserPreferences; isSearchOpen: boolean; setIsSearchOpen: React.Dispatch<boolean>}) {
+    function tryToCloseSearch() {
+        setIsSearchOpen(false);
+    }
+
+    return (
+        <Transition
+            show={isSearchOpen}
+            as={React.Fragment}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseSearch}
+            >
+                <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[5.25rem_minmax(0,1fr)]">
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="-tw-translate-y-full"
+                        enterTo="tw-translate-y-0"
+                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
+                        leaveFrom="tw-translate-y-0"
+                        leaveTo="-tw-translate-y-full"
+                    >
+                        <div className="tw-w-full lg-bg-secondary-300 tw-p-4">
+                            <input
+                                type="text"
+                                className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                            />
+                            <Search className="tw-absolute tw-top-[1.875rem] tw-left-8 tw-w-6 tw-h-6" />
+                        </div>
+                    </Transition.Child>
+
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-translate-x-full"
+                        enterTo="tw-translate-x-0"
+                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
+                        leaveFrom="tw-translate-x-0"
+                        leaveTo="tw-translate-x-full"
+                    >
+                        <div className="tw-w-full tw-h-full lg-bg-secondary-100"></div>
+                    </Transition.Child>
+
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-scale-0 tw-rotate-180"
+                        enterTo="tw-scale-100 tw-rotate-0"
+                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
+                        leaveFrom="tw-scale-100 tw-rotate-0"
+                        leaveTo="tw-scale-0 tw-rotate-180"
+                    >
+                        <button
+                            type="button"
+                            className="tw-absolute tw-bottom-8 tw-left-1/2 -tw-translate-x-1/2 lg-bg-secondary-300 tw-rounded-full tw-p-3"
+                            onClick={tryToCloseSearch}
+                        >
+                            <X className="tw-w-10 tw-h-10 lg-text-secondary-700" />
+                        </button>
+                    </Transition.Child>
+                </Dialog.Panel>
+            </Dialog>
+        </Transition>
     );
 }

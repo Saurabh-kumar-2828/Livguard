@@ -97,14 +97,6 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" />
 
-            <DeviceSelection
-                userPreferences={userPreferences}
-                loadCalculatorInputs={loadCalculatorInputs}
-                dispatch={dispatch}
-            />
-
-            <VerticalSpacer className="tw-h-8" />
-
             <AdditionalInputsSection
                 userPreferences={userPreferences}
                 loadCalculatorInputs={loadCalculatorInputs}
@@ -142,7 +134,7 @@ export function PowerPlannerTeaser({userPreferences}: {userPreferences: UserPref
         <div>
             <PowerPlannerIntroduction userPreferences={userPreferences} />
 
-            <PropertySelection
+            <PropertySelectionForTeaser
                 userPreferences={userPreferences}
                 loadCalculatorInputs={loadCalculatorInputs}
                 dispatch={dispatch}
@@ -158,6 +150,95 @@ export function PowerPlannerTeaser({userPreferences}: {userPreferences: UserPref
                 >
                     {getVernacularString("homeS5T6", userPreferences.language)}
                 </Link>
+            </div>
+        </div>
+    );
+}
+
+function PropertySelectionForTeaser({
+    userPreferences,
+    loadCalculatorInputs,
+    dispatch,
+}: {
+    userPreferences: UserPreferences;
+    loadCalculatorInputs: LoadCalculatorInputs;
+    dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+}) {
+    return (
+        <div className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
+            <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="tw-w-full tw-grid tw-grid-cols-3 tw-gap-2">
+                <ItemBuilder
+                    items={[
+                        {
+                            icon: "/livguard/home/5/1-bhk.png",
+                            content: "1 BHK",
+                            value: "1-bhk",
+                        },
+                        {
+                            icon: "/livguard/home/5/2-bhk.png",
+                            content: "2 BHK",
+                            value: "2-bhk",
+                        },
+                        {
+                            icon: "/livguard/home/5/3-bhk.png",
+                            content: "3 BHK",
+                            value: "3-bhk",
+                        },
+                        {
+                            icon: "/livguard/home/5/4-bhk.png",
+                            content: "4 BHK",
+                            value: "4-bhk",
+                        },
+                        {
+                            icon: "/livguard/home/5/villa.png",
+                            content: "Villa",
+                            value: "villa",
+                        },
+                        {
+                            icon: "/livguard/home/5/custom.png",
+                            content: "Custom",
+                            value: "custom",
+                        },
+                    ]}
+                    itemBuilder={(item, itemIndex) => (
+                        <button
+                            type="button"
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-rounded-lg tw-flex tw-items-center tw-gap-2 tw-py-3 tw-px-2 tw-group tw-duration-200",
+                                item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+                            )}
+                            key={itemIndex}
+                            onClick={() => {
+                                const loadCalculatorInputsAction: LoadCalculatorInputsAction = {
+                                    actionType: LoadCalculatorInputsActionType.SetPropertyType,
+                                    payload: item.value,
+                                };
+
+                                dispatch(loadCalculatorInputsAction);
+                            }}
+                        >
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-rounded-full tw-w-8 tw-h-8 tw-p-1.5",
+                                    item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-secondary-900" : "lg-bg-secondary-700",
+                                )}
+                            >
+                                <FullWidthImage
+                                    relativePath={item.icon}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                />
+                            </div>
+                            <div>{item.content}</div>
+                        </button>
+                    )}
+                />
             </div>
         </div>
     );
@@ -248,6 +329,13 @@ function PropertySelection({
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
 }) {
+    const [isChangePropertyTypeDialogOpen, setIsChangePropertyTypeDialogOpen] = useState(false);
+    const [currentlyChangingPropertyType, setCurrentlyChangingPropertyType] = useState<string | null>(null);
+
+    function tryToOpenChangePropertyTypeDialog() {
+        setIsChangePropertyTypeDialogOpen(true);
+    }
+
     return (
         <div className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
             <VerticalSpacer className="tw-h-4" />
@@ -300,12 +388,12 @@ function PropertySelection({
                             )}
                             key={itemIndex}
                             onClick={() => {
-                                const loadCalculatorInputsAction: LoadCalculatorInputsAction = {
-                                    actionType: LoadCalculatorInputsActionType.SetPropertyType,
-                                    payload: item.value,
-                                };
+                                if (item.value == loadCalculatorInputs.property.propertyType) {
+                                    return;
+                                }
 
-                                dispatch(loadCalculatorInputsAction);
+                                setCurrentlyChangingPropertyType(item.value);
+                                tryToOpenChangePropertyTypeDialog();
                             }}
                         >
                             <div
@@ -324,6 +412,15 @@ function PropertySelection({
                     )}
                 />
             </div>
+
+            <ChangePropertyTypeDialog
+                userPreferences={userPreferences}
+                loadCalculatorInputs={loadCalculatorInputs}
+                dispatch={dispatch}
+                currentlyChangingPropertyType={currentlyChangingPropertyType}
+                isChangePropertyTypeDialogOpen={isChangePropertyTypeDialogOpen}
+                setIsChangePropertyTypeDialogOpen={setIsChangePropertyTypeDialogOpen}
+            />
         </div>
     );
 }
@@ -443,16 +540,126 @@ function RoomSelection({
     );
 }
 
-function DeviceSelection({
+function ChangePropertyTypeDialog({
     userPreferences,
     loadCalculatorInputs,
     dispatch,
+    currentlyChangingPropertyType,
+    isChangePropertyTypeDialogOpen,
+    setIsChangePropertyTypeDialogOpen,
 }: {
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+    currentlyChangingPropertyType: string | null;
+    isChangePropertyTypeDialogOpen: boolean;
+    setIsChangePropertyTypeDialogOpen: React.Dispatch<boolean>;
 }) {
-    return <div />;
+    // const [selectedDevices, setSelectedDevices] = useState<Array<Device>>([]);
+
+    function tryToCloseChangePropertyTypeDialog() {
+        setIsChangePropertyTypeDialogOpen(false);
+    }
+
+    if (currentlyChangingPropertyType == null) {
+        return <></>;
+    }
+
+    // function recalculateNewRoomName() {
+    //     // TODO: Only change the name if it has not been modified by user?
+    //     const countOfExistingRoomsWithSameType = loadCalculatorInputs.property.rooms.filter(room => room.roomType == selectedRoomType).length;
+
+    //     setSelectedRoomName(`${getRoomTypeDetails(selectedRoomType).humanReadableString} ${countOfExistingRoomsWithSameType + 1}`);
+    // }
+
+    // useEffect(() => {
+    //     recalculateNewRoomName();
+    // }, [selectedRoomType]);
+
+    return (
+        <Transition
+            show={isChangePropertyTypeDialogOpen}
+            as={React.Fragment}
+            beforeEnter={() => {
+                // setSelectedDevices(room.devices);
+                // setSelectedRoomName(loadCalculatorInputs.property.propertyName);
+                // useEffect is not called if type is already set to the same value, so recalculate name manually
+                // recalculateNewRoomName();
+            }}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseChangePropertyTypeDialog}
+            >
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
+                    <div />
+
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-opacity-0"
+                        enterTo="tw-opacity-full"
+                        leave="tw-ease-in tw-transition-all tw-duration-200"
+                        leaveFrom="tw-opacity-full"
+                        leaveTo="tw-opacity-0"
+                    >
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
+                            <div className="lg-text-title1">Change property type</div>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-title1">Warning: You might lose any changes you have made. Continue?</div>
+
+                            <VerticalSpacer className="tw-h-32" />
+
+                            <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                <button
+                                    type="button"
+                                    className=""
+                                    // disabled={selectedRoomName.length == 0}
+                                    onClick={tryToCloseChangePropertyTypeDialog}
+                                >
+                                    Cancel
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className="lg-cta-button"
+                                    onClick={() => {
+                                        const action: LoadCalculatorInputsAction = {
+                                            actionType: LoadCalculatorInputsActionType.SetPropertyType,
+                                            payload: currentlyChangingPropertyType,
+                                        };
+
+                                        dispatch(action);
+
+                                        tryToCloseChangePropertyTypeDialog();
+                                    }}
+                                >
+                                    Proceed
+                                </button>
+                            </div>
+                        </div>
+                    </Transition.Child>
+                </Dialog.Panel>
+
+                <div />
+            </Dialog>
+        </Transition>
+    );
 }
 
 function NewRoomDialog({
@@ -648,7 +855,6 @@ function EditRoomDialog({
     setIsEditRoomDialogOpen: React.Dispatch<boolean>;
 }) {
     const [selectedRoomName, setSelectedRoomName] = useState("");
-    const [selectedDevices, setSelectedDevices] = useState<Array<Device>>([]);
     const [isNewDeviceDialogOpen, setIsNewDeviceDialogOpen] = useState(false);
     const [currentlyAddingDeviceType, setCurrentlyAddingDeviceType] = useState<string | null>(null);
     const [currentlyEditingDeviceIndex, setCurrentlyEditingDeviceIndex] = useState<number | null>(null);
@@ -666,7 +872,7 @@ function EditRoomDialog({
     }
 
     const room = loadCalculatorInputs.property.rooms[currentlyEditingRoomIndex];
-    const groupedDevices = selectedDevices.reduce(createGroupByReducer<Device, string>("deviceType"), {});
+    const groupedDevices = room.devices.reduce(createGroupByReducer<Device, string>("deviceType"), {});
     const deviceTypeToDeviceCounts = Object.entries(groupedDevices).map((kvp) => ({deviceType: kvp[0], deviceCount: kvp[1].length}));
 
     // function recalculateNewRoomName() {
@@ -685,7 +891,6 @@ function EditRoomDialog({
             show={isEditRoomDialogOpen}
             as={React.Fragment}
             beforeEnter={() => {
-                setSelectedDevices(room.devices);
                 setSelectedRoomName(loadCalculatorInputs.property.propertyName);
                 // useEffect is not called if type is already set to the same value, so recalculate name manually
                 // recalculateNewRoomName();
@@ -729,7 +934,7 @@ function EditRoomDialog({
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            {selectedDevices.length == 0 ? (
+                            {room.devices.length == 0 ? (
                                 <div className="tw-w-full tw-grid tw-grid-cols-5 tw-gap-x-2 tw-gap-y-2">
                                     <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center">
                                         <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700" />
@@ -1127,159 +1332,181 @@ const roomTypeLibrary: {[id: string]: {humanReadableString: string}} = {
     },
 };
 
-const deviceTypeLibrary: {[id: string]: {humanReadableString: string}} = {
+const deviceTypeLibrary: {[id: string]: {humanReadableString: string; category: string; wattage: number}} = {
     "dda75244-60f2-40e8-8936-d4ea2ae25f34": {
-        humanReadableString: "Tubelight",
+        humanReadableString: "LED",
+        category: "Lighting",
+        wattage: 5,
     },
     "2b74d3cf-6fc2-4c9e-b264-e1865138c394": {
         humanReadableString: "CFL",
+        category: "Lighting",
+        wattage: 22.5,
     },
     "43150663-bea9-4fa9-b273-1b92212f5d30": {
         humanReadableString: "Bulb",
+        category: "Lighting",
+        wattage: 65,
     },
     "aba012ef-4a0a-438f-afbe-8fcb92a95c6b": {
-        humanReadableString: "Panel Light",
+        humanReadableString: "Tubelight",
+        category: "Lighting",
+        wattage: 30,
     },
     "89066719-efd8-4e7e-be1c-16da3fc57330": {
-        humanReadableString: "Fridge",
+        humanReadableString: "Table Lamp",
+        category: "Lighting",
+        wattage: 60,
     },
     "e289b9e5-78b3-44e9-86f3-ed0068f0addf": {
-        humanReadableString: "Induction",
+        humanReadableString: "Panel Lights",
+        category: "Lighting",
+        wattage: 14,
     },
     "97712354-86b6-4863-be85-e3d6d564b882": {
-        humanReadableString: "",
+        humanReadableString: "Television",
+        category: "Home Appliances",
+        wattage: 180,
     },
     "003f0bae-1065-416e-8330-b82b732624ed": {
-        humanReadableString: "",
+        humanReadableString: "Iron",
+        category: "Home Appliances",
+        wattage: 1280,
     },
     "d915052b-e216-4dbd-8fba-055d1b4af551": {
-        humanReadableString: "",
+        humanReadableString: "Hair Appliances",
+        category: "Home Appliances",
+        wattage: 1600,
     },
     "f167dc54-7599-45ac-bd4e-e99393870267": {
-        humanReadableString: "",
+        humanReadableString: "Fan",
+        category: "Home Appliances",
+        wattage: 60,
     },
     "f0896a88-d01f-44e3-8004-53a9bc5ad603": {
-        humanReadableString: "",
+        humanReadableString: "Printer",
+        category: "Home Appliances",
+        wattage: 128,
     },
     "152594ae-c517-4e75-8f1e-8a58301f2ff3": {
-        humanReadableString: "",
+        humanReadableString: "Computer",
+        category: "Home Appliances",
+        wattage: 200,
     },
     "ddef3ea3-c364-47c8-a3de-2af0a685ac95": {
-        humanReadableString: "",
+        humanReadableString: "Set Top Box",
+        category: "Home Appliances",
+        wattage: 50,
     },
     "360aae7f-2bd0-4cb9-8083-df636906c55a": {
-        humanReadableString: "",
+        humanReadableString: "Router",
+        category: "Home Appliances",
+        wattage: 25,
+    },
+    "75c95a14-5df5-4a15-bc31-03ce4f2f07b0": {
+        humanReadableString: "Speaker",
+        category: "Home Appliances",
+        wattage: 80,
     },
     "3a401059-08d9-464b-9e56-e280a1c9919d": {
-        humanReadableString: "",
+        humanReadableString: "Fridge",
+        category: "Kitchen Appliances",
+        wattage: 335,
     },
     "87702654-5068-44f5-befc-814fcb4da640": {
-        humanReadableString: "",
+        humanReadableString: "Microwave Oven",
+        category: "Kitchen Appliances",
+        wattage: 800,
     },
     "2bf7a137-3aeb-456b-8a7c-8ae1aef146e2": {
-        humanReadableString: "",
+        humanReadableString: "Mixer/Grinder",
+        category: "Kitchen Appliances",
+        wattage: 700,
     },
     "6e6ebc73-5deb-4c2f-b7f3-f6d596385d4e": {
-        humanReadableString: "",
+        humanReadableString: "Water Purifier",
+        category: "Kitchen Appliances",
+        wattage: 90,
     },
     "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf": {
-        humanReadableString: "",
+        humanReadableString: "Exhuast Fan",
+        category: "Kitchen Appliances",
+        wattage: 40,
     },
     "41ea7450-3f3b-41b8-b701-bfadac047e56": {
-        humanReadableString: "",
+        humanReadableString: "Coffee Maker",
+        category: "Kitchen Appliances",
+        wattage: 1300,
     },
     "2091dc25-6837-483b-a6d1-8b2a43e13957": {
-        humanReadableString: "",
+        humanReadableString: "Dishwasher",
+        category: "Kitchen Appliances",
+        wattage: 1800,
     },
     "d7a85e3a-3b8c-4f93-99ec-dce310df2713": {
-        humanReadableString: "",
+        humanReadableString: "Induction Cooktop",
+        category: "Kitchen Appliances",
+        wattage: 2500,
     },
     "56b3b38d-ca34-4bda-a1c1-fe6b5032e122": {
-        humanReadableString: "",
-    },
-    "a3c27bb6-ea8f-4bd6-8992-f144296f0f15": {
-        humanReadableString: "",
+        humanReadableString: "Air Conditioner",
+        category: "Heavy Load Appliances",
+        wattage: 1600,
     },
     "fbbb26c8-2550-4a31-b7c0-2720f72ede55": {
-        humanReadableString: "",
+        humanReadableString: "Washing Machine",
+        category: "Heavy Load Appliances",
+        wattage: 600,
     },
     "a54d76f2-1ccb-4769-aa3d-5eaafd44843d": {
-        humanReadableString: "",
+        humanReadableString: "Dessert Cooler",
+        category: "Heavy Load Appliances",
+        wattage: 380,
     },
     "56c4df60-b175-4c71-bcc9-ecfd2b5bc68a": {
-        humanReadableString: "",
+        humanReadableString: "Geyser",
+        category: "Heavy Load Appliances",
+        wattage: 1800,
     },
     "59f3154c-0433-4086-8417-45f8e4fa0f3d": {
-        humanReadableString: "",
+        humanReadableString: "Air Purifier",
+        category: "Heavy Load Appliances",
+        wattage: 215,
     },
     "1c9f3a15-34cf-4cde-83d8-3a06fdf26661": {
-        humanReadableString: "",
+        humanReadableString: "Game Console",
+        category: "Heavy Load Appliances",
+        wattage: 75,
     },
     "54933747-ce3f-4f00-a003-a98eda1ce406": {
-        humanReadableString: "",
+        humanReadableString: "Vacuum Cleaner",
+        category: "Heavy Load Appliances",
+        wattage: 900,
     },
     "966dafd8-21e7-448a-970e-38b0bebf8122": {
-        humanReadableString: "",
+        humanReadableString: "Heater",
+        category: "Heavy Load Appliances",
+        wattage: 1400,
     },
     "276efb37-0741-419f-a743-725022423dc1": {
-        humanReadableString: "",
+        humanReadableString: "Kettle",
+        category: "Heavy Load Appliances",
+        wattage: 1200,
     },
     "a36ecf7f-a597-4a46-a12e-44c82b5b8f56": {
-        humanReadableString: "",
+        humanReadableString: "Toaster",
+        category: "Heavy Load Appliances",
+        wattage: 1200,
     },
     "0a85d525-7268-4aef-81bd-23e1246ddbfb": {
-        humanReadableString: "",
+        humanReadableString: "Charger",
+        category: "Accessories",
+        wattage: 40,
     },
     "01bc2756-1b2b-4250-a927-c4c0722f5686": {
-        humanReadableString: "",
-    },
-    "2a438f07-e1b3-4e99-8f88-a4d24dd3c38e": {
-        humanReadableString: "",
-    },
-    "007e9e8f-8ada-4c0f-9369-b76808473513": {
-        humanReadableString: "",
-    },
-    "5f3aca95-d610-4819-a5eb-ad1ad36d1c94": {
-        humanReadableString: "",
-    },
-    "c1e2d778-bedb-453a-a19d-b1417266b622": {
-        humanReadableString: "",
-    },
-    "cf75c40f-4692-42de-85cb-8a642d6a9820": {
-        humanReadableString: "",
-    },
-    "8992664a-df3e-44d5-95aa-54f1413d4ce9": {
-        humanReadableString: "",
-    },
-    "3833d768-81ca-4c1b-b533-4d1f8046fe3e": {
-        humanReadableString: "",
-    },
-    "c8807ba8-d44d-4cfb-9ae4-9f354c749308": {
-        humanReadableString: "",
-    },
-    "7537e99d-b72a-4d23-b807-54fc6826997a": {
-        humanReadableString: "",
-    },
-    "f4800b07-e3d1-464e-b660-70ed04c86257": {
-        humanReadableString: "",
-    },
-    "e0d8de56-b39e-4d04-b746-41f69ca399bc": {
-        humanReadableString: "",
-    },
-    "2b012560-1aa2-4b04-9c3f-a0ab77fb2acf": {
-        humanReadableString: "",
-    },
-    "68b326c5-97c1-4971-87d4-69861ec0b5bf": {
-        humanReadableString: "",
-    },
-    "21234f7d-72a2-42a2-bf44-23a0eea7f2ae": {
-        humanReadableString: "",
-    },
-    "d20df829-ebe0-4694-a367-5314977bf22b": {
-        humanReadableString: "",
-    },
-    "404060ab-2e3b-412f-ae69-5c523a464b45": {
-        humanReadableString: "",
+        humanReadableString: "CCTV Camera",
+        category: "Accessories",
+        wattage: 15,
     },
 };
 
