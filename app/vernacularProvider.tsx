@@ -2176,6 +2176,32 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
 
+    bottomBarT1: {
+        [Language.English]: "Home",
+        [Language.Hindi]: "घर",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
+    },
+    bottomBarT2: {
+        [Language.English]: "Inverters",
+        [Language.Hindi]: "इनवर्टर",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
+    },
+    bottomBarT3: {
+        [Language.English]: "Power Planner",
+        [Language.Hindi]: "पावर प्लानर",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
+    },
+    bottomBarT4: {
+        [Language.English]: "Dealers",
+        [Language.Hindi]: "डीलर",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
+    },
+    bottomBarT5: {
+        [Language.English]: "Support",
+        [Language.Hindi]: "सेवा",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
+    },
+
     invalidKey: {
         [Language.English]: "INVALID STRING REQUESTED",
         [Language.Hindi]: "INVALID STRING REQUESTED",
