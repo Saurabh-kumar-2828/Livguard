@@ -2,6 +2,7 @@ import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {Form, Link} from "@remix-run/react";
+import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import {useState} from "react";
 import {Facebook, Instagram, Linkedin, Telephone, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -221,7 +222,7 @@ function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPrefere
 }
 
 export function EnergySolutions({userPreferences}: {userPreferences: UserPreferences}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, [Autoplay({delay: 3000})]);
 
     return (
         <div
@@ -443,7 +444,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                 userPreferences={userPreferences}
                 testimonials={[
                     {
-                        image: "/livguard/home/6/4.jpg",
+                        image: "/livguard/home/6/3.jpg",
                         name: `${getVernacularString("review1Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
@@ -461,7 +462,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/1.jpg",
+                        image: "/livguard/home/6/4.jpg",
                         name: `${getVernacularString("review3Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review3State", userPreferences.language)}`,
@@ -470,7 +471,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/3.jpg",
+                        image: "/livguard/home/6/1.jpg",
                         name: `${getVernacularString("review4Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,

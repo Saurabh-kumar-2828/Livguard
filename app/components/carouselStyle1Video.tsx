@@ -1,4 +1,5 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import Autoplay from "embla-carousel-autoplay";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -11,7 +12,7 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function CarouselStyle1Video({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{youtubeVideoId: string; videoAspectRatio: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, [Autoplay({delay: 3000})]);
 
     return (
         <div

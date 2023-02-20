@@ -1,7 +1,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import {useCallback, useEffect, useState} from "react";
 
-export function useEmlbaCarouselWithIndex(options) {
+export function useEmlbaCarouselWithIndex(options, plugins) {
     const [emblaRef, emblaApi] = useEmblaCarousel({loop: true});
 
     const [selectedIndex, setSelectedIndex] = useState(0);

@@ -1,4 +1,5 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import Autoplay from "embla-carousel-autoplay";
 import {StarFill} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -16,7 +17,7 @@ export function TestimonialsCarousel({
     userPreferences: UserPreferences;
     testimonials: Array<{image: string; name: string; rating: number; state: string; message: string; productImage: string; productName: string}>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, [Autoplay({delay: 3000})]);
 
     return (
         <div>
