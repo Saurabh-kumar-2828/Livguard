@@ -1,10 +1,15 @@
+import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {Form} from "@remix-run/react";
+import React from "react";
+import {useState} from "react";
+import {Facebook, Instagram, Linkedin, Telephone, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {Accordion} from "~/components/accordian";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1} from "~/components/carouselStyle1";
+import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
@@ -13,6 +18,7 @@ import {LeadersCarousel} from "~/components/leadersCarousel";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -22,7 +28,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -123,7 +129,7 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
-        <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center">
+        <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
             <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -139,12 +145,10 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <button
-                    type="button"
-                    className="lg-cta-button lg-px-screen-edge"
-                >
-                    {getVernacularString("homeS1T3", userPreferences.language)}
-                </button>
+                <ContactUsCta
+                    userPreferences={userPreferences}
+                    textVernacId="homeS1T3"
+                />
             </DefaultElementAnimation>
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
@@ -166,7 +170,7 @@ function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPrefere
 
             <VerticalSpacer className="tw-h-8" />
 
-            <CarouselStyle1
+            {/* <CarouselStyle1
                 userPreferences={userPreferences}
                 items={[
                     {
@@ -176,6 +180,24 @@ function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPrefere
                     },
                     {
                         imageRelativePath: "/livguard/home/2/2.jpg",
+                        titleTextContentPiece: "homeS2C2T1",
+                        bodyTextContentPiece: "homeS2C2T2",
+                    },
+                ]}
+            /> */}
+
+            <CarouselStyle1Video
+                userPreferences={userPreferences}
+                items={[
+                    {
+                        youtubeVideoId: "NwxWY5uBSj4",
+                        videoAspectRatio: "560/315",
+                        titleTextContentPiece: "homeS2C1T1",
+                        bodyTextContentPiece: "homeS2C1T2",
+                    },
+                    {
+                        youtubeVideoId: "mpnBoJvAlMk",
+                        videoAspectRatio: "560/315",
                         titleTextContentPiece: "homeS2C2T1",
                         bodyTextContentPiece: "homeS2C2T2",
                     },
@@ -703,15 +725,138 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
     );
 }
 
-export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
+export function ContactUsCta({userPreferences, textVernacId, className}: {userPreferences: UserPreferences; textVernacId: string; className?: string}) {
+    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
+
+    function tryToOpenContactUsDialog() {
+        setIsContactUsDialogOpen(true);
+    }
+
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
-                </div>
-            </div>
+        <div className={className}>
+            <button
+                className="lg-cta-button"
+                onClick={tryToOpenContactUsDialog}
+            >
+                {getVernacularString(textVernacId, userPreferences.language)}
+            </button>
+
+            <ContactUsDialog
+                userPreferences={userPreferences}
+                isContactUsDialogOpen={isContactUsDialogOpen}
+                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+            />
         </div>
+    );
+}
+
+export function ContactUsDialog({
+    userPreferences,
+    isContactUsDialogOpen,
+    setIsContactUsDialogOpen,
+}: {
+    userPreferences: UserPreferences;
+    isContactUsDialogOpen: boolean;
+    setIsContactUsDialogOpen: React.Dispatch<boolean>;
+}) {
+    function tryToCloseContactUsDialog() {
+        setIsContactUsDialogOpen(false);
+    }
+
+    return (
+        <Transition
+            show={isContactUsDialogOpen}
+            as={React.Fragment}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseContactUsDialog}
+            >
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-opacity-0"
+                        enterTo="tw-opacity-full"
+                        leave="tw-ease-in tw-transition-all tw-duration-200"
+                        leaveFrom="tw-opacity-full"
+                        leaveTo="tw-opacity-0"
+                    >
+                        <Form className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
+                            <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
+                                <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{getVernacularString("contactUsT1", userPreferences.language)}</div>
+                                <X
+                                    className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8"
+                                    onClick={tryToCloseContactUsDialog}
+                                />
+                            </div>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-2" />
+
+                            <input
+                                type="text"
+                                className="lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                            />
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-2" />
+
+                            <input
+                                type="text"
+                                className="lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                            />
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-2" />
+
+                            <input
+                                type="text"
+                                className="lg-bg-secondary-300 tw-py-4 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                            />
+
+                            <VerticalSpacer className="tw-h-8" />
+
+                            <div className="tw-self-center">
+                                <FixedHeightImage
+                                    relativePath="/livguard/header/akshay.png"
+                                    height="13.75rem"
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                            >
+                                {getVernacularString("contactUsT5", userPreferences.language)}
+                            </button>
+                        </Form>
+                    </Transition.Child>
+                </Dialog.Panel>
+            </Dialog>
+        </Transition>
     );
 }

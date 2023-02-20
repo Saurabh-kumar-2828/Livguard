@@ -24,32 +24,147 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     headerMenuS1T1: {
-        [Language.English]: "Inverters & Batteries",
+        [Language.English]: "Inverters",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuS1T2: {
-        [Language.English]: "Automotive Batteries",
+        [Language.English]: "Batteries",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuS1T3: {
-        [Language.English]: "Solar Solutions",
+        [Language.English]: "Automotive Batteries",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuS1T4: {
-        [Language.English]: "Accesories",
+        [Language.English]: "Solar Solutions",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuS1T5: {
+        [Language.English]: "Accessories",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuS1T6: {
         [Language.English]: "More",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     headerMenuS2T1: {
         [Language.English]: "Contact Us",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM1T1: {
+        [Language.English]: "Inverter",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM1T2: {
+        [Language.English]: "Home Inverters",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM1T3: {
+        [Language.English]: "Solar Inverter",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM1T4: {
+        [Language.English]: "High Capacity Inverters",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM2T1: {
+        [Language.English]: "Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM2T2: {
+        [Language.English]: "Inverter Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM2T3: {
+        [Language.English]: "Solar Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM2T4: {
+        [Language.English]: "Lithium Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM2T5: {
+        [Language.English]: "VRLA Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T1: {
+        [Language.English]: "Automotive Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T2: {
+        [Language.English]: "Car and SUV Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T3: {
+        [Language.English]: "Two Wheeler Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T4: {
+        [Language.English]: "E-Rikshaw Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T5: {
+        [Language.English]: "Bus & Truck Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T6: {
+        [Language.English]: "Tractor Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM3T7: {
+        [Language.English]: "Three Wheeler Batteries",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM4T1: {
+        [Language.English]: "Solar Solutions",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM5T1: {
+        [Language.English]: "Stabilizer",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM5T2: {
+        [Language.English]: "E-Rikshaw Charger",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM5T3: {
+        [Language.English]: "Inverter Trolley",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM6T1: {
+        [Language.English]: "Locate Dealer",
+        [Language.Hindi]: "OOOOO",
+        [Language.Marathi]: "OOOOO",
+    },
+    headerMenuSM6T2: {
+        [Language.English]: "Register Your Product",
         [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
@@ -1947,6 +2062,61 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     landingPageBottomBarT2:{
         [Language.English]: "Enquire now",
         [Language.Hindi]: "संपर्क करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT1: {
+        [Language.English]: "Contact Us",
+        [Language.Hindi]: "हमसे संपर्क करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT2: {
+        [Language.English]: "Phone Number",
+        [Language.Hindi]: "मोबाइल नंबर",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT2E: {
+        [Language.English]: "Please Enter Your Mobile Number",
+        [Language.Hindi]: "कृपया अपना मोबाइल नंबर डालें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT3: {
+        [Language.English]: "Name",
+        [Language.Hindi]: "नाम",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT3E: {
+        [Language.English]: "Please Enter Your Name",
+        [Language.Hindi]: "कृपया अपना नाम डालें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT4: {
+        [Language.English]: "Email",
+        [Language.Hindi]: "ई-मेल",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT4E: {
+        [Language.English]: "Please Enter Your Email",
+        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT5: {
+        [Language.English]: "Submit",
+        [Language.Hindi]: "सबमिट करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT6: {
+        [Language.English]: "Thank\nYou!",
+        [Language.Hindi]: "धन्यवाद!",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT7: {
+        [Language.English]: "Hang on, you'll receive a\ncall from our team soon",
+        [Language.Hindi]: "प्रतीक्षा करें, हम आपसे जल्द संपर्क करेंगे",
+        [Language.Marathi]: "OOOOO",
+    },
+    contactUsT8: {
+        [Language.English]: "Till then, show some love to our\nsocial handles!",
+        [Language.Hindi]: "तब तक हमारे सोशल मीडिया पर प्यार बरसाएँ",
         [Language.Marathi]: "OOOOO",
     },
 

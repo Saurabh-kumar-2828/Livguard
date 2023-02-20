@@ -170,7 +170,7 @@
     }
 
     .lg-cta-button {
-        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full;
+        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark;
     }
 
     .lg-cta-outline-button {
@@ -178,7 +178,7 @@
     }
 
     .lg-text-highlighted {
-        @apply lg-bg-primary-500 tw-px-1;
+        @apply lg-bg-primary-500 tw-text-secondary-900-dark tw-px-1;
     }
 
     /* @keyframes animation-text-baseline {

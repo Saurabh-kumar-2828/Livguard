@@ -37,6 +37,7 @@ export const links: LinksFunction = () => [
     // {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap", crossOrigin: "anonymous"},
 ];
 
+// TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function App() {
     const {userPreferences} = useLoaderData() as LoaderData;
 

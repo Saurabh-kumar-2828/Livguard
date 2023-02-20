@@ -217,16 +217,3 @@ export function QualityMeetsExpertise({userPreferences}: {userPreferences: UserP
         </div>
     );
 }
-
-export function dummy({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
-                </div>
-            </div>
-        </div>
-    );
-}
