@@ -178,32 +178,32 @@ function PropertySelectionForTeaser({
                 <ItemBuilder
                     items={[
                         {
-                            icon: "/livguard/home/5/1-bhk.png",
+                            svgIcon: "/livguard/icons/home/5/1-bhk.svg",
                             content: "1 BHK",
                             value: "1-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/2-bhk.png",
+                            svgIcon: "/livguard/icons/home/5/2-bhk.svg",
                             content: "2 BHK",
                             value: "2-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/3-bhk.png",
+                            svgIcon: "/livguard/icons/home/5/3-bhk.svg",
                             content: "3 BHK",
                             value: "3-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/4-bhk.png",
+                            svgIcon: "/livguard/icons/home/5/4-bhk.svg",
                             content: "4 BHK",
                             value: "4-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/villa.png",
+                            svgIcon: "/livguard/icons/home/5/villa.svg",
                             content: "Villa",
                             value: "villa",
                         },
                         {
-                            icon: "/livguard/home/5/custom.png",
+                            svgIcon: "/livguard/icons/home/5/custom.svg",
                             content: "Custom",
                             value: "custom",
                         },
@@ -228,15 +228,19 @@ function PropertySelectionForTeaser({
                             <div
                                 className={concatenateNonNullStringsWithSpaces(
                                     "tw-rounded-full tw-w-8 tw-h-8 tw-p-1.5",
-                                    item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-secondary-900" : "lg-bg-secondary-700",
+                                    item.value == loadCalculatorInputs.property.propertyType ? "tw-bg-secondary-900-dark" : "lg-bg-secondary-300",
                                 )}
                             >
-                                <FullWidthImage
+                                {/* <FullWidthImage
                                     relativePath={item.icon}
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                /> */}
+                                <object
+                                    data={`https://files.growthjockey.com${item.svgIcon}`}
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-full tw-h-full dark:tw-invert", item.value == loadCalculatorInputs.property.propertyType ? "!tw-invert-0" : null)}
                                 />
                             </div>
-                            <div>{item.content}</div>
+                            <div className={concatenateNonNullStringsWithSpaces(item.value == loadCalculatorInputs.property.propertyType ? "tw-text-secondary-900-dark" : null)}>{item.content}</div>
                         </button>
                     )}
                 />

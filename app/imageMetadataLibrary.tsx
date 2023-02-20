@@ -673,6 +673,13 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L9EA4nv~0f}Z39kC:,6M$%E}I:#-",
         placeholderColor: "#181818",
     },
+    "/livguard/home/8/4.jpg": {
+        "width": 400,
+        "height": 400,
+        "altText": "Dummy alt text",
+        "blurHash": "LeI4Rnxa-:%K~9afxtxaI;azM|WC",
+        "placeholderColor": "#c8a878"
+    },
     "/livguard/icons/3dGrid.png": {
         width: 32,
         height: 32,

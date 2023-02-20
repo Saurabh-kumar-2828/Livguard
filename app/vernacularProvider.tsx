@@ -520,7 +520,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     homeS8Slide1T1: {
-        [Language.English]: "Mr. Rakesh Malhotra ",
+        [Language.English]: "Mr. Rakesh Malhotra",
         [Language.Hindi]: "श्री. राकेश मल्होत्रा",
         [Language.Marathi]: "OOOOO",
     },
@@ -534,6 +534,57 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.",
         [Language.Hindi]:
             "एक मार्गदर्शक , एक संरक्षक, एक दूरदर्शी, और एक समग्र प्रेरक शक्ति, श्री राकेश मल्होत्रा ​​​​का उद्योग के संपर्क में, उनका जुनून और नए विचारों को जीवन में लाने की उनकी भावना कई अन्य उद्यमियों को प्रेरित करती रही है।",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide2T1: {
+        [Language.English]: "Mr. Navneet Kapoor",
+        [Language.Hindi]: "श्री नवनीत कपूर",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide2T2: {
+        [Language.English]: "(Co-founder & Chairman)",
+        [Language.Hindi]: "(सह-संस्थापक और अध्यक्ष)",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide2T3: {
+        [Language.English]:
+            "One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.",
+        [Language.Hindi]:
+            "SAR समूह के मुख्य स्तंभों में से एक और सच्चे उद्यमिता की पहचान, श्री नवनीत कपूर अपनी विशेषज्ञता और विश्वास के माध्यम से लिवगार्ड की प्रमुख ताकतों में से एक रहे हैं। उनका मानना है कि एक सफल व्यवसाय तब फलता-फूलता है जब उद्योग विशेषज्ञता के साथ उत्कृष्ट सेवा मिलती है।",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide3T1: {
+        [Language.English]: "Mr. Gurpreet Bhatia",
+        [Language.Hindi]: "श्री गुरप्रीत भाटिया",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide3T2: {
+        [Language.English]: "(CEO)",
+        [Language.Hindi]: "(सीईओ)",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide3T3: {
+        [Language.English]:
+            "A dynamic leader with a formidable experience of over 25 years in B2B & B2C channels coupled with global experience in marketing, sales, and strategy. Mr. Gurpreet Bhatia is an impeccable example of someone who has created a unique career trajectory.",
+        [Language.Hindi]:
+            "मार्केटिंग, बिक्री और रणनीति में वैश्विक अनुभव के साथ बी2बी और बी2सी चैनलों में 25 से अधिक वर्षों के अनुभव के साथ एक मार्गदर्शकों। श्री गुरप्रीत भाटिया एक उदाहरण हैं, जिसने एक अद्वितीय करियर मार्ग बनाया है।",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide4T1: {
+        [Language.English]: "Mr. Alankar Mittal",
+        [Language.Hindi]: "श्री अलंकार मित्तल",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide4T2: {
+        [Language.English]: "(Executive VP)",
+        [Language.Hindi]: "(एग्जीक्यूटिव वी पी)",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS8Slide4T3: {
+        [Language.English]:
+            "Extremely committed and iron-willed, Mr. Alankar Mittal believes leadership is not about a title or a designation. It is about impact, influence, and inspiration. His massive experience of over 20 years continues to be a driving force for many.",
+        [Language.Hindi]:
+            "अत्यधिक प्रतिबद्ध और मज़बूत इच्छाशक्ति वाले श्री अलंकार मित्तल का मानना ​​है कि नेतृत्व किसी उपाधि या पदनाम के बारे में नहीं है, यह प्रभाव और प्रेरणा के बारे में है। 20 से अधिक वर्षों का उनका व्यापक अनुभव कई लोगों के लिए प्रेरक शक्ति बना हुआ है।",
         [Language.Marathi]: "OOOOO",
     },
     homeS9H1T1: {
@@ -668,6 +719,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     homeS12T3P4: {
         [Language.English]: "Ensuring Environmental Stability",
         [Language.Hindi]: "पर्यावरणीय स्थिरता क्षेत्र",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS12T4: {
+        [Language.English]: "Know More",
+        [Language.Hindi]: "अधिक जानिए",
         [Language.Marathi]: "OOOOO",
     },
 

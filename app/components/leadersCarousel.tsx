@@ -18,7 +18,7 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                 className="tw-overflow-hidden"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark">
                     <ItemBuilder
                         items={leaders}
                         itemBuilder={(leader, leaderIndex) => (
@@ -38,7 +38,7 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                                         <div className="tw-h-full tw-flex tw-flex-row tw-items-start tw-gap-x-4">
                                             <button
                                                 type="button"
-                                                className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                                className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-dark"
                                                 onClick={() => emblaApi?.scrollPrev()}
                                             >
                                                 <ChevronLeftIcon className="tw-w-6 tw-h-6" />
@@ -46,7 +46,7 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
 
                                             <button
                                                 type="button"
-                                                className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                                className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-dark"
                                                 onClick={() => emblaApi?.scrollNext()}
                                             >
                                                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
@@ -57,15 +57,15 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                                     <VerticalSpacer className="tw-h-4" />
 
                                     <div className="tw-flex tw-flex-col">
-                                        <div className="lg-text-headline">{getVernacularString(leader.name, userPreferences.language)}</div>
+                                        <div className="lg-text-headline !tw-text-secondary-900-dark">{getVernacularString(leader.name, userPreferences.language)}</div>
 
                                         <VerticalSpacer className="tw-h-1" />
 
-                                        <div className="lg-text-title2">{getVernacularString(leader.designation, userPreferences.language)}</div>
+                                        <div className="lg-text-title2 !tw-text-secondary-900-dark">{getVernacularString(leader.designation, userPreferences.language)}</div>
 
                                         <VerticalSpacer className="tw-h-4" />
 
-                                        <div className="lg-text-body lg-text-secondary-900">{getVernacularString(leader.bio, userPreferences.language)}</div>
+                                        <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(leader.bio, userPreferences.language)}</div>
                                     </div>
                                 </div>
                             </div>

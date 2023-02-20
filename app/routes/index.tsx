@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Form} from "@remix-run/react";
+import {Form, Link} from "@remix-run/react";
 import React from "react";
 import {useState} from "react";
 import {Facebook, Instagram, Linkedin, Telephone, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -11,6 +11,7 @@ import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1} from "~/components/carouselStyle1";
 import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
+import {CarouselStyle3} from "~/components/carouselStyle3";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -130,11 +131,22 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
-            <CoverImage
+            {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.GrowthJockey}
+            /> */}
+
+            <video
+                src="https://files.growthjockey.com/livguard/videos/home/1/1.mp4"
+                className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover"
+                autoPlay={true}
+                muted={true}
+                loop={true}
+                controls={false}
             />
+
+            <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("homeS1T1", userPreferences.language)}</div>
@@ -211,7 +223,10 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
-        <div className="tw-flex tw-flex-col" id="energySolutions">
+        <div
+            className="tw-flex tw-flex-col"
+            id="energySolutions"
+        >
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
@@ -227,23 +242,23 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                 <ItemBuilder
                     items={[
                         {
-                            icon: "/livguard/home/3/1-icon.png",
+                            svgIcon: "/livguard/icons/home/3/1-icon.svg",
                             title: "homeS3Tab1H",
                         },
                         {
-                            icon: "/livguard/home/3/2-icon.png",
+                            svgIcon: "/livguard/icons/home/3/2-icon.svg",
                             title: "homeS3Tab2H",
                         },
                         {
-                            icon: "/livguard/home/3/3-icon.png",
+                            svgIcon: "/livguard/icons/home/3/3-icon.svg",
                             title: "homeS3Tab3H",
                         },
                         {
-                            icon: "/livguard/home/3/4-icon.png",
+                            svgIcon: "/livguard/icons/home/3/4-icon.svg",
                             title: "homeS3Tab4H",
                         },
                         {
-                            icon: "/livguard/home/3/5-icon.png",
+                            svgIcon: "/livguard/icons/home/3/5-icon.svg",
                             title: "homeS3Tab5H",
                         },
                     ]}
@@ -259,11 +274,15 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                     `${itemIndex == selectedIndex ? "lg-bg-primary-500 tw-scale-110" : "lg-bg-secondary-300"}`,
                                 )}
                             >
-                                <FixedWidthImage
+                                {/* <FixedWidthImage
                                     relativePath={item.icon}
                                     width="1.5rem"
-                                    className={`${itemIndex == selectedIndex ? "tw-scale-125" : "tw-opacity-50"}`}
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                /> */}
+
+                                <object
+                                    data={`https://files.growthjockey.com${item.svgIcon}`}
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
                                 />
                             </div>
 
@@ -545,6 +564,12 @@ export function MeetOurLeadership({userPreferences}: {userPreferences: UserPrefe
                         designation: "homeS8Slide3T2",
                         bio: "homeS8Slide3T3",
                     },
+                    {
+                        image: "/livguard/home/8/4.jpg",
+                        name: "homeS8Slide4T1",
+                        designation: "homeS8Slide4T2",
+                        bio: "homeS8Slide4T3",
+                    },
                 ]}
             />
         </div>
@@ -618,20 +643,40 @@ export function DealerLocator({userPreferences, showCTAButton}: {userPreferences
         <div className="lg-px-screen-edge">
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px]">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="lg-text-headline tw-text-center">
+                    <div className="tw-absolute tw-inset-0">
+                        <video
+                            src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
+                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover tw-hidden dark:tw-block"
+                            autoPlay={true}
+                            muted={true}
+                            loop={true}
+                            controls={false}
+                        />
+
+                        <video
+                            src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
+                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover dark:tw-hidden tw-block"
+                            autoPlay={true}
+                            muted={true}
+                            loop={true}
+                            controls={false}
+                        />
+                    </div>
+
+                    <div className="tw-z-10 lg-text-headline tw-text-center">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T1", userPreferences.language)}} />
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T2", userPreferences.language)}} />
                     </div>
 
                     <VerticalSpacer className="tw-h-1" />
 
-                    <div className="lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+                    <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
 
                     {showCTAButton && (
                         <>
                             <VerticalSpacer className="tw-h-6" />
 
-                            <div className="lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
+                            <div className="tw-z-10 lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
                         </>
                     )}
                 </div>
@@ -653,7 +698,38 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreference
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="tw-w-full tw-h-[200px] lg-bg-secondary-500 tw-rounded-lg" />
+                <CarouselStyle3
+                    userPreferences={userPreferences}
+                    items={[
+                        <iframe
+                            src="https://www.youtube.com/embed/b6gqLXTnZnw"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="tw-w-full"
+                            style={{aspectRatio: "560/315"}}
+                        ></iframe>,
+                        <iframe
+                        src="https://www.youtube.com/embed/CRabeGp9800"
+                        title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="tw-w-full"
+                            style={{aspectRatio: "560/315"}}
+                        ></iframe>,
+                        <iframe
+                        src="https://www.youtube.com/embed/tFj9GJcjq6s"
+                        title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="tw-w-full"
+                            style={{aspectRatio: "560/315"}}
+                        ></iframe>,
+                    ]}
+                />
 
                 <VerticalSpacer className="tw-h-4" />
 
@@ -662,19 +738,19 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreference
                 <VerticalSpacer className="tw-h-2" />
 
                 <div className="tw-flex tw-justify-evenly">
-                    <a href="https://www.facebook.com/LivguardEnergy/">
+                    <a href="https://www.facebook.com/LivguardEnergy/" target="_blank">
                         <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://twitter.com/LivguardEnergy">
+                    <a href="https://twitter.com/LivguardEnergy" target="_blank">
                         <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://www.instagram.com/livguardenergy/">
+                    <a href="https://www.instagram.com/livguardenergy/" target="_blank">
                         <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://www.linkedin.com/company/livguard-energy/">
+                    <a href="https://www.linkedin.com/company/livguard-energy/" target="_blank">
                         <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="youtube.com/@LivguardEnergy">
+                    <a href="https://www.youtube.com/@LivguardEnergy" target="_blank">
                         <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
                 </div>
@@ -719,7 +795,27 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-bg-secondary-500 tw-w-full tw-h-[200px] tw-rounded-lg"></div>
+                <CarouselStyle3
+                    userPreferences={userPreferences}
+                    items={[
+                        <FullWidthImage
+                            relativePath="/livguard/home/11/1.jpg"
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        />,
+                        <FullWidthImage
+                            relativePath="/livguard/home/11/2.jpg"
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        />,
+                        <FullWidthImage
+                            relativePath="/livguard/home/11/3.jpg"
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        />,
+                    ]}
+                />
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <Link to="#" className="lg-cta-button tw-self-center">{getVernacularString("homeS12T4", userPreferences.language)}</Link>
             </div>
         </div>
     );

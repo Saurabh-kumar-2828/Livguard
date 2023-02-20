@@ -18,7 +18,7 @@ export function CarouselStyle2({userPreferences, items}: {userPreferences: UserP
             className="tw-overflow-hidden"
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
@@ -41,7 +41,7 @@ export function CarouselStyle2({userPreferences, items}: {userPreferences: UserP
                                 <div className="tw-row-start-2 tw-col-start-2 tw-w-full tw-flex tw-flex-row tw-justify-end tw-items-center tw-gap-x-4">
                                     <button
                                         type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-dark"
                                         onClick={() => emblaApi?.scrollPrev()}
                                     >
                                         <ChevronLeftIcon className="tw-w-6 tw-h-6" />
@@ -49,7 +49,7 @@ export function CarouselStyle2({userPreferences, items}: {userPreferences: UserP
 
                                     <button
                                         type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-dark"
                                         onClick={() => emblaApi?.scrollNext()}
                                     >
                                         <ChevronRightIcon className="tw-w-6 tw-h-6" />
@@ -61,7 +61,7 @@ export function CarouselStyle2({userPreferences, items}: {userPreferences: UserP
                                 </DefaultTextAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
-                                    <div className="lg-text-body lg-text-secondary-700">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-body tw-text-secondary-900-dark">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
                                 </DefaultTextAnimation>
                             </div>
                         </div>
