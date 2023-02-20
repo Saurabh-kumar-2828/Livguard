@@ -16,7 +16,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getIntegerFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, createGroupByReducer, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {FaqSection} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
@@ -54,6 +54,7 @@ export default function () {
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
+                showMobileMenuIcon={true}
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>
