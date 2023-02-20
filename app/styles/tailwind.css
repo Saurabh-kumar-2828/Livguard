@@ -170,7 +170,7 @@
     }
 
     .lg-cta-button {
-        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark;
+        @apply lg-text-button lg-bg-primary-500 tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark tw-block;
     }
 
     .lg-cta-outline-button {

@@ -490,33 +490,33 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     homeS7S1T1: {
-        [Language.English]: "Tailor Made\nEnd-To-End Solutions",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "Tailor-made\nEnd-to-End Solutions",
+        [Language.Hindi]: "विशिष्ट रूप से\nबनाये गये समाधान",
         [Language.Marathi]: "OOOOO",
     },
     homeS7S1T2: {
         [Language.English]: "Through our service experts and tools, we make sure that our solutions always fit your exact needs.",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "हमारे सर्विस एक्सपर्ट और उपकरणों के माध्यम से, हम यह सुनिश्चित करते हैं कि हमारे समाधान हमेशा आपकी सटीक आवश्यकताओं को पूरा करें।",
         [Language.Marathi]: "OOOOO",
     },
     homeS7S2T1: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "One-Click\nService Support",
+        [Language.Hindi]: "एक-क्लिक\nसमर्थन",
         [Language.Marathi]: "OOOOO",
     },
     homeS7S2T2: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "With LivMonitor 360, we are a one-click away customer support service (Pan India) for you to get resolutions quickly and effortlessly.",
+        [Language.Hindi]: "लिवमोनिटर 360 के साथ, हम देश भर में आपकी सअमस्याओं का समाधान करने के लिए एक बस क्लिक दूर हैं।",
         [Language.Marathi]: "OOOOO",
     },
     homeS7S3T1: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "Long-Lasting\nProducts",
+        [Language.Hindi]: "लंबी अवधि\nवाले उत्पाद",
         [Language.Marathi]: "OOOOO",
     },
     homeS7S3T2: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "We offer 25 years of panel warranty & a warranty of 7 years on inverter batteries for a longer, more durable life for solar solutions for you.",
+        [Language.Hindi]: "हम ज़्यादा लंबे समय तक चलने वाले उत्पादों के लिए आपको 25 वर्षों की पैनल वारंटी और 7 वर्षों की इनवर्टर बैटरी वारंटी देते हैं।",
         [Language.Marathi]: "OOOOO",
     },
     homeS8H1T1: {
@@ -618,7 +618,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     homeS9Q2Q: {
-        [Language.English]: "How can a home choose the best inverter battery?",
+        [Language.English]: "How can I choose the best inverter battery for my home?",
         [Language.Hindi]: "अपने घर हेतु सर्वेश्रेष्ठ इन्वर्टर का चुनाव कैसे करे?",
         [Language.Marathi]: "OOOOO",
     },
@@ -655,8 +655,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     homeS9T3P2: {
-        [Language.English]: "Contact us at +91 18001025551 at any day of the week between 8 am to 8 pm, and our team will resolve it within 48 hours!",
-        [Language.Hindi]: "हम सप्ताह के सभी दिन सुबह 8 बजे से रात 8 बजे के बीच +91 18001025551 पर उपलब्ध हैं।हम आपकी समस्या का समाधान 48 घंटों के अंदर करेंगे!",
+        [Language.English]: "Contact us at",
+        [Language.Hindi]: "सेवा समाधान की खोज में? हम सप्ताह के सभी दिन सुबह 8 बजे से रात 8 बजे के बीच",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS9T3P3: {
+        [Language.English]: "+91 18001025551",
+        [Language.Hindi]: "+91 18001025551",
+        [Language.Marathi]: "OOOOO",
+    },
+    homeS9T3P4: {
+        [Language.English]: "at any day of the week between 8 am to 8 pm, and our team will resolve it within 48 hours!",
+        [Language.Hindi]: "पर उपलब्ध हैं।हम आपकी समस्या का समाधान 48 घंटों के अंदर करेंगे!",
         [Language.Marathi]: "OOOOO",
     },
     homeS10H1T1: {

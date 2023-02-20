@@ -99,7 +99,10 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         onChange={setSelectedLanguage}
                     >
                         <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[auto_3rem] tw-gap-x-2 tw-items-center">
-                            <LanguageIcon className="tw-w-6 tw-h-6" />
+                            <object
+                                data="https://files.growthjockey.com/livguard/icons/header/vernacular.svg"
+                                className="tw-w-6 tw-h-6 dark:tw-invert"
+                            />
                             {languageToHumanFriendlyString(selectedLanguage)}
                         </Listbox.Button>
 
@@ -869,7 +872,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
     );
 }
 
-function InternalOrExternalLink({to, className, children}: {to: string, className?: string, children}) {
+function InternalOrExternalLink({to, className, children}: {to: string; className?: string; children}) {
     if (to[0] == "/") {
         return (
             <Link

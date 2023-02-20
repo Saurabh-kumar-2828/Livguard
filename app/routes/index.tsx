@@ -443,7 +443,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                 userPreferences={userPreferences}
                 testimonials={[
                     {
-                        image: "/livguard/home/6/1.jpg",
+                        image: "/livguard/home/6/4.jpg",
                         name: `${getVernacularString("review1Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
@@ -461,7 +461,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/3.jpg",
+                        image: "/livguard/home/6/1.jpg",
                         name: `${getVernacularString("review3Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review3State", userPreferences.language)}`,
@@ -470,7 +470,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/4.jpg",
+                        image: "/livguard/home/6/3.jpg",
                         name: `${getVernacularString("review4Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,
@@ -632,7 +632,7 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
 
                 <div className="lg-text-body tw-text-center">
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T3P2", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T3P2", userPreferences.language)} <a href="tel:18001025551" className="tw-underline">{getVernacularString("homeS9T3P3", userPreferences.language)}</a> {getVernacularString("homeS9T3P4", userPreferences.language)}</div>
                 </div>
             </div>
         </div>
