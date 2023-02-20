@@ -35,12 +35,12 @@ export function languageToHumanFriendlyString(language: Language) {
     }
 }
 
-export enum InverterType {
-    sine = "Sine Wave",
-    square = "Square Wave",
-}
-
 export enum BatteryType {
     flat = "Flat Plate Battery",
     tubular = "Tubular Battery",
+}
+
+export enum InverterType {
+    sine = "Sine Wave",
+    square = "Square Wave"
 }
