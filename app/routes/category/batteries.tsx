@@ -48,6 +48,7 @@ export default function () {
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
+                showMobileMenuIcon={true}
             >
                 <CategoryPage userPreferences={userPreferences} />
             </PageScaffold>
