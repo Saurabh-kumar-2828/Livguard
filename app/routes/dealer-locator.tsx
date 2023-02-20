@@ -5,6 +5,8 @@ import {useEffect, useState} from "react";
 import {Droplet} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
@@ -62,6 +64,8 @@ export default function () {
 
     const actionData = useActionData() as ActionData;
 
+    console.log("Action Data ====>",actionData);
+
     return (
         <>
             <HeaderComponent
@@ -81,7 +85,9 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
     const [dealerList, setDealerList] = useState<Array<Dealer>>([]);
 
     useEffect(() => {
+        console.log("inside useEffect");
         if(actionData != null){
+            console.log("true condition",actionData.dealerList);
             setDealerList(actionData.dealerList);
         }
     },[actionData])
@@ -185,6 +191,19 @@ function GoogleMapView({dealerList}:{dealerList: Array<Dealer>}){
         lng: 78.8718,
     };
 
+    let positions: Array<{lat:number,lng:number}> = [];
+    useEffect(() => {
+        if(dealerList.length > 0){
+            console.log("inside dealer locator ===>",dealerList);
+            dealerList.map((dealer) => positions.push({lat:Number(dealer.latitude),lng:Number(dealer.longitude)}));
+            console.log("positions",positions);
+        }
+    },[dealerList]);
+
+    const onLoad = (marker) => {
+        console.log("marker: ", marker);
+    };
+
     return (
         <LoadScript googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY">
             <GoogleMap
@@ -193,21 +212,47 @@ function GoogleMapView({dealerList}:{dealerList: Array<Dealer>}){
                 zoom={4}
             >
                 {/* Child components, such as markers, info windows, etc. */}
-                {dealerList.length > 0 && (
+                {/* {dealerList.length > 0 && (
                     <ItemBuilder
-                        items={dealerList}
-                        itemBuilder={(dealer, dealerIndex) => (
+                        items={positions}
+                        itemBuilder={(position, positionIndex) => (
                             <Marker
-                                icon={<Droplet className="tw-h-8 tw-w-8" />}
-                                position={{lat: dealer.latitude, lng: dealer.longitude}}
-                                key={dealerIndex}
+                                onLoad={onLoad}
+                                position={position}
                             />
                         )}
                     />
-                )}
+                )} */}
+
             </GoogleMap>
         </LoadScript>
     );
 }
+
+
+function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferences;}){
+    return (
+        <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
+            <VerticalSpacer className="tw-h-10" />
+
+            <DefaultTextAnimation>
+                <div className="lg-text-headline tw-text-center">{getVernacularString("dealerLocatorS2H", userPreferences.language)}</div>
+            </DefaultTextAnimation>
+
+            <DefaultTextAnimation>
+                <div className="lg-text-title2 lg-text-secondary-700 tw-text-center">{getVernacularString("dealerLocatorS2T", userPreferences.language)}</div>
+            </DefaultTextAnimation>
+
+            <DefaultElementAnimation>
+                <button
+                    type="button"
+                    className="lg-cta-button"
+                >
+                    {getVernacularString("dealerLocatorS2BT", userPreferences.language)}
+                </button>
+            </DefaultElementAnimation>
+        </div>
+    );
+};
 
 
