@@ -748,8 +748,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage1S1T1: {
-        [Language.English]: "Empowering India With Unlimited Energy",
-        [Language.Hindi]: "सशक्त भारत के लिए असीमित ऊर्जा",
+        [Language.English]: `Empowering India With <br /> Unlimited Energy`,
+        [Language.Hindi]: `सशक्त भारत के लिए <br /> असीमित ऊर्जा`,
         [Language.Marathi]: "OOOOO",
     },
     landingPage1S1T2: {
@@ -861,8 +861,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "OOOOO",
     },
     landingPage2S1T1: {
-        [Language.English]: "Go Limitless with Best in Class Products",
-        [Language.Hindi]: "उत्तमता जो आपको असीमित बनाये",
+        [Language.English]: `Go Limitless with <br /> Best in Class Products`,
+        [Language.Hindi]: `उत्तमता जो आपको <br /> असीमित बनाये`,
         [Language.Marathi]: "OOOOO",
     },
     landingPage2S1T2: {

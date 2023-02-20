@@ -116,11 +116,17 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("landingPage2S1T1", userPreferences.language)}</div>
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T1", userPreferences.language)}}
+                    className="lg-text-banner lg-px-screen-edge tw-text-white"
+                />
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("landingPage2S1T2", userPreferences.language)}</div>
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T2", userPreferences.language)}}
+                    className="lg-text-banner lg-px-screen-edge tw-text-white"
+                />
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
