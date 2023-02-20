@@ -24,7 +24,7 @@ export function CategoryCarousel1({userPreferences, items}: {userPreferences: Us
                             key={itemIndex}
                         >
                             <div
-                                className="tw-w-full tw-h-full tw-p-4 tw-flex tw-flex-col tw-items-center tw-text-center"
+                                className="tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-text-center"
                                 key={itemIndex}
                             >
                                 <DefaultElementAnimation>

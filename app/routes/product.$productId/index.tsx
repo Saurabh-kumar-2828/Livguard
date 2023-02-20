@@ -13,6 +13,8 @@ import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/gl
 import {useState} from "react";
 import {StarFill} from "react-bootstrap-icons";
 import {ProductCardComponent} from "~/components/category/common";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -47,6 +49,7 @@ export default function () {
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
+                showMobileMenuIcon={true}
             >
                 <ProductPage
                     userPreferences={userPreferences}
@@ -576,31 +579,31 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
 function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}) {
     const jodisData: Array<{
         title: string;
-        image: string;
+        imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
     }> = [
         {
             title: `${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: false,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi2Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/rural_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: true,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi3Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: true,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi4Title", userPreferences.language)}`,
-            image: "",
+            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
             buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
             bestseller: false,
         },
@@ -610,7 +613,9 @@ function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS6HT1", userPreferences.language)}} />
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS6HT1", userPreferences.language)}} />
+                    </DefaultTextAnimation>
                 </div>
             </div>
 
@@ -628,11 +633,11 @@ function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-6" />
 
-            <div className="tw-flex tw-items-center tw-justify-center">
+            <DefaultElementAnimation>
                 <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
-            </div>
+            </DefaultElementAnimation>
         </div>
     );
 }

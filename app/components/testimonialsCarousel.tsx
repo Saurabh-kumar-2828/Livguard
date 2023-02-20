@@ -52,7 +52,10 @@ export function TestimonialsCarousel({
                                                 items={getIntegerArrayOfLength(5)}
                                                 itemBuilder={(_, itemIndex) => (
                                                     <StarFill
-                                                        className={concatenateNonNullStringsWithSpaces("tw-w-4 tw-h-4", itemIndex <= testimonial.rating ? "lg-text-primary-500" : "lg-text-secondary-300")}
+                                                        className={concatenateNonNullStringsWithSpaces(
+                                                            "tw-w-4 tw-h-4",
+                                                            itemIndex <= testimonial.rating ? "lg-text-primary-500" : "lg-text-secondary-300",
+                                                        )}
                                                         key={itemIndex}
                                                     />
                                                 )}
@@ -76,9 +79,11 @@ export function TestimonialsCarousel({
 
                                     <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-justify-center tw-items-center">
                                         <div className="tw-col-start-1">
-                                            <div className="tw-w-[120px] tw-h-[120px] lg-bg-secondary-500 tw-rounded-lg">
-                                                <div className=""></div>
-                                            </div>
+                                            <FixedWidthImage
+                                                relativePath={testimonial.productImage}
+                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                width="120px"
+                                            />
                                         </div>
                                         <div className="tw-col-start-2 tw-text-right">{testimonial.productName}</div>
                                     </div>
@@ -105,10 +110,7 @@ export function TestimonialsCarousel({
                         items={testimonials}
                         itemBuilder={(_, scrollSnapIndex) => (
                             <div
-                                className={concatenateNonNullStringsWithSpaces(
-                                    "tw-w-2 tw-h-2 tw-rounded-full",
-                                    scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300",
-                                )}
+                                className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
                                 key={scrollSnapIndex}
                             />
                         )}

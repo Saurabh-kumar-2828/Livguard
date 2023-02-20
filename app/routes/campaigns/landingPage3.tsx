@@ -2,8 +2,12 @@ import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {Form} from "@remix-run/react";
 import {useLoaderData} from "react-router";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
+import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
@@ -39,7 +43,11 @@ export default function () {
 
     return (
         <>
-            <HeaderComponent userPreferences={userPreferences} redirectTo={redirectTo} />
+            <HeaderComponent
+                userPreferences={userPreferences}
+                redirectTo={redirectTo}
+                showMobileMenuIcon={false}
+            />
             <LandingPage userPreferences={userPreferences} />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
             {/* <StickyBottomBar userPreferences={userPreferences} /> */}
@@ -91,16 +99,31 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
-            <img src="https://images.growthjockey.com/livguard/home/hero.jpg" className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full lg-bg-secondary-500 tw-object-cover -tw-z-10" />
+        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
+            <CoverImage
+                relativePath="/livguard/landingPages/2/hero_image.jpg"
+                className="tw-row-[1/span_12] tw-col-start-1"
+                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+            />
 
-            <div className="tw-row-start-4 tw-col-start-1 lg-text-banner lg-px-screen-edge">{getVernacularString("landingPage3S1T1", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+                <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("landingPage3S1T1", userPreferences.language)}</div>
+            </DefaultTextAnimation>
 
-            <div className="tw-row-start-6 tw-col-start-1 lg-text-title1 lg-px-screen-edge">{getVernacularString("landingPage3S1T2", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
+                <div className="lg-text-title1 lg-px-screen-edge">{getVernacularString("landingPage3S1T2", userPreferences.language)}</div>
+            </DefaultTextAnimation>
 
-            <div className="tw-row-[8] tw-col-start-1 lg-cta-button lg-px-screen-edge">{getVernacularString("landingPage3S1T3", userPreferences.language)}</div>
+            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
+                <button
+                    type="button"
+                    className="lg-cta-button lg-px-screen-edge"
+                >
+                    {getVernacularString("landingPage3S1T3", userPreferences.language)}
+                </button>
+            </DefaultElementAnimation>
 
-            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500" />
+            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
         </div>
     );
 }

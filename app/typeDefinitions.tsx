@@ -44,18 +44,3 @@ export enum BatteryType {
     flat = "Flat Plate Battery",
     tubular = "Tubular Battery",
 }
-
-// TODO: Not done properly
-export function themeToHumanFriendlyString(theme: Theme | null) {
-    switch (theme) {
-        case Theme.Dark:
-            return "Dark Theme";
-        case Theme.Light:
-            return "Light Theme";
-        case null:
-            return "System Theme";
-        default:
-            const exhaustiveCheck: never = theme;
-            throw new Error(`Unexpected value for Theme: ${theme}`);
-    }
-}

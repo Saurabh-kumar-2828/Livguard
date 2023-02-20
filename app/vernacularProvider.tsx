@@ -571,52 +571,100 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3HT1: {
+
+    landingPage1S3HT1: {
+        [Language.English]: "Transforming Energy Experiences",
+        [Language.Hindi]: "हिस्सा बनिये",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3HT2: {
+        [Language.English]: `With <span class="lg-text-highlighted"> Limitless Energy</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">असीमित ऊर्जा</span> के अनुभव का`,
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3Slide1Title: {
+        [Language.English]: "Futuristic Products",
+        [Language.Hindi]: "आधुनिक उत्पाद",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3Slide1Body: {
+        [Language.English]: "At Livguard, we strive to stay up to date with the changing needs in the energy storage solution sector and adapt proactively to meet those needs effectively.",
+        [Language.Hindi]: "हम ऊर्जा संग्रहण समाधान क्षेत्र में बदलती जरूरतों के साथ अद्यतित रहने का प्रयास करते हैं और उन जरूरतों को प्रभावित ढंग से पूरा करने के लिए सक्रिय रूप से तत्पर रहते हैं।",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3Slide2Title: {
+        [Language.English]: "End-to-end Energy Storage Solutions",
+        [Language.Hindi]: "हर ज़रूरत के लिए समाधान",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3Slide2Body: {
+        [Language.English]: "Whether home solutions or mobility solutions, Livguard offers a complete range of energy solutions that meet your needs with outstanding performance.",
+        [Language.Hindi]: "घर संबंधित हो या वाहन संबंधित, लिवगार्ड के साथ आपको अपनी हर ज़रूरत के लिए उत्पाद मिलेंगे, जो आपकी उम्मीदों पर खड़े उतरेंगे।",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3Slide3Title: {
+        [Language.English]: "Customer Centric",
+        [Language.Hindi]: "ग्रहकों के लिए",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3Slide3Body: {
+        [Language.English]:
+            "With our well-rooted service network of over 40 service centers and availability of products across 21000+ pin codes, we are always ready to serve you with your problems as and when you need us.",
+        [Language.Hindi]: "21000 पिन कोड में उपस्थित हमारे उत्पाद और सेवा केंद्रों के साथ हम हमेशा आपकी समस्याओं को मिटाने के लिए तैयार रहते हैं।",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage1S3BT: {
+        [Language.English]: "Explore Now",
+        [Language.Hindi]: "पता करें",
+        [Language.Marathi]: "OOOOO",
+    },
+
+    landingPageS4HT1: {
         [Language.English]: "Quality Meets",
         [Language.Hindi]: `गुणवत्ता और <span class="lg-text-highlighted">विशेषज्ञता</span>`,
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3HT2: {
+    landingPageS4HT2: {
         [Language.English]: `<span class="lg-text-highlighted">Expertise</span>`,
         [Language.Hindi]: "का मेल",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box1T1: {
+    landingPageS4Box1T1: {
         [Language.English]: "21000+",
         [Language.Hindi]: "21000+",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box1T2: {
+    landingPageS4Box1T2: {
         [Language.English]: "Pincodes Served",
         [Language.Hindi]: "पिन कोड में उपलब्ध",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box2T1: {
+    landingPageS4Box2T1: {
         [Language.English]: "40+",
         [Language.Hindi]: "40+",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box2T2: {
+    landingPageS4Box2T2: {
         [Language.English]: "Service Centres",
         [Language.Hindi]: "सेवा केंद्र",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box3T1: {
+    landingPageS4Box3T1: {
         [Language.English]: "4000+",
         [Language.Hindi]: "4000+",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box3T2: {
+    landingPageS4Box3T2: {
         [Language.English]: "Dealers & Distributors",
         [Language.Hindi]: "डीलर और वितरक",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box4T1: {
+    landingPageS4Box4T1: {
         [Language.English]: "1 Cr+",
         [Language.Hindi]: "1 Cr+",
         [Language.Marathi]: "OOOOO",
     },
-    landingPageS3Box4T2: {
+    landingPageS4Box4T2: {
         [Language.English]: "Happy Customers",
         [Language.Hindi]: "सुखी ग्राहक",
         [Language.Marathi]: "OOOOO",
@@ -651,60 +699,157 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अधिक जानिए",
         [Language.Marathi]: "OOOOO",
     },
-    landingPage2S4J1Title: {
-        [Language.English]: "The Urban Combo",
-        [Language.Hindi]: "OOOOO",
-        [Language.Marathi]: "OOOOO",
-    },
+
     landingPage2S4KeySpecificationTitle: {
         [Language.English]: "Key Specifications of The Jodi",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "जोड़ी के मुख्य स्पेसिफिकेशन",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4Specification1Title: {
+        [Language.English]: "Warranty",
+        [Language.Hindi]: "गारंटी",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4Specification2Title: {
+        [Language.English]: "Rating",
+        [Language.Hindi]: "रेटिंग",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4Specification3Title: {
+        [Language.English]: "Capacity",
+        [Language.Hindi]: "कैपेसिटी",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4Specification4Title: {
+        [Language.English]: "Techonolgy ",
+        [Language.Hindi]: "तकनीकी",
         [Language.Marathi]: "OOOOO",
     },
 
-    landingPage2S4J1Description: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+    landingPage2S4J1Title: {
+        [Language.English]: "The Urban Combo",
+        [Language.Hindi]: "अर्बन कॉम्बो",
         [Language.Marathi]: "OOOOO",
     },
-    landingPage2S4J1Specification1Title: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+    landingPage2S4J1Description: {
+        [Language.English]:
+            "A perfect combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and deliver a high backup.",
+        [Language.Hindi]:
+            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उच्च बैकअप प्रदान करती है।",
         [Language.Marathi]: "OOOOO",
     },
     landingPage2S4J1Specification1Content: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
-        [Language.Marathi]: "OOOOO",
-    },
-    landingPage2S4J1Specification2Title: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "60 Months",
+        [Language.Hindi]: "60 महीने",
         [Language.Marathi]: "OOOOO",
     },
     landingPage2S4J1Specification2Content: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
-        [Language.Marathi]: "OOOOO",
-    },
-    landingPage2S4J1Specification3Title: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "3500 VA",
+        [Language.Hindi]: "3500 वीए",
         [Language.Marathi]: "OOOOO",
     },
     landingPage2S4J1Specification3Content: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
-        [Language.Marathi]: "OOOOO",
-    },
-    landingPage2S4J1Specification4Title: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "150 Ah",
+        [Language.Hindi]: "150 एएच",
         [Language.Marathi]: "OOOOO",
     },
     landingPage2S4J1Specification4Content: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+        [Language.English]: "Sine Wave",
+        [Language.Hindi]: "साइन तरंग",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J2Title: {
+        [Language.English]: "The Rural Combo",
+        [Language.Hindi]: " रूरल कॉम्बो",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J2Description: {
+        [Language.English]:
+            "A Jodi that would assure your peace of mind with its long durability and high backup power. Precisely chosen battery paired with the sturdy inverter ensures a seamless flow of energy to meet your needs.",
+        [Language.Hindi]:
+            "एक जोड़ी जो अपने लंबे टिकाउपन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इन्वर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J2Specification1Content: {
+        [Language.English]: "60 Months",
+        [Language.Hindi]: "60 महीने",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J2Specification2Content: {
+        [Language.English]: "1500 VA",
+        [Language.Hindi]: "1500 वीए",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J2Specification3Content: {
+        [Language.English]: "200 Ah",
+        [Language.Hindi]: "200 एएच",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J2Specification4Content: {
+        [Language.English]: "Sqaure Wave",
+        [Language.Hindi]: "चौकोर तरंग",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J3Title: {
+        [Language.English]: "The Super Life Combo",
+        [Language.Hindi]: "सुपर लाइफ कॉम्बो",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J3Description: {
+        [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this combo is just the right choice for your everyday energy requirements.",
+        [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इन्वर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J3Specification1Content: {
+        [Language.English]: "84 Months",
+        [Language.Hindi]: "84 महीने",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J3Specification2Content: {
+        [Language.English]: "3500 VA",
+        [Language.Hindi]: "3500 वीए",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J3Specification3Content: {
+        [Language.English]: "150 Ah",
+        [Language.Hindi]: "150 एएच",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J3Specification4Content: {
+        [Language.English]: "Sine Wave",
+        [Language.Hindi]: "साइन तरंग",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J4Title: {
+        [Language.English]: "The Hi-power Combo",
+        [Language.Hindi]: "हाई-पॉवर कॉम्बो",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J4Description: {
+        [Language.English]:
+            "The perfect Jodi to meet the backup requirements for long hours. Smart AI charging along with the pure sinewave output delivers a smooth and efficient energy flow with enhanced life.",
+        [Language.Hindi]:
+            "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही जोड़ी। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J4Specification1Content: {
+        [Language.English]: "72 Months",
+        [Language.Hindi]: "72 महीने",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J4Specification2Content: {
+        [Language.English]: "800 VA",
+        [Language.Hindi]: "800 वीए",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J4Specification3Content: {
+        [Language.English]: "260 Ah",
+        [Language.Hindi]: "260 एएच",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPage2S4J4Specification4Content: {
+        [Language.English]: "Sine Wave",
+        [Language.Hindi]: "साइन तरंग",
         [Language.Marathi]: "OOOOO",
     },
 
@@ -1791,7 +1936,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerContactT3: {
         [Language.English]: "#Energy Unlimited",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "#असीमित ऊर्जा",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPageBottomBarT1:{
+        [Language.English]: "Find my Dealer",
+        [Language.Hindi]: "डीलर खोजें",
+        [Language.Marathi]: "OOOOO",
+    },
+    landingPageBottomBarT2:{
+        [Language.English]: "Enquire now",
+        [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "OOOOO",
     },
 

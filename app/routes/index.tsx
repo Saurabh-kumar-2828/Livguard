@@ -55,6 +55,7 @@ export default function () {
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
+                showMobileMenuIcon={true}
             >
                 <HomePage userPreferences={userPreferences} />
             </PageScaffold>
@@ -153,7 +154,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
 function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div>
+        <div id="energyStorageSolutions">
             <div className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <DefaultTextAnimation>
                     <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
@@ -188,7 +189,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
-        <div className="tw-flex tw-flex-col">
+        <div className="tw-flex tw-flex-col" id="energySolutions">
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
@@ -306,6 +307,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                     <FullWidthImage
                                         relativePath={item.image}
                                         imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        className="tw-rounded-lg"
                                     />
                                 </DefaultImageAnimation>
 
@@ -351,6 +353,8 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
                     <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS4H1T1", userPreferences.language)}} />
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS4H1T2", userPreferences.language)}} />
+
+                        {/* <div>{getVernacularString("homeS5H1T2", userPreferences.language)}</div> */}
                     </div>
                 </DefaultTextAnimation>
 
@@ -383,8 +387,12 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
     return (
         <div>
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T2", userPreferences.language)}} />
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
+                </DefaultTextAnimation>
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T2", userPreferences.language)}} />
+                </DefaultTextAnimation>
             </div>
 
             <VerticalSpacer className="tw-h-6" />
@@ -398,7 +406,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
                         message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                        productImage: "",
+                        productImage: "/livguard/inverter images/LGS1700PV-SW_.png",
                         productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
@@ -407,8 +415,8 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         rating: 5,
                         state: `${getVernacularString("review2State", userPreferences.language)}`,
                         message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "",
-                        productName: `${getVernacularString("review2ProductN2me", userPreferences.language)}`,
+                        productImage: "/livguard/battery images/IT 1550TT.png",
+                        productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
                         image: "/livguard/home/6/3.jpg",
@@ -416,7 +424,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         rating: 5,
                         state: `${getVernacularString("review3State", userPreferences.language)}`,
                         message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "",
+                        productImage: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
                         productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                     },
                     {
@@ -425,7 +433,7 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
                         rating: 5,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,
                         message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                        productImage: "",
+                        productImage: "/livguard/category/jodi/urban_jodi.png",
                         productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
                     },
                 ]}

@@ -13,7 +13,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {Language, languageToHumanFriendlyString, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function HeaderComponent({userPreferences, redirectTo}: {userPreferences: UserPreferences; redirectTo: string}) {
+export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon}: {userPreferences: UserPreferences; redirectTo: string; showMobileMenuIcon: boolean}) {
     const submit = useSubmit();
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -113,7 +113,11 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                                         key={itemIndex}
                                         as={React.Fragment}
                                     >
-                                        {({active, selected}) => <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>{languageToHumanFriendlyString(item)}</li>}
+                                        {({active, selected}) => (
+                                            <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>
+                                                {languageToHumanFriendlyString(item)}
+                                            </li>
+                                        )}
                                     </Listbox.Option>
                                 )}
                                 spaceBuilder={(spaceIndex) => (
@@ -145,13 +149,18 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
             </div>
 
             <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-                <button
-                    type="button"
-                    onClick={tryToOpenMenu}
-                >
-                    <Bars3Icon className="tw-w-6 tw-h-6" />
-                </button>
-                <HorizontalSpacer className="tw-w-2" />
+                {showMobileMenuIcon && (
+                    <>
+                        <button
+                            type="button"
+                            onClick={tryToOpenMenu}
+                        >
+                            <Bars3Icon className="tw-w-6 tw-h-6" />
+                        </button>
+                        <HorizontalSpacer className="tw-w-2" />
+                    </>
+                )}
+
                 <FixedHeightImage
                     relativePath="/livguard/logo-256.png"
                     height="1.5rem"
@@ -195,7 +204,11 @@ export function HeaderComponent({userPreferences, redirectTo}: {userPreferences:
                                         key={itemIndex}
                                         as={React.Fragment}
                                     >
-                                        {({active, selected}) => <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>{themeToHumanFriendlyString(item)}</li>}
+                                        {({active, selected}) => (
+                                            <li className={concatenateNonNullStringsWithSpaces("tw-py-2 tw-text-center", selected ? "lg-bg-secondary-300" : "lg-bg-secondary-100")}>
+                                                {themeToHumanFriendlyString(item)}
+                                            </li>
+                                        )}
                                     </Listbox.Option>
                                 )}
                                 spaceBuilder={(spaceIndex) => (

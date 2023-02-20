@@ -48,6 +48,7 @@ export default function () {
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
+                showMobileMenuIcon={true}
             >
                 <CategoryPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -190,22 +191,22 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS1Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide1KS1Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide1KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS3Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide1KS3Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/aiCharging.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/aiCharging.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide1KS4Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide1KS4Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/dimensions.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
             imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
@@ -218,22 +219,22 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS1Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide2KS1Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide2KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS3Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide2KS3Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/aiCharging.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/aiCharging.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryInvertersS2Slide2KS4Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryInvertersSlide2KS4Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/category/icons/dimensions.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
             imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
@@ -269,7 +270,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                         >
                             <div className="tw-h-6 tw-w-6">
                                 <FullWidthImage
-                                    relativePath="/livguard/category/icons/sineWave.png"
+                                    relativePath="/livguard/icons/sineWave.png"
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                 />
                             </div>
@@ -289,7 +290,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                         >
                             <div className="tw-h-6 tw-w-6">
                                 <FullWidthImage
-                                    relativePath="/livguard/category/icons/squareWave.png"
+                                    relativePath="/livguard/icons/squareWave.png"
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                 />
                             </div>
@@ -516,11 +517,11 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
         description: `${getVernacularString("categoryInvertersS8Description", userPreferences.language)}`,
         downloadButtons: [
             {
-                iconRelativePath: "/livguard/category/icons/buyingGuide.png",
+                iconRelativePath: "/livguard/icons/buyingGuide.png",
                 text: `${getVernacularString("categoryInvertersS8B1T", userPreferences.language)}`,
             },
             {
-                iconRelativePath: "/livguard/category/icons/downloadCatalogue.png",
+                iconRelativePath: "/livguard/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryInvertersS8B2T", userPreferences.language)}`,
             },
         ],
