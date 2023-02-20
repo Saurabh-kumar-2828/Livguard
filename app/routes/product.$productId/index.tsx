@@ -348,7 +348,7 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
 
             <DealerLocator
                 userPreferences={userPreferences}
-                showCTAButton={true}
+                showCtaButton={true}
             />
 
             <VerticalSpacer className="tw-h-10" />

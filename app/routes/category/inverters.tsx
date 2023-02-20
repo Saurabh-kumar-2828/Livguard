@@ -82,7 +82,7 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <DealerLocator
                 userPreferences={userPreferences}
-                showCTAButton={true}
+                showCtaButton={true}
             />
 
             <VerticalSpacer className="tw-h-10" />

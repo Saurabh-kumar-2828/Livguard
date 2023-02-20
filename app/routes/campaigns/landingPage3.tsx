@@ -66,7 +66,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <DealerLocator userPreferences={userPreferences} showCTAButton={false} />
+            <DealerLocator userPreferences={userPreferences} showCtaButton={false} />
 
             <VerticalSpacer className="tw-h-10" />
 

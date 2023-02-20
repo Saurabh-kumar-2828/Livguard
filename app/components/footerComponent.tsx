@@ -24,9 +24,9 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                 <Form>
                     <div className="tw-relative tw-w-full">
-                        <input type="text" name="subscribeMail" placeholder="Enter Your Email To Subscribe" className="lg-bg-secondary-300 lg-text-secondary-700 tw-w-full tw-p-2 tw-rounded-3xl" />
-                        <div className="tw-absolute tw-top-0 tw-right-1 tw-bottom-0 tw-m-auto tw-w-7 tw-h-7 tw-rounded-full lg-bg-secondary-100 tw-border">
-                            <ChevronRightIcon className="tw-m-auto" />
+                        <input type="text" name="email" placeholder="Enter Your Email To Subscribe" className="lg-bg-secondary-300 lg-text-secondary-700 tw-w-full tw-p-4 tw-rounded-full" />
+                        <div className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border">
+                            <ChevronRightIcon className="tw-w-8 tw-h-8" />
                         </div>
                     </div>
                 </Form>

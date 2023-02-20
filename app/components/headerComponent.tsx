@@ -80,7 +80,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
             <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
-                <a href={`tel:${getVernacularString("headerS1T1", Language.English).slice(-11)}`}>{getVernacularString("headerS1T1", userPreferences.language)}</a>
+                <a href="tel:18001025551">{getVernacularString("headerS1T1", userPreferences.language)}</a>
 
                 <div className="tw-flex-1" />
 
@@ -292,8 +292,6 @@ function MenuDialog({
     setIsMenuOpen: React.Dispatch<boolean>;
     menuState: React.MutableRefObject<MenuState>;
 }) {
-    const navigate = useNavigate();
-
     const [currentlyOpenSubMenu, setCurrentlyOpenSubMenu] = useState<SubMenu | null>(null);
     const subMenuState = useRef<MenuState>(MenuState.Closed);
 
@@ -395,7 +393,7 @@ function MenuDialog({
                                         linkTextTextContentPiece: "headerMenuS1T4",
                                         enterClassName: "tw-delay-[400ms]",
                                         subMenu: null,
-                                        link: "/solar",
+                                        link: "https://www.livguardsolar.com/",
                                     },
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T5",
@@ -418,7 +416,7 @@ function MenuDialog({
                                             if (item.subMenu != null) {
                                                 tryToOpenSubMenu(item.subMenu);
                                             } else {
-                                                navigate(item.link);
+                                                window.open(item.link, "_blank");
                                             }
                                         }}
                                     >
@@ -479,15 +477,15 @@ function MenuDialog({
                             leaveFrom="tw-opacity-full"
                             leaveTo="tw-opacity-0"
                         >
-                            <button
-                                type="button"
+                            <a
+                                href="tel:18001025551"
                                 className="lg-cta-button tw-px-4"
                             >
                                 <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
                                     <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
                                 </div>
-                            </button>
+                            </a>
                         </Transition.Child>
                     </div>
                 </Dialog.Panel>
@@ -618,17 +616,17 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "/",
+                                                  link: "/category/inverters",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T4",
                                                   enterClassName: "tw-delay-[350ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/high-capacity-inverters/",
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.Batteries
@@ -636,12 +634,12 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "/",
+                                                  link: "/category/batteries",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/solar-battery-for-home/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T4",
@@ -651,7 +649,7 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T5",
                                                   enterClassName: "tw-delay-[400ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/vrla-batteries/",
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
@@ -659,17 +657,17 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/car-and-suv-batteries/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/two-wheeler-batteries/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T4",
                                                   enterClassName: "tw-delay-[350ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/erickshaw-batteries/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T5",
@@ -679,12 +677,12 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T6",
                                                   enterClassName: "tw-delay-[450ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/tractor-batteries/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T7",
                                                   enterClassName: "tw-delay-[450ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/three-wheeler-batteries/",
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.SolarSolutions
@@ -694,17 +692,17 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/E-rickshaw-charger-category/",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T4",
                                                   enterClassName: "tw-delay-[350ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/lg-trolley-category/",
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.More
@@ -712,18 +710,18 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM6T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "/",
+                                                  link: "/dealer-locator",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM6T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "/",
+                                                  link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
                                               },
                                           ]
                                         : []
                                 }
                                 itemBuilder={(item, itemIndex) => (
-                                    <Link
+                                    <InternalOrExternalLink
                                         to={item.link}
                                         className="tw-flex tw-flex-row"
                                         key={itemIndex}
@@ -753,7 +751,7 @@ function SubMenuDialog({
                                                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
                                             </div>
                                         </Transition.Child>
-                                    </Link>
+                                    </InternalOrExternalLink>
                                 )}
                             />
                         </div>
@@ -868,5 +866,27 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                 </Dialog.Panel>
             </Dialog>
         </Transition>
+    );
+}
+
+function InternalOrExternalLink({to, className, children}: {to: string, className?: string, children}) {
+    if (to[0] == "/") {
+        return (
+            <Link
+                to={to}
+                className={className}
+            >
+                {children}
+            </Link>
+        );
+    }
+
+    return (
+        <a
+            href={to}
+            className={className}
+        >
+            {children}
+        </a>
     );
 }

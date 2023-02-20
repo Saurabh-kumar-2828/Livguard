@@ -113,7 +113,7 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <DealerLocator
                 userPreferences={userPreferences}
-                showCTAButton={true}
+                showCtaButton={true}
             />
 
             <VerticalSpacer className="tw-h-10" />
@@ -283,7 +283,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
                                 />
                             </div>
 
@@ -527,7 +527,7 @@ export function SolarSolutions({userPreferences}: {userPreferences: UserPreferen
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-self-center tw-px-6">
-                    <div className="lg-cta-button">{getVernacularString("homeS7T4", userPreferences.language)}</div>
+                    <a href="https://www.livguardsolar.com/" className="lg-cta-button">{getVernacularString("homeS7T4", userPreferences.language)}</a>
                 </div>
             </div>
         </div>
@@ -639,7 +639,7 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
     );
 }
 
-export function DealerLocator({userPreferences, showCTAButton}: {userPreferences: UserPreferences; showCTAButton: boolean}) {
+export function DealerLocator({userPreferences, showCtaButton}: {userPreferences: UserPreferences; showCtaButton: boolean}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px]">
@@ -673,11 +673,11 @@ export function DealerLocator({userPreferences, showCTAButton}: {userPreferences
 
                     <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
 
-                    {showCTAButton && (
+                    {showCtaButton && (
                         <>
                             <VerticalSpacer className="tw-h-6" />
 
-                            <div className="tw-z-10 lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</div>
+                            <Link to="/dealer-locator" className="tw-z-10 lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</Link>
                         </>
                     )}
                 </div>
@@ -816,7 +816,7 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
 
                 <VerticalSpacer className="tw-h-8" />
 
-                <Link to="#" className="lg-cta-button tw-self-center">{getVernacularString("homeS12T4", userPreferences.language)}</Link>
+                <a href="https://www.livguard.com/csr-initiatives.php" className="lg-cta-button tw-self-center">{getVernacularString("homeS12T4", userPreferences.language)}</a>
             </div>
         </div>
     );
