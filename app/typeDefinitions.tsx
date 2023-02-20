@@ -77,3 +77,16 @@ export function themeToHumanFriendlyString(userPreferences: UserPreferences, the
             throw new Error(`Unexpected value for Theme: ${theme}`);
     }
 }
+
+export type Dealer = {
+    state: string;
+    dealerCode: string;
+    name: string;
+    address: string;
+    phoneNumber: string;
+    pinCode: string;
+    city: string;
+    latitude: number;
+    longitude: number;
+    stateCode: string;
+}

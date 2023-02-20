@@ -4,6 +4,7 @@ import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, BrightnessLowFill, Check2, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
