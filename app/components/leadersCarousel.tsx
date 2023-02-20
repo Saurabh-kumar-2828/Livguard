@@ -11,7 +11,7 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function LeadersCarousel({userPreferences, leaders}: {userPreferences: UserPreferences; leaders: Array<{image: string; name: string; designation: string; bio: string}>}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, [Autoplay({delay: 3000})]);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
 
     return (
         <div>
