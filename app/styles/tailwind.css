@@ -174,7 +174,7 @@
     }
 
     .lg-cta-outline-button {
-        @apply lg-text-button tw-px-12 tw-py-3 tw-rounded-full tw-border-2 lg-text-secondary-500;
+        @apply lg-text-button tw-px-12 tw-py-3 tw-rounded-full tw-border-2 lg-text-secondary-900 tw-border-secondary-500-dark;
     }
 
     .lg-text-highlighted {

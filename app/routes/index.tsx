@@ -88,7 +88,10 @@ export default function () {
 function HomePage({userPreferences, isContactUsSubmissionSuccess}: {userPreferences: UserPreferences; isContactUsSubmissionSuccess: boolean}) {
     return (
         <>
-            <HeroSection userPreferences={userPreferences} isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}/>
+            <HeroSection
+                userPreferences={userPreferences}
+                isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
+            />
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -300,7 +303,10 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none",
+                                        itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50",
+                                    )}
                                 />
                             </div>
 
@@ -544,7 +550,12 @@ export function SolarSolutions({userPreferences}: {userPreferences: UserPreferen
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-self-center tw-px-6">
-                    <a href="https://www.livguardsolar.com/" className="lg-cta-button">{getVernacularString("homeS7T4", userPreferences.language)}</a>
+                    <a
+                        href="https://www.livguardsolar.com/"
+                        className="lg-cta-button"
+                    >
+                        {getVernacularString("homeS7T4", userPreferences.language)}
+                    </a>
                 </div>
             </div>
         </div>
@@ -649,7 +660,16 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
 
                 <div className="lg-text-body tw-text-center">
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T3P2", userPreferences.language)} <a href="tel:18001025551" className="tw-underline">{getVernacularString("homeS9T3P3", userPreferences.language)}</a> {getVernacularString("homeS9T3P4", userPreferences.language)}</div>
+                    <div>
+                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
+                        <a
+                            href="tel:18001025551"
+                            className="tw-underline"
+                        >
+                            {getVernacularString("homeS9T3P3", userPreferences.language)}
+                        </a>{" "}
+                        {getVernacularString("homeS9T3P4", userPreferences.language)}
+                    </div>
                 </div>
             </div>
         </div>
@@ -694,7 +714,12 @@ export function DealerLocator({userPreferences, showCtaButton}: {userPreferences
                         <>
                             <VerticalSpacer className="tw-h-6" />
 
-                            <Link to="/dealer-locator" className="tw-z-10 lg-cta-button">{getVernacularString("homeS10T3", userPreferences.language)}</Link>
+                            <Link
+                                to="/dealer-locator"
+                                className="tw-z-10 lg-cta-button"
+                            >
+                                {getVernacularString("homeS10T3", userPreferences.language)}
+                            </Link>
                         </>
                     )}
                 </div>
@@ -703,7 +728,7 @@ export function DealerLocator({userPreferences, showCtaButton}: {userPreferences
     );
 }
 
-export function ShowerSomeLoveOnSocialHandles({userPreferences, heading }: {userPreferences: UserPreferences; heading: {text1: string; text2: string}}) {
+export function ShowerSomeLoveOnSocialHandles({userPreferences, heading}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge">
@@ -849,7 +874,12 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
 
                 <VerticalSpacer className="tw-h-8" />
 
-                <a href="https://www.livguard.com/csr-initiatives.php" className="lg-cta-button tw-self-center">{getVernacularString("homeS12T4", userPreferences.language)}</a>
+                <a
+                    href="https://www.livguard.com/csr-initiatives.php"
+                    className="lg-cta-button tw-self-center"
+                >
+                    {getVernacularString("homeS12T4", userPreferences.language)}
+                </a>
             </div>
         </div>
     );

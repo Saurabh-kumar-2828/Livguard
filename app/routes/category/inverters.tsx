@@ -11,13 +11,14 @@ import {InverterType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getRedirectToUrlFromRequest} from "~/utilities";
-import {EmpowerYourHomeComponent, OurSegestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
+import {EmpowerYourHomeComponent, OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -52,7 +53,7 @@ export default function () {
             >
                 <CategoryPage userPreferences={userPreferences} />
             </PageScaffold>
-            <StickyBottomBar userPreferences={userPreferences} />
+            <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );
 }
@@ -109,7 +110,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
             <CoverImage
-                relativePath="/livguard/category/inverters/hero_Inverter.jpg"
+                relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.GrowthJockey}
             />
@@ -136,22 +137,22 @@ export function InvertersAreMentToLast({userPreferences}: {userPreferences: User
         {
             titleTextContentPiece: "categoryInvertersS2Slide1Heading",
             bodyTextContentPiece: "categoryInvertersS2Slide1Description",
-            imageRelativePath: "/livguard/category/inverters/new_age_design.jpg",
+            imageRelativePath: "/livguard/category/inverters/2/new_age_design.jpg",
         },
         {
             titleTextContentPiece: "categoryInvertersS2Slide2Heading",
             bodyTextContentPiece: "categoryInvertersS2Slide2Description",
-            imageRelativePath: "/livguard/category/inverters/ai_charging.jpg",
+            imageRelativePath: "/livguard/category/inverters/2/ai_charging.jpg",
         },
         {
             titleTextContentPiece: "categoryInvertersS2Slide3Heading",
             bodyTextContentPiece: "categoryInvertersS2Slide3Description",
-            imageRelativePath: "/livguard/category/inverters/three_years_warranty.jpg",
+            imageRelativePath: "/livguard/category/inverters/2/three_years_warranty.jpg",
         },
         {
             titleTextContentPiece: "categoryInvertersS2Slide4Heading",
             bodyTextContentPiece: "categoryInvertersS2Slide4Description",
-            imageRelativePath: "/livguard/category/inverters/dual_sensor_thermal.jpg",
+            imageRelativePath: "/livguard/category/inverters/2/dual_sensor_thermal.jpg",
         },
     ];
 
@@ -306,7 +307,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <OurSegestionsComponent
+                <OurSuggestionsComponent
                     vernacularContent={secledtedInverterType == InverterType.sine ? sectionData[0] : sectionData[1]}
                     backgroundColor={secledtedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
                 />
@@ -546,37 +547,6 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
                 <VerticalSpacer className="tw-h-6" />
 
                 <WhatsBestForYouComponent vernacularContent={sectionData} />
-            </div>
-        </div>
-    );
-}
-
-function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
-            <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
-                {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
             </div>
         </div>
     );

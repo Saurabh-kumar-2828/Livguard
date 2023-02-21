@@ -18,13 +18,13 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
             <div className="tw-flex tw-flex-col sm:tw-hidden">
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="lg-text-secondary-900 lg-text-headline">Be the first to find out about new stories & latest offers!</div>
+                <div className="lg-text-secondary-900 lg-text-headline">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
 
                 <VerticalSpacer className="tw-h-3" />
 
                 <Form>
                     <div className="tw-relative tw-w-full">
-                        <input type="text" name="email" placeholder="Enter Your Email To Subscribe" className="lg-bg-secondary-300 lg-text-secondary-700 tw-w-full tw-p-4 tw-rounded-full" />
+                        <input type="text" name="email" placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)} className="lg-bg-secondary-300 lg-text-secondary-700 tw-w-full tw-p-4 tw-rounded-full" />
                         <div className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border">
                             <ChevronRightIcon className="tw-w-8 tw-h-8" />
                         </div>

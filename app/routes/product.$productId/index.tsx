@@ -15,6 +15,7 @@ import {StarFill} from "react-bootstrap-icons";
 import {ProductCardComponent} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -42,8 +43,6 @@ export const loader: LoaderFunction = async ({request, params}) => {
 export default function () {
     const {userPreferences, redirectTo, productId} = useLoaderData() as LoaderData;
 
-    console.log("url in page", redirectTo);
-
     return (
         <>
             <PageScaffold
@@ -56,8 +55,7 @@ export default function () {
                     productId={productId}
                 />
             </PageScaffold>
-
-            {/* <StickyBottomBar userPreferences={userPreferences} /> */}
+            <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );
 }
@@ -638,37 +636,6 @@ function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}
             <DefaultElementAnimation>
                 <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
             </DefaultElementAnimation>
-        </div>
-    );
-}
-
-function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
-            <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
-                {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
         </div>
     );
 }
