@@ -21,7 +21,6 @@
         "@remix-run/react": "^1.12.0",
         "@remix-run/serve": "^1.12.0",
         "cssnano": "^5.1.14",
-        "downshift": "^7.2.0",
         "embla-carousel-autoplay": "^7.0.9",
         "embla-carousel-react": "^7.0.9",
         "isbot": "^3.6.5",

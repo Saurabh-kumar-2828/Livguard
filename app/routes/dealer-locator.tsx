@@ -60,7 +60,15 @@ export const action: ActionFunction = async ({request, params}) => {
     const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
     const dealerList = await getDealerForCity(city);
 
+<<<<<<< HEAD
     const actionData: DealerLocatorActionData = {
+=======
+    console.log("Hello ===>", city);
+
+    console.log("delaer list ====>", dealerList);
+
+    const actionData: ActionData = {
+>>>>>>> 0a2798be2df38df4394963db8b18f63c0f010caf
         dealerList: dealerList,
         error: dealerList == null ? "No Dealer Present For Selected Location" : "",
         path: "/dealer-locator",
@@ -219,8 +227,33 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
     if (actionData != null) {
         console.log("new dealer list", actionData.dealerList);
     }
+<<<<<<< HEAD
     const datastore = {};
     const datastore = {};
+=======
+
+    // const people = [
+    //     {id: 1, name: "Wade Cooper"},
+    //     {id: 2, name: "Arlene Mccoy"},
+    //     {id: 3, name: "Devon Webb"},
+    //     {id: 4, name: "Tom Cook"},
+    //     {id: 5, name: "Tanya Fox"},
+    //     {id: 6, name: "Hellen Schmidt"},
+    // ];
+
+
+    const people = [
+        "Wade Cooper",
+        "Arlene Mccoy",
+        "Devon Webb",
+        "Tom Cook",
+        "Tanya Fox",
+        "Hellen Schmidt",
+    ];
+
+    const [selected, setSelected] = useState(people[0]);
+    const [query, setQuery] = useState("");
+>>>>>>> 0a2798be2df38df4394963db8b18f63c0f010caf
 
     return (
         <div className="lg-px-screen-edge tw-flex tw-flex-col">
@@ -240,7 +273,7 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
                     placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
                 ></input> */}
 
-                <FancySearchableSelect
+                {/* <FancySearchableSelect
                     id="city"
                     options={cityList.map((city, cityIndex) => ({
                         value: cityIndex,
@@ -248,6 +281,7 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
                     }))}
                     className="lg-text-input tw-w-full tw-text-center"
                     placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+<<<<<<< HEAD
                     onChange={(newValue) => setSelectedCity(newValue.value)} datastore={datastore}
                     />
                 ></input> */}
@@ -266,6 +300,28 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
                 <VerticalSpacer className="tw-h-4" />
                 <input type="text" name="dealerLocation" className="tw-hidden" readOnly />
                 <input type="text" name="dealerLocation" className="tw-hidden" readOnly />
+=======
+                    onChange={(newValue) => setSelectedCity(newValue.value)}
+                    datastore={datastore}
+                /> */}
+
+                <FancySearchableSelect
+                    options={people}
+                    selected={selected}
+                    setSelected={setSelected}
+                    // primaryAttribute="name"
+                    query={query}
+                    setQuery={setQuery}
+                />
+
+                <VerticalSpacer className="tw-h-4" />
+                <input
+                    type="text"
+                    name="dealerLocation"
+                    className="tw-hidden"
+                    readOnly
+                />
+>>>>>>> 0a2798be2df38df4394963db8b18f63c0f010caf
 
                 <button
                     type="submit"
@@ -361,20 +417,16 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
         console.log("marker: ", marker);
     };
 
-
-
     useEffect(() => {
-        if(dealerList.length > 0){
+        if (dealerList.length > 0) {
             const latCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.latitude), Number(0)) / 5;
             const lngCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.longitude), Number(0)) / 5;
-            console.log("lat ====>",latCenter);
+            console.log("lat ====>", latCenter);
             console.log("lng ====>", lngCenter);
             setMapCenter({lat: latCenter, lng: lngCenter});
             setZoomLevel(12);
         }
     }, [dealerList]);
-
-
 
     return (
         <LoadScript
