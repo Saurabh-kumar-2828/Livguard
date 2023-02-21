@@ -5,6 +5,7 @@ import {Theme, UserPreferences} from "~/typeDefinitions";
 
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
+import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -32,6 +33,7 @@ export const meta: MetaFunction = () => ({
 export const links: LinksFunction = () => [
     {rel: "stylesheet", href: tailwindStylesheet},
     {rel: "stylesheet", href: rootStylesheet},
+    {rel: "stylesheet", href: reactToastifyStylesheet},
     // {rel: "preconnect", href: "https://fonts.googleapis.com"},
     // {rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous"},
     // {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap", crossOrigin: "anonymous"},

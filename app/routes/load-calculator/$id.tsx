@@ -1,27 +1,53 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {InformationCircleIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
-import {Link, useSearchParams} from "@remix-run/react";
-import React, {useEffect} from "react";
-import {useReducer, useState} from "react";
+import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
+import {Link, useActionData, useSearchParams} from "@remix-run/react";
+import React, {useEffect, useReducer, useState} from "react";
 import {PlusCircleFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {PageScaffold} from "~/components/pageScaffold";
+import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
-import {getIntegerFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, createGroupByReducer, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
+import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, generateUuid, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {FaqSection} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+type ActionData = {
+    error: string;
+};
+
+export const action: ActionFunction = async ({request}) => {
+    const body = await request.formData();
+
+    const loadCalculatorInputs = safeParse(getNonEmptyStringFromUnknown, body.get("loadCalculatorInputs"));
+
+    if (loadCalculatorInputs == null) {
+        const actionData: ActionData = {
+            error: "Something went wrong!",
+        };
+        return actionData;
+    }
+
+    const id = generateUuid();
+
+    // const result = await freshsalesFutureUpdate(connector);
+
+    // if (result instanceof Error) {
+    //     return result;
+    // }
+
+    return redirect(`/load-calculator/${id}`);
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -46,6 +72,15 @@ export const loader: LoaderFunction = async ({request}) => {
 
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+
+    const actionData: ActionData = useActionData() as ActionData;
+
+    useEffect(() => {
+        if (actionData != null) {
+            // errorToast(actionData.error);
+            alert(actionData.error);
+        }
+    }, [actionData]);
 
     // TODO: Scroll to top if required
 
@@ -493,22 +528,33 @@ function RoomSelection({
                                     <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700" />
                                 ) : (
                                     <>
-                                        <div className="tw-w-6 tw-h-8">
-                                            <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-outline-1 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark" />
-                                        </div>
-                                        <div className="tw-w-6 tw-h-8">
-                                            <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark" />
-                                        </div>
-                                        <div className="tw-w-6 tw-h-8">
-                                            <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark" />
-                                        </div>
-
-                                        {/* <ItemBuilder
-                                            items={room.devices}
-                                            itemBuilder={(device, deviceIndex) => (
-
-                                            )}
-                                        /> */}
+                                        <ItemBuilder
+                                            items={Object.keys(room.devices.reduce(createGroupByReducer<Device, string>("deviceType"), {})).slice(0, 3)}
+                                            itemBuilder={(deviceType, deviceTypeIndex) =>
+                                                deviceTypeIndex < 2 || room.devices.length == 3 ? (
+                                                    <div
+                                                        className="tw-w-6 tw-h-8"
+                                                        key={deviceTypeIndex}
+                                                    >
+                                                        <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-outline-3 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark tw-flex tw-flex-col tw-justify-center tw-items-center">
+                                                            <object
+                                                                data={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
+                                                                className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div
+                                                        className="tw-w-6 tw-h-8"
+                                                        key={deviceTypeIndex}
+                                                    >
+                                                        <div className="tw-w-8 tw-h-8 lg-bg-secondary-300 tw-rounded-full tw-outline-3 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark tw-flex tw-flex-col tw-justify-center tw-items-center">
+                                                            +{room.devices.length - 2}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        />
                                     </>
                                 )}
                             </div>
@@ -747,7 +793,7 @@ function NewRoomDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title1">Select Room Type</div>
+                            <div className="lg-text-body-bold lg-text-secondary-900">Select Room Type</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -787,7 +833,7 @@ function NewRoomDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title1">Room Name</div>
+                            <div className="lg-text-body-bold lg-text-secondary-900">Room Name</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -798,7 +844,7 @@ function NewRoomDialog({
                                 onChange={(e) => setSelectedRoomName(e.target.value)}
                             />
 
-                            <VerticalSpacer className="tw-h-32" />
+                            <VerticalSpacer className="tw-h-8" />
 
                             <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                 <button
@@ -925,11 +971,11 @@ function EditRoomDialog({
                         leaveTo="tw-opacity-0"
                     >
                         <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
-                            <div className="lg-text-title1">Edit Room</div>
+                            <div className="lg-text-title1">Edit {room.roomName}</div>
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title1">Selected Devices</div>
+                            <div className="lg-text-body-bold lg-text-secondary-900">Selected Devices</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
@@ -953,15 +999,20 @@ function EditRoomDialog({
                                                     // setSelectedDevices([
                                                     //     ...selectedDevices.filter((device, deviceIndex) => deviceIndex != indexToExclude)
                                                     // ]);
-                                                    console.log("asd");
                                                     setCurrentlyEditingDeviceType(deviceTypeToDeviceCount.deviceType);
                                                     tryToOpenEdotDeviceDialog();
                                                 }}
                                                 key={deviceTypeToDeviceCountIndex}
                                             >
-                                                <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full" />
-                                                <div className="lg-text-icon tw-whitespace-nowrap">
-                                                    {deviceTypeToDeviceCount.deviceCount}x {getDeviceTypeDetails(deviceTypeToDeviceCount.deviceType).humanReadableString}
+                                                <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
+                                                    <object
+                                                        data={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceTypeToDeviceCount.deviceType}.svg`}
+                                                        className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
+                                                    />
+                                                </div>
+                                                <div className="lg-text-icon">
+                                                    <div>{getDeviceTypeDetails(deviceTypeToDeviceCount.deviceType).humanReadableString}</div>
+                                                    <div>({deviceTypeToDeviceCount.deviceCount}x)</div>
                                                 </div>
                                             </button>
                                         )}
@@ -969,53 +1020,68 @@ function EditRoomDialog({
                                 </div>
                             )}
 
-                            <VerticalSpacer className="tw-h-4" />
+                            <VerticalSpacer className="tw-h-8" />
 
-                            <div className="lg-text-title1">Select Devices</div>
-
-                            <VerticalSpacer className="tw-h-2" />
-
-                            <div className="lg-text-title1">Lighting</div>
+                            <div className="lg-text-body-bold lg-text-secondary-900">Select Devices</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            <div className="tw-w-full tw-grid tw-grid-cols-5 tw-gap-x-2 tw-gap-y-2">
+                            <div className="tw-h-40 tw-overflow-x-visible tw-overflow-y-auto">
                                 <ItemBuilder
-                                    items={[
-                                        "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                                        "2b74d3cf-6fc2-4c9e-b264-e1865138c394",
-                                        "43150663-bea9-4fa9-b273-1b92212f5d30",
-                                        "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                                        "89066719-efd8-4e7e-be1c-16da3fc57330",
-                                        "e289b9e5-78b3-44e9-86f3-ed0068f0addf",
-                                    ]}
-                                    itemBuilder={(deviceType, deviceTypeIndex) => (
-                                        <button
-                                            type="button"
-                                            className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center"
-                                            // onClick={() => {
-                                            //     setSelectedDevices([
-                                            //         ...selectedDevices,
-                                            //         {
-                                            //             deviceType: deviceType,
-                                            //             deviceDetails: {},
-                                            //         },
-                                            //     ]);
-                                            // }}
-                                            onClick={() => {
-                                                setCurrentlyAddingDeviceType(deviceType);
-                                                tryToOpenNewDeviceDialog();
-                                            }}
-                                            key={deviceTypeIndex}
-                                        >
-                                            <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full" />
-                                            <div className="lg-text-icon tw-whitespace-nowrap">{getDeviceTypeDetails(deviceType).humanReadableString}</div>
-                                        </button>
+                                    items={distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category))}
+                                    itemBuilder={(deviceCategory, deviceCategoryIndex) => (
+                                        <React.Fragment key={deviceCategoryIndex}>
+                                            <div className="lg-text-body">{deviceCategory}</div>
+
+                                            <VerticalSpacer className="tw-h-2" />
+
+                                            <div className="tw-w-full tw-grid tw-grid-cols-5 tw-gap-x-2 tw-gap-y-2">
+                                                <ItemBuilder
+                                                    items={Object.entries(deviceTypeLibrary)
+                                                        .filter((kvp) => kvp[1].category == deviceCategory)
+                                                        .map((kvp) => kvp[0])}
+                                                    itemBuilder={(deviceType, deviceTypeIndex) => (
+                                                        <button
+                                                            type="button"
+                                                            className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center"
+                                                            // onClick={() => {
+                                                            //     setSelectedDevices([
+                                                            //         ...selectedDevices,
+                                                            //         {
+                                                            //             deviceType: deviceType,
+                                                            //             deviceDetails: {},
+                                                            //         },
+                                                            //     ]);
+                                                            // }}
+                                                            onClick={() => {
+                                                                setCurrentlyAddingDeviceType(deviceType);
+                                                                tryToOpenNewDeviceDialog();
+                                                            }}
+                                                            key={deviceTypeIndex}
+                                                        >
+                                                            <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
+                                                                <object
+                                                                    data={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
+                                                                    className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
+                                                                />
+                                                            </div>
+                                                            <div className="lg-text-icon tw-whitespace-nowrap">{getDeviceTypeDetails(deviceType).humanReadableString}</div>
+                                                        </button>
+                                                    )}
+                                                />
+                                            </div>
+                                        </React.Fragment>
+                                    )}
+                                    spaceBuilder={(spaceIndex) => (
+                                        <VerticalSpacer
+                                            className="tw-h-4"
+                                            key={spaceIndex}
+                                        />
                                     )}
                                 />
                             </div>
 
-                            <VerticalSpacer className="tw-h-32" />
+                            <VerticalSpacer className="tw-h-8" />
 
                             {/* <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                 <button
@@ -1242,7 +1308,7 @@ function NewDeviceDialog({
                                             actionType: LoadCalculatorInputsActionType.AddDevices,
                                             payload: {
                                                 roomIndex: currentlyEditingRoomIndex,
-                                                devices: getIntegerArrayOfLength(quantity).map(index => device),
+                                                devices: getIntegerArrayOfLength(quantity).map((index) => device),
                                             },
                                         };
 
@@ -1257,7 +1323,6 @@ function NewDeviceDialog({
                         </div>
                     </Transition.Child>
                 </Dialog.Panel>
-
                 <div />
             </Dialog>
         </Transition>
@@ -1511,12 +1576,46 @@ function AdditionalInputsSection({
                 <div>hours of backup</div>
             </div>
 
-            {/* <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-8" />
 
             <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2">
-                <div>Average Consumption</div>
-                <InformationCircleIcon className="tw-w-4 tw-h-4" title="How much power you expect to consume" />
-            </div> */}
+                <div className="tw-flex-none">Average Consumption</div>
+                <InformationCircleIcon
+                    className="tw-w-4 tw-h-4 tw-flex-none"
+                    title="How much power you expect to consume"
+                />
+                <EmptyFlexFiller />
+                <div className="tw-flex-none lg-text-body-bold lg-text-secondary-900">{loadCalculatorInputs.averageConsumption}%</div>
+            </div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="tw-grid tw-grid-cols-[3rem_minmax(0,1fr)_3rem] tw-items-center">
+                <input
+                    type="range"
+                    min="20"
+                    max="100"
+                    value={loadCalculatorInputs.averageConsumption}
+                    onChange={(e) => {
+                        const newAverageConsumption = safeParse(getIntegerFromUnknown, e.target.value);
+                        if (newAverageConsumption == null || newAverageConsumption < 20 || newAverageConsumption > 100) {
+                            return;
+                        }
+
+                        const action: LoadCalculatorInputsAction = {
+                            actionType: LoadCalculatorInputsActionType.ChangeAverageConsumption,
+                            payload: newAverageConsumption,
+                        };
+
+                        dispatch(action);
+                    }}
+                    className="tw-row-start-1 tw-col-start-1 tw-col-span-3 lg-range-input"
+                />
+
+                <div className="tw-row-start-1 tw-col-start-1 tw-relative tw-top-4 lg-text-icon">20%</div>
+                <div className="tw-row-start-1 tw-col-start-3 tw-justify-self-end tw-relative tw-top-4 lg-text-icon">100%</div>
+                {/* <div className="tw-row-start-1 tw-col-start-3 tw-justify-self-end tw-relative -tw-top-8">{loadCalculatorInputs.averageConsumption}%</div> */}
+            </div>
         </div>
     );
 }
@@ -1787,21 +1886,7 @@ function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action: LoadCa
 
             const newState: LoadCalculatorInputs = structuredClone(state);
 
-            switch (action.payload) {
-                case PropertyType.OneBhk:
-                case PropertyType.TwoBhk:
-                case PropertyType.ThreeBhk:
-                case PropertyType.FourBhk:
-                case PropertyType.Villa:
-                case PropertyType.Custom: {
-                    newState.property = propertyTemplates[propertyType];
-                    break;
-                }
-                default: {
-                    const exhaustiveCheck: never = action.payload;
-                    throw new Error(`Encountered unexpected PropertyType: ${propertyType}`);
-                }
-            }
+            newState.property = propertyTemplates[propertyType];
 
             return newState;
         }
@@ -1846,7 +1931,7 @@ function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action: LoadCa
 
             const newState: LoadCalculatorInputs = structuredClone(state);
 
-            newState.property.rooms[roomIndex].devices = newState.property.rooms[roomIndex].devices.filter(device => device.deviceType != deviceType);
+            newState.property.rooms[roomIndex].devices = newState.property.rooms[roomIndex].devices.filter((device) => device.deviceType != deviceType);
             console.log(newState.property.rooms[roomIndex].devices);
 
             return newState;

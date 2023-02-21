@@ -1,4 +1,4 @@
-import {GoogleMap, LoadScript, Marker} from "@react-google-maps/api";
+import {GoogleMap, LoadScript, Marker, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {Form, useActionData} from "@remix-run/react";
 import {useEffect, useState} from "react";
@@ -19,32 +19,32 @@ import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 type ActionData = {
-    dealerList : Array<Dealer>;
+    dealerList: Array<Dealer>;
 };
 
-export const action: ActionFunction = async ({request,params}) => {
+export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
     const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
     const dealerList = await getDealerForCity(city);
 
-    console.log("Hello ===>",city);
+    console.log("Hello ===>", city);
 
-    console.log("delaer list ====>",dealerList);
+    console.log("delaer list ====>", dealerList);
 
-    const actionData : ActionData = {
+    const actionData: ActionData = {
         dealerList: dealerList,
-    }
+    };
 
     return actionData;
-}
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
 };
 
-export const loader: LoaderFunction = async ({request,params}) => {
+export const loader: LoaderFunction = async ({request, params}) => {
     const userPreferences = await getUserPreferencesFromCookies(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
@@ -60,11 +60,11 @@ export const loader: LoaderFunction = async ({request,params}) => {
 
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
-    const initialDealerList : Array<Dealer> = [];
+    const initialDealerList: Array<Dealer> = [];
 
     const actionData = useActionData() as ActionData;
 
-    console.log("Action Data ====>",actionData);
+    console.log("Action Data ====>", actionData);
 
     return (
         <>
@@ -73,7 +73,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
             />
-            <DealerLocatorPage userPreferences={userPreferences} actionData={actionData}/>
+            <DealerLocatorPage
+                userPreferences={userPreferences}
+                actionData={actionData}
+            />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
@@ -86,20 +89,18 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
 
     useEffect(() => {
         console.log("inside useEffect");
-        if(actionData != null){
-            console.log("true condition",actionData.dealerList);
+        if (actionData != null) {
+            console.log("true condition", actionData.dealerList);
             setDealerList(actionData.dealerList);
         }
-    },[actionData])
+    }, [actionData]);
 
-
-    if(actionData != null){
+    if (actionData != null) {
         console.log("new dealer list", actionData.dealerList);
     }
 
     return (
         <div className="lg-px-screen-edge tw-flex tw-flex-col">
-
             <GoogleMapView dealerList={dealerList} />
 
             <VerticalSpacer className="tw-h-4" />
@@ -178,8 +179,7 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
     );
 }
 
-function GoogleMapView({dealerList}:{dealerList: Array<Dealer>}){
-
+function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
     const containerStyle = {
         width: "100%",
         height: "600px",
@@ -191,21 +191,24 @@ function GoogleMapView({dealerList}:{dealerList: Array<Dealer>}){
         lng: 78.8718,
     };
 
-    let positions: Array<{lat:number,lng:number}> = [];
+    let positions: Array<{lat: number; lng: number}> = [];
     useEffect(() => {
-        if(dealerList.length > 0){
-            console.log("inside dealer locator ===>",dealerList);
-            dealerList.map((dealer) => positions.push({lat:Number(dealer.latitude),lng:Number(dealer.longitude)}));
-            console.log("positions",positions);
+        if (dealerList.length > 0) {
+            console.log("inside dealer locator ===>", dealerList);
+            dealerList.map((dealer) => positions.push({lat: Number(dealer.latitude), lng: Number(dealer.longitude)}));
+            console.log("positions", positions);
         }
-    },[dealerList]);
+    }, [dealerList]);
 
     const onLoad = (marker) => {
         console.log("marker: ", marker);
     };
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY">
+        <LoadScript
+            googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY"
+            // preventGoogleFontsLoading={true}
+        >
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
@@ -223,14 +226,19 @@ function GoogleMapView({dealerList}:{dealerList: Array<Dealer>}){
                         )}
                     />
                 )} */}
-
+                <MarkerF
+                    onLoad={onLoad}
+                    position={{
+                        lat: 28.772,
+                        lng: 77.214,
+                    }}
+                />
             </GoogleMap>
         </LoadScript>
     );
 }
 
-
-function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferences;}){
+function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
@@ -253,6 +261,4 @@ function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferen
             </DefaultElementAnimation>
         </div>
     );
-};
-
-
+}
