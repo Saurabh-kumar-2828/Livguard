@@ -57,6 +57,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuS1T6: {
+        [Language.English]: "Dealer Locator",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS1T7: {
+        [Language.English]: "Register Your Product",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuS1T8: {
         [Language.English]: "More",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
@@ -67,7 +77,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T1: {
-        [Language.English]: "Inverter",
+        [Language.English]: "Inverters",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
@@ -77,7 +87,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T3: {
-        [Language.English]: "Solar Inverter",
+        [Language.English]: "Solar Inverters",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
@@ -162,7 +172,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T3: {
-        [Language.English]: "E-Rikshaw Charger",
+        [Language.English]: "E-Rikshaw Chargers",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
@@ -172,17 +182,37 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM6T1: {
+        [Language.English]: "Dealer Locator",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM7T1: {
+        [Language.English]: "Register Your Product",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM8T1: {
         [Language.English]: "More",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    headerMenuSM6T2: {
-        [Language.English]: "Locate Dealer",
+    headerMenuSM8T2: {
+        [Language.English]: "About Us",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    headerMenuSM6T3: {
-        [Language.English]: "Register Your Product",
+    headerMenuSM8T3: {
+        [Language.English]: "Blogs",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM8T4: {
+        [Language.English]: "LETPL Annual return 2021-22",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM8T5: {
+        [Language.English]: "LBPL Annual return 2021-22",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
@@ -2573,12 +2603,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
 
-    "loadCalculatorRecommendationsS1T1": {
+    loadCalculatorRecommendationsS1T1: {
         [Language.English]: "Utilisation",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS1T2": {
+    loadCalculatorRecommendationsS1T2: {
         [Language.English]: "Hours",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
@@ -2593,12 +2623,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2H1": {
+    loadCalculatorRecommendationsS2H1: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Top Choices</span> For You`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2H2": {
+    loadCalculatorRecommendationsS2H2: {
         [Language.English]: "Hand Picked For Your Needs",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
@@ -2623,12 +2653,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS3H1": {
+    loadCalculatorRecommendationsS3H1: {
         [Language.English]: "Choosing The",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS3H2": {
+    loadCalculatorRecommendationsS3H2: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Right Product</span>`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",

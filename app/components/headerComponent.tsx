@@ -25,6 +25,8 @@ enum SubMenu {
     AutomotiveBatteries,
     SolarSolutions,
     Accessories,
+    DealerLocator,
+    RegisterYourBrand,
     More,
 }
 
@@ -359,7 +361,7 @@ function MenuDialog({
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[17.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
+                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[20.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -408,6 +410,18 @@ function MenuDialog({
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T6",
                                         enterClassName: "tw-delay-[500ms]",
+                                        subMenu: null,
+                                        link: "/dealer-locator",
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T7",
+                                        enterClassName: "tw-delay-[550ms]",
+                                        subMenu: null,
+                                        link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "headerMenuS1T8",
+                                        enterClassName: "tw-delay-[600ms]",
                                         subMenu: SubMenu.More,
                                         link: null,
                                     },
@@ -566,7 +580,7 @@ function SubMenuDialog({
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[17.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
+                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[20.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -608,6 +622,10 @@ function SubMenuDialog({
                                             ? getVernacularString("headerMenuSM4T1", userPreferences.language)
                                             : currentlyOpenSubMenu == SubMenu.Accessories
                                             ? getVernacularString("headerMenuSM5T1", userPreferences.language)
+                                            : currentlyOpenSubMenu == SubMenu.DealerLocator
+                                            ? getVernacularString("headerMenuSM6T1", userPreferences.language)
+                                            : currentlyOpenSubMenu == SubMenu.RegisterYourBrand
+                                            ? getVernacularString("headerMenuSM7T1", userPreferences.language)
                                             : null}
                                     </div>
                                 </div>
@@ -621,16 +639,19 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM1T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/category/inverters",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "https://www.livguard.com/high-capacity-inverters/",
+                                                  download: null,
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.Batteries
@@ -639,21 +660,25 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM2T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/category/batteries",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://www.livguard.com/solar-battery-for-home/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T5",
                                                   enterClassName: "tw-delay-[400ms]",
                                                   link: "https://www.livguard.com/vrla-batteries/",
+                                                  download: null,
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
@@ -662,31 +687,37 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM3T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "https://www.livguard.com/car-and-suv-batteries/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://www.livguard.com/two-wheeler-batteries/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "https://www.livguard.com/erickshaw-batteries/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T5",
                                                   enterClassName: "tw-delay-[400ms]",
                                                   link: "/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T6",
                                                   enterClassName: "tw-delay-[450ms]",
                                                   link: "https://www.livguard.com/tractor-batteries/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T7",
                                                   enterClassName: "tw-delay-[450ms]",
                                                   link: "https://www.livguard.com/three-wheeler-batteries/",
+                                                  download: null,
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.SolarSolutions
@@ -697,36 +728,58 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM5T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://www.livguard.com/E-rickshaw-charger-category/",
+                                                  download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "https://www.livguard.com/lg-trolley-category/",
+                                                  download: null,
                                               },
                                           ]
+                                        : currentlyOpenSubMenu == SubMenu.DealerLocator
+                                        ? []
+                                        : currentlyOpenSubMenu == SubMenu.RegisterYourBrand
+                                        ? []
                                         : currentlyOpenSubMenu == SubMenu.More
                                         ? [
                                               {
-                                                  linkTextTextContentPiece: "headerMenuSM6T2",
+                                                  linkTextTextContentPiece: "headerMenuSM8T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "/dealer-locator",
+                                                  link: "https://www.livguard.com/about.php",
+                                                  download: null,
                                               },
                                               {
-                                                  linkTextTextContentPiece: "headerMenuSM6T3",
+                                                  linkTextTextContentPiece: "headerMenuSM8T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
+                                                  link: "https://www.livguard.com/blog/",
+                                                  download: null,
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM8T4",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "https://files.growthjockey.com/livguard/files/MGT-7-LETPL-2022.pdf",
+                                                  download: "LETPL Annual return 2021-22",
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM8T5",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "https://files.growthjockey.com/livguard/files/MGT-7-LBPL-2022.pdf",
+                                                  download: "LBPL Annual return 2021-22",
                                               },
                                           ]
                                         : []
                                 }
                                 itemBuilder={(item, itemIndex) => (
-                                    <InternalOrExternalLink
+                                    <InternalOrExternalOrDownloadLink
                                         to={item.link}
+                                        download={item.download}
                                         className="tw-flex tw-flex-row"
                                         key={itemIndex}
                                     >
@@ -755,7 +808,7 @@ function SubMenuDialog({
                                                 <ChevronRightIcon className="tw-w-6 tw-h-6" />
                                             </div>
                                         </Transition.Child>
-                                    </InternalOrExternalLink>
+                                    </InternalOrExternalOrDownloadLink>
                                 )}
                             />
                         </div>
@@ -873,7 +926,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
     );
 }
 
-function InternalOrExternalLink({to, className, children}: {to: string; className?: string; children}) {
+function InternalOrExternalOrDownloadLink({to, download, className, children}: {to: string; download: string | null; className?: string; children}) {
     if (to[0] == "/") {
         return (
             <Link
@@ -884,13 +937,27 @@ function InternalOrExternalLink({to, className, children}: {to: string; classNam
             </Link>
         );
     }
+    else if(download == null){
+        return (
+            <a
+                href={to}
+                className={className}
+            >
+                {children}
+            </a>
+        );
+    }
 
     return (
         <a
             href={to}
             className={className}
+            download={download}
+            target="_blank"
         >
             {children}
         </a>
     );
+
+
 }

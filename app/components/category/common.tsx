@@ -188,6 +188,7 @@ export function WhatsBestForYouComponent({
                                 href={downloadButton.downloadLink}
                                 key={downloadButtonIndex}
                                 download
+                                target={"_blank"}
                             >
                                 <div className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}>
                                     <div className="tw-h-8 tw-min-w-[32px]">

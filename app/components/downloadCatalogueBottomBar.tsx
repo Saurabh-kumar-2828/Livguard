@@ -14,6 +14,7 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
                     href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
                     download
                     className="tw-flex tw-flex-row tw-items-center"
+                    target="_blank"
                 >
                     <FixedWidthImage
                         relativePath="/livguard/icons/downloadCatalogue.png"

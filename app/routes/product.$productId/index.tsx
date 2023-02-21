@@ -140,7 +140,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
 
     return (
         <div className="lg-px-screen-edge">
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2 lg:tw-gap-4">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2 lg:tw-gap-4">
                 <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[auto,minmax(0,1fr)] lg:tw-grid-rows-1 tw-row-start-1 lg:tw-col-start-1 tw-gap-2 tw-w-full">
                     <div className="tw-row-start-1 lg:tw-col-start-2">
                         <DefaultElementAnimation>
@@ -401,7 +401,7 @@ function SuggestedProducts({
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBattriesS6HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("productPageSuggestedProduct", userPreferences.language)}} />
                     </DefaultTextAnimation>
                 </div>
             </div>
