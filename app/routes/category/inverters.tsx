@@ -19,6 +19,7 @@ import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -53,7 +54,7 @@ export default function () {
             >
                 <CategoryPage userPreferences={userPreferences} />
             </PageScaffold>
-            <StickyLandingPageBottomBar userPreferences={userPreferences} />
+            <DownloadCatalogueBottomBar userPreferences={userPreferences} />
         </>
     );
 }
