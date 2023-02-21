@@ -1,4 +1,5 @@
 import {execute} from "~/backend/databaseManager.server";
+import {generateUuid, getCurrentIsoTimestamp, getCurrentTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
 
@@ -36,4 +37,27 @@ function rowToDealerInformation(row: any): Dealer{
     }
 
     return dealer;
+}
+
+
+export async function insertDealerLeads(formResponse: {phoneNumber:string, name: string, city: string}){
+    await execute(
+        `
+            INSERT INTO
+                dealer_form_leads
+                values($1,$2,$3)
+        `,
+        [generateUuid(), getCurrentIsoTimestamp(), formResponse],
+    );
+}
+
+export async function insertContactLeads(formResponse: {phoneNumber: string; name: string; emailId: string}) {
+    await execute(
+        `
+            INSERT INTO
+                contact_us_leads
+                values($1,$2,$3)
+        `,
+        [generateUuid(), getCurrentIsoTimestamp(), formResponse],
+    );
 }

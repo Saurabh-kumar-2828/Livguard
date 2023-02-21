@@ -95,7 +95,10 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} />
+            <ShowerSomeLoveOnSocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+            />
 
             <VerticalSpacer className="tw-h-10" />
         </>

@@ -466,12 +466,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS7H1T1: {
         [Language.English]: "Pioneers in Rooftop",
-        [Language.Hindi]: "OOOOO",
+        [Language.Hindi]: "मार्गदर्शक",
         [Language.Marathi]: "OOOOO",
     },
     homeS7H1T2: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Solar Solutions</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">OOOOO</span>`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सोलर रूफटॉप सलूशन</span> में`,
         [Language.Marathi]: "OOOOO",
     },
     homeS7T2: {
@@ -1831,6 +1831,118 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Let's Plan Your Power",
         [Language.Hindi]: "अपनी ऊर्जा को प्लान करें",
         [Language.Marathi]: "?????",
+    },
+
+    dealerLocatorInputText: {
+        [Language.English]: "Enter Location, City, or Zip Code",
+        [Language.Hindi]: "स्थान, शहर या ज़िप कोड भरे",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorButtonText: {
+        [Language.English]: "Find My Dealer",
+        [Language.Hindi]: "नज़दीकी डीलर खोजें",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorShowText: {
+        [Language.English]: "Show Dealers List",
+        [Language.Hindi]: "डीलर सूची दिखाएं",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorS2H: {
+        [Language.English]: "Trouble Finding Dealers?",
+        [Language.Hindi]: "डीलर खोजने में परेशानी?",
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorS2T: {
+        [Language.English]: "Get in touch with us for a faster resolution",
+        [Language.Hindi]: "तेज़ समाधान के लिए हमसे संपर्क करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorS2BT: {
+        [Language.English]: "Contact Us",
+        [Language.Hindi]: "संपर्क करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorS4H: {
+        [Language.English]: "Join The Livguard Network",
+        [Language.Hindi]: "लिवगार्ड नेटवर्क से जुड़ें",
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorS4T: {
+        [Language.English]: "With 4000+ dealers & distributors",
+        [Language.Hindi]: "4000+ डीलरों और वितरकों के साथ",
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorS4BT: {
+        [Language.English]: "Apply Now",
+        [Language.Hindi]: "अभी अप्लाई करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorSocialHT1: {
+        [Language.English]: "Catch Dealers",
+        [Language.Hindi]: `जानिये <span class="lg-text-highlighted"> लिवगार्ड </span>`,
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorSocialHT2: {
+        [Language.English]: `<span class="lg-text-highlighted"> Talking About Livguard </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted"> डीलर नेटवर्क </span> को`,
+        [Language.Marathi]: "OOOOO",
+    },
+
+    applyNowForDealerT1: {
+        [Language.English]: "Become A Dealer Now",
+        [Language.Hindi]: "लिवगार्ड डीलर बनें",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerT2: {
+        [Language.English]: "Phone Number",
+        [Language.Hindi]: " मोबाइल नंबर",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerT3: {
+        [Language.English]: "Name",
+        [Language.Hindi]: "नाम",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerT4: {
+        [Language.English]: "City",
+        [Language.Hindi]: " शहर",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerT5: {
+        [Language.English]: "Submit",
+        [Language.Hindi]: "सबमिट करें",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerPH2: {
+        [Language.English]: "Please Enter Your Mobile",
+        [Language.Hindi]: "कृपया अपना मोबाइल नंबर डालें",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerPH3: {
+        [Language.English]: "Please Enter Your Name",
+        [Language.Hindi]: "कृपया अपना नाम डालें",
+        [Language.Marathi]: "OOOOO",
+    },
+    applyNowForDealerPH4: {
+        [Language.English]: "Please Select Your City",
+        [Language.Hindi]: "कृपया अपना शहर चुनें",
+        [Language.Marathi]: "OOOOO",
+    },
+    successT1: {
+        [Language.English]: `Thank <br /> You!`,
+        [Language.Hindi]: "धन्यवाद!",
+        [Language.Marathi]: "OOOOO",
+    },
+    successT2: {
+        [Language.English]: `Hang on, you'll receive a <br /> call from our team soon`,
+        [Language.Hindi]: `प्रतीक्षा करें, हम आपसे <br /> जल्द संपर्क करेंगे`,
+        [Language.Marathi]: "OOOOO",
+    },
+    successT3: {
+        [Language.English]: `Till then, show some love to our <br /> social handles!`,
+        [Language.Hindi]: `तब तक हमारे सोशल मीडिया <br /> पर प्यार बरसाएँ`,
+        [Language.Marathi]: "OOOOO",
     },
 
     review1Name: {

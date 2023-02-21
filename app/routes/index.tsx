@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Form, Link} from "@remix-run/react";
+import {Form, Link, useActionData} from "@remix-run/react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import {useState} from "react";
@@ -28,6 +28,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
@@ -56,6 +57,14 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
+    const actionData = useActionData();
+
+    let isContactUsSubmissionSuccess = false;
+
+    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
+    //     isContactUsSubmissionSuccess = true;
+    // }
+
     // TODO: Scroll to top if required
 
     return (
@@ -65,7 +74,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
             >
-                <HomePage userPreferences={userPreferences} />
+                <HomePage
+                    userPreferences={userPreferences}
+                    isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
+                />
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
@@ -73,10 +85,10 @@ export default function () {
     );
 }
 
-function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
+function HomePage({userPreferences, isContactUsSubmissionSuccess}: {userPreferences: UserPreferences; isContactUsSubmissionSuccess: boolean}) {
     return (
         <>
-            <HeroSection userPreferences={userPreferences} />
+            <HeroSection userPreferences={userPreferences} isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}/>
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -119,7 +131,10 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} />
+            <ShowerSomeLoveOnSocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -128,7 +143,7 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+function HeroSection({userPreferences, isContactUsSubmissionSuccess}: {userPreferences: UserPreferences; isContactUsSubmissionSuccess: boolean}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
@@ -162,6 +177,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                     userPreferences={userPreferences}
                     textVernacId="homeS1T3"
                     className="tw-z-10"
+                    isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
                 />
             </DefaultElementAnimation>
 
@@ -687,15 +703,16 @@ export function DealerLocator({userPreferences, showCtaButton}: {userPreferences
     );
 }
 
-export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreferences: UserPreferences}) {
+export function ShowerSomeLoveOnSocialHandles({userPreferences, heading }: {userPreferences: UserPreferences; heading: {text1: string; text2: string}}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge">
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="lg-text-headline ">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS11H1T2", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -713,8 +730,8 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreference
                             style={{aspectRatio: "560/315"}}
                         ></iframe>,
                         <iframe
-                        src="https://www.youtube.com/embed/CRabeGp9800"
-                        title="YouTube video player"
+                            src="https://www.youtube.com/embed/CRabeGp9800"
+                            title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
@@ -722,8 +739,8 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreference
                             style={{aspectRatio: "560/315"}}
                         ></iframe>,
                         <iframe
-                        src="https://www.youtube.com/embed/tFj9GJcjq6s"
-                        title="YouTube video player"
+                            src="https://www.youtube.com/embed/tFj9GJcjq6s"
+                            title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
@@ -740,19 +757,34 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences}: {userPreference
                 <VerticalSpacer className="tw-h-2" />
 
                 <div className="tw-flex tw-justify-evenly">
-                    <a href="https://www.facebook.com/LivguardEnergy/" target="_blank">
+                    <a
+                        href="https://www.facebook.com/LivguardEnergy/"
+                        target="_blank"
+                    >
                         <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://twitter.com/LivguardEnergy" target="_blank">
+                    <a
+                        href="https://twitter.com/LivguardEnergy"
+                        target="_blank"
+                    >
                         <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://www.instagram.com/livguardenergy/" target="_blank">
+                    <a
+                        href="https://www.instagram.com/livguardenergy/"
+                        target="_blank"
+                    >
                         <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://www.linkedin.com/company/livguard-energy/" target="_blank">
+                    <a
+                        href="https://www.linkedin.com/company/livguard-energy/"
+                        target="_blank"
+                    >
                         <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
-                    <a href="https://www.youtube.com/@LivguardEnergy" target="_blank">
+                    <a
+                        href="https://www.youtube.com/@LivguardEnergy"
+                        target="_blank"
+                    >
                         <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
                 </div>
@@ -823,7 +855,17 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
     );
 }
 
-export function ContactUsCta({userPreferences, textVernacId, className}: {userPreferences: UserPreferences; textVernacId: string; className?: string}) {
+export function ContactUsCta({
+    userPreferences,
+    textVernacId,
+    className,
+    isContactUsSubmissionSuccess,
+}: {
+    userPreferences: UserPreferences;
+    textVernacId: string;
+    className?: string;
+    isContactUsSubmissionSuccess: boolean;
+}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
     function tryToOpenContactUsDialog() {
@@ -843,6 +885,7 @@ export function ContactUsCta({userPreferences, textVernacId, className}: {userPr
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
             />
         </div>
     );
@@ -852,10 +895,12 @@ export function ContactUsDialog({
     userPreferences,
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
+    isContactUsSubmissionSuccess,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
+    isContactUsSubmissionSuccess: boolean;
 }) {
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
@@ -893,65 +938,73 @@ export function ContactUsDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <Form className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
-                            <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
-                                <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{getVernacularString("contactUsT1", userPreferences.language)}</div>
-                                <X
-                                    className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8"
-                                    onClick={tryToCloseContactUsDialog}
-                                />
-                            </div>
-
-                            <VerticalSpacer className="tw-h-4" />
-
-                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-2" />
-
-                            <input
-                                type="text"
-                                className="lg-text-input"
-                            />
-
-                            <VerticalSpacer className="tw-h-4" />
-
-                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-2" />
-
-                            <input
-                                type="text"
-                                className="lg-text-input"
-                            />
-
-                            <VerticalSpacer className="tw-h-4" />
-
-                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-2" />
-
-                            <input
-                                type="text"
-                                className="lg-text-input"
-                            />
-
-                            <VerticalSpacer className="tw-h-8" />
-
-                            <div className="tw-self-center">
-                                <FixedHeightImage
-                                    relativePath="/livguard/header/akshay.png"
-                                    height="13.75rem"
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                />
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                        {isContactUsSubmissionSuccess ? (
+                            <FormSubmissionSuccess userPreferences={userPreferences} />
+                        ) : (
+                            <Form
+                                className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
+                                // method="post"
+                                // action="/contactUsSubmission"
                             >
-                                {getVernacularString("contactUsT5", userPreferences.language)}
-                            </button>
-                        </Form>
+                                <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
+                                    <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{getVernacularString("contactUsT1", userPreferences.language)}</div>
+                                    <X
+                                        className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8"
+                                        onClick={tryToCloseContactUsDialog}
+                                    />
+                                </div>
+
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-2" />
+
+                                <input
+                                    type="text"
+                                    className="lg-text-input"
+                                />
+
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-2" />
+
+                                <input
+                                    type="text"
+                                    className="lg-text-input"
+                                />
+
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-2" />
+
+                                <input
+                                    type="text"
+                                    className="lg-text-input"
+                                />
+
+                                <VerticalSpacer className="tw-h-8" />
+
+                                <div className="tw-self-center">
+                                    <FixedHeightImage
+                                        relativePath="/livguard/header/akshay.png"
+                                        height="13.75rem"
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                                >
+                                    {getVernacularString("contactUsT5", userPreferences.language)}
+                                </button>
+                            </Form>
+                        )}
                     </Transition.Child>
                 </Dialog.Panel>
             </Dialog>

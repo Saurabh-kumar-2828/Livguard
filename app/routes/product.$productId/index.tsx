@@ -361,7 +361,7 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} />
+            <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} heading={{text1: "homeS11H1T1",text2: "homeS11H1T2"}}/>
 
             <VerticalSpacer className="tw-h-10" />
         </>
