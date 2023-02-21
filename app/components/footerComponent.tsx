@@ -24,7 +24,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                 <Form>
                     <div className="tw-relative tw-w-full">
-                        <input type="text" name="email" placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)} className="lg-bg-secondary-300 lg-text-secondary-700 tw-w-full tw-p-4 tw-rounded-full" />
+                        <input type="text" name="email" placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)} className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full" />
                         <div className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border">
                             <ChevronRightIcon className="tw-w-8 tw-h-8" />
                         </div>

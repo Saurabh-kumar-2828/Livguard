@@ -1351,13 +1351,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBattriesS4HT1: {
-        [Language.English]: `<span class="lg-text-highlighted"> Our Suggestions </span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted"> हमारे सुझाव </span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestion</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">हमारा सुझाव</span>`,
         [Language.Marathi]: "?????",
     },
     categoryBattriesS4HT2: {
-        [Language.English]: "Based On Your Choice",
-        [Language.Hindi]: "आपकी पसंद के आधार पर",
+        [Language.English]: "To Power Up Your Home",
+        [Language.Hindi]: "आपके घर को रोशन करने के लिए",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS4Heading: {
