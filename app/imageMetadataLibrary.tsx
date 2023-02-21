@@ -1011,7 +1011,7 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
     },
     "/livguard/load-calculator/1.jpg": {
         width: 4973,
-        height: 3306,
+        height: 4973,
         altText: "Dummy alt text",
         blurHash: "LA9Z+PRj01f+~VRj9GoybbNGoJxt",
         placeholderColor: "#282818",

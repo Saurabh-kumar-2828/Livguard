@@ -2583,6 +2583,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
+    "loadCalculatorRecommendationsS1T3": {
+        [Language.English]: "Watts",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS1T4": {
+        [Language.English]: "is your total house load",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
     "loadCalculatorRecommendationsS2H1": {
         [Language.English]: `<span class=\"lg-text-highlighted\">Top Choices</span> For You`,
         [Language.Hindi]: "?????",
@@ -2593,6 +2603,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
+    "loadCalculatorRecommendationsS2T1": {
+        [Language.English]: "Inverters",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2T2": {
+        [Language.English]: "Batteries",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2T3": {
+        [Language.English]: "Quick View",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2T4": {
+        [Language.English]: "Match",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
     "loadCalculatorRecommendationsS3H1": {
         [Language.English]: "Choosing The",
         [Language.Hindi]: "?????",
@@ -2600,6 +2630,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "loadCalculatorRecommendationsS3H2": {
         [Language.English]: `<span class=\"lg-text-highlighted\">Right Product</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2CTA1": {
+        [Language.English]: "Connect To A Dealer",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2CTA2": {
+        [Language.English]: "Explore Category",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS4CTA1": {
+        [Language.English]: "Connect To Dealer",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },

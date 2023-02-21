@@ -7,6 +7,7 @@ import {PlusCircleFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {getLoadCalculatorEntry} from "~/backend/loadCalculator";
 import {StickyBottomBar} from "~/components/bottomBar";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -22,7 +23,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, getUuidFromUnkown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, generateUuid, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
-import {FaqSection} from "~/routes";
+import {FaqSection, SolarSolutions} from "~/routes";
 import {OurBatteriesSectionInternal} from "~/routes/category/batteries";
 import {OurInvertersSectionInternal} from "~/routes/category/inverters";
 import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator";
@@ -86,12 +87,7 @@ export default function () {
 }
 
 function LoadCalculatorResult({userPreferences, loadCalculatorInputs}: {userPreferences: UserPreferences; loadCalculatorInputs: LoadCalculatorInputs}) {
-    const loadCalculatorOutputs: LoadCalculatorOutputs = {
-        totalWatts: loadCalculatorInputs.property.rooms
-            .flatMap((room) => room.devices)
-            .map((device) => deviceTypeLibrary[device.deviceType])
-            .reduce((totalWatts_, device) => (totalWatts_ += device.wattage), 0),
-    };
+    const loadCalculatorOutputs = getLoadCalculatorOutputs(loadCalculatorInputs);
 
     return (
         <>
@@ -103,11 +99,28 @@ function LoadCalculatorResult({userPreferences, loadCalculatorInputs}: {userPref
 
             <VerticalSpacer className="tw-h-10" />
 
-            <TopChoicesSection userPreferences={userPreferences} />
+            {loadCalculatorOutputs.recommendedInverters != null || loadCalculatorOutputs.recommendedBatteries != null ? (
+                <>
+                    <TopChoicesSection
+                        userPreferences={userPreferences}
+                        loadCalculatorOutputs={loadCalculatorOutputs}
+                    />
 
-            <VerticalSpacer className="tw-h-10" />
+                    <VerticalSpacer className="tw-h-10" />
 
-            <OurSuggestionsSection userPreferences={userPreferences} />
+                    <OurSuggestionsSection userPreferences={userPreferences} />
+                </>
+            ) : (
+                <>
+                    <SolarSolutions userPreferences={userPreferences} />
+
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <DefaultElementAnimation className="lg-px-screen-edge tw-w-full tw-flex tw-flex-col tw-items-center">
+                        <div className="lg-cta-outline-button">{getVernacularString("loadCalculatorRecommendationsS4CTA1", userPreferences.language)}</div>
+                    </DefaultElementAnimation>
+                </>
+            )}
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -129,7 +142,7 @@ function TotalLoadSection({
 }) {
     return (
         <div className="tw-flex tw-flex-col">
-            <div className="tw-w-full tw-aspect-[2/1]">
+            <div className="tw-w-full tw-aspect-[2/1] tw-overflow-hidden">
                 <CoverImage
                     relativePath="/livguard/load-calculator/1.jpg"
                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -176,8 +189,10 @@ function TotalLoadSection({
                             className="tw-w-12 tw-h-12 tw-invert"
                         />
                         <div className="tw-flex tw-flex-col">
-                            <div className="lg-text-banner tw-text-secondary-900-dark">{loadCalculatorOutputs.totalWatts} Watts</div>
-                            <div className="tw-text-title2 tw-text-secondary-900-dark">is your total house load</div>
+                            <div className="lg-text-banner tw-text-secondary-900-dark">
+                                {loadCalculatorOutputs.totalWatts} {getVernacularString("loadCalculatorRecommendationsS1T3", userPreferences.language)}
+                            </div>
+                            <div className="tw-text-title2 tw-text-secondary-900-dark">{getVernacularString("loadCalculatorRecommendationsS1T4", userPreferences.language)}</div>
                         </div>
                     </div>
                 </div>
@@ -194,7 +209,7 @@ function TotalLoadSection({
     );
 }
 
-function TopChoicesSection({userPreferences}: {userPreferences: UserPreferences}) {
+function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPreferences: UserPreferences; loadCalculatorOutputs: LoadCalculatorOutputs}) {
     return (
         <div className="tw-flex tw-flex-col">
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
@@ -206,9 +221,67 @@ function TopChoicesSection({userPreferences}: {userPreferences: UserPreferences}
                 </DefaultTextAnimation>
             </div>
 
+            {loadCalculatorOutputs.recommendedInverters == null ? null : (
+                <>
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{getVernacularString("loadCalculatorRecommendationsS2T1", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="tw-w-full tw-grid tw-grid-cols-1 tw-grid-rows-1 tw-overflow-x-auto tw-pl-6 tw-pr-[calc(1.5rem-1px)]">
+                        <div className="tw-flex tw-flex-row tw-gap-x-4">
+                            <ItemBuilder
+                                items={loadCalculatorOutputs.recommendedInverters}
+                                itemBuilder={(item, itemIndex) => (
+                                    <Link
+                                        to="/product/LG750i"
+                                        className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                        key={itemIndex}
+                                    >
+                                        <div className="tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-text-center">
+                                            <div className="lg-cta-button tw-w-fit tw-p-2 tw-whitespace-nowrap">{item.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}</div>
+
+                                            <div className="lg-text-secondary-900">{item.model}</div>
+                                        </div>
+
+                                        <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
+                                            {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
+                                        </div>
+
+                                        <VerticalSpacer className="tw-h-4" />
+                                    </Link>
+                                )}
+                            />
+                            <div className="tw-w-px tw-h-full tw-flex-none tw-bg-transparent" />
+                        </div>
+                    </div>
+                </>
+            )}
+
+            {loadCalculatorOutputs.recommendedBatteries == null ? null : (
+                <>
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{getVernacularString("loadCalculatorRecommendationsS2T2", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="tw-w-full tw-h-20 tw-bg-green-900" />
+                </>
+            )}
+
             <VerticalSpacer className="tw-h-6" />
 
-            <div className="tw-w-full tw-h-20 tw-bg-green-900" />
+            <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
+                <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA1", userPreferences.language)}</div>
+            </DefaultElementAnimation>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
+                <div className="lg-cta-outline-button">{getVernacularString("loadCalculatorRecommendationsS2CTA2", userPreferences.language)}</div>
+            </DefaultElementAnimation>
         </div>
     );
 }
@@ -275,4 +348,73 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
 
 type LoadCalculatorOutputs = {
     totalWatts: number;
+    recommendedInverters: Array<{model: string; score: number}> | null;
+    recommendedBatteries: Array<{model: string; score: number}> | null;
 };
+
+function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): LoadCalculatorOutputs {
+    const loadCalculatorOutputs: LoadCalculatorOutputs = {
+        totalWatts: loadCalculatorInputs.property.rooms
+            .flatMap((room) => room.devices)
+            .map((device) => deviceTypeLibrary[device.deviceType])
+            .reduce((totalWatts_, device) => (totalWatts_ += device.wattage), 0),
+        recommendedInverters: null,
+        recommendedBatteries: null,
+    };
+
+    const voltage = 220;
+    const efficiencyFactor = 0.7;
+    const safetyFactor = 0.8;
+
+    const w = (loadCalculatorOutputs.totalWatts * loadCalculatorInputs.averageConsumption) / 100;
+    const ah = (w / voltage / efficiencyFactor / safetyFactor) * loadCalculatorInputs.backupHours;
+
+    if (loadCalculatorOutputs.totalWatts < 4000) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG750i",
+                score: 10,
+            },
+            {
+                model: "LG750i",
+                score: 9,
+            },
+            {
+                model: "LG750i",
+                score: 8,
+            },
+            {
+                model: "LG750i",
+                score: 7,
+            },
+            {
+                model: "LG750i",
+                score: 6,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 9048ST",
+                score: 9,
+            },
+            {
+                model: "IT 9048ST",
+                score: 8,
+            },
+            {
+                model: "IT 9048ST",
+                score: 7,
+            },
+            {
+                model: "IT 9048ST",
+                score: 6,
+            },
+        ];
+    }
+
+    return loadCalculatorOutputs;
+}
