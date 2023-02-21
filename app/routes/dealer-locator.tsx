@@ -42,11 +42,11 @@ export const action: ActionFunction = async ({request, params}) => {
     const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
     const dealerList = await getDealerForCity(city);
 
-    console.log("Hello ===>",city);
+    console.log("Hello ===>", city);
 
-    console.log("delaer list ====>",dealerList);
+    console.log("delaer list ====>", dealerList);
 
-    const actionData : ActionData = {
+    const actionData: ActionData = {
         dealerList: dealerList,
         error: dealerList == null ? "No Dealer Present For Selected Location" : "",
         path: "/dealer-locator",
@@ -153,7 +153,28 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
     if (actionData != null) {
         console.log("new dealer list", actionData.dealerList);
     }
-    const datastore = {};
+
+    // const people = [
+    //     {id: 1, name: "Wade Cooper"},
+    //     {id: 2, name: "Arlene Mccoy"},
+    //     {id: 3, name: "Devon Webb"},
+    //     {id: 4, name: "Tom Cook"},
+    //     {id: 5, name: "Tanya Fox"},
+    //     {id: 6, name: "Hellen Schmidt"},
+    // ];
+
+
+    const people = [
+        "Wade Cooper",
+        "Arlene Mccoy",
+        "Devon Webb",
+        "Tom Cook",
+        "Tanya Fox",
+        "Hellen Schmidt",
+    ];
+
+    const [selected, setSelected] = useState(people[0]);
+    const [query, setQuery] = useState("");
 
     return (
         <div className="lg-px-screen-edge tw-flex tw-flex-col">
@@ -172,7 +193,7 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
                     placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
                 ></input> */}
 
-                <FancySearchableSelect
+                {/* <FancySearchableSelect
                     id="city"
                     options={cityList.map((city, cityIndex) => ({
                         value: cityIndex,
@@ -180,11 +201,26 @@ function DealerLocatorPage({userPreferences, actionData}: {userPreferences: User
                     }))}
                     className="lg-text-input tw-w-full tw-text-center"
                     placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
-                    onChange={(newValue) => setSelectedCity(newValue.value)} datastore={datastore}
-                    />
+                    onChange={(newValue) => setSelectedCity(newValue.value)}
+                    datastore={datastore}
+                /> */}
+
+                <FancySearchableSelect
+                    options={people}
+                    selected={selected}
+                    setSelected={setSelected}
+                    // primaryAttribute="name"
+                    query={query}
+                    setQuery={setQuery}
+                />
 
                 <VerticalSpacer className="tw-h-4" />
-                <input type="text" name="dealerLocation" className="tw-hidden" readOnly />
+                <input
+                    type="text"
+                    name="dealerLocation"
+                    className="tw-hidden"
+                    readOnly
+                />
 
                 <button
                     type="submit"
@@ -268,20 +304,16 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
         console.log("marker: ", marker);
     };
 
-
-
     useEffect(() => {
-        if(dealerList.length > 0){
+        if (dealerList.length > 0) {
             const latCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.latitude), Number(0)) / 5;
             const lngCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.longitude), Number(0)) / 5;
-            console.log("lat ====>",latCenter);
+            console.log("lat ====>", latCenter);
             console.log("lng ====>", lngCenter);
             setMapCenter({lat: latCenter, lng: lngCenter});
             setZoomLevel(12);
         }
     }, [dealerList]);
-
-
 
     return (
         <LoadScript
