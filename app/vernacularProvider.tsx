@@ -1101,8 +1101,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage3S1T1: {
-        [Language.English]: "Smart & Strong Inverter and Battery Jodis",
-        [Language.Hindi]: "स्मार्ट और दमदार इन्वर्टर और बैटरी की जोड़ी",
+        [Language.English]: `Smart & Strong Inverter <br /> and Battery Jodis`,
+        [Language.Hindi]: `स्मार्ट और दमदार इन्वर्टर <br /> और बैटरी की जोड़ी`,
         [Language.Marathi]: "OOOOO",
     },
     landingPage3S1T2: {
