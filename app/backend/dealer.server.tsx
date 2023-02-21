@@ -11,11 +11,11 @@ export async function getDealerForCity(city: string){
             FROM
                 dealer
             WHERE
-                city = $1
+                 LOWER(city) = $1
             ORDER BY
                 dealer_name DESC
         `,
-        [city],
+        [city.toLowerCase()],
     );
 
     return result.rows.map((row) => rowToDealerInformation(row));

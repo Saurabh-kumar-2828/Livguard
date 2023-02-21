@@ -157,6 +157,8 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
 
     return (
         <div className="lg-px-screen-edge tw-flex tw-flex-col">
+            <VerticalSpacer className="tw-h-2" />
+
             <GoogleMapView dealerList={dealerList} />
 
             <VerticalSpacer className="tw-h-4" />
@@ -307,7 +309,8 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
 
     const containerStyle = {
         width: "100%",
-        height: "600px",
+        height: "400px",
+        borderRadius: "8px",
         class: "tw-rounded-lg",
     };
 

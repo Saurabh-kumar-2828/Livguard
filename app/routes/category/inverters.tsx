@@ -585,7 +585,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
 export function ChooseBestInverterBattery({userPreferences}: {userPreferences: UserPreferences}) {
     const sectionData: {
         description: string;
-        downloadButtons: Array<{iconRelativePath: string; text: string}>;
+        downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string}>;
         buttonText: string;
     } = {
         description: `${getVernacularString("categoryInvertersS8Description", userPreferences.language)}`,
@@ -593,10 +593,12 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
             {
                 iconRelativePath: "/livguard/icons/buyingGuide.png",
                 text: `${getVernacularString("categoryInvertersS8B1T", userPreferences.language)}`,
+                downloadLink: "https://files.growthjockey.com/livguard-buying-guide.pdf",
             },
             {
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryInvertersS8B2T", userPreferences.language)}`,
+                downloadLink: "https://files.growthjockey.com/livguard-ib-leaflet.pdf",
             },
         ],
         buttonText: `${getVernacularString("categoryInvertersS8BT", userPreferences.language)}`,

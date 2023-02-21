@@ -16,11 +16,15 @@ import {ProductCardComponent} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {allProductDetails, ProductInfo} from "~/productData";
+import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
-    productId: string;
+    productData: ProductInfo;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -34,14 +38,14 @@ export const loader: LoaderFunction = async ({request, params}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
-        productId: productId,
+        productData: allProductDetails[productId][userPreferences.language],
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, productId} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
 
     return (
         <>
@@ -52,7 +56,7 @@ export default function () {
             >
                 <ProductPage
                     userPreferences={userPreferences}
-                    productId={productId}
+                    productData={productData}
                 />
             </PageScaffold>
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
@@ -60,253 +64,10 @@ export default function () {
     );
 }
 
-type ProductInfo = {
-    images: Array<{image: string}>;
-    name: string;
-    description: string;
-    productIcons: Array<{icon: string; text: string}>;
-    specifications: Array<{title: string; value: string}>;
-    features: Array<{title: string; value: string}>;
-    additionalInfo: Array<{title: string; value: string}>;
-    productDescription: {description: string; images: Array<{image: string}>};
-    reviews: {rating: number; numberOfReviews: number};
-};
 
-function ProductPage({userPreferences, productId}: {userPreferences: UserPreferences; productId: string}) {
-    const productDetails: {[key: string]: ProductInfo} = {
-        "1": {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            name: "Inverter Battery for Home & small spaces with Maximum Warranty, Long Life & Extra Backup",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "7 Year Warranty",
-                },
-                {
-                    icon: "",
-                    text: "260 AhBattery",
-                },
-                {
-                    icon: "",
-                    text: "",
-                },
-                {
-                    icon: "",
-                    text: "",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "XXXXXXX",
-                },
-                {
-                    title: "abc",
-                    value: "abc",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Lorem Ipsum is simply dummy text",
-                },
-                {
-                    title: "?????",
-                    value: "?????",
-                },
-                {
-                    title: "xyz",
-                    value: "zyz",
-                },
-            ],
-            features: [
-                {
-                    title: "abc",
-                    value: "abc",
-                },
-                {
-                    title: "Model Number",
-                    value: "XXXXXXX",
-                },
-                {
-                    title: "xyz",
-                    value: "zyz",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Lorem Ipsum is simply dummy text",
-                },
-                {
-                    title: "?????",
-                    value: "?????",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Package Contents",
-                    value: "Lorem Ipsum is simply dummy text",
-                },
-                {
-                    title: "abc",
-                    value: "abc",
-                },
-                {
-                    title: "?????",
-                    value: "?????",
-                },
-                {
-                    title: "Model Number",
-                    value: "XXXXXXX",
-                },
-                {
-                    title: "xyz",
-                    value: "zyz",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 5,
-                numberOfReviews: 120,
-            },
-        },
-        "2": {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            name: "Name 2",
-            description:
-                "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "",
-                },
-                {
-                    icon: "",
-                    text: "",
-                },
-                {
-                    icon: "",
-                    text: "7 Year Warranty",
-                },
-                {
-                    icon: "",
-                    text: "260 AhBattery",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "XXXXXXX",
-                },
-                {
-                    title: "abc",
-                    value: "abc",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Lorem Ipsum is simply dummy text",
-                },
-                {
-                    title: "?????",
-                    value: "?????",
-                },
-                {
-                    title: "xyz",
-                    value: "zyz",
-                },
-            ],
-            features: [
-                {
-                    title: "Model Number",
-                    value: "XXXXXXX",
-                },
-                {
-                    title: "abc",
-                    value: "abc",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Lorem Ipsum is simply dummy text",
-                },
-                {
-                    title: "?????",
-                    value: "?????",
-                },
-                {
-                    title: "xyz",
-                    value: "zyz",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Model Number",
-                    value: "XXXXXXX",
-                },
-                {
-                    title: "abc",
-                    value: "abc",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Lorem Ipsum is simply dummy text",
-                },
-                {
-                    title: "?????",
-                    value: "?????",
-                },
-                {
-                    title: "xyz",
-                    value: "zyz",
-                },
-            ],
-            productDescription: {
-                description:
-                    "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4,
-                numberOfReviews: 200,
-            },
-        },
-    };
+
+function ProductPage({userPreferences, productData}: {userPreferences: UserPreferences; productData: ProductInfo}) {
+
 
     return (
         <>
@@ -314,28 +75,28 @@ function ProductPage({userPreferences, productId}: {userPreferences: UserPrefere
 
             <ProductInfo
                 userPreferences={userPreferences}
-                productInfo={productDetails[productId]}
+                productInfo={productData}
             />
 
             <VerticalSpacer className="tw-h-10" />
 
             <ProductSpecifications
                 userPreferences={userPreferences}
-                productInfo={productDetails[productId]}
+                productInfo={productData}
             />
 
             <VerticalSpacer className="tw-h-10" />
 
             <ProductDescription
                 userPreferences={userPreferences}
-                productDescription={productDetails[productId].productDescription}
+                productDescription={productData.productDescription}
             />
 
             <VerticalSpacer className="tw-h-10" />
 
             <ProductRating
                 userPreferences={userPreferences}
-                reviews={productDetails[productId].reviews}
+                reviews={productData.reviews}
             />
 
             <VerticalSpacer className="tw-h-10" />
@@ -373,15 +134,26 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                 <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[auto,minmax(0,1fr)] lg:tw-grid-rows-1 tw-row-start-1 lg:tw-col-start-1 tw-gap-2 tw-w-full">
                     <div className="tw-row-start-1 lg:tw-col-start-2">
                         <div className="tw-w-full tw-h-[300px] tw-rounded-lg lg-bg-secondary-500"></div>
+                        <FixedHeightImage
+                            relativePath={productInfo.images[0].image}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            height="300px"
+                            className="tw-rounded-lg"
+                        />
                     </div>
                     <div className="tw-grid tw-grid-rows-1 tw-grid-cols-4 lg:tw-grid-rows-4 lg:tw-grid-cols-1 tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-w-full tw-gap-2">
                         <ItemBuilder
-                            items={["Image1", "Image2", "Image3", "Image4"]}
+                            items={productInfo.images}
                             itemBuilder={(image, imageIndex) => (
                                 <div
-                                    className="lg-bg-secondary-500 tw-rounded-lg tw-w-full tw-h-[80px] lg:tw-w-[80px] lg:tw-h-full"
+                                    className="tw-rounded-lg tw-w-full tw-h-[80px] lg:tw-w-[80px] lg:tw-h-full"
                                     key={imageIndex}
-                                ></div>
+                                >
+                                <FullWidthImage
+                                    relativePath={image.image}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                />
+                                </div>
                             )}
                         />
                     </div>
@@ -636,6 +408,37 @@ function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}
             <DefaultElementAnimation>
                 <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
             </DefaultElementAnimation>
+        </div>
+    );
+}
+
+function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
+            <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
+                {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
+
+            <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
+                <div className="lg-text-icon">Something</div>
+            </div>
         </div>
     );
 }
