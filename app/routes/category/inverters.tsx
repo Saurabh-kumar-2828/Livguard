@@ -69,13 +69,17 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
+            <OurInvertersSection userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-10" />
+
             <OurSuggestionsSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <SideBySideOverviewSection userPreferences={userPreferences} />
+            {/* <SideBySideOverviewSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10" /> */}
 
             <SuggestedJodiSection userPreferences={userPreferences} />
 
@@ -116,18 +120,81 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("categoryInvertersS1T1", userPreferences.language)}</div>
+                <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T1", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge">{getVernacularString("categoryInvertersS1T2", userPreferences.language)}</div>
+                <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
-                <div className="lg-text-body lg-px-screen-edge">{getVernacularString("categoryInvertersS1T3", userPreferences.language)}</div>
+                <div className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T3", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+        </div>
+    );
+}
+
+export function OurInvertersSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div>
+            <div className="lg-text-screen-edge lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T1", userPreferences.language)}} />
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T2", userPreferences.language)}} />
+            </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-2">
+                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" />
+
+                <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg" />
+
+                <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg" />
+
+                <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
+                    <FullWidthImage
+                        relativePath="/livguard/category/inverters/4/1.png"
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    />
+                </div>
+
+                <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
+                    <FullWidthImage
+                        relativePath="/livguard/category/inverters/4/2.png"
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    />
+                </div>
+
+                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C2", userPreferences.language)}</div>
+
+                <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
+
+                <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}</div>
+
+                <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">{getVernacularString("categoryInvertersS3R2C2", userPreferences.language)}</div>
+
+                <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">{getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}</div>
+
+                <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}</div>
+
+                <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">{getVernacularString("categoryInvertersS3R3C2", userPreferences.language)}</div>
+
+                <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">{getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}</div>
+
+                <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}</div>
+
+                <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">{getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}</div>
+
+                <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">{getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}</div>
+
+                <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R5C1", userPreferences.language)}</div>
+
+                <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C2", userPreferences.language)}</div>
+
+                <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C3", userPreferences.language)}</div>
+            </div>
         </div>
     );
 }
@@ -263,16 +330,18 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                     <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryInvertersS4Heading", userPreferences.language)}</div>
                 </DefaultTextAnimation>
 
+                <VerticalSpacer className="tw-h-6" />
+
                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-4">
                     <DefaultElementAnimation>
-                        <div
+                        <button
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-col-start-1 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                "tw-w-full tw-col-start-1 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
                                 `${secledtedInverterType == InverterType.sine ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
                             )}
                             onClick={() => setsecledtedInverterType(InverterType.sine)}
                         >
-                            <div className="tw-h-6 tw-w-6">
+                            <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/sineWave.png"
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -281,18 +350,18 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.sine ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
                                 {getVernacularString("categoryInvertersS4BTFlat", userPreferences.language)}
                             </div>
-                        </div>
+                        </button>
                     </DefaultElementAnimation>
 
                     <DefaultElementAnimation>
-                        <div
+                        <button
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-col-start-2 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                "tw-w-full tw-col-start-2 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
                                 `${secledtedInverterType == InverterType.square ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
                             )}
                             onClick={() => setsecledtedInverterType(InverterType.square)}
                         >
-                            <div className="tw-h-6 tw-w-6">
+                            <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/squareWave.png"
                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -301,7 +370,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.square ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
                                 {getVernacularString("categoryInvertersS4BTTubular", userPreferences.language)}
                             </div>
-                        </div>
+                        </button>
                     </DefaultElementAnimation>
                 </div>
 
@@ -309,7 +378,8 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
 
                 <OurSuggestionsComponent
                     vernacularContent={secledtedInverterType == InverterType.sine ? sectionData[0] : sectionData[1]}
-                    backgroundColor={secledtedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
+                    // backgroundColor={secledtedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
+                    className={secledtedInverterType == InverterType.sine ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -480,7 +550,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     ];
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className="lg-px-screen-edge tw-flex tw-flex-col">
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -503,9 +573,9 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-12" />
 
-            <DefaultElementAnimation>
+            <DefaultElementAnimation className="tw-w-fit tw-self-center">
                 <div className="lg-cta-outline-button">{getVernacularString("categoryInvertersS6Buttontext", userPreferences.language)}</div>
             </DefaultElementAnimation>
         </div>

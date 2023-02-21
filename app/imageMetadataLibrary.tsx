@@ -253,6 +253,20 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "LZELHdxGOXoz~C%2S2tR-V%2R*xu",
         "placeholderColor": "#f8f8f8"
     },
+    "/livguard/category/inverters/4/1.png": {
+        "width": 1100,
+        "height": 1100,
+        "altText": "Dummy alt text",
+        "blurHash": "LtE,Z^s:aKr?}Ys:nisA,@sosVo2",
+        "placeholderColor": "#f8f8f8"
+    },
+    "/livguard/category/inverters/4/2.png": {
+        "width": 1100,
+        "height": 1100,
+        "altText": "Dummy alt text",
+        "blurHash": "LZELHdxGOXoz~C%2S2tR-V%2R*xu",
+        "placeholderColor": "#f8f8f8"
+    },
     "/livguard/category/batteries/6/hi-power-jodi.png": {
         "width": 1100,
         "height": 1100,

@@ -116,12 +116,12 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 imageCdnProvider={ImageCdnProvider.GrowthJockey}
             />
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-text-secondary-900-dark">
-                <div className="lg-text-banner lg-px-screen-edge">{getVernacularString("categoryBattriesS1T1", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+                <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBattriesS1T1", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-text-secondary-900-dark">
-                <div className="lg-text-title1 lg-px-screen-edge">{getVernacularString("categoryBattriesS1T2", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
+                <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBattriesS1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
@@ -656,7 +656,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-12 tw-self-center" />
+            <VerticalSpacer className="tw-h-12" />
 
             <DefaultElementAnimation className="tw-w-fit tw-self-center">
                 <div className="lg-cta-outline-button tw-w-fit">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
