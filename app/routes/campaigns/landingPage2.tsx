@@ -44,8 +44,6 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
-    console.log("url in page", redirectTo);
-
     return (
         <>
             <HeaderComponent

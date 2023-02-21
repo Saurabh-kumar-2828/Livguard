@@ -1,21 +1,46 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
-import {Form} from "@remix-run/react";
+import {ActionFunction, LoaderFunction} from "@remix-run/node";
+import {Form, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
+import {getDealerForCity} from "~/backend/dealer.server";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
+import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
+import {DealerLocatorPage} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Dealer, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+type DealerLocatorActionData = {
+    dealerList: Array<Dealer>;
+    path: string;
+    error: string;
+};
+
+export const action: ActionFunction = async ({request, params}) => {
+    const body = await request.formData();
+
+    const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
+    const dealerList = await getDealerForCity(city);
+
+    const actionData: DealerLocatorActionData = {
+        dealerList: dealerList,
+        error: dealerList == null ? "No Dealer Present For Selected Location" : "",
+        path: "/dealer-locator",
+    };
+
+    return actionData;
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -39,7 +64,7 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
-    console.log("url in page", redirectTo);
+    const actionData = useActionData();
 
     return (
         <>
@@ -48,25 +73,34 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
             />
-            <LandingPage userPreferences={userPreferences} />
+            <LandingPage
+                userPreferences={userPreferences}
+                actionData={actionData}
+            />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
             {/* <StickyBottomBar userPreferences={userPreferences} /> */}
         </>
     );
 }
 
-function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
+function LandingPage({userPreferences, actionData}: {userPreferences: UserPreferences; actionData: DealerLocatorActionData}) {
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <DealerLocatorWithMap userPreferences={userPreferences} />
+            <DealerLocatorPage
+                userPreferences={userPreferences}
+                actionData={actionData}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <DealerLocator userPreferences={userPreferences} showCtaButton={false} />
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCtaButton={false}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -131,78 +165,40 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 export function TapIntoEfficiency({userPreferences}: {userPreferences: UserPreferences}) {
     const sectionData = [
         {
-            image: "",
-            heading: `${getVernacularString("landingPage3S7Slide1Heading", userPreferences.language)}`,
-            content: `${getVernacularString("landingPage3S7Slide1Ccontent", userPreferences.language)}`,
-            buttontext: `${getVernacularString("landingPage3S7Slide1BT", userPreferences.language)}`,
+            imageRelativePath: "/livguard/landingPages/3/1.jpg",
+            titleTextContentPiece: "landingPage3S7Slide1Heading",
+            bodyTextContentPiece: "landingPage3S7Slide1Content",
         },
         {
-            image: "",
-            heading: `${getVernacularString("landingPage3S7Slide2Heading", userPreferences.language)}`,
-            content: `${getVernacularString("landingPage3S7Slide2Ccontent", userPreferences.language)}`,
-            buttontext: `${getVernacularString("landingPage3S7Slide2BT", userPreferences.language)}`,
+            imageRelativePath: "/livguard/landingPages/3/2.jpg",
+            titleTextContentPiece: "landingPage3S7Slide2Heading",
+            bodyTextContentPiece: "landingPage3S7Slide2Content",
         },
         {
-            image: "",
-            heading: `${getVernacularString("landingPage3S7Slide3Heading", userPreferences.language)}`,
-            content: `${getVernacularString("landingPage3S7Slide4Ccontent", userPreferences.language)}`,
-            buttontext: `${getVernacularString("landingPage3S7Slide3BT", userPreferences.language)}`,
+            imageRelativePath: "/livguard/landingPages/3/3.jpg",
+            titleTextContentPiece: "landingPage3S7Slide3Heading",
+            bodyTextContentPiece: "landingPage3S7Slide3Content",
         },
     ];
 
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-                <div className="lg-text-headline">
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+            <div className="lg-text-headline">
+                <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="tw-rounded-lg lg-bg-secondary-500 tw-h-[250px] tw-w-full"></div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-title1 tw-center-center">{sectionData[0].heading}</div>
-
-                <VerticalSpacer className="tw-h-3" />
-
-                <div className="lg-text-body tw-text-center tw-px-6">{sectionData[0].content}</div>
-
-                <VerticalSpacer className="tw-h-8 tw-flex-1" />
-
-                <div className="lg-cta-button">{sectionData[0].buttontext}</div>
+                </DefaultTextAnimation>
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT2", userPreferences.language)}} />4
+                </DefaultTextAnimation>
             </div>
-        </div>
-    );
-}
+            <VerticalSpacer className="tw-h-6" />
+            <LandingPage3Carousel
+                userPreferences={userPreferences}
+                items={sectionData}
+            />
+            <VerticalSpacer className="tw-h-8 tw-flex-1" />
 
-export function DealerLocatorWithMap({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-                <div className="lg-bg-secondary-500 tw-rounded-lg tw-h-[500px] tw-w-full"></div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <Form className="tw-w-full tw-items-center tw-justify-center tw-flex tw-flex-col">
-                    <input
-                        type="text"
-                        name="locationCode"
-                        className="tw-w-full lg-text-title2 tw-rounded-3xl tw-text-center tw-py-2 lg-bg-secondary-500"
-                        placeholder={`${getVernacularString("landingPage3S3T1", userPreferences.language)}`}
-                    />
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="lg-text-title2 lg-text-secondary-700 tw-underline tw-text-center">{`${getVernacularString("landingPage3S3T2", userPreferences.language)}`}</div>
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <button type="submit" className="lg-cta-button">{`${getVernacularString("landingPage3S3T3", userPreferences.language)}`}</button>
-                </Form>
-            </div>
+            <div className="lg-cta-button">{getVernacularString("landingPage3S7BT", userPreferences.language)}</div>
         </div>
     );
 }

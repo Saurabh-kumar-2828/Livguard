@@ -1147,14 +1147,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सहज अनुकूलता",
         [Language.Marathi]: "OOOOO",
     },
-    landingPage3S7Slide1Ccontent: {
+    landingPage3S7Slide1Content: {
         [Language.English]: "Livguard inverter and inverter battery jodis offer a seamless compatibility which combine together for an uninterrupted flow of energy.",
         [Language.Hindi]: "लिवगार्ड इन्वर्टर और इन्वर्टर बैटरी जोड़ी एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
-        [Language.Marathi]: "OOOOO",
-    },
-    landingPage3S7Slide1BT: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     landingPage3S7Slide2Heading: {
@@ -1162,14 +1157,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "निरंतर सेवा",
         [Language.Marathi]: "OOOOO",
     },
-    landingPage3S7Slide2Ccontent: {
+    landingPage3S7Slide2Content: {
         [Language.English]: "With Livguard Jodis at your home, experience the comfort of hassle-free servicing for both the products, whenever you need.",
         [Language.Hindi]: "अपने घर पर लिवगार्ड जोड़ी के साथ,इन्वर्टर और इन्वर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
-        [Language.Marathi]: "OOOOO",
-    },
-    landingPage3S7Slide2BT: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
         [Language.Marathi]: "OOOOO",
     },
     landingPage3S7Slide3Heading: {
@@ -1177,14 +1167,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "लंबा जीवन",
         [Language.Marathi]: "OOOOO",
     },
-    landingPage3S7Slide3Ccontent: {
+    landingPage3S7Slide3Content: {
         [Language.English]: "The perfect match of inverter and inverter battery in Livguard Jodis ensure a longer , more efficient life of the products for you.",
         [Language.Hindi]: "लिवगार्ड जोड़ी में इन्वर्टर और इन्वर्टर बैटरी का सही मेल आपके उत्पादों का लंबा, अधिक कुशल जीवन सुनिश्चित करता है।",
         [Language.Marathi]: "OOOOO",
     },
-    landingPage3S7Slide3BT: {
-        [Language.English]: "OOOOO",
-        [Language.Hindi]: "OOOOO",
+    landingPage3S7BT: {
+        [Language.English]: "Reach out to Us",
+        [Language.Hindi]: "हमसे संपर्क करें",
         [Language.Marathi]: "OOOOO",
     },
 
@@ -1886,6 +1876,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     dealerLocatorSocialHT2: {
         [Language.English]: `<span class="lg-text-highlighted"> Talking About Livguard </span>`,
         [Language.Hindi]: `<span class="lg-text-highlighted"> डीलर नेटवर्क </span> को`,
+        [Language.Marathi]: "OOOOO",
+    },
+    dealerLocatorHighlightedText: {
+        [Language.English]: "Dealers Near You",
+        [Language.Hindi]: "आप के नज़दीकी डीलर",
         [Language.Marathi]: "OOOOO",
     },
 
