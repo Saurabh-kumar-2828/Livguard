@@ -609,25 +609,25 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
         {
             title: `${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: false,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi2Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/rural_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: true,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi3Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: true,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi4Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
+            buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: false,
         },
     ];
@@ -651,6 +651,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
                         <ProductCardComponent
                             vernacularContent={jodi}
                             key={jodiIndex}
+                            userPreferences={userPreferences}
                         />
                     )}
                 />

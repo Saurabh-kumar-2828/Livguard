@@ -11,7 +11,7 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useState} from "react";
-import {StarFill} from "react-bootstrap-icons";
+import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {ProductCardComponent} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -20,6 +20,8 @@ import {allProductDetails, ProductInfo} from "~/productData";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import React from "react";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -112,7 +114,10 @@ function ProductPage({userPreferences, productData}: {userPreferences: UserPrefe
 
             <VerticalSpacer className="tw-h-10" />
 
-            <SuggestedProducts userPreferences={userPreferences} />
+            <SuggestedProducts
+                userPreferences={userPreferences}
+                recommendedProducts={productData.recommendedProducts}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -120,7 +125,10 @@ function ProductPage({userPreferences, productData}: {userPreferences: UserPrefe
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ShowerSomeLoveOnSocialHandles userPreferences={userPreferences} heading={{text1: "homeS11H1T1",text2: "homeS11H1T2"}}/>
+            <ShowerSomeLoveOnSocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
+            />
 
             <VerticalSpacer className="tw-h-10" />
         </>
@@ -128,31 +136,35 @@ function ProductPage({userPreferences, productData}: {userPreferences: UserPrefe
 }
 
 function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPreferences; productInfo : ProductInfo}) {
+    const [mainImageIndex, setMainImageIndex] = useState(0);
+
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2 lg:tw-gap-4">
                 <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[auto,minmax(0,1fr)] lg:tw-grid-rows-1 tw-row-start-1 lg:tw-col-start-1 tw-gap-2 tw-w-full">
                     <div className="tw-row-start-1 lg:tw-col-start-2">
-                        <div className="tw-w-full tw-h-[300px] tw-rounded-lg lg-bg-secondary-500"></div>
-                        <FixedHeightImage
-                            relativePath={productInfo.images[0].image}
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                            height="300px"
-                            className="tw-rounded-lg"
-                        />
+                        <DefaultElementAnimation>
+                            <FullWidthImage
+                                relativePath={productInfo.images[mainImageIndex].image}
+                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                className="tw-rounded-lg"
+                            />
+                        </DefaultElementAnimation>
                     </div>
                     <div className="tw-grid tw-grid-rows-1 tw-grid-cols-4 lg:tw-grid-rows-4 lg:tw-grid-cols-1 tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-w-full tw-gap-2">
                         <ItemBuilder
                             items={productInfo.images}
                             itemBuilder={(image, imageIndex) => (
                                 <div
-                                    className="tw-rounded-lg tw-w-full tw-h-[80px] lg:tw-w-[80px] lg:tw-h-full"
+                                    className="tw-rounded-lg tw-w-full tw-h-[80px] lg:tw-w-[80px] lg:tw-h-full hover:tw-cursor-pointer"
                                     key={imageIndex}
+                                    onClick={() => setMainImageIndex(imageIndex)}
                                 >
-                                <FullWidthImage
-                                    relativePath={image.image}
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                />
+                                    <FullWidthImage
+                                        relativePath={image.image}
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        className="tw-rounded-lg"
+                                    />
                                 </div>
                             )}
                         />
@@ -161,7 +173,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                 <div className="tw-flex tw-flex-col tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title1 tw-text-left">{productInfo.name}</div>
+                    <div className="lg-text-title1 tw-text-left">{productInfo.title}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -175,10 +187,16 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                             itemBuilder={(icon, iconIndex) => (
                                 <>
                                     <div
-                                        className="tw-flex tw-flex-col tw-gap-1 tw-justify-center tw-items-center"
+                                        className="tw-flex tw-flex-col tw-gap-1 tw-justify-between tw-items-center"
                                         key={iconIndex}
                                     >
-                                        <div className="tw-w-4 tw-h-4 lg-bg-secondary-500 tw-rounded-full"></div>
+                                        <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                                            <FixedWidthImage
+                                                relativePath={icon.icon}
+                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                width="1.5rem"
+                                            />
+                                        </div>
                                         <div className="tw-text-center">{icon.text}</div>
                                     </div>
 
@@ -215,15 +233,15 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
                     <ItemBuilder
                         items={[
                             {
-                                title: "Specifications",
+                                title: `${getVernacularString("productPageSpecifications", userPreferences.language)}`,
                                 value: "specifications",
                             },
                             {
-                                title: "Features",
+                                title: `${getVernacularString("productPageFeatures", userPreferences.language)}`,
                                 value: "features",
                             },
                             {
-                                title: "Additional Info",
+                                title: `${getVernacularString("productPageAdditionalInfo", userPreferences.language)}`,
                                 value: "additionalInfo",
                             },
                         ]}
@@ -248,10 +266,22 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
                 <ItemBuilder
                     items={getDataFromProductInfo(selectedTab)}
                     itemBuilder={(item, itemIndex) => (
-                        <div className={`tw-grid tw-grid-cols-2 lg-px-screen-edge tw-py-2 tw-items-center tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-500" : ""}`}>
-                            <div className="tw-col-start-1 tw-font-bold">{item.title}</div>
-                            <div className="tw-col-start-2">{item.value}</div>
-                        </div>
+                        <React.Fragment>
+                            {selectedTab == "features" ? (
+                                <div className={`lg-px-screen-edge tw-flex tw-flex-row tw-py-2 tw-items-center tw-gap-1 tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-500" : ""}`}>
+                                    <div className="tw-w-2">
+                                        <CircleFill className="tw-w-2 tw-h-2 lg-bg-secondary-100 tw-rounded-full" />
+                                    </div>
+
+                                    <div>{item.value}</div>
+                                </div>
+                            ) : (
+                                <div className={`tw-grid tw-grid-cols-2 lg-px-screen-edge tw-py-2 tw-items-center tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-500" : ""}`}>
+                                    <div className="tw-col-start-1 tw-font-bold">{item.title}</div>
+                                    <div className="tw-col-start-2">{item.value}</div>
+                                </div>
+                            )}
+                        </React.Fragment>
                     )}
                 />
             </div>
@@ -262,7 +292,7 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
 function ProductDescription({userPreferences, productDescription}: {userPreferences: UserPreferences; productDescription: {description: string; images: Array<{image: string}>}}) {
     return (
         <div className="lg-px-screen-edge tw-flex-tw-flex-col">
-            <div className="lg-text-headline tw-text-center">Product Description</div>
+            <div className="lg-text-headline tw-text-center">{getVernacularString("productPageProductDescription", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -274,7 +304,13 @@ function ProductDescription({userPreferences, productDescription}: {userPreferen
                 items={productDescription.images}
                 itemBuilder={(image, imageIndex) => (
                     <>
-                        <div className="tw-rounded-lg lg-bg-secondary-500 tw-w-full tw-h-[250px]"></div>
+                        <div className="tw-rounded-lg tw-w-full">
+                            <FullWidthImage
+                                relativePath={image.image}
+                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                className="tw-rounded-lg"
+                            />
+                        </div>
 
                         <VerticalSpacer className="tw-h-4" />
                     </>
@@ -335,7 +371,9 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
                             <div className="tw-flex tw-flex-row tw-gap-4 tw-items-center" key={ratingIndex}>
                                 <div>{`${rating.startRating} Star`}</div>
                                 <div className="tw-w-[50px] tw-h-[6px] lg-bg-secondary-300 tw-rounded-lg ">
-                                    <div className={`tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-w-[${rating.percentage}%] tw-h-full tw-rounded-lg`}></div>
+                                    <div className={`tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B]
+                                        ${rating.startRating == 5 ? "tw-w-[90%]" : rating.startRating == 4 ? "tw-w-[60%]" : rating.startRating == 3 ? "tw-w-[40%]" : rating.startRating == 2 ? "tw-w-[25%]" : "tw-w-[15%]"}
+                                        tw-h-full tw-rounded-lg`}></div>
                                 </div>
                             </div>
                         )}
@@ -346,39 +384,18 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
     );
 }
 
-function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}) {
-    const jodisData: Array<{
+function SuggestedProducts({
+    userPreferences,
+    recommendedProducts,
+}: {
+    userPreferences: UserPreferences;
+    recommendedProducts: Array<{
         title: string;
         imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
-    }> = [
-        {
-            title: `${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
-            bestseller: false,
-        },
-        {
-            title: `${getVernacularString("categoryBattriesS6Jodi2Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/category/jodi/rural_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
-            bestseller: true,
-        },
-        {
-            title: `${getVernacularString("categoryBattriesS6Jodi3Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
-            bestseller: true,
-        },
-        {
-            title: `${getVernacularString("categoryBattriesS6Jodi4Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
-            buttonText: `${getVernacularString("categoryBattriesS6JodiButtontext", userPreferences.language)}`,
-            bestseller: false,
-        },
-    ];
-
+    }>;
+}) {
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-col">
@@ -393,52 +410,23 @@ function SuggestedProducts({userPreferences}: {userPreferences: UserPreferences}
 
             <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
                 <ItemBuilder
-                    items={jodisData}
+                    items={recommendedProducts}
                     itemBuilder={(jodi, jodiIndex) => (
                         <ProductCardComponent
                             vernacularContent={jodi}
                             key={jodiIndex}
+                            userPreferences={userPreferences}
                         />
                     )}
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-6" />
+            {/* <VerticalSpacer className="tw-h-6" />
 
             <DefaultElementAnimation>
                 <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
-            </DefaultElementAnimation>
+            </DefaultElementAnimation> */}
         </div>
     );
 }
 
-function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[2fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_2fr] tw-py-[0.8125rem]">
-            <div className="tw-row-start-1 tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-text-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-6 tw-flex tw-flex-col tw-items-center">
-                {/* <div className="tw-w-16 tw-h-16 tw-rounded-full lg-bg-primary-500" /> */}
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-8 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-
-            <div className="tw-row-start-1 tw-col-start-10 tw-flex tw-flex-col tw-items-center">
-                <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-primary-500" />
-                <div className="lg-text-icon">Something</div>
-            </div>
-        </div>
-    );
-}

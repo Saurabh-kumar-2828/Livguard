@@ -120,6 +120,7 @@ export function OurSuggestionsComponent({
 
 export function ProductCardComponent({
     vernacularContent,
+    userPreferences,
 }: {
     vernacularContent: {
         title: string;
@@ -127,6 +128,7 @@ export function ProductCardComponent({
         buttonText: string;
         bestseller: boolean;
     };
+    userPreferences: UserPreferences;
 }) {
     return (
         <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3 tw-rounded-lg lg-bg-secondary-100">
@@ -154,7 +156,7 @@ export function ProductCardComponent({
             <VerticalSpacer className="tw-h-1" />
 
             <DefaultElementAnimation>
-                <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{vernacularContent.buttonText}</div>
+                <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{getVernacularString(vernacularContent.buttonText, userPreferences.language)}</div>
             </DefaultElementAnimation>
         </div>
     );
