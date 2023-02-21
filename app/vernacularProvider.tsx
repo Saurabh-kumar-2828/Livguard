@@ -2593,11 +2593,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2T1": {
-        [Language.English]: "Top Choices For You",
+    "loadCalculatorRecommendationsS3H1": {
+        [Language.English]: "Choosing The",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
+    "loadCalculatorRecommendationsS3H2": {
+        [Language.English]: `<span class=\"lg-text-highlighted\">Right Product</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
     "propertyType-1-bhk": {
         [Language.English]: "1 BHK",
         [Language.Hindi]: "?????",

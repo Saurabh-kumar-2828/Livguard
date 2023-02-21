@@ -194,11 +194,41 @@ function TotalLoadSection({
     );
 }
 
+function TopChoicesSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="tw-flex tw-flex-col">
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS2H1", userPreferences.language)}} />
+                </DefaultTextAnimation>
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS2H2", userPreferences.language)}} />
+                </DefaultTextAnimation>
+            </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <div className="tw-w-full tw-h-20 tw-bg-green-900" />
+        </div>
+    );
+}
+
 function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferences}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
         <div>
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS3H1", userPreferences.language)}} />
+                </DefaultTextAnimation>
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS3H2", userPreferences.language)}} />
+                </DefaultTextAnimation>
+            </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
             <div className="lg-px-screen-edge tw-grid tw-grid-cols-2 tw-items-center">
                 <button
                     type="button"
@@ -239,26 +269,6 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                     <OurBatteriesSectionInternal userPreferences={userPreferences} />
                 </div>
             </div>
-        </div>
-    );
-}
-
-function TopChoicesSection({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="tw-flex tw-flex-col">
-            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
-                <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS2H1", userPreferences.language)}} />
-                </DefaultTextAnimation>
-                <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS2H2", userPreferences.language)}} />
-                </DefaultTextAnimation>
-            </div>
-
-            <VerticalSpacer className="tw-h-6" />
-
-            <div className="lg-px-screen-edge lg-text-title1">{getVernacularString("loadCalculatorRecommendationsS2T1", userPreferences.language)}</div>
-            <div className="tw-w-full tw-h-20 tw-bg-green-900" />
         </div>
     );
 }
