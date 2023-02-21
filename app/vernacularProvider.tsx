@@ -33,62 +33,62 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     headerMenuS1T1: {
         [Language.English]: "Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T2: {
         [Language.English]: "Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T3: {
         [Language.English]: "Automotive Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T4: {
         [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T5: {
         [Language.English]: "Accessories",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सहायक उपकरण",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T6: {
         [Language.English]: "Dealer Locator",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "डीलर ढूँढें",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T7: {
         [Language.English]: "Register Your Product",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "उत्पाद रजिस्टर करवायें",
         [Language.Marathi]: "?????",
     },
     headerMenuS1T8: {
         [Language.English]: "More",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "और देखें",
         [Language.Marathi]: "?????",
     },
     headerMenuS2T1: {
         [Language.English]: "Contact Us",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमसे संपर्क करें",
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T1: {
         [Language.English]: "Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर",
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T2: {
         [Language.English]: "Home Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "होम इनवर्टर",
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T3: {
         [Language.English]: "Solar Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सोलर इनवर्टर",
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T4: {
@@ -98,122 +98,122 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     headerMenuSM2T1: {
         [Language.English]: "Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM2T2: {
         [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM2T3: {
         [Language.English]: "Solar Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सोलर बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM2T4: {
         [Language.English]: "Lithium Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "लिथियम बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM2T5: {
         [Language.English]: "VRLA Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "VRLA बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T1: {
         [Language.English]: "Automotive Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T2: {
         [Language.English]: "Car and SUV Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "गाड़ी और SUV बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T3: {
         [Language.English]: "Two Wheeler Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "2-पहिया बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T4: {
         [Language.English]: "E-Rikshaw Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-रिक्शा की बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T5: {
         [Language.English]: "Bus & Truck Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बस और ट्रक की बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T6: {
         [Language.English]: "Tractor Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ट्रैक्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T7: {
         [Language.English]: "Three Wheeler Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "3-पहिया बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM4T1: {
         [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T1: {
         [Language.English]: "Accessories",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सहायक उपकरण",
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T2: {
         [Language.English]: "Stabilizer",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "स्टेबिलाइजर्स",
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T3: {
         [Language.English]: "E-Rikshaw Chargers",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-रिक्शा चार्जर",
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T4: {
         [Language.English]: "Inverter Trolley",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर ट्राली",
         [Language.Marathi]: "?????",
     },
     headerMenuSM6T1: {
         [Language.English]: "Dealer Locator",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "डीलर ढूँढें",
         [Language.Marathi]: "?????",
     },
     headerMenuSM7T1: {
         [Language.English]: "Register Your Product",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "उत्पाद रजिस्टर करवायें",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T1: {
         [Language.English]: "More",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "और देखें",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T2: {
         [Language.English]: "About Us",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारे बारे में",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T3: {
         [Language.English]: "Blogs",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ब्लॉग",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T4: {
         [Language.English]: "LETPL Annual return 2021-22",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "LETPL वार्षिक विवरण– 2021-22",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T5: {
         [Language.English]: "LBPL Annual return 2021-22",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "LBPL वार्षिक विवरण– 2021-22",
         [Language.Marathi]: "?????",
     },
 
@@ -2613,12 +2613,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS1T3": {
+    loadCalculatorRecommendationsS1T3: {
         [Language.English]: "Watts",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS1T4": {
+    loadCalculatorRecommendationsS1T4: {
         [Language.English]: "is your total house load",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
@@ -2633,22 +2633,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2T1": {
+    loadCalculatorRecommendationsS2T1: {
         [Language.English]: "Inverters",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2T2": {
+    loadCalculatorRecommendationsS2T2: {
         [Language.English]: "Batteries",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2T3": {
+    loadCalculatorRecommendationsS2T3: {
         [Language.English]: "Quick View",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2T4": {
+    loadCalculatorRecommendationsS2T4: {
         [Language.English]: "Match",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
@@ -2663,17 +2663,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2CTA1": {
+    loadCalculatorRecommendationsS2CTA1: {
         [Language.English]: "Connect To A Dealer",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS2CTA2": {
+    loadCalculatorRecommendationsS2CTA2: {
         [Language.English]: "Explore Category",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    "loadCalculatorRecommendationsS4CTA1": {
+    loadCalculatorRecommendationsS4CTA1: {
         [Language.English]: "Connect To Dealer",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
