@@ -2572,17 +2572,80 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "उत्पाद कैटलॉग",
         [Language.Marathi]: "?????",
     },
+<<<<<<< Updated upstream
 
     invalidKey: {
         [Language.English]: "INVALID STRING REQUESTED",
         [Language.Hindi]: "INVALID STRING REQUESTED",
         [Language.Marathi]: "INVALID STRING REQUESTED",
+=======
+    "loadCalculatorRecommendationsS1T1": {
+        [Language.English]: "Utilisation",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS1T2": {
+        [Language.English]: "Hours",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2H1": {
+        [Language.English]: `<span class=\"lg-text-highlighted\">Top Choices</span> For You`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2H2": {
+        [Language.English]: "Hand Picked For Your Needs",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "loadCalculatorRecommendationsS2T1": {
+        [Language.English]: "Top Choices For You",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "propertyType-1-bhk": {
+        [Language.English]: "1 BHK",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "propertyType-2-bhk": {
+        [Language.English]: "2 BHK",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "propertyType-3-bhk": {
+        [Language.English]: "3 BHK",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "propertyType-4-bhk": {
+        [Language.English]: "4 BHK",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "propertyType-villa": {
+        [Language.English]: "Villa",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "propertyType-custom": {
+        [Language.English]: "Custom",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+>>>>>>> Stashed changes
     },
 
     "?????": {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
+    },
+
+    invalidKey: {
+        [Language.English]: "INVALID STRING REQUESTED",
+        [Language.Hindi]: "INVALID STRING REQUESTED",
+        [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 };
 

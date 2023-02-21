@@ -220,6 +220,7 @@ function PropertySelectionForTeaser({
 
             <div className="tw-w-full tw-grid tw-grid-cols-3 tw-gap-2">
                 <ItemBuilder
+                    // TODO: Get this data from enum
                     items={[
                         {
                             svgIcon: "/livguard/icons/home/5/1-bhk.svg",
@@ -1665,7 +1666,7 @@ const roomTypeLibrary: {[id: string]: {humanReadableString: string}} = {
     },
 };
 
-const deviceTypeLibrary: {[id: string]: {humanReadableString: string; category: string; wattage: number}} = {
+export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; category: string; wattage: number}} = {
     "a8450049-3fe8-4b8c-8796-fc3982a5e1ed": {
         humanReadableString: "LED",
         category: "Lighting",
@@ -1847,7 +1848,7 @@ function enumFromStringValue<T>(enm: {[s: string]: T}, input: string): T | null 
     return (Object.values(enm) as unknown as string[]).includes(input) ? (input as unknown as T) : null;
 }
 
-type LoadCalculatorInputs = {
+export type LoadCalculatorInputs = {
     property: Property;
     backupHours: number;
     averageConsumption: number;
@@ -1869,19 +1870,19 @@ type LoadCalculatorInputsAction = {
     payload: any;
 };
 
-type Property = {
+export type Property = {
     propertyType: PropertyType;
     propertyName: string;
     rooms: Array<Room>;
 };
 
-type Room = {
+export type Room = {
     roomType: string;
     roomName: string;
     devices: Array<Device>;
 };
 
-type Device = {
+export type Device = {
     deviceType: string;
     // deviceName: string;
     deviceDetails: any;

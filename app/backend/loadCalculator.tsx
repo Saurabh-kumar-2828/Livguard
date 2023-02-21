@@ -1,6 +1,7 @@
 import {execute} from "~/backend/databaseManager.server";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
-import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
+import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
+import {LoadCalculatorInputs} from "~/routes/load-calculator";
 
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();
@@ -27,4 +28,28 @@ export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): P
     }
 
     return id;
+}
+
+export async function getLoadCalculatorEntry(id: Uuid): Promise<LoadCalculatorInputs | Error> {
+    const result = await execute(
+        `
+            SELECT
+                data
+            FROM
+                load_calculator_entries
+            WHERE
+                id = $1
+        `,
+        [id],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return rowToLoadCalculatorInputs(getSingletonValue(result.rows));
+}
+
+function rowToLoadCalculatorInputs(row: unknown): LoadCalculatorInputs {
+    return row.data;
 }
