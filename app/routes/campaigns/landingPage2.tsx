@@ -123,7 +123,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T2", userPreferences.language)}}
-                    className="lg-text-banner lg-px-screen-edge tw-text-white"
+                    className="lg-text-title1 lg-px-screen-edge tw-text-white"
                 />
             </DefaultTextAnimation>
 

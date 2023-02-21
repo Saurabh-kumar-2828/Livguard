@@ -40,8 +40,6 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
-    console.log("url in page", redirectTo);
-
     return (
         <>
             <HeaderComponent
@@ -113,7 +111,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S1T2", userPreferences.language)}}
-                    className="lg-text-banner lg-px-screen-edge tw-text-white"
+                    className="lg-text-title1 lg-px-screen-edge tw-text-white"
                 />
             </DefaultTextAnimation>
 
