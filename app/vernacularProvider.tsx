@@ -2572,13 +2572,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "उत्पाद कैटलॉग",
         [Language.Marathi]: "?????",
     },
-<<<<<<< Updated upstream
 
-    invalidKey: {
-        [Language.English]: "INVALID STRING REQUESTED",
-        [Language.Hindi]: "INVALID STRING REQUESTED",
-        [Language.Marathi]: "INVALID STRING REQUESTED",
-=======
     "loadCalculatorRecommendationsS1T1": {
         [Language.English]: "Utilisation",
         [Language.Hindi]: "?????",
@@ -2633,7 +2627,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Custom",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
->>>>>>> Stashed changes
     },
 
     "?????": {
