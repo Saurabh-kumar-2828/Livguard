@@ -963,9 +963,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J1Description: {
         [Language.English]:
-            "A perfect combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and deliver a high backup.",
+            "A perfect combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and take heavy loads of appliances.",
         [Language.Hindi]:
-            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उच्च बैकअप प्रदान करती है।",
+            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J1Specification1Content: {
@@ -989,15 +989,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Title: {
-        [Language.English]: "The Rural Combo",
-        [Language.Hindi]: " रूरल कॉम्बो",
+        [Language.English]: "The Peace of Mind Jodi",
+        [Language.Hindi]: "मन की शांति वाला कॉम्बो",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Description: {
         [Language.English]:
             "A Jodi that would assure your peace of mind with its long durability and high backup power. Precisely chosen battery paired with the sturdy inverter ensures a seamless flow of energy to meet your needs.",
         [Language.Hindi]:
-            "एक जोड़ी जो अपने लंबे टिकाउपन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इन्वर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
+            "एक जोड़ी जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इन्वर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Specification1Content: {

@@ -24,7 +24,7 @@ export function JodiCarousel({
         jodiImageRelativePath: string;
     }>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div

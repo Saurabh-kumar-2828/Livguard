@@ -45,6 +45,11 @@
         src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
     }
 
+    .lg-font-brueur {
+        font-family: "lg-brueur-text";
+        font-weight: 700;
+    }
+
     .lg-text-banner {
         font-family: "lg-brueur-text";
         font-weight: 700;

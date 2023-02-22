@@ -12,7 +12,7 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
+import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
 import {DealerLocatorPage} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -90,16 +90,13 @@ function LandingPage({userPreferences, actionData}: {userPreferences: UserPrefer
 
             <VerticalSpacer className="tw-h-10" />
 
-            <DealerLocatorPage
-                userPreferences={userPreferences}
-                actionData={actionData}
-            />
+            <JodiSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
             <DealerLocator
                 userPreferences={userPreferences}
-                showCtaButton={false}
+                showCtaButton={true}
             />
 
             <VerticalSpacer className="tw-h-10" />
@@ -113,10 +110,6 @@ function LandingPage({userPreferences, actionData}: {userPreferences: UserPrefer
             <VerticalSpacer className="tw-h-12" />
 
             <TapIntoEfficiency userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <JodiSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -155,12 +148,18 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <button
+                {/* <button
                     type="button"
                     className="lg-cta-button lg-px-screen-edge"
                 >
                     {getVernacularString("landingPage3S1T3", userPreferences.language)}
-                </button>
+                </button> */}
+                <ContactUsCta
+                    userPreferences={userPreferences}
+                    textVernacId="landingPage3S1T3"
+                    className="tw-z-10"
+                    isContactUsSubmissionSuccess={false}
+                />
             </DefaultElementAnimation>
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />

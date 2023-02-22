@@ -687,11 +687,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-12" />
-
-            <DefaultElementAnimation className="tw-w-fit tw-self-center">
-                <div className="lg-cta-outline-button tw-w-fit">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
-            </DefaultElementAnimation>
+            <VerticalSpacer className="tw-h-4" />
         </div>
     );
 }

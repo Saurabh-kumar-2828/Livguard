@@ -85,11 +85,11 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ExploreStarProducts userPreferences={userPreferences} />
+            <QualityMeetsExpertise userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <QualityMeetsExpertise userPreferences={userPreferences} />
+            <ExploreStarProducts userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -128,16 +128,16 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <button
-                    type="button"
+                <a
                     className="lg-cta-button lg-px-screen-edge"
+                    href="#contactUs"
                 >
                     {getVernacularString("landingPage2S1T3", userPreferences.language)}
-                </button>
+                </a>
             </DefaultElementAnimation>
 
             <a
-                href="#energySolutions"
+                href="#contactUs"
                 className="tw-row-[11] tw-col-start-1"
             >
                 <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
@@ -264,10 +264,6 @@ export function JodiSection({userPreferences}: {userPreferences: UserPreferences
                 userPreferences={userPreferences}
                 items={JodiData}
             />
-
-            <VerticalSpacer className="tw-h-6" />
-
-            <div className="lg-cta-button">{getVernacularString("landingPage2S4CTABT", userPreferences.language)}</div>
         </div>
     );
 }
@@ -317,7 +313,7 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
 
                                 <VerticalSpacer className="tw-h-4" />
 
-                                <div className="lg-text-title1">{item.highlighted}</div>
+                                <div className="lg-text-title1">{item.title}</div>
 
                                 <VerticalSpacer className="tw-h-4" />
 

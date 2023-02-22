@@ -87,7 +87,7 @@ export function OurSuggestionsComponent({
                     itemBuilder={(keySpecification, keySpecificationIndex) => (
                         <div className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3 tw-mx-auto`}>
                             <div
-                                className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center ${backgroundColor == "primary-500" ? "lg-bg-secondary-100" : "lg-bg-primary-500"}`}
+                                className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-300`}
                             >
                                 <FixedWidthImage
                                     relativePath={keySpecification.keySpecificationIconRelativePath}

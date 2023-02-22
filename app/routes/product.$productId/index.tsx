@@ -94,7 +94,7 @@ function ProductPage({userPreferences, productData}: {userPreferences: UserPrefe
                 productDescription={productData.productDescription}
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-8" />
 
             <ProductRating
                 userPreferences={userPreferences}
@@ -324,13 +324,15 @@ function ProductDescription({userPreferences, productDescription}: {userPreferen
 function ProductRating({userPreferences, reviews}: {userPreferences: UserPreferences; reviews: {rating: number; numberOfReviews: number}}) {
     return (
         <div className="lg-px-screen-edge">
-            <div className="lg-bg-secondary-100 tw-rounded-lg tw-p-6 tw-grid tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-items-center">
-                <div className="tw-col-start-1 tw-flex tw-flex-col tw-gap-3">
-                    <div className="lg-text-headline">{`${reviews.rating}/5`}</div>
+            <div className="tw-grid tw-grid-rows-[auto,auto] tw-items-center tw-gap-2">
+                <div className="tw-row-start-1 tw-col-start-1 tw-flex tw-flex-col tw-text-center tw-justify-center">
+                    <div className="tw-text-[96px] tw-leading-[90px] lg-font-brueur">{reviews.rating}</div>
 
                     <div className="lg-text-title2">{`Based on ${reviews.numberOfReviews} Review`}</div>
 
-                    <div className="tw-flex tw-flex-row tw-gap-x-2">
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="tw-flex tw-flex-row tw-gap-x-2 tw-justify-center">
                         <ItemBuilder
                             items={getIntegerArrayOfLength(5)}
                             itemBuilder={(_, itemIndex) => (
@@ -343,37 +345,38 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
                     </div>
                 </div>
 
-                <div className="tw-col-start-2 tw-flex tw-flex-col tw-items-center">
+                <div className="tw-row-start-2 tw-flex tw-flex-col tw-items-center tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-px-4 tw-gap-2">
                     <ItemBuilder
                         items={[
                             {
-                                startRating : 5,
+                                startRating: 5,
                                 percentage: 90,
                             },
                             {
-                                startRating : 4,
+                                startRating: 4,
                                 percentage: 50,
                             },
                             {
-                                startRating : 3,
+                                startRating: 3,
                                 percentage: 30,
                             },
                             {
-                                startRating : 2,
+                                startRating: 2,
                                 percentage: 15,
-                            },
-                            {
-                                startRating : 1,
-                                percentage: 10,
                             },
                         ]}
                         itemBuilder={(rating, ratingIndex) => (
-                            <div className="tw-flex tw-flex-row tw-gap-4 tw-items-center" key={ratingIndex}>
-                                <div>{`${rating.startRating} Star`}</div>
-                                <div className="tw-w-[50px] tw-h-[6px] lg-bg-secondary-300 tw-rounded-lg ">
-                                    <div className={`tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B]
-                                        ${rating.startRating == 5 ? "tw-w-[90%]" : rating.startRating == 4 ? "tw-w-[60%]" : rating.startRating == 3 ? "tw-w-[40%]" : rating.startRating == 2 ? "tw-w-[25%]" : "tw-w-[15%]"}
-                                        tw-h-full tw-rounded-lg`}></div>
+                            <div
+                                className="tw-grid tw-w-full tw-grid-cols-[minmax(0,2fr),minmax(0,5fr)] tw-gap-4 tw-items-center"
+                                key={ratingIndex}
+                            >
+                                <div className="tw-col-start-1 tw-text-center lg-text-secondary-700">{`${rating.startRating} Star`}</div>
+                                <div className="tw-w-full tw-col-start-2 lg-bg-secondary-300 tw-rounded-lg tw-h-[8px]">
+                                    <div
+                                        className={`tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B]
+                                        ${rating.startRating == 5 ? "tw-w-[90%]" : rating.startRating == 4 ? "tw-w-[60%]" : rating.startRating == 3 ? "tw-w-[40%]" : "tw-w-[25%]"}
+                                        tw-h-full tw-rounded-lg`}
+                                    ></div>
                                 </div>
                             </div>
                         )}
