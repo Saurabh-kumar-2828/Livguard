@@ -30,6 +30,7 @@ import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import cityList from "~/cities.json";
 
+// TODO: Rework for fetcher
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
     path: string;
@@ -482,7 +483,7 @@ export function ApplyNowForDealerDialog({
                         leaveTo="tw-opacity-0"
                     >
                         {isDealerFormSubmissionSuccess ? (
-                            <FormSubmissionSuccess userPreferences={userPreferences} />
+                            <FormSubmissionSuccess userPreferences={userPreferences} tryToCloseDialog={tryToCloseApplyNowDialog}/>
                         ) : (
                             <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
@@ -582,9 +583,13 @@ export function ApplyNowForDealerDialog({
     );
 }
 
-export function FormSubmissionSuccess({userPreferences}: {userPreferences: UserPreferences}) {
+export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences, tryToCloseDialog: () => void}) {
     return (
-        <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center">
+        <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-pt-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center tw-relative">
+            <button type="button" className="tw-absolute tw-top-6 tw-right-6" onClick={tryToCloseDialog}>
+                <X className="tw-w-8 tw-h-8" />
+            </button>
+
             <FixedWidthImage
                 relativePath="/livguard/icons/confirmation.png"
                 imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -607,7 +612,7 @@ export function FormSubmissionSuccess({userPreferences}: {userPreferences: UserP
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-flex tw-justify-evenly">
+            <div className="tw-w-full tw-flex tw-justify-evenly">
                 <a
                     href="https://www.facebook.com/LivguardEnergy/"
                     target="_blank"

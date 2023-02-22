@@ -967,7 +967,7 @@ export function ContactUsDialog({
 
                 <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
                     <Transition.Child
-                        as={React.Fragment}
+                        as="div"
                         enter="tw-ease-out tw-transition-all tw-duration-200"
                         enterFrom="tw-opacity-0"
                         enterTo="tw-opacity-full"
@@ -975,8 +975,9 @@ export function ContactUsDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        {isContactUsSubmissionSuccess ? (
-                            <FormSubmissionSuccess userPreferences={userPreferences} />
+                        {/* {isContactUsSubmissionSuccess ? ( */}
+                        {true ? (
+                            <FormSubmissionSuccess userPreferences={userPreferences} tryToCloseDialog={tryToCloseContactUsDialog} />
                         ) : (
                             <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
