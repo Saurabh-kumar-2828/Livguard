@@ -3,9 +3,9 @@ import {insertContactLeads} from "~/backend/dealer.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {Dealer} from "~/typeDefinitions";
 
+// TODO: Rework for fetcher
 type DealerLocatorActionData = {
-    dealerList: Array<Dealer>;
-    path: string;
+    dealerList: Array<Dealer> | null;
     error: string | null;
 };
 
@@ -18,8 +18,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     if (emailId == null || name == null || phoneNumber == null) {
         const actionData: DealerLocatorActionData = {
-            dealerList: [],
-            path: "/contactusSubmission",
+            dealerList: null,
             error: "Error in submitting Form",
         };
         return json(actionData);
@@ -28,9 +27,8 @@ export const action: ActionFunction = async ({request, params}) => {
     await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId});
 
     const actionData: DealerLocatorActionData = {
-        dealerList: [],
+        dealerList: null,
         error: null,
-        path: "/contactusSubmission",
     };
 
     return json(actionData);

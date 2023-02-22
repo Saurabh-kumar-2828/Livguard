@@ -21,6 +21,7 @@ import {Dealer, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
+// TODO: Rework for fetcher
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
     path: string;

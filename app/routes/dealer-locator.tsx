@@ -30,6 +30,7 @@ import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import cityList from "~/cities.json";
 
+// TODO: Rework for fetcher
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
     path: string;

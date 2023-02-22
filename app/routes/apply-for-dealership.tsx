@@ -3,6 +3,7 @@ import {insertDealerLeads} from "~/backend/dealer.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {Dealer} from "~/typeDefinitions";
 
+// TODO: Rework for fetcher
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
     path: string;
