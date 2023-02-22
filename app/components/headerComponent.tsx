@@ -9,7 +9,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
 import {Language, languageToHumanFriendlyString, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -85,11 +85,77 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
             <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                 <a href="tel:18001025551">{getVernacularString("headerS1T1", userPreferences.language)}</a>
 
+                <HorizontalSpacer className="tw-w-3" />
+
+                <div className="tw-w-px tw-h-4 lg-bg-secondary-900" />
+
                 <div className="tw-flex-1" />
 
-                <div className="tw-w-px tw-h-6 lg-bg-secondary-900" />
+                <Form
+                    method="post"
+                    action="/set-theme"
+                    ref={themeFormRef}
+                    className="tw-relative tw-h-6"
+                >
+                    <Listbox
+                        value={selectedTheme}
+                        onChange={setSelectedTheme}
+                    >
+                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900">
+                            <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
+                            <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
+                        </Listbox.Button>
 
-                <div className="tw-flex-1" />
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 tw-w-40 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                            <ItemBuilder
+                                items={themeOptions}
+                                itemBuilder={(item, itemIndex) => (
+                                    <Listbox.Option
+                                        value={item}
+                                        key={itemIndex}
+                                        as={React.Fragment}
+                                    >
+                                        {({active, selected}) => (
+                                            <li
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                    active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                )}
+                                            >
+                                                <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
+                                                {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
+                                            </li>
+                                        )}
+                                    </Listbox.Option>
+                                )}
+                                spaceBuilder={(spaceIndex) => (
+                                    <div
+                                        className="tw-h-px lg-bg-secondary-700"
+                                        key={spaceIndex}
+                                    />
+                                )}
+                            />
+                        </Listbox.Options>
+                    </Listbox>
+
+                    <input
+                        type="text"
+                        name="theme"
+                        value={selectedTheme ?? ""}
+                        readOnly
+                        className="tw-hidden"
+                    />
+
+                    <input
+                        type="text"
+                        name="redirectTo"
+                        value={redirectTo}
+                        readOnly
+                        className="tw-hidden"
+                    />
+                </Form>
+
+                <HorizontalSpacer className="tw-w-3" />
 
                 <Form
                     method="post"
@@ -194,7 +260,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
 
                 <div className="tw-flex-1" />
 
-                {/* <button
+                <button
                     type="button"
                     onClick={tryToOpenSearch}
                     className="tw-flex tw-flex-row tw-items-center"
@@ -203,72 +269,6 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     <HorizontalSpacer className="tw-w-2" />
                     <div>{getVernacularString("headerS2T1", userPreferences.language)}</div>
                 </button>
-
-                <HorizontalSpacer className="tw-w-4" /> */}
-
-                <Form
-                    method="post"
-                    action="/set-theme"
-                    ref={themeFormRef}
-                    className="tw-relative"
-                >
-                    <Listbox
-                        value={selectedTheme}
-                        onChange={setSelectedTheme}
-                    >
-                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900">
-                            <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
-                            <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
-                        </Listbox.Button>
-
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 tw-w-40 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
-                            <ItemBuilder
-                                items={themeOptions}
-                                itemBuilder={(item, itemIndex) => (
-                                    <Listbox.Option
-                                        value={item}
-                                        key={itemIndex}
-                                        as={React.Fragment}
-                                    >
-                                        {({active, selected}) => (
-                                            <li
-                                                className={concatenateNonNullStringsWithSpaces(
-                                                    "tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                    active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
-                                                )}
-                                            >
-                                                <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
-                                                {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
-                                            </li>
-                                        )}
-                                    </Listbox.Option>
-                                )}
-                                spaceBuilder={(spaceIndex) => (
-                                    <div
-                                        className="tw-h-px lg-bg-secondary-700"
-                                        key={spaceIndex}
-                                    />
-                                )}
-                            />
-                        </Listbox.Options>
-                    </Listbox>
-
-                    <input
-                        type="text"
-                        name="theme"
-                        value={selectedTheme ?? ""}
-                        readOnly
-                        className="tw-hidden"
-                    />
-
-                    <input
-                        type="text"
-                        name="redirectTo"
-                        value={redirectTo}
-                        readOnly
-                        className="tw-hidden"
-                    />
-                </Form>
             </div>
 
             <MenuDialog
@@ -278,11 +278,11 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 menuState={menuState}
             />
 
-            {/* <SearchDialog
+            <SearchDialog
                 userPreferences={userPreferences}
                 isSearchOpen={isSearchOpen}
                 setIsSearchOpen={setIsSearchOpen}
-            /> */}
+            />
         </div>
     );
 }
@@ -858,9 +858,24 @@ function SubMenuDialog({
 }
 
 function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPreferences: UserPreferences; isSearchOpen: boolean; setIsSearchOpen: React.Dispatch<boolean>}) {
+    const [query, setQuery] = useState<string>("");
+    const [searchResults, setSearchResults] = useState<Array<{keyword: string; page: string}> | null>(null);
+
     function tryToCloseSearch() {
         setIsSearchOpen(false);
     }
+
+    useEffect(() => {
+        if (query.length == 0) {
+            setSearchResults(null);
+        } else {
+            const queryLowerCase = query.toLowerCase();
+
+            const results = searchQueries.filter((searchQuery) => searchQuery.keyword.toLowerCase().includes(queryLowerCase)).sort((searchQuery1, searchQuery2) => searchQuery1.score - searchQuery2.score);
+
+            setSearchResults(results);
+        }
+    }, [query]);
 
     return (
         <Transition
@@ -885,6 +900,8 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                         <div className="tw-w-full lg-bg-secondary-300 tw-p-4">
                             <input
                                 type="text"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
                                 className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
                             />
                             <Search className="tw-absolute tw-top-[1.875rem] tw-left-8 tw-w-6 tw-h-6" />
@@ -900,7 +917,33 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                         leaveFrom="tw-translate-x-0"
                         leaveTo="tw-translate-x-full"
                     >
-                        <div className="tw-w-full tw-h-full lg-bg-secondary-100"></div>
+                        <div className="tw-w-full tw-h-full lg-bg-secondary-100">
+                            {searchResults == null ? (
+                                <div className="tw-w-full tw-h-full lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center">Start typing to search</div>
+                            ) : searchResults.length == 0 ? (
+                                <div className="tw-w-full tw-h-full lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center">No results found</div>
+                            ) : (
+                                <div className="tw-px-4 tw-py-2 tw-flex tw-flex-col tw-gap-y-2 tw-overflow-scroll">
+                                    <ItemBuilder
+                                        // TODO: Remove slicing, add scrolling instead
+                                        items={searchResults.slice(0, 6)}
+                                        itemBuilder={(result, resultIndex) => (
+                                            <Link
+                                                to={pageToLink[result.page] ?? "/"}
+                                                key={resultIndex}
+                                                className="lg-bg-secondary-700 tw-p-4 tw-flex tw-flex-row tw-justify-between tw-items-center tw-rounded-lg"
+                                            >
+                                                <div className="lg-text-body-bold lg-text-secondary-100">{result.page}</div>
+
+                                                <div className="lg-text-secondary-300">{result.keyword}</div>
+                                            </Link>
+                                        )}
+                                    />
+
+                                    <VerticalSpacer className="tw-h-2" />
+                                </div>
+                            )}
+                        </div>
                     </Transition.Child>
 
                     <Transition.Child
@@ -961,3 +1004,2816 @@ function InternalOrExternalOrDownloadLink({to, download, className, children}: {
 
 
 }
+
+const pageToLink: {[page: string]: string} = {
+    Home: "/",
+    "Load Calculator": "/load-calculator",
+};
+
+const searchQueries = [
+    {
+        keyword: "Inverter",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Inverter",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Inverter",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Inverter",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "Inverter",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "Inverter",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Battery",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "Battery",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "Battery",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Dealer",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "Near",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "Store",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "Buy",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "Sine",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "Sine",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Square",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "Square",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Automotive Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Automotive Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Automotive Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Home Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Home Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Home Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Solar",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Solar",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Solar",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Jodi",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Jodi",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "Car Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Car Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Car Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "E-Rickshaw Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "E-Rickshaw Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "E-Rickshaw Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Tempo Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Tempo Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Tempo Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Truck Battery",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Truck Battery",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Truck Battery",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "Service ",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Accessories ",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "Accessories ",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "Accessories ",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "3D Grid ",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "3D Grid ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "AI Charging",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "AI Charging",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Tubular",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "Tubular",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Flat Plate",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "Flat Plate",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Long Life",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "Long Life",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "Load Calculator",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "Load",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "Power Planner",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "600VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "700VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "800VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "900VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1100VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1250VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1650VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "2000VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "2500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "3500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "4000VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "600VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "700VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "800VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "900VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1100VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1250VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1650VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "2000VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "2500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "3500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "4000VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG2300",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG3500",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG5000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS2500",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS3000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS4000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS5000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1150i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1450i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1550i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1950i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG750i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG850i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG950i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1000i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1100i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1600",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1700",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS900i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "90Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "100Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "110Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "120Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "135Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "150Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "160Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "180Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "200Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "220Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "230Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "260Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "90Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "100Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "110Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "120Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "135Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "150Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "160Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "180Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "200Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "220Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "230Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "260Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2060TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1550TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1639TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2360TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2048TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1666TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1860TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2266TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1645TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536TT ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1866TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2066TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2672TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1584TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1636STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1542STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1848STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT481400ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT481500ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1048ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 9048ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 481200ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1160STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536FP",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2060TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1550TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1639TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2360TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2048TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1666TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1860TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2266TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1645TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536TT ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1866TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2066TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2672TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1584TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1636STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1542STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1848STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT481400ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT481500ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1048ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 9048ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 481200ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1160STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536FP",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "डीलर",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "निकत",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "दुकान",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "खरीद",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "साइन",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "साइन",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "चौकोर",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "चौकोर",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "ऑटोमोटिव बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "ऑटोमोटिव बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "ऑटोमोटिव बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "घरेलु बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "घरेलु बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "घरेलु बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "सोलर",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "सोलर",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "सोलर",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "जोड़ी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "जोड़ी",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "कार बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "कार बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "कार बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "इ-रिक्शा बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "इ-रिक्शा बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "इ-रिक्शा बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "टेम्पो बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "टेम्पो बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "टेम्पो बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "ट्रक बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "ट्रक बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "ट्रक बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "सेवा",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "एक्सेसरीज",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "एक्सेसरीज",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "एक्सेसरीज",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "3द ग्रिड",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "3द ग्रिड",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "एआई चार्जिंग",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "एआई चार्जिंग",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "ट्यूबलर",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "ट्यूबलर",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "फ्लैट प्लेट",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "फ्लैट प्लेट",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: " टिकाऊ ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: " टिकाऊ ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "लोड कैलकुलेटर",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "लोड ",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "पावर प्लानर",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "600VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "700VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "800VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "900VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1100VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1250VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1650VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "2000VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "2500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "3500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "4000VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "600VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "700VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "800VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "900VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1100VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1250VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1650VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "2000VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "2500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "3500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "4000VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG2300",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG3500",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG5000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS2500",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS3000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS4000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS5000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1150i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1450i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1550i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1950i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG750i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG850i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG950i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1000i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1100i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1600",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1700",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS900i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "90Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "100Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "110Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "120Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "135Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "150Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "160Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "180Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "200Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "220Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "230Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "260Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "90Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "100Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "110Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "120Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "135Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "150Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "160Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "180Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "200Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "220Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "230Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "260Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2060TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1550TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1639TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2360TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2048TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1666TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1860TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2266TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1645TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536TT ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1866TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2066TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2672TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1584TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1636STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1542STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1848STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT481400ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT481500ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1048ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 9048ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 481200ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1160STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536FP",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2060TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1550TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1639TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2360TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2048TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1666TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1860TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2266TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1645TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536TT ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1866TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2066TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2672TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1584TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1636STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1542STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1848STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT481400ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT481500ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1048ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 9048ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 481200ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1160STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536FP",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "इन्वर्टर",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "बैटरी",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "डीलर",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "निकत",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "दुकान",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "खरीद",
+        page: "Dealer Locater",
+        score: 1,
+    },
+    {
+        keyword: "साइन",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "साइन",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "चौकोर",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "चौकोर",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "ऑटोमोटिव बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "ऑटोमोटिव बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "ऑटोमोटिव बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "घरेलु बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "घरेलु बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "घरेलु बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "सोलर",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "सोलर",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "सोलर",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "जोड़ी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "जोड़ी",
+        page: "LP3",
+        score: 1,
+    },
+    {
+        keyword: "कार बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "कार बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "कार बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "इ-रिक्शा बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "इ-रिक्शा बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "इ-रिक्शा बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "टेम्पो बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "टेम्पो बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "टेम्पो बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "ट्रक बैटरी",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "ट्रक बैटरी",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "ट्रक बैटरी",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "सेवा",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "एक्सेसरीज",
+        page: "Home",
+        score: 1,
+    },
+    {
+        keyword: "एक्सेसरीज",
+        page: "LP1",
+        score: 1,
+    },
+    {
+        keyword: "एक्सेसरीज",
+        page: "LP2",
+        score: 1,
+    },
+    {
+        keyword: "3द ग्रिड",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "3द ग्रिड",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "एआई चार्जिंग",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "एआई चार्जिंग",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "ट्यूबलर",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "ट्यूबलर",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "फ्लैट प्लेट",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "फ्लैट प्लेट",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: " टिकाऊ ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: " टिकाऊ ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "लोड कैलकुलेटर",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "लोड ",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "पावर प्लानर",
+        page: "Load Calculator",
+        score: 1,
+    },
+    {
+        keyword: "600VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "700VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "800VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "900VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1100VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1250VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "1650VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "2000VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "2500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "3500VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "4000VA",
+        page: "Category(Inverter)",
+        score: 1,
+    },
+    {
+        keyword: "600VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "700VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "800VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "900VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1100VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1250VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "1650VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "2000VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "2500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "3500VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "4000VA",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG2300",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG3500",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG5000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS2500",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS3000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS4000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS5000",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1150i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1450i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1550i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG1950i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG750i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG850i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LG950i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1000i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1100i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1600",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS1700",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "LGS900i",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "90Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "100Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "110Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "120Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "135Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "150Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "160Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "180Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "200Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "220Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "230Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "260Ah",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "90Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "100Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "110Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "120Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "135Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "150Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "160Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "180Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "200Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "220Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "230Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "260Ah",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2060TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1550TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1639TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2360TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2048TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1666TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1860TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2266TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1645TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536TT ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1866TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2066TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2672TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1584TT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1636STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1542STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1848STJ",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT481400ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT481500ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1048ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 9048ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 481200ST",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1160STT",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536FP",
+        page: "Category(IB)",
+        score: 1,
+    },
+    {
+        keyword: "IT 2060TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1550TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1639TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2360TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2048TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1666TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1860TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2266TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1645TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536TT ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1866TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2066TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 2672TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1584TT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1636STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1554STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1542STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1848STJ",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT481400ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT481500ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1048ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 9048ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 481200ST",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1560STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1548STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1160STT",
+        page: "Product",
+        score: 1,
+    },
+    {
+        keyword: "IT 1536FP",
+        page: "Product",
+        score: 1,
+    },
+];

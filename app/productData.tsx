@@ -6169,19 +6169,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -6431,19 +6431,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "21 + 18* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -6563,19 +6563,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "21 + 18* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -6696,19 +6696,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "27 + 18* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -6828,19 +6828,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "27 + 18* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -6961,19 +6961,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7093,19 +7093,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -7226,19 +7226,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "24 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7358,19 +7358,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "24 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -7491,19 +7491,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7623,19 +7623,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: " लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -8015,19 +8015,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -8147,19 +8147,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X  282 (H)",
                 },
             ],
@@ -8280,19 +8280,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -8412,19 +8412,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X  282 (H)",
                 },
             ],
@@ -8545,19 +8545,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "220 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -8677,19 +8677,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "220 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -8810,19 +8810,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "230 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -8942,19 +8942,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X  282 (H)",
                 },
             ],
@@ -9075,19 +9075,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 30* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "260 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -9207,19 +9207,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 30* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "260 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "लंबा ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],

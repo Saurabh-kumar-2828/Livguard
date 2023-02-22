@@ -233,17 +233,32 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                         <div className="tw-flex tw-flex-row tw-gap-x-4">
                             <ItemBuilder
                                 items={loadCalculatorOutputs.recommendedInverters}
-                                itemBuilder={(item, itemIndex) => (
+                                itemBuilder={(recommendation, recommendationIndex) => (
                                     <Link
-                                        to="/product/LG750i"
+                                        to={`/product/${recommendation.model}`}
                                         className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
-                                        key={itemIndex}
+                                        key={recommendationIndex}
                                     >
-                                        <div className="tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-text-center">
-                                            <div className="lg-cta-button tw-w-fit tw-p-2 tw-whitespace-nowrap">{item.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}</div>
+                                        <VerticalSpacer className="tw-h-3" />
 
-                                            <div className="lg-text-secondary-900">{item.model}</div>
+                                        <div className="tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
+                                            <div className="lg-cta-button tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative -tw-top-3">
+                                                {recommendation.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <div className="lg-text-secondary-900">{recommendation.model}</div>
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <FullWidthImage
+                                                relativePath={`/livguard/inverter images/${recommendation.model}.png`}
+                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            />
                                         </div>
+
+                                        <VerticalSpacer className="tw-h-4" />
 
                                         <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
                                             {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
@@ -267,7 +282,48 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                     <VerticalSpacer className="tw-h-2" />
 
-                    <div className="tw-w-full tw-h-20 tw-bg-green-900" />
+                    <div className="tw-w-full tw-grid tw-grid-cols-1 tw-grid-rows-1 tw-overflow-x-auto tw-pl-6 tw-pr-[calc(1.5rem-1px)]">
+                        <div className="tw-flex tw-flex-row tw-gap-x-4">
+                            <ItemBuilder
+                                items={loadCalculatorOutputs.recommendedBatteries}
+                                itemBuilder={(recommendation, recommendationIndex) => (
+                                    <Link
+                                        to={`/product/${recommendation.model}`}
+                                        className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                        key={recommendationIndex}
+                                    >
+                                        <VerticalSpacer className="tw-h-3" />
+
+                                        <div className="tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
+                                            <div className="lg-cta-button tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative -tw-top-3">
+                                                {recommendation.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <div className="lg-text-secondary-900">{recommendation.model}</div>
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <FullWidthImage
+                                                relativePath={`/livguard/battery images/${recommendation.model}.png`}
+                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            />
+                                        </div>
+
+                                        <VerticalSpacer className="tw-h-4" />
+
+                                        <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
+                                            {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
+                                        </div>
+
+                                        <VerticalSpacer className="tw-h-4" />
+                                    </Link>
+                                )}
+                            />
+                            <div className="tw-w-px tw-h-full tw-flex-none tw-bg-transparent" />
+                        </div>
+                    </div>
                 </>
             )}
 

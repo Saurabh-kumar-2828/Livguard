@@ -2395,4 +2395,18 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LeG+UM~qD%RjM{M{RjWB009F%Mof",
         placeholderColor: "#080808",
     },
+    "/livguard/inverter images/LG750i.png": {
+        width: 32,
+        height: 32,
+        altText: "Dummy alt text",
+        blurHash: "LIN,_D~qM{?b?bM{IUxu00IU4nM{",
+        placeholderColor: "#080808",
+    },
+    "/livguard/icons/warranty.png": {
+        width: 32,
+        height: 32,
+        altText: "Dummy alt text",
+        blurHash: "LIN,_D~qM{?b?bM{IUxu00IU4nM{",
+        placeholderColor: "#080808",
+    },
 };
