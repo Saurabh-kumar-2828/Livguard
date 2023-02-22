@@ -229,9 +229,4 @@
     .lg-range-input::-webkit-slider-thumb:hover {
         @apply lg-bg-primary-500;
     }
-
-    /* Freshsales chatbot */
-    #fc_frame {
-        bottom: 85px !important;
-    }
 }
