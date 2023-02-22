@@ -173,7 +173,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                 <div className="tw-flex tw-flex-col tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title1 tw-text-left">{productInfo.title}</div>
+                    <div className="lg-text-title1 tw-text-left">{productInfo.title} <span className="tw-italic">{productInfo.subTitle} </span></div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -328,7 +328,7 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
                 <div className="tw-row-start-1 tw-col-start-1 tw-flex tw-flex-col tw-text-center tw-justify-center">
                     <div className="tw-text-[96px] tw-leading-[90px] lg-font-brueur">{reviews.rating}</div>
 
-                    <div className="lg-text-title2">{`Based on ${reviews.numberOfReviews} Review`}</div>
+                    <div className="lg-text-title2">{`${getVernacularString("productPageNumberReviewBefore", userPreferences.language)} ${reviews.numberOfReviews} ${getVernacularString("productPageNumberReviewAfter",userPreferences.language)}`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -397,6 +397,7 @@ function SuggestedProducts({
         imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
+        link: string;
     }>;
 }) {
     return (

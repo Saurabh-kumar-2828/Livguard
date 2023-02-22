@@ -358,7 +358,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab5C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
-                                buttonLink: "",
+                                buttonLink: "https://www.livguard.com/lg-trolley-category/",
                                 target: "_blank",
                             },
                         ]}
@@ -396,11 +396,22 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <VerticalSpacer className="tw-h-4" />
 
                                 <DefaultElementAnimation>
-                                    {
-                                        item.target != null
-                                        ? (<Link to={item.buttonLink} target="_blank" className="lg-cta-button">{item.buttontext}</Link>)
-                                        : (<Link to={item.buttonLink} className="lg-cta-button">{item.buttontext}</Link>)
-                                    }
+                                    {item.target != null ? (
+                                        <Link
+                                            to={item.buttonLink}
+                                            target="_blank"
+                                            className="lg-cta-button"
+                                        >
+                                            {item.buttontext}
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            to={item.buttonLink}
+                                            className="lg-cta-button"
+                                        >
+                                            {item.buttontext}
+                                        </Link>
+                                    )}
                                 </DefaultElementAnimation>
                             </div>
                         )}
@@ -975,8 +986,7 @@ export function ContactUsDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        {/* {isContactUsSubmissionSuccess ? ( */}
-                        {true ? (
+                        {isContactUsSubmissionSuccess ? (
                             <FormSubmissionSuccess userPreferences={userPreferences} tryToCloseDialog={tryToCloseContactUsDialog} />
                         ) : (
                             <fetcher.Form

@@ -547,30 +547,35 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
         imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
+        link: string;
     }> = [
         {
             title: `${getVernacularString("categoryInvertersS6Jodi1Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
             buttonText: "categoryInvertersS6JodiButtontext",
             bestseller: false,
+            link: "/product/urban-jodi",
         },
         {
             title: `${getVernacularString("categoryInvertersS6Jodi2Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/rural_jodi.png",
             buttonText: "categoryInvertersS6JodiButtontext",
             bestseller: true,
+            link: "/product/peace-of-mind-jodi",
         },
         {
             title: `${getVernacularString("categoryInvertersS6Jodi3Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
             buttonText: "categoryInvertersS6JodiButtontext",
             bestseller: true,
+            link: "/product/super-life-jodi",
         },
         {
             title: `${getVernacularString("categoryInvertersS6Jodi4Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
+            imageRelativePath: "/livguard/category/jodi/hi-power_jodi.png",
             buttonText: "categoryInvertersS6JodiButtontext",
             bestseller: false,
+            link: "/product/hi-power-jodi",
         },
     ];
 

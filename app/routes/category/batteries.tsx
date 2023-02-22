@@ -642,28 +642,28 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
             imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
             buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: false,
-            link: `/product/${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
+            link: `/product/urban-jodi`,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi2Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/rural_jodi.png",
             buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: true,
-            link: `/product/${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
+            link: `/product/peace-of-mind-jodi`,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi3Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
             buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: true,
-            link: `/product/${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
+            link: `/product/super-life-jodi`,
         },
         {
             title: `${getVernacularString("categoryBattriesS6Jodi4Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/category/jodi/urban_jodi.png",
+            imageRelativePath: "/livguard/category/jodi/hi-power_jodi.png",
             buttonText: "categoryBattriesS6JodiButtontext",
             bestseller: false,
-            link: `/product/${getVernacularString("categoryBattriesS6Jodi1Title", userPreferences.language)}`,
+            link: `/product/hi-power-jodi`,
         },
     ];
 

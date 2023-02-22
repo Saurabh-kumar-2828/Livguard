@@ -22,7 +22,7 @@ export function getVernacularString(textContentPiece: string, language: Language
 const vernacularStrings: {[textContentPiece: string]: {[language: Language]: string}} = {
     headerS1T1: {
         [Language.English]: "Customer Care: 18001025551",
-        [Language.Hindi]: "ग्राहक सेवा: १८००१०२५५५१",
+        [Language.Hindi]: "ग्राहक सर्विस: १८००१०२५५५१",
         [Language.Marathi]: "?????",
     },
     headerS2T1: {
@@ -244,13 +244,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS2C1T1: {
         [Language.English]: "Best in Class Services",
-        [Language.Hindi]: "अतुल्य सेवाएँ",
+        [Language.Hindi]: "अतुल्य सर्विसएँ",
         [Language.Marathi]: "?????",
     },
     homeS2C1T2: {
         [Language.English]:
             "With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.",
-        [Language.Hindi]: "पूरे भारत में मौजूद 40+ सेवा केंद्रों के साथ लिवगार्ड आपकी असुविधाओं को दूर करने के लिए हमेशा एक कॉल दूर है। आपकी संतुष्टि हमारे लिए हमेशा सबसे महत्त्वपूर्ण है।",
+        [Language.Hindi]: "पूरे भारत में मौजूद 40+ सर्विस केंद्रों के साथ लिवगार्ड आपकी असुविधाओं को दूर करने के लिए हमेशा एक कॉल दूर है। आपकी संतुष्टि हमारे लिए हमेशा सबसे महत्त्वपूर्ण है।",
         [Language.Marathi]: "?????",
     },
     homeS2C2T1: {
@@ -267,12 +267,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3H1T1: {
         [Language.English]: "Experience Our",
-        [Language.Hindi]: "अनुभव करें ",
+        [Language.Hindi]: "अनुभव करें हमारे",
         [Language.Marathi]: "?????",
     },
     homeS3H1T2: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Energy Solutions</span>`,
-        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">ऊर्जा संग्रहण समाधान</span> के`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">ऊर्जा संग्रहण समाधान</span>`,
         [Language.Marathi]: "?????",
     },
     homeS3Tab1H: {
@@ -303,7 +303,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab2H: {
         [Language.English]: "Home Inverters",
-        [Language.Hindi]: "घर के इन्वर्टर",
+        [Language.Hindi]: "होम इन्वर्टर",
         [Language.Marathi]: "?????",
     },
     homeS3Tab2HC1: {
@@ -313,14 +313,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab2HC2: {
         [Language.English]: "Home Inverters",
-        [Language.Hindi]: "घर के इन्वर्टर",
+        [Language.Hindi]: "होम इन्वर्टर",
         [Language.Marathi]: "?????",
     },
     homeS3Tab2C: {
         [Language.English]:
             "Visit our range of home inverters with sleek design made to bring unlimited flow of energy to your home. Backed by its sturdy build, pick the one that suits your home the best.",
-        [Language.Hindi]:
-            "आपके घर में ऊर्जा का असीमित प्रवाह लाने के लिए आकर्षक बनावट वाले होम इनवर्टर की हमारी श्रेणी पर जाएं। इसके मजबूत निर्माण के साथ, वह चुनें जो आपके घर के लिए सबसे उपयुक्त हो।",
+        [Language.Hindi]: "आपके घर में ऊर्जा का असीमित प्रवाह लाने के लिए आकर्षक बनावट वाले होम इनवर्टर की हमारी श्रेणी पर जाएं। इसके मजबूत निर्माण के साथ, वह चुनें जो आपके होम लिए सबसे उपयुक्त हो।",
         [Language.Marathi]: "?????",
     },
     homeS3Tab2BT: {
@@ -434,14 +433,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS5H1T2: {
         [Language.English]: `With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
-        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">हमारे पावर प्लानर</span> के साथ`,
+        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">पावर प्लानर</span> के साथ`,
         [Language.Marathi]: "?????",
     },
     homeS5T2: {
         [Language.English]:
             "Take charge of your power needs with Livguard's load calculator- Power Planned. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times. ",
         [Language.Hindi]:
-            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने घर के लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     homeS5T3: {
@@ -479,7 +478,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "ज़रूरत अनुसार बैकअप के घंटे और औसत लोड खपत चुनें",
         [Language.Marathi]: "?????",
     },
-    homeS5T5P1: {
+    home: {
         [Language.English]: "Let’s start your power planning",
         [Language.Hindi]: "अपनी पावर प्लानिंग शुरू करें",
         [Language.Marathi]: "?????",
@@ -511,7 +510,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS7H1T2: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Solar Solutions</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">रूफटॉप सोलर रूफटॉप सलूशन</span> में`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">रूफटॉप सोलर सलूशन</span> में`,
         [Language.Marathi]: "?????",
     },
     homeS7T2: {
@@ -583,7 +582,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.",
         [Language.Hindi]:
-            "एक मार्गदर्शक , एक संरक्षक, एक दूरदर्शी, और एक समग्र प्रेरक शक्ति, श्री राकेश मल्होत्रा ​​​​का उद्योग के संपर्क में, उनका जुनून और नए विचारों को जीवन में लाने की उनकी भावना कई अन्य उद्यमियों को प्रेरित करती रही है।",
+            "एक मार्गदर्शक , एक उपदेशक, एक दूरदर्शी, और एक समग्र प्रेरक शक्ति, श्री राकेश मल्होत्रा ​​​​का उद्योग के संपर्क में, उनका जुनून और नए विचारों को जीवन में लाने की उनकी भावना कई अन्य उद्यमियों को प्रेरित करती रही है।",
         [Language.Marathi]: "?????",
     },
     homeS8Slide2T1: {
@@ -600,7 +599,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.",
         [Language.Hindi]:
-            "SAR समूह के मुख्य स्तंभों में से एक और सच्चे उद्यमिता की पहचान, श्री नवनीत कपूर अपनी विशेषज्ञता और विश्वास के माध्यम से लिवगार्ड की प्रमुख ताकतों में से एक रहे हैं। उनका मानना है कि एक सफल व्यवसाय तब फलता-फूलता है जब उद्योग विशेषज्ञता के साथ उत्कृष्ट सेवा मिलती है।",
+            "SAR ग्रुप के मुख्य स्तंभों में से एक और सच्चे उद्यमिता की पहचान, श्री नवनीत कपूर अपनी विशेषज्ञता और विश्वास के माध्यम से लिवगार्ड की प्रमुख ताकतों में से एक रहे हैं। उनका मानना है कि एक सफल व्यवसाय तब फलता-फूलता है जब उद्योग विशेषज्ञता के साथ उत्कृष्ट सर्विस मिलती है।",
         [Language.Marathi]: "?????",
     },
     homeS8Slide3T1: {
@@ -617,7 +616,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "A dynamic leader with a formidable experience of over 25 years in B2B & B2C channels coupled with global experience in marketing, sales, and strategy. Mr. Gurpreet Bhatia is an impeccable example of someone who has created a unique career trajectory.",
         [Language.Hindi]:
-            "मार्केटिंग, बिक्री और रणनीति में वैश्विक अनुभव के साथ बी2बी और बी2सी चैनलों में 25 से अधिक वर्षों के अनुभव के साथ एक मार्गदर्शकों। श्री गुरप्रीत भाटिया एक उदाहरण हैं, जिसने एक अद्वितीय करियर मार्ग बनाया है।",
+            "मार्केटिंग, सेल्स और रणनीति में वैश्विक अनुभव के साथ बी2बी और बी2सी चैनलों में 25 से अधिक वर्षों के अनुभव के साथ एक मार्गदर्शकों। श्री गुरप्रीत भाटिया एक उदाहरण हैं, जिसने एक अद्वितीय करियर मार्ग बनाया है।",
         [Language.Marathi]: "?????",
     },
     homeS8Slide4T1: {
@@ -676,7 +675,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "A battery's capacity for charging is expressed in ampere hours (Ah). An inverter battery's capacity is 1Ah if it can deliver 1 amp of electricity for 1 hour. The battery's capacity is 100Ah if it can deliver one amp of electricity for 100 hours. By calculating the load requirements by the number of hours of backup you require, you may determine the amount of inverter battery capacity needed for your home.",
         [Language.Hindi]:
-            "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इन्वर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने घर के लिए आवश्यक इन्वर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
+            "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इन्वर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने होम लिए आवश्यक इन्वर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
         [Language.Marathi]: "?????",
     },
     homeS9T2P1: {
@@ -691,12 +690,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS9T3P1: {
         [Language.English]: "Looking for service resolution?",
-        [Language.Hindi]: "सेवा समाधान की खोज में?",
+        [Language.Hindi]: "सर्विस समाधान की खोज में?",
         [Language.Marathi]: "?????",
     },
     homeS9T3P2: {
         [Language.English]: "Contact us at",
-        [Language.Hindi]: "सेवा समाधान की खोज में? हम सप्ताह के सभी दिन सुबह 8 बजे से रात 8 बजे के बीच",
+        [Language.Hindi]: "हम सप्ताह के सभी दिन सुबह 8 बजे से रात 8 बजे के बीच",
         [Language.Marathi]: "?????",
     },
     homeS9T3P3: {
@@ -841,7 +840,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     landingPage1S3Slide3Body: {
         [Language.English]:
             "With our well-rooted service network of over 40 service centers and availability of products across 21000+ pin codes, we are always ready to serve you with your problems as and when you need us.",
-        [Language.Hindi]: "21000 पिन कोड में उपस्थित हमारे उत्पाद और सेवा केंद्रों के साथ हम हमेशा आपकी समस्याओं को मिटाने के लिए तैयार रहते हैं।",
+        [Language.Hindi]: "21000 पिन कोड में उपस्थित हमारे उत्पाद और सर्विस केंद्रों के साथ हम हमेशा आपकी समस्याओं को मिटाने के लिए तैयार रहते हैं।",
         [Language.Marathi]: "?????",
     },
     landingPage1S3BT: {
@@ -877,7 +876,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPageS4Box2T2: {
         [Language.English]: "Service Centres",
-        [Language.Hindi]: "सेवा केंद्र",
+        [Language.Hindi]: "सर्विस केंद्र",
         [Language.Marathi]: "?????",
     },
     landingPageS4Box3T1: {
@@ -958,13 +957,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage2S4J1Title: {
-        [Language.English]: "The Urban Combo",
+        [Language.English]: "The Urban Jodi",
         [Language.Hindi]: "अर्बन जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J1Description: {
         [Language.English]:
-            "A perfect combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and take heavy loads of appliances.",
+            "A perfect Jodi to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and take heavy loads of appliances.",
         [Language.Hindi]:
             "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श जोड़ी। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
         [Language.Marathi]: "?????",
@@ -991,7 +990,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J2Title: {
         [Language.English]: "The Peace of Mind Jodi",
-        [Language.Hindi]: "मन की शांति वाला जोड़ी",
+        [Language.Hindi]: "मन की शांति वाली जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Description: {
@@ -1022,12 +1021,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4J3Title: {
-        [Language.English]: "The Super Life Combo",
+        [Language.English]: "The Super Life Jodi",
         [Language.Hindi]: "सुपर लाइफ जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J3Description: {
-        [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this combo is just the right choice for your everyday energy requirements.",
+        [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this Jodi is just the right choice for your everyday energy requirements.",
         [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इन्वर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
         [Language.Marathi]: "?????",
     },
@@ -1052,8 +1051,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4J4Title: {
-        [Language.English]: "The Hi-power Combo",
-        [Language.Hindi]: "हाई-पॉवर कॉम्बो",
+        [Language.English]: "The Hi-power Jodi",
+        [Language.Hindi]: "हाई-पॉवर जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J4Description: {
@@ -1194,7 +1193,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage3S7Slide2Heading: {
         [Language.English]: "Seamless Service",
-        [Language.Hindi]: "निरंतर सेवा",
+        [Language.Hindi]: "निरंतर सर्विस",
         [Language.Marathi]: "?????",
     },
     landingPage3S7Slide2Content: {
@@ -2190,6 +2189,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अतिरिक्त जानकारी",
         [Language.Marathi]: "?????",
     },
+    productPageNumberReviewBefore: {
+        [Language.English]: "Based on",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    productPageNumberReviewAfter: {
+        [Language.English]: "Reviews",
+        [Language.Hindi]: "रिव्यूज़ के आधार पर",
+        [Language.Marathi]: "?????",
+    },
     review1Name: {
         [Language.English]: "Thangamani M",
         [Language.Hindi]: "तंगमणि एम",
@@ -2222,7 +2231,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review2Message: {
         [Language.English]: `\"It's cheap and best product. This is good looking and nice product and the service of livgaurd is too good and supportive.\"`,
-        [Language.Hindi]: `\"यह सस्ता और बेहतरीन प्रोडक्ट है। यह अच्छा दिखने वाला और अच्छा उत्पाद है और लिवगार्ड की सेवा बहुत अच्छी और सहायक है।\"`,
+        [Language.Hindi]: `\"यह सस्ता और बेहतरीन प्रोडक्ट है। यह अच्छा दिखने वाला और अच्छा उत्पाद है और लिवगार्ड की सर्विस बहुत अच्छी और सहायक है।\"`,
         [Language.Marathi]: "?????",
     },
     review2ProductName: {
@@ -2262,7 +2271,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review4Message: {
         [Language.English]: `\"Deliver on time & battery backup is very good. Installation services was very good.\"`,
-        [Language.Hindi]: `\"समय पर डिलीवरी और बैटरी बैकअप बहुत अच्छा है। स्थापना सेवाएं बहुत अच्छी थीं।\"`,
+        [Language.Hindi]: `\"समय पर डिलीवरी और बैटरी बैकअप बहुत अच्छा है। स्थापना सर्विसएं बहुत अच्छी थीं।\"`,
         [Language.Marathi]: "?????",
     },
     review4ProductName: {
@@ -2279,7 +2288,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     footerSubscribeT1: {
         [Language.English]: "Be the first to find out about new stories & latest offers!",
-        [Language.Hindi]: " नए ऑफर और कहनियों के बारे में जानने वाले सबसे पहले बनिएसब्सक्राइब करने के लिए ईमेल डालें",
+        [Language.Hindi]: " नए ऑफर और कहनियों के बारे में जानने वाले सबसे पहले बनिए!",
         [Language.Marathi]: "?????",
     },
     footerSubscribeT2: {
@@ -2344,7 +2353,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure2T1: {
         [Language.English]: "Home Inverters",
-        [Language.Hindi]: " घर के इनवर्टर",
+        [Language.Hindi]: " होम इनवर्टर",
         [Language.Marathi]: "?????",
     },
     footerDisclosure2T2: {
@@ -2606,7 +2615,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     bottomBarT5: {
         [Language.English]: "Support",
-        [Language.Hindi]: "सेवा",
+        [Language.Hindi]: "सर्विस",
         [Language.Marathi]: "?????",
     },
     downloadCatalogueBottomBarT1: {
@@ -2624,7 +2633,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
         [Language.Hindi]:
-            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने घर के लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS1T1: {
