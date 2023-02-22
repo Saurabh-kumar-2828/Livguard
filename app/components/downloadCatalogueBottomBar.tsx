@@ -19,7 +19,7 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
                     <FixedWidthImage
                         relativePath="/livguard/icons/downloadCatalogue.png"
                         width="1.5rem"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                     <Spacer className="tw-w-2" />
                     <div className="lg-text-icon">{getVernacularString("downloadCatalogueBottomBarT1", userPreferences.language)}</div>
@@ -30,7 +30,7 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
                 <FixedWidthImage
                     relativePath="/livguard/icons/enquire_now.png"
                     width="1.5rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
                 <Spacer className="tw-w-2" />
                 <div className="lg-text-icon">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>

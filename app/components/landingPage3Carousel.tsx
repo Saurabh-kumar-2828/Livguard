@@ -20,7 +20,7 @@ export function LandingPage3Carousel({
     userPreferences: UserPreferences;
     items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div
@@ -56,7 +56,7 @@ export function LandingPage3Carousel({
                                         <DefaultImageAnimation>
                                             <FullWidthImage
                                                 relativePath={item.imageRelativePath}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                 className="tw-rounded-lg"
                                             />
                                         </DefaultImageAnimation>

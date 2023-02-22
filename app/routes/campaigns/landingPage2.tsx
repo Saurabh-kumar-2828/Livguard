@@ -110,7 +110,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <CoverImage
                 relativePath="/livguard/landingPages/2/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
@@ -311,7 +311,7 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
                             <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 `}>
                                 <FixedWidthImage
                                     relativePath={item.image}
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                     width="150px"
                                 />
 
@@ -433,7 +433,7 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
 
                                         <FullWidthImage
                                             relativePath={product.image}
-                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                         />
 
                                         <VerticalSpacer className="tw-h-4" />

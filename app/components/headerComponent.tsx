@@ -177,7 +177,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         <FixedHeightImage
                             relativePath="/livguard/header/logo-100-light.jpg"
                             height="1.5rem"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </Link>
                 </div>
@@ -187,7 +187,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         <FixedHeightImage
                             relativePath="/livguard/header/logo-100-dark.jpg"
                             height="1.5rem"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </Link>
                 </div>
@@ -447,7 +447,7 @@ function MenuDialog({
                                             leaveFrom="tw-translate-y-0 tw-opacity-full"
                                             leaveTo="tw-translate-y-[1em] tw-opacity-0"
                                         >
-                                            <div className="tw-flex-1 lg-text-title1">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
+                                            <div className="tw-flex-1 lg-text-title2">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
                                         </Transition.Child>
 
                                         <Transition.Child
@@ -482,7 +482,7 @@ function MenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </Transition.Child>
 
@@ -792,7 +792,7 @@ function SubMenuDialog({
                                             leaveFrom="tw-translate-y-0 tw-opacity-full"
                                             leaveTo="tw-translate-y-[1em] tw-opacity-0"
                                         >
-                                            <div className="tw-flex-1 lg-text-title1">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
+                                            <div className="tw-flex-1 lg-text-title2">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
                                         </Transition.Child>
 
                                         <Transition.Child
@@ -827,7 +827,7 @@ function SubMenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </Transition.Child>
 

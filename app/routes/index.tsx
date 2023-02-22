@@ -153,7 +153,7 @@ function HeroSection({userPreferences, isContactUsSubmissionSuccess}: {userPrefe
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                imageCdnProvider={ImageCdnProvider.Imgix}
             /> */}
 
             <video
@@ -298,7 +298,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 {/* <FixedWidthImage
                                     relativePath={item.icon}
                                     width="1.5rem"
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
 
                                 <object
@@ -371,7 +371,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <DefaultImageAnimation>
                                     <FullWidthImage
                                         relativePath={item.image}
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className="tw-rounded-lg"
                                     />
                                 </DefaultImageAnimation>
@@ -440,7 +440,7 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
                 <DefaultImageAnimation>
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-mobile.jpg"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </DefaultImageAnimation>
             </div>
@@ -859,15 +859,15 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
                     items={[
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/2.jpg"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/3.jpg"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />,
                     ]}
                 />
@@ -1023,7 +1023,7 @@ export function ContactUsDialog({
                                     <FixedHeightImage
                                         relativePath="/livguard/header/akshay.png"
                                         height="13.75rem"
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
 

@@ -12,7 +12,7 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function CarouselStyle1Video({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{youtubeVideoId: string; videoAspectRatio: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div

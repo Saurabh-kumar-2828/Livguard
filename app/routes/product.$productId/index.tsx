@@ -146,7 +146,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                         <DefaultElementAnimation>
                             <FullWidthImage
                                 relativePath={productInfo.images[mainImageIndex].image}
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 className="tw-rounded-lg"
                             />
                         </DefaultElementAnimation>
@@ -162,7 +162,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                 >
                                     <FullWidthImage
                                         relativePath={image.image}
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className="tw-rounded-lg"
                                     />
                                 </div>
@@ -193,7 +193,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                         <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
                                             <FixedWidthImage
                                                 relativePath={icon.icon}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                 width="1.5rem"
                                             />
                                         </div>
@@ -266,7 +266,7 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
                 <ItemBuilder
                     items={getDataFromProductInfo(selectedTab)}
                     itemBuilder={(item, itemIndex) => (
-                        <React.Fragment>
+                        <React.Fragment key={itemIndex}>
                             {selectedTab == "features" ? (
                                 <div className={`lg-px-screen-edge tw-flex tw-flex-row tw-py-2 tw-items-center tw-gap-1 tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-500" : ""}`}>
                                     <div className="tw-w-2">
@@ -303,17 +303,17 @@ function ProductDescription({userPreferences, productDescription}: {userPreferen
             <ItemBuilder
                 items={productDescription.images}
                 itemBuilder={(image, imageIndex) => (
-                    <>
+                    <React.Fragment key={imageIndex}>
                         <div className="tw-rounded-lg tw-w-full">
                             <FullWidthImage
                                 relativePath={image.image}
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 className="tw-rounded-lg"
                             />
                         </div>
 
                         <VerticalSpacer className="tw-h-4" />
-                    </>
+                    </React.Fragment>
                 )}
             />
         </div>

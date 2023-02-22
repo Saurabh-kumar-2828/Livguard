@@ -1,5 +1,6 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 import {StarFill} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -17,7 +18,7 @@ export function TestimonialsCarousel({
     userPreferences: UserPreferences;
     testimonials: Array<{image: string; name: string; rating: number; state: string; message: string; productImage: string; productName: string}>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
         <div>
@@ -25,7 +26,7 @@ export function TestimonialsCarousel({
                 className="tw-overflow-hidden"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-h-full">
                     <ItemBuilder
                         items={testimonials}
                         itemBuilder={(testimonial, testimonialIndex) => (
@@ -33,28 +34,28 @@ export function TestimonialsCarousel({
                                 className="lg-px-screen-edge"
                                 key={testimonialIndex}
                             >
-                                <div className="tw-h-full tw-rounded-lg lg-bg-secondary-100 tw-flex tw-flex-col tw-px-8 tw-py-6">
-                                    <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr)] tw-grid-rows-[auto,auto,auto] tw-gap-x-4 tw-gap-y-2">
-                                        <div className="tw-col-start-1 tw-row-start-1 tw-row-span-3">
-                                            <FixedWidthImage
-                                                relativePath={testimonial.image}
-                                                width="5rem"
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                                className="tw-rounded-full"
-                                            />
-                                        </div>
+                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-3 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
+                                    <div className="tw-col-start-1 tw-row-start-1">
+                                        <FixedWidthImage
+                                            relativePath={testimonial.image}
+                                            width="5rem"
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            className="tw-rounded-full"
+                                        />
+                                    </div>
 
-                                        <div className="tw-col-start-2 tw-row-start-1">
-                                            <div className="lg-text-headline tw-text-left">{testimonial.name}</div>
-                                        </div>
+                                    <div className="tw-col-start-2 tw-row-start-1 tw-flex tw-flex-col tw-gap-1 tw-justify-start">
+                                        <div className="lg-text-title1">{testimonial.name}</div>
 
-                                        <div className="tw-col-start-2 tw-row-start-2 tw-flex tw-flex-row tw-gap-x-2">
+                                        <div className="lg-text-body-bold">{testimonial.state}</div>
+
+                                        <div className="tw-flex tw-flex-row tw-gap-[2px] ">
                                             <ItemBuilder
                                                 items={getIntegerArrayOfLength(5)}
                                                 itemBuilder={(_, itemIndex) => (
                                                     <StarFill
                                                         className={concatenateNonNullStringsWithSpaces(
-                                                            "tw-w-4 tw-h-4",
+                                                            "tw-w-2 tw-h-2",
                                                             itemIndex <= testimonial.rating ? "lg-text-primary-500" : "lg-text-secondary-300",
                                                         )}
                                                         key={itemIndex}
@@ -62,31 +63,19 @@ export function TestimonialsCarousel({
                                                 )}
                                             />
                                         </div>
-
-                                        <div className="tw-col-start-2 tw-row-start-3">
-                                            <div className="lg-text-body-bold">{testimonial.name}</div>
-                                        </div>
                                     </div>
 
-                                    <VerticalSpacer className="tw-h-6" />
+                                    <div className="tw-col-start-3 tw-row-start-1">
+                                        <FixedWidthImage
+                                            relativePath={testimonial.productImage}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            width="100px"
+                                        />
+                                    </div>
 
-                                    <div className="lg-text-body tw-text-center tw-flex-1">{testimonial.message}</div>
+                                    <div className="tw-col-start-1 tw-col-span-3 tw-row-start-2">
 
-                                    <VerticalSpacer className="tw-h-6" />
-
-                                    <div className="tw-w-full tw-h-px lg-bg-secondary-900"></div>
-
-                                    <VerticalSpacer className="tw-h-4" />
-
-                                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-justify-center tw-items-center">
-                                        <div className="tw-col-start-1">
-                                            <FixedWidthImage
-                                                relativePath={testimonial.productImage}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                                width="120px"
-                                            />
-                                        </div>
-                                        <div className="tw-col-start-2 tw-text-right">{testimonial.productName}</div>
+                                        <div className="lg-text-body tw-text-center tw-flex-1">{testimonial.message}</div>
                                     </div>
                                 </div>
                             </div>

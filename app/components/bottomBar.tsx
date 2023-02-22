@@ -12,7 +12,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                 {/* <FixedWidthImage
                     relativePath="/livguard/bottom-bar/home-inverter.png"
                     width="2rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 /> */}
                 <object
                     data="https://files.growthjockey.com/livguard/icons/bottom-bar/1.svg"

@@ -11,7 +11,7 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function LeadersCarousel({userPreferences, leaders}: {userPreferences: UserPreferences; leaders: Array<{image: string; name: string; designation: string; bio: string}>}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div>
@@ -33,7 +33,7 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                                             relativePath={leader.image}
                                             width="8rem"
                                             className="tw-rounded-full"
-                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                         />
 
                                         <div className="tw-h-full tw-flex tw-flex-row tw-items-start tw-gap-x-4">

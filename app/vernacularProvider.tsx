@@ -93,7 +93,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     headerMenuSM1T4: {
         [Language.English]: "High Capacity Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
         [Language.Marathi]: "?????",
     },
     headerMenuSM2T1: {
@@ -218,13 +218,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     homeS1T1: {
-        [Language.English]: "Energy Unlimited",
-        [Language.Hindi]: "असीमित ऊर्जा",
+        [Language.English]: "Experience Uninterrupted ",
+        [Language.Hindi]: "अनुभव करें निरंतर ऊर्जा",
         [Language.Marathi]: "?????",
     },
     homeS1T2: {
-        [Language.English]: "For a Constantly Evolving World",
-        [Language.Hindi]: "बदलते भारत के लिए",
+        [Language.English]: "Power with Livguard",
+        [Language.Hindi]: "लिवगार्ड के साथ",
         [Language.Marathi]: "?????",
     },
     homeS1T3: {
@@ -254,15 +254,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS2C2T1: {
-        [Language.English]: "Excelling Manufacturing",
+        [Language.English]: "Manufacturing Excellence",
         [Language.Hindi]: "श्रेष्ठ उत्पादन",
         [Language.Marathi]: "?????",
     },
     homeS2C2T2: {
         [Language.English]:
-            "Livguard leaves no crumbs when it comes to perfecting their manufacturing processes. With our expertise of over 35 years in battery making, we work to deliver quality products, every time.",
+            "At Livguard, perfection is not an option, it's the only standard. Uncompromising quality is our promise. Livguard's refined manufacturing processes deliver reliable products every time.",
         [Language.Hindi]:
-            "लिवगार्ड अपनी उत्पादन प्रक्रियाओं को सर्वश्रेष्ठ बनाने में कोई कसर नहीं छोड़ता। हमारे 35+ वर्षों के अनुभव के साथ, हम ग्राहकों तक हमेशा अति-उत्तम समाधान पहुँचाने का प्रयत्न करते हैं।",
+            "लिवगार्ड में, श्रेष्ठता कोई विकल्प नहीं है, यह एकमात्र मानक है। बिना किसी समझौते वाली क्वालिटी हमारा वादा है। लिवगार्ड की परिष्कृत निर्माण प्रक्रियाएं हर बार विश्वसनीय उत्पाद प्रदान करती हैं।",
         [Language.Marathi]: "?????",
     },
     homeS3H1T1: {

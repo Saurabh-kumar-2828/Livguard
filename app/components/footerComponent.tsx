@@ -3,6 +3,8 @@ import {Form, Link} from "@remix-run/react";
 import React, {useState} from "react";
 import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {Accordion} from "~/components/accordian";
+import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
@@ -15,8 +17,30 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
         <div className="lg-px-screen-edge">
             <div className="tw-hidden sm:tw-flex"></div>
 
+            <VerticalSpacer className="tw-h-8" />
+
             <div className="tw-flex tw-flex-col sm:tw-hidden">
-                <VerticalSpacer className="tw-h-6" />
+                <div className="tw-block dark:tw-hidden">
+                    <Link to="/">
+                        <FixedHeightImage
+                            relativePath="/livguard/header/logo-100-light.jpg"
+                            height="2rem"
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                        />
+                    </Link>
+                </div>
+
+                <div className="dark:tw-block tw-hidden">
+                    <Link to="/">
+                        <FixedHeightImage
+                            relativePath="/livguard/header/logo-100-dark.jpg"
+                            height="2rem"
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                        />
+                    </Link>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
 
                 <div className="lg-text-secondary-900 lg-text-headline">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
 
@@ -24,7 +48,12 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                 <Form>
                     <div className="tw-relative tw-w-full">
-                        <input type="text" name="email" placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)} className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full" />
+                        <input
+                            type="text"
+                            name="email"
+                            placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
+                            className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
+                        />
                         <div className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border">
                             <ChevronRightIcon className="tw-w-8 tw-h-8" />
                         </div>
@@ -76,7 +105,10 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
                                     <Link to={item.link}>{item.title}</Link>
                                 </div>
                             )}
@@ -107,7 +139,10 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
                                     <div className="lg-text-secondary-900">
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
@@ -147,8 +182,14 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
-                                    <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -196,8 +237,14 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
-                                    <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -221,8 +268,14 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
-                                    <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -262,8 +315,14 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
-                                    <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
@@ -291,8 +350,14 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
-                                <div className="lg-text-secondary-900" key={itemIndex}>
-                                    <div className="lg-text-secondary-900" key={itemIndex}>
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
                                         <Link to={item.link}>{item.title}</Link>
                                     </div>
                                 </div>
