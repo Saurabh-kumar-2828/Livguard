@@ -482,12 +482,23 @@ function PropertySelection({
                             )}
                             key={itemIndex}
                             onClick={() => {
+                                // TODO: Remove this condition to enable user to reset things?
                                 if (item.value == loadCalculatorInputs.property.propertyType) {
                                     return;
                                 }
 
-                                setCurrentlyChangingPropertyType(item.value);
-                                tryToOpenChangePropertyTypeDialog();
+                                if (loadCalculatorInputs.property == propertyTemplates[loadCalculatorInputs.property.propertyType]) {
+                                    const action: LoadCalculatorInputsAction = {
+                                        actionType: LoadCalculatorInputsActionType.SetPropertyType,
+                                        payload: item.value,
+                                    };
+
+                                    dispatch(action);
+                                } else {
+                                    setCurrentlyChangingPropertyType(item.value);
+                                    tryToOpenChangePropertyTypeDialog();
+                                }
+
                             }}
                         >
                             <div
@@ -512,6 +523,7 @@ function PropertySelection({
                 loadCalculatorInputs={loadCalculatorInputs}
                 dispatch={dispatch}
                 currentlyChangingPropertyType={currentlyChangingPropertyType}
+                setCurrentlyChangingPropertyType={setCurrentlyChangingPropertyType}
                 isChangePropertyTypeDialogOpen={isChangePropertyTypeDialogOpen}
                 setIsChangePropertyTypeDialogOpen={setIsChangePropertyTypeDialogOpen}
             />
@@ -638,6 +650,7 @@ function RoomSelection({
                 loadCalculatorInputs={loadCalculatorInputs}
                 dispatch={dispatch}
                 currentlyEditingRoomIndex={currentlyEditingRoomIndex}
+                setCurrentlyEditingRoomIndex={setCurrentlyEditingRoomIndex}
                 isEditRoomDialogOpen={isEditRoomDialogOpen}
                 setIsEditRoomDialogOpen={setIsEditRoomDialogOpen}
             />
@@ -650,6 +663,7 @@ function ChangePropertyTypeDialog({
     loadCalculatorInputs,
     dispatch,
     currentlyChangingPropertyType,
+    setCurrentlyChangingPropertyType,
     isChangePropertyTypeDialogOpen,
     setIsChangePropertyTypeDialogOpen,
 }: {
@@ -657,6 +671,7 @@ function ChangePropertyTypeDialog({
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
     currentlyChangingPropertyType: string | null;
+    setCurrentlyChangingPropertyType: React.Dispatch<string | null>;
     isChangePropertyTypeDialogOpen: boolean;
     setIsChangePropertyTypeDialogOpen: React.Dispatch<boolean>;
 }) {
@@ -664,6 +679,7 @@ function ChangePropertyTypeDialog({
 
     function tryToCloseChangePropertyTypeDialog() {
         setIsChangePropertyTypeDialogOpen(false);
+        setCurrentlyChangingPropertyType(null);
     }
 
     if (currentlyChangingPropertyType == null) {
@@ -948,6 +964,7 @@ function EditRoomDialog({
     loadCalculatorInputs,
     dispatch,
     currentlyEditingRoomIndex,
+    setCurrentlyEditingRoomIndex,
     isEditRoomDialogOpen,
     setIsEditRoomDialogOpen,
 }: {
@@ -955,6 +972,7 @@ function EditRoomDialog({
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
     currentlyEditingRoomIndex: number | null;
+    setCurrentlyEditingRoomIndex: React.Dispatch<number | null>;
     isEditRoomDialogOpen: boolean;
     setIsEditRoomDialogOpen: React.Dispatch<boolean>;
 }) {
@@ -966,13 +984,14 @@ function EditRoomDialog({
 
     function tryToCloseEditRoomDialog() {
         setIsEditRoomDialogOpen(false);
+        setCurrentlyEditingRoomIndex(null);
     }
 
     function tryToOpenNewDeviceDialog() {
         setIsNewDeviceDialogOpen(true);
     }
 
-    function tryToOpenEdotDeviceDialog() {
+    function tryToOpenEditDeviceDialog() {
         setIsEditDeviceDialogOpen(true);
     }
 
@@ -1051,7 +1070,7 @@ function EditRoomDialog({
                                                     //     ...selectedDevices.filter((device, deviceIndex) => deviceIndex != indexToExclude)
                                                     // ]);
                                                     setCurrentlyEditingDeviceType(deviceTypeToDeviceCount.deviceType);
-                                                    tryToOpenEdotDeviceDialog();
+                                                    tryToOpenEditDeviceDialog();
                                                 }}
                                                 key={deviceTypeToDeviceCountIndex}
                                             >
@@ -1182,6 +1201,7 @@ function EditRoomDialog({
                                 dispatch={dispatch}
                                 currentlyEditingRoomIndex={currentlyEditingRoomIndex}
                                 currentlyAddingDeviceType={currentlyAddingDeviceType}
+                                setCurrentlyAddingDeviceType={setCurrentlyAddingDeviceType}
                                 isAddDeviceDialogOpen={isNewDeviceDialogOpen}
                                 setIsAddDeviceDialogOpen={setIsNewDeviceDialogOpen}
                             />
@@ -1212,6 +1232,7 @@ function NewDeviceDialog({
     dispatch,
     currentlyEditingRoomIndex,
     currentlyAddingDeviceType,
+    setCurrentlyAddingDeviceType,
     isAddDeviceDialogOpen,
     setIsAddDeviceDialogOpen,
 }: {
@@ -1220,6 +1241,7 @@ function NewDeviceDialog({
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
     currentlyEditingRoomIndex: number | null;
     currentlyAddingDeviceType: string | null;
+    setCurrentlyAddingDeviceType: React.Dispatch<string | null>;
     isAddDeviceDialogOpen: boolean;
     setIsAddDeviceDialogOpen: React.Dispatch<boolean>;
 }) {
@@ -1227,6 +1249,7 @@ function NewDeviceDialog({
 
     function tryToCloseAddDeviceDialog() {
         setIsAddDeviceDialogOpen(false);
+        setCurrentlyAddingDeviceType(null);
     }
 
     if (currentlyEditingRoomIndex == null || currentlyAddingDeviceType == null) {
@@ -1401,6 +1424,7 @@ function EditDeviceDialog({
 }) {
     function tryToCloseEditDeviceDialog() {
         setIsEditDeviceDialogOpen(false);
+        setCurrentlyEditingDeviceType(null);
     }
 
     if (currentlyEditingRoomIndex == null || currentlyEditingDeviceType == null) {

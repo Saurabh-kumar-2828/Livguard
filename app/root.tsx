@@ -67,6 +67,8 @@ export default function App() {
                         `,
                     }}
                 /> */}
+
+                <script src="//in.fw-cdn.com/30772163/407987.js" chat="true" />
             </head>
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">

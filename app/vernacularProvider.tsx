@@ -2624,11 +2624,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    loadCalculatorRecommendationsS1T3: {
-        [Language.English]: "Watts",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
     loadCalculatorRecommendationsS1T4: {
         [Language.English]: "is your total house load",
         [Language.Hindi]: "?????",
