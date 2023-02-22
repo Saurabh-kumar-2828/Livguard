@@ -6,7 +6,7 @@ import {Dealer} from "~/typeDefinitions";
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
     path: string;
-    error: string;
+    error: string | null;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -29,7 +29,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const actionData: DealerLocatorActionData = {
         dealerList: [],
-        error: "",
+        error: null,
         path: "/contactusSubmission",
     };
 

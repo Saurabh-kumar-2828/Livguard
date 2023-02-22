@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Form, Link, useActionData} from "@remix-run/react";
+import {Form, Link, useActionData, useFetcher} from "@remix-run/react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import {useState} from "react";
@@ -57,14 +57,6 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
-    const actionData = useActionData();
-
-    let isContactUsSubmissionSuccess = false;
-
-    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
-    //     isContactUsSubmissionSuccess = true;
-    // }
-
     // TODO: Scroll to top if required
 
     return (
@@ -76,7 +68,6 @@ export default function () {
             >
                 <HomePage
                     userPreferences={userPreferences}
-                    isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
                 />
             </PageScaffold>
 
@@ -85,12 +76,11 @@ export default function () {
     );
 }
 
-function HomePage({userPreferences, isContactUsSubmissionSuccess}: {userPreferences: UserPreferences; isContactUsSubmissionSuccess: boolean}) {
+function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
             <HeroSection
                 userPreferences={userPreferences}
-                isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
             />
 
             <VerticalSpacer className="tw-h-8" />
@@ -146,7 +136,7 @@ function HomePage({userPreferences, isContactUsSubmissionSuccess}: {userPreferen
     );
 }
 
-function HeroSection({userPreferences, isContactUsSubmissionSuccess}: {userPreferences: UserPreferences; isContactUsSubmissionSuccess: boolean}) {
+function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
@@ -180,7 +170,6 @@ function HeroSection({userPreferences, isContactUsSubmissionSuccess}: {userPrefe
                     userPreferences={userPreferences}
                     textVernacId="homeS1T3"
                     className="tw-z-10"
-                    isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
                 />
             </DefaultElementAnimation>
 
@@ -889,12 +878,10 @@ export function ContactUsCta({
     userPreferences,
     textVernacId,
     className,
-    isContactUsSubmissionSuccess,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     className?: string;
-    isContactUsSubmissionSuccess: boolean;
 }) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
@@ -915,7 +902,6 @@ export function ContactUsCta({
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-                isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
             />
         </div>
     );
@@ -925,13 +911,20 @@ export function ContactUsDialog({
     userPreferences,
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
-    isContactUsSubmissionSuccess,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
-    isContactUsSubmissionSuccess: boolean;
 }) {
+    // TODO: Understand why we cannot use action for this
+    const fetcher = useFetcher();
+
+    const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
+    //     isContactUsSubmissionSuccess = true;
+    // }
+
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
@@ -971,10 +964,10 @@ export function ContactUsDialog({
                         {isContactUsSubmissionSuccess ? (
                             <FormSubmissionSuccess userPreferences={userPreferences} />
                         ) : (
-                            <Form
+                            <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
-                                // method="post"
-                                // action="/contactUsSubmission"
+                                method="post"
+                                action="/contact-us-submission"
                             >
                                 <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
                                     <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{getVernacularString("contactUsT1", userPreferences.language)}</div>
@@ -992,7 +985,9 @@ export function ContactUsDialog({
 
                                 <input
                                     type="text"
+                                    name="phoneNumber"
                                     className="lg-text-input"
+                                    defaultValue={"9879879878"}
                                 />
 
                                 <VerticalSpacer className="tw-h-4" />
@@ -1003,7 +998,9 @@ export function ContactUsDialog({
 
                                 <input
                                     type="text"
+                                    name="name"
                                     className="lg-text-input"
+                                    defaultValue={"test"}
                                 />
 
                                 <VerticalSpacer className="tw-h-4" />
@@ -1014,7 +1011,9 @@ export function ContactUsDialog({
 
                                 <input
                                     type="text"
+                                    name="emailId"
                                     className="lg-text-input"
+                                    defaultValue={"test@test.com"}
                                 />
 
                                 <VerticalSpacer className="tw-h-8" />
@@ -1033,7 +1032,7 @@ export function ContactUsDialog({
                                 >
                                     {getVernacularString("contactUsT5", userPreferences.language)}
                                 </button>
-                            </Form>
+                            </fetcher.Form>
                         )}
                     </Transition.Child>
                 </Dialog.Panel>
