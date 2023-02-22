@@ -1,5 +1,5 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
-import {InformationCircleIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
 import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
@@ -9,9 +9,12 @@ import {toast} from "react-toastify";
 import {insertLoadCalculatorEntry} from "~/backend/loadCalculator";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {PageScaffold} from "~/components/pageScaffold";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
+import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FullHeightImage} from "~/global-common-typescript/components/fullHeightImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
@@ -110,11 +113,13 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
     return (
         <>
-            <VerticalSpacer className="tw-h-8" />
-
-            <PowerPlannerIntroduction userPreferences={userPreferences} />
+            <HeroSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-8" />
+
+            {/* <PowerPlannerIntroduction userPreferences={userPreferences} />
+
+            <VerticalSpacer className="tw-h-8" /> */}
 
             <PropertySelection
                 userPreferences={userPreferences}
@@ -168,6 +173,42 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" />
         </>
+    );
+}
+
+function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
+        <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_2rem_auto_2rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
+            {/* <CoverImage
+                relativePath="/livguard/home/1/1.jpg"
+                className="tw-row-[1/span_12] tw-col-start-1"
+                imageCdnProvider={ImageCdnProvider.Imgix}
+            /> */}
+
+            <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-gradient-to-b tw-from-primary-500-dark tw-to-secondary-100-dark" />
+
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
+                <div className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorS1T1", userPreferences.language)}} />
+                </div>
+            </DefaultTextAnimation>
+
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
+                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorS1T2", userPreferences.language)}} />
+                </div>
+            </DefaultTextAnimation>
+
+            <div className="tw-row-start-[8] tw-col-start-1 tw-h-32">
+                <FullHeightImage
+                    relativePath="/livguard/home/5/1.png"
+                    imageCdnProvider={ImageCdnProvider.Imgix}
+                />
+            </div>
+
+            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
+        </div>
     );
 }
 

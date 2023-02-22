@@ -2604,6 +2604,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
 
+    loadCalculatorS1T1: {
+        [Language.English]: `Take Charge Of Your Energy<br/>With Our <span class=\"lg-text-highlighted\">Power Planner</span>`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorS1T2: {
+        [Language.English]: "Get tailored power solutions, use our Power Planner to find the right inverter and inverter battery options for your home.",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
     loadCalculatorRecommendationsS1T1: {
         [Language.English]: "Utilisation",
         [Language.Hindi]: "?????",
