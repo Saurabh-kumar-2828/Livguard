@@ -267,17 +267,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3H1T1: {
         [Language.English]: "Experience Our",
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">असीमित ऊर्जा</span> के`,
+        [Language.Hindi]: "अनुभव करें ",
         [Language.Marathi]: "?????",
     },
     homeS3H1T2: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Energy Solutions</span>`,
-        [Language.Hindi]: "अनुभव का हिस्सा बनिये",
+        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">ऊर्जा संग्रहण समाधान</span> के`,
         [Language.Marathi]: "?????",
     },
     homeS3Tab1H: {
         [Language.English]: "Automotive Batteries",
-        [Language.Hindi]: "वाहन की बैटरी",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
         [Language.Marathi]: "?????",
     },
     homeS3Tab1HC1: {
@@ -287,7 +287,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab1HC2: {
         [Language.English]: "Automotive Batteries",
-        [Language.Hindi]: "वाहन की बैटरी",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
         [Language.Marathi]: "?????",
     },
     homeS3Tab1C: {
@@ -355,7 +355,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab4H: {
         [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "सौर समाधान",
+        [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
     homeS3Tab4HC1: {
@@ -365,19 +365,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab4HC2: {
         [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "सौर समाधान",
+        [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
     homeS3Tab4C: {
         [Language.English]:
             "Solutions made to fit your specific needs, precisely. We are the experts in Solar Rooftop Solutions, which equip us to always bring the best in class products for your needs.",
         [Language.Hindi]:
-            "आपकी विशिष्ट आवश्यकताओं को पूरा करने के लिए लाये गये सटीक समाधान। हम सोलर रूफटॉप समाधान के विशेषज्ञ हैं, जो हमें हमेशा आपकी जरूरतों के लिए श्रेणी में सर्वश्रेष्ठ उत्पाद लाने के लिए तैयार करते हैं।",
+            "आपकी विशिष्ट आवश्यकताओं को पूरा करने के लिए लाये गये सटीक सलूशन। हम सोलर रूफटॉप सलूशन के एक्सपर्ट हैं, जो हमें हमेशा आपकी जरूरतों के लिए श्रेणी में सर्वश्रेष्ठ उत्पाद लाने के लिए तैयार करते हैं।",
         [Language.Marathi]: "?????",
     },
     homeS3Tab4BT: {
         [Language.English]: "Explore Solar",
-        [Language.Hindi]: "सौर देखें",
+        [Language.Hindi]: "सोलर देखें",
         [Language.Marathi]: "?????",
     },
     homeS3Tab5H: {
@@ -440,7 +440,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     homeS5T2: {
         [Language.English]:
             "Take charge of your power needs with Livguard's load calculator- Power Planned. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times. ",
-        [Language.Hindi]: "आपकी ज़रूरत के अनुसार समाधान पायें। हमारे पावर प्लानर का इस्तेमाल कर के अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी चुनें।",
+        [Language.Hindi]:
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने घर के लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     homeS5T3: {
@@ -515,7 +516,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS7T2: {
         [Language.English]: "Powered by passion and fuelled by innovation, we have established ourself as the experts in the Solar Energy Solutions sector.",
-        [Language.Hindi]: "आधुनिकता से प्रेरित और जुनून लेकर हम्मे ख़ुद को सौर ऊर्जा समाधानों के क्षेत्र में विशेषज्ञों के रूप में स्थापित किया है।",
+        [Language.Hindi]: "आधुनिकता से प्रेरित और जुनून लेकर हम्मे ख़ुद को सोलर ऊर्जा समाधानों के क्षेत्र में विशेषज्ञों के रूप में स्थापित किया है।",
         [Language.Marathi]: "?????",
     },
     homeS7T3: {
@@ -525,7 +526,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS7T4: {
         [Language.English]: "Tap Into Solar",
-        [Language.Hindi]: "सौर ऊर्जा अनुभव करें",
+        [Language.Hindi]: "सोलर ऊर्जा अनुभव करें",
         [Language.Marathi]: "?????",
     },
     homeS7S1T1: {
@@ -834,7 +835,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage1S3Slide3Title: {
         [Language.English]: "Customer Centric",
-        [Language.Hindi]: "ग्रहकों के लिए",
+        [Language.Hindi]: "सबसे पहले ग्राहक",
         [Language.Marathi]: "?????",
     },
     landingPage1S3Slide3Body: {
@@ -2119,12 +2120,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "नाम",
         [Language.Marathi]: "?????",
     },
-    applyNowForDealerT4: {
+    applyNowForDealerT5: {
         [Language.English]: "City",
         [Language.Hindi]: " शहर",
         [Language.Marathi]: "?????",
     },
-    applyNowForDealerT5: {
+    applyNowForDealerT4: {
+        [Language.English]: "Email",
+        [Language.Hindi]: "ई-मेल",
+        [Language.Marathi]: "?????",
+    },
+    applyNowForDealerT6: {
         [Language.English]: "Submit",
         [Language.Hindi]: "सबमिट करें",
         [Language.Marathi]: "?????",
@@ -2140,6 +2146,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     applyNowForDealerPH4: {
+        [Language.English]: "Please Enter Your Email",
+        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
+        [Language.Marathi]: "?????",
+    },
+    applyNowForDealerPH5: {
         [Language.English]: "Please Select Your City",
         [Language.Hindi]: "कृपया अपना शहर चुनें",
         [Language.Marathi]: "?????",
@@ -2378,42 +2389,42 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure4H: {
         [Language.English]: "Solar Solutions",
-        [Language.Hindi]: "सौर समाधान",
+        [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T1: {
         [Language.English]: "Solar Panels",
-        [Language.Hindi]: "सौर पैनल",
+        [Language.Hindi]: "सोलर पैनल",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T2: {
         [Language.English]: "Solar Grid Interactive Series",
-        [Language.Hindi]: "सौर ग्रिड इंटरैक्टिव श्रेणी",
+        [Language.Hindi]: "सोलर ग्रिड इंटरैक्टिव श्रेणी",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T3: {
         [Language.English]: "Solar Inverter",
-        [Language.Hindi]: "सौर इनवर्टर",
+        [Language.Hindi]: "सोलर इनवर्टर",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T4: {
         [Language.English]: "Solar Management Unit",
-        [Language.Hindi]: "सौर प्रबंधन इकाई",
+        [Language.Hindi]: "सोलर प्रबंधन इकाई",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T5: {
         [Language.English]: "Solar Charge Controller",
-        [Language.Hindi]: "सौर चार्ज कंट्रोलर",
+        [Language.Hindi]: "सोलर चार्ज कंट्रोलर",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T6: {
         [Language.English]: "Solar LED Street Light",
-        [Language.Hindi]: "सौर एल ई डी गली की बत्ती",
+        [Language.Hindi]: "सोलर एल ई डी गली की बत्ती",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T7: {
         [Language.English]: "Solar Battery",
-        [Language.Hindi]: "सौर बैटरी",
+        [Language.Hindi]: "सोलर बैटरी",
         [Language.Marathi]: "?????",
     },
     footerDisclosure5H: {

@@ -1,4 +1,5 @@
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
+import {Link} from "@remix-run/react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -127,6 +128,7 @@ export function ProductCardComponent({
         imageRelativePath: string;
         buttonText: string;
         bestseller: boolean;
+        link: string;
     };
     userPreferences: UserPreferences;
 }) {
@@ -156,7 +158,12 @@ export function ProductCardComponent({
             <VerticalSpacer className="tw-h-1" />
 
             <DefaultElementAnimation>
-                <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">{getVernacularString(vernacularContent.buttonText, userPreferences.language)}</div>
+                <Link
+                    to={`/product/${vernacularContent.title}`}
+                    className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center"
+                >
+                    {getVernacularString(vernacularContent.buttonText, userPreferences.language)}
+                </Link>
             </DefaultElementAnimation>
         </div>
     );

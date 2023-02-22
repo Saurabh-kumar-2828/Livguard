@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {GoogleMap, LoadScript, Marker, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
-import {Form, useActionData} from "@remix-run/react";
+import {Form, useActionData, useFetcher} from "@remix-run/react";
 import React from "react";
 import {useEffect, useState} from "react";
 import {Droplet, Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -22,7 +22,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {ContactUsCta, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Dealer, Language, salutations, UserPreferences} from "~/typeDefinitions";
@@ -75,16 +75,6 @@ export default function () {
     const initialDealerList: Array<Dealer> = [];
 
     const actionData = useActionData();
-    let isDealerFormSubmissionSuccess = false;
-    let isContactUsSubmissionSuccess = false;
-
-    // if (actionData != null && actionData.path == "/applyForDealership" && actionData.error == "") {
-    //     isDealerFormSubmissionSuccess = true;
-    // }
-
-    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
-    //     isContactUsSubmissionSuccess = true;
-    // }
 
     return (
         <>
@@ -102,7 +92,6 @@ export default function () {
 
                 <TroubleFindingDealers
                     userPreferences={userPreferences}
-                    isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -113,7 +102,6 @@ export default function () {
 
                 <JoinLivguardNetwork
                     userPreferences={userPreferences}
-                    isDealerFormSubmissionSuccess={isDealerFormSubmissionSuccess}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -264,7 +252,6 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
                                                 userPreferences={userPreferences}
                                                 textVernacId="landingPageBottomBarT2"
                                                 className="tw-z-10"
-                                                isContactUsSubmissionSuccess={false}
                                             />
 
                                             {/* <button
@@ -349,7 +336,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
     );
 }
 
-function TroubleFindingDealers({userPreferences, isContactUsSubmissionSuccess}: {userPreferences: UserPreferences; isContactUsSubmissionSuccess: boolean}) {
+function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferences;}) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
@@ -371,7 +358,6 @@ function TroubleFindingDealers({userPreferences, isContactUsSubmissionSuccess}: 
                     userPreferences={userPreferences}
                     textVernacId="dealerLocatorS2BT"
                     className="tw-z-10"
-                    isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
                 />
             </DefaultElementAnimation>
 
@@ -380,7 +366,7 @@ function TroubleFindingDealers({userPreferences, isContactUsSubmissionSuccess}: 
     );
 }
 
-function JoinLivguardNetwork({userPreferences, isDealerFormSubmissionSuccess}: {userPreferences: UserPreferences; isDealerFormSubmissionSuccess: boolean}) {
+function JoinLivguardNetwork({userPreferences}: {userPreferences: UserPreferences;}) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
@@ -402,7 +388,6 @@ function JoinLivguardNetwork({userPreferences, isDealerFormSubmissionSuccess}: {
                     userPreferences={userPreferences}
                     textVernacId="dealerLocatorS4BT"
                     className="tw-z-10"
-                    isDealerFormSubmissionSuccess={isDealerFormSubmissionSuccess}
                 />
             </DefaultElementAnimation>
 
@@ -415,12 +400,10 @@ export function ApplyNowForDealerCta({
     userPreferences,
     textVernacId,
     className,
-    isDealerFormSubmissionSuccess,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     className?: string;
-    isDealerFormSubmissionSuccess: boolean;
 }) {
     const [isApplyNowDialogOpen, setApplyNowDialogOpen] = useState(false);
 
@@ -441,7 +424,6 @@ export function ApplyNowForDealerCta({
                 userPreferences={userPreferences}
                 isApplyNowDialogOpen={isApplyNowDialogOpen}
                 setApplyNowDialogOpen={setApplyNowDialogOpen}
-                isDealerFormSubmissionSuccess={isDealerFormSubmissionSuccess}
             />
         </div>
     );
@@ -451,13 +433,18 @@ export function ApplyNowForDealerDialog({
     userPreferences,
     isApplyNowDialogOpen,
     setApplyNowDialogOpen,
-    isDealerFormSubmissionSuccess,
 }: {
     userPreferences: UserPreferences;
     isApplyNowDialogOpen: boolean;
     setApplyNowDialogOpen: React.Dispatch<boolean>;
-    isDealerFormSubmissionSuccess: boolean;
 }) {
+
+    const fetcher = useFetcher();
+
+    const isDealerFormSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    console.log("fetcher data", isDealerFormSubmissionSuccess);
+
     function tryToCloseApplyNowDialog() {
         setApplyNowDialogOpen(false);
     }
@@ -497,7 +484,7 @@ export function ApplyNowForDealerDialog({
                         {isDealerFormSubmissionSuccess ? (
                             <FormSubmissionSuccess userPreferences={userPreferences} />
                         ) : (
-                            <Form
+                            <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
                                 method="post"
                                 action="/apply-for-dealership"
@@ -550,9 +537,24 @@ export function ApplyNowForDealerDialog({
                                 <input
                                     type="text"
                                     className="lg-text-input"
-                                    name="city"
+                                    name="emailId"
+                                    pattern={emailIdValidationPattern}
                                     required
                                     placeholder={getVernacularString("applyNowForDealerPH4", userPreferences.language)}
+                                />
+
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT5", userPreferences.language)}*`}</div>
+
+                                <VerticalSpacer className="tw-h-2" />
+
+                                <input
+                                    type="text"
+                                    className="lg-text-input"
+                                    name="city"
+                                    required
+                                    placeholder={getVernacularString("applyNowForDealerPH5", userPreferences.language)}
                                 />
 
                                 <VerticalSpacer className="tw-h-8" />
@@ -569,9 +571,9 @@ export function ApplyNowForDealerDialog({
                                     type="submit"
                                     className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                                 >
-                                    {getVernacularString("applyNowForDealerT5", userPreferences.language)}
+                                    {getVernacularString("applyNowForDealerT6", userPreferences.language)}
                                 </button>
-                            </Form>
+                            </fetcher.Form>
                         )}
                     </Transition.Child>
                 </Dialog.Panel>

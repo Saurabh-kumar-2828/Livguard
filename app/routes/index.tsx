@@ -322,6 +322,8 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
+                                buttonLink: "/category/inverters",
+                                target: null,
                             },
                             {
                                 image: "/livguard/home/3/3.jpg",
@@ -329,6 +331,8 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
+                                buttonLink: "/category/batteries",
+                                target: null,
                             },
                             {
                                 image: "/livguard/home/3/1.jpg",
@@ -336,6 +340,8 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
+                                buttonLink: "https://www.livguard.com/automotive-batteries.php",
+                                target: "_blank",
                             },
                             {
                                 image: "/livguard/home/3/4.jpg",
@@ -343,6 +349,8 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab4HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab4C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab4BT", userPreferences.language)}`,
+                                buttonLink: "https://www.livguardsolar.com/",
+                                target: "_blank",
                             },
                             {
                                 image: "/livguard/home/3/5.jpg",
@@ -350,6 +358,8 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab5C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
+                                buttonLink: "",
+                                target: "_blank",
                             },
                         ]}
                         itemBuilder={(item, itemIndex) => (
@@ -386,7 +396,11 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <VerticalSpacer className="tw-h-4" />
 
                                 <DefaultElementAnimation>
-                                    <div className="lg-cta-button">{item.buttontext}</div>
+                                    {
+                                        item.target != null
+                                        ? (<Link to={item.buttonLink} target="_blank" className="lg-cta-button">{item.buttontext}</Link>)
+                                        : (<Link to={item.buttonLink} className="lg-cta-button">{item.buttontext}</Link>)
+                                    }
                                 </DefaultElementAnimation>
                             </div>
                         )}

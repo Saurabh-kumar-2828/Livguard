@@ -1,5 +1,6 @@
 import {ActionFunction, json} from "@remix-run/node";
 import {insertContactLeads} from "~/backend/dealer.server";
+import {sendDataToFreshSales} from "~/backend/freshSales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {Dealer} from "~/typeDefinitions";
 
@@ -26,6 +27,8 @@ export const action: ActionFunction = async ({request, params}) => {
     }
 
     await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId});
+
+    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId});
 
     const actionData: DealerLocatorActionData = {
         dealerList: [],

@@ -1,4 +1,4 @@
-import {Dialog, Listbox, Transition} from "@headlessui/react";
+import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
 import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
@@ -1653,12 +1653,17 @@ function AdditionalInputsSection({
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2">
+            <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
                 <div className="tw-flex-none">Average Consumption</div>
-                <InformationCircleIcon
+                {/* <InformationCircleIcon
                     className="tw-w-4 tw-h-4 tw-flex-none"
-                    title="How much power you expect to consume"
-                />
+                    title={`How much power you expect to consume`}
+                /> */}
+                <Popover className="tw-absolute tw-left-8">
+                    <Popover.Button>Solutions</Popover.Button>
+
+                    <Popover.Panel>"Hello Beby"</Popover.Panel>
+                </Popover>
                 <EmptyFlexFiller />
                 <div className="tw-flex-none lg-text-body-bold lg-text-secondary-900">{loadCalculatorInputs.averageConsumption}%</div>
             </div>

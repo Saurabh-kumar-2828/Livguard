@@ -40,7 +40,7 @@ function rowToDealerInformation(row: any): Dealer{
 }
 
 
-export async function insertDealerLeads(formResponse: {phoneNumber:string, name: string, city: string}){
+export async function insertDealerLeads(formResponse: {phoneNumber:string, name: string,emailId: string, city: string}){
     await execute(
         `
             INSERT INTO
