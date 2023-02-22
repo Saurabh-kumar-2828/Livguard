@@ -33,7 +33,7 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                 <Form className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden">
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
                     />
 

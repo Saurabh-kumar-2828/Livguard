@@ -33,7 +33,7 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                                             relativePath={leader.image}
                                             width="8rem"
                                             className="tw-rounded-full"
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                         />
 
                                         <div className="tw-h-full tw-flex tw-flex-row tw-items-start tw-gap-x-4">

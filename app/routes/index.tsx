@@ -103,11 +103,18 @@ function HomePage({userPreferences, isContactUsSubmissionSuccess}: {userPreferen
 
             <VerticalSpacer className="tw-h-10" />
 
-            <WeAreOneOfAKind userPreferences={userPreferences} />
+            <PowerPlannerTeaser userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <PowerPlannerTeaser userPreferences={userPreferences} />
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCtaButton={true}
+            />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <WeAreOneOfAKind userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -124,13 +131,6 @@ function HomePage({userPreferences, isContactUsSubmissionSuccess}: {userPreferen
             <VerticalSpacer className="tw-h-10" />
 
             <FaqSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <DealerLocator
-                userPreferences={userPreferences}
-                showCtaButton={true}
-            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -153,7 +153,7 @@ function HeroSection({userPreferences, isContactUsSubmissionSuccess}: {userPrefe
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
+                imageCdnProvider={ImageCdnProvider.GrowthJockey}
             /> */}
 
             <video
@@ -241,7 +241,7 @@ function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPrefere
 }
 
 export function EnergySolutions({userPreferences}: {userPreferences: UserPreferences}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 3000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
         <div
@@ -263,16 +263,16 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                 <ItemBuilder
                     items={[
                         {
-                            svgIcon: "/livguard/icons/home/3/1-icon.svg",
-                            title: "homeS3Tab1H",
-                        },
-                        {
                             svgIcon: "/livguard/icons/home/3/2-icon.svg",
                             title: "homeS3Tab2H",
                         },
                         {
                             svgIcon: "/livguard/icons/home/3/3-icon.svg",
                             title: "homeS3Tab3H",
+                        },
+                        {
+                            svgIcon: "/livguard/icons/home/3/1-icon.svg",
+                            title: "homeS3Tab1H",
                         },
                         {
                             svgIcon: "/livguard/icons/home/3/4-icon.svg",
@@ -298,7 +298,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 {/* <FixedWidthImage
                                     relativePath={item.icon}
                                     width="1.5rem"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                 /> */}
 
                                 <object
@@ -328,13 +328,6 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                     <ItemBuilder
                         items={[
                             {
-                                image: "/livguard/home/3/1.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab1HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
-                            },
-                            {
                                 image: "/livguard/home/3/2.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab2HC1", userPreferences.language)}`,
                                 headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
@@ -347,6 +340,13 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
+                            },
+                            {
+                                image: "/livguard/home/3/1.jpg",
+                                headingContent1: `${getVernacularString("homeS3Tab1HC1", userPreferences.language)}`,
+                                headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
+                                content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
+                                buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
                             },
                             {
                                 image: "/livguard/home/3/4.jpg",
@@ -371,7 +371,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <DefaultImageAnimation>
                                     <FullWidthImage
                                         relativePath={item.image}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                         className="tw-rounded-lg"
                                     />
                                 </DefaultImageAnimation>
@@ -440,7 +440,7 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
                 <DefaultImageAnimation>
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-mobile.jpg"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                     />
                 </DefaultImageAnimation>
             </div>
@@ -859,15 +859,15 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
                     items={[
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/2.jpg"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/3.jpg"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />,
                     ]}
                 />
@@ -1023,7 +1023,7 @@ export function ContactUsDialog({
                                     <FixedHeightImage
                                         relativePath="/livguard/header/akshay.png"
                                         height="13.75rem"
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                     />
                                 </div>
 

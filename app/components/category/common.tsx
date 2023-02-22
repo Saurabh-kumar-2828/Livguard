@@ -36,7 +36,7 @@ export function EmpowerYourHomeComponent({
                 <DefaultImageAnimation>
                     <FullWidthImage
                         relativePath={item.imageRelativePath}
-                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         className="tw-rounded-lg"
                     />
                 </DefaultImageAnimation>
@@ -91,7 +91,7 @@ export function OurSuggestionsComponent({
                             >
                                 <FixedWidthImage
                                     relativePath={keySpecification.keySpecificationIconRelativePath}
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                     width="1.5rem"
                                     className="tw-place-self-center"
                                 />
@@ -111,7 +111,7 @@ export function OurSuggestionsComponent({
             <div className="tw-rounded-lg tw-translate-y-8 tw-mx-12">
                 <FullWidthImage
                     relativePath={vernacularContent.imageRelativePath}
-                    imageCdnProvider={ImageCdnProvider.Imgix}
+                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                 />
             </div>
         </div>
@@ -148,7 +148,7 @@ export function ProductCardComponent({
                 <div className="tw-px-4 tw-rounded-lg">
                     <FullWidthImage
                         relativePath={vernacularContent.imageRelativePath}
-                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                     />
                 </div>
             </DefaultImageAnimation>
@@ -194,7 +194,7 @@ export function WhatsBestForYouComponent({
                                     <div className="tw-h-8 tw-min-w-[32px]">
                                         <FullWidthImage
                                             relativePath={downloadButton.iconRelativePath}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                         />
                                     </div>
                                     <div className="lg-text-title2">{downloadButton.text}</div>

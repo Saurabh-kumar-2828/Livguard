@@ -98,7 +98,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <CoverImage
                 relativePath="/livguard/landingPages/1/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
+                imageCdnProvider={ImageCdnProvider.GrowthJockey}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">

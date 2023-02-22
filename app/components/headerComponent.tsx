@@ -10,7 +10,7 @@ import {HorizontalSpacer} from "~/global-common-typescript/components/horizontal
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
-import {Language, languageToHumanFriendlyString, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
+import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 enum MenuState {
@@ -167,12 +167,12 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         value={selectedLanguage}
                         onChange={setSelectedLanguage}
                     >
-                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[auto_3rem] tw-gap-x-2 tw-items-center">
+                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[auto_1.5rem] tw-gap-x-2 tw-items-center">
                             <object
                                 data="https://files.growthjockey.com/livguard/icons/header/vernacular.svg"
-                                className="tw-w-6 tw-h-6 dark:tw-invert"
+                                className="tw-w-4 tw-h-4 dark:tw-invert"
                             />
-                            {languageToHumanFriendlyString(selectedLanguage)}
+                            {languageToShortHumanFriendlyFormat(selectedLanguage)}
                         </Listbox.Button>
 
                         <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 -tw-left-8 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
@@ -243,7 +243,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         <FixedHeightImage
                             relativePath="/livguard/header/logo-100-light.jpg"
                             height="1.5rem"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />
                     </Link>
                 </div>
@@ -253,7 +253,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         <FixedHeightImage
                             relativePath="/livguard/header/logo-100-dark.jpg"
                             height="1.5rem"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />
                     </Link>
                 </div>
@@ -482,7 +482,7 @@ function MenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
+                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
                             />
                         </Transition.Child>
 
@@ -827,7 +827,7 @@ function SubMenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
+                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
                             />
                         </Transition.Child>
 

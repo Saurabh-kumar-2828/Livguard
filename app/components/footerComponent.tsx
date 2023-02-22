@@ -25,7 +25,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                         <FixedHeightImage
                             relativePath="/livguard/header/logo-100-light.jpg"
                             height="2rem"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />
                     </Link>
                 </div>
@@ -35,7 +35,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                         <FixedHeightImage
                             relativePath="/livguard/header/logo-100-dark.jpg"
                             height="2rem"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                         />
                     </Link>
                 </div>

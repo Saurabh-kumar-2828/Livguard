@@ -428,18 +428,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS5H1T1: {
-        [Language.English]: "Take Charge of Your Energy",
-        [Language.Hindi]: "अपनी ऊर्जा ज़रूरतों को जानें",
+        [Language.English]: "Plan Your Power Needs",
+        [Language.Hindi]: "अपनी ऊर्जा ज़रूरतें प्लान करें",
         [Language.Marathi]: "?????",
     },
     homeS5H1T2: {
-        [Language.English]: `With Our <span class=\"lg-text-highlighted\">Power Planner</span>`,
-        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">पावर प्लानर</span> के साथ`,
+        [Language.English]: `With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
+        [Language.Hindi]: `लिवगार्ड <span class=\"lg-text-highlighted\">पावर प्लानर</span> के साथ`,
         [Language.Marathi]: "?????",
     },
     homeS5T2: {
-        [Language.English]: "Get tailored power solutions, use our Power Planner to find the right inverter and inverter battery options for your home.",
-        [Language.Hindi]: "आपकी ज़रूरत के अनुसार समाधान पायें। हमारे पावर प्लानर का इस्तेमाल कर के अपने घर के लिए सही इन्वर्टर और इन्वर्टर बैटरी चुनें",
+        [Language.English]:
+            "Take charge of your power needs with Livguard's load calculator- Power Planned. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times. ",
+        [Language.Hindi]: "आपकी ज़रूरत के अनुसार समाधान पायें। हमारे पावर प्लानर का इस्तेमाल कर के अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी चुनें।",
         [Language.Marathi]: "?????",
     },
     homeS5T3: {
@@ -518,8 +519,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS7T3: {
-        [Language.English]: "With Livguard Solar, Get",
-        [Language.Hindi]: "लिवगार्ड सौर ऊर्जा के साथ पाइए",
+        [Language.English]: "Three Reasons to Choose Livguard Solar",
+        [Language.Hindi]: "तीन वजहें लिवगार्ड सोलर चुनने की",
         [Language.Marathi]: "?????",
     },
     homeS7T4: {

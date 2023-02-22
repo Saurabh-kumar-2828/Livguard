@@ -117,7 +117,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <CoverImage
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
+                imageCdnProvider={ImageCdnProvider.GrowthJockey}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
@@ -164,14 +164,14 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
             <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                 <FullWidthImage
                     relativePath="/livguard/category/inverters/4/1.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
+                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                 />
             </div>
 
             <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
                 <FullWidthImage
                     relativePath="/livguard/category/inverters/4/2.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
+                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                 />
             </div>
 
@@ -369,7 +369,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/sineWave.png"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                 />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.sine ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
@@ -389,7 +389,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/squareWave.png"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                 />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.square ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>

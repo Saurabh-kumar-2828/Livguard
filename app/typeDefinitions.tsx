@@ -35,6 +35,20 @@ export function languageToHumanFriendlyString(language: Language) {
     }
 }
 
+export function languageToShortHumanFriendlyFormat(language: Language) {
+    switch (language) {
+        case Language.English:
+            return "EN";
+        case Language.Hindi:
+            return "हि";
+        case Language.Marathi:
+            return "मराठी";
+        default:
+            const exhaustiveCheck: never = language;
+            throw new Error(`Unexpected value for Language: ${language}`);
+    }
+}
+
 export enum BatteryType {
     flat = "Flat Plate Battery",
     tubular = "Tubular Battery",

@@ -34,12 +34,12 @@ export function TestimonialsCarousel({
                                 className="lg-px-screen-edge"
                                 key={testimonialIndex}
                             >
-                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-3 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
+                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
                                     <div className="tw-col-start-1 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.image}
                                             width="5rem"
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                             className="tw-rounded-full"
                                         />
                                     </div>
@@ -68,7 +68,7 @@ export function TestimonialsCarousel({
                                     <div className="tw-col-start-3 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.productImage}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
                                             width="100px"
                                         />
                                     </div>
