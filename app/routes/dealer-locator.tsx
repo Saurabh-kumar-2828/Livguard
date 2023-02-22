@@ -444,8 +444,6 @@ export function ApplyNowForDealerDialog({
 
     const isDealerFormSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
 
-    console.log("fetcher data", isDealerFormSubmissionSuccess);
-
     function tryToCloseApplyNowDialog() {
         setApplyNowDialogOpen(false);
     }

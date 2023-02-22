@@ -6,9 +6,8 @@ import {Dealer} from "~/typeDefinitions";
 
 // TODO: Rework for fetcher
 type DealerLocatorActionData = {
-    dealerList: Array<Dealer>;
-    path: string;
-    error: string;
+    dealerList: Array<Dealer> | null;
+    error: string | null;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -21,8 +20,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     if (city == null || name == null || phoneNumber == null || emailId == null) {
         const actionData: DealerLocatorActionData = {
-            dealerList: [],
-            path: "/applyForDealership",
+            dealerList: null,
             error: "Error in submitting Form",
         };
         return json(actionData);
@@ -33,9 +31,8 @@ export const action: ActionFunction = async ({request, params}) => {
     await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city});
 
     const actionData: DealerLocatorActionData = {
-        dealerList: [],
-        error: "",
-        path: "/applyForDealership",
+        dealerList: null,
+        error: null,
     };
 
     return json(actionData);

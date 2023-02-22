@@ -429,12 +429,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS5H1T1: {
         [Language.English]: "Plan Your Power Needs",
-        [Language.Hindi]: "अपनी ऊर्जा ज़रूरतें प्लान करें",
+        [Language.Hindi]: "अपनी ऊर्जा ज़रूरतों को जानें",
         [Language.Marathi]: "?????",
     },
     homeS5H1T2: {
         [Language.English]: `With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
-        [Language.Hindi]: `लिवगार्ड <span class=\"lg-text-highlighted\">पावर प्लानर</span> के साथ`,
+        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">हमारे पावर प्लानर</span> के साथ`,
         [Language.Marathi]: "?????",
     },
     homeS5T2: {
@@ -456,7 +456,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS5Step1T2: {
         [Language.English]: "Choose your property type",
-        [Language.Hindi]: "अपने घर का आकार चुनें",
+        [Language.Hindi]: "अपने घर का प्रकार चुनें",
         [Language.Marathi]: "?????",
     },
     homeS5Step2T1: {
@@ -486,7 +486,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS5T5P2: {
         [Language.English]: "Choose your property type",
-        [Language.Hindi]: "अपने घर का आकार चुनें",
+        [Language.Hindi]: "अपने घर का प्रकार चुनें",
         [Language.Marathi]: "?????",
     },
     homeS5T6: {
@@ -511,12 +511,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS7H1T2: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Solar Solutions</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सोलर रूफटॉप सलूशन</span> में`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">रूफटॉप सोलर रूफटॉप सलूशन</span> में`,
         [Language.Marathi]: "?????",
     },
     homeS7T2: {
         [Language.English]: "Powered by passion and fuelled by innovation, we have established ourself as the experts in the Solar Energy Solutions sector.",
-        [Language.Hindi]: "आधुनिकता से प्रेरित और जुनून लेकर हम्मे ख़ुद को सोलर ऊर्जा समाधानों के क्षेत्र में विशेषज्ञों के रूप में स्थापित किया है।",
+        [Language.Hindi]: "आधुनिकता से प्रेरित होकर और अपने जुनून को लेकर हमने ख़ुद को  सोलर सलूशन के क्षेत्र में एक्सपर्ट के रूप में स्थापित किया है।",
         [Language.Marathi]: "?????",
     },
     homeS7T3: {
@@ -959,14 +959,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     landingPage2S4J1Title: {
         [Language.English]: "The Urban Combo",
-        [Language.Hindi]: "अर्बन कॉम्बो",
+        [Language.Hindi]: "अर्बन जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J1Description: {
         [Language.English]:
             "A perfect combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and take heavy loads of appliances.",
         [Language.Hindi]:
-            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
+            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श जोड़ी। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J1Specification1Content: {
@@ -991,7 +991,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J2Title: {
         [Language.English]: "The Peace of Mind Jodi",
-        [Language.Hindi]: "मन की शांति वाला कॉम्बो",
+        [Language.Hindi]: "मन की शांति वाला जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Description: {
@@ -1023,7 +1023,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J3Title: {
         [Language.English]: "The Super Life Combo",
-        [Language.Hindi]: "सुपर लाइफ कॉम्बो",
+        [Language.Hindi]: "सुपर लाइफ जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J3Description: {
@@ -1147,7 +1147,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage3S1T2: {
         [Language.English]: "Empower your home with the perfect jodi to compliment your home needs",
-        [Language.Hindi]: "अपने घर की जरूरतों को पूरा करने के लिए सही जोड़ी के साथ अपने घर को सशक्त बनाएं",
+        [Language.Hindi]: "अपने घर को सशक्त बनाएँ सही इनवर्टर और बैटरी की जोड़ी के साथ",
         [Language.Marathi]: "?????",
     },
     landingPage3S1T3: {
@@ -1220,8 +1220,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     //Category Batteries
     categoryBattriesS1T1: {
-        [Language.English]: "Strong Batteries",
-        [Language.Hindi]: "स्ट्रॉंग बैटरी",
+        [Language.English]: "Strong Inverter Batteries",
+        [Language.Hindi]: "स्ट्रॉंग इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS1T2: {
@@ -1230,18 +1230,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBattriesS1T3: {
-        [Language.English]: "Batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
-        [Language.Hindi]: "दमदार बैकअप वाली बैटरियां,जो आपकी जरूरतों के अनुसार, आपके घर को असीम ऊर्जा से सशक्त बनाने के लिए बनाई गई हैं",
+        [Language.English]: "Inverter Batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+        [Language.Hindi]: "दमदार बैकअप वाली इनवर्टर बैटरियां,जो आपकी जरूरतों के अनुसार, आपके घर को असीम ऊर्जा से सशक्त बनाने के लिए बनाई गई हैं",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS2HT1: {
-        [Language.English]: "Batteries That Are",
-        [Language.Hindi]: "बैटरी जो",
+        [Language.English]: "Strong Batteries That Are",
+        [Language.Hindi]: "स्ट्रॉंग इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS2HT2: {
         [Language.English]: `<span class="lg-text-highlighted"> Meant To Last </span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted"> सालों साल चलें </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">स्जो सालों साल चलें </span>`,
         [Language.Marathi]: "?????",
     },
     categoryBattriesS2Slide1Heading: {
@@ -1252,7 +1252,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryBattriesS2Slide1Description: {
         [Language.English]:
             "Livguard Inverter Batteries are manufactured with PPC Plastic to avoid leakage and keeping in mind the customer’s needs to deliver the safest and aesthetic designs for you",
-        [Language.Hindi]: "लिवगार्ड की बैटरी पी पी सी प्लास्टिक से बनीं हैं, जो बैटरी को लीक होने से बचाती है  और ग्राहकों को हर बार सुंदर और सुरक्षित अनुभव देती हैं।",
+        [Language.Hindi]: "लिवगार्ड की इनवर्टर बैटरी पी पी सी प्लास्टिक से बनीं हैं, जो बैटरी को लीक होने से बचाती है  और ग्राहकों को हर बार सुंदर और सुरक्षित अनुभव देती हैं।",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS2Slide2Heading: {
@@ -1262,8 +1262,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryBattriesS2Slide2Description: {
         [Language.English]:
-            "With the industry’s first Supertuff 3D Grid design paired with a double-sided pasting, Livguard Batteries hold negative active material 20% longer, resulting in a longer battery life",
-        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक और दो-तरफ़ पेस्टिंग से बनी लिवगार्ड बैटरी नेगेटिव ऐक्टिव मटेरियल को 20% ज़्यादा रोकती है, जो बैटरी की अवधि भी बढ़ती है।",
+            "With the industry’s first Supertuff 3D Grid design paired with a double-sided pasting, Livguard Inverter Batteries hold negative active material 20% longer, resulting in a longer battery life",
+        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक और दो-तरफ़ पेस्टिंग से बनी लिवगार्ड इनवर्टर बैटरी नेगेटिव ऐक्टिव मटेरियल को 20% ज़्यादा रोकती है, जो बैटरी की अवधि भी बढ़ती है।",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS2Slide3Heading: {
@@ -1273,8 +1273,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryBattriesS2Slide3Description: {
         [Language.English]:
-            "The best-in-class warranties across all ranges as well as low maintenance requirements, make the Livguard Batteries suitable for all customers, whatever their needs may be",
-        [Language.Hindi]: "सभी श्रेणियों में सर्वश्रेष्ठ वारंटी के साथ-साथ कम देखभाल की आवश्यकताएं Livguard बैटरियों को सभी ग्राहकों के लिए उपयुक्त बनाती हैं, चाहे उनकी कोई भी आवश्यकता हो।",
+            "The best-in-class warranties across all ranges as well as low maintenance requirements, make the Livguard Inverter Batteries suitable for all customers, whatever their needs may be",
+        [Language.Hindi]: "सभी श्रेणियों में सर्वश्रेष्ठ वारंटी के साथ-साथ कम देखभाल की आवश्यकताएं लिवगार्ड इनवर्टर बैटरी को सभी ग्राहकों के लिए उपयुक्त बनाती हैं, चाहे उनकी कोई भी आवश्यकता हो।",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS2Slide4Heading: {
@@ -1591,7 +1591,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryBattriesS6Jodi4Title: {
         [Language.English]: "The Hi-Power Jodi",
-        [Language.Hindi]: "हाई-पॉवर जोड़ी",
+        [Language.Hindi]: "हाई-पॉवर जोड़ी",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS6JodiButtontext: {
@@ -1617,17 +1617,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryBattriesS8Description: {
         [Language.English]:
             "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
-        [Language.Hindi]: "हमारे ख़रीदने की मार्गदर्शिका और उत्पाद कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
+        [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS8B1T: {
         [Language.English]: "Buying Guide",
-        [Language.Hindi]: "ख़रीदने की मार्गदर्शिका",
+        [Language.Hindi]: "बाइंग गाइड",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS8B2T: {
         [Language.English]: "Download Catalog",
-        [Language.Hindi]: "उत्पाद कैटलॉग",
+        [Language.Hindi]: "डाउनलोड कैटलॉग",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS8BT: {
@@ -1695,7 +1695,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "With Livguard inverters, you can enjoy peace with the long warranty of 3 years. This flat warranty allows you to stay worry-free in case of any damages. Just reach out to us and we will take care of it for you.",
         [Language.Hindi]:
-            "लिवगार्ड इनवर्टर के साथ, आप 3 साल की लंबी वारंटी के साथ शांति का आनंद ले सकते हैं। यह फ्लैट वारंटी आपको किसी भी नुकसान के मामले में चिंता मुक्त रहने की अनुमति देती है। बस हमसे संपर्क करें और हम आपकी समस्या का समाधान करेंगे।",
+            "लिवगार्ड इनवर्टर के साथ, आप 3 साल की लंबी वारंटी के साथ शांति का आनंद ले सकते हैं। यह फ्लैट वारंटी आपको किसी भी नुकसान के मामले में चिंता मुक्त रहने के लिए सशक्त करती है। बस हमसे संपर्क करें और हम आपकी समस्या का समाधान करेंगे।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS2Slide4Heading: {
@@ -1810,7 +1810,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryInvertersS4BTTubular: {
         [Language.English]: "Square",
-        [Language.Hindi]: "चौकोर",
+        [Language.Hindi]: "स्क्वायर",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS4SpecificationHeading: {
@@ -2025,17 +2025,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryInvertersS8Description: {
         [Language.English]:
             "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
-        [Language.Hindi]: "हमारे ख़रीदने की मार्गदर्शिका और उत्पाद कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
+        [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8B1T: {
         [Language.English]: "Buying Guide",
-        [Language.Hindi]: "ख़रीदने की मार्गदर्शिका",
+        [Language.Hindi]: "बाइंग गाइड",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8B2T: {
         [Language.English]: "Download Catalog",
-        [Language.Hindi]: "उत्पाद कैटलॉग",
+        [Language.Hindi]: "डाउनलोड कैटलॉग",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8BT: {
@@ -2279,7 +2279,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     footerSubscribeT1: {
         [Language.English]: "Be the first to find out about new stories & latest offers!",
-        [Language.Hindi]: "नए ऑफर और कहनियों के बारे में जानने वाले सबसे पहले बनिए",
+        [Language.Hindi]: " नए ऑफर और कहनियों के बारे में जानने वाले सबसे पहले बनिएसब्सक्राइब करने के लिए ईमेल डालें",
         [Language.Marathi]: "?????",
     },
     footerSubscribeT2: {
@@ -2314,7 +2314,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure1T5: {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "बिक्री वापसी नीति",
+        [Language.Hindi]: "सेल्स वापसी नीति",
         [Language.Marathi]: "?????",
     },
     footerDisclosure1T6: {
@@ -2419,7 +2419,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure4T6: {
         [Language.English]: "Solar LED Street Light",
-        [Language.Hindi]: "सोलर एल ई डी गली की बत्ती",
+        [Language.Hindi]: "सोलर एल ई डी बत्ती",
         [Language.Marathi]: "?????",
     },
     footerDisclosure4T7: {
@@ -2449,7 +2449,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure6T2: {
         [Language.English]: "Dealer Locator",
-        [Language.Hindi]: "डीलर खोजक",
+        [Language.Hindi]: "डीलर लोकेटर",
         [Language.Marathi]: "?????",
     },
     footerDisclosure6T3: {
@@ -2464,7 +2464,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure6T5: {
         [Language.English]: "Service Support",
-        [Language.Hindi]: "सेवा समर्थन",
+        [Language.Hindi]: "सर्विस समर्थन",
         [Language.Marathi]: "?????",
     },
     footerDisclosure7H: {
@@ -2489,12 +2489,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerContactT2: {
         [Language.English]: "Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India",
-        [Language.Hindi]: "प्लॉट नंबर २२१, फेज-१, उद्योग विहार, गुरुग्राम १२२०१६ हरियाणा, भारत",
+        [Language.Hindi]: "प्लॉट नंबर 221, फेज-1, उद्योग विहार, गुरुग्राम 122016 हरियाणा, भारत",
         [Language.Marathi]: "?????",
     },
     footerContactT3: {
-        [Language.English]: "#Energy Unlimited",
-        [Language.Hindi]: "#असीमित ऊर्जा",
+        [Language.English]: "#EnergyUnlimited",
+        [Language.Hindi]: "#असीमितऊर्जा",
         [Language.Marathi]: "?????",
     },
     landingPageBottomBarT1: {
@@ -2586,7 +2586,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     bottomBarT1: {
         [Language.English]: "Home",
-        [Language.Hindi]: "घर",
+        [Language.Hindi]: "होम",
         [Language.Marathi]: "?????",
     },
     bottomBarT2: {
@@ -2616,13 +2616,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     loadCalculatorS1T1: {
-        [Language.English]: `Take Charge Of Your Energy<br/>With Our <span class=\"lg-text-highlighted\">Power Planner</span>`,
-        [Language.Hindi]: "",
+        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
+        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">पावर प्लानर </span> के साथ',
         [Language.Marathi]: "?????",
     },
     loadCalculatorS1T2: {
-        [Language.English]: "Get tailored power solutions, use our Power Planner to find the right inverter and inverter battery options for your home.",
-        [Language.Hindi]: "",
+        [Language.English]:
+            "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
+        [Language.Hindi]:
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने घर के लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS1T1: {
@@ -2739,4 +2741,3 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 };
-
