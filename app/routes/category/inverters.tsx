@@ -154,7 +154,7 @@ export function OurInvertersSection({userPreferences}: {userPreferences: UserPre
 
 export function OurInvertersSectionInternal({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-2">
+        <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(6,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-2">
             {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
             <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg" />
@@ -203,23 +203,23 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900-dark">
+            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">
                 {getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
+            <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">
                 {getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
+            <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">
                 {getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R5C1", userPreferences.language)}</div>
+            {/* <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R5C1", userPreferences.language)}</div>
 
             <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C2", userPreferences.language)}</div>
 
-            <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C3", userPreferences.language)}</div>
+            <div className="tw-row-start-6 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R5C3", userPreferences.language)}</div> */}
         </div>
     );
 }

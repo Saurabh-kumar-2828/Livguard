@@ -1,17 +1,29 @@
+import {Dialog, Transition} from "@headlessui/react";
 import {ArrowRightCircleIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import {Form, Link} from "@remix-run/react";
-import React, {useState} from "react";
+import {Form, Link, useFetcher} from "@remix-run/react";
+import React, {useEffect, useState} from "react";
 import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {Accordion} from "~/components/accordian";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {emailIdValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function FooterComponent({userPreferences}: {userPreferences: UserPreferences}) {
     // const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
+
+    const fetcher = useFetcher();
+    const isSubscriptionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    const [isSubscribeSuccessDialogeOpen, setIsSubscribeSuccessDialogeOpen] = useState(false);
+
+    useEffect(() => {
+        setIsSubscribeSuccessDialogeOpen(isSubscriptionSuccess);
+    },[isSubscriptionSuccess])
 
     return (
         <div className="lg-px-screen-edge">
@@ -46,19 +58,32 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-3" />
 
-                <Form>
+                <fetcher.Form
+                    method="post"
+                    action="/subscribe"
+                >
                     <div className="tw-relative tw-w-full">
                         <input
                             type="text"
-                            name="email"
+                            name="emailId"
+                            pattern={emailIdValidationPattern}
                             placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
                             className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
                         />
-                        <div className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border">
+                        <button
+                            type="submit"
+                            className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border"
+                        >
                             <ChevronRightIcon className="tw-w-8 tw-h-8" />
-                        </div>
+                        </button>
                     </div>
-                </Form>
+                </fetcher.Form>
+
+                <SubscribeSuccessDialog
+                    userPreferences={userPreferences}
+                    isSuccessDialogOpen={isSubscribeSuccessDialogeOpen}
+                    setSuccessDialogOpen={setIsSubscribeSuccessDialogeOpen}
+                />
 
                 <VerticalSpacer className="tw-h-3" />
 
@@ -379,11 +404,9 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                     <VerticalSpacer className="tw-h-6" />
 
-
                     <div className="tw-text-center tw-underline">
                         <a href="tel:18001025551">+91-124-4987 400</a>
                     </div>
-
 
                     <VerticalSpacer className="tw-h-6" />
 
@@ -454,5 +477,61 @@ export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreference
 
             <VerticalSpacer className="tw-h-6" />
         </div>
+    );
+}
+
+export function SubscribeSuccessDialog({
+    userPreferences,
+    isSuccessDialogOpen,
+    setSuccessDialogOpen,
+}: {
+    userPreferences: UserPreferences;
+    isSuccessDialogOpen: boolean;
+    setSuccessDialogOpen: React.Dispatch<boolean>;
+}) {
+    function tryToCloseSuccessDialogOpen() {
+        setSuccessDialogOpen(false);
+    }
+
+    return (
+        <Transition
+            show={isSuccessDialogOpen}
+            as="div"
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseSuccessDialogOpen}
+            >
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-opacity-0"
+                        enterTo="tw-opacity-full"
+                        leave="tw-ease-in tw-transition-all tw-duration-200"
+                        leaveFrom="tw-opacity-full"
+                        leaveTo="tw-opacity-0"
+                    >
+                        <FormSubmissionSuccess
+                            userPreferences={userPreferences}
+                            tryToCloseDialog={tryToCloseSuccessDialogOpen}
+                        />
+                    </Transition.Child>
+                </Dialog.Panel>
+            </Dialog>
+        </Transition>
     );
 }

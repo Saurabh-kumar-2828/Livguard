@@ -1748,18 +1748,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R2C1: {
-        [Language.English]: "Noise",
-        [Language.Hindi]: "आवाज़",
+        [Language.English]: "Technology",
+        [Language.Hindi]: "तकनीक",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R2C2: {
-        [Language.English]: "No humming noise",
-        [Language.Hindi]: "कोई आवाज़ नहीं",
+        [Language.English]: "Advanced + Ai Technology",
+        [Language.Hindi]: " एडवांस + एआई तकनीक",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R2C3: {
-        [Language.English]: "Creates a humming noise",
-        [Language.Hindi]: "आवाज़ पैदा करता है।",
+        [Language.English]: "Ai Technology",
+        [Language.Hindi]: "एआई तकनीक",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R3C1: {

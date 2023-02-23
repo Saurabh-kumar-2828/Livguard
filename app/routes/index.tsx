@@ -27,6 +27,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -1011,6 +1012,7 @@ export function ContactUsDialog({
                                 <input
                                     type="text"
                                     name="phoneNumber"
+                                    pattern={phoneNumberValidationPattern}
                                     className="lg-text-input"
                                     defaultValue={"9879879878"}
                                 />
@@ -1038,6 +1040,7 @@ export function ContactUsDialog({
                                     type="text"
                                     name="emailId"
                                     className="lg-text-input"
+                                    pattern={emailIdValidationPattern}
                                     defaultValue={"test@test.com"}
                                 />
 

@@ -95,8 +95,6 @@ export default function () {
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>
-
-            <StickyBottomBar userPreferences={userPreferences} />
         </>
     );
 }
