@@ -3,7 +3,7 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import {delay} from "~/global-common-typescript/utilities/utilities";
 
 export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
-    const [emblaRef, emblaApi] = useEmblaCarousel({loop: true});
+    const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
     const [selectedIndex, setSelectedIndex] = useState(0);
 

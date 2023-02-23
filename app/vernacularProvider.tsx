@@ -1256,418 +1256,423 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     //Category Batteries
-    categoryBattriesS1T1: {
+    categoryBatteriesS1T1: {
         [Language.English]: "Strong Inverter Batteries",
         [Language.Hindi]: "स्ट्रॉंग इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS1T2: {
+    categoryBatteriesS1T2: {
         [Language.English]: "For A Limitless Experience",
         [Language.Hindi]: "एक असीम अनुभव के लिए",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS1T3: {
+    categoryBatteriesS1T3: {
         [Language.English]: "Inverter Batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
         [Language.Hindi]: "दमदार बैकअप वाली इनवर्टर बैटरियां,जो आपकी जरूरतों के अनुसार, आपके घर को असीम ऊर्जा से सशक्त बनाने के लिए बनाई गई हैं",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2HT1: {
+    categoryBatteriesS2HT1: {
         [Language.English]: "Strong Batteries That Are",
         [Language.Hindi]: "स्ट्रॉंग इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2HT2: {
+    categoryBatteriesS2HT2: {
         [Language.English]: `<span class="lg-text-highlighted"> Meant To Last </span>`,
         [Language.Hindi]: `<span class="lg-text-highlighted">स्जो सालों साल चलें </span>`,
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide1Heading: {
+    categoryBatteriesS2Slide1Heading: {
         [Language.English]: "Futuristic Design",
         [Language.Hindi]: "आधुनिक बनावट",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide1Description: {
+    categoryBatteriesS2Slide1Description: {
         [Language.English]:
             "Livguard Inverter Batteries are manufactured with PPC Plastic to avoid leakage and keeping in mind the customer’s needs to deliver the safest and aesthetic designs for you",
         [Language.Hindi]: "लिवगार्ड की इनवर्टर बैटरी पी पी सी प्लास्टिक से बनीं हैं, जो बैटरी को लीक होने से बचाती है  और ग्राहकों को हर बार सुंदर और सुरक्षित अनुभव देती हैं।",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide2Heading: {
+    categoryBatteriesS2Slide2Heading: {
         [Language.English]: "SuperTUFF 3D Grid",
         [Language.Hindi]: "सुपरटफ 3डी ग्रिड",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide2Description: {
+    categoryBatteriesS2Slide2Description: {
         [Language.English]:
             "With the industry’s first Supertuff 3D Grid design paired with a double-sided pasting, Livguard Inverter Batteries hold negative active material 20% longer, resulting in a longer battery life",
         [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक और दो-तरफ़ पेस्टिंग से बनी लिवगार्ड इनवर्टर बैटरी नेगेटिव ऐक्टिव मटेरियल को 20% ज़्यादा रोकती है, जो बैटरी की अवधि भी बढ़ती है।",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide3Heading: {
+    categoryBatteriesS2Slide3Heading: {
         [Language.English]: "Assured Warranty",
         [Language.Hindi]: "सुनिश्चित वारंटी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide3Description: {
+    categoryBatteriesS2Slide3Description: {
         [Language.English]:
             "The best-in-class warranties across all ranges as well as low maintenance requirements, make the Livguard Inverter Batteries suitable for all customers, whatever their needs may be",
         [Language.Hindi]: "सभी श्रेणियों में सर्वश्रेष्ठ वारंटी के साथ-साथ कम देखभाल की आवश्यकताएं लिवगार्ड इनवर्टर बैटरी को सभी ग्राहकों के लिए उपयुक्त बनाती हैं, चाहे उनकी कोई भी आवश्यकता हो।",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide4Heading: {
+    categoryBatteriesS2Slide4Heading: {
         [Language.English]: "Non- Woven Gauntlet",
         [Language.Hindi]: "गैर-बुना गौंटलेट",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3T1: {
+    categoryBatteriesS3T1: {
         [Language.English]: "Get To Know",
         [Language.Hindi]: `<span class="lg-text-highlighted">हमारी बैटरी</span> को`,
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3T2: {
+    categoryBatteriesS3T2: {
         [Language.English]: `<span class="lg-text-highlighted">Our Batteries</span> In Detail`,
         [Language.Hindi]: "विस्तार से समझें",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R1C2: {
+    categoryBatteriesS3R1C2: {
         [Language.English]: "Flat Plate",
         [Language.Hindi]: "फ्लैट प्लेट",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R1C3: {
+    categoryBatteriesS3R1C3: {
         [Language.English]: "Tubular",
         [Language.Hindi]: "ट्यूबलर प्लेट",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R2C1: {
+    categoryBatteriesS3R2C1: {
         [Language.English]: "Cycle Life",
         [Language.Hindi]: "साइकिल अवधि",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R2C2: {
+    categoryBatteriesS3R2C2: {
         [Language.English]: "Longer",
         [Language.Hindi]: "लंबा",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R2C3: {
+    categoryBatteriesS3R2C3: {
         [Language.English]: "Limited",
         [Language.Hindi]: "सीमित",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R3C1: {
+    categoryBatteriesS3R3C1: {
         [Language.English]: "Usability",
         [Language.Hindi]: "उपयुक्तता",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R3C2: {
+    categoryBatteriesS3R3C2: {
         [Language.English]: "Suitable for high power cut applications",
         [Language.Hindi]: "उच्च पावर कट अनुप्रयोगों के लिए उपयुक्त",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R3C3: {
+    categoryBatteriesS3R3C3: {
         [Language.English]: "Suitable for shorter duration applications",
         [Language.Hindi]: "कम अवधि के अनुप्रयोगों के लिए उपयुक्त",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R4C1: {
+    categoryBatteriesS3R4C1: {
         [Language.English]: "Economical",
         [Language.Hindi]: "किफ़ायती",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R4C2: {
+    categoryBatteriesS3R4C2: {
         [Language.English]: "Relatively Lower",
         [Language.Hindi]: "अपेक्षाकृत कम",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R4C3: {
+    categoryBatteriesS3R4C3: {
         [Language.English]: "Relatively Higher",
         [Language.Hindi]: "उच्चतर",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R5C1: {
+    categoryBatteriesS3R5C1: {
         [Language.English]: "Maintenace",
         [Language.Hindi]: "देखभाल",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R5C2: {
+    categoryBatteriesS3R5C2: {
         [Language.English]: "Lower",
         [Language.Hindi]: "कम",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R5C3: {
+    categoryBatteriesS3R5C3: {
         [Language.English]: "Comparatively Higher",
         [Language.Hindi]: "तुलनात्मक रूप से अधिक",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R6C1: {
+    categoryBatteriesS3R6C1: {
         [Language.English]: "Options",
         [Language.Hindi]: "विकल्प",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R6C2: {
+    categoryBatteriesS3R6C2: {
         [Language.English]: "No further are options available",
         [Language.Hindi]: "आगे कोई विकल्प उपलब्ध नहीं है",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS3R6C3: {
+    categoryBatteriesS3R6C3: {
         [Language.English]: "Options include ST/TT/STJ/STT",
         [Language.Hindi]: "विकल्पों में एसटी/टीटी/एसटीजे/एसटीटी शामिल हैं",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide4Description: {
+    categoryBatteriesS2Slide4Description: {
         [Language.English]: "The premium high-quality gauntlet provides extra strength to the tubular plate which reduces tube bursting and offers extra backup with a longer battery life",
         [Language.Hindi]: "प्रीमियम उच्च-क्वालिटी वाला गौंटलेट ट्यूबलर प्लेट को अतिरिक्त ताकत प्रदान करता है जो ट्यूब को फटने से बचाता है और लंबी बैटरी लाइफ के साथ अतिरिक्त बैकअप प्रदान करता है",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4HT1: {
+    categoryBatteriesS4HT1: {
         [Language.English]: `<span class="lg-text-highlighted">Our Suggestion</span>`,
         [Language.Hindi]: `<span class="lg-text-highlighted">हमारा सुझाव</span>`,
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4HT2: {
+    categoryBatteriesS4HT2: {
         [Language.English]: "To Power Up Your Home",
         [Language.Hindi]: "आपके घर को रोशन करने के लिए",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4Heading: {
+    categoryBatteriesS4Heading: {
         [Language.English]: "Select Battery Type",
         [Language.Hindi]: "बैटरी का टाइप चुनें",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4BTFlat: {
+    categoryBatteriesS4BTFlat: {
         [Language.English]: "Flat Plate Battery",
         [Language.Hindi]: "फ्लैट प्लेट बैटरी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4BTTubular: {
+    categoryBatteriesS4BTTubular: {
         [Language.English]: "Tubular Battery",
         [Language.Hindi]: "ट्यूबुलर बैटरी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4SpecificationHeading: {
+    categoryBatteriesS4SpecificationHeading: {
         [Language.English]: "Battery\nSpecifications",
         [Language.Hindi]: "बैटरी विवरण",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4BT: {
+    categoryBatteriesS4BT: {
         [Language.English]: "Explore Product",
         [Language.Hindi]: "विस्तार से देखें",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4Slide1Heading: {
+    categoryBatteriesS4Slide1Heading: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4Slide1Description: {
+    categoryBatteriesS4Slide1Description: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide1KS1Title: {
+    categoryBatteriesS2Slide1KS1Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide1KS1Description: {
+    categoryBatteriesSlide1KS1Description: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide1KS2Title: {
+    categoryBatteriesS2Slide1KS2Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide1KS2Description: {
+    categoryBatteriesSlide1KS2Description: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide1KS3Title: {
+    categoryBatteriesS2Slide1KS3Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide1KS3Description: {
+    categoryBatteriesSlide1KS3Description: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide1KS4Title: {
+    categoryBatteriesS2Slide1KS4Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide1KS4Description: {
+    categoryBatteriesSlide1KS4Description: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4Slide2Heading: {
+    categoryBatteriesS4Slide2Heading: {
         [Language.English]: "IT1584TT",
         [Language.Hindi]: "IT1584TT",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS4Slide2Description: {
+    categoryBatteriesS4Slide2Description: {
         [Language.English]:
             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
         [Language.Hindi]:
             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide2KS1Title: {
+    categoryBatteriesS2Slide2KS1Title: {
         [Language.English]: "Warranty",
         [Language.Hindi]: "वारंटी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide2KS1Description: {
+    categoryBatteriesSlide2KS1Description: {
         [Language.English]: "60 + 24* Months",
         [Language.Hindi]: "60 + 24* महीने",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide2KS2Title: {
+    categoryBatteriesS2Slide2KS2Title: {
         [Language.English]: "Capacity",
         [Language.Hindi]: "क्षमता",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide2KS2Description: {
+    categoryBatteriesSlide2KS2Description: {
         [Language.English]: "150 Ah",
         [Language.Hindi]: "150 Ah",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide2KS3Title: {
+    categoryBatteriesS2Slide2KS3Title: {
         [Language.English]: "3D Grid",
         [Language.Hindi]: "3D ग्रिड",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide2KS3Description: {
+    categoryBatteriesSlide2KS3Description: {
         [Language.English]: "Longer Life",
         [Language.Hindi]: "लम्बी अवधी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS2Slide2KS4Title: {
+    categoryBatteriesS2Slide2KS4Title: {
         [Language.English]: "Dimensions",
         [Language.Hindi]: "आयाम",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesSlide2KS4Description: {
+    categoryBatteriesSlide2KS4Description: {
         [Language.English]: "505 (L) X  188 (W) X 410 (H)",
         [Language.Hindi]: "505 (L) X  188 (W) X 410 (H)",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5HT1: {
+    categoryBatteriesS4RelatedProductsHeading: {
+        [Language.English]: "Related Products",
+        [Language.Hindi]: "संबंधित उत्पाद",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS5HT1: {
         [Language.English]: "Side-by-Side Overview",
         [Language.Hindi]: "बैटरी साथ देखें",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5F1Title: {
+    categoryBatteriesS5F1Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5F2Title: {
+    categoryBatteriesS5F2Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5F3Title: {
+    categoryBatteriesS5F3Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5F4Title: {
+    categoryBatteriesS5F4Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5F5Title: {
+    categoryBatteriesS5F5Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5F6Title: {
+    categoryBatteriesS5F6Title: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5Slide1Heading: {
+    categoryBatteriesS5Slide1Heading: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5Slide2Heading: {
+    categoryBatteriesS5Slide2Heading: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS5Slide3Heading: {
+    categoryBatteriesS5Slide3Heading: {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6HT1: {
+    categoryBatteriesS6HT1: {
         [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis </span>`,
         [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted"> जोड़ियाँ </span>`,
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6Jodi1Title: {
+    categoryBatteriesS6Jodi1Title: {
         [Language.English]: "The Urban Jodi",
         [Language.Hindi]: "अर्बन जोड़ी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6Jodi2Title: {
+    categoryBatteriesS6Jodi2Title: {
         [Language.English]: "The Peace of Mind Jodi",
         [Language.Hindi]: "मन की शांति वाला जोड़ी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6Jodi3Title: {
+    categoryBatteriesS6Jodi3Title: {
         [Language.English]: "The Super Life Jodi",
         [Language.Hindi]: "सुपर लाइफ जोड़ी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6Jodi4Title: {
+    categoryBatteriesS6Jodi4Title: {
         [Language.English]: "The Hi-Power Jodi",
         [Language.Hindi]: "हाई-पॉवर जोड़ी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6JodiButtontext: {
+    categoryBatteriesS6JodiButtontext: {
         [Language.English]: "View Product",
         [Language.Hindi]: "अधिक जानिए",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS6Buttontext: {
+    categoryBatteriesS6Buttontext: {
         [Language.English]: "Enquire Now",
         [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS8HT1: {
+    categoryBatteriesS8HT1: {
         [Language.English]: "Choose The Best",
         [Language.Hindi]: "घर लायें रोशनी",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS8HT2: {
+    categoryBatteriesS8HT2: {
         [Language.English]: `<span class="lg-text-highlighted"> Inverter Battery </span> For You`,
         [Language.Hindi]: `उचित <span class="lg-text-highlighted"> इनवर्टर बैटरी </span> से`,
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS8Description: {
+    categoryBatteriesS8Description: {
         [Language.English]:
             "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
         [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इनवर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS8B1T: {
+    categoryBatteriesS8B1T: {
         [Language.English]: "Buying Guide",
         [Language.Hindi]: "बाइंग गाइड",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS8B2T: {
+    categoryBatteriesS8B2T: {
         [Language.English]: "Download Catalog",
         [Language.Hindi]: "डाउनलोड कैटलॉग",
         [Language.Marathi]: "?????",
     },
-    categoryBattriesS8BT: {
+    categoryBatteriesS8BT: {
         [Language.English]: "Let's Plan Your Power",
         [Language.Hindi]: "अपनी ऊर्जा को प्लान करें",
         [Language.Marathi]: "?????",
@@ -1957,6 +1962,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryInvertersSlide2KS4Description: {
         [Language.English]: "275(L) X 281(W) X 145(H)",
         [Language.Hindi]: "275(L) X 281(W) X 145(H)",
+        [Language.Marathi]: "?????",
+    },
+    categoryInvertersS4RelatedProductsHeading: {
+        [Language.English]: "Related Products",
+        [Language.Hindi]: "संबंधित उत्पाद",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS4BT: {

@@ -6,19 +6,20 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
-export function CarouselStyle3({items}: {items: Array<any>}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
+export function CarouselStyle4({items}: {items: Array<any>}) {
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"}, 8000);
 
     return (
         <div
             className="tw-overflow-hidden"
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[50%]">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
                         <div
+                            className="tw-px-3"
                             key={itemIndex}
                         >
                             {item}

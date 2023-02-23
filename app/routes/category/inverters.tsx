@@ -179,7 +179,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
 
             <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
 
-            <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900-dark">
+            <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 lg-text-secondary-900">
                 {getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}
             </div>
 
@@ -191,7 +191,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 tw-text-secondary-900-dark">
+            <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 text-secondary-900">
                 {getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}
             </div>
 
@@ -203,7 +203,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">
+            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon lg-text-secondary-900">
                 {getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}
             </div>
 
@@ -278,6 +278,8 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
         specificationHeading: string;
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
         imageRelativePath: string;
+        relatedProductsHeading: string;
+        relatedProducts: Array<string>;
     }> = [
         {
             heading: `${getVernacularString("categoryInvertersS4Slide1Heading", userPreferences.language)}`,
@@ -306,6 +308,8 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                 },
             ],
             imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+            relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
+            relatedProducts: ["RAVI", "SHIVANI", "VINAYAK"],
         },
         {
             heading: `${getVernacularString("categoryInvertersS4Slide2Heading", userPreferences.language)}`,
@@ -334,6 +338,8 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                 },
             ],
             imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+            relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
+            relatedProducts: ["RAVI", "SHIVANI", "VINAYAK"],
         },
     ];
 

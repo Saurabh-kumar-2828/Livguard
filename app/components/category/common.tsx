@@ -1,5 +1,7 @@
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {Link} from "@remix-run/react";
+import {CarouselStyle3} from "~/components/carouselStyle3";
+import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -49,7 +51,7 @@ export function EmpowerYourHomeComponent({
 
 export function OurSuggestionsComponent({
     vernacularContent,
-    backgroundColor,
+    className,
 }: {
     vernacularContent: {
         heading: string;
@@ -57,11 +59,13 @@ export function OurSuggestionsComponent({
         specificationHeading: string;
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
         imageRelativePath: string;
+        relatedProductsHeading: string;
+        relatedProducts: Array<string>;
     };
-    backgroundColor: string;
+    className?: string;
 }) {
     return (
-        <div className={`tw-flex tw-flex-col tw-rounded-lg tw-w-full lg-bg-${backgroundColor}`}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-rounded-lg tw-w-full", className)}>
             <VerticalSpacer className="tw-h-8" />
 
             <DefaultTextAnimation>
@@ -86,9 +90,9 @@ export function OurSuggestionsComponent({
                 <ItemBuilder
                     items={vernacularContent.keySpecifications}
                     itemBuilder={(keySpecification, keySpecificationIndex) => (
-                        <div className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3 tw-mx-auto`}>
+                        <div className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`} key={keySpecificationIndex}>
                             <div
-                                className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-300`}
+                                className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}
                             >
                                 <FixedWidthImage
                                     relativePath={keySpecification.keySpecificationIconRelativePath}
@@ -115,6 +119,28 @@ export function OurSuggestionsComponent({
                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
                 />
             </div>
+
+            <VerticalSpacer className="tw-h-16" />
+
+            <DefaultTextAnimation>
+                <div className="lg-text-title1 tw-text-center">{vernacularContent.relatedProductsHeading}</div>
+            </DefaultTextAnimation>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <CarouselStyle4
+                items={vernacularContent.relatedProducts.map(relatedProduct => (
+                    <Link to={`/product/${relatedProduct}`} className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2">
+                        <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
+                        <FullWidthImage
+                            relativePath={vernacularContent.imageRelativePath}
+                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        />
+                    </Link>
+                ))}
+            />
+
+            <VerticalSpacer className="tw-h-4" />
         </div>
     );
 }

@@ -434,7 +434,7 @@ function SuggestedProducts({
             {/* <VerticalSpacer className="tw-h-6" />
 
             <DefaultElementAnimation>
-                <div className="lg-cta-outline-button">{getVernacularString("categoryBattriesS6Buttontext", userPreferences.language)}</div>
+                <div className="lg-cta-outline-button">{getVernacularString("categoryBatteriesS6Buttontext", userPreferences.language)}</div>
             </DefaultElementAnimation> */}
         </div>
     );
