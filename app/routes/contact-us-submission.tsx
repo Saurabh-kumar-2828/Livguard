@@ -11,6 +11,7 @@ type DealerLocatorActionData = {
 };
 
 export const action: ActionFunction = async ({request, params}) => {
+    console.log("Phone Number");
     const body = await request.formData();
 
     const phoneNumber = safeParse(getNonEmptyStringFromUnknown, body.get("phoneNumber"));
@@ -25,14 +26,19 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
+
     await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId});
 
     await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId});
+
+    console.log("Helllllooooooo submitted");
 
     const actionData: DealerLocatorActionData = {
         dealerList: null,
         error: null,
     };
+
+    console.log(actionData);
 
     return json(actionData);
 };

@@ -303,7 +303,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab2H: {
         [Language.English]: "Home Inverters",
-        [Language.Hindi]: "होम इन्वर्टर",
+        [Language.Hindi]: "होम इनवर्टर",
         [Language.Marathi]: "?????",
     },
     homeS3Tab2HC1: {
@@ -313,7 +313,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab2HC2: {
         [Language.English]: "Home Inverters",
-        [Language.Hindi]: "होम इन्वर्टर",
+        [Language.Hindi]: "होम इनवर्टर",
         [Language.Marathi]: "?????",
     },
     homeS3Tab2C: {
@@ -329,7 +329,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab3H: {
         [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Hindi]: "इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     homeS3Tab3HC1: {
@@ -339,12 +339,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS3Tab3HC2: {
         [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Hindi]: "इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     homeS3Tab3C: {
         [Language.English]: "With industry’s first 3D grid technology, our range of inverter batteries are manufactured to meet the power backup requirements of your family efficiently.",
-        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक के साथ, हमारी इन्वर्टर बैटरी की श्रेणी आपके परिवार की पावर बैकअप आवश्यकताओं को कुशलतापूर्वक पूरा करने के लिए निर्मित की जाती है।",
+        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक के साथ, हमारी इनवर्टर बैटरी की श्रेणी आपके परिवार की पावर बैकअप आवश्यकताओं को कुशलतापूर्वक पूरा करने के लिए निर्मित की जाती है।",
         [Language.Marathi]: "?????",
     },
     homeS3Tab3BT: {
@@ -440,7 +440,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "Take charge of your power needs with Livguard's load calculator- Power Planned. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times. ",
         [Language.Hindi]:
-            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     homeS5T3: {
@@ -478,7 +478,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "ज़रूरत अनुसार बैकअप के घंटे और औसत लोड खपत चुनें",
         [Language.Marathi]: "?????",
     },
-    home: {
+    homeS5T5P1: {
         [Language.English]: "Let’s start your power planning",
         [Language.Hindi]: "अपनी पावर प्लानिंग शुरू करें",
         [Language.Marathi]: "?????",
@@ -648,17 +648,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS9Q1Q: {
         [Language.English]: "What are inverter batteries and how do they operate?",
-        [Language.Hindi]: "इन्वर्टर बैटरी क्या हैं और वे कैसे काम करती हैं?",
+        [Language.Hindi]: "इनवर्टर बैटरी क्या हैं और वे कैसे काम करती हैं?",
         [Language.Marathi]: "?????",
     },
     homeS9Q1A: {
         [Language.English]: "The inverter/UPS receives electrical energy in the form of stored chemical energy from the inverter batteries, and the other way around.",
-        [Language.Hindi]: "इन्वर्टर / यूपीएस इन्वर्टर बैटरी से संग्रहीत रासायनिक ऊर्जा के रूप में विद्युत ऊर्जा प्राप्त करता है, और दूसरी तरफ।",
+        [Language.Hindi]: "इनवर्टर / यूपीएस इनवर्टर बैटरी से संग्रहीत रासायनिक ऊर्जा के रूप में विद्युत ऊर्जा प्राप्त करता है, और दूसरी तरफ।",
         [Language.Marathi]: "?????",
     },
     homeS9Q2Q: {
         [Language.English]: "How can I choose the best inverter battery for my home?",
-        [Language.Hindi]: "अपने घर हेतु सर्वेश्रेष्ठ इन्वर्टर का चुनाव कैसे करे?",
+        [Language.Hindi]: "अपने घर हेतु सर्वेश्रेष्ठ इनवर्टर का चुनाव कैसे करे?",
         [Language.Marathi]: "?????",
     },
     homeS9Q2A: {
@@ -668,14 +668,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS9Q3Q: {
         [Language.English]: "How much backup time can my inverter battery provide?",
-        [Language.Hindi]: "मेरी इन्वर्टर बैटरी कितना बैकअप समय प्रदान कर सकती है?",
+        [Language.Hindi]: "मेरी इनवर्टर बैटरी कितना बैकअप समय प्रदान कर सकती है?",
         [Language.Marathi]: "?????",
     },
     homeS9Q3A: {
         [Language.English]:
             "A battery's capacity for charging is expressed in ampere hours (Ah). An inverter battery's capacity is 1Ah if it can deliver 1 amp of electricity for 1 hour. The battery's capacity is 100Ah if it can deliver one amp of electricity for 100 hours. By calculating the load requirements by the number of hours of backup you require, you may determine the amount of inverter battery capacity needed for your home.",
         [Language.Hindi]:
-            "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इन्वर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने होम लिए आवश्यक इन्वर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
+            "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इनवर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने होम लिए आवश्यक इनवर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
         [Language.Marathi]: "?????",
     },
     homeS9T2P1: {
@@ -916,7 +916,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4HT1: {
         [Language.English]: "Explore Unlimited Energy",
-        [Language.Hindi]: "इन्वर्टर और बैटरी की",
+        [Language.Hindi]: "इनवर्टर और बैटरी की",
         [Language.Marathi]: "?????",
     },
     landingPage2S4HT2: {
@@ -997,7 +997,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "A Jodi that would assure your peace of mind with its long durability and high backup power. Precisely chosen battery paired with the sturdy inverter ensures a seamless flow of energy to meet your needs.",
         [Language.Hindi]:
-            "एक जोड़ी जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इन्वर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
+            "एक जोड़ी जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Specification1Content: {
@@ -1027,7 +1027,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J3Description: {
         [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this Jodi is just the right choice for your everyday energy requirements.",
-        [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इन्वर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
+        [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इनवर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J3Specification1Content: {
@@ -1141,7 +1141,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     landingPage3S1T1: {
         [Language.English]: "Smart & Strong Inverter and Battery Jodis",
-        [Language.Hindi]: "स्मार्ट और दमदार इन्वर्टर और बैटरी की जोड़ी",
+        [Language.Hindi]: "स्मार्ट और दमदार इनवर्टर और बैटरी की जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage3S1T2: {
@@ -1188,7 +1188,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage3S7Slide1Content: {
         [Language.English]: "Livguard inverter and inverter battery jodis offer a seamless compatibility which combine together for an uninterrupted flow of energy.",
-        [Language.Hindi]: "लिवगार्ड इन्वर्टर और इन्वर्टर बैटरी जोड़ी एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
+        [Language.Hindi]: "लिवगार्ड इनवर्टर और इनवर्टर बैटरी जोड़ी एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
         [Language.Marathi]: "?????",
     },
     landingPage3S7Slide2Heading: {
@@ -1198,7 +1198,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage3S7Slide2Content: {
         [Language.English]: "With Livguard Jodis at your home, experience the comfort of hassle-free servicing for both the products, whenever you need.",
-        [Language.Hindi]: "अपने घर पर लिवगार्ड जोड़ी के साथ,इन्वर्टर और इन्वर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
+        [Language.Hindi]: "अपने घर पर लिवगार्ड जोड़ी के साथ,इनवर्टर और इनवर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
         [Language.Marathi]: "?????",
     },
     landingPage3S7Slide3Heading: {
@@ -1208,7 +1208,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage3S7Slide3Content: {
         [Language.English]: "The perfect match of inverter and inverter battery in Livguard Jodis ensure a longer , more efficient life of the products for you.",
-        [Language.Hindi]: "लिवगार्ड जोड़ी में इन्वर्टर और इन्वर्टर बैटरी का सही मेल आपके उत्पादों का लंबा, अधिक कुशल जीवन सुनिश्चित करता है।",
+        [Language.Hindi]: "लिवगार्ड जोड़ी में इनवर्टर और इनवर्टर बैटरी का सही मेल आपके उत्पादों का लंबा, अधिक कुशल जीवन सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     landingPage3S7BT: {
@@ -1616,7 +1616,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryBattriesS8Description: {
         [Language.English]:
             "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
-        [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
+        [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इनवर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
         [Language.Marathi]: "?????",
     },
     categoryBattriesS8B1T: {
@@ -1670,7 +1670,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "Made with a team of experienced and skilled professionals, Livguard Inverters offer the best-in-class designs which complement your home along with a LED Display which indicates the current state of your inverter.",
         [Language.Hindi]:
-            "अनुभवी और कुशल पेशेवरों की एक टीम के साथ बनाए गए लिवगार्ड इनवर्टर सर्वश्रेष्ठ बनावट प्रदान करते हैं। इनमें लगी एलईडी डिस्प्ले के साथ आप अपने इन्वर्टर की वर्तमान स्थिति को देख सकते हैं।",
+            "अनुभवी और कुशल पेशेवरों की एक टीम के साथ बनाए गए लिवगार्ड इनवर्टर सर्वश्रेष्ठ बनावट प्रदान करते हैं। इनमें लगी एलईडी डिस्प्ले के साथ आप अपने इनवर्टर की वर्तमान स्थिति को देख सकते हैं।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS2Slide2Heading: {
@@ -1704,12 +1704,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryInvertersS2Slide4Description: {
         [Language.English]: "With Industry’s first thermal sensor for transformers, the sensor prevents the transformer from overheating and catching fire and enhances the life of your inverter.",
-        [Language.Hindi]: "ट्रांसफॉर्मर के लिए उद्योग के पहले थर्मल सेंसर ट्रांसफॉर्मर को ज़्यादा गरम होने और आग पकड़ने से रोकता है और आपके इन्वर्टर के जीवन को बढ़ाता है।",
+        [Language.Hindi]: "ट्रांसफॉर्मर के लिए उद्योग के पहले थर्मल सेंसर ट्रांसफॉर्मर को ज़्यादा गरम होने और आग पकड़ने से रोकता है और आपके इनवर्टर के जीवन को बढ़ाता है।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3T1: {
         [Language.English]: `<span class="lg-text-highlighted">Choose Your Inverter</span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted">अपना इन्वर्टर चुनें</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">अपना इनवर्टर चुनें</span>`,
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3T2: {
@@ -1814,7 +1814,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryInvertersS4SpecificationHeading: {
         [Language.English]: "Inverter Specification",
-        [Language.Hindi]: "इन्वर्टर  विवरण",
+        [Language.Hindi]: "इनवर्टर  विवरण",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS4Slide1Heading: {
@@ -1826,7 +1826,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "Inverter for Small Offices, Homes, and Small Shops with Best-in-Class Warranty and Smart AI Charging. With an assured warranty and Pure Sine Wave output, experience energy unlimited at your home with this Livguard Inverter",
         [Language.Hindi]:
-            "छोटे कार्यालयों, घरों और छोटी दुकानों के लिए इन्वर्टर, सर्वश्रेष्ठ श्रेणी की वारंटी और स्मार्ट एआई चार्जिंग के साथ    सुनिश्चित वारंटी और प्योर साइन वेव आउटपुट के साथ, हमारे लिवगार्ड इन्वर्टर के साथ अपने घर पर असीमित ऊर्जा का अनुभव करें",
+            "छोटे कार्यालयों, घरों और छोटी दुकानों के लिए इनवर्टर, सर्वश्रेष्ठ श्रेणी की वारंटी और स्मार्ट एआई चार्जिंग के साथ    सुनिश्चित वारंटी और प्योर साइन वेव आउटपुट के साथ, हमारे लिवगार्ड इनवर्टर के साथ अपने घर पर असीमित ऊर्जा का अनुभव करें",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS2Slide1KS1Title: {
@@ -1878,7 +1878,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "Inverter for Small Offices, Homes, and Small Shops with Best-in-Class Warranty and Smart AI Charging. Bring home the power of unlimited energy with our Inverter. Equipped with the best-in-class warranty and Smart AI Charging to offer a smooth flow of energy to you",
         [Language.Hindi]:
-            "छोटे कार्यालयों, घरों और छोटी दुकानों के लिए इन्वर्टर, सर्वश्रेष्ठ श्रेणी की वारंटी और स्मार्ट एआई चार्जिंग के साथ    हमारे इन्वर्टर के साथ असीमित ऊर्जा की शक्ति घर लाएं। आपको ऊर्जा का सहज प्रवाह प्रदान करने के लिए उद्योग की सावराश्रेष्ठ वारंटी आवर स्मार्ट ए आई चार्जिंग के साथ बने इन्वर्टर।",
+            "छोटे कार्यालयों, घरों और छोटी दुकानों के लिए इनवर्टर, सर्वश्रेष्ठ श्रेणी की वारंटी और स्मार्ट एआई चार्जिंग के साथ    हमारे इनवर्टर के साथ असीमित ऊर्जा की शक्ति घर लाएं। आपको ऊर्जा का सहज प्रवाह प्रदान करने के लिए उद्योग की सावराश्रेष्ठ वारंटी आवर स्मार्ट ए आई चार्जिंग के साथ बने इनवर्टर।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS2Slide2KS1Title: {
@@ -2024,7 +2024,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryInvertersS8Description: {
         [Language.English]:
             "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
-        [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इन्वर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
+        [Language.Hindi]: "हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इनवर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8B1T: {
@@ -2221,7 +2221,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review1ProductName: {
         [Language.English]: "Inverter",
-        [Language.Hindi]: "इन्वर्टर",
+        [Language.Hindi]: "इनवर्टर",
         [Language.Marathi]: "?????",
     },
     review2Name: {
@@ -2241,7 +2241,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review2ProductName: {
         [Language.English]: "Inverter Battery",
-        [Language.Hindi]: "इन्वर्टर बैटरी",
+        [Language.Hindi]: "इनवर्टर बैटरी",
         [Language.Marathi]: "?????",
     },
     review3Name: {
@@ -2261,7 +2261,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review3ProductName: {
         [Language.English]: "Inverter",
-        [Language.Hindi]: "इन्वर्टर",
+        [Language.Hindi]: "इनवर्टर",
         [Language.Marathi]: "?????",
     },
     review4Name: {
@@ -2638,22 +2638,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
         [Language.Hindi]:
-            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
+            "आपकी ज़रूरत के अनुसार समाधान पायें, लिवगार्ड के लोड कैलकुलेटर- पावर प्लानर के साथ।यह आपको अपने होम लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प खोजने में मदद करता है, और हर समय बिना रुकावट ऊर्जा का प्रवाह सुनिश्चित करता है।",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS1T1: {
         [Language.English]: "Utilisation",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "खपत",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS1T2: {
         [Language.English]: "Hours",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "घंटे",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS1T4: {
         [Language.English]: "is your total house load",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपका कुल हाउस लोड है",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2H1: {
@@ -2703,12 +2703,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     loadCalculatorRecommendationsS2CTA2: {
         [Language.English]: "Explore Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर देखें",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2CTA3: {
         [Language.English]: "Explore Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी देखें",
         [Language.Marathi]: "?????",
     },
 

@@ -1,9 +1,10 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Link} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {CarouselStyle2} from "~/components/carouselStyle2";
-import {ContactForm} from "~/components/contactUs";
+import {ContactForm} from "~/components/contactUsForm";
+import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
@@ -56,13 +57,23 @@ export default function () {
 }
 
 function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
+    const fetcher = useFetcher();
+
+    const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    console.log("fetcher response =====>", isContactUsSubmissionSuccess);
+
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ContactForm userPreferences={userPreferences} />
+            {
+                isContactUsSubmissionSuccess
+                ? <ContactFormSuccess userPreferences={userPreferences} />
+                : <ContactForm userPreferences={userPreferences} fetcher={fetcher} />
+            }
 
             <VerticalSpacer className="tw-h-10" />
 

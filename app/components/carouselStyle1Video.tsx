@@ -31,7 +31,7 @@ export function CarouselStyle1Video({userPreferences, items}: {userPreferences: 
                                 className="tw-w-full tw-h-full lg-bg-secondary-100 tw-p-4 tw-flex tw-flex-col tw-rounded-lg tw-items-center tw-text-center"
                                 key={itemIndex}
                             >
-                                <DefaultImageAnimation>
+                                <DefaultImageAnimation className="tw-w-full">
                                     <iframe
                                         src={`https://www.youtube.com/embed/${item.youtubeVideoId}`}
                                         title="YouTube video player"

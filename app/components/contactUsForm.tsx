@@ -1,14 +1,15 @@
-import {Form} from "@remix-run/react";
+import {FetcherWithComponents} from "@remix-run/react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function ContactForm({userPreferences}: {userPreferences: UserPreferences}) {
+export function ContactForm({userPreferences, fetcher}: {userPreferences: UserPreferences; fetcher: FetcherWithComponents<any>}) {
+
+    console.log("data ====>",fetcher.data);
     return (
         <div
             className="lg-px-screen-edge tw-flex tw-flex-col"
@@ -30,7 +31,11 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
             <VerticalSpacer className="tw-h-4" />
 
             <DefaultElementAnimation>
-                <Form className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden">
+                <fetcher.Form
+                    className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden"
+                    method="post"
+                    action="/contact-us-submission"
+                >
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
                         imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -44,6 +49,7 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
 
                         <input
                             type="text"
+                            name="phoneNumber"
                             className="lg-text-input"
                             placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                         />
@@ -56,6 +62,7 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
 
                         <input
                             type="text"
+                            name="name"
                             className="lg-text-input"
                             placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
                         />
@@ -68,6 +75,7 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
 
                         <input
                             type="text"
+                            name="emailId"
                             className="lg-text-input"
                             placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
                         />
@@ -81,7 +89,7 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                             {getVernacularString("contactUsFormT4", userPreferences.language)}
                         </button>
                     </div>
-                </Form>
+                </fetcher.Form>
             </DefaultElementAnimation>
         </div>
     );

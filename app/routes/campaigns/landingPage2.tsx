@@ -1,7 +1,9 @@
 import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
+import {Link, useFetcher} from "@remix-run/react";
 import {useLoaderData} from "react-router";
-import {ContactForm} from "~/components/contactUs";
+import {ContactForm} from "~/components/contactUsForm";
+import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
@@ -59,13 +61,26 @@ export default function () {
 }
 
 function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
+    const fetcher = useFetcher();
+
+    const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    console.log("fetcher response =====>", isContactUsSubmissionSuccess);
+
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ContactForm userPreferences={userPreferences} />
+            {isContactUsSubmissionSuccess ? (
+                <ContactFormSuccess userPreferences={userPreferences} />
+            ) : (
+                <ContactForm
+                    userPreferences={userPreferences}
+                    fetcher={fetcher}
+                />
+            )}
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -378,24 +393,24 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
 export function ExploreStarProducts({userPreferences}: {userPreferences: UserPreferences}) {
     const sectionData = [
         {
-            title: "i-Verter LGS 1100",
+            title: "LG1150i",
             image: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+            bestSeller: true,
+        },
+        {
+            title: "LGS1100i",
+            image: "/livguard/inverter images/LGS1700PV-SW-L.png",
             bestSeller: false,
         },
         {
-            title: "LGS1700PV SW L",
-            image: "/livguard/inverter images/LGS1700PV-SW-L.png",
-            bestSeller: true,
-        },
-        {
-            title: "Invertuff IT 1584TT",
-            image: "/livguard/battery images/IT 1584TT.png",
-            bestSeller: true,
-        },
-        {
-            title: "Invertuff IT 1248ST",
+            title: "IT1550TT",
             image: "/livguard/battery images/IT 1248ST.png",
             bestSeller: false,
+        },
+        {
+            title: "IT2060TT",
+            image: "/livguard/battery images/IT 1584TT.png",
+            bestSeller: true,
         },
     ];
 
@@ -435,7 +450,10 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
                                         <VerticalSpacer className="tw-h-4" />
 
                                         <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">
-                                            {getVernacularString("landingPage2S7CTABT", userPreferences.language)}
+                                            <Link to={`/product/${product.title}`}>
+                                                {getVernacularString("landingPage2S7CTABT", userPreferences.language)}
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </div>
