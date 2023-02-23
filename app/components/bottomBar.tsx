@@ -9,19 +9,13 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
     return (
         <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] tw-py-[0.8125rem] tw-text-center tw-z-50">
             <div className="tw-row-start-1 tw-col-start-2">
-                {/* <div className="tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-500" /> */}
-                {/* <FixedWidthImage
-                    relativePath="/livguard/bottom-bar/home-inverter.png"
-                    width="2rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                /> */}
                 <Link
                     to="/"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <object
                         data="https://files.growthjockey.com/livguard/icons/bottom-bar/1.svg"
-                        className="tw-w-6 tw-h-6 dark:tw-invert"
+                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
                     />
 
                     <div className="lg-text-icon">{getVernacularString("bottomBarT1", userPreferences.language)}</div>
@@ -35,7 +29,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                 >
                     <object
                         data="https://files.growthjockey.com/livguard/icons/bottom-bar/2.svg"
-                        className="tw-w-6 tw-h-6 dark:tw-invert"
+                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
                     />
                     <div className="lg-text-icon">{getVernacularString("bottomBarT2", userPreferences.language)}</div>
                 </Link>
@@ -63,12 +57,10 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     to="/dealer-locator"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
-                    <a href="/dealer-locator">
-                        <object
-                            data="https://files.growthjockey.com/livguard/icons/bottom-bar/4.svg"
-                            className="tw-w-6 tw-h-6 dark:tw-invert"
-                        />
-                    </a>
+                    <object
+                        data="https://files.growthjockey.com/livguard/icons/bottom-bar/4.svg"
+                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer"
+                    />
                     <div className="lg-text-icon">{getVernacularString("bottomBarT4", userPreferences.language)}</div>
                 </Link>
             </div>
@@ -81,7 +73,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     <a href="tel:18001025551">
                         <object
                             data="https://files.growthjockey.com/livguard/icons/bottom-bar/5.svg"
-                            className="tw-w-6 tw-h-6 dark:tw-invert"
+                            className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
                         />
                     </a>
 

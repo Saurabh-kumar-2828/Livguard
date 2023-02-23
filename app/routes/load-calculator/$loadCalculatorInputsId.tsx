@@ -432,12 +432,13 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
         .map((device) => deviceTypeLibrary[device.deviceType])
         .reduce((totalWatts_, device) => (totalWatts_ += device.wattage), 0);
 
-    const voltage = 220;
     const efficiencyFactor = 0.7;
     const safetyFactor = 0.8;
 
+    const voltage = 12;
+
     const averageWatts = (totalWatts * loadCalculatorInputs.averageConsumption) / 100;
-    const ah = (averageWatts / voltage / efficiencyFactor / safetyFactor) * loadCalculatorInputs.backupHours;
+    const ah = (averageWatts * loadCalculatorInputs.backupHours) / (voltage * efficiencyFactor * safetyFactor);
 
     const loadCalculatorOutputs: LoadCalculatorOutputs = {
         totalWatts: totalWatts,

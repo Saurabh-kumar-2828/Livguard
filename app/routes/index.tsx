@@ -273,7 +273,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                         },
                     ]}
                     itemBuilder={(item, itemIndex) => (
-                        <div
+                        <button
                             className="group tw-flex tw-flex-col tw-items-center hover:tw-cursor-pointer"
                             onClick={(e) => emblaApi?.scrollTo(itemIndex)}
                             key={itemIndex}
@@ -293,7 +293,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
                                     className={concatenateNonNullStringsWithSpaces(
-                                        "tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none",
+                                        "tw-w-6 tw-h-6 dark:tw-invert",
                                         itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50",
                                     )}
                                 />
@@ -302,7 +302,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                             <VerticalSpacer className="tw-h-2" />
 
                             <div className="lg-text-icon tw-text-center">{`${getVernacularString(item.title, userPreferences.language)}`}</div>
-                        </div>
+                        </button>
                     )}
                 />
             </div>
@@ -367,7 +367,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center"
                                 key={itemIndex}
                             >
-                                <DefaultImageAnimation>
+                                <DefaultImageAnimation className="tw-w-full">
                                     <FullWidthImage
                                         relativePath={item.image}
                                         imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -451,7 +451,7 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <DefaultImageAnimation>
+                <DefaultImageAnimation className="tw-w-full">
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-mobile.jpg"
                         imageCdnProvider={ImageCdnProvider.GrowthJockey}
