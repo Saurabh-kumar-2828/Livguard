@@ -2095,6 +2095,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अपनी ऊर्जा को प्लान करें",
         [Language.Marathi]: "?????",
     },
+    noDealerLocatorText: {
+        [Language.English]: "No Dealer Found",
+        [Language.Hindi]: "कोई डीलर नहीं मिला",
+        [Language.Marathi]: "?????",
+    },
 
     dealerLocatorInputText: {
         [Language.English]: "Enter Location, City, or Zip Code",
@@ -2787,6 +2792,307 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     loadCalculatorAdditionalInputsT4: {
         [Language.English]: "Let's Plan",
         [Language.Hindi]: "नतीजा निकालें",
+        [Language.Marathi]: "?????",
+    },
+
+    categoryInveterPageFAQQ1Q: {
+        [Language.English]: "Which inverter is best for home?",
+        [Language.Hindi]: "कौन सा इन्वर्टर घर के लिए सबसे अच्छा है?",
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ1A: {
+        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal load calculator to find the right inverter for you.`,
+        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ2Q: {
+        [Language.English]: "What is sine wave inverter?",
+        [Language.Hindi]: "साइन वेव इन्वर्टर क्या होता है?",
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ2A: {
+        [Language.English]: `A sine wave inverter produces a smooth & consistent electrical output which is essential for powering electronics like computers, TVs, and other household appliances. Choose <a href="/category/inverters" class="tw-underline">Livguard's Pure Sine wave inverters</a>for smooth backup.`,
+        [Language.Hindi]: `एक साइन वेव इन्वर्टर एक सुचारू और सुसंगत विद्युत उत्पादन उत्पन्न करता है जो कंप्यूटर, टीवी और अन्य घरेलू उपकरणों जैसे इलेक्ट्रॉनिक्स को शक्ति प्रदान करने के लिए आवश्यक है। बिना रुकावट बैकअप के लिए<a href="/category/inverters" class="tw-underline">लिवगार्ड के प्योर साइन वेव इनवर्टर</a>चुनें।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ3Q: {
+        [Language.English]: "How many home appliances can I run on a home inverter?",
+        [Language.Hindi]: "होम इन्वर्टर पर मैं कितने घरेलू उपकरण चला सकता हूँ?",
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ3A: {
+        [Language.English]: `The number of home appliances a  <a href="/category/inverters" class="tw-underline">Livguard Inverter</a> can run depends on its capacity and power consumption. Livguard offers a wide range of inverters with different capacities that are suitable for various applications of your daily use`,
+        [Language.Hindi]: `<a href="/category/inverters" class="tw-underline">लिवगार्ड इन्वर्टर</a> कितने घरेलू उपकरणों को चला सकता है, यह इसकी क्षमता और बिजली की खपत पर निर्भर करता है। लिवगार्ड विभिन्न क्षमताओं वाले इनवर्टर की एक विस्तृत श्रृंखला प्रदान करता है जो आपके दैनिक उपयोग के विभिन्न अनुप्रयोगों के लिए उपयुक्त हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ4Q: {
+        [Language.English]: "Are inverters for the home and the office different? ",
+        [Language.Hindi]: "क्या घर और ऑफिस के लिए इनवर्टर अलग-अलग हैं?",
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ4A: {
+        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, <a href="/category/inverters" class="tw-underline">Livguard Inverters</a> are the right choice for you.`,
+        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, <a href="/load-calculator" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए सही विकल्प हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ5Q: {
+        [Language.English]: "How does an inverter work?",
+        [Language.Hindi]: "इन्वर्टर कैसे काम करता है?",
+        [Language.Marathi]: "?????",
+    },
+    categoryInveterPageFAQQ5A: {
+        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/category/inverters" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
+        [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/category/inverters" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ1Q: {
+        [Language.English]: "Which inverter battery is best for my use? ",
+        [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ1A: {
+        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
+        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ2Q: {
+        [Language.English]: "How to connect inverter to battery ?",
+        [Language.Hindi]: " इनवर्टर को बैटरी से कैसे कनेक्ट करें?",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ2A: {
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring a reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी </a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ3Q: {
+        [Language.English]: "How to check inverter battery health ?",
+        [Language.Hindi]: "इन्वर्टर बैटरी की स्वास्थ्य की जाँच कैसे करें?",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ3A: {
+        [Language.English]: `To check your inverter battery's health, disconnect it from the inverter and measure its voltage using a multimeter. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed with advanced technology and undergo rigorous testing, ensuring long-lasting durability and superior performance for reliable and uninterrupted power supply at home or office.`,
+        [Language.Hindi]: `इन्वर्टर बैटरी की स्वास्थ्य जांचने के लिए, इसे इनवर्टर से डिस्कनेक्ट करें और मल्टीमीटर का उपयोग करके उसकी वोल्टेज मापें। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> उन्नत तकनीक के साथ डिज़ाइन की गई हैं और कड़ी मेहनत से टेस्ट की जाती हैं, इससे आपको घर या ऑफिस के लिए दुर्लभ और अविराम बिजली आपूर्ति के लिए दृढ़ और बेहतर प्रदर्शन का विश्वास होगा।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ4Q: {
+        [Language.English]: "How much backup time can my inverter battery provide?",
+        [Language.Hindi]: "मेरी इनवर्टर बैटरी कितना समय बैकअप प्रदान कर सकती है?",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ4A: {
+        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/category/inverters" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
+        [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/category/inverters" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ5Q: {
+        [Language.English]: "How long does the inverter battery last?",
+        [Language.Hindi]: "इन्वर्टर की बैटरी कितने समय तक चलती है?",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteryPageFAQQ5A: {
+        [Language.English]: `On average, a well-maintained Inverter Battery can last between 2 to 5 years, but it's important to keep an eye on its performance and replace it when necessary. Choose <a href="/category/batteries" class="tw-underline">Livguard inverter batteries</a> for long and durable support.`,
+        [Language.Hindi]: `औसतन, एक सुव्यवस्थित इन्वर्टर बैटरी 2 से 5 साल के बीच चल सकती है, लेकिन इसके प्रदर्शन पर नज़र रखना और आवश्यकता पड़ने पर इसे बदलना महत्वपूर्ण है। लंबे और टिकाऊ सपोर्ट के लिए <a href="/category/batteries" class="tw-underline">लिवगार्ड इनवर्टर बैटरी</a> चुनें।`,
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ1Q: {
+        [Language.English]: "Can I avail financing options as a customer at these dealers locations?",
+        [Language.Hindi]: "क्या मैं इन डीलर स्थानों पर वित्त के विकल्प का लाभ उठा सकता हूँ?",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ1A: {
+        [Language.English]: `Yes, Livguard has multiple financing opportunities available for our consumers for their ease. We are in partnership with Bajaj Finance and Paytail and consumers can choose any of the two options for the same. Call us at <a href="tel:18001025551">18001025551</a>`,
+        [Language.Hindi]: `हां, लिवगार्ड के पास हमारे उपभोक्ताओं के लिए उनकी आसानी के लिए वित्तपोषण के कई अवसर उपलब्ध हैं। हम बजाज फाइनेंस और पे टेल के साथ साझेदारी कर रहे हैं और उपभोक्ता इसके लिए दो विकल्पों में से कोई भी चुन सकते हैं। हमें  <a href="tel:18001025551">18001025551</a> पर कॉल करें।`,
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ2Q: {
+        [Language.English]: "Will a dealer help me in installation?",
+        [Language.Hindi]: "क्या कोई डीलर इंस्टालेशन में मेरी मदद करेगा?",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ2A: {
+        [Language.English]: `It depends on dealer to dealer. Most of our channel partners provide installation services at their end. If you face any problem, you can reach out to our service team, LivServ at <a href="tel:18001025551">18001025551</a>`,
+        [Language.Hindi]: `यह डीलर से डीलर पर निर्भर करता है। हमारे अधिकांश चैनल पार्टनर अपनी ओर से इंस्टालेशन सेवाएं प्रदान करते हैं। यदि आपको कोई समस्या आती है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सर्विस टीम, लिवसर्व से संपर्क कर सकते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ3Q: {
+        [Language.English]: "How can I become a partner with Livguard?",
+        [Language.Hindi]: "मैं लिवगार्ड का पार्टनर कैसे बन सकता हूं?",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ3A: {
+        [Language.English]: `We are pleased to know that you want to join us on our growth journey. Please share your details like name, contact number, pin code, city, state to our official mail id- <a href="mailto:marketing@livguard.com">marketing@livguard.com</a>. You will hear from us soon.`,
+        [Language.Hindi]: `हमें यह जानकर प्रसन्नता हुई कि आप हमारी विकास यात्रा में हमारे साथ जुड़ना चाहते हैं। कृपया अपना विवरण जैसे नाम, संपर्क नंबर, पिन कोड, शहर, राज्य हमारे आधिकारिक मेल आईडी-<a href="mailto:marketing@livguard.com"> marketing@livguard.com</a> पर साझा करें। हम आपसे जल्द से जल्द संपर्क करेंगे।`,
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ4Q: {
+        [Language.English]: "What if my nearby dealer is not open or is not answering to my request?",
+        [Language.Hindi]: "क्या होगा यदि मेरा नजदीकी डीलर खुला नहीं है या मेरे अनुरोध का उत्तर नहीं दे रहा है?",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ4A: {
+        [Language.English]: `In case you are unable to connect with your nearby Livguard dealer, you can reach out to us on our sales number <a href="tel:9205667999">9205667999</a>. We are always happy to help and prioritise your comfort above all`,
+        [Language.Hindi]: `यदि आप अपने नजदीकी लिवगार्ड डीलर से जुड़ने में असमर्थ हैं, तो आप हमारे बिक्री नंबर <a href="tel:9205667999">9205667999</a> पर हमसे संपर्क कर सकते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ5Q: {
+        [Language.English]: "How can I file a service request?",
+        [Language.Hindi]: "मैं सेवा अनुरोध कैसे दर्ज कर सकता हूं?",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorPageFAQQ5A: {
+        [Language.English]: `In order to file a service request for your Livguard inverter or inverter battery, you can reach out to the dealer. If that doesn’t work, you can reach out to our service team at <a href="tel:18001025551">18001025551</a> and we will help you out.`,
+        [Language.Hindi]: `अपने लिवगार्ड इन्वर्टर या इन्वर्टर बैटरी के लिए सेवा अनुरोध दर्ज करने के लिए, आप डीलर से संपर्क कर सकते हैं। यदि वह काम नहीं करता है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सेवा टीम से संपर्क कर सकते हैं और हम आपकी मदद करेंगे।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q1Q: {
+        [Language.English]: "Which inverter battery is best for my use?",
+        [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q1A: {
+        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
+        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q2Q: {
+        [Language.English]: "How to connect inverter to battery ?",
+        [Language.Hindi]: " इनवर्टर को बैटरी से कैसे कनेक्ट करें?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q2A: {
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q3Q: {
+        [Language.English]: "Which inverter is best for home?",
+        [Language.Hindi]: "कौन सा इन्वर्टर घर के लिए सबसे अच्छा है?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q3A: {
+        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal load calculator to find the right inverter for you.`,
+        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q4Q: {
+        [Language.English]: "Are inverters for the home and the office different? ",
+        [Language.Hindi]: "क्या घर और ऑफिस के लिए इनवर्टर अलग-अलग हैं?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q4A: {
+        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of <a href="/category/inverters" class="tw-underline">quality and durable options</a> to choose from.`,
+        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के <a href="/category/inverters" class="tw-underline">विकल्प</a> हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q5Q: {
+        [Language.English]: "How does the Power Planner work?",
+        [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage1Q5A: {
+        [Language.English]: `The Livguard Power Planner is a personalised Load Calculator that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.`,
+        [Language.Hindi]: `लिवगार्ड का पावर प्लानर, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q1Q: {
+        [Language.English]: "How to check inverter battery health ?",
+        [Language.Hindi]: "इन्वर्टर बैटरी की स्वास्थ्य की जाँच कैसे करें?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q1A: {
+        [Language.English]: `To check your inverter battery's health, disconnect it from the inverter and measure its voltage using a multimeter. <a href="/category/batteries" class="tw-underline"> Livguard Inverter Batteries</a>are designed with advanced technology and undergo rigorous testing, ensuring long-lasting durability and superior performance for reliable and uninterrupted power supply at home or office.`,
+        [Language.Hindi]: `इन्वर्टर बैटरी की स्वास्थ्य जांचने के लिए, इसे इनवर्टर से डिस्कनेक्ट करें और मल्टीमीटर का उपयोग करके उसकी वोल्टेज मापें। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> उन्नत तकनीक के साथ डिज़ाइन की गई हैं और कड़ी मेहनत से टेस्ट की जाती हैं, इससे आपको घर या ऑफिस के लिए दुर्लभ और अविराम बिजली आपूर्ति के लिए दृढ़ और बेहतर प्रदर्शन का विश्वास होगा।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q2Q: {
+        [Language.English]: "How many home appliances can I run on a home inverter?",
+        [Language.Hindi]: " होम इन्वर्टर पर मैं कितने घरेलू उपकरण चला सकता हूँ?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q2A: {
+        [Language.English]: `The number of home appliances a <a href="/category/inverters" class="tw-underline">Livguard Inverter</a> can run depends on its capacity and power consumption. Livguard offers a wide range of inverters with different capacities that are suitable for various applications of your daily use.`,
+        [Language.Hindi]: `<a href="/category/inverters" class="tw-underline">लिवगार्ड इन्वर्टर</a> कितने घरेलू उपकरणों को चला सकता है, यह इसकी क्षमता और बिजली की खपत पर निर्भर करता है। लिवगार्ड विभिन्न क्षमताओं वाले इनवर्टर की एक विस्तृत श्रृंखला प्रदान करता है जो आपके दैनिक उपयोग के विभिन्न अनुप्रयोगों के लिए उपयुक्त हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q3Q: {
+        [Language.English]: "What is sine wave inverter?",
+        [Language.Hindi]: "साइन वेव इन्वर्टर क्या होता है?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q3A: {
+        [Language.English]: `A sine wave inverter produces a smooth & consistent electrical output which is essential for powering electronics like computers, TVs, and other household appliances. Choose <a href="/category/inverters" class="tw-underline">Livguard's Pure Sine wave inverters</a> for smooth backup.`,
+        [Language.Hindi]: `एक साइन वेव इन्वर्टर एक सुचारू और सुसंगत विद्युत उत्पादन उत्पन्न करता है जो कंप्यूटर, टीवी और अन्य घरेलू उपकरणों जैसे इलेक्ट्रॉनिक्स को शक्ति प्रदान करने के लिए आवश्यक है। बिना रुकावट बैकअप के लिए <a href="/category/inverters" class="tw-underline">लिवगार्ड के प्योर साइन वेव इनवर्टर</a> चुनें।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q4Q: {
+        [Language.English]: "How to connect inverter to battery ? ",
+        [Language.Hindi]: " इनवर्टर को बैटरी से कैसे कनेक्ट करें?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q4A: {
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring a reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q5Q: {
+        [Language.English]: "How to select the right inverter and inverter battery for my home?",
+        [Language.Hindi]: "अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी का चयन कैसे करें?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage2Q5A: {
+        [Language.English]: `Selecting the right inverter and battery for your home is essential for uninterrupted power backup during outages. With the <a href="/category/load-calculator" class="tw-underline">Livguard Power Planner</a> you can easily select the perfect combination based on your property type, appliances, and budget.`,
+        [Language.Hindi]: `अपवाद के दौरान अविराम बिजली बैकअप के लिए सही इनवर्टर और बैटरी चुनना आपके घर के लिए आवश्यक है। <a href="/category/load-calculator" class="tw-underline">लिवगार्ड पावर प्लानर</a> के साथ आप अपनी संपत्ति के प्रकार, उपकरणों और बजट के आधार पर सही कंबिनेशन का आसानी से चयन कर सकते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ1Q: {
+        [Language.English]: "How can I file a service request?",
+        [Language.Hindi]: "मैं सेवा अनुरोध कैसे दर्ज कर सकता हूं?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ1A: {
+        [Language.English]: `In order to file a service request for your Livguard inverter or inverter battery, you can reach out to the dealer. If that doesn’t work, you can reach out to our service team at <a href="tel:18001025551">18001025551</a> and we will help you out.`,
+        [Language.Hindi]: `अपने लिवगार्ड इन्वर्टर या इन्वर्टर बैटरी के लिए सेवा अनुरोध दर्ज करने के लिए, आप डीलर से संपर्क कर सकते हैं। यदि वह काम नहीं करता है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सेवा टीम से संपर्क कर सकते हैं और हम आपकी मदद करेंगे।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ2Q: {
+        [Language.English]: "Can I avail financing options as a customer at these dealers locations?",
+        [Language.Hindi]: "क्या मैं इन डीलर स्थानों पर वित्त के विकल्प का लाभ उठा सकता हूँ?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ2A: {
+        [Language.English]: `Yes, Livguard has multiple financing opportunities available for our consumers for their ease. We are in partnership with Bajaj Finance and Paytail and consumers can choose any of the two options for the same. Call us at <a href="tel:18001025551">18001025551</a>`,
+        [Language.Hindi]: `हां, लिवगार्ड के पास हमारे उपभोक्ताओं के लिए उनकी आसानी के लिए वित्तपोषण के कई अवसर उपलब्ध हैं। हम बजाज फाइनेंस और पे टेल के साथ साझेदारी कर रहे हैं और उपभोक्ता इसके लिए दो विकल्पों में से कोई भी चुन सकते हैं। हमें  <a href="tel:18001025551">18001025551</a> पर कॉल करें।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ3Q: {
+        [Language.English]: "Will a dealer help me in installation?",
+        [Language.Hindi]: "क्या कोई डीलर इंस्टालेशन में मेरी मदद करेगा?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ3A: {
+        [Language.English]: `It depends on dealer to dealer. Most of our channel partners provide installation services at their end. If you face any problem, you can reach out to our service team, LivServ at <a href="tel:18001025551">18001025551</a>`,
+        [Language.Hindi]: `यह डीलर से डीलर पर निर्भर करता है। हमारे अधिकांश चैनल पार्टनर अपनी ओर से इंस्टालेशन सेवाएं प्रदान करते हैं। यदि आपको कोई समस्या आती है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सर्विस टीम, लिवसर्व से संपर्क कर सकते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ4Q: {
+        [Language.English]: "How to select the right inverter and inverter battery for my home?",
+        [Language.Hindi]: "अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी का चयन कैसे करें?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ4A: {
+        [Language.English]: `Selecting the right inverter and battery for your home is essential for uninterrupted power backup during outages. With the <a href="/load-calculator">Livguard Power Planner</a> you can easily select the perfect combination based on your property type, appliances, and budget.`,
+        [Language.Hindi]: `अपवाद के दौरान अविराम बिजली बैकअप के लिए सही इनवर्टर और बैटरी चुनना आपके घर के लिए आवश्यक है। <a href="/load-calculator">लिवगार्ड पावर प्लानर</a> के साथ आप अपनी संपत्ति के प्रकार, उपकरणों और बजट के आधार पर सही कंबिनेशन का आसानी से चयन कर सकते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ5Q: {
+        [Language.English]: "What Are the Benefits of Buying an Inverter with Battery of the same brand?",
+        [Language.Hindi]: "एक ही ब्रांड के इनवर्टर और बैटरी खरीदने के क्या फायदे होते हैं?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ5A: {
+        [Language.English]: `Buying an inverter and battery of the same brand, like Livguard Inverter Battery, ensures compatibility and reliability. Use the <a href="/load-calculator">Livguard Power Planner</a> to choose the perfect combination based on your needs and budget.`,
+        [Language.Hindi]: `एक ही ब्रांड के इनवर्टर और बैटरी खरीदने से, जैसे लिवगार्ड इनवर्टर  बैटरी, आपको संगतता और विश्वसनीयता की आश्वासन होता है। <a href="/load-calculator">लिवगार्ड पावर प्लानर</a> आपकी आवश्यकताओं और बजट के आधार पर सही कंबिनेशन का चयन करने में मदद कर सकता है।`,
         [Language.Marathi]: "?????",
     },
 

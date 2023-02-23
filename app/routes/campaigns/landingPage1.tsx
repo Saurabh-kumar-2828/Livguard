@@ -2,6 +2,7 @@ import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
 import {useLoaderData} from "react-router";
+import {Accordion} from "~/components/accordian";
 import {CarouselStyle2} from "~/components/carouselStyle2";
 import {ContactForm} from "~/components/contactUsForm";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
@@ -16,7 +17,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {EnergySolutions, FaqSection, TransformingLives} from "~/routes";
+import {EnergySolutions, TransformingLives} from "~/routes";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
@@ -273,6 +274,85 @@ export function QualityMeetsExpertise({userPreferences}: {userPreferences: UserP
                             <VerticalSpacer className="tw-h-2" />
                             <div className="lg-text-titile2">{getVernacularString("landingPageS4Box4T2", userPreferences.language)}</div>
                         </DefaultElementAnimation>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                    <ItemBuilder
+                        items={[
+                            {
+                                question: "landingPage1Q1Q",
+                                answer: "landingPage1Q1A",
+                            },
+                            {
+                                question: "landingPage1Q2Q",
+                                answer: "landingPage1Q2A",
+                            },
+                            {
+                                question: "landingPage1Q3Q",
+                                answer: "landingPage1Q3A",
+                            },
+                            {
+                                question: "landingPage1Q4Q",
+                                answer: "landingPage1Q4A",
+                            },
+                            {
+                                question: "landingPage1Q5Q",
+                                answer: "landingPage1Q5A",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <Accordion
+                                title={getVernacularString(item.question, userPreferences.language)}
+                                panelItem={
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
+                                    </div>
+                                }
+                                key={itemIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
+                    <div>
+                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
+                        <a
+                            href="tel:18001025551"
+                            className="tw-underline"
+                        >
+                            {getVernacularString("homeS9T3P3", userPreferences.language)}
+                        </a>{" "}
+                        {getVernacularString("homeS9T3P4", userPreferences.language)}
                     </div>
                 </div>
             </div>

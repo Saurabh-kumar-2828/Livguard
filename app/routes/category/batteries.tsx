@@ -3,6 +3,7 @@ import {LoaderFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
+import {Accordion} from "~/components/accordian";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -14,7 +15,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {DealerLocator, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
+import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {BatteryType, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
@@ -424,7 +425,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
             ],
             imageRelativePath: "/livguard/battery images/IT 1536TT.png",
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["1554STJ", "1550TT", "1560STT", "1584TT", "1639TT"],
+            relatedProducts: ["IT1554STJ", "IT1550TT", "IT1560STT", "IT1584TT", "IT1639TT"],
         },
     ];
 
@@ -499,14 +500,6 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                     // className={selectedBatteryType == BatteryType.flat ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
                     className="lg-bg-secondary-100"
                 />
-
-                <VerticalSpacer className="tw-h-10" />
-
-                <DefaultElementAnimation>
-                    <Link to="/product/IT1660TT">
-                        <div className="lg-cta-button ">{getVernacularString("categoryBatteriesS4BT", userPreferences.language)}</div>
-                    </Link>
-                </DefaultElementAnimation>
             </div>
         </div>
     );
@@ -741,6 +734,85 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
                 <VerticalSpacer className="tw-h-6" />
 
                 <WhatsBestForYouComponent vernacularContent={sectionData} />
+            </div>
+        </div>
+    );
+}
+
+export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                    <ItemBuilder
+                        items={[
+                            {
+                                question: "categoryBatteryPageFAQQ1Q",
+                                answer: "categoryBatteryPageFAQQ1A",
+                            },
+                            {
+                                question: "categoryBatteryPageFAQQ2Q",
+                                answer: "categoryBatteryPageFAQQ2A",
+                            },
+                            {
+                                question: "categoryBatteryPageFAQQ3Q",
+                                answer: "categoryBatteryPageFAQQ3A",
+                            },
+                            {
+                                question: "categoryBatteryPageFAQQ4Q",
+                                answer: "categoryBatteryPageFAQQ4A",
+                            },
+                            {
+                                question: "categoryBatteryPageFAQQ5Q",
+                                answer: "categoryBatteryPageFAQQ5A",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <Accordion
+                                title={getVernacularString(item.question, userPreferences.language)}
+                                panelItem={
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
+                                    </div>
+                                }
+                                key={itemIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
+                    <div>
+                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
+                        <a
+                            href="tel:18001025551"
+                            className="tw-underline"
+                        >
+                            {getVernacularString("homeS9T3P3", userPreferences.language)}
+                        </a>{" "}
+                        {getVernacularString("homeS9T3P4", userPreferences.language)}
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -11,6 +11,7 @@ import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
@@ -203,6 +204,85 @@ export function TapIntoEfficiency({userPreferences}: {userPreferences: UserPrefe
                 textVernacId="landingPage3S7BT"
                 className="tw-z-10"
             />
+        </div>
+    );
+}
+
+export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                    <ItemBuilder
+                        items={[
+                            {
+                                question: "landingPage3Q1Q",
+                                answer: "landingPage3Q1A",
+                            },
+                            {
+                                question: "landingPage3Q2Q",
+                                answer: "landingPage3Q2A",
+                            },
+                            {
+                                question: "landingPage3Q3Q",
+                                answer: "landingPage3Q3A",
+                            },
+                            {
+                                question: "landingPage3Q4Q",
+                                answer: "landingPage3Q4A",
+                            },
+                            {
+                                question: "landingPage3Q5Q",
+                                answer: "landingPage3Q5A",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <Accordion
+                                title={getVernacularString(item.question, userPreferences.language)}
+                                panelItem={
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
+                                    </div>
+                                }
+                                key={itemIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
+                    <div>
+                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
+                        <a
+                            href="tel:18001025551"
+                            className="tw-underline"
+                        >
+                            {getVernacularString("homeS9T3P3", userPreferences.language)}
+                        </a>{" "}
+                        {getVernacularString("homeS9T3P4", userPreferences.language)}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

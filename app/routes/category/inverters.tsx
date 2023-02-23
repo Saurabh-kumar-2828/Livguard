@@ -9,7 +9,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {InverterType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {DealerLocator, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
+import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {EmpowerYourHomeComponent, OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
@@ -20,6 +20,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
+import {Accordion} from "~/components/accordian";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -309,11 +310,11 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
             ],
             imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["RAVI", "SHIVANI", "VINAYAK"],
+            relatedProducts: ["LGS1000i", "LGS1100i", "LGS1600", "LGS1700"],
         },
         {
             heading: `${getVernacularString("categoryInvertersS4Slide2Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryInvertersS4Slid21Description", userPreferences.language)}`,
+            description: `${getVernacularString("categoryInvertersS4Slide2Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryInvertersS4SpecificationHeading", userPreferences.language)}`,
             keySpecifications: [
                 {
@@ -339,7 +340,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
             ],
             imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["RAVI", "SHIVANI", "VINAYAK"],
+            relatedProducts: ["LG1150i", "LG1450i", "LG1550i", "LG1950i", "LG750i"],
         },
     ];
 
@@ -410,14 +411,10 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                 <OurSuggestionsComponent
                     vernacularContent={secledtedInverterType == InverterType.sine ? sectionData[0] : sectionData[1]}
                     // backgroundColor={secledtedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
-                    className={secledtedInverterType == InverterType.sine ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
+                    className={"lg-bg-secondary-100"}
                 />
 
-                <VerticalSpacer className="tw-h-10" />
 
-                <DefaultElementAnimation>
-                    <div className="lg-cta-button ">{getVernacularString("categoryInvertersS4BT", userPreferences.language)}</div>
-                </DefaultElementAnimation>
             </div>
         </div>
     );
@@ -650,6 +647,85 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
                 <VerticalSpacer className="tw-h-6" />
 
                 <WhatsBestForYouComponent vernacularContent={sectionData} />
+            </div>
+        </div>
+    );
+}
+
+export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                    <ItemBuilder
+                        items={[
+                            {
+                                question: "categoryInveterPageFAQQ1Q",
+                                answer: "categoryInveterPageFAQQ1A",
+                            },
+                            {
+                                question: "categoryInveterPageFAQQ2Q",
+                                answer: "categoryInveterPageFAQQ2A",
+                            },
+                            {
+                                question: "categoryInveterPageFAQQ3Q",
+                                answer: "categoryInveterPageFAQQ3A",
+                            },
+                            {
+                                question: "categoryInveterPageFAQQ4Q",
+                                answer: "categoryInveterPageFAQQ4A",
+                            },
+                            {
+                                question: "categoryInveterPageFAQQ5Q",
+                                answer: "categoryInveterPageFAQQ5A",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <Accordion
+                                title={getVernacularString(item.question, userPreferences.language)}
+                                panelItem={
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
+                                    </div>
+                                }
+                                key={itemIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
+                    <div>
+                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
+                        <a
+                            href="tel:18001025551"
+                            className="tw-underline"
+                        >
+                            {getVernacularString("homeS9T3P3", userPreferences.language)}
+                        </a>{" "}
+                        {getVernacularString("homeS9T3P4", userPreferences.language)}
+                    </div>
+                </div>
             </div>
         </div>
     );

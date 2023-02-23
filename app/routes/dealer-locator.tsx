@@ -23,12 +23,13 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {ContactUsCta, FaqSection, ShowerSomeLoveOnSocialHandles} from "~/routes";
+import {ContactUsCta, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Dealer, Language, salutations, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import cityList from "~/cities.json";
+import {Accordion} from "~/components/accordian";
 
 // TODO: Rework for fetcher
 type DealerLocatorActionData = {
@@ -133,6 +134,8 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
             } else {
                 setDealerList(actionData.dealerList);
             }
+        }else {
+
         }
     }, [actionData, showMore]);
 
@@ -202,6 +205,10 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
 
             <VerticalSpacer className="tw-h-2" />
 
+            {actionData && actionData.dealerList.length == 0 &&
+                <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
+            }
+
             {actionData && actionData.dealerList && actionData.dealerList.length > 0 && (
                 <div
                     className="tw-text-title2 tw-text-center"
@@ -217,7 +224,7 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
                 <div className="tw-flex tw-flex-col tw-gap-4">
                     <div className="tw-flex tw-flex-col tw-gap-1">
                         <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
-                        <div className="lg-text-headline lg-text-highlighted tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
+                        <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
                         <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div>
                     </div>
 
@@ -668,6 +675,85 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
                     height="13.75rem"
                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
                 />
+            </div>
+        </div>
+    );
+}
+
+export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col">
+                <div className="lg-text-headline tw-text-center">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                    <ItemBuilder
+                        items={[
+                            {
+                                question: "dealerLocatorPageFAQQ1Q",
+                                answer: "dealerLocatorPageFAQQ1A",
+                            },
+                            {
+                                question: "dealerLocatorPageFAQQ2Q",
+                                answer: "dealerLocatorPageFAQQ2A",
+                            },
+                            {
+                                question: "dealerLocatorPageFAQQ3Q",
+                                answer: "dealerLocatorPageFAQQ3A",
+                            },
+                            {
+                                question: "dealerLocatorPageFAQQ4Q",
+                                answer: "dealerLocatorPageFAQQ4A",
+                            },
+                            {
+                                question: "dealerLocatorPageFAQQ5Q",
+                                answer: "dealerLocatorPageFAQQ5A",
+                            },
+                        ]}
+                        itemBuilder={(item, itemIndex) => (
+                            <Accordion
+                                title={getVernacularString(item.question, userPreferences.language)}
+                                panelItem={
+                                    <div
+                                        className="lg-text-secondary-900"
+                                        key={itemIndex}
+                                    >
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
+                                    </div>
+                                }
+                                key={itemIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body tw-text-center">
+                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
+                    <div>
+                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
+                        <a
+                            href="tel:18001025551"
+                            className="tw-underline"
+                        >
+                            {getVernacularString("homeS9T3P3", userPreferences.language)}
+                        </a>{" "}
+                        {getVernacularString("homeS9T3P4", userPreferences.language)}
+                    </div>
+                </div>
             </div>
         </div>
     );

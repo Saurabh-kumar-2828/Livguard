@@ -1,5 +1,5 @@
 import {execute} from "~/backend/databaseManager.server";
-import {generateUuid, getCurrentIsoTimestamp, getCurrentTimestamp} from "~/global-common-typescript/utilities/utilities";
+import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
 
@@ -11,7 +11,7 @@ export async function getDealerForCity(city: string){
             FROM
                 dealer
             WHERE
-                 LOWER(city) = $1
+                 LOWER(city) = $1 OR pin_code = $1
             ORDER BY
                 dealer_name DESC
         `,

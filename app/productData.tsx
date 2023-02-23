@@ -3161,827 +3161,833 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             ],
         },
     },
-    IT9048ST: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "/livguard/product/inverter/LGS900i/infographic/1.jpg",
-                },
-                {
-                    image: "/livguard/product/inverter/LGS900i/infographic/2.jpg",
-                },
-                {
-                    image: "/livguard/product/inverter/LGS900i/infographic/3.jpg",
-                },
-                {
-                    image: "/livguard/product/inverter/LGS900i/infographic/4.jpg",
-                },
-            ],
-            title: " Livguard INVERTUFF Short Tubular 90 Ah Battery with 24+24* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 24* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "90 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Short Tubular",
-                },
-                {
-                    icon: "",
-                    text: "410 (L) X 174 (W) X 230 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "24 + 24* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "90 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "410 (L) X 174 (W) X 230 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "29.3 ± 3% Kg",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah बैटरी 24+24* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 24* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "90 Ah",
-                },
-                {
-                    icon: "",
-                    text: "शोर्ट ट्यूबलर ",
-                },
-                {
-                    icon: "",
-                    text: "410 (L) X 174 (W) X 230 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "24 + 24* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "90 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "410 (L) X 174 (W) X 230 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "29.3 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
-    IT1048ST: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "Livguard INVERTUFF Short Tubular 100 Ah Battery with 24+24* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 24* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "100 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Short Tubular",
-                },
-                {
-                    icon: "",
-                    text: "520 (L) X 218 (W) X 290 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "24 + 24* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "100 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "520 (L) X 218 (W) X 290 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "39.6 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 100 Ah बैटरी 24+24* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 24* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "100 Ah",
-                },
-                {
-                    icon: "",
-                    text: "शोर्ट ट्यूबलर ",
-                },
-                {
-                    icon: "",
-                    text: "520 (L) X 218 (W) X 290 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "24 + 24* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "100 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "520 (L) X 218 (W) X 290 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "39.6 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
-    IT1160STT: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Short Tall Tubular 110 Ah Battery with 42+18* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "42 + 18* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "110 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Short Tall Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "42 + 18* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "110 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "46.9 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 110 Ah बैटरी 42+18* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "42 + 18* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "110 Ah",
-                },
-                {
-                    icon: "",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "48 + 18* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "110 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "46.9 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
+    // IT9048ST: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "/livguard/product/inverter/LGS900i/infographic/1.jpg",
+    //             },
+    //             {
+    //                 image: "/livguard/product/inverter/LGS900i/infographic/2.jpg",
+    //             },
+    //             {
+    //                 image: "/livguard/product/inverter/LGS900i/infographic/3.jpg",
+    //             },
+    //             {
+    //                 image: "/livguard/product/inverter/LGS900i/infographic/4.jpg",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Short Tubular 90 Ah Battery with 24+24* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 24* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "90 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Short Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "410 (L) X 174 (W) X 230 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "24 + 24* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "90 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "410 (L) X 174 (W) X 230 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "29.3 ± 3% Kg",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 24* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "90 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "शोर्ट ट्यूबलर ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "410 (L) X 174 (W) X 230 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "24 + 24* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "90 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "410 (L) X 174 (W) X 230 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "29.3 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
+    // IT1048ST: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "Livguard INVERTUFF Short Tubular 100 Ah Battery with 24+24* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 24* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "100 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Short Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "520 (L) X 218 (W) X 290 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "24 + 24* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "100 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "520 (L) X 218 (W) X 290 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "39.6 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 100 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 24* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "100 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "शोर्ट ट्यूबलर ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "520 (L) X 218 (W) X 290 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "24 + 24* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "100 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "520 (L) X 218 (W) X 290 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "39.6 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
+    // IT1160STT: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Short Tall Tubular 110 Ah Battery with 42+18* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "42 + 18* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "110 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Short Tall Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "42 + 18* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "110 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "46.9 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 110 Ah बैटरी 42+18* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "42 + 18* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "110 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "शोर्ट टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "48 + 18* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "110 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "46.9 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
     IT1584TT: {
         [Language.English]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/3.jpg",
                 },
             ],
             title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 60+24* Months Warranty",
@@ -3990,19 +3996,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "60 + 24* Months Warranty",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -4064,16 +4070,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1584TT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1584TT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1584TT/A+/3.jpg",
                     },
                 ],
             },
@@ -4115,7 +4118,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.Hindi]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 60+24* महीने की वारंटी के साथ",
@@ -4124,19 +4133,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "60 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबलर  ",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -4197,16 +4206,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1584TT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1584TT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1584TT/A+/3.jpg",
                     },
                 ],
             },
@@ -4250,7 +4256,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.English]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/2.jpg",
                 },
             ],
             title: " Livguard INVERTUFF Short Jumbo Tubular 150 Ah Battery with 36+18* Months Warranty",
@@ -4259,19 +4268,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 18* Months Warranty",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Short Jumbo Tubular",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X 282 (H)",
                 },
             ],
@@ -4333,16 +4342,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/3.jpg",
                     },
                 ],
             },
@@ -4384,7 +4390,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.Hindi]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF  शोर्ट जंबो ट्यूबुलर  150 Ah बैटरी 36+18* महीने की वारंटी के साथ",
@@ -4393,19 +4405,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 18* महीने वारंटी",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "शोर्ट टॉल ट्यूबलर  ",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 367 (H)",
                 },
             ],
@@ -4466,16 +4478,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/3.jpg",
                     },
                 ],
             },
@@ -4515,549 +4524,555 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             ],
         },
     },
-    IT1542STJ: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Short Jumbo Tubular 150 Ah Battery with 24+18* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 18* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Short Jumbo Tubular",
-                },
-                {
-                    icon: "",
-                    text: "520 (L) X 275 (W) X 282 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "24 + 18* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "150 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "520 (L) X 275 (W) X 282 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "51.3 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF  शोर्ट जंबो ट्यूबुलर  150 Ah बैटरी 24+18* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 18* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "520 (L) X 275 (W) X 282 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "24 + 18* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "150 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "520 (L) X 275 (W) X 282 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "51.3 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
-    IT1548STT: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 24+24* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 24* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Short Tall Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "24 + 24* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "150 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "47.6 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबलर  150 Ah बैटरी 24+24* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "24 + 24* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "24 + 24* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "150 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "47.6 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
+    // IT1542STJ: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Short Jumbo Tubular 150 Ah Battery with 24+18* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 18* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Short Jumbo Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "520 (L) X 275 (W) X 282 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "24 + 18* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "520 (L) X 275 (W) X 282 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "51.3 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF  शोर्ट जंबो ट्यूबुलर  150 Ah बैटरी 24+18* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 18* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "शोर्ट टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "520 (L) X 275 (W) X 282 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "24 + 18* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "520 (L) X 275 (W) X 282 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "51.3 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
+    // IT1548STT: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 24+24* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 24* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Short Tall Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "24 + 24* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "47.6 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबलर  150 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "24 + 24* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "शोर्ट टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "24 + 24* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "47.6 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
     IT1560STT: {
         [Language.English]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/3.jpg",
                 },
             ],
             title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 36+24* Months Warranty",
@@ -5066,19 +5081,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Short Tall Tubular",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 367 (H)",
                 },
             ],
@@ -5140,16 +5155,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1560STT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1560STT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1560STT/A+/3.jpg",
                     },
                 ],
             },
@@ -5191,7 +5203,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.Hindi]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबलर  150 Ah बैटरी 36+24* महीने की वारंटी के साथ",
@@ -5200,19 +5218,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "शोर्ट टॉल ट्यूबलर  ",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 367 (H)",
                 },
             ],
@@ -5273,16 +5291,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1560STT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1560STT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1560STT/A+/3.jpg",
                     },
                 ],
             },
@@ -5326,7 +5341,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.English]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/3.jpg",
                 },
             ],
             title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 36+14* Months Warranty",
@@ -5335,19 +5356,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 14* Months Warranty",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -5409,16 +5430,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1550TT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1550TT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1550TT/A+/3.jpg",
                     },
                 ],
             },
@@ -5460,7 +5478,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.Hindi]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 36+14* महीने की वारंटी के साथ",
@@ -5469,19 +5493,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 14* महीने वारंटी",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "150 Ah",
                 },
                 {
-                    icon: "",
-                    text: "टॉल ट्यूबलर  ",
+                    icon: "/livguard/icons/tall tubular white.png",
+                    text: "टॉल ट्यूबलर",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -5542,16 +5566,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1550TT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1550TT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1550TT/A+/3.jpg",
                     },
                 ],
             },
@@ -5591,1082 +5612,1082 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             ],
         },
     },
-    IT1554TT: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 42+12* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "42 + 12* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Tall Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "42 + 12* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "150 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "54.2 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 42+12* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "42 + 12* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "42 + 12* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "150 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "54.2 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
-    IT1560TT: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 36+24* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "36 + 24* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Tall Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "36 + 24* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "150 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "54.2 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 48+12* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "36 + 24* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "36 + 24* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "150 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "54.2 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
-    IT1536TT: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 18+18* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "18 + 18* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Tall Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "18 + 18* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "150 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "52.8 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 18+18* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "18 + 18* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "18 + 18* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "150 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "52.8 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
-    IT1548TT: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 30+18* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "30 + 18* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Tall Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "30 + 18* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "150 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "54.9 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 30+18* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "30 + 18* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "150 Ah",
-                },
-                {
-                    icon: "",
-                    text: "टॉल ट्यूबलर  ",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "30 + 18* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "150 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "505 (L) X 188 (W) X 410 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "54.9 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LG1150i",
-                },
-                {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LG950i",
-                },
-                {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/LGS1000i",
-                },
-                {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/LGS1100i",
-                },
-            ],
-        },
-    },
+    // IT1554TT: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 42+12* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "42 + 12* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Tall Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "42 + 12* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "54.2 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 42+12* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "42 + 12* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "42 + 12* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "54.2 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
+    // IT1560TT: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 36+24* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "36 + 24* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Tall Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "36 + 24* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "54.2 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 48+12* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "36 + 24* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "36 + 24* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "54.2 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
+    // IT1536TT: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 18+18* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "18 + 18* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Tall Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "18 + 18* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "52.8 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 18+18* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "18 + 18* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "18 + 18* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "52.8 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
+    // IT1548TT: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 30+18* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "30 + 18* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Tall Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "30 + 18* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "54.9 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 30+18* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "30 + 18* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "150 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "टॉल ट्यूबलर  ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "30 + 18* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "150 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "505 (L) X 188 (W) X 410 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "54.9 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "LG1150i",
+    //                 imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LG1150i",
+    //             },
+    //             {
+    //                 title: "LG950i",
+    //                 imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LG950i",
+    //             },
+    //             {
+    //                 title: "LGS1000i",
+    //                 imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/LGS1000i",
+    //             },
+    //             {
+    //                 title: "LGS1100i",
+    //                 imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/LGS1100i",
+    //             },
+    //         ],
+    //     },
+    // },
     IT1666TT: {
         [Language.English]: {
             images: [
@@ -6686,19 +6707,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -6808,7 +6829,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
         [Language.Hindi]: {
             images: [
                 {
-                    image: "",
+                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/1.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/2.jpg",
+                },
+                {
+                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 160 Ah बैटरी 42+24* महीने की वारंटी के साथ",
@@ -6817,20 +6844,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "",
-                    text: " टॉल ट्यूबुलर ",
+                    icon: "/livguard/icons/tall tubular white.png",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X  410 (H)",
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
             specifications: [
@@ -6890,16 +6917,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1666TT/A+/1.jpg",
                     },
                     {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1666TT/A+/2.jpg",
                     },
                     {
-                        image: "",
-                    },
-                    {
-                        image: "",
+                        image: "/livguard/product/Batteries/Battery -1666TT/A+/3.jpg",
                     },
                 ],
             },
@@ -6958,19 +6982,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "21 + 18* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7095,19 +7119,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "21 + 18* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -7233,19 +7257,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "27 + 18* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7370,19 +7394,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "27 + 18* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "160 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -7508,19 +7532,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7645,19 +7669,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -7783,19 +7807,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "24 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -7920,19 +7944,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "24 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -8058,19 +8082,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -8195,19 +8219,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "180 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: " टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -8314,275 +8338,275 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             ],
         },
     },
-    IT1636STJ: {
-        [Language.English]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: " Livguard INVERTUFF Short Jumbo Tubular 160 Ah Battery with 18+18* Months Warranty",
-            subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description:
-                "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "18 + 18* Months Warranty",
-                },
-                {
-                    icon: "",
-                    text: "160 Ah",
-                },
-                {
-                    icon: "",
-                    text: "Short Jumbo Tubular",
-                },
-                {
-                    icon: "",
-                    text: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "Model Number",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "Warranty",
-                    value: "18 + 18* Months",
-                },
-                {
-                    title: "Package Contents",
-                    value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
-                },
-                {
-                    title: "Rating",
-                    value: "160 Ah",
-                },
-                {
-                    title: "Dimensions",
-                    value: "505 (L) X 188 (W) X 367 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "Peace of mind with Best-In-Class Warranty",
-                },
-                {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
-                },
-                {
-                    value: "Tuff Futuristic Design to complement the aesthetics of your home",
-                },
-                {
-                    value: "High Charge Acceptance For Higher Backup",
-                },
-                {
-                    value: "Low Maintenance for an effortless experience",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: "Manufacturer",
-                    value: "Livguard",
-                },
-                {
-                    title: "Item Weight",
-                    value: "51.3 ± 3%",
-                },
-                {
-                    title: "Country Of Origin",
-                    value: "India",
-                },
-            ],
-            productDescription: {
-                description:
-                    "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/IT1554STJ",
-                },
-                {
-                    title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/IT1554TT",
-                },
-                {
-                    title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/IT1560TT",
-                },
-                {
-                    title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/IT1560TT",
-                },
-            ],
-        },
-        [Language.Hindi]: {
-            images: [
-                {
-                    image: "",
-                },
-            ],
-            title: "लिवगार्ड INVERTUFF शोर्ट जंबो ट्यूबुलर 160 Ah बैटरी 18+18* महीने की वारंटी के साथ",
-            subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description:
-                "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
-            productIcons: [
-                {
-                    icon: "",
-                    text: "18 + 18* महीने वारंटी",
-                },
-                {
-                    icon: "",
-                    text: "160 Ah",
-                },
-                {
-                    icon: "",
-                    text: " शोर्ट जंबो ट्यूबुलर ",
-                },
-                {
-                    icon: "",
-                    text: "520 (L) X 275 (W) X  282 (H)",
-                },
-            ],
-            specifications: [
-                {
-                    title: "मॉडल संख्या",
-                    value: "INVERTUFF",
-                },
-                {
-                    title: "वारंटी ",
-                    value: "42 + 24* महीने",
-                },
-                {
-                    title: "पैकेज सामग्री",
-                    value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
-                },
-                {
-                    title: "रेटिंग",
-                    value: "160 Ah",
-                },
-                {
-                    title: "आयाम",
-                    value: "520 (L) X 275 (W) X 282 (H)",
-                },
-            ],
-            features: [
-                {
-                    value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
-                },
-                {
-                    value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
-                },
-                {
-                    value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
-                },
-                {
-                    value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
-                },
-                {
-                    value: "सहज अनुभव के लिए कम मेंटेनेंस",
-                },
-            ],
-            additionalInfo: [
-                {
-                    title: " उत्पादक",
-                    value: "लिवगार्ड",
-                },
-                {
-                    title: "उत्पाद का वजन",
-                    value: "51.3 ± 3%",
-                },
-                {
-                    title: "मूल का देश ",
-                    value: "भारत",
-                },
-            ],
-            productDescription: {
-                description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
-                images: [
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                    {
-                        image: "",
-                    },
-                ],
-            },
-            reviews: {
-                rating: 4.6,
-                numberOfReviews: 120,
-            },
-            recommendedProducts: [
-                {
-                    title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/IT1554STJ",
-                },
-                {
-                    title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/IT1554TT",
-                },
-                {
-                    title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: true,
-                    link: "/product/IT1560TT",
-                },
-                {
-                    title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/IT1560TT",
-                },
-            ],
-        },
-    },
+    // IT1636STJ: {
+    //     [Language.English]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: " Livguard INVERTUFF Short Jumbo Tubular 160 Ah Battery with 18+18* Months Warranty",
+    //         subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
+    //         description:
+    //             "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "18 + 18* Months Warranty",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "160 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "Short Jumbo Tubular",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "Model Number",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "Warranty",
+    //                 value: "18 + 18* Months",
+    //             },
+    //             {
+    //                 title: "Package Contents",
+    //                 value: "Inverter Battery, Warranty card, Float Indicator, Petroleum Jelly, Nut bolt set",
+    //             },
+    //             {
+    //                 title: "Rating",
+    //                 value: "160 Ah",
+    //             },
+    //             {
+    //                 title: "Dimensions",
+    //                 value: "505 (L) X 188 (W) X 367 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "Peace of mind with Best-In-Class Warranty",
+    //             },
+    //             {
+    //                 value: "Long Lasting Battery Life for an unlimited flow of energy ",
+    //             },
+    //             {
+    //                 value: "Tuff Futuristic Design to complement the aesthetics of your home",
+    //             },
+    //             {
+    //                 value: "High Charge Acceptance For Higher Backup",
+    //             },
+    //             {
+    //                 value: "Low Maintenance for an effortless experience",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: "Manufacturer",
+    //                 value: "Livguard",
+    //             },
+    //             {
+    //                 title: "Item Weight",
+    //                 value: "51.3 ± 3%",
+    //             },
+    //             {
+    //                 title: "Country Of Origin",
+    //                 value: "India",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description:
+    //                 "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "IT1554STJ",
+    //                 imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/IT1554STJ",
+    //             },
+    //             {
+    //                 title: "IT1554TT",
+    //                 imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/IT1554TT",
+    //             },
+    //             {
+    //                 title: "IT1560TT",
+    //                 imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/IT1560TT",
+    //             },
+    //             {
+    //                 title: "IT1560TT",
+    //                 imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/IT1560TT",
+    //             },
+    //         ],
+    //     },
+    //     [Language.Hindi]: {
+    //         images: [
+    //             {
+    //                 image: "",
+    //             },
+    //         ],
+    //         title: "लिवगार्ड INVERTUFF शोर्ट जंबो ट्यूबुलर 160 Ah बैटरी 18+18* महीने की वारंटी के साथ",
+    //         subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
+    //         description:
+    //             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+    //         productIcons: [
+    //             {
+    //                 icon: "",
+    //                 text: "18 + 18* महीने वारंटी",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "160 Ah",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: " शोर्ट जंबो ट्यूबुलर ",
+    //             },
+    //             {
+    //                 icon: "",
+    //                 text: "520 (L) X 275 (W) X  282 (H)",
+    //             },
+    //         ],
+    //         specifications: [
+    //             {
+    //                 title: "मॉडल संख्या",
+    //                 value: "INVERTUFF",
+    //             },
+    //             {
+    //                 title: "वारंटी ",
+    //                 value: "42 + 24* महीने",
+    //             },
+    //             {
+    //                 title: "पैकेज सामग्री",
+    //                 value: "इन्वर्टर बैटरी, वारंटी कार्ड, फ्लोट इंडिकेटर, पेट्रोलियम जेली, नट बोल्ट सेट",
+    //             },
+    //             {
+    //                 title: "रेटिंग",
+    //                 value: "160 Ah",
+    //             },
+    //             {
+    //                 title: "आयाम",
+    //                 value: "520 (L) X 275 (W) X 282 (H)",
+    //             },
+    //         ],
+    //         features: [
+    //             {
+    //                 value: "मन की शांति सर्वोत्तम वारंटी वारंटी के साथ",
+    //             },
+    //             {
+    //                 value: "ऊर्जा के असीमित प्रवाह के लिए लंबे समय तक चलने वाली बैटरी लाइफ़",
+    //             },
+    //             {
+    //                 value: "आधुनिक Tuff बनावट जो आपके घर की सुंदरता को भी बढ़ाये",
+    //             },
+    //             {
+    //                 value: "उच्च बैकअप के लिए उच्च शुल्क स्वीकृति",
+    //             },
+    //             {
+    //                 value: "सहज अनुभव के लिए कम मेंटेनेंस",
+    //             },
+    //         ],
+    //         additionalInfo: [
+    //             {
+    //                 title: " उत्पादक",
+    //                 value: "लिवगार्ड",
+    //             },
+    //             {
+    //                 title: "उत्पाद का वजन",
+    //                 value: "51.3 ± 3%",
+    //             },
+    //             {
+    //                 title: "मूल का देश ",
+    //                 value: "भारत",
+    //             },
+    //         ],
+    //         productDescription: {
+    //             description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
+    //             images: [
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //                 {
+    //                     image: "",
+    //                 },
+    //             ],
+    //         },
+    //         reviews: {
+    //             rating: 4.6,
+    //             numberOfReviews: 120,
+    //         },
+    //         recommendedProducts: [
+    //             {
+    //                 title: "IT1554STJ",
+    //                 imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/IT1554STJ",
+    //             },
+    //             {
+    //                 title: "IT1554TT",
+    //                 imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/IT1554TT",
+    //             },
+    //             {
+    //                 title: "IT1560TT",
+    //                 imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: true,
+    //                 link: "/product/IT1560TT",
+    //             },
+    //             {
+    //                 title: "IT1560TT",
+    //                 imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+    //                 buttonText: "categoryViewProductButtontext",
+    //                 bestseller: false,
+    //                 link: "/product/IT1560TT",
+    //             },
+    //         ],
+    //     },
+    // },
     IT2060TT: {
         [Language.English]: {
             images: [
@@ -8602,19 +8626,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -8739,19 +8763,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X  282 (H)",
                 },
             ],
@@ -8877,19 +8901,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -9014,19 +9038,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X  282 (H)",
                 },
             ],
@@ -9152,19 +9176,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "220 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -9289,19 +9313,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "220 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
@@ -9427,19 +9451,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "230 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -9564,19 +9588,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "36 + 24* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "200 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "520 (L) X 275 (W) X  282 (H)",
                 },
             ],
@@ -9702,19 +9726,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 30* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "260 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "Tall Tubular",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X 410 (H)",
                 },
             ],
@@ -9839,19 +9863,19 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
-                    icon: "livguard/icons/waranty.png",
+                    icon: "/livguard/icons/waranty.png",
                     text: "42 + 30* महीने वारंटी",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/battery_capacity.png",
                     text: "260 Ah",
                 },
                 {
-                    icon: "livguard/icons/tall tubular white.png",
+                    icon: "/livguard/icons/tall tubular white.png",
                     text: "टॉल ट्यूबुलर ",
                 },
                 {
-                    icon: "livguard/icons/dimensions.png",
+                    icon: "/livguard/icons/dimensions.png",
                     text: "505 (L) X 188 (W) X  410 (H)",
                 },
             ],
