@@ -241,25 +241,21 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     </>
                 )}
 
-                <div className="tw-block dark:tw-hidden">
-                    <Link to="/">
-                        <FixedHeightImage
-                            relativePath="/livguard/header/logo-100-light.jpg"
-                            height="1.5rem"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                <Link to="/">
+                    <div className="tw-block dark:tw-hidden">
+                        <object
+                            data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                            className="tw-h-6"
                         />
-                    </Link>
-                </div>
+                    </div>
 
-                <div className="dark:tw-block tw-hidden">
-                    <Link to="/">
-                        <FixedHeightImage
-                            relativePath="/livguard/header/logo-100-dark.jpg"
-                            height="1.5rem"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    <div className="dark:tw-block tw-hidden">
+                        <object
+                            data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            className="tw-h-6"
                         />
-                    </Link>
-                </div>
+                    </div>
+                </Link>
 
                 <div className="tw-flex-1" />
 

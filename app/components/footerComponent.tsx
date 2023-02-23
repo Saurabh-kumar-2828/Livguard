@@ -21,9 +21,11 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
     const [isSubscribeSuccessDialogeOpen, setIsSubscribeSuccessDialogeOpen] = useState(false);
 
+    console.log("!!!!", fetcher.data);
     useEffect(() => {
         setIsSubscribeSuccessDialogeOpen(isSubscriptionSuccess);
-    },[isSubscriptionSuccess])
+        console.log("~~~~", isSubscriptionSuccess);
+    }, [isSubscriptionSuccess]);
 
     return (
         <div className="lg-px-screen-edge">
@@ -33,23 +35,17 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
             <div className="tw-flex tw-flex-col sm:tw-hidden">
                 <div className="tw-block dark:tw-hidden">
-                    <Link to="/">
-                        <FixedHeightImage
-                            relativePath="/livguard/header/logo-100-light.jpg"
-                            height="2rem"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                        />
-                    </Link>
+                    <object
+                        data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                        className="tw-h-6"
+                    />
                 </div>
 
                 <div className="dark:tw-block tw-hidden">
-                    <Link to="/">
-                        <FixedHeightImage
-                            relativePath="/livguard/header/logo-100-dark.jpg"
-                            height="2rem"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                        />
-                    </Link>
+                    <object
+                        data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                        className="tw-h-6"
+                    />
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
@@ -496,7 +492,7 @@ export function SubscribeSuccessDialog({
     return (
         <Transition
             show={isSuccessDialogOpen}
-            as="div"
+            as={React.Fragment}
         >
             <Dialog
                 as="div"
@@ -517,7 +513,7 @@ export function SubscribeSuccessDialog({
 
                 <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
                     <Transition.Child
-                        as={React.Fragment}
+                        as="div"
                         enter="tw-ease-out tw-transition-all tw-duration-200"
                         enterFrom="tw-opacity-0"
                         enterTo="tw-opacity-full"
