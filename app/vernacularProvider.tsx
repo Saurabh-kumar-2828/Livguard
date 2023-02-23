@@ -259,7 +259,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS2C1T1: {
         [Language.English]: "Best in Class Services",
-        [Language.Hindi]: "अतुल्य सर्विसएँ",
+        [Language.Hindi]: "अतुल्य सर्विस",
         [Language.Marathi]: "?????",
     },
     homeS2C1T2: {
@@ -667,9 +667,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q1A: {
-        [Language.English]: "Livguard's Power Planner, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.",
-        [Language.Hindi]:
-            "लिवगार्ड का पावर प्लानर, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।",
+        [Language.English]: `Livguard's <a href="/load-calculator" class="tw-underline">Power Planner</a>, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.`,
+        [Language.Hindi]: `लिवगार्ड का <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
         [Language.Marathi]: "?????",
     },
     homeS9Q2Q: {
@@ -678,10 +677,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q2A: {
-        [Language.English]:
-            "Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. Livguard Inverter Batteries are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.",
-        [Language.Hindi]:
-            "इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। लिवगार्ड इन्वर्टर बैटरी सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।",
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
         [Language.Marathi]: "?????",
     },
     homeS9Q3Q: {
@@ -690,10 +687,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q3A: {
-        [Language.English]:
-            "When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our Power Planner, your personal load calculator to find the right inverter for you.",
-        [Language.Hindi]:
-            "जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे पावर प्लानर, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।",
+        [Language.English]: `When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our <a href="/load-calculator" class="tw-underline">Power Planner</a>, your personal load calculator to find the right inverter for you.`,
+        [Language.Hindi]: `जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे <a href="/load-calculator" class="tw-underline">पावर प्लानर</a>, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।`,
         [Language.Marathi]: "?????",
     },
     homeS9Q4Q: {
@@ -702,10 +697,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q4A: {
-        [Language.English]:
-            "Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of quality and durable options to choose from. ",
-        [Language.Hindi]:
-            "इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के विकल्प हैं।",
+        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of <a href="/category/inverters" class="tw-underline">quality and durable options</a> to choose from.`,
+        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के <a href="/category/inverters" class="tw-underline">विकल्प</a> हैं।`,
         [Language.Marathi]: "?????",
     },
     homeS9Q5Q: {
@@ -715,9 +708,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS9Q5A: {
         [Language.English]:
-            "The Livguard Power Planner is a personalised Load Calculator that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.",
+            `The Livguard Power Planner is a personalised Load Calculator that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.`,
         [Language.Hindi]:
-            "लिवगार्ड का पावर प्लानर, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।",
+            `लिवगार्ड का पावर प्लानर, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।`,
         [Language.Marathi]: "?????",
     },
     homeS9T2P1: {

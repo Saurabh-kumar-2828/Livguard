@@ -664,7 +664,7 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
                                         className="lg-text-secondary-900"
                                         key={itemIndex}
                                     >
-                                        <div className="lg-text-secondary-900">{getVernacularString(item.answer, userPreferences.language)}</div>
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
                                     </div>
                                 }
                                 key={itemIndex}
