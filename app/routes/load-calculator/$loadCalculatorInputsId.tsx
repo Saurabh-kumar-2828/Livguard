@@ -363,7 +363,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                     )}
                     onClick={() => emblaApi?.scrollTo(0)}
                 >
-                    Inverters
+                    {getVernacularString("headerMenuS1T1", userPreferences.language)}
                 </button>
 
                 <button
@@ -374,7 +374,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                     )}
                     onClick={() => emblaApi?.scrollTo(1)}
                 >
-                    Batteries
+                    {getVernacularString("headerMenuS1T2", userPreferences.language)}
                 </button>
             </div>
 

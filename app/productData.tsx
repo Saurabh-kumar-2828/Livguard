@@ -31,7 +31,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
                     image: "/livguard/product/inverter/LG750i/infographic/4.jpg",
                 },
             ],
-            title: "Livguard i2-verter pro Square Wave inverter 600 VA with 3-Year Warranty(LG750i Square Wave 600VA )",
+            title: "Livguard i2-verter pro Square Wave inverter 600 VA with 3-Year Warranty(LG750i Square Wave 600VA)",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description: "Bring home the power of unlimited energy with our Inverter. Equipped with the best-in-class warranty and Smart AI Charging to offer a smooth flow of energy to you.",
             productIcons: [
@@ -128,11 +128,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -271,11 +271,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -414,11 +414,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -557,11 +557,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -700,11 +700,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -843,11 +843,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -986,11 +986,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1129,11 +1129,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1272,11 +1272,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1415,11 +1415,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1558,11 +1558,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1701,11 +1701,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1845,11 +1845,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -1987,11 +1987,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2131,11 +2131,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2273,11 +2273,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2417,11 +2417,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2559,11 +2559,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2703,11 +2703,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2845,11 +2845,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -2989,11 +2989,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3131,11 +3131,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3276,11 +3276,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3409,11 +3409,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3545,11 +3545,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3678,11 +3678,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3814,11 +3814,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -3947,11 +3947,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4083,11 +4083,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4216,11 +4216,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4352,11 +4352,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4485,11 +4485,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4621,11 +4621,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4754,11 +4754,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -4890,11 +4890,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5023,11 +5023,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5159,11 +5159,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5292,11 +5292,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5428,11 +5428,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5561,11 +5561,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5697,11 +5697,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5830,11 +5830,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -5966,11 +5966,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6099,11 +6099,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6235,11 +6235,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6368,11 +6368,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6504,11 +6504,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6637,11 +6637,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6776,11 +6776,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",
@@ -6909,11 +6909,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [ke
             },
             recommendedProducts: [
                 {
-                    title: "LG850i",
+                    title: "LG1150i",
                     imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG850i",
+                    link: "/product/LG1150i",
                 },
                 {
                     title: "LG950i",

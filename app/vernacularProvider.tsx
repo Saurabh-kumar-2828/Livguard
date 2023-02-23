@@ -2658,47 +2658,47 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     loadCalculatorRecommendationsS2H1: {
         [Language.English]: `<span class=\"lg-text-highlighted\">Top Choices</span> For You`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">शीर्ष सुझाव</span> आपके लिए`,
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2H2: {
         [Language.English]: "Hand Picked For Your Needs",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपकी आवश्यकताओं के अनुसार",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2T1: {
         [Language.English]: "Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2T2: {
         [Language.English]: "Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2T3: {
         [Language.English]: "Quick View",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "तुरंत देखें",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2T4: {
         [Language.English]: "Match",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मैच",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS3H1: {
-        [Language.English]: "Choosing The",
-        [Language.Hindi]: "?????",
+        [Language.English]: "A Quick Guide to",
+        [Language.Hindi]: "एक सरल गाइड",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS3H2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Right Product</span>`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Choosing the <span class=\"lg-text-highlighted\">Right Product</span>`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सही उत्पाद</span> चुनने के लिए`,
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2CTA1: {
         [Language.English]: "Connect To A Dealer",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारे डीलर से जुड़ें",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2CTA2: {
@@ -2711,35 +2711,55 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बैटरी देखें",
         [Language.Marathi]: "?????",
     },
+    loadCalculatorAdditionalInputsT1: {
+        [Language.English]: "I would require",
+        [Language.Hindi]: "मुझे एक दिन में",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorAdditionalInputsT2: {
+        [Language.English]: "Hours of backup in a day",
+        [Language.Hindi]: "घंटे के बैकअप की ज़रूरत है",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorAdditionalInputsT3: {
+        [Language.English]: "Average Consumption ",
+        [Language.Hindi]: "सामान्य खपत",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorAdditionalInputsT4: {
+        [Language.English]: "Let's Plan",
+        [Language.Hindi]: "नतीजा निकालें",
+        [Language.Marathi]: "?????",
+    },
 
     "propertyType-1-bhk": {
         [Language.English]: "1 BHK",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "1 BHK",
         [Language.Marathi]: "?????",
     },
     "propertyType-2-bhk": {
         [Language.English]: "2 BHK",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "2 BHK",
         [Language.Marathi]: "?????",
     },
     "propertyType-3-bhk": {
         [Language.English]: "3 BHK",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "3 BHK",
         [Language.Marathi]: "?????",
     },
     "propertyType-4-bhk": {
         [Language.English]: "4 BHK",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "4 BHK",
         [Language.Marathi]: "?????",
     },
     "propertyType-villa": {
         [Language.English]: "Villa",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "विला",
         [Language.Marathi]: "?????",
     },
     "propertyType-custom": {
         [Language.English]: "Custom",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कस्टम",
         [Language.Marathi]: "?????",
     },
 

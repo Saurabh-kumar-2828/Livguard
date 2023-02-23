@@ -163,7 +163,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                     // to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
                     className=" lg-cta-button"
                 >
-                    Let's Plan
+                    {getVernacularString("loadCalculatorAdditionalInputsT4", userPreferences.language)}
                 </button>
             </Form>
 
@@ -444,32 +444,32 @@ function PropertySelection({
                     items={[
                         {
                             icon: "/livguard/home/5/1-bhk.png",
-                            content: "1 BHK",
+                            content: `${getVernacularString("propertyType-1-bhk", userPreferences.language)}`,
                             value: "1-bhk",
                         },
                         {
                             icon: "/livguard/home/5/2-bhk.png",
-                            content: "2 BHK",
+                            content: `${getVernacularString("propertyType-2-bhk", userPreferences.language)}`,
                             value: "2-bhk",
                         },
                         {
                             icon: "/livguard/home/5/3-bhk.png",
-                            content: "3 BHK",
+                            content: `${getVernacularString("propertyType-3-bhk", userPreferences.language)}`,
                             value: "3-bhk",
                         },
                         {
                             icon: "/livguard/home/5/4-bhk.png",
-                            content: "4 BHK",
+                            content: `${getVernacularString("propertyType-4-bhk", userPreferences.language)}`,
                             value: "4-bhk",
                         },
                         {
                             icon: "/livguard/home/5/villa.png",
-                            content: "Villa",
+                            content: `${getVernacularString("propertyType-villa", userPreferences.language)}`,
                             value: "villa",
                         },
                         {
                             icon: "/livguard/home/5/custom.png",
-                            content: "Custom",
+                            content: `${getVernacularString("propertyType-custom", userPreferences.language)}`,
                             value: "custom",
                         },
                     ]}
@@ -498,7 +498,6 @@ function PropertySelection({
                                     setCurrentlyChangingPropertyType(item.value);
                                     tryToOpenChangePropertyTypeDialog();
                                 }
-
                             }}
                         >
                             <div
@@ -1590,7 +1589,7 @@ function AdditionalInputsSection({
     return (
         <div className="lg-px-screen-edge">
             <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-2">
-                <div>I would require</div>
+                <div>{getVernacularString("loadCalculatorAdditionalInputsT1", userPreferences.language)}</div>
                 <div className="tw-flex tw-flex-row">
                     <button
                         type="button"
@@ -1648,22 +1647,22 @@ function AdditionalInputsSection({
                         +
                     </button>
                 </div>
-                <div>hours of backup</div>
+                <div>{getVernacularString("loadCalculatorAdditionalInputsT2", userPreferences.language)}</div>
             </div>
 
             <VerticalSpacer className="tw-h-8" />
 
             <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
-                <div className="tw-flex-none">Average Consumption</div>
-                {/* <InformationCircleIcon
+                <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
+                <InformationCircleIcon
                     className="tw-w-4 tw-h-4 tw-flex-none"
                     title={`How much power you expect to consume`}
-                /> */}
-                <Popover className="tw-absolute tw-left-8">
+                />
+                {/* <Popover className="tw-absolute tw-left-8">
                     <Popover.Button>Solutions</Popover.Button>
 
                     <Popover.Panel>"Hello Beby"</Popover.Panel>
-                </Popover>
+                </Popover> */}
                 <EmptyFlexFiller />
                 <div className="tw-flex-none lg-text-body-bold lg-text-secondary-900">{loadCalculatorInputs.averageConsumption}%</div>
             </div>
