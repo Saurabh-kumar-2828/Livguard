@@ -317,7 +317,7 @@ function PropertySelectionForTeaser({
                             >
                                 {/* <FullWidthImage
                                     relativePath={item.icon}
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
@@ -354,7 +354,7 @@ function PowerPlannerIntroduction({userPreferences}: {userPreferences: UserPrefe
                 <FixedWidthImage
                     relativePath="/livguard/home/5/1.png"
                     width="10rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </DefaultImageAnimation>
 
@@ -392,7 +392,7 @@ function PowerPlannerIntroduction({userPreferences}: {userPreferences: UserPrefe
                                 <div className="lg-bg-primary-500 tw-h-12 tw-w-12 tw-rounded-full tw-p-2 tw-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
                                     <FullWidthImage
                                         relativePath={item.icon}
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
                             </div>
@@ -506,7 +506,7 @@ function PropertySelection({
                             >
                                 <FullWidthImage
                                     relativePath={item.icon}
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 />
                             </div>
                             <div>{item.content}</div>

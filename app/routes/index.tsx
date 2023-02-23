@@ -26,7 +26,9 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {getStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccess} from "~/routes/dealer-locator";
@@ -47,7 +49,7 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
-    // const utmParameters =
+    const urlSearchParams = new URL(request.url).searchParams;
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -59,6 +61,9 @@ export const loader: LoaderFunction = async ({request}) => {
 
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     // TODO: Scroll to top if required
 
@@ -142,7 +147,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                imageCdnProvider={ImageCdnProvider.Imgix}
             /> */}
 
             <video
@@ -289,7 +294,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 {/* <FixedWidthImage
                                     relativePath={item.icon}
                                     width="1.5rem"
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
 
                                 <object
@@ -369,7 +374,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                                 <DefaultImageAnimation className="tw-w-full">
                                     <FullWidthImage
                                         relativePath={item.image}
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className="tw-rounded-lg"
                                     />
                                 </DefaultImageAnimation>
@@ -453,7 +458,7 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
                 <DefaultImageAnimation className="tw-w-full">
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-mobile.jpg"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </DefaultImageAnimation>
             </div>
@@ -880,15 +885,15 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
                     items={[
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/2.jpg"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/3.jpg"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />,
                     ]}
                 />
@@ -1049,7 +1054,7 @@ export function ContactUsDialog({
                                     <FixedHeightImage
                                         relativePath="/livguard/header/akshay.png"
                                         height="13.75rem"
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
 

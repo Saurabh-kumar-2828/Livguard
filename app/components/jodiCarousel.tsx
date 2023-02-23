@@ -71,7 +71,7 @@ export function JodiCarousel({
                                                         <div className="tw-flex tw-w-10 tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
                                                             <FixedWidthImage
                                                                 relativePath={keySpecification.keySpecificationIconRelativePath}
-                                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                                 width="1.5rem"
                                                             />
                                                         </div>
@@ -93,7 +93,7 @@ export function JodiCarousel({
                                         <div className="tw-mx-12 tw-flex-1">
                                             <FullWidthImage
                                                 relativePath={item.jodiImageRelativePath}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
                                         </div>
                                     </div>

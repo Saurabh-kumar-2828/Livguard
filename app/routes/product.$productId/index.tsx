@@ -150,7 +150,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                         <DefaultElementAnimation>
                             <FullWidthImage
                                 relativePath={productInfo.images[mainImageIndex].image}
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 className="tw-rounded-lg"
                             />
                         </DefaultElementAnimation>
@@ -166,7 +166,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                 >
                                     <FullWidthImage
                                         relativePath={image.image}
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className="tw-rounded-lg"
                                     />
                                 </div>
@@ -199,7 +199,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                         <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
                                             <FixedWidthImage
                                                 relativePath={icon.icon}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                 width="1.5rem"
                                             />
                                         </div>
@@ -313,7 +313,7 @@ function ProductDescription({userPreferences, productDescription}: {userPreferen
                         <div className="tw-rounded-lg tw-w-full">
                             <FullWidthImage
                                 relativePath={image.image}
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 className="tw-rounded-lg"
                             />
                         </div>

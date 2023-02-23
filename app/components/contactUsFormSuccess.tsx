@@ -34,14 +34,14 @@ export function ContactFormSuccess({userPreferences}: {userPreferences: UserPref
                 <div className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden">
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                         className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
                     />
 
                     <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center">
                         <FixedWidthImage
                             relativePath="/livguard/icons/confirmation.png"
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                             width="10rem"
                         />
                     </div>

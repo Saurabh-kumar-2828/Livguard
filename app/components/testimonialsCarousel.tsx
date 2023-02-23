@@ -39,7 +39,7 @@ export function TestimonialsCarousel({
                                         <FixedWidthImage
                                             relativePath={testimonial.image}
                                             width="5rem"
-                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                             className="tw-rounded-full"
                                         />
                                     </div>
@@ -68,7 +68,7 @@ export function TestimonialsCarousel({
                                     <div className="tw-col-start-3 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.productImage}
-                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                             width="100px"
                                         />
                                     </div>

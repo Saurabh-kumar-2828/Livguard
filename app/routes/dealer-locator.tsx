@@ -579,7 +579,7 @@ export function ApplyNowForDealerDialog({
                                     <FixedHeightImage
                                         relativePath="/livguard/header/akshay.png"
                                         height="13.75rem"
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
 
@@ -607,7 +607,7 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
 
             <FixedWidthImage
                 relativePath="/livguard/icons/confirmation.png"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                imageCdnProvider={ImageCdnProvider.Imgix}
                 width="10rem"
             />
 
@@ -673,7 +673,7 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
                 <FixedHeightImage
                     relativePath="/livguard/header/akshay.png"
                     height="13.75rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
         </div>

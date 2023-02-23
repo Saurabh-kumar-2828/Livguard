@@ -16,7 +16,7 @@ export function StickyLandingPageBottomBar({userPreferences}: {userPreferences: 
                     <FixedWidthImage
                         relativePath="/livguard/icons/dealer.png"
                         width="1.5rem"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                     <Spacer className="tw-w-2" />
                     <div className="lg-text-icon">{getVernacularString("landingPageBottomBarT1", userPreferences.language)}</div>
@@ -31,7 +31,7 @@ export function StickyLandingPageBottomBar({userPreferences}: {userPreferences: 
                     <FixedWidthImage
                         relativePath="/livguard/icons/enquire_now.png"
                         width="1.5rem"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                     <Spacer className="tw-w-2" />
                     <div className="lg-text-icon tw-text-[#FFFFFF]">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>

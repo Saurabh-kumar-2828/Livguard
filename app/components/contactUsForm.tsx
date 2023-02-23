@@ -8,8 +8,6 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function ContactForm({userPreferences, fetcher}: {userPreferences: UserPreferences; fetcher: FetcherWithComponents<any>}) {
-
-    console.log("data ====>",fetcher.data);
     return (
         <div
             className="lg-px-screen-edge tw-flex tw-flex-col"
@@ -38,7 +36,7 @@ export function ContactForm({userPreferences, fetcher}: {userPreferences: UserPr
                 >
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                         className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
                     />
 

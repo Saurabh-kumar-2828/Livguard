@@ -34,7 +34,7 @@ export function CarouselStyle1({userPreferences, items}: {userPreferences: UserP
                                 <DefaultImageAnimation>
                                     <FullWidthImage
                                         relativePath={item.imageRelativePath}
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </DefaultImageAnimation>
 

@@ -35,7 +35,7 @@ export function CarouselStyle2({userPreferences, items}: {userPreferences: UserP
                                     <FullWidthImage
                                         relativePath={item.imageRelativePath}
                                         className="tw-rounded-lg"
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </DefaultImageAnimation>
 

@@ -28,8 +28,6 @@ export function FancySearchableSelect<T extends string>({
     // const filteredOptions = query == "" ? options : options.filter((option) => option[primaryAttribute].toLowerCase().replace(/\s+/g, "").includes(query.toLowerCase().replace(/\s+/g, "")));
     const filteredOptions = query == "" ? options : options.filter((option) => option.toLowerCase().replace(/\s+/g, "").includes(query.toLowerCase().replace(/\s+/g, "")));
 
-    console.log(selected);
-
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-top-16 tw-w-72 tw-z-10", className)}>
             <Combobox

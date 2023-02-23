@@ -17,6 +17,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
@@ -64,6 +65,9 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     const fetcher = useFetcher();
 
     const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     return (
         <>
@@ -113,7 +117,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <CoverImage
                 relativePath="/livguard/landingPages/1/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
@@ -203,7 +207,7 @@ export function LimitlessEnergy({userPreferences}: {userPreferences: UserPrefere
                                     <FullWidthImage
                                         relativePath={item.imageRelativePath}
                                         className="tw-rounded-lg"
-                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </DefaultImageAnimation>
 

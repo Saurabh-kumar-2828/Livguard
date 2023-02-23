@@ -39,7 +39,7 @@ export function EmpowerYourHomeComponent({
                 <DefaultImageAnimation>
                     <FullWidthImage
                         relativePath={item.imageRelativePath}
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                         className="tw-rounded-lg"
                     />
                 </DefaultImageAnimation>
@@ -96,7 +96,7 @@ export function OurSuggestionsComponent({
                             >
                                 <FixedWidthImage
                                     relativePath={keySpecification.keySpecificationIconRelativePath}
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                     width="1.5rem"
                                     className="tw-place-self-center"
                                 />
@@ -116,7 +116,7 @@ export function OurSuggestionsComponent({
             <div className="tw-rounded-lg tw-translate-y-8 tw-mx-12">
                 <FullWidthImage
                     relativePath={vernacularContent.imageRelativePath}
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
 
@@ -134,7 +134,7 @@ export function OurSuggestionsComponent({
                         <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
                         <FullWidthImage
                             relativePath={vernacularContent.imageRelativePath}
-                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </Link>
                 ))}
@@ -176,7 +176,7 @@ export function ProductCardComponent({
                 <div className="tw-px-4 tw-rounded-lg">
                     <FullWidthImage
                         relativePath={vernacularContent.imageRelativePath}
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </div>
             </DefaultImageAnimation>
@@ -227,7 +227,7 @@ export function WhatsBestForYouComponent({
                                     <div className="tw-h-8 tw-min-w-[32px]">
                                         <FullWidthImage
                                             relativePath={downloadButton.iconRelativePath}
-                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                         />
                                     </div>
                                     <div className="lg-text-title2">{downloadButton.text}</div>

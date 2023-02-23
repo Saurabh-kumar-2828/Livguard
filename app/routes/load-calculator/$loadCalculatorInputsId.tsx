@@ -145,7 +145,7 @@ function TotalLoadSection({
             <div className="tw-w-full tw-aspect-[2/1] tw-overflow-hidden">
                 <CoverImage
                     relativePath="/livguard/load-calculator/1.jpg"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
 
@@ -254,7 +254,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <FullWidthImage
                                                 relativePath={`/livguard/inverter images/${recommendation.model}.png`}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
                                         </div>
 
@@ -307,7 +307,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <FullWidthImage
                                                 relativePath={`/livguard/battery images/${recommendation.model}.png`}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
                                         </div>
 

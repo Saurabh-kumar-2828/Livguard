@@ -23,7 +23,6 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
     useEffect(() => {
         setIsSubscribeSuccessDialogeOpen(isSubscriptionSuccess);
-        console.log("~~~~", isSubscriptionSuccess);
     }, [isSubscriptionSuccess]);
 
     return (

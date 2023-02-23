@@ -115,7 +115,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <CoverImage
                 relativePath="/livguard/category/batteries/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
@@ -211,7 +211,7 @@ function BatteriesAreMeantToLast({userPreferences}: {userPreferences: UserPrefer
 //                             <div className="tw-h-6 tw-w-6">
 //                                 <FullWidthImage
 //                                     relativePath="/livguard/icons/flatPlate.png"
-//                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
+//                                     imageCdnProvider={ImageCdnProvider.Imgix}
 //                                 />
 //                             </div>
 //                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.flat ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
@@ -231,7 +231,7 @@ function BatteriesAreMeantToLast({userPreferences}: {userPreferences: UserPrefer
 //                             <div className="tw-h-6 tw-w-6 tw-overflow-hidden">
 //                                 <FullWidthImage
 //                                     relativePath="/livguard/icons/tallTubular.png"
-//                                     imageCdnProvider={ImageCdnProvider.GrowthJockey}
+//                                     imageCdnProvider={ImageCdnProvider.Imgix}
 //                                 />
 //                             </div>
 //                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.tubular ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
@@ -285,14 +285,14 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                 <FullWidthImage
                     relativePath="/livguard/category/batteries/4/1.png"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
 
             <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
                 <FullWidthImage
                     relativePath="/livguard/category/batteries/4/2.png"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
 
@@ -462,7 +462,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/flat-plate.png"
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.flat ? "tw-text-secondary-900-dark" : "lg-text-secondary-100"}`)}>
@@ -483,7 +483,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/tall-tubular.png"
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("lg-text-body", `${selectedBatteryType == BatteryType.tubular ? "tw-text-secondary-900-dark" : "lg-text-secondary-100"}`)}>

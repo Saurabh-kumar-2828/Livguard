@@ -583,7 +583,7 @@ function MenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </Transition.Child>
 
@@ -934,7 +934,7 @@ function SubMenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </Transition.Child>
 

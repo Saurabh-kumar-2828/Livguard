@@ -56,7 +56,7 @@ export function LandingPage3Carousel({
                                         <DefaultImageAnimation>
                                             <FullWidthImage
                                                 relativePath={item.imageRelativePath}
-                                                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                 className="tw-rounded-lg"
                                             />
                                         </DefaultImageAnimation>
