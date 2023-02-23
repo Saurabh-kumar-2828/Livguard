@@ -35,7 +35,11 @@ export const loader: LoaderFunction = async ({request, params}) => {
         throw userPreferences;
     }
 
+    console.log("params product id =====>", params);
+
     const productId = getNonEmptyStringFromUnknown(params.productId as string);
+
+    console.log("Product name ====>", productId);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -173,7 +177,9 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                 <div className="tw-flex tw-flex-col tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title1 tw-text-left">{productInfo.title} <span className="tw-italic">{productInfo.subTitle} </span></div>
+                    <div className="lg-text-title1 tw-text-left">
+                        {productInfo.title} <span className="tw-italic">{productInfo.subTitle} </span>
+                    </div>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -200,7 +206,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                         <div className="tw-text-center">{icon.text}</div>
                                     </div>
 
-                                    {iconIndex < productInfo.productIcons.length - 1 && <div className="tw-w-full tw-border"></div>}
+                                    {iconIndex < productInfo.productIcons.length - 1 && <div className="tw-w-full tw-border lg-border-secondary-900"></div>}
                                 </>
                             )}
                         />
@@ -252,7 +258,7 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
                                     key={itemIndex}
                                     onClick={() => setSelectedTab(item.value)}
                                 >
-                                    <div className={`${item.value == selectedTab ? "tw-underline" : "lg-text-secondary-700"}`}>{item.title}</div>
+                                    <div className={`${item.value == selectedTab ? "tw-underline tw-underline-offset-4" : "lg-text-secondary-700"}`}>{item.title}</div>
                                 </div>
 
                                 {itemIndex < 3 - 1 && <div className="tw-w-full tw-border"></div>}

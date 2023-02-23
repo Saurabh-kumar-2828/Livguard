@@ -1,5 +1,6 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
+import {Link} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {CarouselStyle2} from "~/components/carouselStyle2";
 import {ContactForm} from "~/components/contactUs";
@@ -116,12 +117,12 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <button
-                    type="button"
+                <a
+                    href="#contactUs"
                     className="lg-cta-button lg-px-screen-edge"
                 >
                     {getVernacularString("landingPage1S1T3", userPreferences.language)}
-                </button>
+                </a>
             </DefaultElementAnimation>
 
             <a
@@ -172,7 +173,9 @@ export function LimitlessEnergy({userPreferences}: {userPreferences: UserPrefere
             <VerticalSpacer className="tw-h-4" />
 
             <div className="tw-self-center tw-px-6">
-                <div className="lg-cta-button">{getVernacularString("landingPage1S3BT", userPreferences.language)}</div>
+                <Link to="/">
+                    <div className="lg-cta-button">{getVernacularString("landingPage1S3BT", userPreferences.language)}</div>
+                </Link>
             </div>
         </div>
     );

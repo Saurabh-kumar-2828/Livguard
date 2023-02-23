@@ -190,6 +190,10 @@
         @apply tw-w-full tw-bg-secondary-900-dark tw-text-secondary-100-dark tw-py-3 tw-px-4 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark;
     }
 
+    .lg-border-secondary-900 {
+        @apply tw-border-[#b1b1b1] dark:tw-border-[#474546];
+    }
+
     /* @keyframes animation-text-baseline {
         0% {
             transform: translateY(1em);

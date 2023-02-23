@@ -26,14 +26,19 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
                 </a>
             </div>
 
-            <div className="tw-flex tw-flex-row tw-items-center tw-text-center tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-5">
-                <FixedWidthImage
-                    relativePath="/livguard/icons/enquire_now.png"
-                    width="1.5rem"
-                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                />
-                <Spacer className="tw-w-2" />
-                <div className="lg-text-icon">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>
+            <div className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-5">
+                <a
+                    href="tel:18001025551"
+                    className="tw-flex tw-flex-row tw-items-center tw-text-center"
+                >
+                    <FixedWidthImage
+                        relativePath="/livguard/icons/enquire_now.png"
+                        width="1.5rem"
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    />
+                    <Spacer className="tw-w-2" />
+                    <div className="lg-text-icon tw-text-[#FFFFFF]">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>
+                </a>
             </div>
         </div>
     );

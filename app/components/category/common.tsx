@@ -135,7 +135,7 @@ export function ProductCardComponent({
     return (
         <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3 tw-rounded-lg lg-bg-secondary-100">
             {vernacularContent.bestseller && (
-                <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 lg-text-secondary-900 tw-pt-[2px]"> Best Seller </div>
+                <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 lg-text-secondary-900 tw-text-white tw-pt-[2px]"> Best Seller </div>
             )}
 
             <VerticalSpacer className="tw-h-8" />
@@ -159,7 +159,7 @@ export function ProductCardComponent({
 
             <DefaultElementAnimation>
                 <Link
-                    to={`/product/${vernacularContent.title}`}
+                    to={vernacularContent.link}
                     className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center"
                 >
                     {getVernacularString(vernacularContent.buttonText, userPreferences.language)}
@@ -215,7 +215,9 @@ export function WhatsBestForYouComponent({
             <VerticalSpacer className="tw-h-4" />
 
             <DefaultElementAnimation>
-                <div className="lg-cta-button">{vernacularContent.buttonText}</div>
+                <Link to="/load-calculator">
+                    <div className="lg-cta-button">{vernacularContent.buttonText}</div>
+                </Link>
             </DefaultElementAnimation>
         </div>
     );

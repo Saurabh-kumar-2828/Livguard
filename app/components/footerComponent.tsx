@@ -379,7 +379,11 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="tw-text-center tw-underline">+91-124-4987 400</div>
+
+                    <div className="tw-text-center tw-underline">
+                        <a href="tel:18001025551">+91-124-4987 400</a>
+                    </div>
+
 
                     <VerticalSpacer className="tw-h-6" />
 
