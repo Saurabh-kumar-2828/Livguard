@@ -1,4 +1,4 @@
-import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
+import {ActionFunction, json, LoaderFunction, redirect} from "@remix-run/node";
 import {NonEmptyString} from "~/global-common-typescript/typeDefinitions";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {commitUserPreferencesCookie, getUserPreferencesCookie} from "~/server/userPreferencesCookie.server";
@@ -29,4 +29,8 @@ export const action: ActionFunction = async ({request}) => {
             "Set-Cookie": await commitUserPreferencesCookie(userPreferencesCookie),
         },
     });
+};
+
+export const loader: LoaderFunction = async ({request}) => {
+    return redirect("/");
 };
