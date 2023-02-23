@@ -6,12 +6,15 @@ import {CarouselStyle2} from "~/components/carouselStyle2";
 import {ContactForm} from "~/components/contactUsForm";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {EnergySolutions, FaqSection, TransformingLives} from "~/routes";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -61,8 +64,6 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
     const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
 
-    console.log("fetcher response =====>", isContactUsSubmissionSuccess);
-
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
@@ -77,11 +78,11 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <EnergySolutions userPreferences={userPreferences} />
+            <div className="tw-grid tw-grid-cols-1 tw-gap-y-10 [@media(min-width:1080px)]:tw-grid-cols-2 [@media(min-width:1080px)]:tw-gap-x-10">
+                <EnergySolutions userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-10" />
-
-            <QualityMeetsExpertise userPreferences={userPreferences} />
+                <QualityMeetsExpertise userPreferences={userPreferences} />
+            </div>
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -106,7 +107,8 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
+        <div
+            className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
             <CoverImage
                 relativePath="/livguard/landingPages/1/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -142,11 +144,31 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             >
                 <ChevronDoubleDownIcon className=" tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
             </a>
+
+
         </div>
     );
 }
 
 export function LimitlessEnergy({userPreferences}: {userPreferences: UserPreferences}) {
+    const sectionData = [
+        {
+            imageRelativePath: "/livguard/landingPages/1/section3/1.jpg",
+            titleTextContentPiece: "landingPage1S3Slide1Title",
+            bodyTextContentPiece: "landingPage1S3Slide1Body",
+        },
+        {
+            imageRelativePath: "/livguard/landingPages/1/section3/2.jpg",
+            titleTextContentPiece: "landingPage1S3Slide2Title",
+            bodyTextContentPiece: "landingPage1S3Slide2Body",
+        },
+        {
+            imageRelativePath: "/livguard/landingPages/1/section3/3.jpg",
+            titleTextContentPiece: "landingPage1S3Slide3Title",
+            bodyTextContentPiece: "landingPage1S3Slide3Body",
+        },
+    ];
+
     return (
         <div className="tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-6">
             <div className="tw-px-6 lg-text-headline">
@@ -160,26 +182,42 @@ export function LimitlessEnergy({userPreferences}: {userPreferences: UserPrefere
 
             <VerticalSpacer className="tw-h-4" />
 
-            <CarouselStyle2
-                userPreferences={userPreferences}
-                items={[
-                    {
-                        imageRelativePath: "/livguard/landingPages/1/section3/1.jpg",
-                        titleTextContentPiece: "landingPage1S3Slide1Title",
-                        bodyTextContentPiece: "landingPage1S3Slide1Body",
-                    },
-                    {
-                        imageRelativePath: "/livguard/landingPages/1/section3/2.jpg",
-                        titleTextContentPiece: "landingPage1S3Slide2Title",
-                        bodyTextContentPiece: "landingPage1S3Slide2Body",
-                    },
-                    {
-                        imageRelativePath: "/livguard/landingPages/1/section3/3.jpg",
-                        titleTextContentPiece: "landingPage1S3Slide3Title",
-                        bodyTextContentPiece: "landingPage1S3Slide3Body",
-                    },
-                ]}
-            />
+            <div className="lg:tw-hidden">
+                <CarouselStyle2
+                    userPreferences={userPreferences}
+                    items={sectionData}
+                />
+            </div>
+
+            <div className="tw-hidden lg:tw-block">
+                <div className="tw-grid tw-grid-cols-3 tw-gap-8">
+                    <ItemBuilder
+                        items={sectionData}
+                        itemBuilder={(item, itemIndex) => (
+                            <div
+                                className="tw-w-full tw-h-full tw-grid tw-grid-rows-[1.5rem_auto_1fr_auto_0_auto_1fr_1.5rem] tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem] tw-gap-2"
+                                key={itemIndex}
+                            >
+                                <DefaultImageAnimation className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full -tw-z-10">
+                                    <FullWidthImage
+                                        relativePath={item.imageRelativePath}
+                                        className="tw-rounded-lg"
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                    />
+                                </DefaultImageAnimation>
+
+                                <DefaultTextAnimation className="tw-row-start-4 tw-col-start-2">
+                                    <div className="lg-text-title1 tw-whitespace-pre-line tw-text-secondary-900-dark">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                </DefaultTextAnimation>
+
+                                <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
+                                    <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                </DefaultTextAnimation>
+                            </div>
+                        )}
+                    />
+                </div>
+            </div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -207,7 +245,7 @@ export function QualityMeetsExpertise({userPreferences}: {userPreferences: UserP
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-2 tw-text-center">
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] [@media(min-width:1080px)]:tw-grid-rows-2 tw-gap-2 tw-text-center">
                     <div className="tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-lg tw-py-8">
                         <DefaultElementAnimation>
                             <div className="lg-text-banner">{getVernacularString("landingPageS4Box1T1", userPreferences.language)}</div>

@@ -1,5 +1,5 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {GoogleMap, LoadScript, Marker, MarkerF} from "@react-google-maps/api";
+import {Autocomplete, GoogleMap, LoadScript, Marker, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {Form, useActionData, useFetcher} from "@remix-run/react";
 import React from "react";
@@ -332,6 +332,16 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
                             position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
                         />
                     ))}
+
+                {/* <Autocomplete
+                    onLoad={()}
+                >
+                    <input
+                        type="text"
+                        name="dealerLocation"
+                        placeholder="dealerLocation"
+                    ></input>
+                </Autocomplete> */}
             </GoogleMap>
         </LoadScript>
     );

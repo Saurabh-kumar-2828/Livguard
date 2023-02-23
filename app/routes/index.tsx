@@ -1012,7 +1012,6 @@ export function ContactUsDialog({
                                     name="phoneNumber"
                                     pattern={phoneNumberValidationPattern}
                                     className="lg-text-input"
-                                    defaultValue={"9879879878"}
                                 />
 
                                 <VerticalSpacer className="tw-h-4" />
@@ -1025,7 +1024,6 @@ export function ContactUsDialog({
                                     type="text"
                                     name="name"
                                     className="lg-text-input"
-                                    defaultValue={"test"}
                                 />
 
                                 <VerticalSpacer className="tw-h-4" />
@@ -1039,7 +1037,6 @@ export function ContactUsDialog({
                                     name="emailId"
                                     className="lg-text-input"
                                     pattern={emailIdValidationPattern}
-                                    defaultValue={"test@test.com"}
                                 />
 
                                 <VerticalSpacer className="tw-h-8" />

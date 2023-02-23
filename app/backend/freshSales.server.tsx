@@ -1,5 +1,6 @@
 export async function sendDataToFreshSales(formResponse : {mobile_number:string, first_name: string,email: string, city?: string}){
 
+    console.log("entered function", formResponse);
     try{
         const response = await fetch(`${process.env.FRESH_SALES_API_END_POINT}/contacts`, {
             method: "POST",

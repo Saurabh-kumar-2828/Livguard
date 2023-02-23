@@ -845,15 +845,15 @@ function SubMenuDialog({
                             leaveFrom="tw-opacity-full"
                             leaveTo="tw-opacity-0"
                         >
-                            <button
-                                type="button"
+                            <a
+                                href="tel:18001025551"
                                 className="lg-cta-button tw-px-4"
                             >
                                 <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
                                     <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
                                 </div>
-                            </button>
+                            </a>
                         </Transition.Child>
                     </div>
                 </Dialog.Panel>

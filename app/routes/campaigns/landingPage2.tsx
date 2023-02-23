@@ -319,16 +319,20 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(item, itemIndex) => (
-                            <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 `}>
-                                <FixedWidthImage
-                                    relativePath={item.image}
-                                    imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                    width="150px"
-                                />
+                            <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-p-6`}>
 
-                                <VerticalSpacer className="tw-h-4" />
+                                <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between lg:tw-items-center">
+                                    <FixedWidthImage
+                                        relativePath={item.image}
+                                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                        width="150px"
+                                    />
 
-                                <div className="lg-text-title1">{item.title}</div>
+                                    <VerticalSpacer className="tw-h-4" />
+
+                                    <div className="lg-text-title1">{item.title}</div>
+
+                                </div>
 
                                 <VerticalSpacer className="tw-h-4" />
 
@@ -424,7 +428,7 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-10 tw-gap-y-10 lg:tw-px-40">
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(product, productIndex) => (
@@ -450,10 +454,7 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
                                         <VerticalSpacer className="tw-h-4" />
 
                                         <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">
-                                            <Link to={`/product/${product.title}`}>
-                                                {getVernacularString("landingPage2S7CTABT", userPreferences.language)}
-                                            </Link>
-
+                                            <Link to={`/product/${product.title}`}>{getVernacularString("landingPage2S7CTABT", userPreferences.language)}</Link>
                                         </div>
                                     </div>
                                 </div>
