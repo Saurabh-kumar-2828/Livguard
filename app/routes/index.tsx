@@ -16,6 +16,7 @@ import {CarouselStyle3} from "~/components/carouselStyle3";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
@@ -177,7 +178,10 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 />
             </DefaultElementAnimation>
 
-            <Link to="#energy-storage-solutions" className="tw-row-[11] tw-col-start-1">
+            <Link
+                to="#energy-storage-solutions"
+                className="tw-row-[11] tw-col-start-1"
+            >
                 <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
             </Link>
         </div>
@@ -299,7 +303,10 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none",
+                                        itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50",
+                                    )}
                                 />
                             </div>
 
@@ -771,33 +778,18 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading}: {userP
                 <CarouselStyle3
                     userPreferences={userPreferences}
                     items={[
-                        <iframe
-                            src="https://www.youtube.com/embed/b6gqLXTnZnw"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="tw-w-full"
+                        <EmbeddedYoutubeVideo
+                            id="b6gqLXTnZnw"
                             style={{aspectRatio: "560/315"}}
-                        ></iframe>,
-                        <iframe
-                            src="https://www.youtube.com/embed/CRabeGp9800"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="tw-w-full"
+                        />,
+                        <EmbeddedYoutubeVideo
+                            id="CRabeGp9800"
                             style={{aspectRatio: "560/315"}}
-                        ></iframe>,
-                        <iframe
-                            src="https://www.youtube.com/embed/tFj9GJcjq6s"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="tw-w-full"
+                        />,
+                        <EmbeddedYoutubeVideo
+                            id="tFj9GJcjq6s"
                             style={{aspectRatio: "560/315"}}
-                        ></iframe>,
+                        />,
                     ]}
                 />
 

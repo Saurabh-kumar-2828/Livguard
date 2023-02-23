@@ -2,6 +2,7 @@ import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {getAbsolutePathForRelativePath, ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
@@ -11,7 +12,13 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function CarouselStyle1Video({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{youtubeVideoId: string; videoAspectRatio: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
+export function CarouselStyle1Video({
+    userPreferences,
+    items,
+}: {
+    userPreferences: UserPreferences;
+    items: Array<{youtubeVideoId: string; videoAspectRatio: string; titleTextContentPiece: string; bodyTextContentPiece: string}>;
+}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
@@ -32,15 +39,10 @@ export function CarouselStyle1Video({userPreferences, items}: {userPreferences: 
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation className="tw-w-full">
-                                    <iframe
-                                        src={`https://www.youtube.com/embed/${item.youtubeVideoId}`}
-                                        title="YouTube video player"
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        allowFullScreen
-                                        className="tw-w-full"
+                                    <EmbeddedYoutubeVideo
+                                        id={item.youtubeVideoId}
                                         style={{aspectRatio: item.videoAspectRatio}}
-                                    ></iframe>
+                                    />
                                 </DefaultImageAnimation>
 
                                 <VerticalSpacer className="tw-h-4" />
