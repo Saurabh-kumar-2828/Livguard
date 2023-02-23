@@ -8,6 +8,7 @@ import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthI
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {Spacer} from "~/global-common-typescript/components/spacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
 import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
@@ -115,6 +116,15 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     <HorizontalSpacer className="tw-w-1" />
                     <a href="tel:+919205667999">+91 92056-67999</a>
                 </div>
+
+                {/* <Spacer className="tw-w-1" />
+
+                <Link
+                    to="https://www.livguard.com/e-waste-management.php"
+                    target={"_blank"}
+                >
+                    E-Waste Management
+                </Link> */}
 
                 <div className="tw-flex-1" />
 
@@ -847,6 +857,12 @@ function SubMenuDialog({
                                                   download: null,
                                               },
                                               {
+                                                  linkTextTextContentPiece: "headerMenuSM8T6",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "https://www.livguard.com/e-waste-management.php",
+                                                  download: null,
+                                              },
+                                              {
                                                   linkTextTextContentPiece: "headerMenuSM8T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://www.livguard.com/blog/",
@@ -1127,23 +1143,6 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-2" />
-
-                            <a
-                                href="tel:18001025551"
-                                className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
-                            >
-                                <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">1800-1025-551</div>
-
-                                    <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />
-                                </div>
-                            </a>
-
-                            <VerticalSpacer className="tw-h-4" />
-
                             <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-2" />
@@ -1154,6 +1153,23 @@ function ContactUsDialog({
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
                                     <div className="tw-flex-1">+91 92056-67999</div>
+
+                                    <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />
+                                </div>
+                            </a>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-2" />
+
+                            <a
+                                href="tel:18001025551"
+                                className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
+                            >
+                                <div className="tw-flex tw-flex-row tw-items-center">
+                                    <div className="tw-flex-1">1800-1025-551</div>
 
                                     <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />
                                 </div>
@@ -1376,4 +1392,25 @@ const searchQueries: Array<SearchQuery> = [
     },
     {keyword: "IT 1866TT", informalName: "Product", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1866TT.php", title: "Invertuff IT 1866TT", score: 2},
     {keyword: "IT 1536FP", informalName: "Product", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1536FP.php", title: "Invertuff IT 1536FP", score: 2},
+    {keyword: "Inverter Battery", informalName: "Category(Inverter)", link: "https://www.livguard.com/inverter for home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverter for home/", title: "Livguard Home Inverters", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/solar-panels-and-inverters-for-home/", title: "Solar Inverter for Home", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/", title: "Livguard High-Capacity Inverters", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG3500.php", title: "ih-verter LG3500", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG5000.php", title: "ih-verter LG5000", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-2500.php", title: "ih-verter LGS 2500", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 2},
+    {keyword: "Inverter Battery", informalName: "Product", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 2},
+    {keyword: "Inverter Battery", informalName: "Home", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Inverter Battery", informalName: "Category(IB)", link: "https://www.livguard.com/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 1},
+    {keyword: "Inverter Battery", informalName: "Category (Generic)", link: "https://www.livguard.com/batteries.php", title: "Batteries for All Your Needs", score: 2},
+    {keyword: "Inverter Battery", informalName: "Home", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
 ];

@@ -133,7 +133,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                     className="lg-text-secondary-900"
                                     key={itemIndex}
                                 >
-                                    <Link to={item.link}>{item.title}</Link>
+                                    <Link to={item.link} target="_blank">{item.title}</Link>
                                 </div>
                             )}
                         />
@@ -151,11 +151,11 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             items={[
                                 {
                                     title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/inverters-for-home-use/",
+                                    link: "https://www.livguard.com/category/inverters",
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/inverter-batteries/",
+                                    link: "https://www.livguard.com/category/batteries",
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
@@ -392,39 +392,39 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-10" />
+                <VerticalSpacer className="tw-h-5" />
 
                 <div className="tw-flex tw-flex-col lg-text-secondary-900 tw-px-10">
                     <div className="tw-text-center">{getVernacularString("footerContactT1", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-8" />
+                    <VerticalSpacer className="tw-h-4" />
 
                     <div className="tw-text-center">{getVernacularString("footerContactT2", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-6" />
+                    <VerticalSpacer className="tw-h-3" />
 
                     <div className="tw-text-center tw-underline">
                         <a href="tel:18001025551">+91-124-4987 400</a>
                     </div>
 
-                    <VerticalSpacer className="tw-h-6" />
+                    <VerticalSpacer className="tw-h-3" />
 
                     <div className="tw-text-center tw-underline">
                         <a href="mailto:marketing@livguard.com">marketing@livguard.com</a>
                     </div>
 
-                    <VerticalSpacer className="tw-h-6" />
+                    <VerticalSpacer className="tw-h-3" />
 
                     <div className="tw-text-center tw-underline">
                         <a href="mailto:export@sar-group.com">export@sar-group.com</a>
                     </div>
 
-                    <VerticalSpacer className="tw-h-6" />
+                    <VerticalSpacer className="tw-h-3" />
 
                     <div className="tw-text-center">{getVernacularString("footerContactT3", userPreferences.language)}</div>
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-2" />
 
                 <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
             </div>
@@ -435,7 +435,7 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-3" />
 
             <div className="tw-flex tw-justify-evenly">
                 <a
