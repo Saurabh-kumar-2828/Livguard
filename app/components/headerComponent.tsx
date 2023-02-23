@@ -1014,7 +1014,7 @@ function ContactUsDialog({userPreferences, isContactUsDialogOpen, setIsContactUs
                 </Transition.Child>
 
                 <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
-                    <div />
+                    <div onClick={tryToCloseContactUsDialog} />
 
                     <Transition.Child
                         as={React.Fragment}
@@ -1059,7 +1059,7 @@ function ContactUsDialog({userPreferences, isContactUsDialogOpen, setIsContactUs
                     </Transition.Child>
                 </Dialog.Panel>
 
-                <div />
+                <div onClick={tryToCloseContactUsDialog} />
             </Dialog>
         </Transition>
     );
