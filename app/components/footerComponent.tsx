@@ -21,7 +21,6 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
     const [isSubscribeSuccessDialogeOpen, setIsSubscribeSuccessDialogeOpen] = useState(false);
 
-    console.log("!!!!", fetcher.data);
     useEffect(() => {
         setIsSubscribeSuccessDialogeOpen(isSubscriptionSuccess);
         console.log("~~~~", isSubscriptionSuccess);
@@ -35,17 +34,21 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
             <div className="tw-flex tw-flex-col sm:tw-hidden">
                 <div className="tw-block dark:tw-hidden">
-                    <object
-                        data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                        className="tw-h-6"
-                    />
+                    <Link to="/">
+                        <object
+                            data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                            className="tw-h-6 tw-pointer-events-none"
+                        />
+                    </Link>
                 </div>
 
                 <div className="dark:tw-block tw-hidden">
-                    <object
-                        data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                        className="tw-h-6"
-                    />
+                    <Link to="/">
+                        <object
+                            data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            className="tw-h-6 tw-pointer-events-none"
+                        />
+                    </Link>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />

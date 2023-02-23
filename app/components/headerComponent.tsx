@@ -245,14 +245,14 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     <div className="tw-block dark:tw-hidden">
                         <object
                             data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            className="tw-h-6"
+                            className="tw-h-6 tw-pointer-events-none"
                         />
                     </div>
 
                     <div className="dark:tw-block tw-hidden">
                         <object
                             data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            className="tw-h-6"
+                            className="tw-h-6 tw-pointer-events-none"
                         />
                     </div>
                 </Link>
