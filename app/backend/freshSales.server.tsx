@@ -13,7 +13,8 @@ export async function sendDataToFreshSales(formResponse : {mobile_number:string,
         });
 
         console.log("Response", response.status);
-        console.log("response body ",await response.body?.getReader().read())
+        // console.log("Response", await response.body?.getReader().read());
+        console.log("Response", await response.json());
     }catch (e) {
         console.log("Fresh Sales API Exception");
         console.log(e);

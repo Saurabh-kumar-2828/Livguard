@@ -43,6 +43,15 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
         }
     }
 
+    const [currentlyOpenSubMenu, setCurrentlyOpenSubMenu] = useState<SubMenu | null>(null);
+    const subMenuState = useRef<MenuState>(MenuState.Closed);
+
+    function tryToOpenSubMenu(subMenu: SubMenu) {
+        if (subMenuState.current == MenuState.Closed) {
+            setCurrentlyOpenSubMenu(subMenu);
+        }
+    }
+
     function tryToOpenContactUsDialog() {
         setIsContactUsDialogOpen(true);
     }
@@ -77,6 +86,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
             submit(themeFormRef.current, {replace: true});
             previousTheme.current = selectedTheme;
 
+            // TODO: Remove this now?
             if (selectedTheme == Theme.Dark || (selectedTheme == null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
                 document.documentElement.classList.add("tw-dark");
             } else {
@@ -90,12 +100,31 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
             <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                 <button
                     onClick={tryToOpenContactUsDialog}
-                    className="tw-underline tw-underline-offset-4"
+                    className="tw-underline tw-underline-offset-4 lg:tw-hidden"
                 >
                     {getVernacularString("headerS1T1", userPreferences.language)}
                 </button>
 
+                <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center">
+                    {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
+                    <HorizontalSpacer className="tw-w-1" />
+                    <a href="tel:18001025551">1800-1025-551</a>
+                    <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+                    <HorizontalSpacer className="tw-w-4" />
+                    {getVernacularString("headerContactUsDialogT3", userPreferences.language)}:
+                    <HorizontalSpacer className="tw-w-1" />
+                    <a href="tel:+919205667999">+91 92056-67999</a>
+                </div>
+
                 <div className="tw-flex-1" />
+
+                <div className="tw-hidden lg:tw-flex tw-flex-row">
+                    {getVernacularString("headerEWaste", userPreferences.language)}
+
+                    <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+
+                    <HorizontalSpacer className="tw-w-4" />
+                </div>
 
                 <Form
                     method="post"
@@ -161,7 +190,9 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     />
                 </Form>
 
-                <HorizontalSpacer className="tw-w-3" />
+                <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+
+                <HorizontalSpacer className="tw-w-4" />
 
                 <Form
                     method="post"
@@ -230,32 +261,84 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
 
             <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
                 {showMobileMenuIcon && (
-                    <>
+                    <div className="tw-flex tw-flex-row lg:tw-hidden">
                         <button
                             type="button"
                             onClick={tryToOpenMenu}
                         >
                             <Bars3Icon className="tw-w-6 tw-h-6" />
                         </button>
+
                         <HorizontalSpacer className="tw-w-2" />
-                    </>
+                    </div>
                 )}
 
                 <Link to="/">
                     <div className="tw-block dark:tw-hidden">
                         <object
                             data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            className="tw-h-6 tw-pointer-events-none"
+                            className="tw-h-6 tw-aspect-[385/96] tw-pointer-events-none"
                         />
                     </div>
 
                     <div className="dark:tw-block tw-hidden">
                         <object
                             data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            className="tw-h-6 tw-pointer-events-none"
+                            className="tw-h-6 tw-aspect-[385/96] tw-pointer-events-none"
                         />
                     </div>
                 </Link>
+
+                <div className="tw-w-8 tw-hidden lg:tw-flex" />
+
+                <div className="tw-hidden lg:tw-flex tw-gap-x-8">
+                    <button
+                        type="button"
+                        onClick={() => {
+                            tryToOpenSubMenu(SubMenu.Inverters);
+                        }}
+                    >
+                        {getVernacularString("headerMenuS1T1", userPreferences.language)}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            tryToOpenSubMenu(SubMenu.Batteries);
+                        }}
+                    >
+                        {getVernacularString("headerMenuS1T2", userPreferences.language)}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
+                        }}
+                    >
+                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                    </button>
+
+                    <a href="https://www.livguardsolar.com/">{getVernacularString("headerMenuS1T3", userPreferences.language)}</a>
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            tryToOpenSubMenu(SubMenu.Accessories);
+                        }}
+                    >
+                        {getVernacularString("headerMenuS1T4", userPreferences.language)}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            tryToOpenSubMenu(SubMenu.More);
+                        }}
+                    >
+                        {getVernacularString("headerMenuS1T5", userPreferences.language)}
+                    </button>
+                </div>
 
                 <div className="tw-flex-1" />
 
@@ -281,6 +364,10 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 isMenuOpen={isMenuOpen}
                 setIsMenuOpen={setIsMenuOpen}
                 menuState={menuState}
+                currentlyOpenSubMenu={currentlyOpenSubMenu}
+                setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+                subMenuState={subMenuState}
+                tryToOpenSubMenu={tryToOpenSubMenu}
             />
 
             <SearchDialog
@@ -297,21 +384,20 @@ function MenuDialog({
     isMenuOpen,
     setIsMenuOpen,
     menuState,
+    currentlyOpenSubMenu,
+    setCurrentlyOpenSubMenu,
+    subMenuState,
+    tryToOpenSubMenu,
 }: {
     userPreferences: UserPreferences;
     isMenuOpen: boolean;
     setIsMenuOpen: React.Dispatch<boolean>;
     menuState: React.MutableRefObject<MenuState>;
+    currentlyOpenSubMenu: SubMenu | null;
+    setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
+    subMenuState: React.MutableRefObject<MenuState>;
+    tryToOpenSubMenu: (subMenu: SubMenu) => void;
 }) {
-    const [currentlyOpenSubMenu, setCurrentlyOpenSubMenu] = useState<SubMenu | null>(null);
-    const subMenuState = useRef<MenuState>(MenuState.Closed);
-
-    function tryToOpenSubMenu(subMenu: SubMenu) {
-        if (subMenuState.current == MenuState.Closed) {
-            setCurrentlyOpenSubMenu(subMenu);
-        }
-    }
-
     function tryToCloseMenu() {
         if (menuState.current == MenuState.Open) {
             setIsMenuOpen(false);

@@ -231,6 +231,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "ग्राहक समर्थन",
         [Language.Marathi]: "?????",
     },
+    headerEWaste: {
+        [Language.English]: "E-Waste Management",
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
+        [Language.Marathi]: "?????",
+    },
 
     homeS1T1: {
         [Language.English]: "Experience Uninterrupted ",

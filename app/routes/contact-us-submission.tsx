@@ -26,8 +26,11 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
+    console.log("asd1");
 
     await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId});
+
+    console.log("asd2");
 
     await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId});
 

@@ -47,6 +47,8 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    // const utmParameters =
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
@@ -145,17 +147,17 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
             <video
                 src="https://files.growthjockey.com/livguard/videos/home/1/1.mp4"
-                className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover"
+                className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-object-cover"
                 autoPlay={true}
                 muted={true}
                 loop={true}
                 controls={false}
             />
 
-            <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
+            <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
-                <div className="lg-text-banner lg-px-screen-edge tw-z-10">{getVernacularString("homeS1T1", userPreferences.language)}</div>
+                <div className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">{getVernacularString("homeS1T1", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
@@ -170,14 +172,16 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 />
             </DefaultElementAnimation>
 
-            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
+            <Link to="#energy-storage-solutions" className="tw-row-[11] tw-col-start-1">
+                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
+            </Link>
         </div>
     );
 }
 
 function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div id="energyStorageSolutions">
+        <div id="energy-storage-solutions">
             <div className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <DefaultTextAnimation>
                     <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
@@ -272,7 +276,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                     itemBuilder={(item, itemIndex) => (
                         <button
                             type="button"
-                            className="group tw-flex tw-flex-col tw-items-center hover:tw-cursor-pointer"
+                            className="group tw-flex tw-flex-col tw-items-center"
                             onClick={(e) => emblaApi?.scrollTo(itemIndex)}
                             key={itemIndex}
                         >
@@ -290,7 +294,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
                                 />
                             </div>
 
