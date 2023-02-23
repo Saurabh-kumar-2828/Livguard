@@ -22,7 +22,7 @@ export function getVernacularString(textContentPiece: string, language: Language
 const vernacularStrings: {[textContentPiece: string]: {[language: Language]: string}} = {
     headerS1T1: {
         [Language.English]: "Get In Touch",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमसे जुड़िये",
         [Language.Marathi]: "?????",
     },
     headerS2T1: {
@@ -229,11 +229,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     headerContactUsDialogT3: {
         [Language.English]: "Customer Support",
         [Language.Hindi]: "ग्राहक समर्थन",
-        [Language.Marathi]: "?????",
-    },
-    headerContactUsDialogT4: {
-        [Language.English]: "Back",
-        [Language.Hindi]: "पीछे जाएँ",
         [Language.Marathi]: "?????",
     },
 

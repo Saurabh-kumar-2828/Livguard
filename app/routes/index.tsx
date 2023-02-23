@@ -67,9 +67,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
             >
-                <HomePage
-                    userPreferences={userPreferences}
-                />
+                <HomePage userPreferences={userPreferences} />
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
@@ -80,9 +78,7 @@ export default function () {
 function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
-            <HeroSection
-                userPreferences={userPreferences}
-            />
+            <HeroSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -275,6 +271,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
                     ]}
                     itemBuilder={(item, itemIndex) => (
                         <button
+                            type="button"
                             className="group tw-flex tw-flex-col tw-items-center hover:tw-cursor-pointer"
                             onClick={(e) => emblaApi?.scrollTo(itemIndex)}
                             key={itemIndex}
@@ -293,10 +290,7 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
 
                                 <object
                                     data={`https://files.growthjockey.com${item.svgIcon}`}
-                                    className={concatenateNonNullStringsWithSpaces(
-                                        "tw-w-6 tw-h-6 dark:tw-invert",
-                                        itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50",
-                                    )}
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert", itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50")}
                                 />
                             </div>
 
@@ -900,15 +894,7 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
     );
 }
 
-export function ContactUsCta({
-    userPreferences,
-    textVernacId,
-    className,
-}: {
-    userPreferences: UserPreferences;
-    textVernacId: string;
-    className?: string;
-}) {
+export function ContactUsCta({userPreferences, textVernacId, className}: {userPreferences: UserPreferences; textVernacId: string; className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
     function tryToOpenContactUsDialog() {
@@ -918,6 +904,7 @@ export function ContactUsCta({
     return (
         <div className={className}>
             <button
+                type="button"
                 className="lg-cta-button"
                 onClick={tryToOpenContactUsDialog}
             >
@@ -988,7 +975,10 @@ export function ContactUsDialog({
                         leaveTo="tw-opacity-0"
                     >
                         {isContactUsSubmissionSuccess ? (
-                            <FormSubmissionSuccess userPreferences={userPreferences} tryToCloseDialog={tryToCloseContactUsDialog} />
+                            <FormSubmissionSuccess
+                                userPreferences={userPreferences}
+                                tryToCloseDialog={tryToCloseContactUsDialog}
+                            />
                         ) : (
                             <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"

@@ -2,7 +2,7 @@ import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon, LanguageIcon} from "@heroicons/react/20/solid";
 import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
-import {ArrowLeftShort, BrightnessHighFill, BrightnessLowFill, Check2, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
+import {ArrowLeftShort, BrightnessHighFill, BrightnessLowFill, Check2, ChevronDown, MoonStarsFill, PhoneFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -36,7 +36,6 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuState = useRef<MenuState>(MenuState.Closed);
-
 
     function tryToOpenMenu() {
         if (menuState.current == MenuState.Closed) {
@@ -174,12 +173,9 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         value={selectedLanguage}
                         onChange={setSelectedLanguage}
                     >
-                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[auto_1.5rem] tw-gap-x-2 tw-items-center">
-                            <object
-                                data="https://files.growthjockey.com/livguard/icons/header/vernacular.svg"
-                                className="tw-w-4 tw-h-4 dark:tw-invert"
-                            />
+                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center">
                             {languageToShortHumanFriendlyFormat(selectedLanguage)}
+                            <ChevronDown className="tw-w-4 tw-h-4" />
                         </Listbox.Button>
 
                         <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 -tw-left-8 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
@@ -986,7 +982,15 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
     );
 }
 
-function ContactUsDialog({userPreferences, isContactUsDialogOpen, setIsContactUsDialogOpen}: {userPreferences: UserPreferences; isContactUsDialogOpen: boolean; setIsContactUsDialogOpen: React.Dispatch<boolean>}) {
+function ContactUsDialog({
+    userPreferences,
+    isContactUsDialogOpen,
+    setIsContactUsDialogOpen,
+}: {
+    userPreferences: UserPreferences;
+    isContactUsDialogOpen: boolean;
+    setIsContactUsDialogOpen: React.Dispatch<boolean>;
+}) {
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
     }
@@ -1025,36 +1029,53 @@ function ContactUsDialog({userPreferences, isContactUsDialogOpen, setIsContactUs
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
-                            <div className="lg-text-title1">{getVernacularString("headerContactUsDialogT1", userPreferences.language)}</div>
+                        <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
+                            <div className="tw-grid tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]">
+                                <div className="tw-row-start-1 tw-col-start-2 tw-w-full tw-text-center lg-text-headline">
+                                    {getVernacularString("headerContactUsDialogT1", userPreferences.language)}
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={tryToCloseContactUsDialog}
+                                    className="tw-row-start-1 tw-col-start-3"
+                                >
+                                    <X className="tw-w-6 tw-h-6" />
+                                </button>
+                            </div>
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-body-bold">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            <a href="tel:18001025551">
-                                <input value="18001025551" className="lg-text-input" disabled />
+                            <a
+                                href="tel:18001025551"
+                                className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
+                            >
+                                <div className="tw-flex tw-flex-row tw-items-center">
+                                    <div className="tw-flex-1">1800-1025-551</div>
+
+                                    <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />
+                                </div>
                             </a>
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-body-bold">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            <input value="18001025551" className="lg-text-input" disabled />
-
-                            <VerticalSpacer className="tw-h-8" />
-
-                            <button
-                                type="button"
-                                className="tw-self-center"
-                                onClick={tryToCloseContactUsDialog}
+                            <a
+                                href="tel:+919205667999"
+                                className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
-                                {getVernacularString("headerContactUsDialogT4", userPreferences.language)}
-                            </button>
+                                <div className="tw-flex tw-flex-row tw-items-center">
+                                    <div className="tw-flex-1">+91 92056-67999</div>
+
+                                    <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />
+                                </div>
+                            </a>
                         </div>
                     </Transition.Child>
                 </Dialog.Panel>
