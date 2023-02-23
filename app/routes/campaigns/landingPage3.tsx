@@ -8,6 +8,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
+import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -79,7 +80,7 @@ export default function () {
                 actionData={actionData}
             />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
-            {/* <StickyBottomBar userPreferences={userPreferences} /> */}
+            <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );
 }
@@ -149,17 +150,10 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                {/* <button
-                    type="button"
-                    className="lg-cta-button lg-px-screen-edge"
-                >
-                    {getVernacularString("landingPage3S1T3", userPreferences.language)}
-                </button> */}
                 <ContactUsCta
                     userPreferences={userPreferences}
                     textVernacId="landingPage3S1T3"
                     className="tw-z-10"
-                    isContactUsSubmissionSuccess={false}
                 />
             </DefaultElementAnimation>
 
@@ -204,7 +198,11 @@ export function TapIntoEfficiency({userPreferences}: {userPreferences: UserPrefe
             />
             <VerticalSpacer className="tw-h-8 tw-flex-1" />
 
-            <div className="lg-cta-button">{getVernacularString("landingPage3S7BT", userPreferences.language)}</div>
+            <ContactUsCta
+                userPreferences={userPreferences}
+                textVernacId="landingPage3S7BT"
+                className="tw-z-10"
+            />
         </div>
     );
 }

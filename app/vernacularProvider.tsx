@@ -1594,7 +1594,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBattriesS6JodiButtontext: {
-        [Language.English]: "Know More",
+        [Language.English]: "View Product",
         [Language.Hindi]: "अधिक जानिए",
         [Language.Marathi]: "?????",
     },
@@ -2199,9 +2199,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "रिव्यूज़ के आधार पर",
         [Language.Marathi]: "?????",
     },
+    categoryViewProductButtontext: {
+        [Language.English]: "View Product",
+        [Language.Hindi]: "विस्तार से देखें",
+        [Language.Marathi]: "?????",
+    },
     review1Name: {
         [Language.English]: "Thangamani M",
-        [Language.Hindi]: "तंगमणि एम",
+        [Language.Hindi]: "विस्तार से देखें",
         [Language.Marathi]: "?????",
     },
     review1State: {
@@ -2697,12 +2702,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2CTA2: {
-        [Language.English]: "Explore Category",
+        [Language.English]: "Explore Inverters",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-    loadCalculatorRecommendationsS4CTA1: {
-        [Language.English]: "Connect To Dealer",
+    loadCalculatorRecommendationsS2CTA3: {
+        [Language.English]: "Explore Batteries",
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },

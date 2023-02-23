@@ -330,13 +330,9 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
             <VerticalSpacer className="tw-h-6" />
 
             <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA1", userPreferences.language)}</div>
-            </DefaultElementAnimation>
-
-            <VerticalSpacer className="tw-h-6" />
-
-            <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                <div className="lg-cta-outline-button">{getVernacularString("loadCalculatorRecommendationsS2CTA2", userPreferences.language)}</div>
+                <Link to="/dealer-locator">
+                    <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA1", userPreferences.language)}</div>
+                </Link>
             </DefaultElementAnimation>
         </div>
     );
@@ -393,9 +389,29 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                 ref={emblaRef}
             >
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
-                    <OurInvertersSectionInternal userPreferences={userPreferences} />
+                    <div className="tw-flex tw-flex-col">
+                        <OurInvertersSectionInternal userPreferences={userPreferences} />
 
-                    <OurBatteriesSectionInternal userPreferences={userPreferences} />
+                        <VerticalSpacer className="tw-h-4" />
+
+                        <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
+                            <Link to="/category/inverters">
+                                <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA2", userPreferences.language)}</div>
+                            </Link>
+                        </DefaultElementAnimation>
+                    </div>
+
+                    <div className="tw-flex tw-flex-col">
+                        <OurBatteriesSectionInternal userPreferences={userPreferences} />
+
+                        <VerticalSpacer className="tw-h-4" />
+
+                        <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
+                            <Link to="/category/inverters">
+                                <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA3", userPreferences.language)}</div>
+                            </Link>
+                        </DefaultElementAnimation>
+                    </div>
                 </div>
             </div>
         </div>
