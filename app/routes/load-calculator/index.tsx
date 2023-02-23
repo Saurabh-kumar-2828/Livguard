@@ -1,5 +1,5 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
-import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleDownIcon, ChevronDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
 import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
@@ -1652,10 +1652,30 @@ function AdditionalInputsSection({
 
             <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
                 <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
-                <InformationCircleIcon
-                    className="tw-w-4 tw-h-4 tw-flex-none"
-                    title={`How much power you expect to consume`}
-                />
+
+                <Popover>
+                    {({open}) => (
+                        <>
+                            <Popover.Button>
+                                <InformationCircleIcon className="tw-w-4 tw-h-4 tw-flex-none" />
+                            </Popover.Button>
+
+                            <Transition
+                                as={React.Fragment}
+                                enter="transition ease-out duration-200"
+                                enterFrom="opacity-0 translate-y-1"
+                                enterTo="opacity-100 translate-y-0"
+                                leave="transition ease-in duration-150"
+                                leaveFrom="opacity-100 translate-y-0"
+                                leaveTo="opacity-0 translate-y-1"
+                            >
+                                <Popover.Panel className="tw-absolute tw-left-0 tw-right-0 tw-z-10 tw-mt-3 tw-max-w-sm tw-transform tw-px-4 tw-sm:px-0 tw-lg:max-w-3xl">
+                                    <div className="lg-bg-secondary-300 tw-p-2 tw-rounded-lg">How much power you expect to consume</div>
+                                </Popover.Panel>
+                            </Transition>
+                        </>
+                    )}
+                </Popover>
                 {/* <Popover className="tw-absolute tw-left-8">
                     <Popover.Button>Solutions</Popover.Button>
 

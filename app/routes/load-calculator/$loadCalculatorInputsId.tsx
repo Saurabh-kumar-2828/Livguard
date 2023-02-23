@@ -448,11 +448,19 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
         recommendedBatteries: null,
     };
 
-    if (averageWatts < 600 && ah < 90) {
+    if (totalWatts < 525 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
+            },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -460,16 +468,28 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 90) {
+    } else if (totalWatts < 595 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -477,8 +497,16 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 90) {
+    } else if (totalWatts < 680 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -488,134 +516,444 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 90) {
+    } else if (totalWatts < 704 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 90) {
+    } else if (totalWatts < 1050 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 9048ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 90) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 90) {
+    } else if (totalWatts < 1260 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 9048ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 90) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 2500 && ah < 90) {
+    } else if (totalWatts < 1600 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 9048ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 90) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 90) {
+    } else if (totalWatts < 2800 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 90) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 9048ST",
                 score: 10,
             },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 100) {
+    } else if (totalWatts < 4000 && ah < 90) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 9048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1048ST",
+                score: 9,
+            },
+            {
+                model: "IT 1160STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
+            },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -623,16 +961,28 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 100) {
+    } else if (totalWatts < 595 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -640,8 +990,16 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 100) {
+    } else if (totalWatts < 680 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -651,160 +1009,490 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 100) {
+    } else if (totalWatts < 704 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 100) {
+    } else if (totalWatts < 1050 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1048ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 100) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 100) {
+    } else if (totalWatts < 1260 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1048ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 100) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 2500 && ah < 100) {
+    } else if (totalWatts < 1600 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1048ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 100) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 100) {
+    } else if (totalWatts < 2800 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 100) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1048ST",
                 score: 10,
             },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 110) {
+    } else if (totalWatts < 4000 && ah < 100) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1048ST",
+                score: 10,
+            },
+            {
+                model: "IT 1160STT",
+                score: 9,
+            },
+            {
+                model: "IT 1584TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
             },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 110) {
+    } else if (totalWatts < 595 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 110) {
+    } else if (totalWatts < 680 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -814,160 +1502,490 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 110) {
+    } else if (totalWatts < 704 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 110) {
+    } else if (totalWatts < 1050 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1160STT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 110) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 110) {
+    } else if (totalWatts < 1260 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1160STT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 110) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 2500 && ah < 110) {
+    } else if (totalWatts < 1600 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1160STT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 110) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 110) {
+    } else if (totalWatts < 2800 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 110) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1160STT",
+                model: "IT 1160SST",
                 score: 10,
             },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 120) {
+    } else if (totalWatts < 4000 && ah < 110) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1160SST",
+                score: 10,
+            },
+            {
+                model: "IT 1584TT",
+                score: 9,
+            },
+            {
+                model: "IT 1554STJ",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
             },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 120) {
+    } else if (totalWatts < 595 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 120) {
+    } else if (totalWatts < 680 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -977,160 +1995,490 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 120) {
+    } else if (totalWatts < 704 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 120) {
+    } else if (totalWatts < 1050 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 481200ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 120) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 120) {
+    } else if (totalWatts < 1260 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 481200ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 120) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 2500 && ah < 120) {
+    } else if (totalWatts < 1600 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 481200ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 120) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 120) {
+    } else if (totalWatts < 2800 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 150) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481200ST",
+                model: "IT 1584TT",
                 score: 10,
             },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 135) {
+    } else if (totalWatts < 4000 && ah < 150) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
             },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 135) {
+    } else if (totalWatts < 595 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 135) {
+    } else if (totalWatts < 680 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -1140,240 +2488,490 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 135) {
+    } else if (totalWatts < 704 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 135) {
+    } else if (totalWatts < 1050 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 481400ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 135) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 135) {
+    } else if (totalWatts < 1260 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 481400ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 135) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 2500 && ah < 135) {
+    } else if (totalWatts < 1600 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 481400ST",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 135) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 135) {
+    } else if (totalWatts < 2800 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 160) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 481400ST",
+                model: "IT 1666TT",
                 score: 10,
             },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 150) {
+    } else if (totalWatts < 4000 && ah < 160) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 180) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
+                model: "LGS900i",
                 score: 9,
             },
             {
-                model: "IT 1554TT",
+                model: "LGS1000i",
                 score: 8,
             },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1554STJ",
-                score: 7,
+                model: "IT 1866TT",
+                score: 10,
             },
             {
-                model: "IT 1550TT",
-                score: 6,
+                model: "IT 18605TT",
+                score: 9,
             },
             {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
+                model: "IT 1666TT",
+                score: 8,
             },
         ];
-    } else if (averageWatts < 700 && ah < 150) {
+    } else if (totalWatts < 595 && ah < 180) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
+                model: "IT 1866TT",
                 score: 10,
             },
             {
-                model: "IT 1560STT",
+                model: "IT 18605TT",
                 score: 9,
             },
             {
-                model: "IT 1554TT",
+                model: "IT 1666TT",
                 score: 8,
             },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
         ];
-    } else if (averageWatts < 800 && ah < 150) {
+    } else if (totalWatts < 680 && ah < 180) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -1383,789 +2981,38 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
+                model: "LGS1100i",
                 score: 8,
             },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 1100 && ah < 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1450i",
-                score: 10,
-            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
+                model: "IT 1866TT",
                 score: 10,
             },
             {
-                model: "IT 1560STT",
+                model: "IT 18605TT",
                 score: 9,
             },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 1250 && ah < 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
-                score: 10,
-            },
-            {
-                model: "LGS1600",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 1650 && ah < 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
-                score: 10,
-            },
-            {
-                model: "LG2300",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 2500 && ah < 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 120) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
-                score: 10,
-            },
-            {
-                model: "LG3500",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 4000 && ah < 120) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS5000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1584TT",
-                score: 11,
-            },
-            {
-                model: "IT 1560TT",
-                score: 10,
-            },
-            {
-                model: "IT 1560STT",
-                score: 9,
-            },
-            {
-                model: "IT 1554TT",
-                score: 8,
-            },
-            {
-                model: "IT 1554STJ",
-                score: 7,
-            },
-            {
-                model: "IT 1550TT",
-                score: 6,
-            },
-            {
-                model: "IT 1548TT",
-                score: 5,
-            },
-            {
-                model: "IT 1548STT",
-                score: 4,
-            },
-            {
-                model: "IT 1542STJ",
-                score: 3,
-            },
-            {
-                model: "IT 1536TT",
-                score: 2,
-            },
-            {
-                model: "IT 1536FP",
-                score: 1,
-            },
-        ];
-    } else if (averageWatts < 600 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG750i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
                 score: 8,
             },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
         ];
-    } else if (averageWatts < 700 && ah < 160) {
+    } else if (totalWatts < 704 && ah < 180) {
         loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS900i",
-                score: 10,
-            },
-            {
-                model: "LG850i",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 800 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1000i",
-                score: 10,
-            },
             {
                 model: "LG950i",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
                 score: 10,
             },
             {
-                model: "IT 1645TT",
+                model: "LGS1100i",
                 score: 9,
             },
             {
-                model: "IT 1639TT",
+                model: "LG1150i",
                 score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 1100 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1450i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 1250 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
-                score: 10,
-            },
-            {
-                model: "LGS1600",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 1650 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
-                score: 10,
-            },
-            {
-                model: "LG2300",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 2500 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
-                score: 10,
-            },
-            {
-                model: "LG3500",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 4000 && ah < 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS5000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1666TT",
-                score: 10,
-            },
-            {
-                model: "IT 1645TT",
-                score: 9,
-            },
-            {
-                model: "IT 1639TT",
-                score: 8,
-            },
-            {
-                model: "IT 1636STJ",
-                score: 7,
-            },
-        ];
-    } else if (averageWatts < 600 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG750i",
-                score: 10,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2174,249 +3021,404 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 10,
             },
             {
-                model: "IT 1860TT",
+                model: "IT 18605TT",
                 score: 9,
             },
             {
-                model: "IT 1848STJ",
+                model: "IT 1666TT",
                 score: 8,
             },
         ];
-    } else if (averageWatts < 700 && ah < 180) {
+    } else if (totalWatts < 765 && ah < 180) {
         loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1450i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1050 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1550i",
+                score: 10,
+            },
+            {
+                model: "LGS1600",
+                score: 9,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 180) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG750i",
+                score: 10,
+            },
             {
                 model: "LGS900i",
-                score: 10,
-            },
-            {
-                model: "LG850i",
                 score: 9,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 800 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
-                score: 10,
-            },
-            {
-                model: "LG950i",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
                 score: 8,
-            },
-        ];
-    } else if (averageWatts < 1100 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1450i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 1250 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
-                score: 10,
-            },
-            {
-                model: "LGS1600",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 1650 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
-                score: 10,
-            },
-            {
-                model: "LG2300",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 2500 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
-                score: 10,
-            },
-            {
-                model: "LG3500",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 4000 && ah < 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS5000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 1866TT",
-                score: 10,
-            },
-            {
-                model: "IT 1860TT",
-                score: 9,
-            },
-            {
-                model: "IT 1848STJ",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 600 && ah < 200) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG750i",
-                score: 10,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2433,15 +3435,19 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 700 && ah < 200) {
+    } else if (totalWatts < 595 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2458,7 +3464,7 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 800 && ah < 200) {
+    } else if (totalWatts < 680 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -2468,6 +3474,10 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -2483,12 +3493,107 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 1100 && ah < 200) {
+    } else if (totalWatts < 704 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -2504,37 +3609,20 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 1250 && ah < 200) {
+    } else if (totalWatts < 1050 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2066TT",
-                score: 10,
-            },
-            {
-                model: "IT 2060TT",
-                score: 9,
-            },
-            {
-                model: "IT 2048TT",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 200) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -2550,37 +3638,49 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 1650 && ah < 200) {
+    } else if (totalWatts < 1260 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2066TT",
-                score: 10,
-            },
-            {
-                model: "IT 2060TT",
-                score: 9,
-            },
-            {
-                model: "IT 2048TT",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 200) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -2596,37 +3696,78 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 2500 && ah < 200) {
+    } else if (totalWatts < 1600 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2066TT",
-                score: 10,
-            },
-            {
-                model: "IT 2060TT",
-                score: 9,
-            },
-            {
-                model: "IT 2048TT",
-                score: 8,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 200) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -2642,12 +3783,78 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 4000 && ah < 200) {
+    } else if (totalWatts < 2800 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 200) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -2663,11 +3870,48 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 8,
             },
         ];
-    } else if (averageWatts < 600 && ah < 220) {
+    } else if (totalWatts < 4000 && ah < 200) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
+            },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2675,16 +3919,28 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 220) {
+    } else if (totalWatts < 595 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2692,8 +3948,16 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 220) {
+    } else if (totalWatts < 680 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -2703,134 +3967,444 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 220) {
+    } else if (totalWatts < 704 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 220) {
+    } else if (totalWatts < 1050 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2266TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 220) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 220) {
+    } else if (totalWatts < 1260 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2266TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 220) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 2500 && ah < 220) {
+    } else if (totalWatts < 1600 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2266TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 220) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
                 score: 10,
             },
             {
                 model: "LG3500",
                 score: 9,
             },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 220) {
+    } else if (totalWatts < 2800 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 220) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
                 score: 10,
             },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2266TT",
                 score: 10,
             },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 230) {
+    } else if (totalWatts < 4000 && ah < 220) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG750i",
                 score: 10,
+            },
+            {
+                model: "LGS900i",
+                score: 9,
+            },
+            {
+                model: "LGS1000i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2838,16 +4412,28 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 700 && ah < 230) {
+    } else if (totalWatts < 595 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
                 score: 10,
             },
             {
-                model: "LG850i",
+                model: "LGS1000i",
                 score: 9,
+            },
+            {
+                model: "LG950i",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2855,8 +4441,16 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 800 && ah < 230) {
+    } else if (totalWatts < 680 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -2866,107 +4460,211 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "LG950i",
                 score: 9,
             },
+            {
+                model: "LGS1100i",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1100 && ah < 230) {
+    } else if (totalWatts < 704 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG950i",
+                score: 10,
+            },
+            {
+                model: "LGS1100i",
+                score: 9,
+            },
+            {
+                model: "LG1150i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 765 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1100i",
+                score: 10,
+            },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LG1450i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 792 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1150i",
+                score: 10,
+            },
+            {
+                model: "LG1450i",
+                score: 9,
+            },
+            {
+                model: "LG1550i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 924 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
                 score: 10,
             },
+            {
+                model: "LG1550i",
+                score: 9,
+            },
+            {
+                model: "LGS1600",
+                score: 8,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1250 && ah < 230) {
+    } else if (totalWatts < 1050 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2360TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 230) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
                 score: 10,
             },
             {
                 model: "LGS1600",
                 score: 9,
             },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 1650 && ah < 230) {
+    } else if (totalWatts < 1260 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1600",
+                score: 10,
+            },
+            {
+                model: "LGS1700",
+                score: 9,
+            },
+            {
+                model: "LG1950i",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2360TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 230) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 2360TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2500 && ah < 230) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2360TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 230) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
-                score: 10,
-            },
-            {
-                model: "LG3500",
+                model: "LGS2500",
                 score: 9,
             },
         ];
@@ -2975,12 +4673,28 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 4000 && ah < 230) {
+    } else if (totalWatts < 1600 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LGS5000",
+                model: "LG2300",
                 score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2988,12 +4702,3504 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 model: "IT 2360TT",
                 score: 10,
             },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
         ];
-    } else if (averageWatts < 600 && ah < 260) {
+    } else if (totalWatts < 1680 && ah < 230) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LGS2500",
                 score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 230) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 525 && ah < 260) {
+        if (totalWatts < 525 && ah < 230) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG750i",
+                    score: 10,
+                },
+                {
+                    model: "LGS900i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1000i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 595 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS900i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1000i",
+                    score: 9,
+                },
+                {
+                    model: "LG950i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 680 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1000i",
+                    score: 10,
+                },
+                {
+                    model: "LG950i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1100i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 704 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG950i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1100i",
+                    score: 9,
+                },
+                {
+                    model: "LG1150i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 765 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1100i",
+                    score: 10,
+                },
+                {
+                    model: "LG1550i",
+                    score: 9,
+                },
+                {
+                    model: "LG1450i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 792 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1150i",
+                    score: 10,
+                },
+                {
+                    model: "LG1450i",
+                    score: 9,
+                },
+                {
+                    model: "LG1550i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 924 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1450i",
+                    score: 10,
+                },
+                {
+                    model: "LG1550i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1600",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 1050 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1550i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1600",
+                    score: 9,
+                },
+                {
+                    model: "LGS1700",
+                    score: 9,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 1260 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1600",
+                    score: 10,
+                },
+                {
+                    model: "LGS1700",
+                    score: 9,
+                },
+                {
+                    model: "LG1950i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 1386 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1950i",
+                    score: 10,
+                },
+                {
+                    model: "LG2300",
+                    score: 9,
+                },
+                {
+                    model: "LGS2500",
+                    score: 9,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 1600 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG2300",
+                    score: 10,
+                },
+                {
+                    model: "LGS2500",
+                    score: 9,
+                },
+                {
+                    model: "LGS5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 1680 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS2500",
+                    score: 10,
+                },
+                {
+                    model: "LGS3000",
+                    score: 9,
+                },
+                {
+                    model: "LG3500",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 2100 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS3000",
+                    score: 10,
+                },
+                {
+                    model: "LG3500",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 2800 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG3500",
+                    score: 10,
+                },
+                {
+                    model: "LGS4000",
+                    score: 9,
+                },
+                {
+                    model: "LGS5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 2940 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS4000",
+                    score: 10,
+                },
+                {
+                    model: "LGS5000",
+                    score: 9,
+                },
+                {
+                    model: "LG5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 3360 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS5000",
+                    score: 10,
+                },
+                {
+                    model: "LG5000",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        } else if (totalWatts < 4000 && ah < 260) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG5000",
+                    score: 10,
+                },
+                {
+                    model: "LGS5000",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+                {
+                    model: "IT 2360TT",
+                    score: 9,
+                },
+                {
+                    model: "IT 2266TT",
+                    score: 8,
+                },
+            ];
+        }
+    } else if (totalWatts < 525 && ah < 290) {
+        if (totalWatts < 525 && ah < 230) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG750i",
+                    score: 10,
+                },
+                {
+                    model: "LGS900i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1000i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 595 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS900i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1000i",
+                    score: 9,
+                },
+                {
+                    model: "LG950i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 680 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1000i",
+                    score: 10,
+                },
+                {
+                    model: "LG950i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1100i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 704 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG950i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1100i",
+                    score: 9,
+                },
+                {
+                    model: "LG1150i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 765 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1100i",
+                    score: 10,
+                },
+                {
+                    model: "LG1550i",
+                    score: 9,
+                },
+                {
+                    model: "LG1450i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 792 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1150i",
+                    score: 10,
+                },
+                {
+                    model: "LG1450i",
+                    score: 9,
+                },
+                {
+                    model: "LG1550i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 924 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1450i",
+                    score: 10,
+                },
+                {
+                    model: "LG1550i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1600",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1050 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1550i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1600",
+                    score: 9,
+                },
+                {
+                    model: "LGS1700",
+                    score: 9,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1260 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1600",
+                    score: 10,
+                },
+                {
+                    model: "LGS1700",
+                    score: 9,
+                },
+                {
+                    model: "LG1950i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1386 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1950i",
+                    score: 10,
+                },
+                {
+                    model: "LG2300",
+                    score: 9,
+                },
+                {
+                    model: "LGS2500",
+                    score: 9,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1600 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG2300",
+                    score: 10,
+                },
+                {
+                    model: "LGS2500",
+                    score: 9,
+                },
+                {
+                    model: "LGS5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1680 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS2500",
+                    score: 10,
+                },
+                {
+                    model: "LGS3000",
+                    score: 9,
+                },
+                {
+                    model: "LG3500",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 2100 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS3000",
+                    score: 10,
+                },
+                {
+                    model: "LG3500",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 2800 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG3500",
+                    score: 10,
+                },
+                {
+                    model: "LGS4000",
+                    score: 9,
+                },
+                {
+                    model: "LGS5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 2940 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS4000",
+                    score: 10,
+                },
+                {
+                    model: "LGS5000",
+                    score: 9,
+                },
+                {
+                    model: "LG5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 3360 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS5000",
+                    score: 10,
+                },
+                {
+                    model: "LG5000",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 4000 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG5000",
+                    score: 10,
+                },
+                {
+                    model: "LGS5000",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        }
+    } else if (totalWatts < 525 && ah < 290) {
+        if (totalWatts < 525 && ah < 230) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG750i",
+                    score: 10,
+                },
+                {
+                    model: "LGS900i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1000i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 595 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS900i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1000i",
+                    score: 9,
+                },
+                {
+                    model: "LG950i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 680 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1000i",
+                    score: 10,
+                },
+                {
+                    model: "LG950i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1100i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 704 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG950i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1100i",
+                    score: 9,
+                },
+                {
+                    model: "LG1150i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 765 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1100i",
+                    score: 10,
+                },
+                {
+                    model: "LG1550i",
+                    score: 9,
+                },
+                {
+                    model: "LG1450i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 792 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1150i",
+                    score: 10,
+                },
+                {
+                    model: "LG1450i",
+                    score: 9,
+                },
+                {
+                    model: "LG1550i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 924 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1450i",
+                    score: 10,
+                },
+                {
+                    model: "LG1550i",
+                    score: 9,
+                },
+                {
+                    model: "LGS1600",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1050 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1550i",
+                    score: 10,
+                },
+                {
+                    model: "LGS1600",
+                    score: 9,
+                },
+                {
+                    model: "LGS1700",
+                    score: 9,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1260 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS1600",
+                    score: 10,
+                },
+                {
+                    model: "LGS1700",
+                    score: 9,
+                },
+                {
+                    model: "LG1950i",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1386 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG1950i",
+                    score: 10,
+                },
+                {
+                    model: "LG2300",
+                    score: 9,
+                },
+                {
+                    model: "LGS2500",
+                    score: 9,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1600 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG2300",
+                    score: 10,
+                },
+                {
+                    model: "LGS2500",
+                    score: 9,
+                },
+                {
+                    model: "LGS5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 1680 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS2500",
+                    score: 10,
+                },
+                {
+                    model: "LGS3000",
+                    score: 9,
+                },
+                {
+                    model: "LG3500",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 2100 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS3000",
+                    score: 10,
+                },
+                {
+                    model: "LG3500",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 2800 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG3500",
+                    score: 10,
+                },
+                {
+                    model: "LGS4000",
+                    score: 9,
+                },
+                {
+                    model: "LGS5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 2940 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS4000",
+                    score: 10,
+                },
+                {
+                    model: "LGS5000",
+                    score: 9,
+                },
+                {
+                    model: "LG5000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 3360 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LGS5000",
+                    score: 10,
+                },
+                {
+                    model: "LG5000",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        } else if (totalWatts < 4000 && ah < 290) {
+            loadCalculatorOutputs.recommendedInverters = [
+                {
+                    model: "LG5000",
+                    score: 10,
+                },
+                {
+                    model: "LGS5000",
+                    score: 9,
+                },
+                {
+                    model: "LGS4000",
+                    score: 8,
+                },
+            ];
+            loadCalculatorOutputs.recommendedBatteries = [
+                {
+                    model: "IT 2672TT",
+                    score: 10,
+                },
+            ];
+        }
+    } else if (totalWatts < 1260 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 300) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1584TT",
+                score: 10,
+            },
+            {
+                model: "IT 1560TT",
+                score: 9,
+            },
+            {
+                model: "IT 1560STT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 320) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1666TT",
+                score: 10,
+            },
+            {
+                model: "IT 16645TT",
+                score: 9,
+            },
+            {
+                model: "IT 1639TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 360) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 1866TT",
+                score: 10,
+            },
+            {
+                model: "IT 18605TT",
+                score: 9,
+            },
+            {
+                model: "IT 1666TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 400) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 440) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 460) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1386 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG1950i",
+                score: 10,
+            },
+            {
+                model: "LG2300",
+                score: 9,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1600 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 520) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 1260 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS1700",
+                score: 10,
+            },
+            {
+                model: "LG1950i",
+                score: 9,
+            },
+            {
+                model: "LG2300",
+                score: 8,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -3002,134 +8208,18 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 10,
             },
         ];
-    } else if (averageWatts < 700 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS900i",
-                score: 10,
-            },
-            {
-                model: "LG850i",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 800 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1000i",
-                score: 10,
-            },
-            {
-                model: "LG950i",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1100 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1450i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1250 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG1550i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1500 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS1700",
-                score: 10,
-            },
-            {
-                model: "LGS1600",
-                score: 9,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 1650 && ah < 260) {
+    } else if (totalWatts < 1386 && ah < 550) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2000 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS2500",
                 score: 10,
             },
             {
                 model: "LG2300",
                 score: 9,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 2500 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS3000",
-                score: 10,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT 2672TT",
-                score: 10,
-            },
-        ];
-    } else if (averageWatts < 3500 && ah < 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS4000",
-                score: 10,
-            },
-            {
-                model: "LG3500",
+                model: "LGS2500",
                 score: 9,
             },
         ];
@@ -3139,10 +8229,968 @@ function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): L
                 score: 10,
             },
         ];
-    } else if (averageWatts < 4000 && ah < 260) {
+    } else if (totalWatts < 1600 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG2300",
+                score: 10,
+            },
+            {
+                model: "LGS2500",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 1680 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS2500",
+                score: 10,
+            },
+            {
+                model: "LGS3000",
+                score: 9,
+            },
+            {
+                model: "LG3500",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 2100 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS3000",
+                score: 10,
+            },
+            {
+                model: "LG3500",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 550) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 550) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 600) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 600) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 600) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 600) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2066TT",
+                score: 10,
+            },
+            {
+                model: "IT 2060TT",
+                score: 9,
+            },
+            {
+                model: "IT 2048TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 660) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 660) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 660) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 660) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 690) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 690) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 690) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 690) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 780) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 780) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 780) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 780) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 870) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS4000",
+                score: 9,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 2940 && ah < 870) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS4000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 870) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 870) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LGS4000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 880) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 880) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 880) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2266TT",
+                score: 10,
+            },
+            {
+                model: "IT 2066TT",
+                score: 9,
+            },
+            {
+                model: "IT 2060TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 920) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 920) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 920) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2360TT",
+                score: 10,
+            },
+            {
+                model: "IT 2266TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 1040) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 1040) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 1040) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+            {
+                model: "IT 2360TT",
+                score: 9,
+            },
+            {
+                model: "IT 2266TT",
+                score: 8,
+            },
+        ];
+    } else if (totalWatts < 2800 && ah < 1080) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 3360 && ah < 1080) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT 2672TT",
+                score: 10,
+            },
+        ];
+    } else if (totalWatts < 4000 && ah < 1080) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
                 score: 10,
             },
         ];
