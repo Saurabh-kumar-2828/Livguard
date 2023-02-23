@@ -33,13 +33,19 @@ enum SubMenu {
 export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon}: {userPreferences: UserPreferences; redirectTo: string; showMobileMenuIcon: boolean}) {
     const submit = useSubmit();
 
+    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuState = useRef<MenuState>(MenuState.Closed);
+
 
     function tryToOpenMenu() {
         if (menuState.current == MenuState.Closed) {
             setIsMenuOpen(true);
         }
+    }
+
+    function tryToOpenContactUsDialog() {
+        setIsContactUsDialogOpen(true);
     }
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -83,11 +89,12 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
             <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
-                <a href="tel:18001025551">{getVernacularString("headerS1T1", userPreferences.language)}</a>
-
-                <HorizontalSpacer className="tw-w-3" />
-
-                <div className="tw-w-px tw-h-4 lg-bg-secondary-900" />
+                <button
+                    onClick={tryToOpenContactUsDialog}
+                    className="tw-underline tw-underline-offset-4"
+                >
+                    {getVernacularString("headerS1T1", userPreferences.language)}
+                </button>
 
                 <div className="tw-flex-1" />
 
@@ -270,6 +277,12 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     <div>{getVernacularString("headerS2T1", userPreferences.language)}</div>
                 </button>
             </div>
+
+            <ContactUsDialog
+                userPreferences={userPreferences}
+                isContactUsDialogOpen={isContactUsDialogOpen}
+                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+            />
 
             <MenuDialog
                 userPreferences={userPreferences}
@@ -968,6 +981,85 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                         </button>
                     </Transition.Child>
                 </Dialog.Panel>
+            </Dialog>
+        </Transition>
+    );
+}
+
+function ContactUsDialog({userPreferences, isContactUsDialogOpen, setIsContactUsDialogOpen}: {userPreferences: UserPreferences; isContactUsDialogOpen: boolean; setIsContactUsDialogOpen: React.Dispatch<boolean>}) {
+    function tryToCloseContactUsDialog() {
+        setIsContactUsDialogOpen(false);
+    }
+
+    return (
+        <Transition
+            show={isContactUsDialogOpen}
+            as={React.Fragment}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseContactUsDialog}
+            >
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
+                    <div />
+
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-opacity-0"
+                        enterTo="tw-opacity-full"
+                        leave="tw-ease-in tw-transition-all tw-duration-200"
+                        leaveFrom="tw-opacity-full"
+                        leaveTo="tw-opacity-0"
+                    >
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col">
+                            <div className="lg-text-title1">{getVernacularString("headerContactUsDialogT1", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-body-bold">{getVernacularString("headerContactUsDialogT2", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-2" />
+
+                            <a href="tel:18001025551">
+                                <input value="18001025551" className="lg-text-input" disabled />
+                            </a>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg-text-body-bold">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-2" />
+
+                            <input value="18001025551" className="lg-text-input" disabled />
+
+                            <VerticalSpacer className="tw-h-8" />
+
+                            <button
+                                type="button"
+                                className="tw-self-center"
+                                onClick={tryToCloseContactUsDialog}
+                            >
+                                {getVernacularString("headerContactUsDialogT4", userPreferences.language)}
+                            </button>
+                        </div>
+                    </Transition.Child>
+                </Dialog.Panel>
+
+                <div />
             </Dialog>
         </Transition>
     );

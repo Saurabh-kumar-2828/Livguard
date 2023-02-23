@@ -21,8 +21,8 @@ export function getVernacularString(textContentPiece: string, language: Language
 // @ts-ignore
 const vernacularStrings: {[textContentPiece: string]: {[language: Language]: string}} = {
     headerS1T1: {
-        [Language.English]: "Customer Care: 18001025551",
-        [Language.Hindi]: "ग्राहक सर्विस: १८००१०२५५५१",
+        [Language.English]: "Get In Touch",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     headerS2T1: {
@@ -214,6 +214,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     headerMenuSM8T5: {
         [Language.English]: "LBPL Annual return 2021-22",
         [Language.Hindi]: "LBPL वार्षिक विवरण– 2021-22",
+        [Language.Marathi]: "?????",
+    },
+    headerContactUsDialogT1: {
+        [Language.English]: "Get In Touch With Us",
+        [Language.Hindi]: "हमसे जुड़िये",
+        [Language.Marathi]: "?????",
+    },
+    headerContactUsDialogT2: {
+        [Language.English]: "Service",
+        [Language.Hindi]: "सर्विस",
+        [Language.Marathi]: "?????",
+    },
+    headerContactUsDialogT3: {
+        [Language.English]: "Customer Support",
+        [Language.Hindi]: "ग्राहक समर्थन",
+        [Language.Marathi]: "?????",
+    },
+    headerContactUsDialogT4: {
+        [Language.English]: "Back",
+        [Language.Hindi]: "पीछे जाएँ",
         [Language.Marathi]: "?????",
     },
 
