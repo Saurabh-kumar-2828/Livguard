@@ -605,7 +605,7 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
 
             <div
                 dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
-                className="lg-text-banner"
+                className="lg-text-title2"
             />
 
             <VerticalSpacer className="tw-h-8" />
@@ -647,7 +647,7 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
 
             <div
                 dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
-                className="lg-text-banner"
+                className="lg-text-body"
             />
 
             <VerticalSpacer className="tw-h-8" />

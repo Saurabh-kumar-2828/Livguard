@@ -662,35 +662,62 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q1Q: {
-        [Language.English]: "What are inverter batteries and how do they operate?",
-        [Language.Hindi]: "इनवर्टर बैटरी क्या हैं और वे कैसे काम करती हैं?",
+        [Language.English]: "Which inverter battery is best for my use?",
+        [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
         [Language.Marathi]: "?????",
     },
     homeS9Q1A: {
-        [Language.English]: "The inverter/UPS receives electrical energy in the form of stored chemical energy from the inverter batteries, and the other way around.",
-        [Language.Hindi]: "इनवर्टर / यूपीएस इनवर्टर बैटरी से संग्रहीत रासायनिक ऊर्जा के रूप में विद्युत ऊर्जा प्राप्त करता है, और दूसरी तरफ।",
+        [Language.English]: "Livguard's Power Planner, a Load Calculator tool helps you find the best inverter battery for your energy needs. Trust Livguard for superior performance and durability.",
+        [Language.Hindi]:
+            "लिवगार्ड का पावर प्लानर, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।",
         [Language.Marathi]: "?????",
     },
     homeS9Q2Q: {
-        [Language.English]: "How can I choose the best inverter battery for my home?",
-        [Language.Hindi]: "अपने घर हेतु सर्वेश्रेष्ठ इनवर्टर का चुनाव कैसे करे?",
+        [Language.English]: "How to connect inverter to battery ?",
+        [Language.Hindi]: " इनवर्टर को बैटरी से कैसे कनेक्ट करें?",
         [Language.Marathi]: "?????",
     },
     homeS9Q2A: {
-        [Language.English]: "This is dependent on how much power you need at home. All of your appliances can use Livguard inverters, which are created to meet their demands.",
-        [Language.Hindi]: "यह इस बात पर निर्भर है कि आपको घर में कितनी बिजली की जरूरत है। आपके सभी उपकरण लिवगार्ड इनवर्टर का उपयोग कर सकते हैं, जो उनकी मांगों को पूरा करने के लिए बनाए गए हैं।",
+        [Language.English]:
+            "Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. Livguard Inverter Batteries are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.",
+        [Language.Hindi]:
+            "इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। लिवगार्ड इन्वर्टर बैटरी सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।",
         [Language.Marathi]: "?????",
     },
     homeS9Q3Q: {
-        [Language.English]: "How much backup time can my inverter battery provide?",
-        [Language.Hindi]: "मेरी इनवर्टर बैटरी कितना बैकअप समय प्रदान कर सकती है?",
+        [Language.English]: "Which inverter is best for home?",
+        [Language.Hindi]: "कौन सा इन्वर्टर घर के लिए सबसे अच्छा है?",
         [Language.Marathi]: "?????",
     },
     homeS9Q3A: {
         [Language.English]:
-            "A battery's capacity for charging is expressed in ampere hours (Ah). An inverter battery's capacity is 1Ah if it can deliver 1 amp of electricity for 1 hour. The battery's capacity is 100Ah if it can deliver one amp of electricity for 100 hours. By calculating the load requirements by the number of hours of backup you require, you may determine the amount of inverter battery capacity needed for your home.",
+            "When it comes to selecting the best inverter for your home, Livguard Inverter is the top choice. Use our Power Planner, your personal load calculator to find the right inverter for you.",
         [Language.Hindi]:
-            "चार्ज करने के लिए बैटरी की क्षमता एम्पीयर घंटे (आह) में व्यक्त की जाती है। एक इनवर्टर बैटरी की क्षमता 1Ah है यदि यह 1 घंटे के लिए 1 amp बिजली दे सकती है। बैटरी की क्षमता सौAh है अगर यह सौ घंटे के लिए एक  एम्पेयर बिजली दे सकती है। आपके द्वारा आवश्यक बैकअप के घंटों की संख्या से लोड आवश्यकताओं की गणना करके, आप अपने होम लिए आवश्यक इनवर्टर बैटरी क्षमता की मात्रा निर्धारित कर सकते हैं।",
+            "जब आपके घर के लिए सर्वश्रेष्ठ इन्वर्टर चुनने की बात आती है, तो लिवगार्ड इन्वर्टर शीर्ष विकल्प है। आपके लिए सही इन्वर्टर खोजने के लिए हमारे पावर प्लानर, आपके व्यक्तिगत लोड कैलकुलेटर का उपयोग करें।",
+        [Language.Marathi]: "?????",
+    },
+    homeS9Q4Q: {
+        [Language.English]: "Are inverters for the home and the office different? ",
+        [Language.Hindi]: "क्या घर और ऑफिस के लिए इनवर्टर अलग-अलग हैं?",
+        [Language.Marathi]: "?????",
+    },
+    homeS9Q4A: {
+        [Language.English]:
+            "Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of quality and durable options to choose from. ",
+        [Language.Hindi]:
+            "इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के विकल्प हैं।",
+        [Language.Marathi]: "?????",
+    },
+    homeS9Q5Q: {
+        [Language.English]: "How does the Power Planner work?",
+        [Language.Hindi]: "मेरे उपयोग के लिए कौन सी इन्वर्टर बैटरी सबसे अच्छी है?",
+        [Language.Marathi]: "?????",
+    },
+    homeS9Q5A: {
+        [Language.English]:
+            "The Livguard Power Planner is a personalised Load Calculator that suggests you the best Livguard Inverter and Inverter Battery based on devices you choose, backup hours needed, and average power use. It guarantees reliable power backup solution for your home.",
+        [Language.Hindi]:
+            "लिवगार्ड का पावर प्लानर, एक लोड कैलकुलेटर टूल आपको आपकी ऊर्जा आवश्यकताओं के लिए सबसे अच्छी इन्वर्टर बैटरी ढूंढने में मदद करता है। उत्कृष्ट प्रदर्शन और लंबे जीवन के लिए लिवगार्ड पर भरोसा करें।",
         [Language.Marathi]: "?????",
     },
     homeS9T2P1: {
@@ -2641,6 +2668,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     downloadCatalogueBottomBarT1: {
         [Language.English]: "Download Catalog",
         [Language.Hindi]: "उत्पाद कैटलॉग",
+        [Language.Marathi]: "?????",
+    },
+    productPageSuggestedProduct: {
+        [Language.English]: `Suggested <span class=\"lg-text-highlighted\">Products</span>`,
+        [Language.Hindi]: `सुझाए गए <span class=\"lg-text-highlighted\">उत्पाद</span>`,
         [Language.Marathi]: "?????",
     },
 

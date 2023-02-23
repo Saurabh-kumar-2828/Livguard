@@ -647,6 +647,14 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
                                 question: "homeS9Q3Q",
                                 answer: "homeS9Q3A",
                             },
+                            {
+                                question: "homeS9Q4Q",
+                                answer: "homeS9Q4A",
+                            },
+                            {
+                                question: "homeS9Q5Q",
+                                answer: "homeS9Q5A",
+                            },
                         ]}
                         itemBuilder={(item, itemIndex) => (
                             <Accordion

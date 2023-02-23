@@ -1,5 +1,6 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
+import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
@@ -498,7 +499,9 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                 <VerticalSpacer className="tw-h-10" />
 
                 <DefaultElementAnimation>
-                    <div className="lg-cta-button ">{getVernacularString("categoryBattriesS4BT", userPreferences.language)}</div>
+                    <Link to="/product/IT1660TT">
+                        <div className="lg-cta-button ">{getVernacularString("categoryBattriesS4BT", userPreferences.language)}</div>
+                    </Link>
                 </DefaultElementAnimation>
             </div>
         </div>
