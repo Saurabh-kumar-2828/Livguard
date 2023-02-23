@@ -38,7 +38,7 @@ export function ContactFormSuccess({userPreferences}: {userPreferences: UserPref
                         className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
                     />
 
-                    <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center">
                         <FixedWidthImage
                             relativePath="/livguard/icons/confirmation.png"
                             imageCdnProvider={ImageCdnProvider.GrowthJockey}
@@ -46,21 +46,21 @@ export function ContactFormSuccess({userPreferences}: {userPreferences: UserPref
                         />
                     </div>
 
-                    <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                         <div
                             dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
                             className="lg-text-banner"
                         />
                     </div>
 
-                    <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                         <div
                             dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
                             className="lg-text-banner"
                         />
                     </div>
 
-                    <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                         <div className="tw-w-full tw-flex tw-justify-evenly">
                             <a
                                 href="https://www.facebook.com/LivguardEnergy/"
@@ -98,7 +98,7 @@ export function ContactFormSuccess({userPreferences}: {userPreferences: UserPref
 
                         <div
                             dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
-                            className="lg-text-banner"
+                            className="lg-text-body"
                         />
                     </div>
                 </div>
