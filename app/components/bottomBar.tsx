@@ -33,9 +33,9 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     />
                     <div className="lg-text-icon">{getVernacularString("bottomBarT2", userPreferences.language)}</div>
 
-                    <div className="lg-bg-primary-500 tw-rounded-full tw-text-icon tw-text-secondary-900-dark tw-absolute -tw-top-5 tw-right-0 tw-left-0 tw-mx-auto tw-text-center tw-text-[0.6rem]">
+                    {/* <div className="lg-bg-primary-500 tw-rounded-full tw-text-icon tw-text-secondary-900-dark tw-absolute -tw-top-5 tw-right-0 tw-left-0 tw-mx-auto tw-text-center tw-text-[0.6rem]">
                         Trending
-                    </div>
+                    </div> */}
                 </Link>
             </div>
 
