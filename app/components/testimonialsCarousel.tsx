@@ -18,7 +18,7 @@ export function TestimonialsCarousel({
     userPreferences: UserPreferences;
     testimonials: Array<{image: string; name: string; rating: number; state: string; message: string; productImage: string; productName: string}>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"});
 
     return (
         <div>
@@ -26,7 +26,7 @@ export function TestimonialsCarousel({
                 className="tw-overflow-hidden"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-h-full">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[35%] tw-h-full">
                     <ItemBuilder
                         items={testimonials}
                         itemBuilder={(testimonial, testimonialIndex) => (

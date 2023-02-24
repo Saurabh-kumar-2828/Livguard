@@ -215,22 +215,33 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 // TODO: Rename to something sensible
-export function PowerPlannerTeaser({userPreferences}: {userPreferences: UserPreferences}) {
+export function PowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences, className?: string}) {
     const [loadCalculatorInputs, dispatch] = useReducer(loadCalculatorInputsReducer, {propertyType: PropertyType.ThreeBhk}, createInitialState);
 
     return (
-        <div>
-            <PowerPlannerIntroduction userPreferences={userPreferences} />
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center", className)}>
+            <PowerPlannerIntroduction userPreferences={userPreferences} className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-row-span-full" />
+
+            <DefaultImageAnimation className="tw-hidden lg:tw-block">
+                <FixedWidthImage
+                    relativePath="/livguard/home/5/1.png"
+                    width="30rem"
+                    imageCdnProvider={ImageCdnProvider.Imgix}
+                />
+            </DefaultImageAnimation>
+
+            <VerticalSpacer className="tw-hidden lg:tw-block lg:tw-row-start-2 lg:tw-col-start-2" />
 
             <PropertySelectionForTeaser
                 userPreferences={userPreferences}
                 loadCalculatorInputs={loadCalculatorInputs}
                 dispatch={dispatch}
+                className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2"
             />
 
-            <VerticalSpacer className="tw-h-4" />
+            <VerticalSpacer className="tw-row-start-3 tw-col-start-1 tw-h-4 lg:tw-row-start-4 lg:tw-col-start-2" />
 
-            <div className="lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
+            <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-2 lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
                 {/* TODO: Handle things like UTM here */}
                 <Link
                     to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
@@ -247,13 +258,15 @@ function PropertySelectionForTeaser({
     userPreferences,
     loadCalculatorInputs,
     dispatch,
+    className,
 }: {
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+    className?: string,
 }) {
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
             <VerticalSpacer className="tw-h-4" />
 
             <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
@@ -340,9 +353,9 @@ function PropertySelectionForTeaser({
     );
 }
 
-function PowerPlannerIntroduction({userPreferences}: {userPreferences: UserPreferences}) {
+function PowerPlannerIntroduction({userPreferences, className}: {userPreferences: UserPreferences, className?: string}) {
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
             <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T2", userPreferences.language)}} />
@@ -354,7 +367,7 @@ function PowerPlannerIntroduction({userPreferences}: {userPreferences: UserPrefe
 
             <VerticalSpacer className="tw-h-4" />
 
-            <DefaultImageAnimation>
+            <DefaultImageAnimation className="tw-block lg:tw-hidden">
                 <FixedWidthImage
                     relativePath="/livguard/home/5/1.png"
                     width="10rem"
@@ -362,7 +375,7 @@ function PowerPlannerIntroduction({userPreferences}: {userPreferences: UserPrefe
                 />
             </DefaultImageAnimation>
 
-            <VerticalSpacer className="tw-h-4" />
+            <VerticalSpacer className="tw-block lg:tw-hidden tw-h-4" />
 
             <div className="lg-text-title2">{getVernacularString("homeS5T3", userPreferences.language)}</div>
 

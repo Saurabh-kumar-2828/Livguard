@@ -326,10 +326,10 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                             tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
                         }}
                     >
-                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                        {getVernacularString("headerMenuS1T3", userPreferences.language)}
                     </button>
 
-                    <a href="https://www.livguardsolar.com/">{getVernacularString("headerMenuS1T3", userPreferences.language)}</a>
+                    <a href="https://www.livguardsolar.com/">{getVernacularString("headerMenuS1T4", userPreferences.language)}</a>
 
                     <button
                         type="button"
@@ -337,7 +337,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                             tryToOpenSubMenu(SubMenu.Accessories);
                         }}
                     >
-                        {getVernacularString("headerMenuS1T4", userPreferences.language)}
+                        {getVernacularString("headerMenuS1T5", userPreferences.language)}
                     </button>
 
                     <button
@@ -346,7 +346,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                             tryToOpenSubMenu(SubMenu.More);
                         }}
                     >
-                        {getVernacularString("headerMenuS1T5", userPreferences.language)}
+                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
                     </button>
                 </div>
 
@@ -378,6 +378,13 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
                 subMenuState={subMenuState}
                 tryToOpenSubMenu={tryToOpenSubMenu}
+            />
+
+            <SubMenuDialog
+                userPreferences={userPreferences}
+                currentlyOpenSubMenu={currentlyOpenSubMenu}
+                setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+                subMenuState={subMenuState}
             />
 
             <SearchDialog
@@ -608,16 +615,6 @@ function MenuDialog({
                         </Transition.Child>
                     </div>
                 </Dialog.Panel>
-
-                <SubMenuDialog
-                    userPreferences={userPreferences}
-                    setIsMenuOpen={setIsMenuOpen}
-                    tryToCloseMenu={tryToCloseMenu}
-                    menuState={menuState}
-                    currentlyOpenSubMenu={currentlyOpenSubMenu}
-                    setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
-                    subMenuState={subMenuState}
-                />
             </Dialog>
         </Transition>
     );
@@ -625,17 +622,11 @@ function MenuDialog({
 
 function SubMenuDialog({
     userPreferences,
-    setIsMenuOpen,
-    tryToCloseMenu,
-    menuState,
     currentlyOpenSubMenu,
     setCurrentlyOpenSubMenu,
     subMenuState,
 }: {
     userPreferences: UserPreferences;
-    setIsMenuOpen: React.Dispatch<boolean>;
-    tryToCloseMenu: () => void;
-    menuState: React.MutableRefObject<MenuState>;
     currentlyOpenSubMenu: SubMenu | null;
     setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
     subMenuState: React.MutableRefObject<MenuState>;
@@ -660,7 +651,19 @@ function SubMenuDialog({
                 className="tw-relative tw-z-50"
                 onClose={tryToCloseSubMenu}
             >
-                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-overflow-y-auto tw-grid tw-grid-cols">
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-max-w-lg tw-overflow-y-auto tw-grid tw-grid-cols">
                     <Transition.Child
                         as={React.Fragment}
                         enter="tw-ease-out tw-transition-all tw-duration-200"

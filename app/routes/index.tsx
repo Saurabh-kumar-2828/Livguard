@@ -79,66 +79,103 @@ export default function () {
 
 function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <>
-            <HeroSection userPreferences={userPreferences} />
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8">
+            <HeroSection
+                userPreferences={userPreferences}
+                className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+            />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-8" />
 
-            <EnergyStorageSolutions userPreferences={userPreferences} />
+            <EnergyStorageSolutions
+                userPreferences={userPreferences}
+                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <EnergySolutions userPreferences={userPreferences} />
+            <EnergySolutions
+                userPreferences={userPreferences}
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <PowerPlannerTeaser userPreferences={userPreferences} />
+            <PowerPlannerTeaser
+                userPreferences={userPreferences}
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
+                className="tw-row-start-9 tw-col-start-1 "
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <WeAreOneOfAKind userPreferences={userPreferences} />
+            <WeAreOneOfAKind
+                userPreferences={userPreferences}
+                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10" />
 
-            <TransformingLives userPreferences={userPreferences} />
+            <TransformingLives
+                userPreferences={userPreferences}
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <SolarSolutions userPreferences={userPreferences} />
+            <SolarSolutions
+                userPreferences={userPreferences}
+                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <MeetOurLeadership userPreferences={userPreferences} />
+            <MeetOurLeadership
+                userPreferences={userPreferences}
+                className="tw-row-start-13 tw-col-start-1"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <FaqSection userPreferences={userPreferences} />
+            <FaqSection
+                userPreferences={userPreferences}
+                className="tw-row-start-13 tw-col-start-1"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
+                className="tw-row-start-13 tw-col-start-1"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
-            <PowerfulPurposePowerfulImpact userPreferences={userPreferences} />
-        </>
+            <PowerfulPurposePowerfulImpact
+                userPreferences={userPreferences}
+                className="tw-row-start-13 tw-col-start-1"
+            />
+        </div>
     );
 }
 
-function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
-        <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
+                className,
+            )}
+        >
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -182,9 +219,12 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPreferences}) {
+function EnergyStorageSolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div id="energy-storage-solutions">
+        <div
+            id="energy-storage-solutions"
+            className={className}
+        >
             <div className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <DefaultTextAnimation>
                     <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
@@ -233,12 +273,12 @@ function EnergyStorageSolutions({userPreferences}: {userPreferences: UserPrefere
     );
 }
 
-export function EnergySolutions({userPreferences}: {userPreferences: UserPreferences}) {
+export function EnergySolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
         <div
-            className="tw-flex tw-flex-col"
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}
             id="energySolutions"
         >
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
@@ -427,9 +467,9 @@ export function EnergySolutions({userPreferences}: {userPreferences: UserPrefere
     );
 }
 
-export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPreferences}) {
+export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-secondary-100-light tw-to-background-500-light dark:tw-from-secondary-100-dark dark:tw-to-background-500-dark tw-px-4 tw-pt-6 tw-rounded-lg">
                 <VerticalSpacer className="tw-h-4" />
 
@@ -456,9 +496,16 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <DefaultImageAnimation className="tw-w-full">
+                <DefaultImageAnimation className="tw-block lg:tw-hidden tw-w-full">
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-mobile.jpg"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </DefaultImageAnimation>
+
+                <DefaultImageAnimation className="tw-hidden lg:tw-block tw-w-full">
+                    <FullWidthImage
+                        relativePath="/livguard/home/4/1-desktop.jpg"
                         imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </DefaultImageAnimation>
@@ -467,9 +514,9 @@ export function WeAreOneOfAKind({userPreferences}: {userPreferences: UserPrefere
     );
 }
 
-export function TransformingLives({userPreferences}: {userPreferences: UserPreferences}) {
+export function TransformingLives({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div>
+        <div className={className}>
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
@@ -526,9 +573,9 @@ export function TransformingLives({userPreferences}: {userPreferences: UserPrefe
     );
 }
 
-export function SolarSolutions({userPreferences}: {userPreferences: UserPreferences}) {
+export function SolarSolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
                 <div className="tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
@@ -581,9 +628,9 @@ export function SolarSolutions({userPreferences}: {userPreferences: UserPreferen
     );
 }
 
-export function MeetOurLeadership({userPreferences}: {userPreferences: UserPreferences}) {
+export function MeetOurLeadership({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="tw-flex tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T2", userPreferences.language)}} />
@@ -624,9 +671,9 @@ export function MeetOurLeadership({userPreferences}: {userPreferences: UserPrefe
     );
 }
 
-export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
@@ -703,9 +750,9 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
     );
 }
 
-export function DealerLocator({userPreferences, showCtaButton}: {userPreferences: UserPreferences; showCtaButton: boolean}) {
+export function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px]">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
@@ -755,9 +802,9 @@ export function DealerLocator({userPreferences, showCtaButton}: {userPreferences
     );
 }
 
-export function ShowerSomeLoveOnSocialHandles({userPreferences, heading}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}}) {
+export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge">
                 <VerticalSpacer className="tw-h-4" />
 
@@ -831,9 +878,9 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading}: {userP
     );
 }
 
-export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreferences: UserPreferences}) {
+export function PowerfulPurposePowerfulImpact({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-px-4 tw-py-5 tw-rounded-lg">
                 <VerticalSpacer className="tw-h-6" />
 
