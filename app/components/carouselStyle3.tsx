@@ -7,7 +7,7 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
 export function CarouselStyle3({items, className}: {items: Array<any>, className?: string}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
         <div
