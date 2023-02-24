@@ -16,18 +16,24 @@ export const action: ActionFunction = async ({request, params}) => {
     const phoneNumber = safeParse(getNonEmptyStringFromUnknown, body.get("phoneNumber"));
     const name = safeParse(getNonEmptyStringFromUnknown, body.get("name"));
     const emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
+    const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
 
-    if (emailId == null || name == null || phoneNumber == null) {
+    if (emailId == null || name == null || phoneNumber == null || utmParameters == null) {
         const actionData: DealerLocatorActionData = {
             dealerList: null,
             error: "Error in submitting Form",
         };
+        console.log("error",actionData);
         return json(actionData);
     }
 
-    await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId});
+    console.log(utmParameters);
 
-    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId});
+     const utmParametersDecoded = JSON.parse(utmParameters);
+
+    //await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, utmParameters: utmParametersDecoded});
+
+    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId}, utmParametersDecoded);
 
     const actionData: DealerLocatorActionData = {
         dealerList: null,

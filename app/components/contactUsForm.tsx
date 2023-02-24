@@ -1,3 +1,4 @@
+import {json} from "@remix-run/node";
 import {FetcherWithComponents} from "@remix-run/react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -7,7 +8,17 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function ContactForm({userPreferences, fetcher}: {userPreferences: UserPreferences; fetcher: FetcherWithComponents<any>}) {
+export function ContactForm({
+    userPreferences,
+    fetcher,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    fetcher: FetcherWithComponents<any>;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     return (
         <div
             className="lg-px-screen-edge tw-flex tw-flex-col"
@@ -78,6 +89,8 @@ export function ContactForm({userPreferences, fetcher}: {userPreferences: UserPr
                             placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
                         />
                     </div>
+
+                    <input name="utmParameters" className="tw-hidden" readOnly value={JSON.stringify(utmParameters)} />
 
                     <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                         <button

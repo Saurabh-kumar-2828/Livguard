@@ -2,6 +2,7 @@ import {ActionFunction, json} from "@remix-run/node";
 import {insertDealerLeads} from "~/backend/dealer.server";
 import {sendDataToFreshSales} from "~/backend/freshSales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {Dealer} from "~/typeDefinitions";
 
 // TODO: Rework for fetcher
@@ -17,8 +18,9 @@ export const action: ActionFunction = async ({request, params}) => {
     const name = safeParse(getNonEmptyStringFromUnknown, body.get("name"));
     const emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
     const city = safeParse(getNonEmptyStringFromUnknown, body.get("city"));
+    const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
 
-    if (city == null || name == null || phoneNumber == null || emailId == null) {
+    if (city == null || name == null || phoneNumber == null || emailId == null || utmParameters == null) {
         const actionData: DealerLocatorActionData = {
             dealerList: null,
             error: "Error in submitting Form",
@@ -26,9 +28,13 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    await insertDealerLeads({phoneNumber:phoneNumber,name:name,emailId:emailId,city:city});
+    console.log(utmParameters);
 
-    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city});
+    const utmParametersDecoded = JSON.parse(utmParameters);
+
+    //await insertDealerLeads({phoneNumber:phoneNumber,name:name,emailId:emailId,city:city});
+
+    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city}, utmParametersDecoded);
 
     const actionData: DealerLocatorActionData = {
         dealerList: null,

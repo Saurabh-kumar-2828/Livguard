@@ -13,7 +13,15 @@ import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function FooterComponent({userPreferences}: {userPreferences: UserPreferences}) {
+export function FooterComponent({
+    userPreferences,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     // const [openDisclosureTitle, setOpenDisclosureTitle] = useState<string | null>(null);
 
     const fetcher = useFetcher();
@@ -65,6 +73,13 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                             pattern={emailIdValidationPattern}
                             placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
                             className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
+                        />
+
+                        <input
+                            name="utmParameters"
+                            className="tw-hidden"
+                            readOnly
+                            value={JSON.stringify(utmParameters)}
                         />
                         <button
                             type="submit"
@@ -130,7 +145,12 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
                                     className="lg-text-secondary-900"
                                     key={itemIndex}
                                 >
-                                    <Link to={item.link} target="_blank">{item.title}</Link>
+                                    <Link
+                                        to={item.link}
+                                        target="_blank"
+                                    >
+                                        {item.title}
+                                    </Link>
                                 </div>
                             )}
                         />

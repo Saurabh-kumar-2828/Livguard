@@ -15,8 +15,9 @@ export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
     const emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
+    const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
 
-    if (emailId == null ) {
+    if (emailId == null || utmParameters == null ) {
         const actionData: SubscribeActionData = {
             dealerList: null,
             error: "Error in submitting Form",
@@ -24,7 +25,13 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    await insertSubscriptionLeads({email: emailId});
+    console.log(utmParameters);
+
+    const utmParametersDecoded = JSON.parse(utmParameters);
+
+    //await insertSubscriptionLeads({email: emailId});
+
+    await sendDataToFreshSales({email: emailId}, utmParametersDecoded);
 
     const actionData: SubscribeActionData = {
         dealerList: null,

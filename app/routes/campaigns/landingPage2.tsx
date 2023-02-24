@@ -82,6 +82,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 <ContactForm
                     userPreferences={userPreferences}
                     fetcher={fetcher}
+                    utmParameters={utmSearchParameters}
                 />
             )}
 

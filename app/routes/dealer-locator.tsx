@@ -30,6 +30,7 @@ import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import cityList from "~/cities.json";
 import {Accordion} from "~/components/accordian";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 
 // TODO: Rework for fetcher
 type DealerLocatorActionData = {
@@ -78,12 +79,16 @@ export default function () {
 
     const actionData = useActionData();
 
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log("utm parameters", utmSearchParameters);
+
     return (
         <>
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
+                utmParameters={utmSearchParameters}
             >
                 <DealerLocatorPage
                     userPreferences={userPreferences}
@@ -94,6 +99,7 @@ export default function () {
 
                 <TroubleFindingDealers
                     userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -104,6 +110,7 @@ export default function () {
 
                 <JoinLivguardNetwork
                     userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -260,6 +267,7 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
                                                 userPreferences={userPreferences}
                                                 textVernacId="landingPageBottomBarT2"
                                                 className="tw-z-10"
+
                                             />
 
                                             {/* <button
@@ -350,7 +358,15 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
     );
 }
 
-function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferences;}) {
+function TroubleFindingDealers({
+    userPreferences,
+    utmParameters
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
@@ -372,6 +388,7 @@ function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferen
                     userPreferences={userPreferences}
                     textVernacId="dealerLocatorS2BT"
                     className="tw-z-10"
+                    utmParameters={utmParameters}
                 />
             </DefaultElementAnimation>
 
@@ -380,7 +397,15 @@ function TroubleFindingDealers({userPreferences}: {userPreferences: UserPreferen
     );
 }
 
-function JoinLivguardNetwork({userPreferences}: {userPreferences: UserPreferences;}) {
+function JoinLivguardNetwork({
+    userPreferences,
+    utmParameters
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
@@ -402,6 +427,7 @@ function JoinLivguardNetwork({userPreferences}: {userPreferences: UserPreference
                     userPreferences={userPreferences}
                     textVernacId="dealerLocatorS4BT"
                     className="tw-z-10"
+                    utmParameters={utmParameters}
                 />
             </DefaultElementAnimation>
 
@@ -414,10 +440,14 @@ export function ApplyNowForDealerCta({
     userPreferences,
     textVernacId,
     className,
+    utmParameters
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     className?: string;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
 }) {
     const [isApplyNowDialogOpen, setApplyNowDialogOpen] = useState(false);
 
@@ -447,12 +477,15 @@ export function ApplyNowForDealerDialog({
     userPreferences,
     isApplyNowDialogOpen,
     setApplyNowDialogOpen,
+    utmParameters,
 }: {
     userPreferences: UserPreferences;
     isApplyNowDialogOpen: boolean;
     setApplyNowDialogOpen: React.Dispatch<boolean>;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
 }) {
-
     const fetcher = useFetcher();
 
     const isDealerFormSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
@@ -494,7 +527,10 @@ export function ApplyNowForDealerDialog({
                         leaveTo="tw-opacity-0"
                     >
                         {isDealerFormSubmissionSuccess ? (
-                            <FormSubmissionSuccess userPreferences={userPreferences} tryToCloseDialog={tryToCloseApplyNowDialog}/>
+                            <FormSubmissionSuccess
+                                userPreferences={userPreferences}
+                                tryToCloseDialog={tryToCloseApplyNowDialog}
+                            />
                         ) : (
                             <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
@@ -578,6 +614,13 @@ export function ApplyNowForDealerDialog({
                                         imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
+
+                                <input
+                                    name="utmParameters"
+                                    className="tw-hidden"
+                                    readOnly
+                                    value={JSON.stringify(utmParameters)}
+                                />
 
                                 <button
                                     type="submit"

@@ -51,7 +51,14 @@ export async function insertDealerLeads(formResponse: {phoneNumber:string, name:
     );
 }
 
-export async function insertContactLeads(formResponse: {phoneNumber: string; name: string; emailId: string}) {
+export async function insertContactLeads(formResponse: {
+    phoneNumber: string;
+    name: string;
+    emailId: string;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     await execute(
         `
             INSERT INTO

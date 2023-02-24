@@ -75,11 +75,15 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            {
-                isContactUsSubmissionSuccess
-                ? <ContactFormSuccess userPreferences={userPreferences} />
-                : <ContactForm userPreferences={userPreferences} fetcher={fetcher} />
-            }
+            {isContactUsSubmissionSuccess ? (
+                <ContactFormSuccess userPreferences={userPreferences} />
+            ) : (
+                <ContactForm
+                    userPreferences={userPreferences}
+                    fetcher={fetcher}
+                    utmParameters={utmSearchParameters}
+                />
+            )}
 
             <VerticalSpacer className="tw-h-10" />
 

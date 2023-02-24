@@ -58,7 +58,7 @@ export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    console.log(utmSearchParameters);
+    console.log("utm parameters",utmSearchParameters);
 
     // TODO: Scroll to top if required
 
@@ -69,7 +69,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
             >
-                <HomePage userPreferences={userPreferences} />
+                <HomePage
+                    userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
+                />
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
@@ -77,11 +80,20 @@ export default function () {
     );
 }
 
-function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
+function HomePage({
+    userPreferences,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch">
             <HeroSection
                 userPreferences={userPreferences}
+                utmParameters={utmParameters}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
 
@@ -167,7 +179,9 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function HeroSection({userPreferences, utmParameters, className}: {userPreferences: UserPreferences;utmParameters: {
+        [searchParameter: string]: string;
+    };className?: string}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
@@ -206,6 +220,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                     userPreferences={userPreferences}
                     textVernacId="homeS1T3"
                     className="tw-z-10"
+                    utmParameters={utmParameters}
                 />
             </DefaultElementAnimation>
 
@@ -926,7 +941,7 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
     );
 }
 
-export function ContactUsCta({userPreferences, textVernacId, className}: {userPreferences: UserPreferences; textVernacId: string; className?: string}) {
+export function ContactUsCta({userPreferences, textVernacId, utmParameters, className}: {userPreferences: UserPreferences; textVernacId: string; utmParameters: {[searchParameter: string]: string;} ;className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
     function tryToOpenContactUsDialog() {
@@ -947,6 +962,7 @@ export function ContactUsCta({userPreferences, textVernacId, className}: {userPr
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                utmParameters={utmParameters}
             />
         </div>
     );
@@ -956,10 +972,12 @@ export function ContactUsDialog({
     userPreferences,
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
+    utmParameters,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
+    utmParameters:{ [searchParameter: string]: string};
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
@@ -1072,6 +1090,8 @@ export function ContactUsDialog({
                                         imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
+
+                                <input name="utmParameters" className="tw-hidden" readOnly value={JSON.stringify(utmParameters)} />
 
                                 <button
                                     type="submit"
