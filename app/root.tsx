@@ -63,6 +63,19 @@ export default function App() {
                 <Meta />
                 <Links />
 
+                {/* Google Tag Manager */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-5HRQL29');
+                        `,
+                    }}
+                />
+
                 {/* <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -85,6 +98,12 @@ export default function App() {
             </head>
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
+                {/* Google Tag Manager (noscript) */}
+                <noscript>
+                    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HRQL29" height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe>
+                </noscript>
+                {/* End Google Tag Manager (noscript) */}
+
                 <Outlet />
                 <ScrollRestoration />
                 <Scripts />
@@ -105,28 +124,9 @@ export function CatchBoundary() {
             <head>
                 <Meta />
                 <Links />
-
-                {/* Google Tag Manager */}
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                            })(window,document,'script','dataLayer','GTM-5HRQL29');
-                        `,
-                    }}
-                />
             </head>
 
             <body className="lg-bg-primary-500 lg-text-secondary-900 lg-text-body tw-text-secondary-900-dark">
-                {/* Google Tag Manager (noscript) */}
-                <noscript>
-                    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HRQL29" height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe>
-                </noscript>
-                {/* End Google Tag Manager (noscript) */}
-
                 <div className="tw-grow tw-grid tw-place-items-center tw-min-h-screen">
                     <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
                         <div className="lg-text-banner">Something went wrong</div>
