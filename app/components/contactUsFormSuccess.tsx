@@ -6,16 +6,17 @@ import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeigh
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function ContactFormSuccess({userPreferences}: {userPreferences: UserPreferences}) {
+export function ContactFormSuccess({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div
-            className="lg-px-screen-edge tw-flex tw-flex-col"
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col",className)}
             id="contactUs"
         >
-            <div className="lg-text-headline tw-text-center">
+            <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT1", userPreferences.language)}} />
                 </DefaultTextAnimation>
@@ -24,14 +25,14 @@ export function ContactFormSuccess({userPreferences}: {userPreferences: UserPref
                 </DefaultTextAnimation>
             </div>
 
-            <VerticalSpacer className="tw-h-1" />
+            <VerticalSpacer className="tw-h-1 lg:tw-hidden" />
 
-            <div className="lg-text-title2 tw-text-center">{getVernacularString("contactUsFormT3", userPreferences.language)}</div>
+            <div className="lg-text-title2 tw-text-center lg:tw-hidden">{getVernacularString("contactUsFormT3", userPreferences.language)}</div>
 
-            <VerticalSpacer className="tw-h-4" />
+            <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
             <DefaultElementAnimation>
-                <div className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden">
+                <div className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[3rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden">
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
                         imageCdnProvider={ImageCdnProvider.Imgix}
@@ -56,7 +57,7 @@ export function ContactFormSuccess({userPreferences}: {userPreferences: UserPref
                     <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-items-center tw-text-center">
                         <div
                             dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
-                            className="lg-text-banner"
+                            className="lg-text-title2"
                         />
                     </div>
 

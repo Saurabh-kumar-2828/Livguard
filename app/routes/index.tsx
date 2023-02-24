@@ -294,10 +294,12 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr) tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6", className)}
             id="energySolutions"
         >
-            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+            <div
+                className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2"
+            >
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
                 </DefaultTextAnimation>
@@ -306,9 +308,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                 </DefaultTextAnimation>
             </div>
 
-            <VerticalSpacer className="tw-h-6" />
-
-            <div className="lg-px-screen-edge tw-grid tw-grid-cols-5 tw-gap-x-4">
+            <div className="lg-px-screen-edge tw-grid tw-grid-cols-5 tw-gap-x-4 tw-row-start-2 tw-col-start-1 tw-col-span-full lg:tw-grid-rows-5 lg:tw-grid-cols-1 lg:tw-gap-y-4 lg:tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-col-span-1 lg:tw-py-10">
                 <ItemBuilder
                     items={[
                         {
@@ -368,10 +368,8 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-6" />
-
             <div
-                className="tw-overflow-hidden"
+                className="tw-overflow-hidden tw-col-start-1 tw-col-span-full tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-2"
                 ref={emblaRef}
             >
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">

@@ -22,6 +22,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, generateUuid, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+
 import {FaqSection} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
@@ -96,6 +97,7 @@ export default function () {
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
+                utmParameters={utmSearchParameters}
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>
@@ -215,40 +217,45 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 // TODO: Rename to something sensible
-export function PowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences, className?: string}) {
+export function PowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [loadCalculatorInputs, dispatch] = useReducer(loadCalculatorInputsReducer, {propertyType: PropertyType.ThreeBhk}, createInitialState);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center", className)}>
-            <PowerPlannerIntroduction userPreferences={userPreferences} className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-row-span-full" />
-
-            <DefaultImageAnimation className="tw-hidden lg:tw-block">
-                <FixedWidthImage
-                    relativePath="/livguard/home/5/1.png"
-                    width="30rem"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
+        <div className={className}>
+            <div className="tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center lg:tw-bg-gradient-to-r lg:tw-from-[#1e1e1e] lg:tw-to-[#3a3a3a] lg:tw-rounded-lg lg:tw-pb-[50px] lg:tw-pt-[25px]">
+                <PowerPlannerIntroduction
+                    userPreferences={userPreferences}
+                    className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-row-span-full"
                 />
-            </DefaultImageAnimation>
 
-            <VerticalSpacer className="tw-hidden lg:tw-block lg:tw-row-start-2 lg:tw-col-start-2" />
+                <DefaultImageAnimation className="tw-hidden lg:tw-block">
+                    <FixedWidthImage
+                        relativePath="/livguard/home/5/1.png"
+                        width="20rem"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </DefaultImageAnimation>
 
-            <PropertySelectionForTeaser
-                userPreferences={userPreferences}
-                loadCalculatorInputs={loadCalculatorInputs}
-                dispatch={dispatch}
-                className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2"
-            />
+                <VerticalSpacer className="tw-hidden lg:tw-block lg:tw-row-start-2 lg:tw-col-start-2" />
 
-            <VerticalSpacer className="tw-row-start-3 tw-col-start-1 tw-h-4 lg:tw-row-start-4 lg:tw-col-start-2" />
+                <PropertySelectionForTeaser
+                    userPreferences={userPreferences}
+                    loadCalculatorInputs={loadCalculatorInputs}
+                    dispatch={dispatch}
+                    className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2"
+                />
 
-            <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-2 lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
-                {/* TODO: Handle things like UTM here */}
-                <Link
-                    to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
-                    className=" lg-cta-button"
-                >
-                    {getVernacularString("homeS5T6", userPreferences.language)}
-                </Link>
+                <VerticalSpacer className="tw-row-start-3 tw-col-start-1 tw-h-4 lg:tw-row-start-4 lg:tw-col-start-2" />
+
+                <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-2 lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
+                    {/* TODO: Handle things like UTM here */}
+                    <Link
+                        to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
+                        className=" lg-cta-button"
+                    >
+                        {getVernacularString("homeS5T6", userPreferences.language)}
+                    </Link>
+                </div>
             </div>
         </div>
     );
@@ -263,7 +270,7 @@ function PropertySelectionForTeaser({
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
-    className?: string,
+    className?: string;
 }) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
@@ -353,7 +360,7 @@ function PropertySelectionForTeaser({
     );
 }
 
-function PowerPlannerIntroduction({userPreferences, className}: {userPreferences: UserPreferences, className?: string}) {
+function PowerPlannerIntroduction({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
             <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
