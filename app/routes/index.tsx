@@ -186,7 +186,7 @@ function HeroSection({userPreferences, utmParameters, className}: {userPreferenc
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
         >
@@ -1014,7 +1014,7 @@ export function ContactUsDialog({
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-mx-auto tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
                     <Transition.Child
                         as="div"
                         enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -1038,7 +1038,7 @@ export function ContactUsDialog({
                                 <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
                                     <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{getVernacularString("contactUsT1", userPreferences.language)}</div>
                                     <X
-                                        className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8"
+                                        className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8 tw-self-start"
                                         onClick={tryToCloseContactUsDialog}
                                     />
                                 </div>
