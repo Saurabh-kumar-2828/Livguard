@@ -29,6 +29,7 @@
         font-weight: 700;
         /* src: url("/brueur-text.ttf") format("truetype"); */
         src: url("https://files.growthjockey.com/livguard/fonts/brueur-text.ttf");
+        font-display: swap;
     }
 
     @font-face {
@@ -36,6 +37,7 @@
         font-weight: 400;
         /* src: url("/source-sans-3.ttf") format("truetype"); */
         src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
+        font-display: swap;
     }
 
     @font-face {
@@ -43,6 +45,7 @@
         font-weight: 600;
         /* src: url("/source-sans-3.ttf") format("truetype"); */
         src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
+        font-display: swap;
     }
 
     .lg-font-brueur {

@@ -26,14 +26,10 @@ export const action: ActionFunction = async ({request, params}) => {
 
     await insertSubscriptionLeads({email: emailId});
 
-    console.log("Helllllooooooo submitted");
-
     const actionData: SubscribeActionData = {
         dealerList: null,
         error: null,
     };
-
-    console.log(actionData);
 
     return json(actionData);
 };

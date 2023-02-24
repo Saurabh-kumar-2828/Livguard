@@ -14,6 +14,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
 import {DealerLocatorPage} from "~/routes/dealer-locator";
@@ -68,6 +69,9 @@ export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
     const actionData = useActionData();
+
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     return (
         <>

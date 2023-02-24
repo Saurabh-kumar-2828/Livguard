@@ -22,6 +22,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, getUuidFromUnkown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, generateUuid, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FaqSection, SolarSolutions} from "~/routes";
 import {OurBatteriesSectionInternal} from "~/routes/category/batteries";
@@ -65,6 +66,9 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
 export default function () {
     const {userPreferences, redirectTo, loadCalculatorInputs} = useLoaderData() as LoaderData;
+
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     // TODO: Scroll to top if required
 

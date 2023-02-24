@@ -21,6 +21,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
 import {Accordion} from "~/components/accordian";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -44,7 +45,8 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
-    console.log("url in page", redirectTo);
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     return (
         <>

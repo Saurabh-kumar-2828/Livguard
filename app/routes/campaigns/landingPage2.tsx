@@ -17,6 +17,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {QualityMeetsExpertise} from "~/routes/campaigns/landingPage1";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -66,7 +67,8 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
     const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
 
-    console.log("fetcher response =====>", isContactUsSubmissionSuccess);
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     return (
         <>

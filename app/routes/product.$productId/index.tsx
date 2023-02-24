@@ -22,6 +22,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import React from "react";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -35,11 +36,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
         throw userPreferences;
     }
 
-    console.log("params product id =====>", params);
-
     const productId = getNonEmptyStringFromUnknown(params.productId as string);
-
-    console.log("Product name ====>", productId);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -52,6 +49,9 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
 export default function () {
     const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
+
+    const utmSearchParameters = useUtmSearchParameters();
+    console.log(utmSearchParameters);
 
     return (
         <>
@@ -73,8 +73,6 @@ export default function () {
 
 
 function ProductPage({userPreferences, productData}: {userPreferences: UserPreferences; productData: ProductInfo}) {
-
-
     return (
         <>
             <VerticalSpacer className="tw-h-10" />

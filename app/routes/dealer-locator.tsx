@@ -309,10 +309,6 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
         class: "tw-rounded-lg",
     };
 
-    const onLoad = (marker) => {
-        console.log("marker: ", marker);
-    };
-
     useEffect(() => {
         if (dealerList.length > 0) {
             const latCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.latitude), Number(0)) / 5;
