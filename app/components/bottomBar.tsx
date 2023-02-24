@@ -7,7 +7,7 @@ import {getVernacularString} from "~/vernacularProvider";
 
 export function StickyBottomBar({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] tw-py-[0.8125rem] tw-text-center tw-z-50">
+        <div className="tw-sticky lg:tw-hidden tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] tw-py-[0.8125rem] tw-text-center tw-z-50">
             <div className="tw-row-start-1 tw-col-start-2">
                 <Link
                     to="/"

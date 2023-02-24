@@ -79,7 +79,7 @@ export default function () {
 
 function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch">
             <HeroSection
                 userPreferences={userPreferences}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
@@ -111,10 +111,10 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-9 tw-col-start-1 "
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end"
             />
 
-            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[12] lg:tw-col-span-full tw-h-10" />
 
             <WeAreOneOfAKind
                 userPreferences={userPreferences}
@@ -128,40 +128,40 @@ function HomePage({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <SolarSolutions
                 userPreferences={userPreferences}
                 className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <MeetOurLeadership
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
-                className="tw-row-start-13 tw-col-start-1"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[17] lg:tw-col-start-1 lg:tw-col-span-full"
             />
         </div>
     );
@@ -576,24 +576,19 @@ export function TransformingLives({userPreferences, className}: {userPreferences
 export function SolarSolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
-                <div className="tw-px-6 lg-text-headline">
+            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
+                <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T2", userPreferences.language)}} />
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 tw-px-6 lg-text-body">{getVernacularString("homeS7T2", userPreferences.language)}</div>
 
-                <div className="tw-px-6 lg-text-body">{getVernacularString("homeS7T2", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-px-6 lg-text-title2">{getVernacularString("homeS7T3", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
+                <div className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 tw-px-6 lg-text-title2">{getVernacularString("homeS7T3", userPreferences.language)}</div>
 
                 <CarouselStyle2
                     userPreferences={userPreferences}
+                    className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full"
                     items={[
                         {
                             imageRelativePath: "/livguard/home/7/1.jpg",
@@ -613,9 +608,7 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
                     ]}
                 />
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-self-center tw-px-6">
+                <div className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 tw-justify-self-center tw-px-6">
                     <a
                         href="https://www.livguardsolar.com/"
                         className="lg-cta-button"
@@ -689,7 +682,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-3 tw-gap-y-3">
                     <ItemBuilder
                         items={[
                             {
@@ -753,7 +746,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 export function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px]">
+            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] lg:tw-h-[450px] tw-overflow-hidden">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
                         <video
@@ -881,21 +874,15 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
 export function PowerfulPurposePowerfulImpact({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-px-4 tw-py-5 tw-rounded-lg">
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="lg-text-headline">
+            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-bg-secondary-100 tw-px-4 tw-py-4 tw-rounded-lg">
+                <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg-text-body">{getVernacularString("homeS12T2", userPreferences.language)}</div>
 
-                <div className="lg-text-body">{getVernacularString("homeS12T2", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <ul className="tw-list-disc tw-ml-5">
+                <ul className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 tw-list-disc tw-ml-5">
                     <li>
                         <div className="lg-text-body">{getVernacularString("homeS12T3P1", userPreferences.language)}</div>
                     </li>
@@ -910,9 +897,8 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                     </li>
                 </ul>
 
-                <VerticalSpacer className="tw-h-4" />
-
                 <CarouselStyle3
+                    className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full"
                     items={[
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"
@@ -929,11 +915,9 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                     ]}
                 />
 
-                <VerticalSpacer className="tw-h-8" />
-
                 <a
                     href="https://www.livguard.com/csr-initiatives.php"
-                    className="lg-cta-button tw-self-center"
+                    className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg-cta-button tw-justify-self-center"
                 >
                     {getVernacularString("homeS12T4", userPreferences.language)}
                 </a>
