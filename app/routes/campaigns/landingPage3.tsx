@@ -4,6 +4,7 @@ import {Form, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
 import {Accordion} from "~/components/accordian";
+import {Accordion} from "~/components/accordian";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
