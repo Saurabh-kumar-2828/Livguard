@@ -93,6 +93,7 @@ export default function () {
                 <DealerLocatorPage
                     userPreferences={userPreferences}
                     actionData={actionData}
+                    utmParameters={utmSearchParameters}
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -128,7 +129,17 @@ export default function () {
     );
 }
 
-export function DealerLocatorPage({userPreferences, actionData}: {userPreferences: UserPreferences; actionData: DealerLocatorActionData}) {
+export function DealerLocatorPage({
+    userPreferences,
+    actionData,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    actionData: DealerLocatorActionData;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     const [showDealers, setShowDealers] = useState(false);
     const [dealerList, setDealerList] = useState<Array<Dealer>>([]);
     // const [selectedCity, setSelectedCity] = useState("");
@@ -141,8 +152,7 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
             } else {
                 setDealerList(actionData.dealerList);
             }
-        }else {
-
+        } else {
         }
     }, [actionData, showMore]);
 
@@ -169,6 +179,7 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
                 <input
                     type="text"
                     name="dealerLocation"
+                    required
                     className="lg-text-input tw-w-full tw-text-center"
                     placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
                 ></input>
@@ -212,9 +223,9 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
 
             <VerticalSpacer className="tw-h-2" />
 
-            {actionData && actionData.dealerList.length == 0 &&
+            {actionData && actionData.dealerList.length == 0 && (
                 <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
-            }
+            )}
 
             {actionData && actionData.dealerList && actionData.dealerList.length > 0 && (
                 <div
@@ -267,7 +278,7 @@ export function DealerLocatorPage({userPreferences, actionData}: {userPreference
                                                 userPreferences={userPreferences}
                                                 textVernacId="landingPageBottomBarT2"
                                                 className="tw-z-10"
-
+                                                utmParameters={utmParameters}
                                             />
 
                                             {/* <button
@@ -468,6 +479,7 @@ export function ApplyNowForDealerCta({
                 userPreferences={userPreferences}
                 isApplyNowDialogOpen={isApplyNowDialogOpen}
                 setApplyNowDialogOpen={setApplyNowDialogOpen}
+                utmParameters={utmParameters}
             />
         </div>
     );
