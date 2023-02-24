@@ -6,12 +6,12 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
-export function CarouselStyle3({items}: {items: Array<any>}) {
+export function CarouselStyle3({items, className}: {items: Array<any>, className?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div
-            className="tw-overflow-hidden"
+            className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", className)}
             ref={emblaRef}
         >
             <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">

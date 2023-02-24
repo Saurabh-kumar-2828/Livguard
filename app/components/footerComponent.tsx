@@ -27,11 +27,9 @@ export function FooterComponent({userPreferences}: {userPreferences: UserPrefere
 
     return (
         <div className="lg-px-screen-edge">
-            <div className="tw-hidden sm:tw-flex"></div>
-
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-flex tw-flex-col sm:tw-hidden">
+            <div className="tw-flex tw-flex-col">
                 <div className="tw-block dark:tw-hidden">
                     <Link to="/">
                         <object
