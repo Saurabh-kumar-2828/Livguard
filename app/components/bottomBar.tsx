@@ -74,12 +74,10 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     href="tel:18001025551"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
-                    <a href="tel:18001025551">
-                        <object
-                            data="https://files.growthjockey.com/livguard/icons/bottom-bar/5.svg"
-                            className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
-                        />
-                    </a>
+                    <object
+                        data="https://files.growthjockey.com/livguard/icons/bottom-bar/5.svg"
+                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
+                    />
 
                     <div className="lg-text-icon">{getVernacularString("bottomBarT5", userPreferences.language)}</div>
                 </a>

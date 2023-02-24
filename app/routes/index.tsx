@@ -1,15 +1,12 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Form, Link, useActionData, useFetcher} from "@remix-run/react";
-import Autoplay from "embla-carousel-autoplay";
-import React from "react";
-import {useState} from "react";
-import {Facebook, Instagram, Linkedin, Telephone, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {Link, useFetcher} from "@remix-run/react";
+import React, {useState} from "react";
+import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {Accordion} from "~/components/accordian";
 import {StickyBottomBar} from "~/components/bottomBar";
-import {CarouselStyle1} from "~/components/carouselStyle1";
 import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
 import {CarouselStyle3} from "~/components/carouselStyle3";
@@ -20,14 +17,11 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
@@ -35,7 +29,7 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -776,7 +770,6 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading}: {userP
                 <VerticalSpacer className="tw-h-4" />
 
                 <CarouselStyle3
-                    userPreferences={userPreferences}
                     items={[
                         <EmbeddedYoutubeVideo
                             id="b6gqLXTnZnw"
@@ -873,7 +866,6 @@ export function PowerfulPurposePowerfulImpact({userPreferences}: {userPreference
                 <VerticalSpacer className="tw-h-4" />
 
                 <CarouselStyle3
-                    userPreferences={userPreferences}
                     items={[
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"

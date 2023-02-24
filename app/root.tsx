@@ -6,6 +6,7 @@ import {Theme, UserPreferences} from "~/typeDefinitions";
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
+import {useEffect} from "react";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -43,6 +44,16 @@ export const links: LinksFunction = () => [
 export default function App() {
     const {userPreferences} = useLoaderData() as LoaderData;
 
+    useEffect(() => {
+        setTimeout(() => {
+            const scriptTag = document.createElement("script");
+            scriptTag.src = "//in.fw-cdn.com/30772163/407987.js";
+            scriptTag.setAttribute("chat", "true");
+            // scriptTag.addEventListener("load", onLoad);
+            document.body.appendChild(scriptTag);
+        }, 5000);
+    }, []);
+
     return (
         <html
             lang="en"
@@ -71,11 +82,6 @@ export default function App() {
                         `,
                     }}
                 /> */}
-
-                <script
-                    src="//in.fw-cdn.com/30772163/407987.js"
-                    chat="true"
-                />
             </head>
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
