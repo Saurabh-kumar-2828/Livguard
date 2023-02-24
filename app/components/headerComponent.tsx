@@ -323,13 +323,25 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         {getVernacularString("headerMenuS1T5", userPreferences.language)}
                     </button>
 
+                    <Link
+                        to="/dealer-locator"
+                    >
+                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                    </Link>
+
+                    {/* <a
+                        href="/register-and-warranty-for-inverters.php"
+                    >
+                        {getVernacularString("headerMenuS1T7", userPreferences.language)}
+                    </a> */}
+
                     <button
                         type="button"
                         onClick={() => {
                             tryToOpenSubMenu(SubMenu.More);
                         }}
                     >
-                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                        {getVernacularString("headerMenuS1T8", userPreferences.language)}
                     </button>
                 </div>
 
