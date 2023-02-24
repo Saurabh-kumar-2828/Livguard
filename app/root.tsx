@@ -41,7 +41,7 @@ export const links: LinksFunction = () => [
 ];
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
-export default function App() {
+export default function() {
     const {userPreferences} = useLoaderData() as LoaderData;
 
     useEffect(() => {
