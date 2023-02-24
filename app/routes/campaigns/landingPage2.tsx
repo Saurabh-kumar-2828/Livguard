@@ -435,7 +435,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-10 tw-gap-y-10 lg:tw-px-40">
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(product, productIndex) => (

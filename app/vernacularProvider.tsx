@@ -3040,54 +3040,60 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `अपवाद के दौरान अविराम बिजली बैकअप के लिए सही इनवर्टर और बैटरी चुनना आपके घर के लिए आवश्यक है। <a href="/category/load-calculator" class="tw-underline">लिवगार्ड पावर प्लानर</a> के साथ आप अपनी संपत्ति के प्रकार, उपकरणों और बजट के आधार पर सही कंबिनेशन का आसानी से चयन कर सकते हैं।`,
         [Language.Marathi]: "?????",
     },
-    landingPage3Q1Q: {
+    landingPage3FAQQ1Q: {
         [Language.English]: "How can I file a service request?",
         [Language.Hindi]: "मैं सेवा अनुरोध कैसे दर्ज कर सकता हूं?",
         [Language.Marathi]: "?????",
     },
-    landingPage3Q1A: {
+    landingPage3FAQQ1A: {
         [Language.English]: `In order to file a service request for your Livguard inverter or inverter battery, you can reach out to the dealer. If that doesn’t work, you can reach out to our service team at <a href="tel:18001025551">18001025551</a> and we will help you out.`,
         [Language.Hindi]: `अपने लिवगार्ड इन्वर्टर या इन्वर्टर बैटरी के लिए सेवा अनुरोध दर्ज करने के लिए, आप डीलर से संपर्क कर सकते हैं। यदि वह काम नहीं करता है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सेवा टीम से संपर्क कर सकते हैं और हम आपकी मदद करेंगे।`,
         [Language.Marathi]: "?????",
     },
-    landingPage3Q2Q: {
+    landingPage3FAQQ2Q: {
         [Language.English]: "Can I avail financing options as a customer at these dealers locations?",
         [Language.Hindi]: "क्या मैं इन डीलर स्थानों पर वित्त के विकल्प का लाभ उठा सकता हूँ?",
         [Language.Marathi]: "?????",
     },
-    landingPage3Q2A: {
+    landingPage3FAQQ2A: {
         [Language.English]: `Yes, Livguard has multiple financing opportunities available for our consumers for their ease. We are in partnership with Bajaj Finance and Paytail and consumers can choose any of the two options for the same. Call us at <a href="tel:18001025551">18001025551</a>`,
         [Language.Hindi]: `हां, लिवगार्ड के पास हमारे उपभोक्ताओं के लिए उनकी आसानी के लिए वित्तपोषण के कई अवसर उपलब्ध हैं। हम बजाज फाइनेंस और पे टेल के साथ साझेदारी कर रहे हैं और उपभोक्ता इसके लिए दो विकल्पों में से कोई भी चुन सकते हैं। हमें  <a href="tel:18001025551">18001025551</a> पर कॉल करें।`,
         [Language.Marathi]: "?????",
     },
-    landingPage3Q3Q: {
-        [Language.English]: "Will a dealer help me in installation?",
-        [Language.Hindi]: "क्या कोई डीलर इंस्टालेशन में मेरी मदद करेगा?",
-        [Language.Marathi]: "?????",
-    },
-    landingPage3Q3A: {
-        [Language.English]: `It depends on dealer to dealer. Most of our channel partners provide installation services at their end. If you face any problem, you can reach out to our service team, LivServ at <a href="tel:18001025551">18001025551</a>`,
-        [Language.Hindi]: `यह डीलर से डीलर पर निर्भर करता है। हमारे अधिकांश चैनल पार्टनर अपनी ओर से इंस्टालेशन सेवाएं प्रदान करते हैं। यदि आपको कोई समस्या आती है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सर्विस टीम, लिवसर्व से संपर्क कर सकते हैं।`,
-        [Language.Marathi]: "?????",
-    },
-    landingPage3Q4Q: {
+    landingPage3FAQQ3Q: {
         [Language.English]: "How to select the right inverter and inverter battery for my home?",
         [Language.Hindi]: "अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी का चयन कैसे करें?",
         [Language.Marathi]: "?????",
     },
-    landingPage3Q4A: {
+    landingPage3FAQQ3A: {
         [Language.English]: `Selecting the right inverter and battery for your home is essential for uninterrupted power backup during outages. With the <a href="/load-calculator">Livguard Power Planner</a> you can easily select the perfect combination based on your property type, appliances, and budget.`,
         [Language.Hindi]: `अपवाद के दौरान अविराम बिजली बैकअप के लिए सही इनवर्टर और बैटरी चुनना आपके घर के लिए आवश्यक है। <a href="/load-calculator">लिवगार्ड पावर प्लानर</a> के साथ आप अपनी संपत्ति के प्रकार, उपकरणों और बजट के आधार पर सही कंबिनेशन का आसानी से चयन कर सकते हैं।`,
         [Language.Marathi]: "?????",
     },
-    landingPage3Q5Q: {
+    landingPage3FAQQ4Q: {
+        [Language.English]: "Will a dealer help me in installation?",
+        [Language.Hindi]: "क्या कोई डीलर इंस्टालेशन में मेरी मदद करेगा?",
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ4A: {
+        [Language.English]: `It depends on dealer to dealer. Most of our channel partners provide installation services at their end. If you face any problem, you can reach out to our service team, LivServ at <a href="tel:18001025551">18001025551</a>`,
+        [Language.Hindi]: `यह डीलर से डीलर पर निर्भर करता है। हमारे अधिकांश चैनल पार्टनर अपनी ओर से इंस्टालेशन सेवाएं प्रदान करते हैं। यदि आपको कोई समस्या आती है, तो आप <a href="tel:18001025551">18001025551</a> पर हमारी सर्विस टीम, लिवसर्व से संपर्क कर सकते हैं।`,
+        [Language.Marathi]: "?????",
+    },
+    landingPage3FAQQ5Q: {
         [Language.English]: "What Are the Benefits of Buying an Inverter with Battery of the same brand?",
         [Language.Hindi]: "एक ही ब्रांड के इनवर्टर और बैटरी खरीदने के क्या फायदे होते हैं?",
         [Language.Marathi]: "?????",
     },
-    landingPage3Q5A: {
+    landingPage3FAQQ5A: {
         [Language.English]: `Buying an inverter and battery of the same brand, like Livguard Inverter Battery, ensures compatibility and reliability. Use the <a href="/load-calculator">Livguard Power Planner</a> to choose the perfect combination based on your needs and budget.`,
         [Language.Hindi]: `एक ही ब्रांड के इनवर्टर और बैटरी खरीदने से, जैसे लिवगार्ड इनवर्टर  बैटरी, आपको संगतता और विश्वसनीयता की आश्वासन होता है। <a href="/load-calculator">लिवगार्ड पावर प्लानर</a> आपकी आवश्यकताओं और बजट के आधार पर सही कंबिनेशन का चयन करने में मदद कर सकता है।`,
+        [Language.Marathi]: "?????",
+    },
+
+    headerLoadCalculator: {
+        [Language.English]: "Load Calculator",
+        [Language.Hindi]: "लोड कैलकुलेटर",
         [Language.Marathi]: "?????",
     },
 

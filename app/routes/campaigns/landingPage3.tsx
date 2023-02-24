@@ -104,7 +104,7 @@ function LandingPage({
     };
 }) {
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-x-2 tw-align-stretch">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch">
             <HeroSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -140,7 +140,7 @@ function LandingPage({
                 className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[7] lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             <TapIntoEfficiency
                 userPreferences={userPreferences}
@@ -148,14 +148,14 @@ function LandingPage({
                 className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             <TransformingLives
                 userPreferences={userPreferences}
                 className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 lg:tw-row-start-[12] tw-h-10 lg:tw-h-[72px]" />
 
             <FaqSection
                 userPreferences={userPreferences}
@@ -273,27 +273,25 @@ export function TapIntoEfficiency({
                             className={`tw-col-start-${cardIndex + 1} tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-text-center`}
                             key={cardIndex}
                         >
-                            <DefaultElementAnimation>
-                                <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left lg:tw-h-full">
-                                    <DefaultTextAnimation>
-                                        <div className="lg-text-title1">{getVernacularString(card.titleTextContentPiece, userPreferences.language)}</div>
-                                    </DefaultTextAnimation>
+                            <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left lg:tw-h-full tw-flex-1 tw-flex tw-flex-col">
+                                <DefaultTextAnimation>
+                                    <div className="lg-text-title1">{getVernacularString(card.titleTextContentPiece, userPreferences.language)}</div>
+                                </DefaultTextAnimation>
 
-                                    <div className="tw-h-2" />
+                                <div className="tw-h-2" />
 
-                                    <DefaultTextAnimation className="tw-flex-1">
-                                        <div className="lg-text-body lg-text-secondary-700 tw-flex-1">{getVernacularString(card.bodyTextContentPiece, userPreferences.language)}</div>
-                                    </DefaultTextAnimation>
-                                </div>
-                                <VerticalSpacer className="tw-h-4 tw-flex-1" />
-                                <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-w-full">
-                                    <FullWidthImage
-                                        relativePath={card.imageRelativePath}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
-                                        className="tw-rounded-lg tw-w-full"
-                                    />
-                                </div>
-                            </DefaultElementAnimation>
+                                <DefaultTextAnimation className="tw-flex-1">
+                                    <div className="lg-text-body lg-text-secondary-700 tw-flex-1">{getVernacularString(card.bodyTextContentPiece, userPreferences.language)}</div>
+                                </DefaultTextAnimation>
+                            </div>
+                            <VerticalSpacer className="tw-h-4 tw-flex-1" />
+                            <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-w-full">
+                                <FullWidthImage
+                                    relativePath={card.imageRelativePath}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                    className="tw-rounded-lg tw-w-full"
+                                />
+                            </div>
                         </div>
                     )}
                 />
@@ -314,43 +312,43 @@ export function TapIntoEfficiency({
 export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-y-4">
+                <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-flex tw-flex-col">
+                    <div className="lg-text-headline tw-text-center">
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                    </div>
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-body tw-text-center">
+                        <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                        <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                    </div>
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full tw-flex tw-flex-col tw-gap-y-3">
                     <ItemBuilder
                         items={[
                             {
-                                question: "landingPage3Q1Q",
-                                answer: "landingPage3Q1A",
+                                question: "landingPage3FAQQ1Q",
+                                answer: "landingPage3FAQQ1A",
                             },
                             {
-                                question: "landingPage3Q2Q",
-                                answer: "landingPage3Q2A",
+                                question: "landingPage3FAQQ2Q",
+                                answer: "landingPage3FAQQ2A",
                             },
                             {
-                                question: "landingPage3Q3Q",
-                                answer: "landingPage3Q3A",
+                                question: "landingPage3FAQQ3Q",
+                                answer: "landingPage3FAQQ3A",
                             },
                             {
-                                question: "landingPage3Q4Q",
-                                answer: "landingPage3Q4A",
+                                question: "landingPage3FAQQ4Q",
+                                answer: "landingPage3FAQQ4A",
                             },
                             {
-                                question: "landingPage3Q5Q",
-                                answer: "landingPage3Q5A",
+                                question: "landingPage3FAQQ5Q",
+                                answer: "landingPage3FAQQ5A",
                             },
                         ]}
                         itemBuilder={(item, itemIndex) => (
@@ -370,9 +368,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
+                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center">
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
                     <div>
                         {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
@@ -441,13 +437,13 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                 </div>
             </div>
             <div className="tw-hidden lg:tw-block tw-w-full tw-h-full">
-                <div className="tw-w full tw-h-full tw-bg-secondary-100 tw-py-20 tw-px-30">
+                <div className="tw-w full tw-h-full lg-bg-secondary-100 tw-py-20 tw-px-30 tw-rounded-lg">
                     <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-overflow-hidden tw-h-full tw-m-auto">
                         <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                             <div className="tw-absolute tw-inset-0">
                                 <video
                                     src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
-                                    className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover tw-hidden dark:tw-block"
+                                    className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-hidden dark:tw-block"
                                     autoPlay={true}
                                     muted={true}
                                     loop={true}
@@ -456,7 +452,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
 
                                 <video
                                     src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
-                                    className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover dark:tw-hidden tw-block"
+                                    className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full dark:tw-hidden tw-block"
                                     autoPlay={true}
                                     muted={true}
                                     loop={true}

@@ -284,7 +284,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
 
                 <div className="tw-w-8 tw-hidden lg:tw-flex" />
 
-                <div className="tw-hidden lg:tw-flex tw-gap-x-8">
+                <div className="tw-hidden lg:tw-flex tw-gap-x-8 tw-items-center">
                     <button
                         type="button"
                         onClick={() => {
@@ -323,11 +323,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         {getVernacularString("headerMenuS1T5", userPreferences.language)}
                     </button>
 
-                    <Link
-                        to="/dealer-locator"
-                    >
-                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
-                    </Link>
+                    <Link to="/dealer-locator">{getVernacularString("headerMenuS1T6", userPreferences.language)}</Link>
 
                     {/* <a
                         href="/register-and-warranty-for-inverters.php"
@@ -343,6 +339,13 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     >
                         {getVernacularString("headerMenuS1T8", userPreferences.language)}
                     </button>
+
+                    <Link
+                        to={"/load-calculator"}
+                        className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl"
+                    >
+                        {getVernacularString("headerLoadCalculator", userPreferences.language)}
+                    </Link>
                 </div>
 
                 <div className="tw-flex-1" />
