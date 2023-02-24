@@ -68,6 +68,7 @@ export default function () {
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
+                utmParameters={utmSearchParameters}
             >
                 <HomePage
                     userPreferences={userPreferences}
