@@ -123,34 +123,36 @@ export function JodiCarousel({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg-px-screen-edge">
-                <button
-                    type="button"
-                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                    onClick={() => emblaApi?.scrollPrev()}
-                >
-                    <ChevronLeftIcon className="tw-w-6 tw-h-6" />
-                </button>
+            <div className="tw-flex tw-justify-center">
+                <div className="lg:tw-w-[15rem] tw-flex tw-flex-row tw-justify-between tw-gap-x-10 tw-items-center">
+                    <button
+                        type="button"
+                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                        onClick={() => emblaApi?.scrollPrev()}
+                    >
+                        <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                    </button>
 
-                <div className="tw-flex tw-flex-row tw-gap-x-2">
-                    <ItemBuilder
-                        items={items}
-                        itemBuilder={(_, scrollSnapIndex) => (
-                            <div
-                                className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
-                                key={scrollSnapIndex}
-                            />
-                        )}
-                    />
+                    <div className="tw-flex tw-flex-row tw-gap-x-2">
+                        <ItemBuilder
+                            items={items}
+                            itemBuilder={(_, scrollSnapIndex) => (
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                    key={scrollSnapIndex}
+                                />
+                            )}
+                        />
+                    </div>
+
+                    <button
+                        type="button"
+                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                        onClick={() => emblaApi?.scrollNext()}
+                    >
+                        <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                    </button>
                 </div>
-
-                <button
-                    type="button"
-                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                    onClick={() => emblaApi?.scrollNext()}
-                >
-                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                </button>
             </div>
         </div>
     );

@@ -186,7 +186,7 @@ function HeroSection({
             )}
         >
             <CoverImage
-                relativePath="/livguard/landingPages/2/hero_image.jpg"
+                relativePath="/livguard/landingPages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.Imgix}
             />
@@ -368,7 +368,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
                     />
                 </div>
 
-                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left ">
+                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-w-[25rem]">
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
                     <div>
                         {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}

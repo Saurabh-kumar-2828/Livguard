@@ -1,6 +1,6 @@
 import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
-import {Link, useFetcher} from "@remix-run/react";
+import {FetcherWithComponents, Link, useFetcher} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {Accordion} from "~/components/accordian";
 import {ContactForm} from "~/components/contactUsForm";
@@ -72,101 +72,164 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     console.log(utmSearchParameters);
 
     return (
-        <>
-            <HeroSection userPreferences={userPreferences} />
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-1 tw-align-stretch">
+            <HeroSection
+                userPreferences={userPreferences}
+                className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+                fetcher={fetcher}
+                utmParameters={utmSearchParameters}
+                isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             {isContactUsSubmissionSuccess ? (
-                <ContactFormSuccess userPreferences={userPreferences} />
+                <ContactFormSuccess
+                    userPreferences={userPreferences}
+                    className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
+                />
             ) : (
                 <ContactForm
                     userPreferences={userPreferences}
                     fetcher={fetcher}
                     utmParameters={utmSearchParameters}
+                    className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 />
             )}
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 tw-h-10 lg:tw-hidden" />
 
-            <EnergySolutions userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <JodiSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <WhyLivguardJodi userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <PowerPlannerTeaser userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <QualityMeetsExpertise userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <ExploreStarProducts userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <TransformingLives userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <FaqSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-        </>
-    );
-}
-
-function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
-    return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
-            <CoverImage
-                relativePath="/livguard/landingPages/2/hero_image.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
+            <EnergySolutions
+                userPreferences={userPreferences}
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[120px]"
             />
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T1", userPreferences.language)}}
-                    className="lg-text-banner lg-px-screen-edge tw-text-white"
+            <VerticalSpacer className="tw-row-start-6 lg:tw-row-start-[4] lg:tw-col-span-full lg:tw-h-[72px] tw-h-10" />
+
+            <div className="tw-grid tw-grid-rows-3 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-row-start-7 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full">
+                <JodiSection
+                    userPreferences={userPreferences}
+                    className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[120px]"
                 />
-            </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T2", userPreferences.language)}}
-                    className="lg-text-title1 lg-px-screen-edge tw-text-white"
+                <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-hidden" />
+
+                <WhyLivguardJodi
+                    userPreferences={userPreferences}
+                    className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[120px]"
                 />
-            </DefaultTextAnimation>
+            </div>
 
-            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <a
-                    className="lg-cta-button lg-px-screen-edge"
-                    href="#contactUs"
-                >
-                    {getVernacularString("landingPage2S1T3", userPreferences.language)}
-                </a>
-            </DefaultElementAnimation>
+            <VerticalSpacer className="tw-row-start-[8] tw-h-10 lg:tw-row-start-[6] lg:tw-col-span-full lg:tw-h-[72px]" />
 
-            <a
-                href="#contactUs"
-                className="tw-row-[11] tw-col-start-1"
-            >
-                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
-            </a>
+            <PowerPlannerTeaser
+                userPreferences={userPreferences}
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 tw-h-10 lg:tw-row-start-[8] lg:tw-col-span-full lg:tw-h-[72px]" />
+
+            <QualityMeetsExpertise
+                userPreferences={userPreferences}
+                className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[120px]"
+            />
+
+            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-[72px]" />
+
+            <ExploreStarProducts
+                userPreferences={userPreferences}
+                className="tw-row-start-[13] tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-[72px]" />
+
+            <TransformingLives
+                userPreferences={userPreferences}
+                className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-row-start-[16] tw-col-start-1 tw-h-10 lg:tw-row-start-[12] lg:tw-col-span-full lg:tw-h-[72px]" />
+
+            <FaqSection
+                userPreferences={userPreferences}
+                className="tw-row-start-[17] tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-row-start-[18] tw-col-start-1 tw-h-10 lg:tw-row-start-[14] lg:tw-col-span-full lg:tw-h-[72px]" />
         </div>
     );
 }
 
-export function JodiSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+function HeroSection({
+    userPreferences,
+    className,
+    isContactUsSubmissionSuccess,
+    fetcher,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    className: string;
+    isContactUsSubmissionSuccess: boolean;
+    fetcher: FetcherWithComponents<any>;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2",
+                className,
+            )}
+        >
+            <CoverImage
+                relativePath="/livguard/landingPages/2/hero_image.jpg"
+                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
+                imageCdnProvider={ImageCdnProvider.Imgix}
+            />
+
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T1", userPreferences.language)}}
+                    className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                />
+            </DefaultTextAnimation>
+
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S1T2", userPreferences.language)}}
+                    className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                />
+            </DefaultTextAnimation>
+
+            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1">
+                <div className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]">{getVernacularString("landingPage2S1T3", userPreferences.language)}</div>
+            </DefaultElementAnimation>
+
+            <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
+                <ChevronDoubleDownIcon className=" tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+            </div>
+
+            <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
+                {isContactUsSubmissionSuccess ? (
+                    <ContactFormSuccess
+                        userPreferences={userPreferences}
+                        className="lg:tw-w-[30rem]"
+                    />
+                ) : (
+                    <ContactForm
+                        userPreferences={userPreferences}
+                        fetcher={fetcher}
+                        utmParameters={utmParameters}
+                        className="lg:tw-w-[30rem]"
+                    />
+                )}
+            </div>
+        </div>
+    );
+}
+
+export function JodiSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const JodiData: Array<{
         title: string;
         description: string;
@@ -290,7 +353,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
     );
 }
 
-export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPreferences}) {
+export function WhyLivguardJodi({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData = [
         {
             image: "/livguard/category/jodi/urban_jodi.png",
@@ -313,8 +376,8 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
     ];
 
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-h-full", className)}>
+            <div className="tw-flex tw-flex-col tw-h-[89%]">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT2", userPreferences.language)}} />
@@ -322,24 +385,22 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-10" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3">
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3 tw-flex-1">
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(item, itemIndex) => (
-                            <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-p-6`}>
-
-                                <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between lg:tw-items-center">
+                            <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}>
+                                <div className="tw-flex tw-items-center tw-justify-center">
                                     <FixedWidthImage
                                         relativePath={item.image}
                                         imageCdnProvider={ImageCdnProvider.Imgix}
                                         width="150px"
                                     />
-
-                                    <VerticalSpacer className="tw-h-4" />
-
-                                    <div className="lg-text-title1">{item.title}</div>
-
                                 </div>
+
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <div className="lg-text-title1 tw-text-left lg:tw-place-self-left">{item.title}</div>
 
                                 <VerticalSpacer className="tw-h-4" />
 
@@ -426,7 +487,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge",className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT1", userPreferences.language)}} />
@@ -474,25 +535,25 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
     );
 }
 
-export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-y-4">
+                <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-flex tw-flex-col">
+                    <div className="lg-text-headline tw-text-center lg:tw-text-left">
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+                    </div>
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-body tw-text-center lg:tw-text-left">
+                        <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
+                        <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                    </div>
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-flex tw-flex-col tw-gap-y-3">
+                <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full tw-flex tw-flex-col tw-gap-y-3">
                     <ItemBuilder
                         items={[
                             {
@@ -504,7 +565,7 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
                                 answer: "landingPage2Q2A",
                             },
                             {
-                                question: "landingPage2Q3Q",
+                                question: "landingPag2Q3Q",
                                 answer: "landingPage2Q3A",
                             },
                             {
@@ -533,9 +594,7 @@ export function FaqSection({userPreferences}: {userPreferences: UserPreferences}
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
+                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-w-[25rem]">
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
                     <div>
                         {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
