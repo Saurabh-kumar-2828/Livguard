@@ -236,11 +236,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "लिवगार्ड इन्वर्टर एक्सपर्ट से जुड़ें",
         [Language.Marathi]: "?????",
     },
-    headerEWaste: {
-        [Language.English]: "E-Waste Management",
-        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
-        [Language.Marathi]: "?????",
-    },
 
     homeS1T1: {
         [Language.English]: "Uninterrupted Power",

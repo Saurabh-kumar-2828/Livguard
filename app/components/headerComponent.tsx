@@ -117,24 +117,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     <a href="tel:+919205667999">+91 92056-67999</a>
                 </div>
 
-                {/* <Spacer className="tw-w-1" />
-
-                <Link
-                    to="https://www.livguard.com/e-waste-management.php"
-                    target={"_blank"}
-                >
-                    E-Waste Management
-                </Link> */}
-
                 <div className="tw-flex-1" />
-
-                <div className="tw-hidden lg:tw-flex tw-flex-row">
-                    {getVernacularString("headerEWaste", userPreferences.language)}
-
-                    <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
-
-                    <HorizontalSpacer className="tw-w-4" />
-                </div>
 
                 <Form
                     method="post"
@@ -340,13 +323,25 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         {getVernacularString("headerMenuS1T5", userPreferences.language)}
                     </button>
 
+                    <Link
+                        to="/dealer-locator"
+                    >
+                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                    </Link>
+
+                    {/* <a
+                        href="/register-and-warranty-for-inverters.php"
+                    >
+                        {getVernacularString("headerMenuS1T7", userPreferences.language)}
+                    </a> */}
+
                     <button
                         type="button"
                         onClick={() => {
                             tryToOpenSubMenu(SubMenu.More);
                         }}
                     >
-                        {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                        {getVernacularString("headerMenuS1T8", userPreferences.language)}
                     </button>
                 </div>
 
