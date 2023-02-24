@@ -9,7 +9,7 @@ export async function getDealerForCity(city: string){
             SELECT
                 *
             FROM
-                dealer
+                livguard.dealer
             WHERE
                  LOWER(city) = $1 OR pin_code = $1
             ORDER BY
@@ -44,7 +44,7 @@ export async function insertDealerLeads(formResponse: {phoneNumber:string, name:
     await execute(
         `
             INSERT INTO
-                dealer_form_leads
+                livguard.dealer_form_leads
                 values($1,$2,$3)
         `,
         [generateUuid(), getCurrentIsoTimestamp(), formResponse],
@@ -62,7 +62,25 @@ export async function insertContactLeads(formResponse: {
     await execute(
         `
             INSERT INTO
-                contact_us_leads
+                livguard.contact_us_leads
+                values($1,$2,$3)
+        `,
+        [generateUuid(), getCurrentIsoTimestamp(), formResponse],
+    );
+}
+
+export async function insertSubscriptionLeads(formResponse: {
+    phoneNumber: string;
+    name: string;
+    emailId: string;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
+    await execute(
+        `
+            INSERT INTO
+                livguard.subscribe_leads
                 values($1,$2,$3)
         `,
         [generateUuid(), getCurrentIsoTimestamp(), formResponse],

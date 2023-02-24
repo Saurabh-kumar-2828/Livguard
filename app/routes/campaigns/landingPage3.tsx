@@ -1,20 +1,23 @@
-import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleDownIcon, ChevronLeftIcon} from "@heroicons/react/20/solid";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {Form, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
 import {Accordion} from "~/components/accordian";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, DealerLocator, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
@@ -83,7 +86,7 @@ export default function () {
             />
             <LandingPage
                 userPreferences={userPreferences}
-                actionData={actionData}
+                utmParameters={utmSearchParameters}
             />
             <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
@@ -91,50 +94,97 @@ export default function () {
     );
 }
 
-function LandingPage({userPreferences, actionData}: {userPreferences: UserPreferences; actionData: DealerLocatorActionData}) {
+function LandingPage({
+    userPreferences,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     return (
-        <>
-            <HeroSection userPreferences={userPreferences} />
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-x-8 tw-align-stretch">
+            <HeroSection
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+                className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
-            <JodiSection userPreferences={userPreferences} />
+            <JodiSection
+                userPreferences={userPreferences}
+                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-[6] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
-            <PowerPlannerTeaser userPreferences={userPreferences} />
+            <PowerPlannerTeaser
+                userPreferences={userPreferences}
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-[5] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-row-start-[8] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
-            <ExploreStarProducts userPreferences={userPreferences} />
+            <ExploreStarProducts
+                userPreferences={userPreferences}
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[7] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-12" />
+            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
-            <TapIntoEfficiency userPreferences={userPreferences} />
+            <TapIntoEfficiency
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
-            <TransformingLives userPreferences={userPreferences} />
+            <TransformingLives
+                userPreferences={userPreferences}
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-[72px]" />
 
-            <FaqSection userPreferences={userPreferences} />
+            <FaqSection
+                userPreferences={userPreferences}
+                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
-        </>
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+        </div>
     );
 }
 
-function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+function HeroSection({
+    userPreferences,
+    utmParameters,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    className?: string,
+}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                className,
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center",
+            )}
+        >
             <CoverImage
                 relativePath="/livguard/landingPages/2/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -160,6 +210,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                     userPreferences={userPreferences}
                     textVernacId="landingPage3S1T3"
                     className="tw-z-10"
+                    utmParameters={utmParameters}
                 />
             </DefaultElementAnimation>
 
@@ -168,7 +219,17 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-export function TapIntoEfficiency({userPreferences}: {userPreferences: UserPreferences}) {
+export function TapIntoEfficiency({
+    userPreferences,
+    utmParameters,
+    className
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    className?: string;
+}) {
     const sectionData = [
         {
             imageRelativePath: "/livguard/landingPages/3/1.jpg",
@@ -188,7 +249,7 @@ export function TapIntoEfficiency({userPreferences}: {userPreferences: UserPrefe
     ];
 
     return (
-        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}>
             <div className="lg-text-headline">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT1", userPreferences.language)}} />
@@ -198,24 +259,63 @@ export function TapIntoEfficiency({userPreferences}: {userPreferences: UserPrefe
                 </DefaultTextAnimation>
             </div>
             <VerticalSpacer className="tw-h-6" />
-            <LandingPage3Carousel
-                userPreferences={userPreferences}
-                items={sectionData}
-            />
+            <div className="tw-block lg:tw-hidden tw-w-full">
+                <LandingPage3Carousel
+                    userPreferences={userPreferences}
+                    items={sectionData}
+                />
+            </div>
+            <div className="tw-hidden lg:tw-grid tw-grid-cols-3 tw-gap-4">
+                <ItemBuilder
+                    items={sectionData}
+                    itemBuilder={(card, cardIndex) => (
+                        <div
+                            className={`tw-col-start-${cardIndex + 1} tw-w-full tw-h-full tw-flex tw-flex-col tw-items-center tw-text-center`}
+                            key={cardIndex}
+                        >
+                            <DefaultElementAnimation>
+                                <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left">
+                                    <DefaultTextAnimation>
+                                        <div className="lg-text-title1">{getVernacularString(card.titleTextContentPiece, userPreferences.language)}</div>
+                                    </DefaultTextAnimation>
+
+                                    <div className="tw-h-2" />
+
+                                    <DefaultTextAnimation className="tw-flex-1">
+                                        <div className="lg-text-body lg-text-secondary-700 tw-flex-1">{getVernacularString(card.bodyTextContentPiece, userPreferences.language)}</div>
+                                    </DefaultTextAnimation>
+                                </div>
+                                <VerticalSpacer className="tw-h-4" />
+                                <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1">
+                                    <DefaultImageAnimation className="tw-w-full">
+                                        <FullWidthImage
+                                            relativePath={card.imageRelativePath}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            className="tw-rounded-lg tw-w-full"
+                                        />
+                                    </DefaultImageAnimation>
+                                </div>
+                            </DefaultElementAnimation>
+                        </div>
+                    )}
+                />
+            </div>
+
             <VerticalSpacer className="tw-h-8 tw-flex-1" />
 
             <ContactUsCta
                 userPreferences={userPreferences}
                 textVernacId="landingPage3S7BT"
                 className="tw-z-10"
+                utmParameters={utmParameters}
             />
         </div>
     );
 }
 
-export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge",className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />

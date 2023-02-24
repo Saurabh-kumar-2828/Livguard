@@ -53,11 +53,11 @@ export function LandingPage3Carousel({
                                     </div>
                                     <VerticalSpacer className="tw-h-4" />
                                     <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1">
-                                        <DefaultImageAnimation>
+                                        <DefaultImageAnimation className="tw-w-full">
                                             <FullWidthImage
                                                 relativePath={item.imageRelativePath}
                                                 imageCdnProvider={ImageCdnProvider.Imgix}
-                                                className="tw-rounded-lg"
+                                                className="tw-rounded-lg tw-w-full"
                                             />
                                         </DefaultImageAnimation>
                                     </div>

@@ -958,8 +958,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4HT2: {
-        [Language.English]: `With Our Top <span class="lg-text-highlighted">Jodis</span>`,
-        [Language.Hindi]: `बेहतरीन <span class="lg-text-highlighted">जोड़ियाँ</span> आपके लिए`,
+        [Language.English]: `With Our Top <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">Jodis</span>`,
+        [Language.Hindi]: `बेहतरीन <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">जोड़ियाँ</span> आपके लिए`,
         [Language.Marathi]: "?????",
     },
     landingPage2S4CTABT: {

@@ -29,7 +29,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    //await insertSubscriptionLeads({email: emailId});
+    await insertSubscriptionLeads({email: emailId});
 
     await sendDataToFreshSales({email: emailId}, utmParametersDecoded);
 

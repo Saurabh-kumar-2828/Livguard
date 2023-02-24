@@ -17,6 +17,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {QualityMeetsExpertise} from "~/routes/campaigns/landingPage1";
@@ -165,7 +166,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-export function JodiSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function JodiSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const JodiData: Array<{
         title: string;
         description: string;
@@ -267,17 +268,19 @@ export function JodiSection({userPreferences}: {userPreferences: UserPreferences
     ];
 
     return (
-        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-            <div className="lg-text-headline lg-px-screen-edge">
-                <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
-                </DefaultTextAnimation>
-                <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}} />
-                </DefaultTextAnimation>
-            </div>
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
+            <div className="tw-block lg:tw-hidden">
+                <div className="lg-text-headline lg-px-screen-edge">
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
+                    </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}} />
+                    </DefaultTextAnimation>
+                </div>
 
-            <VerticalSpacer className="tw-h-6" />
+                <VerticalSpacer className="tw-h-6" />
+            </div>
 
             <JodiCarousel
                 userPreferences={userPreferences}
@@ -398,7 +401,7 @@ export function WhyLivguardJodi({userPreferences}: {userPreferences: UserPrefere
     );
 }
 
-export function ExploreStarProducts({userPreferences}: {userPreferences: UserPreferences}) {
+export function ExploreStarProducts({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData = [
         {
             title: "LG1150i",
@@ -423,7 +426,7 @@ export function ExploreStarProducts({userPreferences}: {userPreferences: UserPre
     ];
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge",className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT1", userPreferences.language)}} />

@@ -44,57 +44,66 @@ export function JodiCarousel({
                                 key={itemIndex}
                             >
                                 <DefaultElementAnimation className="tw-h-full">
-                                    <div className="tw-flex tw-flex-col tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-w-full tw-h-full">
+                                    <div className="tw-flex tw-flex-col [@media(max-width: 1080px)]:tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-w-full tw-h-full">
                                         <VerticalSpacer className="tw-h-4" />
+                                        <div className="tw-hidden lg:tw-block tw-text-left lg-text-titile1">
+                                            <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
 
-                                        <div className="lg-text-title1">{item.title}</div>
-
-                                        <VerticalSpacer className="tw-h-4" />
-
-                                        <div className="lg-text-body tw-flex-1">{item.description}</div>
-
-                                        <VerticalSpacer className="tw-h-6" />
-
-                                        <div className="lg-text-title2">{`${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`}</div>
-
-                                        <VerticalSpacer className="tw-h-6" />
-
-                                        <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
-                                            <ItemBuilder
-                                                items={item.keySpecifications}
-                                                itemBuilder={(keySpecification, keySpecificationIndex) => (
-                                                    <div
-                                                        className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${
-                                                            (keySpecificationIndex % 2) + 1
-                                                        } tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-3 tw-mx-auto tw-w-[120px]`}
-                                                    >
-                                                        <div className="tw-flex tw-w-10 tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
-                                                            <FixedWidthImage
-                                                                relativePath={keySpecification.keySpecificationIconRelativePath}
-                                                                imageCdnProvider={ImageCdnProvider.Imgix}
-                                                                width="1.5rem"
-                                                            />
-                                                        </div>
-
-                                                        <div className="tw-flex tw-flex-col tw-gap-1 tw-justify-start">
-                                                            <div className="lg-text-body tw-font-bold tw-text-left">{`${getVernacularString(
-                                                                `landingPage2S4Specification${keySpecificationIndex + 1}Title`,
-                                                                userPreferences.language,
-                                                            )}`}</div>
-                                                            <div className="lg-text-body tw-text-left">{keySpecification.keySpecificationContent}</div>
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            />
+                                            <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}} />
                                         </div>
 
                                         <VerticalSpacer className="tw-h-4" />
 
-                                        <div className="tw-mx-12 tw-flex-1">
-                                            <FullWidthImage
-                                                relativePath={item.jodiImageRelativePath}
-                                                imageCdnProvider={ImageCdnProvider.Imgix}
-                                            />
+                                        <div className="lg-text-title1 lg:tw-text-left">{item.title}</div>
+
+                                        <VerticalSpacer className="tw-h-4" />
+
+                                        <div className="lg-text-body tw-flex-1 lg:tw-text-left">{item.description}</div>
+
+                                        <VerticalSpacer className="tw-h-6" />
+
+                                        <div className="lg-text-title2 lg:tw-text-left">{`${getVernacularString("landingPage2S4KeySpecificationTitle", userPreferences.language)}`}</div>
+
+                                        <VerticalSpacer className="tw-h-6" />
+
+                                        <div className="tw-grid tw-grid-rows-2 tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] lg:tw-grid-rows-1">
+                                            <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+                                                <ItemBuilder
+                                                    items={item.keySpecifications}
+                                                    itemBuilder={(keySpecification, keySpecificationIndex) => (
+                                                        <div
+                                                            className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${
+                                                                (keySpecificationIndex % 2) + 1
+                                                            } tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-3 tw-mx-auto tw-w-[120px]`}
+                                                        >
+                                                            <div className="tw-flex tw-w-10 tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
+                                                                <FixedWidthImage
+                                                                    relativePath={keySpecification.keySpecificationIconRelativePath}
+                                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                                    width="1.5rem"
+                                                                />
+                                                            </div>
+
+                                                            <div className="tw-flex tw-flex-col tw-gap-1 tw-justify-start">
+                                                                <div className="lg-text-body tw-font-bold tw-text-left">{`${getVernacularString(
+                                                                    `landingPage2S4Specification${keySpecificationIndex + 1}Title`,
+                                                                    userPreferences.language,
+                                                                )}`}</div>
+                                                                <div className="lg-text-body tw-text-left">{keySpecification.keySpecificationContent}</div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                />
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 tw-mx-12 tw-flex-1">
+                                                <FullWidthImage
+                                                    relativePath={item.jodiImageRelativePath}
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </DefaultElementAnimation>
