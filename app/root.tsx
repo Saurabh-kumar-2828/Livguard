@@ -76,6 +76,23 @@ export default function() {
                     }}
                 />
 
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            !function(f,b,e,v,n,t,s)
+                            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                            n.queue=[];t=b.createElement(e);t.async=!0;
+                            t.src=v;s=b.getElementsByTagName(e)[0];
+                            s.parentNode.insertBefore(t,s)}(window, document,'script',
+                            'https://connect.facebook.net/en_US/fbevents.js');
+                            fbq('init', '635911646858607');
+                            fbq('track', 'PageView');
+                        `,
+                    }}
+                />
+
                 {/* <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -100,9 +117,25 @@ export default function() {
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
                 {/* Google Tag Manager (noscript) */}
                 <noscript>
-                    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HRQL29" height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe>
+                    <iframe
+                        src="https://www.googletagmanager.com/ns.html?id=GTM-5HRQL29"
+                        height="0"
+                        width="0"
+                        style={{display: "none", visibility: "hidden"}}
+                    ></iframe>
                 </noscript>
                 {/* End Google Tag Manager (noscript) */}
+
+                {/* Start Facebook Mwta Pixel code  */}
+                <noscript>
+                    <img
+                        height="1"
+                        width="1"
+                        style={{display:"none"}}
+                        src="https://www.facebook.com/tr?id=635911646858607&ev=PageView&noscript=1"
+                    />
+                </noscript>
+                {/* End Facebook Mwta Pixel code  */}
 
                 <Outlet />
                 <ScrollRestoration />

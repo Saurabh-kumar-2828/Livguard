@@ -1,9 +1,8 @@
 import {ChevronDoubleDownIcon, ChevronLeftIcon} from "@heroicons/react/20/solid";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
-import {Form, useActionData} from "@remix-run/react";
+import {Form, Link, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
-import {Accordion} from "~/components/accordian";
 import {Accordion} from "~/components/accordian";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
@@ -20,7 +19,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {ContactUsCta, DealerLocator, TransformingLives} from "~/routes";
+import {ContactUsCta, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
 import {DealerLocatorPage} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -105,7 +104,7 @@ function LandingPage({
     };
 }) {
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-x-8 tw-align-stretch">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-x-2 tw-align-stretch">
             <HeroSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -124,7 +123,7 @@ function LandingPage({
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[120px]"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[120px] tw-h-full"
             />
 
             <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-[6] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
@@ -177,7 +176,7 @@ function HeroSection({
     utmParameters: {
         [searchParameter: string]: string;
     };
-    className?: string,
+    className?: string;
 }) {
     return (
         <div
@@ -223,7 +222,7 @@ function HeroSection({
 export function TapIntoEfficiency({
     userPreferences,
     utmParameters,
-    className
+    className,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -275,7 +274,7 @@ export function TapIntoEfficiency({
                             key={cardIndex}
                         >
                             <DefaultElementAnimation>
-                                <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left">
+                                <div className="tw-row-start-2 lg:tw-col-start-1 tw-text-center lg:te-text-left lg:tw-h-full">
                                     <DefaultTextAnimation>
                                         <div className="lg-text-title1">{getVernacularString(card.titleTextContentPiece, userPreferences.language)}</div>
                                     </DefaultTextAnimation>
@@ -286,15 +285,13 @@ export function TapIntoEfficiency({
                                         <div className="lg-text-body lg-text-secondary-700 tw-flex-1">{getVernacularString(card.bodyTextContentPiece, userPreferences.language)}</div>
                                     </DefaultTextAnimation>
                                 </div>
-                                <VerticalSpacer className="tw-h-4" />
-                                <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1">
-                                    <DefaultImageAnimation className="tw-w-full">
-                                        <FullWidthImage
-                                            relativePath={card.imageRelativePath}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
-                                            className="tw-rounded-lg tw-w-full"
-                                        />
-                                    </DefaultImageAnimation>
+                                <VerticalSpacer className="tw-h-4 tw-flex-1" />
+                                <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-w-full">
+                                    <FullWidthImage
+                                        relativePath={card.imageRelativePath}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
+                                        className="tw-rounded-lg tw-w-full"
+                                    />
                                 </div>
                             </DefaultElementAnimation>
                         </div>
@@ -316,7 +313,7 @@ export function TapIntoEfficiency({
 
 export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge",className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
@@ -386,6 +383,109 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
                             {getVernacularString("homeS9T3P3", userPreferences.language)}
                         </a>{" "}
                         {getVernacularString("homeS9T3P4", userPreferences.language)}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+            <div className="tw-block lg:tw-hidden lg:tw-w-full">
+                <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] lg:tw-h-full tw-overflow-hidden">
+                    <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
+                        <div className="tw-absolute tw-inset-0">
+                            <video
+                                src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
+                                className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover tw-hidden dark:tw-block"
+                                autoPlay={true}
+                                muted={true}
+                                loop={true}
+                                controls={false}
+                            />
+
+                            <video
+                                src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
+                                className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover dark:tw-hidden tw-block"
+                                autoPlay={true}
+                                muted={true}
+                                loop={true}
+                                controls={false}
+                            />
+                        </div>
+
+                        <div className="tw-z-10 lg-text-headline tw-text-center">
+                            <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T1", userPreferences.language)}} />
+                            <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T2", userPreferences.language)}} />
+                        </div>
+
+                        <VerticalSpacer className="tw-h-1" />
+
+                        <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+
+                        {showCtaButton && (
+                            <>
+                                <VerticalSpacer className="tw-h-6" />
+
+                                <Link
+                                    to="/dealer-locator"
+                                    className="tw-z-10 lg-cta-button"
+                                >
+                                    {getVernacularString("homeS10T3", userPreferences.language)}
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                </div>
+            </div>
+            <div className="tw-hidden lg:tw-block tw-w-full tw-h-full">
+                <div className="tw-w full tw-h-full tw-bg-secondary-100 tw-py-20 tw-px-30">
+                    <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-overflow-hidden tw-h-full tw-m-auto">
+                        <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
+                            <div className="tw-absolute tw-inset-0">
+                                <video
+                                    src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
+                                    className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover tw-hidden dark:tw-block"
+                                    autoPlay={true}
+                                    muted={true}
+                                    loop={true}
+                                    controls={false}
+                                />
+
+                                <video
+                                    src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
+                                    className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover dark:tw-hidden tw-block"
+                                    autoPlay={true}
+                                    muted={true}
+                                    loop={true}
+                                    controls={false}
+                                />
+                            </div>
+
+                            <div className="tw-z-10 lg-text-headline tw-text-center">
+                                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T1", userPreferences.language)}} />
+                                <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T2", userPreferences.language)}} />
+                            </div>
+
+                            <VerticalSpacer className="tw-h-1" />
+
+                            <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+
+                            {showCtaButton && (
+                                <>
+                                    <VerticalSpacer className="tw-h-6" />
+
+                                    <Link
+                                        to="/dealer-locator"
+                                        className="tw-z-10 lg-cta-button"
+                                    >
+                                        {getVernacularString("homeS10T3", userPreferences.language)}
+                                    </Link>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

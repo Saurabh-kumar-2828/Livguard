@@ -36,7 +36,7 @@ export function JodiCarousel({
                     items={items}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="lg-px-screen-edge tw-h-full"
+                            className="lg-px-screen-edge tw-h-full tw-flex tw-flex-col"
                             key={itemIndex}
                         >
                             <div
@@ -44,17 +44,23 @@ export function JodiCarousel({
                                 key={itemIndex}
                             >
                                 <DefaultElementAnimation className="tw-h-full">
-                                    <div className="tw-flex tw-flex-col [@media(max-width: 1080px)]:tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-w-full tw-h-full">
+                                    <div className="tw-flex tw-flex-col [@media(max-width: 1080px)]:tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-lg tw-p-4 lg:tw-px-8 tw-w-full tw-h-full">
                                         <VerticalSpacer className="tw-h-4" />
                                         <div className="tw-hidden lg:tw-block tw-text-left lg-text-titile1">
-                                            <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}} />
+                                            <div
+                                                dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT1", userPreferences.language)}}
+                                                className="lg:lg-text-title1"
+                                            />
 
-                                            <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}} />
+                                            <div
+                                                dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S4HT2", userPreferences.language)}}
+                                                className="lg:lg-text-title1"
+                                            />
                                         </div>
 
                                         <VerticalSpacer className="tw-h-4" />
 
-                                        <div className="lg-text-title1 lg:tw-text-left">{item.title}</div>
+                                        <div className="lg-text-title1 lg:tw-text-left lg:lg-text-title2">{item.title}</div>
 
                                         <VerticalSpacer className="tw-h-4" />
 
@@ -76,7 +82,7 @@ export function JodiCarousel({
                                                                 (keySpecificationIndex % 2) + 1
                                                             } tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-3 tw-mx-auto tw-w-[120px]`}
                                                         >
-                                                            <div className="tw-flex tw-w-10 tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
+                                                            <div className="tw-flex tw-min-w-[2.5rem] tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
                                                                 <FixedWidthImage
                                                                     relativePath={keySpecification.keySpecificationIconRelativePath}
                                                                     imageCdnProvider={ImageCdnProvider.Imgix}
@@ -109,45 +115,42 @@ export function JodiCarousel({
                                 </DefaultElementAnimation>
 
                                 <VerticalSpacer className="tw-h-4" />
-
-                                <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <button
-                                        type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollPrev()}
-                                    >
-                                        <ChevronLeftIcon className="tw-w-6 tw-h-6" />
-                                    </button>
-
-                                    <div className="tw-flex tw-flex-row tw-gap-x-2">
-                                        <ItemBuilder
-                                            items={items}
-                                            itemBuilder={(_, scrollSnapIndex) => (
-                                                <div
-                                                    className={concatenateNonNullStringsWithSpaces(
-                                                        "tw-w-2 tw-h-2 tw-rounded-full",
-                                                        scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300",
-                                                    )}
-                                                    key={scrollSnapIndex}
-                                                />
-                                            )}
-                                        />
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollNext()}
-                                    >
-                                        <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                                    </button>
-                                </div>
                             </div>
-
-                            <VerticalSpacer className="tw-h-4" />
                         </div>
                     )}
                 />
+            </div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg-px-screen-edge">
+                <button
+                    type="button"
+                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                    onClick={() => emblaApi?.scrollPrev()}
+                >
+                    <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                </button>
+
+                <div className="tw-flex tw-flex-row tw-gap-x-2">
+                    <ItemBuilder
+                        items={items}
+                        itemBuilder={(_, scrollSnapIndex) => (
+                            <div
+                                className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                key={scrollSnapIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <button
+                    type="button"
+                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                    onClick={() => emblaApi?.scrollNext()}
+                >
+                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                </button>
             </div>
         </div>
     );
