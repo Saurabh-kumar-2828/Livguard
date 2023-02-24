@@ -2040,8 +2040,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi2Title: {
-        [Language.English]: "The Rural Jodi",
-        [Language.Hindi]: "रूरल कॉम्बो",
+        [Language.English]: "The Peace Of Mind Jodi",
+        [Language.Hindi]: "मन की शांति वाली जोड़ी",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi3Title: {
@@ -2636,8 +2636,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     contactUsFormHT1: {
-        [Language.English]: `Get <span class=\"lg-text-highlighted\">Reliable Power</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">विश्वसनीय शक्ति</span>`,
+        [Language.English]: `Get <span class=\"lg-text-highlighted tw-text-secondary-900-dark\">Reliable Power</span>`,
+        [Language.Hindi]: `<span class=\"lg-text-highlighted tw-text-secondary-900-dark\">विश्वसनीय शक्ति</span>`,
         [Language.Marathi]: "?????",
     },
     contactUsFormHT2: {

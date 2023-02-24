@@ -182,7 +182,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
 
             <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
 
-            <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 lg-text-secondary-900">
+            <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 lg-text-secondary">
                 {getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}
             </div>
 
@@ -194,7 +194,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 text-secondary-900">
+            <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 text-secondary">
                 {getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}
             </div>
 
@@ -615,7 +615,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
 export function ChooseBestInverterBattery({userPreferences}: {userPreferences: UserPreferences}) {
     const sectionData: {
         description: string;
-        downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string}>;
+        downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
         buttonText: string;
     } = {
         description: `${getVernacularString("categoryInvertersS8Description", userPreferences.language)}`,
@@ -624,11 +624,13 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
                 iconRelativePath: "/livguard/icons/buyingGuide.png",
                 text: `${getVernacularString("categoryInvertersS8B1T", userPreferences.language)}`,
                 downloadLink: "https://files.growthjockey.com/livguard/files/livguard-buying-guide.pdf",
+                popup: false,
             },
             {
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryInvertersS8B2T", userPreferences.language)}`,
                 downloadLink: "https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf",
+                popup: true,
             },
         ],
         buttonText: `${getVernacularString("categoryInvertersS8BT", userPreferences.language)}`,
@@ -648,7 +650,7 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <WhatsBestForYouComponent vernacularContent={sectionData} />
+                <WhatsBestForYouComponent vernacularContent={sectionData} userPreferences={userPreferences}/>
             </div>
         </div>
     );

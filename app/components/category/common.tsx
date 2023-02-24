@@ -1,16 +1,22 @@
+import {Dialog, Transition} from "@headlessui/react";
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
-import {Link} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
+import React from "react";
+import {useState} from "react";
+import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -197,12 +203,14 @@ export function ProductCardComponent({
 
 export function WhatsBestForYouComponent({
     vernacularContent,
+    userPreferences,
 }: {
     vernacularContent: {
         description: string;
-        downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string}>;
+        downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
         buttonText: string;
     };
+    userPreferences: UserPreferences;
 }) {
     return (
         <div className="tw-flex tw-flex-col tw-justify-between tw-items-center">
@@ -217,22 +225,34 @@ export function WhatsBestForYouComponent({
                     <ItemBuilder
                         items={vernacularContent.downloadButtons}
                         itemBuilder={(downloadButton, downloadButtonIndex) => (
-                            <a
-                                href={downloadButton.downloadLink}
-                                key={downloadButtonIndex}
-                                download
-                                target={"_blank"}
-                            >
-                                <div className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}>
-                                    <div className="tw-h-8 tw-min-w-[32px]">
-                                        <FullWidthImage
-                                            relativePath={downloadButton.iconRelativePath}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            <React.Fragment key={downloadButtonIndex}>
+                                {
+                                    downloadButton.popup ? (
+                                        <DownloadCta
+                                            userPreferences={userPreferences}
+                                            textVernacId="categoryInvertersS8B2T"
+                                            className="tw-z-10"
                                         />
-                                    </div>
-                                    <div className="lg-text-title2">{downloadButton.text}</div>
-                                </div>
-                            </a>
+                                    ) : (
+                                        <a
+                                            href={downloadButton.downloadLink}
+                                            key={downloadButtonIndex}
+                                            download
+                                            target={"_blank"}
+                                        >
+                                            <div className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}>
+                                                <div className="tw-h-8 tw-min-w-[32px]">
+                                                    <FullWidthImage
+                                                        relativePath={downloadButton.iconRelativePath}
+                                                        imageCdnProvider={ImageCdnProvider.Imgix}
+                                                    />
+                                                </div>
+                                                <div className="lg-text-title2">{downloadButton.text}</div>
+                                            </div>
+                                        </a>
+                                    )
+                                }
+                            </React.Fragment>
                         )}
                     />
                 </div>
@@ -294,6 +314,266 @@ export function ProductOverviewComponent({
             </div>
 
             <VerticalSpacer className="tw-h-4" />
+        </div>
+    );
+}
+
+export function DownloadCta({userPreferences, textVernacId, className}: {userPreferences: UserPreferences; textVernacId: string; className?: string}) {
+    const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
+
+    function tryToOpenDownloadDialog() {
+        setIsDownloadDialogOpen(true);
+    }
+
+    return (
+        <div className={className}>
+            <div className={"tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-justify-start tw-items-center tw-gap-3"}
+                onClick={tryToOpenDownloadDialog}
+            >
+                <div className="tw-h-8 tw-min-w-[32px]">
+                    <FullWidthImage
+                        relativePath="/livguard/icons/downloadCatalogue.png"
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    />
+                </div>
+                <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
+            </div>
+
+            <DownloadDialog
+                userPreferences={userPreferences}
+                isDownloadDialogOpen={isDownloadDialogOpen}
+                setIsDownloadDialogOpen={setIsDownloadDialogOpen}
+            />
+        </div>
+    );
+}
+
+export function DownloadDialog({
+    userPreferences,
+    isDownloadDialogOpen,
+    setIsDownloadDialogOpen,
+}: {
+    userPreferences: UserPreferences;
+    isDownloadDialogOpen: boolean;
+    setIsDownloadDialogOpen: React.Dispatch<boolean>;
+}) {
+    // TODO: Understand why we cannot use action for this
+    const fetcher = useFetcher();
+
+    const isDownloadSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
+    //     isContactUsSubmissionSuccess = true;
+    // }
+
+    function tryToCloseDownloadDialog() {
+        setIsDownloadDialogOpen(false);
+    }
+
+    return (
+        <Transition
+            show={isDownloadDialogOpen}
+            as={React.Fragment}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseDownloadDialog}
+            >
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+                    <Transition.Child
+                        as="div"
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-opacity-0"
+                        enterTo="tw-opacity-full"
+                        leave="tw-ease-in tw-transition-all tw-duration-200"
+                        leaveFrom="tw-opacity-full"
+                        leaveTo="tw-opacity-0"
+                    >
+                        {isDownloadSubmissionSuccess ? (
+                            <DownloadFormSubmissionSuccess
+                                userPreferences={userPreferences}
+                                tryToCloseDialog={tryToCloseDownloadDialog}
+                            />
+                        ) : (
+                            <div
+                                className="lg-px-screen-edge tw-flex tw-flex-col"
+                                id="contactUs"
+                            >
+                                <div className="lg-text-headline tw-text-center lg-text-secondary-900-dark">
+                                    <DefaultTextAnimation>
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT1", userPreferences.language)}} />
+                                    </DefaultTextAnimation>
+                                    <DefaultTextAnimation>
+                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT2", userPreferences.language)}} />
+                                    </DefaultTextAnimation>
+                                </div>
+
+                                <VerticalSpacer className="tw-h-1" />
+
+                                <div className="lg-text-title2 tw-text-center">{getVernacularString("contactUsFormT3", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <DefaultElementAnimation>
+                                    <fetcher.Form
+                                        className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden"
+                                        method="post"
+                                        action="/contact-us-submission"
+                                    >
+                                        <CoverImage
+                                            relativePath="/livguard/contact form/contact_form_background.jpg"
+                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                                            className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
+                                        />
+
+                                        <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+
+                                            <VerticalSpacer className="tw-h-1" />
+
+                                            <input
+                                                type="text"
+                                                name="phoneNumber"
+                                                className="lg-text-input"
+                                                placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+                                            />
+                                        </div>
+
+                                        <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+
+                                            <VerticalSpacer className="tw-h-2" />
+
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                className="lg-text-input"
+                                                placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
+                                            />
+                                        </div>
+
+                                        <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+
+                                            <VerticalSpacer className="tw-h-2" />
+
+                                            <input
+                                                type="text"
+                                                name="emailId"
+                                                className="lg-text-input"
+                                                placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
+                                            />
+                                        </div>
+
+                                        <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                            <button
+                                                type="submit"
+                                                className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                                            >
+                                                {getVernacularString("contactUsFormT4", userPreferences.language)}
+                                            </button>
+                                        </div>
+                                    </fetcher.Form>
+                                </DefaultElementAnimation>
+                            </div>
+                        )}
+                    </Transition.Child>
+                </Dialog.Panel>
+            </Dialog>
+        </Transition>
+    );
+}
+
+export function DownloadFormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences; tryToCloseDialog: () => void}) {
+    return (
+        <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-pt-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center tw-relative">
+            <button
+                type="button"
+                className="tw-absolute tw-top-6 tw-right-6"
+                onClick={tryToCloseDialog}
+            >
+                <X className="tw-w-8 tw-h-8" />
+            </button>
+
+            <FixedWidthImage
+                relativePath="/livguard/icons/confirmation.png"
+                imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                width="10rem"
+            />
+
+            <VerticalSpacer className="tw-h-2" />
+
+            <div
+                dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+                className="lg-text-banner"
+            />
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div
+                dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT2", userPreferences.language)}}
+                className="lg-text-title2"
+            />
+
+            <VerticalSpacer className="tw-h-8" />
+
+            <a
+                href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
+                className="lg-text-body"
+            >
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT3", userPreferences.language)}}
+                    className="lg-text-body"
+                />
+            </a>
+
+            <VerticalSpacer className="tw-h-8" />
+
+            <div className="tw-w-full tw-flex tw-justify-evenly">
+                <a
+                    href="https://www.facebook.com/LivguardEnergy/"
+                    target="_blank"
+                >
+                    <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://twitter.com/LivguardEnergy"
+                    target="_blank"
+                >
+                    <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://www.instagram.com/livguardenergy/"
+                    target="_blank"
+                >
+                    <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/company/livguard-energy/"
+                    target="_blank"
+                >
+                    <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+                <a
+                    href="https://www.youtube.com/@LivguardEnergy"
+                    target="_blank"
+                >
+                    <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                </a>
+            </div>
         </div>
     );
 }
