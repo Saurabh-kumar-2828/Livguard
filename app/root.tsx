@@ -41,7 +41,7 @@ export const links: LinksFunction = () => [
 ];
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
-export default function() {
+export default function () {
     const {userPreferences} = useLoaderData() as LoaderData;
 
     useEffect(() => {
@@ -91,13 +91,23 @@ export default function() {
                             'https://connect.facebook.net/en_US/fbevents.js');
                             fbq('init', '635911646858607');
                             fbq('track', 'PageView');
-                        `
+                        `,
                     }}
                 />
-                <noscript><img height="1" width="1" style={{display: "none"}} src="https://www.facebook.com/tr?id=635911646858607&ev=PageView&noscript=1" /></noscript>
+                <noscript>
+                    <img
+                        height="1"
+                        width="1"
+                        style={{display: "none"}}
+                        src="https://www.facebook.com/tr?id=635911646858607&ev=PageView&noscript=1"
+                    />
+                </noscript>
                 {/* End Meta Pixel Code */}
 
-                <meta name="facebook-domain-verification" content="vvv1ovrlljfrtp4dnwttb9j964i14k" />
+                <meta
+                    name="facebook-domain-verification"
+                    content="vvv1ovrlljfrtp4dnwttb9j964i14k"
+                />
 
                 {/* <script
                     dangerouslySetInnerHTML={{
@@ -110,6 +120,28 @@ export default function() {
                         `,
                     }}
                 /> */}
+
+                {/* FOUC hack */}
+                <style
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            body {
+                                display: none;
+                            };
+
+                            html {
+                                background: #ebebeb;
+                            }
+
+                            @media (prefers-color-scheme: dark) {
+                                html {
+                                    background: #020202;
+                                }
+                            }
+                        `
+                    }}
+                />
+                {/* /FOUC hack */}
             </head>
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
@@ -129,7 +161,7 @@ export default function() {
                     <img
                         height="1"
                         width="1"
-                        style={{display:"none"}}
+                        style={{display: "none"}}
                         src="https://www.facebook.com/tr?id=635911646858607&ev=PageView&noscript=1"
                     />
                 </noscript>

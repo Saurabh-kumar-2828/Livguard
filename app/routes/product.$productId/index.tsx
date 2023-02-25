@@ -51,7 +51,7 @@ export default function () {
     const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    console.log(utmSearchParameters);
+    // console.log(utmSearchParameters);
 
     return (
         <>
@@ -59,6 +59,7 @@ export default function () {
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
+                utmParameters={utmSearchParameters}
             >
                 <ProductPage
                     userPreferences={userPreferences}

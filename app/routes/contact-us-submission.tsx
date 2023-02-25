@@ -23,13 +23,13 @@ export const action: ActionFunction = async ({request, params}) => {
             dealerList: null,
             error: "Error in submitting Form",
         };
-        console.log("error",actionData);
+        console.log("error", actionData);
         return json(actionData);
     }
 
-    console.log(utmParameters);
+    // console.log(utmParameters);
 
-     const utmParametersDecoded = JSON.parse(utmParameters);
+    const utmParametersDecoded = JSON.parse(utmParameters);
 
     await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, utmParameters: utmParametersDecoded});
 

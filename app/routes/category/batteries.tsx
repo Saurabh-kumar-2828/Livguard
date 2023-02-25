@@ -45,7 +45,7 @@ export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    console.log(utmSearchParameters);
+    // console.log(utmSearchParameters);
 
     return (
         <>
@@ -53,6 +53,7 @@ export default function () {
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
+                utmParameters={utmSearchParameters}
             >
                 <CategoryPage userPreferences={userPreferences} />
             </PageScaffold>
