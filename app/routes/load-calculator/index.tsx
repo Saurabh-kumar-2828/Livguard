@@ -81,7 +81,7 @@ export default function () {
     const actionData: ActionData = useActionData() as ActionData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    console.log(utmSearchParameters);
+    // console.log(utmSearchParameters);
 
     useEffect(() => {
         if (actionData != null) {
@@ -2053,7 +2053,6 @@ function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action: LoadCa
             const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property.rooms[roomIndex].devices = newState.property.rooms[roomIndex].devices.filter((device) => device.deviceType != deviceType);
-            console.log(newState.property.rooms[roomIndex].devices);
 
             return newState;
         }

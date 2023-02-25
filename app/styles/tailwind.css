@@ -21,6 +21,9 @@
     }
 
     body {
+        /* FOUC hack */
+        display: block !important;
+        /* /FOUC hack */
         overflow-x: hidden;
     }
 
