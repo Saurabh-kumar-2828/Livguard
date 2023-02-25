@@ -6,6 +6,7 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -63,6 +64,8 @@ export function ContactForm({
                             type="text"
                             name="phoneNumber"
                             className="lg-text-input"
+                            pattern={phoneNumberValidationPattern}
+                            required
                             placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                         />
                     </div>
@@ -76,6 +79,7 @@ export function ContactForm({
                             type="text"
                             name="name"
                             className="lg-text-input"
+                            required
                             placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
                         />
                     </div>
@@ -89,6 +93,8 @@ export function ContactForm({
                             type="text"
                             name="emailId"
                             className="lg-text-input"
+                            pattern={emailIdValidationPattern}
+                            required
                             placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
                         />
                     </div>

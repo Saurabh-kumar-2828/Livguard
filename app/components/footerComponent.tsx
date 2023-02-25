@@ -71,6 +71,7 @@ export function FooterComponent({
                             type="text"
                             name="emailId"
                             pattern={emailIdValidationPattern}
+                            required
                             placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
                             className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
                         />

@@ -4,9 +4,7 @@ import {sendDataToFreshSales} from "~/backend/freshSales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {Dealer} from "~/typeDefinitions";
 
-// TODO: Rework for fetcher
-type DealerLocatorActionData = {
-    dealerList: Array<Dealer> | null;
+type GenericActionData = {
     error: string | null;
 };
 
@@ -19,15 +17,12 @@ export const action: ActionFunction = async ({request, params}) => {
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
 
     if (emailId == null || name == null || phoneNumber == null || utmParameters == null) {
-        const actionData: DealerLocatorActionData = {
-            dealerList: null,
+        const actionData: GenericActionData = {
             error: "Error in submitting Form",
         };
         console.log("error", actionData);
         return json(actionData);
     }
-
-    // console.log(utmParameters);
 
     const utmParametersDecoded = JSON.parse(utmParameters);
 
@@ -35,8 +30,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId}, utmParametersDecoded);
 
-    const actionData: DealerLocatorActionData = {
-        dealerList: null,
+    const actionData: GenericActionData = {
         error: null,
     };
 

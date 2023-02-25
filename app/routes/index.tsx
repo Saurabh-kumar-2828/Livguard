@@ -2,7 +2,7 @@ import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {Accordion} from "~/components/accordian";
@@ -58,7 +58,6 @@ export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    // console.log("utm parameters",utmSearchParameters);
 
     // TODO: Scroll to top if required
 
@@ -70,6 +69,7 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
             >
+                <div>{JSON.stringify(utmSearchParameters)}</div>
                 <HomePage
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
@@ -180,9 +180,17 @@ function HomePage({
     );
 }
 
-function HeroSection({userPreferences, utmParameters, className}: {userPreferences: UserPreferences;utmParameters: {
+function HeroSection({
+    userPreferences,
+    utmParameters,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
         [searchParameter: string]: string;
-    };className?: string}) {
+    };
+    className?: string;
+}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
@@ -294,12 +302,13 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr) tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6", className)}
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr) tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6",
+                className,
+            )}
             id="energySolutions"
         >
-            <div
-                className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2"
-            >
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
                 </DefaultTextAnimation>
@@ -940,7 +949,17 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
     );
 }
 
-export function ContactUsCta({userPreferences, textVernacId, utmParameters, className}: {userPreferences: UserPreferences; textVernacId: string; utmParameters: {[searchParameter: string]: string;} ;className?: string}) {
+export function ContactUsCta({
+    userPreferences,
+    textVernacId,
+    utmParameters,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    textVernacId: string;
+    utmParameters: {[searchParameter: string]: string};
+    className?: string;
+}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
     function tryToOpenContactUsDialog() {
@@ -976,12 +995,19 @@ export function ContactUsDialog({
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
-    utmParameters:{ [searchParameter: string]: string};
+    utmParameters: {[searchParameter: string]: string};
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
 
     const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+
+    useEffect(() => {
+        if (isContactUsSubmissionSuccess == true) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event: "submit"});
+        }
+    }, [isContactUsSubmissionSuccess]);
 
     // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
     //     isContactUsSubmissionSuccess = true;
@@ -1052,6 +1078,7 @@ export function ContactUsDialog({
                                     type="text"
                                     name="phoneNumber"
                                     pattern={phoneNumberValidationPattern}
+                                    required
                                     className="lg-text-input"
                                 />
 
@@ -1064,6 +1091,7 @@ export function ContactUsDialog({
                                 <input
                                     type="text"
                                     name="name"
+                                    required
                                     className="lg-text-input"
                                 />
 
@@ -1078,6 +1106,7 @@ export function ContactUsDialog({
                                     name="emailId"
                                     className="lg-text-input"
                                     pattern={emailIdValidationPattern}
+                                    required
                                 />
 
                                 <VerticalSpacer className="tw-h-8" />
@@ -1090,11 +1119,17 @@ export function ContactUsDialog({
                                     />
                                 </div>
 
-                                <input name="utmParameters" className="tw-hidden" readOnly value={JSON.stringify(utmParameters)} />
+                                <input
+                                    name="utmParameters"
+                                    className="tw-hidden"
+                                    readOnly
+                                    value={JSON.stringify(utmParameters)}
+                                />
 
                                 <button
                                     type="submit"
                                     className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                                    disabled={fetcher.state != "idle"}
                                 >
                                     {getVernacularString("contactUsT5", userPreferences.language)}
                                 </button>

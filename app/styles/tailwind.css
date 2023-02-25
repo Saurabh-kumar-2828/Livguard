@@ -181,7 +181,7 @@
     }
 
     .lg-cta-button {
-        @apply tw-block lg-text-button tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark;
+        @apply tw-block lg-text-button tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-3 tw-rounded-full tw-text-secondary-900-dark disabled:tw-grayscale disabled:tw-text-secondary-300-dark;
     }
 
     .lg-cta-outline-button {

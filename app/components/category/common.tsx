@@ -16,6 +16,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
@@ -447,6 +448,8 @@ export function DownloadDialog({
                                             <input
                                                 type="text"
                                                 name="phoneNumber"
+                                                pattern={phoneNumberValidationPattern}
+                                                required
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                                             />
@@ -460,6 +463,7 @@ export function DownloadDialog({
                                             <input
                                                 type="text"
                                                 name="name"
+                                                required
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
                                             />
@@ -473,6 +477,8 @@ export function DownloadDialog({
                                             <input
                                                 type="text"
                                                 name="emailId"
+                                                pattern={emailIdValidationPattern}
+                                                required
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
                                             />

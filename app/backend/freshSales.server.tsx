@@ -6,7 +6,7 @@ export async function sendDataToFreshSales(formResponse: {mobile_number?: string
         mobile_number: formResponse.mobile_number,
         email: formResponse.email,
         city: formResponse.city,
-        source: "Website",
+        lead_source_id: "401000150596",
         custom_field: {
             cf_utm_campaign: utmParameters["utm_campaign"] != null ? utmParameters["utm_campaign"] : "",
             cf_utm_medium: utmParameters["utm_medium"] != null ? utmParameters["utm_medium"] : "",
@@ -26,6 +26,8 @@ export async function sendDataToFreshSales(formResponse: {mobile_number?: string
             },
             body: JSON.stringify({contact: contactData}),
         });
+
+        console.log(await response.json());
     } catch (e) {
         console.log("Fresh Sales API Exception");
         console.log(e);
