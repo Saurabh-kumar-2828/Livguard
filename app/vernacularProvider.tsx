@@ -2565,7 +2565,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPageBottomBarT1: {
-        [Language.English]: "Find my Dealer",
+        [Language.English]: "Find My Dealer",
         [Language.Hindi]: "डीलर खोजें",
         [Language.Marathi]: "?????",
     },
