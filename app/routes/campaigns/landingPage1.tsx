@@ -166,7 +166,13 @@ function HeroSection({
             )}
         >
             <CoverImage
-                relativePath="/livguard/landingPages/1/hero_image.jpg"
+                relativePath="/livguard/hero-banners/lp-1-hero-mobile.jpg"
+                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-hidden"
+                imageCdnProvider={ImageCdnProvider.Imgix}
+            />
+
+            <CoverImage
+                relativePath="/livguard/hero-banners/lp-1-hero-desktop.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
                 imageCdnProvider={ImageCdnProvider.Imgix}
             />
@@ -186,10 +192,7 @@ function HeroSection({
             </DefaultTextAnimation>
 
             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1">
-                <div className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
-                >
-                    {getVernacularString("landingPage1S1T3", userPreferences.language)}
-                </div>
+                <div className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]">{getVernacularString("landingPage1S1T3", userPreferences.language)}</div>
             </DefaultElementAnimation>
 
             <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
