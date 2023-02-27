@@ -17,7 +17,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     if (city == null || name == null || phoneNumber == null || emailId == null || utmParameters == null) {
         const actionData: GenericActionData = {
-            error: "Error in submitting form: 2a355407-ecbf-446d-9e00-96957d90592b",
+            error: "Error in submitting form! Error code: 2a355407-ecbf-446d-9e00-96957d90592b",
         };
         return json(actionData);
     }
@@ -27,7 +27,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const insertResult = await insertDealerLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, city: city});
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {
-            error: "Error in submitting form: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",
+            error: "Error in submitting form! Error code: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",
         };
         return json(actionData);
     }
@@ -35,7 +35,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const freshsalesResult = await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city}, utmParametersDecoded);
     if (freshsalesResult instanceof Error) {
         const actionData: GenericActionData = {
-            error: "Error in submitting form: 221af103-e2ad-4fe1-86af-25ed6494da30",
+            error: "Error in submitting form! Error code: 221af103-e2ad-4fe1-86af-25ed6494da30",
         };
         return json(actionData);
     }

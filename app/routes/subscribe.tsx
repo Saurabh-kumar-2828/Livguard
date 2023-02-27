@@ -24,7 +24,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const insertResult = await insertSubscriptionLeads({emailId: emailId});
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {
-            error: "Error in submitting form: 4469037c-6de7-48c4-9c64-66e6eac83234",
+            error: "Error in submitting form! Error code: 4469037c-6de7-48c4-9c64-66e6eac83234",
         };
         return json(actionData);
     }
@@ -32,7 +32,7 @@ export const action: ActionFunction = async ({request, params}) => {
     // const freshsalesResult = await sendDataToFreshSales({email: emailId}, utmParametersDecoded);
     // if (freshsalesResult instanceof Error) {
     //     const actionData: GenericActionData = {
-    //         error: "Error in submitting form: 242068d4-24d8-4dc3-b205-8789f28454ed",
+    //         error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
     //     };
     //     return json(actionData);
     // }

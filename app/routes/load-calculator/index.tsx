@@ -40,15 +40,17 @@ export const action: ActionFunction = async ({request}) => {
 
     if (loadCalculatorInputs == null) {
         const actionData: ActionData = {
-            error: "Something went wrong!",
+            error: "Something went wrong! Error code: 500ee940-bd98-45e7-af9a-b88af2f31439",
         };
         return actionData;
     }
 
     const id = await insertLoadCalculatorEntry(loadCalculatorInputs);
-
     if (id instanceof Error) {
-        return id;
+        const actionData: ActionData = {
+            error: "Something went wrong! Error code: c4dc40c5-2e63-407a-b404-8c0f7d94a6c3",
+        };
+        return actionData;
     }
 
     return redirect(`/load-calculator/${id}`);
@@ -83,6 +85,9 @@ export default function () {
     const utmSearchParameters = useUtmSearchParameters();
 
     useEffect(() => {
+        console.log("~~~~");
+        console.log(actionData);
+
         if (actionData != null) {
             toast.error(actionData.error);
         }
@@ -161,7 +166,6 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 {/* TODO: Handle things like UTM here */}
                 <button
                     type="submit"
-                    // to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
                     className=" lg-cta-button"
                 >
                     {getVernacularString("loadCalculatorAdditionalInputsT4", userPreferences.language)}
@@ -248,7 +252,6 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
                 <VerticalSpacer className="tw-row-start-3 tw-col-start-1 tw-h-4 lg:tw-row-start-4 lg:tw-col-start-2" />
 
                 <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-2 lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
-                    {/* TODO: Handle things like UTM here */}
                     <Link
                         to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
                         className=" lg-cta-button"

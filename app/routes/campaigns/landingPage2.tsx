@@ -71,9 +71,6 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
     useEffect(() => {
-        console.log(fetcher.data);
-        console.log(fetcher.data?.error);
-
         if (fetcher.data == null) {
             return;
         }
