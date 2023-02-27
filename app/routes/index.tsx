@@ -596,7 +596,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
 
 export function SolarSolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4 lg:tw-gap-y-8 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />

@@ -51,6 +51,7 @@
         font-display: swap;
     }
 
+    /* TODO: Do we need this? If not, remove */
     .lg-font-brueur {
         font-family: "lg-brueur-text";
         font-weight: 700;
@@ -178,6 +179,10 @@
 
     .lg-px-screen-edge {
         @apply tw-px-[var(--lg-px-screen-edge)];
+    }
+
+    .lg-px-screen-edge-2 {
+        @apply tw-px-6 lg:tw-px-[4.5rem] xl:tw-px-[7.5rem];
     }
 
     .lg-cta-button {

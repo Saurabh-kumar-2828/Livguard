@@ -1,10 +1,7 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import Autoplay from "embla-carousel-autoplay";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {getAbsolutePathForRelativePath, ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";

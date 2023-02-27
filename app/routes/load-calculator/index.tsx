@@ -85,9 +85,6 @@ export default function () {
     const utmSearchParameters = useUtmSearchParameters();
 
     useEffect(() => {
-        console.log("~~~~");
-        console.log(actionData);
-
         if (actionData != null) {
             toast.error(actionData.error);
         }

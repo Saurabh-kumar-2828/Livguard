@@ -2774,6 +2774,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बैटरी देखें",
         [Language.Marathi]: "?????",
     },
+    loadCalculatorRecommendationsS4CTA1: {
+        [Language.English]: "Connect To A Dealer",
+        [Language.Hindi]: "हमारे डीलर से जुड़ें",
+        [Language.Marathi]: "?????",
+    },
     loadCalculatorAdditionalInputsT1: {
         [Language.English]: "I would require",
         [Language.Hindi]: "मुझे एक दिन में",
