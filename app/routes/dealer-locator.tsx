@@ -349,7 +349,6 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
                 {dealerList.length > 0 &&
                     dealerList.slice(0, 5).map((dealer) => (
                         <MarkerF
-                            onLoad={onLoad}
                             position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
                         />
                     ))}

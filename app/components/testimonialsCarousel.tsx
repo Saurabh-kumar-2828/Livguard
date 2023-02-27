@@ -31,10 +31,10 @@ export function TestimonialsCarousel({
                         items={testimonials}
                         itemBuilder={(testimonial, testimonialIndex) => (
                             <div
-                                className="lg-px-screen-edge"
+                                className="[@media(max-width:1024px)]:lg-px-screen-edge lg:tw-px-[10px]"
                                 key={testimonialIndex}
                             >
-                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
+                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] lg:tw-min-w-[20rem] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
                                     <div className="tw-col-start-1 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.image}

@@ -19,7 +19,7 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", className)}
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[80%] tw-text-secondary-900-dark">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[90%] tw-text-secondary-900-dark">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
@@ -58,7 +58,9 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
                                 </div>
 
                                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-2">
-                                    <div className="lg-text-title1 tw-whitespace-pre-line tw-text-secondary-900-dark">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-title1 [@media(min-width:1024px)]:lg-text-title2 xl:lg-text-title2 tw-whitespace-pre-line tw-text-secondary-900-dark">
+                                        {getVernacularString(item.titleTextContentPiece, userPreferences.language)}
+                                    </div>
                                 </DefaultTextAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
