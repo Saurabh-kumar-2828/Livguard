@@ -69,7 +69,6 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
             >
-                <div>{JSON.stringify(utmSearchParameters)}</div>
                 <HomePage
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
