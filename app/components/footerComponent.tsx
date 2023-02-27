@@ -393,11 +393,15 @@ export function FooterComponent({
                             items={[
                                 {
                                     title: `${getVernacularString("footerDisclosure7T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/img/annual-return/MGT-7-LETPL-2022.pdf",
+                                    link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure7T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/img/annual-return/MGT-7-LBPL-2022.pdf",
+                                    link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
+                                },
+                                {
+                                    title: `${getVernacularString("footerDisclosure7T3", userPreferences.language)}`,
+                                    link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (

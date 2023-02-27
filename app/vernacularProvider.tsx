@@ -2540,13 +2540,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     footerDisclosure7T1: {
-        [Language.English]: "LETPL Annual return– 2021-22",
-        [Language.Hindi]: "LETPL वार्षिक विवरण– 2021-22",
+        [Language.English]: "LBPL_Notice of Secured creditors meeting dt 01/04/2023",
+        [Language.Hindi]: "LBPL_Notice of Secured creditors meeting dt 01/04/2023",
         [Language.Marathi]: "?????",
     },
     footerDisclosure7T2: {
-        [Language.English]: "LBPL Annual return– 2021-22",
-        [Language.Hindi]: "LBPL वार्षिक विवरण– 2021-22",
+        [Language.English]: "LBPL_Notice of Unsecured creditors meeting dt 01/04/2023",
+        [Language.Hindi]: "LBPL_Notice of Unsecured creditors meeting dt 01/04/2023",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7T3: {
+        [Language.English]: "LETPL_Notice of Secured creditors meeting dt 01/04/2023",
+        [Language.Hindi]: "LETPL_Notice of Secured creditors meeting dt 01/04/2023",
         [Language.Marathi]: "?????",
     },
     footerContactT1: {
