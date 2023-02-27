@@ -288,69 +288,71 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
 
                 <div className="tw-w-8 tw-hidden lg:tw-flex" />
 
-                <div className="tw-hidden lg:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:lg-text-[16px]">
-                    <button
-                        type="button"
-                        onClick={() => {
-                            tryToOpenSubMenu(SubMenu.Inverters);
-                        }}
-                    >
-                        {getVernacularString("headerMenuS1T1", userPreferences.language)}
-                    </button>
+                {showMobileMenuIcon && (
+                    <div className="tw-hidden lg:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:lg-text-[16px]">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                tryToOpenSubMenu(SubMenu.Inverters);
+                            }}
+                        >
+                            {getVernacularString("headerMenuS1T1", userPreferences.language)}
+                        </button>
 
-                    <button
-                        type="button"
-                        onClick={() => {
-                            tryToOpenSubMenu(SubMenu.Batteries);
-                        }}
-                    >
-                        {getVernacularString("headerMenuS1T2", userPreferences.language)}
-                    </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                tryToOpenSubMenu(SubMenu.Batteries);
+                            }}
+                        >
+                            {getVernacularString("headerMenuS1T2", userPreferences.language)}
+                        </button>
 
-                    <button
-                        type="button"
-                        onClick={() => {
-                            tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
-                        }}
-                    >
-                        {getVernacularString("headerMenuS1T3", userPreferences.language)}
-                    </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
+                            }}
+                        >
+                            {getVernacularString("headerMenuS1T3", userPreferences.language)}
+                        </button>
 
-                    <a href="https://www.livguardsolar.com/">{getVernacularString("headerMenuS1T4", userPreferences.language)}</a>
+                        <a href="https://www.livguardsolar.com/">{getVernacularString("headerMenuS1T4", userPreferences.language)}</a>
 
-                    <button
-                        type="button"
-                        onClick={() => {
-                            tryToOpenSubMenu(SubMenu.Accessories);
-                        }}
-                    >
-                        {getVernacularString("headerMenuS1T5", userPreferences.language)}
-                    </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                tryToOpenSubMenu(SubMenu.Accessories);
+                            }}
+                        >
+                            {getVernacularString("headerMenuS1T5", userPreferences.language)}
+                        </button>
 
-                    <Link to="/dealer-locator">{getVernacularString("headerMenuS1T6", userPreferences.language)}</Link>
+                        <Link to="/dealer-locator">{getVernacularString("headerMenuS1T6", userPreferences.language)}</Link>
 
-                    {/* <a
+                        {/* <a
                         href="/register-and-warranty-for-inverters.php"
                     >
                         {getVernacularString("headerMenuS1T7", userPreferences.language)}
                     </a> */}
 
-                    <button
-                        type="button"
-                        onClick={() => {
-                            tryToOpenSubMenu(SubMenu.More);
-                        }}
-                    >
-                        {getVernacularString("headerMenuS1T8", userPreferences.language)}
-                    </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                tryToOpenSubMenu(SubMenu.More);
+                            }}
+                        >
+                            {getVernacularString("headerMenuS1T8", userPreferences.language)}
+                        </button>
 
-                    <Link
-                        to={"/load-calculator"}
-                        className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
-                    >
-                        {getVernacularString("headerLoadCalculator", userPreferences.language)}
-                    </Link>
-                </div>
+                        <Link
+                            to={"/load-calculator"}
+                            className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
+                        >
+                            {getVernacularString("headerLoadCalculator", userPreferences.language)}
+                        </Link>
+                    </div>
+                )}
 
                 <div className="tw-flex-1" />
 
