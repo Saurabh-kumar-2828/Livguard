@@ -8,12 +8,13 @@ export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): P
 
     const result = await execute(
         `
-            INSERT INTO load_calculator_entries(
+            INSERT INTO livguard.load_calculator_entries(
                 id,
                 created_at,
                 user_id,
                 data
-            ) VALUES(
+            )
+            VALUES(
                 $1,
                 $2,
                 $3,
@@ -36,7 +37,7 @@ export async function getLoadCalculatorEntry(id: Uuid): Promise<LoadCalculatorIn
             SELECT
                 data
             FROM
-                load_calculator_entries
+                livguard.load_calculator_entries
             WHERE
                 id = $1
         `,
