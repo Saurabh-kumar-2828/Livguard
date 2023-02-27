@@ -5,6 +5,7 @@ import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
+import {toast} from "react-toastify";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {CarouselStyle1Video} from "~/components/carouselStyle1Video";
 import {CarouselStyle2} from "~/components/carouselStyle2";
@@ -58,8 +59,6 @@ export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-
-    // TODO: Scroll to top if required
 
     return (
         <>
@@ -305,7 +304,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                 "tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr) tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6",
                 className,
             )}
-            id="energySolutions"
+            id="energy-solutions"
         >
             <div className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation>
@@ -960,18 +959,23 @@ export function ContactUsDialog({
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
 
-    const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
     useEffect(() => {
-        if (isContactUsSubmissionSuccess == true) {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "submit"});
+        if (fetcher.data == null) {
+            return;
         }
-    }, [isContactUsSubmissionSuccess]);
 
-    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
-    //     isContactUsSubmissionSuccess = true;
-    // }
+        if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            return;
+        }
+
+        setFormSubmittedSuccessfully(true);
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
+    }, [fetcher.data]);
 
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
@@ -1009,7 +1013,7 @@ export function ContactUsDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        {isContactUsSubmissionSuccess ? (
+                        {formSubmittedSuccessfully ? (
                             <FormSubmissionSuccess
                                 userPreferences={userPreferences}
                                 tryToCloseDialog={tryToCloseContactUsDialog}

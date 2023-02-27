@@ -4,7 +4,7 @@ import {sendDataToFreshSales} from "~/backend/freshSales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {Dealer} from "~/typeDefinitions";
 
-type GenericActionData = {
+export type GenericActionData = {
     error: string | null;
 };
 
@@ -18,17 +18,29 @@ export const action: ActionFunction = async ({request, params}) => {
 
     if (emailId == null || name == null || phoneNumber == null || utmParameters == null) {
         const actionData: GenericActionData = {
-            error: "Error in submitting Form",
+            error: "Error in submitting form: bb551a66-7e7b-4c70-a21d-975dbe3872ca",
         };
-        console.log("error", actionData);
         return json(actionData);
     }
 
+    // TODO: Type validation
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, utmParameters: utmParametersDecoded});
+    const insertResult = await insertContactLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, utmParameters: utmParametersDecoded});
+    if (insertResult instanceof Error) {
+        const actionData: GenericActionData = {
+            error: "Error in submitting form: a73f9127-a627-4066-92cd-c7017056e0fe",
+        };
+        return json(actionData);
+    }
 
-    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId}, utmParametersDecoded);
+    const freshsalesResult = await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId}, utmParametersDecoded);
+    if (freshsalesResult instanceof Error) {
+        const actionData: GenericActionData = {
+            error: "Error in submitting form: 242068d4-24d8-4dc3-b205-8789f28454ed",
+        };
+        return json(actionData);
+    }
 
     const actionData: GenericActionData = {
         error: null,

@@ -1,14 +1,12 @@
-import {ChevronDoubleDownIcon, ChevronLeftIcon} from "@heroicons/react/20/solid";
+import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
-import {Form, Link, useActionData} from "@remix-run/react";
+import {Link, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
-import {Accordion} from "~/components/accordian";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
-import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
+import {FooterSocialLogosAndCopyright} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
@@ -22,7 +20,6 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, TransformingLives} from "~/routes";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
-import {DealerLocatorPage} from "~/routes/dealer-locator";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Dealer, UserPreferences} from "~/typeDefinitions";
@@ -88,7 +85,7 @@ export default function () {
                 userPreferences={userPreferences}
                 utmParameters={utmSearchParameters}
             />
-            <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
+            <FooterSocialLogosAndCopyright userPreferences={userPreferences} />
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );

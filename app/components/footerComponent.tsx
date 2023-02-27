@@ -3,6 +3,7 @@ import {ArrowRightCircleIcon, ChevronRightIcon} from "@heroicons/react/20/solid"
 import {Form, Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -30,8 +31,17 @@ export function FooterComponent({
     const [isSubscribeSuccessDialogeOpen, setIsSubscribeSuccessDialogeOpen] = useState(false);
 
     useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        }
+
+        if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            return;
+        }
+
         setIsSubscribeSuccessDialogeOpen(isSubscriptionSuccess);
-    }, [isSubscriptionSuccess]);
+    }, [fetcher.data]);
 
     return (
         <div className="lg-px-screen-edge">
@@ -443,13 +453,13 @@ export function FooterComponent({
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
+                <FooterSocialLogosAndCopyright userPreferences={userPreferences} />
             </div>
         </div>
     );
 }
 
-export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreferences: UserPreferences}) {
+export function FooterSocialLogosAndCopyright({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="lg-px-screen-edge">
             <VerticalSpacer className="tw-h-3" />

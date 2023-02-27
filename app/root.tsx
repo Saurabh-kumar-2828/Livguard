@@ -1,12 +1,13 @@
 import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
+import {useEffect} from "react";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
-import {useEffect} from "react";
 
+import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
+import {logFrontendError} from "~/global-common-typescript/logging";
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
-import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -47,9 +48,8 @@ export default function () {
     useEffect(() => {
         setTimeout(() => {
             const scriptTag = document.createElement("script");
-            scriptTag.src = "//in.fw-cdn.com/30772163/407987.js";
+            scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
             scriptTag.setAttribute("chat", "true");
-            // scriptTag.addEventListener("load", onLoad);
             document.body.appendChild(scriptTag);
         }, 5000);
     }, []);
@@ -151,6 +151,7 @@ export function CatchBoundary() {
 
     console.log("CatchBoundary");
     console.log(caught);
+    logFrontendError(new Error(caught + ""));
 
     return (
         <html lang="en">
@@ -191,10 +192,11 @@ export function CatchBoundary() {
 }
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
-    console.log("~~~");
-    console.log("ErrorBoundary");
-    console.log(error);
-    console.log("~~~");
+    if (error.message == "Hydration failed because the initial UI does not match what was rendered on the server." || error.message.toLocaleLowerCase().startsWith("Minified React error")) {
+        return <></>;
+    }
+
+    logFrontendError(error);
 
     return (
         <html lang="en">

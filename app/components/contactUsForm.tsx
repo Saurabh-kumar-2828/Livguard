@@ -6,6 +6,7 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+<<<<<<< Updated upstream
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
@@ -27,6 +28,15 @@ export function ContactForm({
         <div
             className={concatenateNonNullStringsWithSpaces(className, "lg-px-screen-edge tw-flex tw-flex-col")}
             id="contactUs"
+=======
+import {UserPreferences} from "~/typeDefinitions";
+import {getVernacularString} from "~/vernacularProvider";
+
+export function ContactForm({userPreferences, fetcher, utmParameters, className}: {userPreferences: UserPreferences; fetcher: FetcherWithComponents<any>; utmParameters: {[searchParameter: string]: string}, className?: string}) {
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}
+>>>>>>> Stashed changes
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>
@@ -110,6 +120,7 @@ export function ContactForm({
                         <button
                             type="submit"
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                            disabled={fetcher.state != "idle"}
                         >
                             {getVernacularString("contactUsFormT4", userPreferences.language)}
                         </button>

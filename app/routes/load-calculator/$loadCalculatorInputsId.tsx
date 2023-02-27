@@ -62,8 +62,6 @@ export default function () {
 
     const utmSearchParameters = useUtmSearchParameters();
 
-    // TODO: Scroll to top if required
-
     return (
         <>
             <PageScaffold

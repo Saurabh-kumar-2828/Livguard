@@ -1,6 +1,11 @@
+import {logBackendError} from "~/global-common-typescript/server/logging.server";
+import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 
-export async function sendDataToFreshSales(formResponse: {mobile_number?: string; first_name?: string; email: string; city?: string}, utmParameters: {[searchParameter: string]: string}) {
+export async function sendDataToFreshSales(
+    formResponse: {mobile_number?: string; first_name?: string; email: string; city?: string},
+    utmParameters: {[searchParameter: string]: string},
+): Promise<void | Error> {
     const contactData = {
         first_name: formResponse.first_name,
         mobile_number: formResponse.mobile_number,
@@ -26,10 +31,13 @@ export async function sendDataToFreshSales(formResponse: {mobile_number?: string
             },
             body: JSON.stringify({contact: contactData}),
         });
-    } catch (e) {
-        console.log("Fresh Sales API Exception");
-        console.log(e);
 
-        return null;
+        if (!response.ok) {
+            throw new Error(`Freshsales API call failed - status = ${response.status}, body = ${JSON.stringify(await response.text())}`);
+        }
+    } catch (error_: unknown) {
+        const error = getErrorFromUnknown(error_);
+        logBackendError(error);
+        return error;
     }
 }

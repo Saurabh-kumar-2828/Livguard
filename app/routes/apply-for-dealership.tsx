@@ -3,13 +3,8 @@ import {insertDealerLeads} from "~/backend/dealer.server";
 import {sendDataToFreshSales} from "~/backend/freshSales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {GenericActionData} from "~/routes/contact-us-submission";
 import {Dealer} from "~/typeDefinitions";
-
-// TODO: Rework for fetcher
-type DealerLocatorActionData = {
-    dealerList: Array<Dealer> | null;
-    error: string | null;
-};
 
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
@@ -21,21 +16,31 @@ export const action: ActionFunction = async ({request, params}) => {
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
 
     if (city == null || name == null || phoneNumber == null || emailId == null || utmParameters == null) {
-        const actionData: DealerLocatorActionData = {
-            dealerList: null,
-            error: "Error in submitting Form",
+        const actionData: GenericActionData = {
+            error: "Error in submitting form: 2a355407-ecbf-446d-9e00-96957d90592b",
         };
         return json(actionData);
     }
 
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    await insertDealerLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, city: city});
+    const insertResult = await insertDealerLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, city: city});
+    if (insertResult instanceof Error) {
+        const actionData: GenericActionData = {
+            error: "Error in submitting form: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",
+        };
+        return json(actionData);
+    }
 
-    await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city}, utmParametersDecoded);
+    const freshsalesResult = await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city}, utmParametersDecoded);
+    if (freshsalesResult instanceof Error) {
+        const actionData: GenericActionData = {
+            error: "Error in submitting form: 221af103-e2ad-4fe1-86af-25ed6494da30",
+        };
+        return json(actionData);
+    }
 
-    const actionData: DealerLocatorActionData = {
-        dealerList: null,
+    const actionData: GenericActionData = {
         error: null,
     };
 

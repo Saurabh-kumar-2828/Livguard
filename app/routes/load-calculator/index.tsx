@@ -84,11 +84,9 @@ export default function () {
 
     useEffect(() => {
         if (actionData != null) {
-            toast.error("actionData.error");
+            toast.error(actionData.error);
         }
     }, [actionData]);
-
-    // TODO: Scroll to top if required
 
     return (
         <>

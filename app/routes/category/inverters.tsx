@@ -55,14 +55,14 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
             >
-                <CategoryPage userPreferences={userPreferences} />
+                <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
             </PageScaffold>
             <DownloadCatalogueBottomBar userPreferences={userPreferences} />
         </>
     );
 }
 
-function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
+function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
@@ -96,7 +96,10 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ChooseBestInverterBattery userPreferences={userPreferences} />
+            <ChooseBestInverterBattery
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -206,17 +209,11 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon lg-text-secondary-900">
-                {getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}
-            </div>
+            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon lg-text-secondary-900">{getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}</div>
 
-            <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">
-                {getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}
-            </div>
+            <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}</div>
 
-            <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">
-                {getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}
-            </div>
+            <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}</div>
 
             {/* <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R5C1", userPreferences.language)}</div>
 
@@ -415,8 +412,6 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                     // backgroundColor={secledtedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
                     className={"lg-bg-secondary-100"}
                 />
-
-
             </div>
         </div>
     );
@@ -612,7 +607,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     );
 }
 
-export function ChooseBestInverterBattery({userPreferences}: {userPreferences: UserPreferences}) {
+export function ChooseBestInverterBattery({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
@@ -650,7 +645,11 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <WhatsBestForYouComponent vernacularContent={sectionData} userPreferences={userPreferences}/>
+                <WhatsBestForYouComponent
+                    vernacularContent={sectionData}
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                />
             </div>
         </div>
     );

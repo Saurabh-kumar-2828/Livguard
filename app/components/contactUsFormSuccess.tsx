@@ -14,7 +14,6 @@ export function ContactFormSuccess({userPreferences, className}: {userPreference
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col",className)}
-            id="contactUs"
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>

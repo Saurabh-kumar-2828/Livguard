@@ -1,4 +1,4 @@
-import {execute} from "~/backend/databaseManager.server";
+import {execute} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {LoadCalculatorInputs} from "~/routes/load-calculator";

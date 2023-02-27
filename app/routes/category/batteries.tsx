@@ -54,14 +54,14 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
             >
-                <CategoryPage userPreferences={userPreferences} />
+                <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
             </PageScaffold>
             <DownloadCatalogueBottomBar userPreferences={userPreferences} />
         </>
     );
 }
 
-function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
+function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
     return (
         <>
             <HeroSection userPreferences={userPreferences} />
@@ -95,7 +95,10 @@ function CategoryPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-10" />
 
-            <ChooseBestInverterBattery userPreferences={userPreferences} />
+            <ChooseBestInverterBattery
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+            />
 
             <VerticalSpacer className="tw-h-10" />
 
@@ -701,7 +704,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     );
 }
 
-export function ChooseBestInverterBattery({userPreferences}: {userPreferences: UserPreferences}) {
+export function ChooseBestInverterBattery({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
@@ -742,6 +745,7 @@ export function ChooseBestInverterBattery({userPreferences}: {userPreferences: U
                 <WhatsBestForYouComponent
                     vernacularContent={sectionData}
                     userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
                 />
             </div>
         </div>

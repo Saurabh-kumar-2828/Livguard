@@ -1,7 +1,9 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {FetcherWithComponents, Link, useFetcher} from "@remix-run/react";
+import {useEffect, useState} from "react";
 import {useLoaderData} from "react-router";
+import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
 import {CarouselStyle2} from "~/components/carouselStyle2";
 import {ContactForm} from "~/components/contactUsForm";
@@ -9,7 +11,7 @@ import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
+import {FooterSocialLogosAndCopyright} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
@@ -56,7 +58,7 @@ export default function () {
                 showMobileMenuIcon={false}
             />
             <LandingPage userPreferences={userPreferences} />
-            <FooterSocialLogosAndCopywrite userPreferences={userPreferences} />
+            <FooterSocialLogosAndCopyright userPreferences={userPreferences} />
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );
@@ -65,7 +67,20 @@ export default function () {
 function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     const fetcher = useFetcher();
 
-    const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
+
+    useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        }
+
+        if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            return;
+        }
+
+        setFormSubmittedSuccessfully(true);
+    }, [fetcher.data]);
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -76,24 +91,24 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 fetcher={fetcher}
                 utmParameters={utmSearchParameters}
-                isContactUsSubmissionSuccess={isContactUsSubmissionSuccess}
+                isContactUsSubmissionSuccess={formSubmittedSuccessfully}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
-            {isContactUsSubmissionSuccess ? (
-                <ContactFormSuccess
-                    userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
-                />
-            ) : (
-                <ContactForm
-                    userPreferences={userPreferences}
-                    fetcher={fetcher}
-                    utmParameters={utmSearchParameters}
-                    className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
-                />
-            )}
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-hidden" id="contact-us-form-mobile">
+                {formSubmittedSuccessfully ? (
+                    <ContactFormSuccess
+                        userPreferences={userPreferences}
+                    />
+                ) : (
+                    <ContactForm
+                        userPreferences={userPreferences}
+                        fetcher={fetcher}
+                        utmParameters={utmSearchParameters}
+                    />
+                )}
+            </div>
 
             <VerticalSpacer className="tw-row-start-4 tw-col-start-1 tw-h-10 lg:tw-hidden" />
 
@@ -190,28 +205,39 @@ function HeroSection({
                 />
             </DefaultTextAnimation>
 
-            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1">
-                <div className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]">{getVernacularString("landingPage1S1T3", userPreferences.language)}</div>
+            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1 lg:tw-hidden">
+                <Link
+                    to="#contact-us-form-mobile"
+                    className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
+                >
+                    {getVernacularString("landingPage1S1T3", userPreferences.language)}
+                </Link>
             </DefaultElementAnimation>
 
             <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
-                <ChevronDoubleDownIcon className=" tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                <Link to="#contact-us-form-mobile" className="tw-block lg:tw-hidden">
+                    <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                </Link>
+
+                <Link to="#energy-solutions" className="tw-hidden lg:tw-block">
+                    <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                </Link>
             </div>
 
             <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
-                {isContactUsSubmissionSuccess ? (
-                    <ContactFormSuccess
-                        userPreferences={userPreferences}
-                        className="lg:tw-w-[30rem]"
-                    />
-                ) : (
-                    <ContactForm
-                        userPreferences={userPreferences}
-                        fetcher={fetcher}
-                        utmParameters={utmParameters}
-                        className="lg:tw-w-[30rem]"
-                    />
-                )}
+                <div className="lg:tw-w-[30rem]" id="contact-us-form-desktop">
+                    {isContactUsSubmissionSuccess ? (
+                        <ContactFormSuccess
+                            userPreferences={userPreferences}
+                        />
+                    ) : (
+                        <ContactForm
+                            userPreferences={userPreferences}
+                            fetcher={fetcher}
+                            utmParameters={utmParameters}
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );
@@ -237,7 +263,7 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-6", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-6", className)} id="limitless-energy">
             <div className="tw-px-6 lg-text-headline">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S3HT1", userPreferences.language)}} />
@@ -297,7 +323,7 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
     );
 }
 
-export function QualityMeetsExpertise({userPreferences,className}: {userPreferences: UserPreferences; className?: string}) {
+export function QualityMeetsExpertise({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">

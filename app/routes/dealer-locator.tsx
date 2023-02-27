@@ -1,41 +1,33 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {Autocomplete, GoogleMap, LoadScript, Marker, MarkerF} from "@react-google-maps/api";
+import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {Form, useActionData, useFetcher} from "@remix-run/react";
-import React from "react";
-import {useEffect, useState} from "react";
-import {Droplet, Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import React, {useEffect, useState} from "react";
+import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
+import {toast} from "react-toastify";
 import {getDealerForCity} from "~/backend/dealer.server";
 import {StickyBottomBar} from "~/components/bottomBar";
+import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
-import {HeaderComponent} from "~/components/headerComponent";
-import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {FAQSection} from "~/components/faqs";
 import {PageScaffold} from "~/components/pageScaffold";
-import {FancySearchableSelect} from "~/components/scratchpad";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {ContactUsCta, ShowerSomeLoveOnSocialHandles} from "~/routes";
+import {ContactUsCta} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {Dealer, Language, salutations, UserPreferences} from "~/typeDefinitions";
+import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import cityList from "~/cities.json";
-import {Accordion} from "~/components/accordian";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {SocialHandles} from "~/components/category/common";
-import {FAQSection} from "~/components/faqs";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 
-// TODO: Rework for fetcher
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
     path: string;
@@ -47,6 +39,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
     const dealerList = await getDealerForCity(city);
+    // TOOD: Handle dealerList error
 
     const actionData: DealerLocatorActionData = {
         dealerList: dealerList,
@@ -511,7 +504,20 @@ export function ApplyNowForDealerDialog({
 }) {
     const fetcher = useFetcher();
 
-    const isDealerFormSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
+
+    useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        }
+
+        if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            return;
+        }
+
+        setFormSubmittedSuccessfully(true);
+    }, [fetcher.data]);
 
     function tryToCloseApplyNowDialog() {
         setApplyNowDialogOpen(false);
@@ -549,11 +555,13 @@ export function ApplyNowForDealerDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        {isDealerFormSubmissionSuccess ? (
-                            <FormSubmissionSuccess
-                                userPreferences={userPreferences}
-                                tryToCloseDialog={tryToCloseApplyNowDialog}
-                            />
+                        {formSubmittedSuccessfully ? (
+                            <div>
+                                <FormSubmissionSuccess
+                                    userPreferences={userPreferences}
+                                    tryToCloseDialog={tryToCloseApplyNowDialog}
+                                />
+                            </div>
                         ) : (
                             <fetcher.Form
                                 className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
@@ -572,7 +580,7 @@ export function ApplyNowForDealerDialog({
 
                                 <VerticalSpacer className="tw-h-4" />
 
-                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("applyNowForDealerT2", userPreferences.language)}</div>
+                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT2", userPreferences.language)}*`}</div>
 
                                 <VerticalSpacer className="tw-h-2" />
 
@@ -587,7 +595,7 @@ export function ApplyNowForDealerDialog({
 
                                 <VerticalSpacer className="tw-h-4" />
 
-                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("applyNowForDealerT3", userPreferences.language)}</div>
+                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
 
                                 <VerticalSpacer className="tw-h-2" />
 
@@ -778,3 +786,41 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
         />
     );
 }
+
+const salutations: {[key: string]: {[Language.English]: string; [Language.Hindi]: string}} = {
+    AN: {[Language.English]: "	Namaste", [Language.Hindi]: "	नमस्ते!"},
+    AD: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    AP: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    AS: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    BR: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    CG: {[Language.English]: "	Sat sri akal!", [Language.Hindi]: "सत् श्री अकाल!"},
+    CH: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    DNHDD: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
+    DL: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    GA: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    GJ: {[Language.English]: "	Kem Chho!", [Language.Hindi]: "केम छो!"},
+    HR: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    HP: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    JK: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    JH: {[Language.English]: "	Pranaam!", [Language.Hindi]: "प्रणाम!"},
+    KA: {[Language.English]: "	Namaskara!", [Language.Hindi]: "नमस्कारा!"},
+    KL: {[Language.English]: "	Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
+    LD: {[Language.English]: "	Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
+    MP: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    MH: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    MN: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    ML: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    MZ: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    NL: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    OD: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    PY: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    PB: {[Language.English]: "	Sat sri akal!", [Language.Hindi]: "सत् श्री, अकाल"},
+    RJ: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    SK: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    TN: {[Language.English]: "	Vanakkam!", [Language.Hindi]: "वनक्कम!"},
+    TS: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    TR: {[Language.English]: "	Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
+    UP: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    UK: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
+    WB: {[Language.English]: "	Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
+};

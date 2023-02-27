@@ -1,9 +1,10 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {Link, useFetcher} from "@remix-run/react";
-import React from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {toast} from "react-toastify";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -17,19 +18,13 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-
-export function EmpowerYourHomeComponent({
-    userPreferences,
-    item,
-}: {
-    userPreferences: UserPreferences;
-    item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string};
-}) {
+export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferences: UserPreferences; item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}}) {
     return (
         <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,5fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
             <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:te-text-left">
@@ -55,7 +50,6 @@ export function EmpowerYourHomeComponent({
         </div>
     );
 }
-
 
 export function OurSuggestionsComponent({
     vernacularContent,
@@ -98,10 +92,11 @@ export function OurSuggestionsComponent({
                 <ItemBuilder
                     items={vernacularContent.keySpecifications}
                     itemBuilder={(keySpecification, keySpecificationIndex) => (
-                        <div className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`} key={keySpecificationIndex}>
-                            <div
-                                className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}
-                            >
+                        <div
+                            className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
+                            key={keySpecificationIndex}
+                        >
+                            <div className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
                                 <FixedWidthImage
                                     relativePath={keySpecification.keySpecificationIconRelativePath}
                                     imageCdnProvider={ImageCdnProvider.Imgix}
@@ -137,8 +132,11 @@ export function OurSuggestionsComponent({
             <VerticalSpacer className="tw-h-4" />
 
             <CarouselStyle4
-                items={vernacularContent.relatedProducts.map(relatedProduct => (
-                    <Link to={`/product/${relatedProduct}`} className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2">
+                items={vernacularContent.relatedProducts.map((relatedProduct) => (
+                    <Link
+                        to={`/product/${relatedProduct}`}
+                        className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2"
+                    >
                         <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
                         <FullWidthImage
                             relativePath={vernacularContent.imageRelativePath}
@@ -206,6 +204,7 @@ export function ProductCardComponent({
 export function WhatsBestForYouComponent({
     vernacularContent,
     userPreferences,
+    utmParameters,
 }: {
     vernacularContent: {
         description: string;
@@ -213,6 +212,7 @@ export function WhatsBestForYouComponent({
         buttonText: string;
     };
     userPreferences: UserPreferences;
+    utmParameters: {[searchParameter: string]: string};
 }) {
     return (
         <div className="tw-flex tw-flex-col tw-justify-between tw-items-center">
@@ -228,32 +228,33 @@ export function WhatsBestForYouComponent({
                         items={vernacularContent.downloadButtons}
                         itemBuilder={(downloadButton, downloadButtonIndex) => (
                             <React.Fragment key={downloadButtonIndex}>
-                                {
-                                    downloadButton.popup ? (
-                                        <DownloadCta
-                                            userPreferences={userPreferences}
-                                            textVernacId="categoryInvertersS8B2T"
-                                            className="tw-z-10"
-                                        />
-                                    ) : (
-                                        <a
-                                            href={downloadButton.downloadLink}
-                                            key={downloadButtonIndex}
-                                            download
-                                            target={"_blank"}
+                                {downloadButton.popup ? (
+                                    <DownloadCta
+                                        userPreferences={userPreferences}
+                                        textVernacId="categoryInvertersS8B2T"
+                                        className="tw-z-10"
+                                        utmParameters={utmParameters}
+                                    />
+                                ) : (
+                                    <a
+                                        href={downloadButton.downloadLink}
+                                        key={downloadButtonIndex}
+                                        download
+                                        target={"_blank"}
+                                    >
+                                        <div
+                                            className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}
                                         >
-                                            <div className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}>
-                                                <div className="tw-h-8 tw-min-w-[32px]">
-                                                    <FullWidthImage
-                                                        relativePath={downloadButton.iconRelativePath}
-                                                        imageCdnProvider={ImageCdnProvider.Imgix}
-                                                    />
-                                                </div>
-                                                <div className="lg-text-title2">{downloadButton.text}</div>
+                                            <div className="tw-h-8 tw-min-w-[32px]">
+                                                <FullWidthImage
+                                                    relativePath={downloadButton.iconRelativePath}
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
                                             </div>
-                                        </a>
-                                    )
-                                }
+                                            <div className="lg-text-title2">{downloadButton.text}</div>
+                                        </div>
+                                    </a>
+                                )}
                             </React.Fragment>
                         )}
                     />
@@ -320,7 +321,7 @@ export function ProductOverviewComponent({
     );
 }
 
-export function DownloadCta({userPreferences, textVernacId, className}: {userPreferences: UserPreferences; textVernacId: string; className?: string}) {
+export function DownloadCta({userPreferences, textVernacId, utmParameters, className}: {userPreferences: UserPreferences; textVernacId: string; utmParameters: {[searchParameter: string]: string}; className?: string}) {
     const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
 
     function tryToOpenDownloadDialog() {
@@ -329,7 +330,8 @@ export function DownloadCta({userPreferences, textVernacId, className}: {userPre
 
     return (
         <div className={className}>
-            <div className={"tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-justify-start tw-items-center tw-gap-3"}
+            <div
+                className={"tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-justify-start tw-items-center tw-gap-3"}
                 onClick={tryToOpenDownloadDialog}
             >
                 <div className="tw-h-8 tw-min-w-[32px]">
@@ -345,6 +347,7 @@ export function DownloadCta({userPreferences, textVernacId, className}: {userPre
                 userPreferences={userPreferences}
                 isDownloadDialogOpen={isDownloadDialogOpen}
                 setIsDownloadDialogOpen={setIsDownloadDialogOpen}
+                utmParameters={utmParameters}
             />
         </div>
     );
@@ -354,19 +357,30 @@ export function DownloadDialog({
     userPreferences,
     isDownloadDialogOpen,
     setIsDownloadDialogOpen,
+    utmParameters,
 }: {
     userPreferences: UserPreferences;
     isDownloadDialogOpen: boolean;
     setIsDownloadDialogOpen: React.Dispatch<boolean>;
+    utmParameters: {[searchParameter: string]: string};
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
 
-    const isDownloadSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
+    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
-    // if (actionData != null && actionData.path == "/contactusSubmission" && actionData.error == "") {
-    //     isContactUsSubmissionSuccess = true;
-    // }
+    useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        }
+
+        if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            return;
+        }
+
+        setFormSubmittedSuccessfully(true);
+    }, [fetcher.data]);
 
     function tryToCloseDownloadDialog() {
         setIsDownloadDialogOpen(false);
@@ -404,7 +418,7 @@ export function DownloadDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        {isDownloadSubmissionSuccess ? (
+                        {formSubmittedSuccessfully ? (
                             <DownloadFormSubmissionSuccess
                                 userPreferences={userPreferences}
                                 tryToCloseDialog={tryToCloseDownloadDialog}
@@ -484,6 +498,13 @@ export function DownloadDialog({
                                                 placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
                                             />
                                         </div>
+
+                                        <input
+                                            name="utmParameters"
+                                            className="tw-hidden"
+                                            readOnly
+                                            value={JSON.stringify(utmParameters)}
+                                        />
 
                                         <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                                             <button
@@ -587,19 +608,19 @@ export function DownloadFormSubmissionSuccess({userPreferences, tryToCloseDialog
 
 export function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     const embeddedVideos = [
-                        <EmbeddedYoutubeVideo
-                            id="b6gqLXTnZnw"
-                            style={{aspectRatio: "560/315"}}
-                        />,
-                        <EmbeddedYoutubeVideo
-                            id="CRabeGp9800"
-                            style={{aspectRatio: "560/315"}}
-                        />,
-                        <EmbeddedYoutubeVideo
-                            id="tFj9GJcjq6s"
-                            style={{aspectRatio: "560/315"}}
-                        />,
-                    ];
+        <EmbeddedYoutubeVideo
+            id="b6gqLXTnZnw"
+            style={{aspectRatio: "560/315"}}
+        />,
+        <EmbeddedYoutubeVideo
+            id="CRabeGp9800"
+            style={{aspectRatio: "560/315"}}
+        />,
+        <EmbeddedYoutubeVideo
+            id="tFj9GJcjq6s"
+            style={{aspectRatio: "560/315"}}
+        />,
+    ];
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
