@@ -25,7 +25,11 @@ export function ContactForm({
 }) {
     return (
         <div
+<<<<<<< Updated upstream
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}
+=======
+            className={concatenateNonNullStringsWithSpaces(className, "lg-px-screen-edge tw-flex tw-flex-col")}
+>>>>>>> Stashed changes
             id="contactUs"
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
@@ -45,7 +49,7 @@ export function ContactForm({
 
             <DefaultElementAnimation>
                 <fetcher.Form
-                    className="tw-w-full tw-rounded-[0.8rem] tw-grid tw-grid-rows-[3rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_3rem] tw-justify-items-center tw-overflow-hidden"
+                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-max-w-[30rem] tw-grid tw-grid-rows-[3rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_3rem] tw-justify-items-center tw-overflow-hidden"
                     method="post"
                     action="/contact-us-submission"
                 >

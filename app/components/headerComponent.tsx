@@ -289,7 +289,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 <div className="tw-w-8 tw-hidden lg:tw-flex" />
 
                 {showMobileMenuIcon && (
-                    <div className="tw-hidden lg:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:lg-text-[16px]">
+                    <div className="tw-hidden [@media(min-width:1075px)]:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:lg-text-[16px]">
                         <button
                             type="button"
                             onClick={() => {

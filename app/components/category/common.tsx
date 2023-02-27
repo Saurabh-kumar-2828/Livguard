@@ -408,7 +408,7 @@ export function DownloadDialog({
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
                     <Transition.Child
                         as="div"
                         enter="tw-ease-out tw-transition-all tw-duration-200"

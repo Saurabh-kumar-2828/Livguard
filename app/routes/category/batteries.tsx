@@ -745,7 +745,7 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters}: {use
                 <WhatsBestForYouComponent
                     vernacularContent={sectionData}
                     userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
+                    utmParameters={utmParameters}
                 />
             </div>
         </div>
