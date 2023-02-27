@@ -220,7 +220,12 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
 
     return (
         <div className={className}>
-            <div className="tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center lg:tw-bg-gradient-to-r lg:tw-from-[#1e1e1e] lg:tw-to-[#3a3a3a] lg:tw-rounded-lg lg:tw-pb-[50px] lg:tw-pt-[25px]">
+            <div
+                className={concatenateNonNullStringsWithSpaces(
+                    "tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center lg:tw-rounded-lg lg:tw-pb-[50px] lg:tw-pt-[25px]",
+                    `${userPreferences.theme == "dark" ? "lg:tw-bg-gradient-to-br lg:tw-from-[#1e1e1e] lg:tw-to-[#3a3a3a]" : "lg:tw-bg-gradient-to-br lg:tw-from-[#ffffff] lg:tw-to-[#b1b1b1]"}`,
+                )}
+            >
                 <PowerPlannerIntroduction
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-row-span-full"

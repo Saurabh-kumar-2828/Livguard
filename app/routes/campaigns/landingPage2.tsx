@@ -100,7 +100,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <EnergySolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[120px]"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-6 lg:tw-row-start-[4] lg:tw-col-span-full lg:tw-h-[72px] tw-h-10" />
@@ -108,14 +108,14 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
             <div className="tw-grid tw-grid-rows-3 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-row-start-7 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full">
                 <JodiSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[120px]"
+                    className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
                 />
 
                 <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-hidden" />
 
                 <WhyLivguardJodi
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[120px]"
+                    className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
                 />
             </div>
 
@@ -130,28 +130,28 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
             <QualityMeetsExpertise
                 userPreferences={userPreferences}
-                className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[120px]"
+                className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-[72px]" />
 
             <ExploreStarProducts
                 userPreferences={userPreferences}
-                className="tw-row-start-[13] tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-[13] tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-[72px]" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[16] tw-col-start-1 tw-h-10 lg:tw-row-start-[12] lg:tw-col-span-full lg:tw-h-[72px]" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-[17] tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-[17] tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[18] tw-col-start-1 tw-h-10 lg:tw-row-start-[14] lg:tw-col-span-full lg:tw-h-[72px]" />

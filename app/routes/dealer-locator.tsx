@@ -110,7 +110,7 @@ export default function () {
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="lg:tw-px-[120px]"
+                    className="lg:tw-px-[72px] xl:tw-px-[120px]"
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -125,7 +125,7 @@ export default function () {
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
-                    className="lg:tw-px-[120px]"
+                    className="lg:tw-px-[72px] xl:tw-px-[120px]"
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -177,7 +177,7 @@ export function DealerLocatorPage({
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
             <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-            <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-2 lg:tw-items-center">
+            <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-4 lg:tw-items-center">
                 <div className="tw-col-start-1 tw-row-start-1">
                     <GoogleMapView dealerList={dealerList} />
                 </div>
@@ -193,7 +193,7 @@ export function DealerLocatorPage({
                             type="text"
                             name="dealerLocation"
                             required
-                            className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[25rem]"
+                            className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[22rem]"
                             placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
                         ></input>
 
@@ -242,7 +242,7 @@ export function DealerLocatorPage({
 
                     {actionData && actionData.dealerList && actionData.dealerList.length > 0 && (
                         <div
-                            className="tw-text-title2 tw-text-center"
+                            className="tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-place-self-center"
                             onClick={() => setShowDealers(true)}
                         >
                             {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}

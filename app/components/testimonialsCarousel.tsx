@@ -26,15 +26,15 @@ export function TestimonialsCarousel({
                 className="tw-overflow-hidden"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[35%] tw-h-full">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[40%] tw-h-full">
                     <ItemBuilder
                         items={testimonials}
                         itemBuilder={(testimonial, testimonialIndex) => (
                             <div
-                                className="[@media(max-width:1024px)]:lg-px-screen-edge lg:tw-px-[10px]"
+                                className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge",`tw-mr-4`)}
                                 key={testimonialIndex}
                             >
-                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] lg:tw-min-w-[20rem] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
+                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] lg:tw-min-w-[23rem] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
                                     <div className="tw-col-start-1 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.image}
@@ -74,7 +74,6 @@ export function TestimonialsCarousel({
                                     </div>
 
                                     <div className="tw-col-start-1 tw-col-span-3 tw-row-start-2">
-
                                         <div className="lg-text-body tw-text-center tw-flex-1">{testimonial.message}</div>
                                     </div>
                                 </div>
@@ -86,7 +85,7 @@ export function TestimonialsCarousel({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg-px-screen-edge">
+            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between lg:tw-justify-center lg:tw-gap-10 tw-items-center lg-px-screen-edge">
                 <button
                     type="button"
                     className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"

@@ -19,7 +19,7 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                 className="tw-overflow-hidden lg:tw-h-full"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark lg:tw-h-full">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark lg:tw-h-full tw-gap-x-2">
                     <ItemBuilder
                         items={leaders}
                         itemBuilder={(leader, leaderIndex) => (

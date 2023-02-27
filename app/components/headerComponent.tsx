@@ -346,7 +346,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
 
                     <Link
                         to={"/load-calculator"}
-                        className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:lg-text-secondary-900-dark"
+                        className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
                     >
                         {getVernacularString("headerLoadCalculator", userPreferences.language)}
                     </Link>

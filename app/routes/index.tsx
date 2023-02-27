@@ -101,21 +101,21 @@ function HomePage({
 
             <EnergyStorageSolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <EnergySolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[120px]"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <PowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full tw-h-10" />
@@ -123,42 +123,42 @@ function HomePage({
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end"
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
             />
 
             <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[12] lg:tw-col-span-full tw-h-10" />
 
             <WeAreOneOfAKind
                 userPreferences={userPreferences}
-                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[120px]"
+                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <SolarSolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <MeetOurLeadership
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
@@ -166,14 +166,14 @@ function HomePage({
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[17] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[17] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
         </div>
     );
@@ -431,7 +431,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                         ]}
                         itemBuilder={(item, itemIndex) => (
                             <div
-                                className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center"
+                                className="[@media(max-width: 1024px)]:lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center"
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation className="tw-w-full">
@@ -648,7 +648,7 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
 export function MeetOurLeadership({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-h-full", className)}>
-            <div className="[@media(max-width:1024px)]:lg-px-screen-edge lg-text-headline tw-text-center lg:tw-hidden">
+            <div className="[@media(max-width:1024px)]:lg-px-screen-edge [@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2 tw-text-center lg:tw-hidden">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T2", userPreferences.language)}} />
             </div>
@@ -721,12 +721,12 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 export function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] lg:tw-h-[450px] tw-overflow-hidden">
+            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
                         <video
                             src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
-                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover tw-hidden dark:tw-block"
+                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-contain tw-hidden dark:tw-block"
                             autoPlay={true}
                             muted={true}
                             loop={true}
@@ -735,7 +735,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
 
                         <video
                             src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
-                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-cover dark:tw-hidden tw-block"
+                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-contain dark:tw-hidden tw-block"
                             autoPlay={true}
                             muted={true}
                             loop={true}
@@ -773,7 +773,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
 export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge lg:tw-h-full", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge">
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-h-full lg:tw-justify-center lg:tw-items-center">
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
@@ -807,34 +807,39 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <div className="tw-flex tw-justify-evenly">
+                <div className="tw-flex tw-justify-evenly ">
                     <a
                         href="https://www.facebook.com/LivguardEnergy/"
                         target="_blank"
+                        className="tw-px-2"
                     >
                         <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
                     <a
                         href="https://twitter.com/LivguardEnergy"
                         target="_blank"
+                        className="tw-px-2"
                     >
                         <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
                     <a
                         href="https://www.instagram.com/livguardenergy/"
                         target="_blank"
+                        className="tw-px-2"
                     >
                         <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
                     <a
                         href="https://www.linkedin.com/company/livguard-energy/"
                         target="_blank"
+                        className="tw-px-2"
                     >
                         <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>
                     <a
                         href="https://www.youtube.com/@LivguardEnergy"
                         target="_blank"
+                        className="tw-px-2"
                     >
                         <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                     </a>

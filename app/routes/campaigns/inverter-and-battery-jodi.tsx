@@ -7,6 +7,7 @@ import {Accordion} from "~/components/accordian";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FAQSection} from "~/components/faqs";
 import {FooterSocialLogosAndCopywrite} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
@@ -114,7 +115,7 @@ function LandingPage({
 
             <JodiSection
                 userPreferences={userPreferences}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[120px]"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
@@ -122,21 +123,21 @@ function LandingPage({
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[120px] tw-h-full"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px] tw-h-full"
             />
 
             <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-[6] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             <PowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-[5] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-[5] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-row-start-[8] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             <ExploreStarProducts
                 userPreferences={userPreferences}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[7] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[7] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
@@ -144,21 +145,21 @@ function LandingPage({
             <TapIntoEfficiency
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
-                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 lg:tw-row-start-[12] tw-h-10 lg:tw-h-[72px]" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[120px]"
+                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
@@ -309,79 +310,35 @@ export function TapIntoEfficiency({
 }
 
 export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "landingPage3FAQQ1Q",
+            answer: "landingPage3FAQQ1A",
+        },
+        {
+            question: "landingPage3FAQQ2Q",
+            answer: "landingPage3FAQQ2A",
+        },
+        {
+            question: "landingPage3FAQQ3Q",
+            answer: "landingPage3FAQQ3A",
+        },
+        {
+            question: "landingPage3FAQQ4Q",
+            answer: "landingPage3FAQQ4A",
+        },
+        {
+            question: "landingPage3FAQQ5Q",
+            answer: "landingPage3FAQQ5A",
+        },
+    ];
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-y-4">
-                <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-flex tw-flex-col">
-                    <div className="lg-text-headline tw-text-center lg:tw-text-left">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <div className="lg-text-body tw-text-center lg:tw-text-left">
-                        <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                        <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                    </div>
-                </div>
-
-                <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full tw-flex tw-flex-col tw-gap-y-3">
-                    <ItemBuilder
-                        items={[
-                            {
-                                question: "landingPage3FAQQ1Q",
-                                answer: "landingPage3FAQQ1A",
-                            },
-                            {
-                                question: "landingPage3FAQQ2Q",
-                                answer: "landingPage3FAQQ2A",
-                            },
-                            {
-                                question: "landingPage3FAQQ3Q",
-                                answer: "landingPage3FAQQ3A",
-                            },
-                            {
-                                question: "landingPage3FAQQ4Q",
-                                answer: "landingPage3FAQQ4A",
-                            },
-                            {
-                                question: "landingPage3FAQQ5Q",
-                                answer: "landingPage3FAQQ5A",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <Accordion
-                                title={getVernacularString(item.question, userPreferences.language)}
-                                panelItem={
-                                    <div
-                                        className="lg-text-secondary-900"
-                                        key={itemIndex}
-                                    >
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
-                                    </div>
-                                }
-                                key={itemIndex}
-                            />
-                        )}
-                    />
-                </div>
-
-                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-w-[25rem]">
-                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>
-                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
-                        <a
-                            href="tel:18001025551"
-                            className="tw-underline"
-                        >
-                            {getVernacularString("homeS9T3P3", userPreferences.language)}
-                        </a>{" "}
-                        {getVernacularString("homeS9T3P4", userPreferences.language)}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <FAQSection
+            faqs={faqs}
+            userPreferences={userPreferences}
+            className={className}
+        />
     );
 }
 
