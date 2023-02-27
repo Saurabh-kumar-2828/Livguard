@@ -32,6 +32,8 @@ export function FAQSection({
                         <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
                         <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
                     </div>
+
+                    <VerticalSpacer className="tw-h-0 lg:tw-h-16" />
                 </div>
 
                 <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full tw-flex tw-flex-col tw-gap-y-3">
@@ -54,7 +56,7 @@ export function FAQSection({
                     />
                 </div>
 
-                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-w-[25rem]">
+                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-max-w-[25rem]">
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
                     <div>
                         {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}

@@ -106,7 +106,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                     {getVernacularString("headerS1T1", userPreferences.language)}
                 </button>
 
-                <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center">
+                <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
                     {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
                     <HorizontalSpacer className="tw-w-1" />
                     <a href="tel:18001025551">1800-1025-551</a>
@@ -197,7 +197,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                         value={selectedLanguage}
                         onChange={setSelectedLanguage}
                     >
-                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center">
+                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
                             {languageToShortHumanFriendlyFormat(selectedLanguage)}
                             <ChevronDown className="tw-w-4 tw-h-4" />
                         </Listbox.Button>
@@ -219,7 +219,11 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                                                 )}
                                             >
                                                 <div>{languageToHumanFriendlyString(item)}</div>
-                                                {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
+                                                {selected ? (
+                                                    <Check2 className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+                                                ) : (
+                                                    <div className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+                                                )}
                                             </li>
                                         )}
                                     </Listbox.Option>
@@ -284,7 +288,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
 
                 <div className="tw-w-8 tw-hidden lg:tw-flex" />
 
-                <div className="tw-hidden lg:tw-flex tw-gap-x-8 tw-items-center">
+                <div className="tw-hidden lg:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:lg-text-[16px]">
                     <button
                         type="button"
                         onClick={() => {
@@ -357,7 +361,7 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 >
                     <Search className="tw-w-6 tw-h-6" />
                     <HorizontalSpacer className="tw-w-2" />
-                    <div>{getVernacularString("headerS2T1", userPreferences.language)}</div>
+                    <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
                 </button>
             </div>
 

@@ -9,6 +9,7 @@ import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -579,6 +580,145 @@ export function DownloadFormSubmissionSuccess({userPreferences, tryToCloseDialog
                 >
                     <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                 </a>
+            </div>
+        </div>
+    );
+}
+
+export function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const embeddedVideos = [
+                        <EmbeddedYoutubeVideo
+                            id="b6gqLXTnZnw"
+                            style={{aspectRatio: "560/315"}}
+                        />,
+                        <EmbeddedYoutubeVideo
+                            id="CRabeGp9800"
+                            style={{aspectRatio: "560/315"}}
+                        />,
+                        <EmbeddedYoutubeVideo
+                            id="tFj9GJcjq6s"
+                            style={{aspectRatio: "560/315"}}
+                        />,
+                    ];
+
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <CarouselStyle3 items={embeddedVideos} />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div className="tw-flex tw-justify-evenly">
+                    <a
+                        href="https://www.facebook.com/LivguardEnergy/"
+                        target="_blank"
+                    >
+                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://twitter.com/LivguardEnergy"
+                        target="_blank"
+                    >
+                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.instagram.com/livguardenergy/"
+                        target="_blank"
+                    >
+                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/company/livguard-energy/"
+                        target="_blank"
+                    >
+                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.youtube.com/@LivguardEnergy"
+                        target="_blank"
+                    >
+                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+            </div>
+
+            <div className="tw-hidden lg:tw-flex tw-flex-col tw-justify-center tw-text-center">
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-grid tw-grid-cols-3 tw-gap-2">
+                    <ItemBuilder
+                        items={embeddedVideos}
+                        itemBuilder={(video, videoIndex) => (
+                            <div
+                                className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-py-4"
+                                key={videoIndex}
+                            >
+                                {video}
+
+                                <VerticalSpacer className="tw-h-2" />
+
+                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+
+                                <div className="tw-flex tw-justify-evenly">
+                                    <a
+                                        href="https://www.facebook.com/LivguardEnergy/"
+                                        target="_blank"
+                                    >
+                                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://twitter.com/LivguardEnergy"
+                                        target="_blank"
+                                    >
+                                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://www.instagram.com/livguardenergy/"
+                                        target="_blank"
+                                    >
+                                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/company/livguard-energy/"
+                                        target="_blank"
+                                    >
+                                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://www.youtube.com/@LivguardEnergy"
+                                        target="_blank"
+                                    >
+                                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                </div>
+                            </div>
+                        )}
+                    />
+                </div>
             </div>
         </div>
     );

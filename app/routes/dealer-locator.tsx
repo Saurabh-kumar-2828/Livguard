@@ -31,6 +31,9 @@ import {getVernacularString} from "~/vernacularProvider";
 import cityList from "~/cities.json";
 import {Accordion} from "~/components/accordian";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {SocialHandles} from "~/components/category/common";
+import {FAQSection} from "~/components/faqs";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 
 // TODO: Rework for fetcher
 type DealerLocatorActionData = {
@@ -93,6 +96,7 @@ export default function () {
                     userPreferences={userPreferences}
                     actionData={actionData}
                     utmParameters={utmSearchParameters}
+                    className="lg:tw-px-[60px]"
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -104,7 +108,10 @@ export default function () {
 
                 <VerticalSpacer className="tw-h-10" />
 
-                <FaqSection userPreferences={userPreferences} />
+                <FaqSection
+                    userPreferences={userPreferences}
+                    className="lg:tw-px-[120px]"
+                />
 
                 <VerticalSpacer className="tw-h-10" />
 
@@ -115,9 +122,10 @@ export default function () {
 
                 <VerticalSpacer className="tw-h-10" />
 
-                <ShowerSomeLoveOnSocialHandles
+                <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+                    className="lg:tw-px-[120px]"
                 />
 
                 <VerticalSpacer className="tw-h-10" />
@@ -132,12 +140,14 @@ export function DealerLocatorPage({
     userPreferences,
     actionData,
     utmParameters,
+    className,
 }: {
     userPreferences: UserPreferences;
     actionData: DealerLocatorActionData;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    className: string;
 }) {
     const [showDealers, setShowDealers] = useState(false);
     const [dealerList, setDealerList] = useState<Array<Dealer>>([]);
@@ -147,7 +157,7 @@ export function DealerLocatorPage({
     useEffect(() => {
         if (actionData != null) {
             if (!showMore) {
-                setDealerList(actionData.dealerList.slice(0, 5));
+                setDealerList(actionData.dealerList.slice(0, 6));
             } else {
                 setDealerList(actionData.dealerList);
             }
@@ -164,26 +174,30 @@ export function DealerLocatorPage({
     // const [query, setQuery] = useState("");
 
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col">
-            <VerticalSpacer className="tw-h-2" />
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
+            <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-            <GoogleMapView dealerList={dealerList} />
+            <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-2 lg:tw-items-center">
+                <div className="tw-col-start-1 tw-row-start-1">
+                    <GoogleMapView dealerList={dealerList} />
+                </div>
 
-            <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4" />
 
-            <Form
-                className="tw-flex tw-flex-col tw-items-center tw-justify-center"
-                method="post"
-            >
-                <input
-                    type="text"
-                    name="dealerLocation"
-                    required
-                    className="lg-text-input tw-w-full tw-text-center"
-                    placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
-                ></input>
+                <div className="tw-col-start-2 tw-row-start-1">
+                    <Form
+                        className="tw-flex tw-flex-col tw-items-center tw-justify-center"
+                        method="post"
+                    >
+                        <input
+                            type="text"
+                            name="dealerLocation"
+                            required
+                            className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[25rem]"
+                            placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+                        ></input>
 
-                {/* <FancySearchableSelect
+                        {/* <FancySearchableSelect
                     id="city"
                     options={cityList.map((city, cityIndex) => ({
                         value: cityIndex,
@@ -195,7 +209,7 @@ export function DealerLocatorPage({
                     datastore={datastore}
                 /> */}
 
-                {/* <FancySearchableSelect
+                        {/* <FancySearchableSelect
                     options={cities}
                     selected={selected}
                     setSelected={setSelected}
@@ -204,36 +218,38 @@ export function DealerLocatorPage({
                     setQuery={setQuery}
                 /> */}
 
-                <VerticalSpacer className="tw-h-4" />
-                <input
-                    type="text"
-                    name="dealerLocation"
-                    className="tw-hidden"
-                    readOnly
-                />
+                        <VerticalSpacer className="tw-h-4" />
+                        <input
+                            type="text"
+                            name="dealerLocation"
+                            className="tw-hidden"
+                            readOnly
+                        />
 
-                <button
-                    type="submit"
-                    className="lg-cta-button"
-                >
-                    {`${getVernacularString("dealerLocatorButtonText", userPreferences.language)}`}
-                </button>
-            </Form>
+                        <button
+                            type="submit"
+                            className="lg-cta-button"
+                        >
+                            {`${getVernacularString("dealerLocatorButtonText", userPreferences.language)}`}
+                        </button>
+                    </Form>
 
-            <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-2" />
 
-            {actionData && actionData.dealerList.length == 0 && (
-                <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
-            )}
+                    {actionData && actionData.dealerList.length == 0 && (
+                        <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
+                    )}
 
-            {actionData && actionData.dealerList && actionData.dealerList.length > 0 && (
-                <div
-                    className="tw-text-title2 tw-text-center"
-                    onClick={() => setShowDealers(true)}
-                >
-                    {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                    {actionData && actionData.dealerList && actionData.dealerList.length > 0 && (
+                        <div
+                            className="tw-text-title2 tw-text-center"
+                            onClick={() => setShowDealers(true)}
+                        >
+                            {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -247,55 +263,57 @@ export function DealerLocatorPage({
 
                     <VerticalSpacer className="tw-h-1" />
 
-                    <ItemBuilder
-                        items={dealerList}
-                        itemBuilder={(dealer, dealerIndex) => (
-                            <React.Fragment key={dealerIndex}>
-                                <DefaultElementAnimation>
-                                    <div
-                                        className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4"
-                                        key={dealerIndex}
-                                    >
-                                        <div className="lg-text-title1">{dealer.name}</div>
+                    <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 lg:tw-gap-2">
+                        <ItemBuilder
+                            items={dealerList}
+                            itemBuilder={(dealer, dealerIndex) => (
+                                <React.Fragment key={dealerIndex}>
+                                    <DefaultElementAnimation>
+                                        <div
+                                            className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full"
+                                            key={dealerIndex}
+                                        >
+                                            <div className="lg-text-title1">{dealer.name}</div>
 
-                                        <VerticalSpacer className="tw-h-4" />
+                                            <VerticalSpacer className="tw-h-4" />
 
-                                        <div className="lg-text-body">Dealer Address:</div>
+                                            <div className="lg-text-body">Dealer Address:</div>
 
-                                        <div className="lg-text-body">{`${dealer.address}, ${dealer.city}, ${dealer.state}, ${dealer.pinCode}`}</div>
+                                            <div className="lg-text-body tw-felx-1">{`${dealer.address}, ${dealer.city}, ${dealer.state}, ${dealer.pinCode}`}</div>
 
-                                        <VerticalSpacer className="tw-h-4" />
+                                            <VerticalSpacer className="tw-h-4" />
 
-                                        <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4">
-                                            {/* <button
+                                            <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
+                                                {/* <button
                                                 type="button"
                                                 className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-4"
                                             >
                                                 Enquire Now
                                             </button> */}
-                                            <ContactUsCta
-                                                userPreferences={userPreferences}
-                                                textVernacId="landingPageBottomBarT2"
-                                                className="tw-z-10"
-                                                utmParameters={utmParameters}
-                                            />
+                                                <ContactUsCta
+                                                    userPreferences={userPreferences}
+                                                    textVernacId="landingPageBottomBarT2"
+                                                    className="tw-z-10 lg:tw-place-self-end"
+                                                    utmParameters={utmParameters}
+                                                />
 
-                                            {/* <button
+                                                {/* <button
                                                 type="button"
                                                 className="tw-border tw-border-secondary-700 tw-p-2 tw-px-4 tw-rounded-3xl"
                                             >
                                                 Get Direction
                                             </button> */}
+                                            </div>
                                         </div>
-                                    </div>
-                                </DefaultElementAnimation>
-                            </React.Fragment>
-                        )}
-                    />
+                                    </DefaultElementAnimation>
+                                </React.Fragment>
+                            )}
+                        />
+                    </div>
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    {!showMore && actionData.dealerList.length > 5 && (
+                    {!showMore && actionData.dealerList.length > 6 && (
                         <div
                             className="lg-text-headline lg-text-secondary-300 tw-text-center tw-underline hover:tw-cursor-pointer"
                             onClick={() => setShowMore(true)}
@@ -346,12 +364,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
                 center={mapCenter}
                 zoom={zoomLevel}
             >
-                {dealerList.length > 0 &&
-                    dealerList.slice(0, 5).map((dealer) => (
-                        <MarkerF
-                            position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
-                        />
-                    ))}
+                {dealerList.length > 0 && dealerList.slice(0, 5).map((dealer) => <MarkerF position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}} />)}
 
                 {/* <Autocomplete
                     onLoad={()}
@@ -369,7 +382,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
 
 function TroubleFindingDealers({
     userPreferences,
-    utmParameters
+    utmParameters,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -408,7 +421,7 @@ function TroubleFindingDealers({
 
 function JoinLivguardNetwork({
     userPreferences,
-    utmParameters
+    utmParameters,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -449,7 +462,7 @@ export function ApplyNowForDealerCta({
     userPreferences,
     textVernacId,
     className,
-    utmParameters
+    utmParameters,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
@@ -647,10 +660,14 @@ export function ApplyNowForDealerDialog({
     );
 }
 
-export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences, tryToCloseDialog: () => void}) {
+export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences; tryToCloseDialog: () => void}) {
     return (
         <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-pt-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center tw-relative">
-            <button type="button" className="tw-absolute tw-top-6 tw-right-6" onClick={tryToCloseDialog}>
+            <button
+                type="button"
+                className="tw-absolute tw-top-6 tw-right-6"
+                onClick={tryToCloseDialog}
+            >
                 <X className="tw-w-8 tw-h-8" />
             </button>
 
@@ -729,81 +746,35 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
     );
 }
 
-export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "dealerLocatorPageFAQQ1Q",
+            answer: "dealerLocatorPageFAQQ1A",
+        },
+        {
+            question: "dealerLocatorPageFAQQ2Q",
+            answer: "dealerLocatorPageFAQQ2A",
+        },
+        {
+            question: "dealerLocatorPageFAQQ3Q",
+            answer: "dealerLocatorPageFAQQ3A",
+        },
+        {
+            question: "dealerLocatorPageFAQQ4Q",
+            answer: "dealerLocatorPageFAQQ4A",
+        },
+        {
+            question: "dealerLocatorPageFAQQ5Q",
+            answer: "dealerLocatorPageFAQQ5A",
+        },
+    ];
+
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-flex tw-flex-col tw-gap-y-3">
-                    <ItemBuilder
-                        items={[
-                            {
-                                question: "dealerLocatorPageFAQQ1Q",
-                                answer: "dealerLocatorPageFAQQ1A",
-                            },
-                            {
-                                question: "dealerLocatorPageFAQQ2Q",
-                                answer: "dealerLocatorPageFAQQ2A",
-                            },
-                            {
-                                question: "dealerLocatorPageFAQQ3Q",
-                                answer: "dealerLocatorPageFAQQ3A",
-                            },
-                            {
-                                question: "dealerLocatorPageFAQQ4Q",
-                                answer: "dealerLocatorPageFAQQ4A",
-                            },
-                            {
-                                question: "dealerLocatorPageFAQQ5Q",
-                                answer: "dealerLocatorPageFAQQ5A",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <Accordion
-                                title={getVernacularString(item.question, userPreferences.language)}
-                                panelItem={
-                                    <div
-                                        className="lg-text-secondary-900"
-                                        key={itemIndex}
-                                    >
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
-                                    </div>
-                                }
-                                key={itemIndex}
-                            />
-                        )}
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>
-                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
-                        <a
-                            href="tel:18001025551"
-                            className="tw-underline"
-                        >
-                            {getVernacularString("homeS9T3P3", userPreferences.language)}
-                        </a>{" "}
-                        {getVernacularString("homeS9T3P4", userPreferences.language)}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <FAQSection
+            faqs={faqs}
+            userPreferences={userPreferences}
+            className={className}
+        />
     );
 }
