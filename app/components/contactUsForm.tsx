@@ -25,11 +25,7 @@ export function ContactForm({
 }) {
     return (
         <div
-<<<<<<< Updated upstream
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}
-=======
-            className={concatenateNonNullStringsWithSpaces(className, "lg-px-screen-edge tw-flex tw-flex-col")}
->>>>>>> Stashed changes
             id="contactUs"
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
