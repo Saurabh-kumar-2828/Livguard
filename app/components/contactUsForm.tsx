@@ -6,7 +6,6 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-<<<<<<< Updated upstream
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
@@ -26,17 +25,8 @@ export function ContactForm({
 }) {
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces(className, "lg-px-screen-edge tw-flex tw-flex-col")}
-            id="contactUs"
-=======
-import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-
-export function ContactForm({userPreferences, fetcher, utmParameters, className}: {userPreferences: UserPreferences; fetcher: FetcherWithComponents<any>; utmParameters: {[searchParameter: string]: string}, className?: string}) {
-    return (
-        <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}
->>>>>>> Stashed changes
+            id="contactUs"
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>
