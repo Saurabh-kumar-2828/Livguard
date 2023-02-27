@@ -1,5 +1,6 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -11,10 +12,10 @@ export function CarouselStyle4({items}: {items: Array<any>}) {
 
     return (
         <div
-            className="tw-overflow-hidden"
+            className="tw-overflow-hidden tw-w-full"
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[50%]">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[50%] lg:tw-auto-cols-[33%]">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
@@ -43,10 +44,12 @@ export function CarouselStyle4({items}: {items: Array<any>}) {
                     <ItemBuilder
                         items={items}
                         itemBuilder={(_, scrollSnapIndex) => (
-                            <div
-                                className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
-                                key={scrollSnapIndex}
-                            />
+                            <React.Fragment key={scrollSnapIndex}>
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                    key={scrollSnapIndex}
+                                />
+                            </React.Fragment>
                         )}
                     />
                 </div>

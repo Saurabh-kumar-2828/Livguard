@@ -11,7 +11,7 @@ import {InverterType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getRedirectToUrlFromRequest} from "~/utilities";
-import {EmpowerYourHomeComponent, OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
+import {EmpowerYourHomeComponent, OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -22,6 +22,8 @@ import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
 import {Accordion} from "~/components/accordian";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {FAQSection} from "~/components/faqs";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -67,59 +69,77 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-8" />
 
-            <InvertersAreMentToLast userPreferences={userPreferences} />
+            <InvertersAreMentToLast
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <OurInvertersSection userPreferences={userPreferences} />
+            <OurInvertersSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <OurSuggestionsSection userPreferences={userPreferences} />
+            <OurSuggestionsSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
             {/* <SideBySideOverviewSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" /> */}
 
-            <SuggestedJodiSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <DealerLocator
+            <SuggestedJodiSection
                 userPreferences={userPreferences}
-                showCtaButton={true}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <ChooseBestInverterBattery
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+                <DealerLocator
+                    userPreferences={userPreferences}
+                    showCtaButton={true}
+                    className="tw-row-start-1 tw-row-span-full lg:tw-col-start-1 lg:tw-h-full"
+                />
+
+                <ChooseBestInverterBattery
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1"
+                />
+            </div>
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+
+            <FaqSection
                 userPreferences={userPreferences}
-                utmParameters={utmParameters}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[50px]" />
 
-            <FaqSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <ShowerSomeLoveOnSocialHandles
+            <SocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
         </>
     );
 }
 
-function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem-4.75rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
+        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-4.75rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
             <CoverImage
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -143,9 +163,9 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-export function OurInvertersSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function OurInvertersSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     return (
-        <div>
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-cente", className)}>
             <div className="lg-text-screen-edge lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T2", userPreferences.language)}} />
@@ -160,7 +180,7 @@ export function OurInvertersSection({userPreferences}: {userPreferences: UserPre
 
 export function OurInvertersSectionInternal({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(6,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-2">
+        <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem_22rem] tw-gap-x-2">
             {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
             <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg" />
@@ -168,17 +188,35 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
             <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg" />
 
             <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
-                <FullWidthImage
-                    relativePath="/livguard/category/inverters/4/1.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
-                />
+                <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                    <FullWidthImage
+                        relativePath="/livguard/category/inverters/4/1.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
+                <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                    <FixedWidthImage
+                        relativePath="/livguard/category/inverters/4/1.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        width="10rem"
+                    />
+                </div>
             </div>
 
             <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
-                <FullWidthImage
-                    relativePath="/livguard/category/inverters/4/2.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
-                />
+                <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                    <FullWidthImage
+                        relativePath="/livguard/category/inverters/4/2.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
+                <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                    <FixedWidthImage
+                        relativePath="/livguard/category/inverters/4/2.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        width="10rem"
+                    />
+                </div>
             </div>
 
             <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C2", userPreferences.language)}</div>
@@ -224,7 +262,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
     );
 }
 
-export function InvertersAreMentToLast({userPreferences}: {userPreferences: UserPreferences}) {
+export function InvertersAreMentToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
             titleTextContentPiece: "categoryInvertersS2Slide1Heading",
@@ -249,7 +287,7 @@ export function InvertersAreMentToLast({userPreferences}: {userPreferences: User
     ];
 
     return (
-        <div className="tw-flex tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
             <div className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS2HT1", userPreferences.language)}} />
@@ -269,7 +307,7 @@ export function InvertersAreMentToLast({userPreferences}: {userPreferences: User
     );
 }
 
-export function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function OurSuggestionsSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const [secledtedInverterType, setsecledtedInverterType] = useState(InverterType.sine);
 
     const sectionData: Array<{
@@ -344,7 +382,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
     ];
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col tw-items-center">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -417,7 +455,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
     );
 }
 
-export function SideBySideOverviewSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function SideBySideOverviewSection({userPreferences,className}: {userPreferences: UserPreferences; className: string}) {
     const productOverview: Array<{
         heading: string;
         image: string;
@@ -541,7 +579,7 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
     );
 }
 
-export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function SuggestedJodiSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const jodisData: Array<{
         title: string;
         imageRelativePath: string;
@@ -580,7 +618,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     ];
 
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -591,15 +629,20 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
                 <ItemBuilder
                     items={jodisData}
                     itemBuilder={(jodi, jodiIndex) => (
-                        <ProductCardComponent
-                            vernacularContent={jodi}
+                        <div
+                            className={`lg-bg-secondary-100 tw-rounded-lg`}
                             key={jodiIndex}
-                            userPreferences={userPreferences}
-                        />
+                        >
+                            <ProductCardComponent
+                                vernacularContent={jodi}
+                                key={jodiIndex}
+                                userPreferences={userPreferences}
+                            />
+                        </div>
                     )}
                 />
             </div>
@@ -607,7 +650,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     );
 }
 
-export function ChooseBestInverterBattery({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
+export function ChooseBestInverterBattery({userPreferences, utmParameters, className}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; className: string}) {
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
@@ -632,7 +675,7 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters}: {use
     };
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -655,81 +698,35 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters}: {use
     );
 }
 
-export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "categoryInveterPageFAQQ1Q",
+            answer: "categoryInveterPageFAQQ1A",
+        },
+        {
+            question: "categoryInveterPageFAQQ2Q",
+            answer: "categoryInveterPageFAQQ2A",
+        },
+        {
+            question: "categoryInveterPageFAQQ3Q",
+            answer: "categoryInveterPageFAQQ3A",
+        },
+        {
+            question: "categoryInveterPageFAQQ4Q",
+            answer: "categoryInveterPageFAQQ4A",
+        },
+        {
+            question: "categoryInveterPageFAQQ5Q",
+            answer: "categoryInveterPageFAQQ5A",
+        },
+    ];
+
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-flex tw-flex-col tw-gap-y-3">
-                    <ItemBuilder
-                        items={[
-                            {
-                                question: "categoryInveterPageFAQQ1Q",
-                                answer: "categoryInveterPageFAQQ1A",
-                            },
-                            {
-                                question: "categoryInveterPageFAQQ2Q",
-                                answer: "categoryInveterPageFAQQ2A",
-                            },
-                            {
-                                question: "categoryInveterPageFAQQ3Q",
-                                answer: "categoryInveterPageFAQQ3A",
-                            },
-                            {
-                                question: "categoryInveterPageFAQQ4Q",
-                                answer: "categoryInveterPageFAQQ4A",
-                            },
-                            {
-                                question: "categoryInveterPageFAQQ5Q",
-                                answer: "categoryInveterPageFAQQ5A",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <Accordion
-                                title={getVernacularString(item.question, userPreferences.language)}
-                                panelItem={
-                                    <div
-                                        className="lg-text-secondary-900"
-                                        key={itemIndex}
-                                    >
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
-                                    </div>
-                                }
-                                key={itemIndex}
-                            />
-                        )}
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>
-                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
-                        <a
-                            href="tel:18001025551"
-                            className="tw-underline"
-                        >
-                            {getVernacularString("homeS9T3P3", userPreferences.language)}
-                        </a>{" "}
-                        {getVernacularString("homeS9T3P4", userPreferences.language)}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <FAQSection
+            faqs={faqs}
+            userPreferences={userPreferences}
+            className={className}
+        />
     );
 }

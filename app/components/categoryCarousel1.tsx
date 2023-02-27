@@ -34,47 +34,44 @@ export function CategoryCarousel1({userPreferences, items}: {userPreferences: Us
                                         item={item}
                                     />
                                 </DefaultElementAnimation>
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <button
-                                        type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollPrev()}
-                                    >
-                                        <ChevronLeftIcon className="tw-w-6 tw-h-6" />
-                                    </button>
-
-                                    <div className="tw-flex tw-flex-row tw-gap-x-2">
-                                        <ItemBuilder
-                                            items={items}
-                                            itemBuilder={(_, scrollSnapIndex) => (
-                                                <div
-                                                    className={concatenateNonNullStringsWithSpaces(
-                                                        "tw-w-2 tw-h-2 tw-rounded-full",
-                                                        scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300",
-                                                    )}
-                                                    key={scrollSnapIndex}
-                                                />
-                                            )}
-                                        />
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollNext()}
-                                    >
-                                        <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                                    </button>
-                                </div>
                             </div>
 
                             <VerticalSpacer className="tw-h-4" />
                         </div>
                     )}
                 />
+            </div>
+
+            <VerticalSpacer className="tw-h-2" />
+
+            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10 lg-px-screen-edge">
+                <button
+                    type="button"
+                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                    onClick={() => emblaApi?.scrollPrev()}
+                >
+                    <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                </button>
+
+                <div className="tw-flex tw-flex-row tw-gap-x-2">
+                    <ItemBuilder
+                        items={items}
+                        itemBuilder={(_, scrollSnapIndex) => (
+                            <div
+                                className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                key={scrollSnapIndex}
+                            />
+                        )}
+                    />
+                </div>
+
+                <button
+                    type="button"
+                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                    onClick={() => emblaApi?.scrollNext()}
+                >
+                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                </button>
             </div>
         </div>
     );

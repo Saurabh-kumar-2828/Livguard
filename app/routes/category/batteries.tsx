@@ -4,17 +4,20 @@ import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
 import {Accordion} from "~/components/accordian";
-import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, WhatsBestForYouComponent} from "~/components/category/common";
+import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
+import {FAQSection} from "~/components/faqs";
 import {PageScaffold} from "~/components/pageScaffold";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
@@ -66,59 +69,82 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-8 lg:tw-h-[72px]" />
 
-            <BatteriesAreMeantToLast userPreferences={userPreferences} />
+            <BatteriesAreMeantToLast
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <OurBatteriesSection userPreferences={userPreferences} />
+            <OurBatteriesSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <OurSuggestionsSection userPreferences={userPreferences} />
+            <OurSuggestionsSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
             {/* <SideBySideOverviewSection userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-10" /> */}
 
-            <SuggestedJodiSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <DealerLocator
+            <SuggestedJodiSection
                 userPreferences={userPreferences}
-                showCtaButton={true}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <ChooseBestInverterBattery
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+                <DealerLocator
+                    userPreferences={userPreferences}
+                    showCtaButton={true}
+                    className="tw-row-start-1 tw-row-span-full lg:tw-col-start-1 lg:tw-h-full"
+                />
+
+                <ChooseBestInverterBattery
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1"
+                />
+            </div>
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+
+            <FaqSection
                 userPreferences={userPreferences}
-                utmParameters={utmParameters}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[50px]" />
 
-            <FaqSection userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <ShowerSomeLoveOnSocialHandles
+            <SocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
         </>
     );
 }
 
-function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-4.5rem] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center",
+                className,
+            )}
+        >
             <CoverImage
                 relativePath="/livguard/category/batteries/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -142,7 +168,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function BatteriesAreMeantToLast({userPreferences}: {userPreferences: UserPreferences}) {
+function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const sectionData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
             titleTextContentPiece: "categoryBatteriesS2Slide1Heading",
@@ -167,7 +193,7 @@ function BatteriesAreMeantToLast({userPreferences}: {userPreferences: UserPrefer
     ];
 
     return (
-        <div className="tw-flex tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
             <div className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS2HT1", userPreferences.language)}} />
@@ -265,9 +291,9 @@ function BatteriesAreMeantToLast({userPreferences}: {userPreferences: UserPrefer
 //     );
 // }
 
-export function OurBatteriesSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function OurBatteriesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div>
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-center", className)}>
             <div className="lg-text-screen-edge lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T2", userPreferences.language)}} />
@@ -275,14 +301,18 @@ export function OurBatteriesSection({userPreferences}: {userPreferences: UserPre
 
             <VerticalSpacer className="tw-h-6" />
 
-            <OurBatteriesSectionInternal userPreferences={userPreferences} />
+            <OurBatteriesSectionInternal
+                userPreferences={userPreferences}
+            />
         </div>
     );
 }
 
-export function OurBatteriesSectionInternal({userPreferences}: {userPreferences: UserPreferences}) {
+export function OurBatteriesSectionInternal({userPreferences}: {userPreferences: UserPreferences;}) {
     return (
-        <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-2">
+        <div
+            className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem_22rem] tw-gap-x-2"
+        >
             {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
             <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg" />
@@ -290,17 +320,35 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg" />
 
             <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
-                <FullWidthImage
-                    relativePath="/livguard/category/batteries/4/1.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
-                />
+                <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                    <FullWidthImage
+                        relativePath="/livguard/category/batteries/4/1.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
+                <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                    <FixedWidthImage
+                        relativePath="/livguard/category/batteries/4/1.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        width="10rem"
+                    />
+                </div>
             </div>
 
             <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
-                <FullWidthImage
-                    relativePath="/livguard/category/batteries/4/2.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
-                />
+                <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                    <FullWidthImage
+                        relativePath="/livguard/category/batteries/4/2.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
+                <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                    <FixedWidthImage
+                        relativePath="/livguard/category/batteries/4/2.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                        width="10rem"
+                    />
+                </div>
             </div>
 
             <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryBatteriesS3R1C2", userPreferences.language)}</div>
@@ -364,7 +412,7 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
     );
 }
 
-export function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function OurSuggestionsSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [selectedBatteryType, setSelectedBatteryType] = useState(BatteryType.flat);
 
     const sectionData: Array<{
@@ -437,7 +485,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
     ];
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col tw-items-center">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -448,7 +496,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
                     </DefaultTextAnimation>
                 </div>
 
-                {/* <VerticalSpacer className="tw-h-6" /> */}
+                <VerticalSpacer className="tw-h-6" />
 
                 {/* <DefaultTextAnimation>
                     <div className="lg-text-title2 tw-text-center">{getVernacularString("categoryBatteriesS4Heading", userPreferences.language)}</div>
@@ -512,7 +560,7 @@ export function OurSuggestionsSection({userPreferences}: {userPreferences: UserP
     );
 }
 
-export function SideBySideOverviewSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function SideBySideOverviewSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const productOverview: Array<{
         heading: string;
         image: string;
@@ -611,7 +659,7 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
     ];
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS5HT1", userPreferences.language)}} />
@@ -636,7 +684,7 @@ export function SideBySideOverviewSection({userPreferences}: {userPreferences: U
     );
 }
 
-export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function SuggestedJodiSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const jodisData: Array<{
         title: string;
         imageRelativePath: string;
@@ -675,7 +723,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     ];
 
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -686,15 +734,20 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
                 <ItemBuilder
                     items={jodisData}
                     itemBuilder={(jodi, jodiIndex) => (
-                        <ProductCardComponent
-                            vernacularContent={jodi}
+                        <div
+                            className={`lg-bg-secondary-100 tw-rounded-lg`}
                             key={jodiIndex}
-                            userPreferences={userPreferences}
-                        />
+                        >
+                            <ProductCardComponent
+                                vernacularContent={jodi}
+                                key={jodiIndex}
+                                userPreferences={userPreferences}
+                            />
+                        </div>
                     )}
                 />
             </div>
@@ -704,7 +757,7 @@ export function SuggestedJodiSection({userPreferences}: {userPreferences: UserPr
     );
 }
 
-export function ChooseBestInverterBattery({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
+export function ChooseBestInverterBattery({userPreferences, utmParameters, className}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; className?: string}) {
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
@@ -729,7 +782,7 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters}: {use
     };
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -752,81 +805,35 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters}: {use
     );
 }
 
-export function FaqSection({userPreferences}: {userPreferences: UserPreferences}) {
+export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "categoryBatteryPageFAQQ1Q",
+            answer: "categoryBatteryPageFAQQ1A",
+        },
+        {
+            question: "categoryBatteryPageFAQQ2Q",
+            answer: "categoryBatteryPageFAQQ2A",
+        },
+        {
+            question: "categoryBatteryPageFAQQ3Q",
+            answer: "categoryBatteryPageFAQQ3A",
+        },
+        {
+            question: "categoryBatteryPageFAQQ4Q",
+            answer: "categoryBatteryPageFAQQ4A",
+        },
+        {
+            question: "categoryBatteryPageFAQQ5Q",
+            answer: "categoryBatteryPageFAQQ5A",
+        },
+    ];
+
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-flex tw-flex-col tw-gap-y-3">
-                    <ItemBuilder
-                        items={[
-                            {
-                                question: "categoryBatteryPageFAQQ1Q",
-                                answer: "categoryBatteryPageFAQQ1A",
-                            },
-                            {
-                                question: "categoryBatteryPageFAQQ2Q",
-                                answer: "categoryBatteryPageFAQQ2A",
-                            },
-                            {
-                                question: "categoryBatteryPageFAQQ3Q",
-                                answer: "categoryBatteryPageFAQQ3A",
-                            },
-                            {
-                                question: "categoryBatteryPageFAQQ4Q",
-                                answer: "categoryBatteryPageFAQQ4A",
-                            },
-                            {
-                                question: "categoryBatteryPageFAQQ5Q",
-                                answer: "categoryBatteryPageFAQQ5A",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <Accordion
-                                title={getVernacularString(item.question, userPreferences.language)}
-                                panelItem={
-                                    <div
-                                        className="lg-text-secondary-900"
-                                        key={itemIndex}
-                                    >
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
-                                    </div>
-                                }
-                                key={itemIndex}
-                            />
-                        )}
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>
-                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
-                        <a
-                            href="tel:18001025551"
-                            className="tw-underline"
-                        >
-                            {getVernacularString("homeS9T3P3", userPreferences.language)}
-                        </a>{" "}
-                        {getVernacularString("homeS9T3P4", userPreferences.language)}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <FAQSection
+            faqs={faqs}
+            userPreferences={userPreferences}
+            className={className}
+        />
     );
 }
