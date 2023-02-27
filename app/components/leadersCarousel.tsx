@@ -14,17 +14,17 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
-        <div>
+        <div className="lg:tw-h-full">
             <div
-                className="tw-overflow-hidden"
+                className="tw-overflow-hidden lg:tw-h-full"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark lg:tw-h-full">
                     <ItemBuilder
                         items={leaders}
                         itemBuilder={(leader, leaderIndex) => (
                             <div
-                                className="lg-px-screen-edge tw-pt-5"
+                                className="lg-px-screen-edge tw-pt-5 lg:tw-h-full"
                                 key={leaderIndex}
                             >
                                 <div className="tw-h-full tw-relative lg-bg-primary-500 tw-rounded-lg tw-p-6">

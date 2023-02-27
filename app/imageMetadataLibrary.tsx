@@ -456,6 +456,76 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LQIOOp=|xuXm^+niIUX8~qxuIUxa",
         placeholderColor: "#e8e8e8",
     },
+    "/livguard/hero-banners/category-battery-hero-desktop.jpg": {
+        width: 3840,
+        height: 2161,
+        altText: "Dummy alt text",
+        blurHash: "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
+        placeholderColor: "#383838",
+    },
+    "/livguard/hero-banners/category-battery-hero-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        altText: "Dummy alt text",
+        blurHash: "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
+        placeholderColor: "#382828",
+    },
+    "/livguard/hero-banners/category-inverter-hero-desktop.jpg": {
+        width: 3840,
+        height: 2160,
+        altText: "Dummy alt text",
+        blurHash: "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
+        placeholderColor: "#080808",
+    },
+    "/livguard/hero-banners/category-inverter-hero-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        altText: "Dummy alt text",
+        blurHash: "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
+        placeholderColor: "#080808",
+    },
+    "/livguard/hero-banners/lp-1-hero-desktop.jpg": {
+        width: 3840,
+        height: 2160,
+        altText: "Dummy alt text",
+        blurHash: "L97wg7tl-;xu~q-px]xu-;xut7xa",
+        placeholderColor: "#080808",
+    },
+    "/livguard/hero-banners/lp-1-hero-mobile.jpg": {
+        width: 3840,
+        height: 3841,
+        altText: "Dummy alt text",
+        blurHash: "L86HcbtRxut7~X%Mxuoz^+xvt7t7",
+        placeholderColor: "#080808",
+    },
+    "/livguard/hero-banners/lp-2-hero-desktop.jpg": {
+        width: 3840,
+        height: 2161,
+        altText: "Dummy alt text",
+        blurHash: "L9A0ap.8?b%2~X%2xuxu~Wt6bHt7",
+        placeholderColor: "#584848",
+    },
+    "/livguard/hero-banners/lp-2-hero-mobile.jpg": {
+        width: 3840,
+        height: 3841,
+        altText: "Dummy alt text",
+        blurHash: "LGB3W+%M%2xu~X%2t7t7~WtRofof",
+        placeholderColor: "#484848",
+    },
+    "/livguard/hero-banners/lp-3-desktop.jpg": {
+        width: 3840,
+        height: 2161,
+        altText: "Dummy alt text",
+        blurHash: "L99Q5P.8?H-p~q?H%Mxu?H%Mt7of",
+        placeholderColor: "#584848",
+    },
+    "/livguard/hero-banners/lp-3-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        altText: "Dummy alt text",
+        blurHash: "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
+        placeholderColor: "#382828",
+    },
     "/livguard/home/1/1.jpg": {
         width: 390,
         height: 515,
@@ -498,6 +568,7 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LYNwct~q9GxuInM{%Lt700oMayIU",
         placeholderColor: "#f8f8f8",
     },
+
     "/livguard/home/3/1-icon.png": {
         width: 76,
         height: 76,
@@ -523,7 +594,7 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         width: 3841,
         height: 2113,
         altText: "Dummy alt text",
-        blurHash: "LWG8G+9aIUn%~pM{IUWXcYnhIUW=",
+        blurHash: "LoH-}iD%D%Rj~qM{M{RjtRayR*WV",
         placeholderColor: "#080808",
     },
     "/livguard/home/3/3-icon.png": {
@@ -537,7 +608,7 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         width: 3841,
         height: 2113,
         altText: "Dummy alt text",
-        blurHash: "LoH-}iD%D%Rj~qM{M{RjtRayR*WV",
+        blurHash: "LWG8G+9aIUn%~pM{IUWXcYnhIUW=",
         placeholderColor: "#080808",
     },
     "/livguard/home/3/4-icon.png": {
@@ -1903,28 +1974,28 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 492,
         altText: "Dummy alt text",
         blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        placeholderColor: "#c8c8c8"
+        placeholderColor: "#c8c8c8",
     },
     "/livguard/product/inverter/LG1150i/infographic/2.jpg": {
         width: 492,
         height: 492,
         altText: "Dummy alt text",
         blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        placeholderColor: "#e8d8c8"
+        placeholderColor: "#e8d8c8",
     },
     "/livguard/product/inverter/LG1150i/infographic/3.jpg": {
         width: 492,
         height: 492,
         altText: "Dummy alt text",
         blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        placeholderColor: "#383838"
+        placeholderColor: "#383838",
     },
     "/livguard/product/inverter/LG1150i/infographic/4.jpg": {
         width: 492,
         height: 492,
         altText: "Dummy alt text",
         blurHash: "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
-        placeholderColor: "#180808"
+        placeholderColor: "#180808",
     },
     "/livguard/product/inverter/LG1450i/A+/1.jpg": {
         width: 344,

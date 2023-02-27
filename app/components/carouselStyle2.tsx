@@ -19,7 +19,7 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", className)}
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-text-secondary-900-dark">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[80%] tw-text-secondary-900-dark">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (

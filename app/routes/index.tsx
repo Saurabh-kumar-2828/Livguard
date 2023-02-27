@@ -14,6 +14,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FAQSection} from "~/components/faqs";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
@@ -101,21 +102,21 @@ function HomePage({
 
             <EnergyStorageSolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <EnergySolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <PowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full tw-h-10" />
@@ -130,35 +131,35 @@ function HomePage({
 
             <WeAreOneOfAKind
                 userPreferences={userPreferences}
-                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3"
+                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <SolarSolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <MeetOurLeadership
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
@@ -166,14 +167,14 @@ function HomePage({
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[120px]"
             />
 
             <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[17] lg:tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[17] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[120px]"
             />
         </div>
     );
@@ -598,7 +599,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
 export function SolarSolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
+            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T2", userPreferences.language)}} />
@@ -610,7 +611,7 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
 
                 <CarouselStyle2
                     userPreferences={userPreferences}
-                    className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full"
+                    className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full lg:tw-px-8"
                     items={[
                         {
                             imageRelativePath: "/livguard/home/7/1.jpg",
@@ -645,13 +646,13 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
 
 export function MeetOurLeadership({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
-            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-h-full", className)}>
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center lg:tw-hidden">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS8H1T2", userPreferences.language)}} />
             </div>
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-8 lg:tw-hidden" />
 
             <LeadersCarousel
                 userPreferences={userPreferences}
@@ -687,81 +688,32 @@ export function MeetOurLeadership({userPreferences, className}: {userPreferences
 }
 
 export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "homeS9Q1Q",
+            answer: "homeS9Q1A",
+        },
+        {
+            question: "homeS9Q2Q",
+            answer: "homeS9Q2A",
+        },
+        {
+            question: "homeS9Q3Q",
+            answer: "homeS9Q3A",
+        },
+        {
+            question: "homeS9Q4Q",
+            answer: "homeS9Q4A",
+        },
+        {
+            question: "homeS9Q5Q",
+            answer: "homeS9Q5A",
+        },
+    ];
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
-                </div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                    <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-3 tw-gap-y-3">
-                    <ItemBuilder
-                        items={[
-                            {
-                                question: "homeS9Q1Q",
-                                answer: "homeS9Q1A",
-                            },
-                            {
-                                question: "homeS9Q2Q",
-                                answer: "homeS9Q2A",
-                            },
-                            {
-                                question: "homeS9Q3Q",
-                                answer: "homeS9Q3A",
-                            },
-                            {
-                                question: "homeS9Q4Q",
-                                answer: "homeS9Q4A",
-                            },
-                            {
-                                question: "homeS9Q5Q",
-                                answer: "homeS9Q5A",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <Accordion
-                                title={getVernacularString(item.question, userPreferences.language)}
-                                panelItem={
-                                    <div
-                                        className="lg-text-secondary-900"
-                                        key={itemIndex}
-                                    >
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
-                                    </div>
-                                }
-                                key={itemIndex}
-                            />
-                        )}
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body tw-text-center">
-                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>
-                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
-                        <a
-                            href="tel:18001025551"
-                            className="tw-underline"
-                        >
-                            {getVernacularString("homeS9T3P3", userPreferences.language)}
-                        </a>{" "}
-                        {getVernacularString("homeS9T3P4", userPreferences.language)}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <FAQSection faqs={faqs} userPreferences={userPreferences} className={className}/>
     );
 }
 
@@ -902,9 +854,9 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg-text-body">{getVernacularString("homeS12T2", userPreferences.language)}</div>
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg-text-body lg:tw-pr-[60px]">{getVernacularString("homeS12T2", userPreferences.language)}</div>
 
-                <ul className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 tw-list-disc tw-ml-5">
+                <ul className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 tw-list-disc tw-ml-5 lg:tw-pr-[60px]">
                     <li>
                         <div className="lg-text-body">{getVernacularString("homeS12T3P1", userPreferences.language)}</div>
                     </li>
@@ -925,14 +877,17 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"
                             imageCdnProvider={ImageCdnProvider.Imgix}
+                            className="tw-rounded-lg"
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/2.jpg"
                             imageCdnProvider={ImageCdnProvider.Imgix}
+                            className="tw-rounded-lg"
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/3.jpg"
                             imageCdnProvider={ImageCdnProvider.Imgix}
+                            className="tw-rounded-lg"
                         />,
                     ]}
                 />
