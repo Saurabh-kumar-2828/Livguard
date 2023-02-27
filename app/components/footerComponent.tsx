@@ -468,43 +468,7 @@ export function FooterSocialLogosAndCopyright({userPreferences}: {userPreference
         <div className="lg-px-screen-edge">
             <VerticalSpacer className="tw-h-3" />
 
-            <div className="tw-flex tw-justify-evenly lg:tw-justify-center lg:tw-gap-1">
-                <a
-                    href="https://www.facebook.com/LivguardEnergy/"
-                    target="_blank"
-                    className="lg:tw-px-8"
-                >
-                    <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://twitter.com/LivguardEnergy"
-                    target="_blank"
-                    className="lg:tw-px-8"
-                >
-                    <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://www.instagram.com/livguardenergy/"
-                    target="_blank"
-                    className="lg:tw-px-8"
-                >
-                    <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://www.linkedin.com/company/livguard-energy/"
-                    target="_blank"
-                    className="lg:tw-px-8"
-                >
-                    <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://www.youtube.com/@LivguardEnergy"
-                    target="_blank"
-                    className="lg:tw-px-8"
-                >
-                    <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-            </div>
+            <SocialMediaIcons />
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -568,5 +532,47 @@ export function SubscribeSuccessDialog({
                 </Dialog.Panel>
             </Dialog>
         </Transition>
+    );
+}
+
+export function SocialMediaIcons() {
+    return (
+        <div className="tw-flex tw-justify-evenly lg:tw-justify-center lg:tw-gap-10">
+            <a
+                href="https://www.facebook.com/LivguardEnergy/"
+                target="_blank"
+                id="facebook_button"
+            >
+                <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+            </a>
+            <a
+                href="https://twitter.com/LivguardEnergy"
+                target="_blank"
+                id="twitter_button"
+            >
+                <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+            </a>
+            <a
+                href="https://www.instagram.com/livguardenergy/"
+                target="_blank"
+                id="instagram_button"
+            >
+                <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+            </a>
+            <a
+                href="https://www.linkedin.com/company/livguard-energy/"
+                target="_blank"
+                id="linkedin_button"
+            >
+                <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+            </a>
+            <a
+                href="https://www.youtube.com/@LivguardEnergy"
+                target="_blank"
+                id="youtube_button"
+            >
+                <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+            </a>
+        </div>
     );
 }
