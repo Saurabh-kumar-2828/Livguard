@@ -21,7 +21,6 @@ export function getRedirectToUrlFromRequest(request: Request) {
 //     }
 
 //     if (typeof window === "undefined") {
-//         console.log("asd");
 //         return null;
 //     }
 

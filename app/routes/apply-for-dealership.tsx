@@ -28,8 +28,6 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    // console.log(utmParameters);
-
     const utmParametersDecoded = JSON.parse(utmParameters);
 
     await insertDealerLeads({phoneNumber: phoneNumber, name: name, emailId: emailId, city: city});

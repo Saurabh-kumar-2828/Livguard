@@ -452,42 +452,42 @@ export function FooterComponent({
 
 export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="lg-px-screen-edge">
+        <>
             <VerticalSpacer className="tw-h-3" />
 
-            <div className="tw-flex tw-justify-evenly lg:tw-justify-center lg:tw-gap-15">
+            <div className="tw-flex tw-justify-around lg:tw-justify-center lg:tw-gap-x-16">
                 <a
                     href="https://www.facebook.com/LivguardEnergy/"
                     target="_blank"
-                    className="tw-px-8"
+                    className=""
                 >
                     <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                 </a>
                 <a
                     href="https://twitter.com/LivguardEnergy"
                     target="_blank"
-                    className="tw-px-8"
+                    className=""
                 >
                     <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                 </a>
                 <a
                     href="https://www.instagram.com/livguardenergy/"
                     target="_blank"
-                    className="tw-px-8"
+                    className=""
                 >
                     <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                 </a>
                 <a
                     href="https://www.linkedin.com/company/livguard-energy/"
                     target="_blank"
-                    className="tw-px-8"
+                    className=""
                 >
                     <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                 </a>
                 <a
                     href="https://www.youtube.com/@LivguardEnergy"
                     target="_blank"
-                    className="tw-px-8"
+                    className=""
                 >
                     <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
                 </a>
@@ -498,7 +498,7 @@ export function FooterSocialLogosAndCopywrite({userPreferences}: {userPreference
             <div className="lg-text-body tw-text-center">{getVernacularString("footerCopyWriteText", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-6" />
-        </div>
+        </>
     );
 }
 

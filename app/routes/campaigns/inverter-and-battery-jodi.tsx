@@ -75,7 +75,6 @@ export default function () {
     const actionData = useActionData();
 
     const utmSearchParameters = useUtmSearchParameters();
-    // console.log(utmSearchParameters);
 
     return (
         <>

@@ -80,8 +80,6 @@ export default function () {
 
     const actionData: ActionData = useActionData() as ActionData;
 
-    const utmSearchParameters = useUtmSearchParameters();
-    // console.log(utmSearchParameters);
 
     useEffect(() => {
         if (actionData != null) {

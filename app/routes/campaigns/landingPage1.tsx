@@ -68,7 +68,6 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     const isContactUsSubmissionSuccess = fetcher.data != null && fetcher.data.error == null;
 
     const utmSearchParameters = useUtmSearchParameters();
-    // console.log(utmSearchParameters);
 
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-1 tw-align-stretch">

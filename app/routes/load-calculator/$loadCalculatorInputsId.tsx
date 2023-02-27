@@ -61,7 +61,6 @@ export default function () {
     const {userPreferences, redirectTo, loadCalculatorInputs} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    // console.log(utmSearchParameters);
 
     // TODO: Scroll to top if required
 

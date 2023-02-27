@@ -26,8 +26,6 @@ export async function sendDataToFreshSales(formResponse: {mobile_number?: string
             },
             body: JSON.stringify({contact: contactData}),
         });
-
-        console.log(await response.json());
     } catch (e) {
         console.log("Fresh Sales API Exception");
         console.log(e);

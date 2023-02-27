@@ -25,8 +25,6 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    // console.log(utmParameters);
-
     const utmParametersDecoded = JSON.parse(utmParameters);
 
     await insertSubscriptionLeads({email: emailId});

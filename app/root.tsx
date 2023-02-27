@@ -2,11 +2,11 @@ import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunctio
 import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
+import {useEffect} from "react";
 
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
-import {useEffect} from "react";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -94,14 +94,6 @@ export default function () {
                         `,
                     }}
                 />
-                <noscript>
-                    <img
-                        height="1"
-                        width="1"
-                        style={{display: "none"}}
-                        src="https://www.facebook.com/tr?id=635911646858607&ev=PageView&noscript=1"
-                    />
-                </noscript>
                 {/* End Meta Pixel Code */}
 
                 <meta
@@ -138,35 +130,13 @@ export default function () {
                                     background: #020202;
                                 }
                             }
-                        `
+                        `,
                     }}
                 />
                 {/* /FOUC hack */}
             </head>
 
             <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
-                {/* Google Tag Manager (noscript) */}
-                <noscript>
-                    <iframe
-                        src="https://www.googletagmanager.com/ns.html?id=GTM-5HRQL29"
-                        height="0"
-                        width="0"
-                        style={{display: "none", visibility: "hidden"}}
-                    ></iframe>
-                </noscript>
-                {/* End Google Tag Manager (noscript) */}
-
-                {/* Start Facebook Mwta Pixel code  */}
-                <noscript>
-                    <img
-                        height="1"
-                        width="1"
-                        style={{display: "none"}}
-                        src="https://www.facebook.com/tr?id=635911646858607&ev=PageView&noscript=1"
-                    />
-                </noscript>
-                {/* End Facebook Mwta Pixel code  */}
-
                 <Outlet />
                 <ScrollRestoration />
                 <Scripts />
@@ -221,8 +191,10 @@ export function CatchBoundary() {
 }
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
+    console.log("~~~");
     console.log("ErrorBoundary");
     console.log(error);
+    console.log("~~~");
 
     return (
         <html lang="en">

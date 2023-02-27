@@ -51,7 +51,6 @@ export default function () {
     const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
-    // console.log(utmSearchParameters);
 
     return (
         <>
