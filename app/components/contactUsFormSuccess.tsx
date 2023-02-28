@@ -12,9 +12,7 @@ import {getVernacularString} from "~/vernacularProvider";
 
 export function ContactFormSuccess({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div
-            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col",className)}
-        >
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col lg:tw-max-w-[30rem] lg:tw-mx-auto", className)}>
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT1", userPreferences.language)}} />

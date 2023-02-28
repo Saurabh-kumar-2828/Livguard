@@ -26,12 +26,14 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {ChooseBestInverterBattery} from "~/routes/category/inverter-batteries";
 import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = (params) => {
+
     return {
         title: "",
         desscription: "",
     };
 };
+
 
 type LoaderData = {
     userPreferences: UserPreferences;
