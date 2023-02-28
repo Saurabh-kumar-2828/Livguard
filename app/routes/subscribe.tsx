@@ -21,7 +21,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    const insertResult = await insertSubscriptionLeads({emailId: emailId});
+    const insertResult = await insertSubscriptionLeads(emailId, utmParametersDecoded);
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 4469037c-6de7-48c4-9c64-66e6eac83234",
