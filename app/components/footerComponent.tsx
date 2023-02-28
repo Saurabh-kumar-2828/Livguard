@@ -44,6 +44,192 @@ export function FooterComponent({
         setIsSubscribeSuccessDialogeOpen(isSubscriptionSuccess);
     }, [fetcher.data]);
 
+    const aboutUsAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure1T1", userPreferences.language)}`,
+            link: "https://livguard.com/contact.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T2", userPreferences.language)}`,
+            link: "https://livguard.com/global-reach.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T3", userPreferences.language)}`,
+            link: "https://livguard.com/blog.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T4", userPreferences.language)}`,
+            link: "https://livguard.com/privacy-policy.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T5", userPreferences.language)}`,
+            link: "https://livguard.com/sales-return-policy.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T6", userPreferences.language)}`,
+            link: "https://livguard.com/terms-and-conditions.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T7", userPreferences.language)}`,
+            link: "https://www.livguard.com/pdf/CSR%20Policy%20(LBPL).pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T8", userPreferences.language)}`,
+            link: "https://livguard.com/video-galery.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure1T9", userPreferences.language)}`,
+            link: "https://livguard.com/sitemap.xml",
+            target: true,
+        },
+    ];
+
+    const invertersAndBatteriesAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
+            link: "https://www.livguard.com/category/inverter-for-home",
+            target: false,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
+            link: "https://www.livguard.com/category/inverter-batteries",
+            target: false,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
+            link: "https://www.livguard.com/high-capacity-inverters/",
+            target: true,
+        },
+    ];
+
+    const automativeBatteriesAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure3T1", userPreferences.language)}`,
+            link: "https://www.livguard.com/three-wheeler-batteries/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure3T2", userPreferences.language)}`,
+            link: "https://www.livguard.com/tractor-batteries/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure3T3", userPreferences.language)}`,
+            link: "https://www.livguard.com/bus-and-truck-batteries/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure3T4", userPreferences.language)}`,
+            link: "https://www.livguard.com/tow-wheeler-batteries/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure3T5", userPreferences.language)}`,
+            link: "https://www.livguard.com/erickshaw-batteries/",
+            target: true,
+        },
+    ];
+
+    const solarSolutionsAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure4T1", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-panels-for-home/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure4T2", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-grid-interactive-series-for-home/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure4T3", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure4T4", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-management-unit-for-home/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure4T5", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-charge-controller-for-home/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure4T6", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-led-street-light/",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure4T7", userPreferences.language)}`,
+            link: "https://www.livguard.com/solar-battery-for-home/",
+            target: true,
+        },
+    ];
+
+    const stabelizersAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure5T1", userPreferences.language)}`,
+            link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
+            target: true,
+        },
+    ];
+
+    const howCanWehelpAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure6T1", userPreferences.language)}`,
+            link: "https://www.livguard.com/battery-finder.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
+            link: "https://www.livguard.com/dealer-locator-for-invertors-and-batteries",
+            target: false,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,
+            link: "https://www.livguard.com/bmhr.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure6T4", userPreferences.language)}`,
+            link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure6T5", userPreferences.language)}`,
+            link: "https://www.livguard.com/contact.php",
+            target: true,
+        },
+    ];
+
+    const investersAccordianList = [
+        {
+            title: `${getVernacularString("footerDisclosure7T1", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure7T2", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure7T3", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            target: true,
+        },
+    ];
+
     return (
         <div className="lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]">
             <VerticalSpacer className="tw-h-8" />
@@ -121,44 +307,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure1H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T1", userPreferences.language)}`,
-                                    link: "https://livguard.com/contact.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T2", userPreferences.language)}`,
-                                    link: "https://livguard.com/global-reach.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T3", userPreferences.language)}`,
-                                    link: "https://livguard.com/blog.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T4", userPreferences.language)}`,
-                                    link: "https://livguard.com/privacy-policy.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T5", userPreferences.language)}`,
-                                    link: "https://livguard.com/sales-return-policy.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T6", userPreferences.language)}`,
-                                    link: "https://livguard.com/terms-and-conditions.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T7", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/pdf/CSR%20Policy%20(LBPL).pdf",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T8", userPreferences.language)}`,
-                                    link: "https://livguard.com/video-galery.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure1T9", userPreferences.language)}`,
-                                    link: "https://livguard.com/sitemap.xml",
-                                },
-                            ]}
+                            items={aboutUsAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -185,20 +334,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure2H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/category/inverter-for-home",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/category/inverter-batteries",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/high-capacity-inverters/",
-                                },
-                            ]}
+                            items={invertersAndBatteriesAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -221,28 +357,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure3H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure3T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/three-wheeler-batteries/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure3T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/tractor-batteries/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure3T3", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/bus-and-truck-batteries/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure3T4", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/tow-wheeler-batteries/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure3T5", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/erickshaw-batteries/",
-                                },
-                            ]}
+                            items={automativeBatteriesAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -269,36 +384,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure4H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-panels-for-home/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-grid-interactive-series-for-home/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T3", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T4", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-management-unit-for-home/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T5", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-charge-controller-for-home/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T6", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-led-street-light/",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure4T7", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/solar-battery-for-home/",
-                                },
-                            ]}
+                            items={solarSolutionsAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -325,12 +411,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure5H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure5T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
-                                },
-                            ]}
+                            items={stabelizersAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -357,28 +438,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure6H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure6T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/battery-finder.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/dealer-locator-for-invertors-and-batteries",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/bmhr.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure6T4", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure6T5", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/contact.php",
-                                },
-                            ]}
+                            items={howCanWehelpAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -405,20 +465,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure7H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={[
-                                {
-                                    title: `${getVernacularString("footerDisclosure7T1", userPreferences.language)}`,
-                                    link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure7T2", userPreferences.language)}`,
-                                    link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
-                                },
-                                {
-                                    title: `${getVernacularString("footerDisclosure7T3", userPreferences.language)}`,
-                                    link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
-                                },
-                            ]}
+                            items={investersAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -482,25 +529,207 @@ export function FooterComponent({
 
                 <VerticalSpacer className="tw-h-2 lg:tw-hidden" />
 
-                <FooterSocialLogosAndCopyright userPreferences={userPreferences} className="lg:tw-hidden" />
+                <FooterSocialLogosAndCopyright
+                    userPreferences={userPreferences}
+                    className="lg:tw-hidden"
+                />
 
-                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
-                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
+                    <div className="lg-text-body-bold">{getVernacularString("footerDisclosure1H", userPreferences.language)}</div>
+                    <VerticalSpacer className="tw-h-1" />
+                    <ItemBuilder
+                        items={aboutUsAccordianList}
+                        itemBuilder={(item, itemIndex) => (
+                            <div
+                                className="lg-text-secondary-900"
+                                key={itemIndex}
+                            >
+                                {item.target ? (
+                                    <Link
+                                        to={item.link}
+                                        target="_blank"
+                                    >
+                                        {item.title}
+                                    </Link>
+                                ) : (
+                                    <Link to={item.link}>{item.title}</Link>
+                                )}
+
+                                <VerticalSpacer className="tw-h-1" />
+                            </div>
+                        )}
+                    />
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
-                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-justify-between lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
+                    <div className="tw-flex tw-flex-col">
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure2H", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-1" />
+                        <ItemBuilder
+                            items={invertersAndBatteriesAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                    <div className="tw-flex tw-flex-col">
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure6H", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-1" />
+                        <ItemBuilder
+                            items={howCanWehelpAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
-                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-justify-between lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
+                    <div className="tw-flex tw-flex-col">
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure3H", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-1" />
+                        <ItemBuilder
+                            items={automativeBatteriesAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                    <VerticalSpacer className="tw-h-8" />
+                    <div className="tw-flex tw-flex-col">
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure7H", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-1" />
+                        <ItemBuilder
+                            items={investersAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
-                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-justify-between lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
+                    <div className="tw-flex tw-flex-col">
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure4H", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-1" />
+                        <ItemBuilder
+                            items={solarSolutionsAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
+                    <div className="tw-flex tw-flex-col">
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure5H", userPreferences.language)}</div>
+                        <VerticalSpacer className="tw-h-1" />
+                        <ItemBuilder
+                            items={stabelizersAccordianList}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="lg-text-secondary-900"
+                                    key={itemIndex}
+                                >
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
+
+                                    <VerticalSpacer className="tw-h-1" />
+                                </div>
+                            )}
+                        />
+                    </div>
                 </div>
 
-                <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left">{getVernacularString("footerCopyWriteText", userPreferences.language)}</div>
+                <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left">
+                    {getVernacularString("footerCopyWriteText", userPreferences.language)}
+                </div>
             </div>
         </div>
     );

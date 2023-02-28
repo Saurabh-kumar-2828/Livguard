@@ -764,7 +764,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
                             <VerticalSpacer className="tw-h-6" />
 
                             <Link
-                                to="/dealer-locator"
+                                to="/dealer-for-inverters-and-batteries"
                                 className="tw-z-10 lg-cta-button"
                             >
                                 {getVernacularString("homeS10T3", userPreferences.language)}

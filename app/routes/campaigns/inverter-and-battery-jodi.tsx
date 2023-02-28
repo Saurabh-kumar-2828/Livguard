@@ -49,7 +49,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const actionData: DealerLocatorActionData = {
         dealerList: dealerList,
         error: dealerList == null ? "No Dealer Present For Selected Location" : "",
-        path: "/dealer-locator",
+        path: "/dealer-for-inverters-and-batteries",
     };
 
     return actionData;
@@ -387,7 +387,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                                 <VerticalSpacer className="tw-h-6" />
 
                                 <Link
-                                    to="/dealer-locator"
+                                    to="/dealer-for-inverters-and-batteries"
                                     className="tw-z-10 lg-cta-button"
                                 >
                                     {getVernacularString("homeS10T3", userPreferences.language)}
@@ -435,7 +435,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                                     <VerticalSpacer className="tw-h-6" />
 
                                     <Link
-                                        to="/dealer-locator"
+                                        to="/dealer-for-inverters-and-batteries"
                                         className="tw-z-10 lg-cta-button"
                                     >
                                         {getVernacularString("homeS10T3", userPreferences.language)}
