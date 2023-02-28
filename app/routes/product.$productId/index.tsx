@@ -416,7 +416,7 @@ function SuggestedProducts({
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-grid-cols-1 tw-gap-x-3 tw-gap-y-10">
                 <ItemBuilder
                     items={recommendedProducts}
                     itemBuilder={(jodi, jodiIndex) => (

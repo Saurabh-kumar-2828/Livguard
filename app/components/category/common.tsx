@@ -234,7 +234,7 @@ export function WhatsBestForYouComponent({
     return (
         <div className="tw-flex tw-flex-col tw-justify-between tw-items-center">
             <DefaultTextAnimation>
-                <div className="lg-text-body tw-text-center">{vernacularContent.description}</div>
+                <div className="lg-text-body tw-text-center lg:tw-max-w-[35rem]">{vernacularContent.description}</div>
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4" />

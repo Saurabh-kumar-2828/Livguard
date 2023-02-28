@@ -80,6 +80,7 @@ export function FooterComponent({
                         <input
                             type="text"
                             name="emailId"
+                            id="signup_email"
                             pattern={emailIdValidationPattern}
                             placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
                             className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
@@ -413,7 +414,7 @@ export function FooterComponent({
                                         className="lg-text-secondary-900"
                                         key={itemIndex}
                                     >
-                                        <Link to={item.link}>{item.title}</Link>
+                                        <Link to={item.link} target="_blank">{item.title}</Link>
                                     </div>
                                 </div>
                             )}

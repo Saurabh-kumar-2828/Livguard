@@ -103,7 +103,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,4fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
