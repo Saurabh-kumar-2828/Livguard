@@ -205,6 +205,10 @@
         @apply tw-border-[#b1b1b1] dark:tw-border-[#474546];
     }
 
+    .lg-border-primary-500 {
+        @apply tw-border-[#eb2a2b];
+    }
+
     /* @keyframes animation-text-baseline {
         0% {
             transform: translateY(1em);

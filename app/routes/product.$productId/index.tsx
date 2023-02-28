@@ -12,7 +12,7 @@ import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
-import {ProductCardComponent} from "~/components/category/common";
+import {ProductCardComponent, SocialHandles} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
@@ -23,6 +23,8 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import React from "react";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {ChooseBestInverterBattery} from "~/routes/category/batteries";
+import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -63,6 +65,7 @@ export default function () {
                 <ProductPage
                     userPreferences={userPreferences}
                     productData={productData}
+                    utmParameters={utmSearchParameters}
                 />
             </PageScaffold>
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
@@ -72,7 +75,17 @@ export default function () {
 
 
 
-function ProductPage({userPreferences, productData}: {userPreferences: UserPreferences; productData: ProductInfo}) {
+function ProductPage({
+    userPreferences,
+    productData,
+    utmParameters,
+}: {
+    userPreferences: UserPreferences;
+    productData: ProductInfo;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+}) {
     return (
         <>
             <VerticalSpacer className="tw-h-10" />
@@ -80,71 +93,92 @@ function ProductPage({userPreferences, productData}: {userPreferences: UserPrefe
             <ProductInfo
                 userPreferences={userPreferences}
                 productInfo={productData}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
             <ProductSpecifications
                 userPreferences={userPreferences}
                 productInfo={productData}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
             <ProductDescription
                 userPreferences={userPreferences}
                 productDescription={productData.productDescription}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-8 lg:tw-h-[72px]" />
 
             <ProductRating
                 userPreferences={userPreferences}
                 reviews={productData.reviews}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <TransformingLives userPreferences={userPreferences} />
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <DealerLocator
+            <TransformingLives
                 userPreferences={userPreferences}
-                showCtaButton={true}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+                <DealerLocator
+                    userPreferences={userPreferences}
+                    showCtaButton={true}
+                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full"
+                />
+
+                <ChooseBestInverterBattery
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1"
+                />
+            </div>
+
+            <VerticalSpacer className="lg:tw-h-[72px]" />
 
             <SuggestedProducts
                 userPreferences={userPreferences}
                 recommendedProducts={productData.recommendedProducts}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
 
-            <FaqSection userPreferences={userPreferences} />
+            <FaqSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[50px]" />
 
-            <ShowerSomeLoveOnSocialHandles
+            <SocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
         </>
     );
 }
 
-function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPreferences; productInfo : ProductInfo}) {
+function ProductInfo({userPreferences, productInfo, className}: {userPreferences: UserPreferences; productInfo : ProductInfo; className?: string}) {
     const [mainImageIndex, setMainImageIndex] = useState(0);
 
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2 lg:tw-gap-4">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2">
                 <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[auto,minmax(0,1fr)] lg:tw-grid-rows-1 tw-row-start-1 lg:tw-col-start-1 tw-gap-2 tw-w-full">
-                    <div className="tw-row-start-1 lg:tw-col-start-2">
+                    <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-10">
                         <DefaultElementAnimation>
                             <FullWidthImage
                                 relativePath={productInfo.images[mainImageIndex].image}
@@ -153,7 +187,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                             />
                         </DefaultElementAnimation>
                     </div>
-                    <div className="tw-grid tw-grid-rows-1 tw-grid-cols-4 lg:tw-grid-rows-4 lg:tw-grid-cols-1 tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-w-full tw-gap-2">
+                    <div className="tw-grid tw-grid-rows-1 tw-grid-cols-4 lg:tw-grid-rows-4 lg:tw-grid-cols-1 tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-w-full tw-gap-x-2">
                         <ItemBuilder
                             items={productInfo.images}
                             itemBuilder={(image, imageIndex) => (
@@ -165,7 +199,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                     <FullWidthImage
                                         relativePath={image.image}
                                         imageCdnProvider={ImageCdnProvider.Imgix}
-                                        className="tw-rounded-lg"
+                                        className={`tw-rounded-lg ${imageIndex == mainImageIndex ? "lg-border-primary-500 tw-border-2" : ""}`}
                                     />
                                 </div>
                             )}
@@ -191,7 +225,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                             itemBuilder={(icon, iconIndex) => (
                                 <>
                                     <div
-                                        className="tw-flex tw-flex-col tw-gap-1 tw-justify-between tw-items-center"
+                                        className="tw-flex tw-flex-col tw-gap-2 tw-justify-start tw-items-center tw-h-full"
                                         key={iconIndex}
                                     >
                                         <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
@@ -201,7 +235,7 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
                                                 width="1.5rem"
                                             />
                                         </div>
-                                        <div className="tw-text-center">{icon.text}</div>
+                                        <div className="tw-text-center tw-place-items-start">{icon.text}</div>
                                     </div>
 
                                     {iconIndex < productInfo.productIcons.length - 1 && <div className="tw-w-full tw-border lg-border-secondary-900"></div>}
@@ -215,23 +249,23 @@ function ProductInfo({userPreferences, productInfo}: {userPreferences: UserPrefe
     );
 }
 
-function ProductSpecifications({userPreferences, productInfo}: {userPreferences: UserPreferences; productInfo: ProductInfo}) {
+function ProductSpecifications({userPreferences, productInfo,className}: {userPreferences: UserPreferences; productInfo: ProductInfo; className: string}) {
     const [selectedTab, setSelectedTab] = useState("specifications");
 
     const getDataFromProductInfo = (tab: string) => {
-        if(tab == "specifications"){
+        if (tab == "specifications") {
             return productInfo.specifications;
-        }else if(tab == "features"){
+        } else if (tab == "features") {
             return productInfo.features;
-        }else if(tab == "additionalInfo"){
+        } else if (tab == "additionalInfo") {
             return productInfo.additionalInfo;
-        }else{
+        } else {
             throw Error("value not found");
         }
-    }
+    };
 
     return (
-        <div className="tw-flex tw-flex-col tw-gap-4">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-gap-4", className)}>
             <div className="lg-px-screen-edge">
                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr)] tw-gap-2 tw-border-b tw-py-2">
                     <ItemBuilder
@@ -272,7 +306,7 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
                     itemBuilder={(item, itemIndex) => (
                         <React.Fragment key={itemIndex}>
                             {selectedTab == "features" ? (
-                                <div className={`lg-px-screen-edge tw-flex tw-flex-row tw-py-2 tw-items-center tw-gap-1 tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-500" : ""}`}>
+                                <div className={`lg-px-screen-edge tw-flex tw-flex-row tw-py-2 tw-items-center tw-gap-1 tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-300" : ""}`}>
                                     <div className="tw-w-2">
                                         <CircleFill className="tw-w-2 tw-h-2 lg-bg-secondary-100 tw-rounded-full" />
                                     </div>
@@ -280,7 +314,7 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
                                     <div>{item.value}</div>
                                 </div>
                             ) : (
-                                <div className={`tw-grid tw-grid-cols-2 lg-px-screen-edge tw-py-2 tw-items-center tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-500" : ""}`}>
+                                <div className={`tw-grid tw-grid-cols-2 lg-px-screen-edge tw-py-2 tw-items-center tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-300" : ""}`}>
                                     <div className="tw-col-start-1 tw-font-bold">{item.title}</div>
                                     <div className="tw-col-start-2">{item.value}</div>
                                 </div>
@@ -293,9 +327,9 @@ function ProductSpecifications({userPreferences, productInfo}: {userPreferences:
     );
 }
 
-function ProductDescription({userPreferences, productDescription}: {userPreferences: UserPreferences; productDescription: {description: string; images: Array<{image: string}>}}) {
+function ProductDescription({userPreferences, productDescription,className}: {userPreferences: UserPreferences; productDescription: {description: string; images: Array<{image: string}>}; className: string}) {
     return (
-        <div className="lg-px-screen-edge tw-flex-tw-flex-col">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex-tw-flex-col", className)}>
             <div className="lg-text-headline tw-text-center">{getVernacularString("productPageProductDescription", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-6" />
@@ -304,35 +338,45 @@ function ProductDescription({userPreferences, productDescription}: {userPreferen
 
             <VerticalSpacer className="tw-h-6" />
 
-            <ItemBuilder
-                items={productDescription.images}
-                itemBuilder={(image, imageIndex) => (
-                    <React.Fragment key={imageIndex}>
-                        <div className="tw-rounded-lg tw-w-full">
-                            <FullWidthImage
-                                relativePath={image.image}
-                                imageCdnProvider={ImageCdnProvider.Imgix}
-                                className="tw-rounded-lg"
-                            />
-                        </div>
+            <div className="tw-flex tw-flex-col lg:tw-hidden">
+                <ItemBuilder
+                    items={productDescription.images}
+                    itemBuilder={(image, imageIndex) => (
+                        <React.Fragment key={imageIndex}>
+                            <div className="tw-rounded-lg tw-w-full">
+                                <FullWidthImage
+                                    relativePath={image.image}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                    className="tw-rounded-lg"
+                                />
+                            </div>
 
-                        <VerticalSpacer className="tw-h-4" />
-                    </React.Fragment>
-                )}
-            />
+                            <VerticalSpacer className="tw-h-4" />
+                        </React.Fragment>
+                    )}
+                />
+            </div>
+            <div className="tw-hidden lg:tw-block">
+                <ProductInfoCarousel
+                    items={productDescription.images}
+                />
+            </div>
         </div>
     );
 }
 
 
-function ProductRating({userPreferences, reviews}: {userPreferences: UserPreferences; reviews: {rating: number; numberOfReviews: number}}) {
+function ProductRating({userPreferences, reviews, className}: {userPreferences: UserPreferences; reviews: {rating: number; numberOfReviews: number}; className: string}) {
     return (
-        <div className="lg-px-screen-edge">
-            <div className="tw-grid tw-grid-rows-[auto,auto] tw-items-center tw-gap-2">
-                <div className="tw-row-start-1 tw-col-start-1 tw-flex tw-flex-col tw-text-center tw-justify-center">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+            <div className="tw-grid tw-grid-rows-[auto,auto] lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-items-center tw-gap-2 lg:tw-gap-4">
+                <div className="tw-row-start-1 tw-col-start-1 tw-flex tw-flex-col tw-text-center tw-justify-center lg:tw-place-self-end">
                     <div className="tw-text-[96px] tw-leading-[90px] lg-font-brueur">{reviews.rating}</div>
 
-                    <div className="lg-text-title2">{`${getVernacularString("productPageNumberReviewBefore", userPreferences.language)} ${reviews.numberOfReviews} ${getVernacularString("productPageNumberReviewAfter",userPreferences.language)}`}</div>
+                    <div className="lg-text-title2">{`${getVernacularString("productPageNumberReviewBefore", userPreferences.language)} ${reviews.numberOfReviews} ${getVernacularString(
+                        "productPageNumberReviewAfter",
+                        userPreferences.language,
+                    )}`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -349,7 +393,7 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-flex tw-flex-col tw-items-center tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-px-4 tw-gap-2">
+                <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-max-w-[25rem] tw-flex tw-flex-col tw-items-center tw-w-full lg-bg-secondary-100 tw-rounded-lg tw-p-2 tw-px-4 tw-gap-2">
                     <ItemBuilder
                         items={[
                             {
@@ -394,6 +438,7 @@ function ProductRating({userPreferences, reviews}: {userPreferences: UserPrefere
 function SuggestedProducts({
     userPreferences,
     recommendedProducts,
+    className
 }: {
     userPreferences: UserPreferences;
     recommendedProducts: Array<{
@@ -403,9 +448,10 @@ function SuggestedProducts({
         bestseller: boolean;
         link: string;
     }>;
+    className: string
 }) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -416,15 +462,20 @@ function SuggestedProducts({
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-grid-cols-1 tw-gap-x-3 tw-gap-y-10">
+            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-grid-cols-4 tw-gap-x-3 tw-gap-y-10">
                 <ItemBuilder
                     items={recommendedProducts}
                     itemBuilder={(jodi, jodiIndex) => (
-                        <ProductCardComponent
-                            vernacularContent={jodi}
+                        <div
+                            className={`lg-bg-secondary-100 tw-rounded-lg`}
                             key={jodiIndex}
-                            userPreferences={userPreferences}
-                        />
+                        >
+                            <ProductCardComponent
+                                vernacularContent={jodi}
+                                key={jodiIndex}
+                                userPreferences={userPreferences}
+                            />
+                        </div>
                     )}
                 />
             </div>

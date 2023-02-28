@@ -249,7 +249,7 @@ export function WhatsBestForYouComponent({
                                     <DownloadCta
                                         userPreferences={userPreferences}
                                         textVernacId="categoryInvertersS8B2T"
-                                        className="tw-z-10"
+                                        className="tw-z-10 hover:tw-cursor-pointer"
                                         utmParameters={utmParameters}
                                     />
                                 ) : (
@@ -425,7 +425,7 @@ export function DownloadDialog({
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-mx-auto tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
                     <Transition.Child
                         as="div"
                         enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -445,37 +445,31 @@ export function DownloadDialog({
                                 className="lg-px-screen-edge tw-flex tw-flex-col"
                                 id="contactUs"
                             >
-                                <div className="lg-text-headline tw-text-center lg-text-secondary-900-dark">
-                                    <DefaultTextAnimation>
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT1", userPreferences.language)}} />
-                                    </DefaultTextAnimation>
-                                    <DefaultTextAnimation>
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFormHT2", userPreferences.language)}} />
-                                    </DefaultTextAnimation>
-                                </div>
-
-                                <VerticalSpacer className="tw-h-1" />
-
-                                <div className="lg-text-title2 tw-text-center">{getVernacularString("contactUsFormT3", userPreferences.language)}</div>
-
                                 <VerticalSpacer className="tw-h-4" />
 
                                 <DefaultElementAnimation>
                                     <fetcher.Form
-                                        className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden"
+                                        className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden"
                                         method="post"
                                         action="/contact-us-submission"
                                     >
                                         <CoverImage
                                             relativePath="/livguard/contact form/contact_form_background.jpg"
                                             imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                            className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
+                                            className="tw-row-[1/span_11] tw-col-start-1 tw-rounded-lg tw-opacity-70"
                                         />
 
-                                        <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                                        <div className="tw-row-start-2 tw-col-start-1 lg-text-title1 tw-text-center lg-text-secondary-900-dark tw-z-10">
+                                            <DefaultTextAnimation>
+                                                <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT1", userPreferences.language)}} />
+                                            </DefaultTextAnimation>
+                                            <DefaultTextAnimation>
+                                                <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT2", userPreferences.language)}} />
+                                            </DefaultTextAnimation>
+                                        </div>
 
-                                            <VerticalSpacer className="tw-h-1" />
+                                        <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                                             <input
                                                 type="text"
@@ -487,10 +481,8 @@ export function DownloadDialog({
                                             />
                                         </div>
 
-                                        <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                        <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
-
-                                            <VerticalSpacer className="tw-h-2" />
 
                                             <input
                                                 type="text"
@@ -501,10 +493,8 @@ export function DownloadDialog({
                                             />
                                         </div>
 
-                                        <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                        <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
-
-                                            <VerticalSpacer className="tw-h-2" />
 
                                             <input
                                                 type="text"
@@ -523,12 +513,12 @@ export function DownloadDialog({
                                             value={JSON.stringify(utmParameters)}
                                         />
 
-                                        <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                        <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                                             <button
                                                 type="submit"
                                                 className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                                             >
-                                                {getVernacularString("contactUsFormT4", userPreferences.language)}
+                                                {getVernacularString("downloadFormT3", userPreferences.language)}
                                             </button>
                                         </div>
                                     </fetcher.Form>

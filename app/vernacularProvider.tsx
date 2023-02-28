@@ -2655,6 +2655,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सबमिट करें",
         [Language.Marathi]: "?????",
     },
+    downloadFormHT1: {
+        [Language.English]: "Fill This Form to",
+        [Language.Hindi]: "सबमिट करें",
+        [Language.Marathi]: "?????",
+    },
+    downloadFormHT2: {
+        [Language.English]: `<span class=\"lg-text-highlighted tw-text-secondary-900-dark\">Download Catalog</span>`,
+        [Language.Hindi]: "सबमिट करें",
+        [Language.Marathi]: "?????",
+    },
+    downloadFormT3: {
+        [Language.English]: "Get Catalog Link",
+        [Language.Hindi]: "सबमिट करें",
+        [Language.Marathi]: "?????",
+    },
 
     bottomBarT1: {
         [Language.English]: "Home",
