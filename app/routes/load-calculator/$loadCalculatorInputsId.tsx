@@ -342,7 +342,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
             <VerticalSpacer className="tw-h-6" />
 
             <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                <Link to="/dealer-locator">
+                <Link to="/dealer-for-inverters-and-batteries">
                     <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA1", userPreferences.language)}</div>
                 </Link>
             </DefaultElementAnimation>

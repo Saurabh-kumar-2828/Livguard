@@ -234,7 +234,7 @@ export function FooterComponent({
         <div className="lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]">
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_2rem_auto] lg:tw-grid-cols-[17.5rem_repeat(4,minmax(0,1fr))] lg:tw-gap-x-8">
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_2rem_auto] lg:tw-grid-cols-[17.5rem_repeat(4,minmax(0,1fr))] lg:tw-gap-x-8 lg:tw-gap-y-4">
                 <div className="lg:tw-row-start-3 lg:tw-col-start-1">
                     <Link
                         to="/"
@@ -259,7 +259,7 @@ export function FooterComponent({
                     <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
                 </div>
 
-                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between lg:tw-items-center">
+                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between lg:tw-items-center ">
                     <div className="lg-text-secondary-900 lg-text-headline lg:tw-max-w-lg">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
