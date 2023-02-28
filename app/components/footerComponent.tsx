@@ -9,6 +9,7 @@ import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeigh
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSubmissionSuccess} from "~/routes/dealer-locator";
 import {UserPreferences} from "~/typeDefinitions";
@@ -44,70 +45,77 @@ export function FooterComponent({
     }, [fetcher.data]);
 
     return (
-        <div className="lg-px-screen-edge">
+        <div className="lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]">
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-flex tw-flex-col">
-                <div className="tw-block dark:tw-hidden">
-                    <Link to="/">
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_2rem_auto] lg:tw-grid-cols-[17.5rem_repeat(4,minmax(0,1fr))] lg:tw-gap-x-8">
+                <div className="lg:tw-row-start-3 lg:tw-col-start-1">
+                    <Link
+                        to="/"
+                        className="tw-block dark:tw-hidden"
+                    >
                         <object
                             data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            className="tw-h-6 tw-pointer-events-none"
+                            className="tw-h-6 lg:tw-h-12 tw-pointer-events-none"
                         />
                     </Link>
-                </div>
 
-                <div className="dark:tw-block tw-hidden">
-                    <Link to="/">
+                    <Link
+                        to="/"
+                        className="dark:tw-block tw-hidden"
+                    >
                         <object
                             data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            className="tw-h-6 tw-pointer-events-none"
+                            className="tw-h-6 lg:tw-h-12 tw-pointer-events-none"
                         />
                     </Link>
+
+                    <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between lg:tw-items-center">
+                    <div className="lg-text-secondary-900 lg-text-headline lg:tw-max-w-lg">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
 
-                <div className="lg-text-secondary-900 lg-text-headline">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
+                    <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
-                <VerticalSpacer className="tw-h-3" />
+                    <fetcher.Form
+                        method="post"
+                        action="/subscribe"
+                        className="tw-w-full lg:tw-max-w-sm"
+                    >
+                        <div className="tw-relative">
+                            <input
+                                type="text"
+                                name="emailId"
+                                id="signup_email"
+                                pattern={emailIdValidationPattern}
+                                placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
+                                className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
+                            />
 
-                <fetcher.Form
-                    method="post"
-                    action="/subscribe"
-                >
-                    <div className="tw-relative tw-w-full">
-                        <input
-                            type="text"
-                            name="emailId"
-                            id="signup_email"
-                            pattern={emailIdValidationPattern}
-                            placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
-                            className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
-                        />
+                            <input
+                                name="utmParameters"
+                                className="tw-hidden"
+                                readOnly
+                                value={JSON.stringify(utmParameters)}
+                            />
+                            <button
+                                type="submit"
+                                className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border"
+                            >
+                                <ChevronRightIcon className="tw-w-8 tw-h-8" />
+                            </button>
+                        </div>
+                    </fetcher.Form>
 
-                        <input
-                            name="utmParameters"
-                            className="tw-hidden"
-                            readOnly
-                            value={JSON.stringify(utmParameters)}
-                        />
-                        <button
-                            type="submit"
-                            className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border"
-                        >
-                            <ChevronRightIcon className="tw-w-8 tw-h-8" />
-                        </button>
-                    </div>
-                </fetcher.Form>
+                    <SubscribeSuccessDialog
+                        userPreferences={userPreferences}
+                        isSuccessDialogOpen={isSubscribeSuccessDialogeOpen}
+                        setSuccessDialogOpen={setIsSubscribeSuccessDialogeOpen}
+                    />
 
-                <SubscribeSuccessDialog
-                    userPreferences={userPreferences}
-                    isSuccessDialogOpen={isSubscribeSuccessDialogeOpen}
-                    setSuccessDialogOpen={setIsSubscribeSuccessDialogeOpen}
-                />
-
-                <VerticalSpacer className="tw-h-3" />
+                    <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
+                </div>
 
                 <Accordion
                     title={getVernacularString("footerDisclosure1H", userPreferences.language)}
@@ -166,6 +174,7 @@ export function FooterComponent({
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
@@ -202,6 +211,7 @@ export function FooterComponent({
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
@@ -248,6 +258,7 @@ export function FooterComponent({
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
@@ -303,6 +314,7 @@ export function FooterComponent({
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
@@ -334,6 +346,7 @@ export function FooterComponent({
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
@@ -381,6 +394,7 @@ export function FooterComponent({
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
@@ -414,59 +428,71 @@ export function FooterComponent({
                                         className="lg-text-secondary-900"
                                         key={itemIndex}
                                     >
-                                        <Link to={item.link} target="_blank">{item.title}</Link>
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
                                     </div>
                                 </div>
                             )}
                         />
                     }
+                    className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
                 <VerticalSpacer className="tw-h-5" />
 
-                <div className="tw-flex tw-flex-col lg-text-secondary-900 tw-px-10">
-                    <div className="tw-text-center">{getVernacularString("footerContactT1", userPreferences.language)}</div>
+                <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center lg:tw-text-left">
+                    <div>{getVernacularString("footerContactT1", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="tw-text-center">{getVernacularString("footerContactT2", userPreferences.language)}</div>
+                    <div>{getVernacularString("footerContactT2", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-3" />
 
-                    <div className="tw-text-center tw-underline">
+                    <div className="tw-underline">
                         <a href="tel:18001025551">+91-124-4987 400</a>
                     </div>
 
                     <VerticalSpacer className="tw-h-3" />
 
-                    <div className="tw-text-center tw-underline">
+                    <div className="tw-underline">
                         <a href="mailto:marketing@livguard.com">marketing@livguard.com</a>
                     </div>
 
                     <VerticalSpacer className="tw-h-3" />
 
-                    <div className="tw-text-center tw-underline">
+                    <div className="tw-underline">
                         <a href="mailto:export@sar-group.com">export@sar-group.com</a>
                     </div>
 
                     <VerticalSpacer className="tw-h-3" />
 
-                    <div className="tw-text-center">{getVernacularString("footerContactT3", userPreferences.language)}</div>
+                    <div>{getVernacularString("footerContactT3", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-3 tw-hidden lg:tw-block" />
+
+                    <SocialMediaIcons className="tw-hidden lg:tw-flex" />
                 </div>
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <FooterSocialLogosAndCopyright userPreferences={userPreferences} />
+                <FooterSocialLogosAndCopyright userPreferences={userPreferences} className="lg:tw-hidden" />
+
+                <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left">{getVernacularString("footerCopyWriteText", userPreferences.language)}</div>
             </div>
         </div>
     );
 }
 
-export function FooterSocialLogosAndCopyright({userPreferences}: {userPreferences: UserPreferences}) {
+export function FooterSocialLogosAndCopyright({userPreferences, className}: {userPreferences: UserPreferences, className?: string}) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <VerticalSpacer className="tw-h-3" />
 
             <SocialMediaIcons />
@@ -536,9 +562,9 @@ export function SubscribeSuccessDialog({
     );
 }
 
-export function SocialMediaIcons() {
+export function SocialMediaIcons({className}: {className?: string}) {
     return (
-        <div className="tw-flex tw-justify-evenly lg:tw-justify-center lg:tw-gap-10">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-justify-evenly lg:tw-justify-center lg:tw-gap-10", className)}>
             <a
                 href="https://www.facebook.com/LivguardEnergy/"
                 target="_blank"

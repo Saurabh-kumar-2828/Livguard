@@ -6,15 +6,17 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 export function Accordion({
     title,
     panelItem,
+    className,
 }:
 {
     title: string;
     panelItem: JSX.Element;
+    className?: string;
 }) {
     return (
         <Disclosure>
             {({open}) => (
-                <div>
+                <div className={className}>
                     <Disclosure.Button
                         className={concatenateNonNullStringsWithSpaces(
                             "tw-text-left tw-p-5 tw-flex tw-justify-between tw-items-center tw-w-full lg-bg-secondary-100 tw-gap-x-4",

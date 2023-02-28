@@ -1045,8 +1045,9 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                                         // TODO: Remove slicing, add scrolling instead
                                         items={searchResults.slice(0, 6)}
                                         itemBuilder={(result, resultIndex) => (
-                                            <Link
-                                                to={result.link}
+                                            // TODO: Convert to link once we convert everything to new website
+                                            <a
+                                                href={result.link}
                                                 key={resultIndex}
                                                 className="lg-bg-secondary-700 tw-p-4 tw-flex tw-flex-row tw-justify-between tw-items-center tw-rounded-lg"
                                                 onClick={tryToCloseSearch}
@@ -1054,7 +1055,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                                                 <div className="lg-text-body-bold lg-text-secondary-100">{result.title}</div>
 
                                                 <div className="lg-text-secondary-300">{result.keyword}</div>
-                                            </Link>
+                                            </a>
                                         )}
                                     />
 

@@ -247,7 +247,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                 items={loadCalculatorOutputs.recommendedInverters}
                                 itemBuilder={(recommendation, recommendationIndex) => (
                                     <Link
-                                        to={`/product/${recommendation.model}`}
+                                        to={`/product/${recommendation.model}`.replace(" ", "")}
                                         className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                                         key={recommendationIndex}
                                     >
@@ -300,7 +300,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                 items={loadCalculatorOutputs.recommendedBatteries}
                                 itemBuilder={(recommendation, recommendationIndex) => (
                                     <Link
-                                        to={`/product/${recommendation.model}`}
+                                        to={`/product/${recommendation.model.replace(" ", "")}`}
                                         className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                                         key={recommendationIndex}
                                     >
