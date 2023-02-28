@@ -1,6 +1,6 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon, ChevronDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
-import {ActionFunction, LoaderFunction, redirect} from "@remix-run/node";
+import {ActionFunction, LoaderFunction, MetaFunction, redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
 import {PlusCircleFill} from "react-bootstrap-icons";
@@ -28,6 +28,13 @@ import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelpe
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "Plan the power consumption requirements of your home",
+        desscription: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
+    };
+};
 
 type ActionData = {
     error: string;

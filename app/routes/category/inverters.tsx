@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
+import {LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -24,6 +24,13 @@ import {Accordion} from "~/components/accordian";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {FAQSection} from "~/components/faqs";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "Buy Best Inverter for Home at the Lowest Price in India",
+        desscription: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+    };
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

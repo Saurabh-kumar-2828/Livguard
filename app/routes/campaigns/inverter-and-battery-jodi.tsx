@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {ActionFunction, LoaderFunction} from "@remix-run/node";
+import {ActionFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
@@ -25,6 +25,13 @@ import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelpe
 import {Dealer, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "Buy  livguard Smart & Strong Inverter and Battery Jodis",
+        desscription: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
+    };
+};
 
 // TODO: Rework for fetcher
 type DealerLocatorActionData = {

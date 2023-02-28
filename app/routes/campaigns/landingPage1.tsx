@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
+import {LoaderFunction, MetaFunction} from "@remix-run/node";
 import {FetcherWithComponents, Link, useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
 import {useLoaderData} from "react-router";
@@ -27,6 +27,13 @@ import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelpe
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "Take charge of your energy with livguard home inverters and inverter batteries",
+        desscription: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
+    };
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

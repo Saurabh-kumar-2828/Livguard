@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
+import {LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
@@ -24,6 +24,13 @@ import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelpe
 import {BatteryType, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "Buy Inverter Battery Online at Best Prices In India",
+        desscription: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
+    };
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

@@ -1,4 +1,4 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "react-router";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
@@ -25,6 +25,13 @@ import React from "react";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ChooseBestInverterBattery} from "~/routes/category/batteries";
 import {ProductInfoCarousel} from "~/components/productInfoCarousel";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "",
+        desscription: "",
+    };
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

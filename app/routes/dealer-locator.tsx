@@ -1,6 +1,6 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
-import {ActionFunction, LoaderFunction} from "@remix-run/node";
+import {ActionFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Form, useActionData, useFetcher} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -27,6 +27,13 @@ import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelpe
 import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = () => {
+    return {
+        title: "Dealer Locator | Find Livguard inverter battery shop near me",
+        desscription: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
+    };
+};
 
 type DealerLocatorActionData = {
     dealerList: Array<Dealer>;
