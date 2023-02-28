@@ -36,9 +36,8 @@ export const links: LinksFunction = () => [
     {rel: "stylesheet", href: tailwindStylesheet},
     {rel: "stylesheet", href: rootStylesheet},
     {rel: "stylesheet", href: reactToastifyStylesheet},
-    // {rel: "preconnect", href: "https://fonts.googleapis.com"},
-    // {rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous"},
-    // {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap", crossOrigin: "anonymous"},
+    {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf", as: "font", crossOrigin: "anonymous"},
+    {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/brueur-text.ttf", as: "font", crossOrigin: "anonymous"},
 ];
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font

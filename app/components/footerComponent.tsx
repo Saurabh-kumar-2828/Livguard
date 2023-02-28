@@ -179,7 +179,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure2H", userPreferences.language)}
@@ -216,7 +216,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
                 <Accordion
                     title={getVernacularString("footerDisclosure3H", userPreferences.language)}
                     panelItem={
@@ -263,7 +263,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure4H", userPreferences.language)}
@@ -319,7 +319,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure5H", userPreferences.language)}
@@ -351,7 +351,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure6H", userPreferences.language)}
@@ -399,7 +399,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3" />
+                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure7H", userPreferences.language)}
@@ -444,7 +444,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-5" />
+                <VerticalSpacer className="tw-h-5 lg:tw-hidden" />
 
                 <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center lg:tw-text-left">
                     <div>{getVernacularString("footerContactT1", userPreferences.language)}</div>
@@ -480,9 +480,25 @@ export function FooterComponent({
                     <SocialMediaIcons className="tw-hidden lg:tw-flex" />
                 </div>
 
-                <VerticalSpacer className="tw-h-2" />
+                <VerticalSpacer className="tw-h-2 lg:tw-hidden" />
 
                 <FooterSocialLogosAndCopyright userPreferences={userPreferences} className="lg:tw-hidden" />
+
+                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
+                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                </div>
+
+                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
+                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                </div>
+
+                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
+                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                </div>
+
+                <div className="tw-hidden lg:tw-flex lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
+                    <div className="tw-w-full tw-h-32 tw-bg-red-400" />
+                </div>
 
                 <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left">{getVernacularString("footerCopyWriteText", userPreferences.language)}</div>
             </div>
