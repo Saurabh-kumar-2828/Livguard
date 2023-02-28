@@ -523,7 +523,7 @@ function MenuDialog({
                                         linkTextTextContentPiece: "headerMenuS1T6",
                                         enterClassName: "tw-delay-[500ms]",
                                         subMenu: null,
-                                        link: "/dealer-locator",
+                                        link: "/dealer-for-inverters-and-batteries",
                                     },
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T7",

@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {ActionFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useActionData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 import {getDealerForCity} from "~/backend/dealer.server";
@@ -31,6 +31,10 @@ export const meta: MetaFunction = () => {
         title: "Buy  livguard Smart & Strong Inverter and Battery Jodis",
         desscription: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
     };
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.Livguard.com/Inverter-and-battery-Jodi/"}];
 };
 
 // TODO: Rework for fetcher

@@ -1,6 +1,6 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon, ChevronDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
-import {ActionFunction, LoaderFunction, MetaFunction, redirect} from "@remix-run/node";
+import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
 import {PlusCircleFill} from "react-bootstrap-icons";
@@ -34,6 +34,10 @@ export const meta: MetaFunction = () => {
         title: "Plan the power consumption requirements of your home",
         desscription: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
     };
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/load-calculator/"}];
 };
 
 type ActionData = {
@@ -214,7 +218,6 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 <FullHeightImage
                     relativePath="/livguard/home/5/1.png"
                     imageCdnProvider={ImageCdnProvider.Imgix}
-                    alt="load calculator"
                 />
             </div>
 

@@ -1,6 +1,6 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -41,6 +41,9 @@ export const meta: MetaFunction = () => {
     };
 };
 
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

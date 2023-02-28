@@ -1,532 +1,619 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+<!-- created with www.mysitemapgenerator.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://www.livguard.com/</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>https://www.livguard.com/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/dealer-locator</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/dealer-for-inverters-and-batteries</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/load-calculator</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/load-calculator</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/category/inverters</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/category/inverter-for-home</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/category/batteries</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/category/inverter-batteries</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/automotive-batteries.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/automotive-batteries.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/lg-trolley-category/</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/lg-trolley-category/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/load-calculator?property_type=3-bhk</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/load-calculator?property_type=3-bhk</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/csr-initiatives.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.livguard.com/csr-initiatives.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/LGS1000i</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/contact.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/LGS1100i</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/global-reach.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/LGS1600</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/privacy-policy.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/LGS1700</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/sales-return-policy.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/urban-jodi</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/terms-and-conditions.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/peace-of-mind-jodi</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/super-life-jodi</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/battery-finder.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/hi-power-jodi</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/bmhr.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/IT1554STJ</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/register-and-warranty-for-inverters.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/IT1550TT</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/three-wheeler-batteries/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/IT1560STT</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/tractor-batteries/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/IT1584TT</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/bus-and-truck-batteries/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/IT1639TT</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/erickshaw-batteries/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/e-waste-management.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/batteries.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-grid-interactive-series-for-home/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/stabilizer-for-AC-and-TV.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-panels-and-inverters-for-home/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/E-rickshaw-charger-category/</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-management-unit-for-home/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/register-and-warranty-for-inverters.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-charge-controller-for-home/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/dealer-locator-for-invertors-and-batteries.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-led-street-light/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGBTX-2-5L.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGBTX-7L.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/stabilizer-for-AC-and-TV.php</loc>
+<lastmod>2023-02-28T13:27:48+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGBTX-9L.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/LGS1000i</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGZ-HH-TX5.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/LGS1100i</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGZ-HH-TZ4.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/LGS1600</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGZ-HH-TZ5.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/LGS1700</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/three-wheeler-batteries/autoz-LGM-F0-AR32-R.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/urban-jodi</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/three-wheeler-batteries/autoz-LGM-F0-AR60-L.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/peace-of-mind-jodi</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/tractor-batteries/pradhan-LGL-FF-TR75-R.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/super-life-jodi</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/tractor-batteries/pradhan-LGL-FF-TR90L.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/hi-power-jodi</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/tractor-batteries/humraahi-LGL-FF-100L.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/IT1554STJ</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-B0-ERFP-1500.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/IT1550TT</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-B0-ERFP-1550.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/IT1560STT</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-C0-ERTU-1800.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/IT1584TT</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/contact.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/product/IT1639TT</loc>
+<lastmod>2023-02-28T13:27:51+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/dealer-locator.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/e-waste-management.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/residential-solar-solutions.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/batteries.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/about.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/E-rickshaw-charger-category/</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/global-reach.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/dealer-locator-for-invertors-and-batteries.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/privacy-policy.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGBTX-2-5L.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/sales-return-policy.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGBTX-7L.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/terms-and-conditions.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGBTX-9L.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/pdf/CSR%20Policy%20(LBPL).pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGZ-HH-TX5.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/video-gallery.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGZ-HH-TZ4.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/sitemap.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/two-wheeler-batteries/MoRide-LGZ-HH-TZ5.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/battery-finder.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/three-wheeler-batteries/autoz-LGM-F0-AR32-R.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/bmhr.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/three-wheeler-batteries/autoz-LGM-F0-AR60-L.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/img/annual-return/MGT-7-LETPL-2022.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/tractor-batteries/pradhan-LGL-FF-TR75-R.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/img/annual-return/MGT-7-LBPL-2022.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/tractor-batteries/pradhan-LGL-FF-TR90L.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/lg-trolley-category/lg-trolley.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/tractor-batteries/humraahi-LGL-FF-100L.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/index.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-B0-ERFP-1500.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/upload/csr/livguard-energy/LETPL_CSR%20Committee.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-B0-ERFP-1550.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/upload/csr/livguard-energy/LETPL_CSR_Policy.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-C0-ERTU-1800.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/img/annual-return/LETPL_CSR_APPROVED_PROJECT-2022-23.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/dealer-locator.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/upload/csr/livguard-batteries/LBPL_CSR%20Committee.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/residential-solar-solutions.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/upload/csr/livguard-batteries/LBPL_CSR_Policy.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/about.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/img/annual-return/LBPL_CSR_APPROVED_PROJECT-2022-23.pdf</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://www.livguard.com/video-gallery.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/LG1150i</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/sitemap.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/product/LG950i</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/lg-trolley-category/lg-trolley.php</loc>
+<lastmod>2023-02-28T13:27:52+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1580TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/index.php</loc>
+<lastmod>2023-02-28T13:27:54+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1866TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/ih-verter-LG2300.php</loc>
+<lastmod>2023-02-28T13:27:58+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1545TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/ih-verter-LG3500.php</loc>
+<lastmod>2023-02-28T13:27:58+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1554TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/ih-verter-LG5000.php</loc>
+<lastmod>2023-02-28T13:27:58+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1560TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-2500.php</loc>
+<lastmod>2023-02-28T13:27:58+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1666TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-3000.php</loc>
+<lastmod>2023-02-28T13:27:58+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1536FP.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-4000.php</loc>
+<lastmod>2023-02-28T13:27:58+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-2266TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/erickshaw-batteries/lg-lithium-battery-3.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV12V40.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-4036ST.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV12V50.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-10060TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV12V75.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-battery-LS-13560TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV12V100.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-15060PTT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV12V160.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-16560TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV24V325.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-18060PTT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV12V165M.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-20060TT.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-panels-for-home/LGV24VS375M.php</loc>
+<lastmod>2023-02-28T13:28:01+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-led-street-light/LGVSSL9N.php</loc>
+<lastmod>2023-02-28T13:28:02+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-7.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-led-street-light/LGVSSL12N.php</loc>
+<lastmod>2023-02-28T13:28:02+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-26.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/product/LG1150i</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-42.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/product/LG950i</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-65.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-4036ST.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-100.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-7536ST.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-120.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-10060TT.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-150.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-battery-LS-13560TT.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-200.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-15060PTT.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries/</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-16560TT.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/stabilizer-for-ac.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-18060PTT.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/mainline-stabilizer-for-home.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-20060TT.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/stabilizer-for-refrigerator.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/stabilizer-for-ac.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/stabilizer-for-tv.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/mainline-stabilizer-for-home.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/E-rickshaw-charger-category/FDS-E-riksho-Charger.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/stabilizer-for-refrigerator.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/E-rickshaw-charger-category/FDS-E-riksho-black-Charger.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/stabilizer-for-tv.php</loc>
+<lastmod>2023-02-28T13:28:03+01:00</lastmod>
+<priority>1.0</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1580TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/vrla-batteries.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.51</priority>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1866TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1554STJ.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.41</priority>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1545TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1336FP.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.41</priority>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1554TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
 </url>
 <url>
-  <loc>https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-7536ST.php</loc>
-  <lastmod>2023-02-28T05:54:27+00:00</lastmod>
-  <priority>0.41</priority>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1560TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
 </url>
-
-
+<url>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1666TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1536FP.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-2266TT.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/inverter-batteries/</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-7.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-26.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-42.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-65.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-100.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-120.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-150.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/vrla-lgv12-200.php</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries/</loc>
+<lastmod>2023-02-28T13:28:07+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/E-rickshaw-charger-category/FDS-E-riksho-Charger.php</loc>
+<lastmod>2023-02-28T13:28:08+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/E-rickshaw-charger-category/FDS-E-riksho-black-Charger.php</loc>
+<lastmod>2023-02-28T13:28:08+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/inverter-batteries.php</loc>
+<lastmod>2023-02-28T13:28:15+01:00</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/vrla-batteries.php</loc>
+<lastmod>2023-02-28T13:28:15+01:00</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1554STJ.php</loc>
+<lastmod>2023-02-28T13:28:37+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.livguard.com/inverter-batteries/invertuff-IT-1336FP.php</loc>
+<lastmod>2023-02-28T13:28:37+01:00</lastmod>
+<priority>0.8</priority>
+</url>
 </urlset>

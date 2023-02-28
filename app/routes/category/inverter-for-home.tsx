@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -30,6 +30,10 @@ export const meta: MetaFunction = () => {
         title: "Buy Best Inverter for Home at the Lowest Price in India",
         desscription: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
     };
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/category/inverter-for-home/"}];
 };
 
 type LoaderData = {
@@ -151,7 +155,6 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.Imgix}
-                alt="Inverter For home"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">

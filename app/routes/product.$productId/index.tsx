@@ -299,7 +299,7 @@ function ProductSpecifications({userPreferences, productInfo,className}: {userPr
                                     key={itemIndex}
                                     onClick={() => setSelectedTab(item.value)}
                                 >
-                                    <div className={`${item.value == selectedTab ? "tw-underline tw-underline-offset-4" : "lg-text-secondary-700"}`}>{item.title}</div>
+                                    <div className={`tw-cursor-pointer ${item.value == selectedTab ? "tw-underline tw-underline-offset-4" : "lg-text-secondary-700"}`}>{item.title}</div>
                                 </div>
 
                                 {itemIndex < 3 - 1 && <div className="tw-w-full tw-border"></div>}
