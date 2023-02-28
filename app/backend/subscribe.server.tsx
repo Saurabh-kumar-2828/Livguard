@@ -20,7 +20,7 @@ export async function insertSubscriptionLeads(emailId: NonEmptyString, utmParame
                 $5
             )
         `,
-        [generateUuid(), null, getCurrentIsoTimestamp(), emailId, utmParameters],
+        [generateUuid(), getCurrentIsoTimestamp(), null, emailId, utmParameters],
     );
 
     if (result instanceof Error) {
