@@ -20,7 +20,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FaqSection, SolarSolutions} from "~/routes";
 import {OurBatteriesSectionInternal} from "~/routes/category/inverter-batteries";
-import {OurInvertersSectionInternal} from "~/routes/category/inverters";
+import {OurInvertersSectionInternal} from "~/routes/category/inverter-for-home";
 import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
@@ -408,7 +408,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                         <EmptyFlexFiller />
 
                         <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                            <Link to="/category/inverters">
+                            <Link to="/category/inverter-for-home">
                                 <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA2", userPreferences.language)}</div>
                             </Link>
                         </DefaultElementAnimation>
@@ -421,7 +421,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                         <EmptyFlexFiller />
 
                         <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                            <Link to="/category/inverters">
+                            <Link to="/category/inverter-batteries">
                                 <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA3", userPreferences.language)}</div>
                             </Link>
                         </DefaultElementAnimation>

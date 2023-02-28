@@ -214,6 +214,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 <FullHeightImage
                     relativePath="/livguard/home/5/1.png"
                     imageCdnProvider={ImageCdnProvider.Imgix}
+                    alt="load calculator"
                 />
             </div>
 

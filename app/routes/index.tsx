@@ -396,7 +396,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
-                                buttonLink: "/category/inverters",
+                                buttonLink: "/category/inverter-for-home",
                                 target: null,
                             },
                             {
@@ -405,7 +405,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
-                                buttonLink: "/category/batteries",
+                                buttonLink: "/category/inverter-batteries",
                                 target: null,
                             },
                             {
