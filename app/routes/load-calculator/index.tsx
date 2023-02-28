@@ -171,7 +171,10 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" />
 
-            <FaqSection userPreferences={userPreferences} />
+            <FaqSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
             <VerticalSpacer className="tw-h-8" />
         </>
@@ -181,7 +184,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
-        <div className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_2rem_auto_2rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
+        <div className="tw-min-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_2rem_auto_2rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark">
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -196,13 +199,11 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
-                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorS1T2", userPreferences.language)}} />
-                </div>
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10 tw-max-w-2xl">
+                <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">{getVernacularString("loadCalculatorS1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <div className="tw-row-start-[8] tw-col-start-1 tw-h-32">
+            <div className="tw-row-start-[8] tw-col-start-1 tw-w-3/5 tw-max-w-xl">
                 <FullHeightImage
                     relativePath="/livguard/home/5/1.png"
                     imageCdnProvider={ImageCdnProvider.Imgix}
@@ -453,7 +454,7 @@ function PropertySelection({
     }
 
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+        <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
             <VerticalSpacer className="tw-h-4" />
 
             <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
@@ -574,7 +575,7 @@ function RoomSelection({
     }
 
     return (
-        <div className="lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+        <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
             <VerticalSpacer className="tw-h-4" />
 
             <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
@@ -582,7 +583,7 @@ function RoomSelection({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-grid tw-grid-cols-2 tw-gap-2">
+            <div className="tw-w-full tw-grid tw-grid-cols-2 tw-gap-2 lg:tw-grid-cols-3">
                 <ItemBuilder
                     items={loadCalculatorInputs.property.rooms}
                     itemBuilder={(room, roomIndex) => (
@@ -758,7 +759,7 @@ function ChangePropertyTypeDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Are you sure you want to leave this section?</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -876,7 +877,7 @@ function NewRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Add Room</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1061,7 +1062,7 @@ function EditRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Edit {room.roomName}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1314,7 +1315,7 @@ function NewDeviceDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Add {getDeviceTypeDetails(currentlyAddingDeviceType).humanReadableString}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1491,7 +1492,7 @@ function EditDeviceDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg">
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
                             <div className="lg-text-title1">Edit {getDeviceTypeDetails(currentlyEditingDeviceType).humanReadableString}</div>
 
                             <VerticalSpacer className="tw-h-4" />
@@ -1609,7 +1610,7 @@ function AdditionalInputsSection({
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
 }) {
     return (
-        <div className="lg-px-screen-edge">
+        <div className="lg-px-screen-edge-2">
             <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-2">
                 <div>{getVernacularString("loadCalculatorAdditionalInputsT1", userPreferences.language)}</div>
                 <div className="tw-flex tw-flex-row">
@@ -1633,7 +1634,7 @@ function AdditionalInputsSection({
                         -
                     </button>
                     <input
-                        className="tw-w-12 tw-h-8 lg-bg-secondary-100 tw-text-center"
+                        className="tw-w-12 tw-h-8 lg-bg-secondary-300 tw-text-center"
                         value={loadCalculatorInputs.backupHours}
                         onChange={(e) => {
                             const newBackupHours = safeParse(getIntegerFromUnknown, e.target.value);
@@ -1694,7 +1695,7 @@ function AdditionalInputsSection({
                                 leaveTo="opacity-0 translate-y-1"
                             >
                                 <Popover.Panel className="tw-absolute tw-left-0 tw-right-0 tw-z-10 tw-mt-3 tw-max-w-sm tw-transform tw-px-4 tw-sm:px-0 tw-lg:max-w-3xl">
-                                    <div className="lg-bg-secondary-300 tw-p-2 tw-rounded-lg">How much power you expect to consume</div>
+                                    <div className="lg-bg-secondary-300 tw-p-2 tw-rounded-lg">What percentage of the total load you expect to be running at any given time</div>
                                 </Popover.Panel>
                             </Transition>
                         </>
