@@ -23,7 +23,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import React from "react";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {ChooseBestInverterBattery} from "~/routes/category/batteries";
+import {ChooseBestInverterBattery} from "~/routes/category/inverter-batteries";
 import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 
 export const meta: MetaFunction = () => {

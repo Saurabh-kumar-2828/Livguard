@@ -19,7 +19,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FaqSection, SolarSolutions} from "~/routes";
-import {OurBatteriesSectionInternal} from "~/routes/category/batteries";
+import {OurBatteriesSectionInternal} from "~/routes/category/inverter-batteries";
 import {OurInvertersSectionInternal} from "~/routes/category/inverters";
 import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";

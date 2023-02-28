@@ -151,6 +151,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.Imgix}
+                alt="Inverter For home"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">

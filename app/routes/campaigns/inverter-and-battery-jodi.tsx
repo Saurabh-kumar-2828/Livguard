@@ -19,7 +19,7 @@ import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, TransformingLives} from "~/routes";
-import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/landingPage2";
+import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Dealer, UserPreferences} from "~/typeDefinitions";
@@ -193,6 +193,7 @@ function HeroSection({
                 relativePath="/livguard/landingPages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.Imgix}
+                alt="Inverter And Battery Jodi"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">

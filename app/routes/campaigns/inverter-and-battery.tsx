@@ -22,7 +22,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
-import {QualityMeetsExpertise} from "~/routes/campaigns/landingPage1";
+import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";

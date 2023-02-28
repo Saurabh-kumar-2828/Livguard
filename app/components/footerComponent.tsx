@@ -11,7 +11,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSubmissionSuccess} from "~/routes/dealer-locator";
+import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -156,7 +156,7 @@ export function FooterComponent({
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure1T9", userPreferences.language)}`,
-                                    link: "https://livguard.com/sitemap.php",
+                                    link: "https://livguard.com/sitemap.xml",
                                 },
                             ]}
                             itemBuilder={(item, itemIndex) => (
@@ -188,11 +188,11 @@ export function FooterComponent({
                             items={[
                                 {
                                     title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/category/inverters",
+                                    link: "https://www.livguard.com/category/inverter-for-home",
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/category/batteries",
+                                    link: "https://www.livguard.com/category/inverter-batteries",
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
@@ -364,7 +364,7 @@ export function FooterComponent({
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
-                                    link: "https://www.livguard.com/dealer-locator-for-invertors-and-batteries.php",
+                                    link: "https://www.livguard.com/dealer-locator-for-invertors-and-batteries",
                                 },
                                 {
                                     title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,

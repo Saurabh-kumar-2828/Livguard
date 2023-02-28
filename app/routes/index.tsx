@@ -27,7 +27,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
-import {FormSubmissionSuccess} from "~/routes/dealer-locator";
+import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";

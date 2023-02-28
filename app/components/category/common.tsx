@@ -20,7 +20,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSubmissionSuccess} from "~/routes/dealer-locator";
+import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 

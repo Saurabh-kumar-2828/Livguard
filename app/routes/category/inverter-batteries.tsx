@@ -156,6 +156,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 relativePath="/livguard/category/batteries/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.Imgix}
+                alt="Inverter battery"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
