@@ -3,7 +3,7 @@ import {ChevronDoubleDownIcon, ChevronDownIcon, InformationCircleIcon} from "@he
 import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
-import {PlusCircleFill} from "react-bootstrap-icons";
+import {Check2, PlusCircleFill, Search} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {insertLoadCalculatorEntry} from "~/backend/loadCalculator";
@@ -22,6 +22,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, generateUuid, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 
 import {FaqSection} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
@@ -119,10 +120,18 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [searchParams, setSearchParams] = useSearchParams();
     const propertyType = getSingletonValueOrNull(searchParams.getAll("property_type"));
 
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+
     const [loadCalculatorInputs, dispatch] = useReducer(
         loadCalculatorInputsReducer,
         {propertyType: propertyType == null ? PropertyType.ThreeBhk : enumFromStringValue(PropertyType, propertyType) ?? PropertyType.ThreeBhk},
         createInitialState,
+    );
+
+    const [loadCalculatorInputsNewUi, dispatchNewUi] = useReducer(
+        loadCalculatorInputsReducer,
+        {propertyType: propertyType == null ? PropertyType.ThreeBhk : enumFromStringValue(PropertyType, propertyType) ?? PropertyType.ThreeBhk},
+        createInitialStateNewUi,
     );
 
     return (
@@ -135,19 +144,61 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" /> */}
 
+            <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
+
+            <VerticalSpacer className="tw-h-8" />
+
             <PropertySelection
                 userPreferences={userPreferences}
                 loadCalculatorInputs={loadCalculatorInputs}
                 dispatch={dispatch}
+                loadCalculatorInputsNewUi={loadCalculatorInputsNewUi}
+                dispatchNewUi={dispatchNewUi}
             />
 
             <VerticalSpacer className="tw-h-8" />
 
-            <RoomSelection
-                userPreferences={userPreferences}
-                loadCalculatorInputs={loadCalculatorInputs}
-                dispatch={dispatch}
-            />
+            <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
+                <button
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500" : "lg-bg-secondary-100")}
+                    onClick={() => emblaApi?.scrollTo(0)}
+                >
+                    {getVernacularString("homeS5T5P4", userPreferences.language)}
+                </button>
+
+                <button
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500" : "lg-bg-secondary-100")}
+                    onClick={() => emblaApi?.scrollTo(1)}
+                >
+                    {getVernacularString("homeS5T5P5", userPreferences.language)}
+                </button>
+            </div>
+
+            <VerticalSpacer className="tw-h-8" />
+
+            <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P3", userPreferences.language)}</div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div
+                className="tw-overflow-hidden tw-w-full"
+                ref={emblaRef}
+            >
+                {/* TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? */}
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-start">
+                    <DeviceSelectionNewUi
+                        userPreferences={userPreferences}
+                        loadCalculatorInputs={loadCalculatorInputsNewUi}
+                        dispatch={dispatchNewUi}
+                    />
+
+                    <RoomSelection
+                        userPreferences={userPreferences}
+                        loadCalculatorInputs={loadCalculatorInputs}
+                        dispatch={dispatch}
+                    />
+                </div>
+            </div>
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -166,7 +217,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 <input
                     type="text"
                     name="loadCalculatorInputs"
-                    value={JSON.stringify(loadCalculatorInputs)}
+                    value={JSON.stringify(selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs)}
                     readOnly
                     className="tw-hidden"
                 />
@@ -214,11 +265,13 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 <div className="lg-text-body tw-text-secondary-700-dark lg-px-screen-edge tw-z-10 tw-text-center">{getVernacularString("loadCalculatorS1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <div className="tw-row-start-[8] tw-col-start-1 tw-w-3/5 tw-max-w-xl">
-                <FullHeightImage
-                    relativePath="/livguard/home/5/1.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
-                />
+            <div className="tw-w-full tw-row-start-[8] tw-col-start-1">
+                <div className="tw-w-3/5 tw-max-w-xl tw-mx-auto">
+                    <FullWidthImage
+                        relativePath="/livguard/home/5/1.png"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
             </div>
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
@@ -452,10 +505,14 @@ function PropertySelection({
     userPreferences,
     loadCalculatorInputs,
     dispatch,
+    loadCalculatorInputsNewUi,
+    dispatchNewUi,
 }: {
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+    loadCalculatorInputsNewUi: LoadCalculatorInputs;
+    dispatchNewUi: React.Dispatch<LoadCalculatorInputsAction>;
 }) {
     const [isChangePropertyTypeDialogOpen, setIsChangePropertyTypeDialogOpen] = useState(false);
     const [currentlyChangingPropertyType, setCurrentlyChangingPropertyType] = useState<string | null>(null);
@@ -466,9 +523,6 @@ function PropertySelection({
 
     return (
         <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-            <VerticalSpacer className="tw-h-4" />
-
-            <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
             <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-4" />
@@ -521,13 +575,23 @@ function PropertySelection({
                                     return;
                                 }
 
-                                if (loadCalculatorInputs.property == propertyTemplates[loadCalculatorInputs.property.propertyType]) {
+                                if (
+                                    loadCalculatorInputs.property == propertyTemplates[loadCalculatorInputs.property.propertyType] &&
+                                    loadCalculatorInputsNewUi.property == propertyTemplatesNewUi[loadCalculatorInputs.property.propertyType]
+                                ) {
                                     const action: LoadCalculatorInputsAction = {
                                         actionType: LoadCalculatorInputsActionType.SetPropertyType,
                                         payload: item.value,
                                     };
 
                                     dispatch(action);
+
+                                    const actionNewUi: LoadCalculatorInputsAction = {
+                                        actionType: LoadCalculatorInputsActionType.SetPropertyTypeNewUi,
+                                        payload: item.value,
+                                    };
+
+                                    dispatchNewUi(actionNewUi);
                                 } else {
                                     setCurrentlyChangingPropertyType(item.value);
                                     tryToOpenChangePropertyTypeDialog();
@@ -543,6 +607,7 @@ function PropertySelection({
                                 <FullWidthImage
                                     relativePath={item.icon}
                                     imageCdnProvider={ImageCdnProvider.Imgix}
+                                    className="tw-invert dark:tw-invert-0"
                                 />
                             </div>
                             <div>{item.content}</div>
@@ -555,6 +620,8 @@ function PropertySelection({
                 userPreferences={userPreferences}
                 loadCalculatorInputs={loadCalculatorInputs}
                 dispatch={dispatch}
+                loadCalculatorInputsNewUi={loadCalculatorInputsNewUi}
+                dispatchNewUi={dispatchNewUi}
                 currentlyChangingPropertyType={currentlyChangingPropertyType}
                 setCurrentlyChangingPropertyType={setCurrentlyChangingPropertyType}
                 isChangePropertyTypeDialogOpen={isChangePropertyTypeDialogOpen}
@@ -587,13 +654,6 @@ function RoomSelection({
 
     return (
         <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-            <VerticalSpacer className="tw-h-4" />
-
-            <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
-            <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
-
-            <VerticalSpacer className="tw-h-4" />
-
             <div className="tw-w-full tw-grid tw-grid-cols-2 tw-gap-2 lg:tw-grid-cols-3">
                 <ItemBuilder
                     items={loadCalculatorInputs.property.rooms}
@@ -691,10 +751,129 @@ function RoomSelection({
     );
 }
 
+function DeviceSelectionNewUi({
+    userPreferences,
+    loadCalculatorInputs,
+    dispatch,
+}: {
+    userPreferences: UserPreferences;
+    loadCalculatorInputs: LoadCalculatorInputs;
+    dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+}) {
+    const [isNewDeviceDialogOpen, setIsNewDeviceDialogOpen] = useState(false);
+
+    function tryToOpenNewDeviceDialog() {
+        setIsNewDeviceDialogOpen(true);
+    }
+
+    const groupedDevices = loadCalculatorInputs.property.rooms[0].devices.reduce(createGroupByReducer<Device, string>("deviceType"), {});
+    const deviceTypeToDeviceCounts = Object.entries(groupedDevices)
+        .map((kvp) => ({deviceType: kvp[0], deviceCount: kvp[1].length}))
+        .sort((a, b) => deviceTypeLibrary[a.deviceType].humanReadableString.localeCompare(deviceTypeLibrary[b.deviceType].humanReadableString));
+
+    const totalWattage = deviceTypeToDeviceCounts.reduce((totalWattage, item) => totalWattage + deviceTypeLibrary[item.deviceType].wattage * item.deviceCount, 0);
+
+    return (
+        <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
+            <div className="tw-flex tw-flex-row tw-gap-x-2 lg-text-title2">
+                <div className="">{getVernacularString("loadCalculatorAdditionalInputsT6", userPreferences.language)}:</div>
+
+                <div className="lg-text-secondary-900">{totalWattage} Watts</div>
+            </div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="tw-w-full tw-max-w-2xl tw-grid tw-grid-cols-[minmax(0,1fr)_auto_auto] tw-items-center tw-gap-x-8 tw-gap-y-4">
+                <ItemBuilder
+                    items={deviceTypeToDeviceCounts}
+                    itemBuilder={(item, itemIndex) => (
+                        <React.Fragment key={itemIndex}>
+                            <div className="tw-text-left">{deviceTypeLibrary[item.deviceType].humanReadableString}</div>
+
+                            <div className="tw-flex tw-flex-row tw-gap-x-4 tw-items-center">
+                                <button
+                                    type="button"
+                                    className="tw-w-8 tw-h-8 lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
+                                    onClick={() => {
+                                        const action: LoadCalculatorInputsAction = {
+                                            actionType: LoadCalculatorInputsActionType.RemoveSingleDevice,
+                                            payload: {
+                                                roomIndex: 0,
+                                                deviceType: item.deviceType,
+                                            },
+                                        };
+
+                                        dispatch(action);
+                                    }}
+                                >
+                                    -
+                                </button>
+
+                                <div>{item.deviceCount}</div>
+
+                                <button
+                                    type="button"
+                                    className="tw-w-8 tw-h-8 lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
+                                    onClick={() => {
+                                        const device: Device = {
+                                            deviceType: item.deviceType,
+                                            deviceDetails: {},
+                                        };
+
+                                        const action: LoadCalculatorInputsAction = {
+                                            actionType: LoadCalculatorInputsActionType.AddDevices,
+                                            payload: {
+                                                roomIndex: 0,
+                                                devices: [device],
+                                            },
+                                        };
+
+                                        dispatch(action);
+                                    }}
+                                >
+                                    +
+                                </button>
+                            </div>
+
+                            <div>{deviceTypeLibrary[item.deviceType].wattage} Watts</div>
+
+                            <div className="tw-col-span-3 tw-border-b tw-border-solid tw-border-secondary-300-light dark:tw-border-secondary-300-dark" />
+                        </React.Fragment>
+                    )}
+                />
+            </div>
+
+            <div className="tw-h-4" />
+
+            <div className="tw-w-full tw-max-w-2xl">
+                <button
+                    type="button"
+                    onClick={tryToOpenNewDeviceDialog}
+                    className="lg-cta-button"
+                >
+                    {getVernacularString("loadCalculatorAdditionalInputsT5", userPreferences.language)}
+                </button>
+            </div>
+
+            <div className="tw-h-4" />
+
+            <NewDeviceDialogNewUi
+                userPreferences={userPreferences}
+                loadCalculatorInputs={loadCalculatorInputs}
+                dispatch={dispatch}
+                isAddDeviceDialogOpen={isNewDeviceDialogOpen}
+                setIsAddDeviceDialogOpen={setIsNewDeviceDialogOpen}
+            />
+        </div>
+    );
+}
+
 function ChangePropertyTypeDialog({
     userPreferences,
     loadCalculatorInputs,
     dispatch,
+    loadCalculatorInputsNewUi,
+    dispatchNewUi,
     currentlyChangingPropertyType,
     setCurrentlyChangingPropertyType,
     isChangePropertyTypeDialogOpen,
@@ -703,6 +882,8 @@ function ChangePropertyTypeDialog({
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+    loadCalculatorInputsNewUi: LoadCalculatorInputs;
+    dispatchNewUi: React.Dispatch<LoadCalculatorInputsAction>;
     currentlyChangingPropertyType: string | null;
     setCurrentlyChangingPropertyType: React.Dispatch<string | null>;
     isChangePropertyTypeDialogOpen: boolean;
@@ -798,6 +979,13 @@ function ChangePropertyTypeDialog({
                                         };
 
                                         dispatch(action);
+
+                                        const actionNewUi: LoadCalculatorInputsAction = {
+                                            actionType: LoadCalculatorInputsActionType.SetPropertyTypeNewUi,
+                                            payload: currentlyChangingPropertyType,
+                                        };
+
+                                        dispatchNewUi(actionNewUi);
 
                                         tryToCloseChangePropertyTypeDialog();
                                     }}
@@ -1034,7 +1222,9 @@ function EditRoomDialog({
 
     const room = loadCalculatorInputs.property.rooms[currentlyEditingRoomIndex];
     const groupedDevices = room.devices.reduce(createGroupByReducer<Device, string>("deviceType"), {});
-    const deviceTypeToDeviceCounts = Object.entries(groupedDevices).map((kvp) => ({deviceType: kvp[0], deviceCount: kvp[1].length}));
+    const deviceTypeToDeviceCounts = Object.entries(groupedDevices)
+        .map((kvp) => ({deviceType: kvp[0], deviceCount: kvp[1].length}))
+        .sort((a, b) => deviceTypeLibrary[a.deviceType].humanReadableString.localeCompare(deviceTypeLibrary[b.deviceType].humanReadableString));
 
     return (
         <Transition
@@ -1083,14 +1273,14 @@ function EditRoomDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             {room.devices.length == 0 ? (
-                                <div className="tw-w-full tw-grid tw-grid-cols-5 tw-gap-x-2 tw-gap-y-2">
+                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2">
                                     <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center">
                                         <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700" />
-                                        <div className="lg-text-icon tw-whitespace-nowrap">No device</div>
+                                        <div className="lg-text-icon">No device</div>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="tw-w-full tw-grid tw-grid-cols-5 tw-gap-x-2 tw-gap-y-2">
+                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2">
                                     <ItemBuilder
                                         items={deviceTypeToDeviceCounts}
                                         itemBuilder={(deviceTypeToDeviceCount, deviceTypeToDeviceCountIndex) => (
@@ -1138,7 +1328,7 @@ function EditRoomDialog({
 
                                             <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="tw-w-full tw-grid tw-grid-cols-5 tw-gap-x-2 tw-gap-y-2">
+                                            <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2">
                                                 <ItemBuilder
                                                     items={Object.entries(deviceTypeLibrary)
                                                         .filter((kvp) => kvp[1].category == deviceCategory)
@@ -1168,7 +1358,7 @@ function EditRoomDialog({
                                                                     className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                                 />
                                                             </div>
-                                                            <div className="lg-text-icon tw-whitespace-nowrap">{getDeviceTypeDetails(deviceType).humanReadableString}</div>
+                                                            <div className="lg-text-icon">{getDeviceTypeDetails(deviceType).humanReadableString}</div>
                                                         </button>
                                                     )}
                                                 />
@@ -1386,7 +1576,7 @@ function NewDeviceDialog({
                             <VerticalSpacer className="tw-h-4" />
 
                             <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-2">
-                                <div className="lg-text-title2 tw-whitespace-nowrap">Power Draw: {getDeviceTypeDetails(currentlyAddingDeviceType).wattage * quantity} Watts</div>
+                                <div className="lg-text-title2">Power Draw: {getDeviceTypeDetails(currentlyAddingDeviceType).wattage * quantity} Watts</div>
                                 <div className="lg-text-body">({getDeviceTypeDetails(currentlyAddingDeviceType).wattage} Watts per Device)</div>
                             </div>
 
@@ -1425,6 +1615,182 @@ function NewDeviceDialog({
                                     }}
                                 >
                                     Add Device
+                                </button>
+                            </div>
+                        </div>
+                    </Transition.Child>
+                </Dialog.Panel>
+                <div />
+            </Dialog>
+        </Transition>
+    );
+}
+
+function NewDeviceDialogNewUi({
+    userPreferences,
+    loadCalculatorInputs,
+    dispatch,
+    isAddDeviceDialogOpen,
+    setIsAddDeviceDialogOpen,
+}: {
+    userPreferences: UserPreferences;
+    loadCalculatorInputs: LoadCalculatorInputs;
+    dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+    isAddDeviceDialogOpen: boolean;
+    setIsAddDeviceDialogOpen: React.Dispatch<boolean>;
+}) {
+    const [selectedDevices, setSelectedDevices] = useState<Array<string>>([]);
+    const [query, setQuery] = useState<string>("");
+
+    function tryToCloseAddDeviceDialog() {
+        setIsAddDeviceDialogOpen(false);
+    }
+
+    const queryLowerCase = query.toLowerCase();
+    const devicesGroupedByCategory = Object.entries(deviceTypeLibrary)
+        .filter((kvp) => kvp[1].humanReadableString.toLowerCase().includes(queryLowerCase))
+        .map((kvp) => ({deviceType: kvp[0], category: kvp[1].category, humanReadableString: kvp[1].humanReadableString}))
+        .reduce(createGroupByReducer<{deviceType: string; category: string; humanReadableString: string}, string>("category"), {});
+
+    return (
+        <Transition
+            show={isAddDeviceDialogOpen}
+            as={React.Fragment}
+            beforeEnter={() => {
+                setSelectedDevices([]);
+                setQuery("");
+            }}
+        >
+            <Dialog
+                as="div"
+                className="tw-relative tw-z-50"
+                onClose={tryToCloseAddDeviceDialog}
+            >
+                <Transition.Child
+                    as={React.Fragment}
+                    enter="tw-ease-out tw-transition-all tw-duration-200"
+                    enterFrom="tw-opacity-0"
+                    enterTo="tw-opacity-100"
+                    leave="tw-ease-in tw-transition-all tw-duration-200"
+                    leaveFrom="tw-opacity-100"
+                    leaveTo="tw-opacity-0"
+                >
+                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+                </Transition.Child>
+
+                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
+                    <div />
+
+                    <Transition.Child
+                        as={React.Fragment}
+                        enter="tw-ease-out tw-transition-all tw-duration-200"
+                        enterFrom="tw-opacity-0"
+                        enterTo="tw-opacity-full"
+                        leave="tw-ease-in tw-transition-all tw-duration-200"
+                        leaveFrom="tw-opacity-full"
+                        leaveTo="tw-opacity-0"
+                    >
+                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                            <div className="lg-text-title1">{getVernacularString("loadCalculatorAdditionalInputsT5", userPreferences.language)}</div>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="tw-w-full tw-relative">
+                                <input
+                                    type="text"
+                                    value={query}
+                                    onChange={(e) => setQuery(e.target.value)}
+                                    className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                                    placeholder="Search device"
+                                />
+                                <Search className="tw-absolute tw-top-4 tw-left-4 tw-w-6 tw-h-6" />
+                            </div>
+
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="tw-h-40 tw-overflow-auto">
+                                <ItemBuilder
+                                    items={Object.entries(devicesGroupedByCategory)}
+                                    itemBuilder={(item, itemIndex) => (
+                                        <React.Fragment key={itemIndex}>
+                                            <div className="lg-text-secondary-700">{item[0]}</div>
+
+                                            <VerticalSpacer className="tw-h-2" />
+
+                                            <ItemBuilder
+                                                items={item[1]}
+                                                itemBuilder={(item2, itemIndex2) => (
+                                                    <button
+                                                        role="button"
+                                                        className="tw-w-full tw-flex tw-flex-row tw-gap-x-2"
+                                                        onClick={() => {
+                                                            if (selectedDevices.includes(item2.deviceType)) {
+                                                                setSelectedDevices(selectedDevices.filter((selectedDevices) => selectedDevices != item2.deviceType));
+                                                            } else {
+                                                                setSelectedDevices([...selectedDevices, item2.deviceType]);
+                                                            }
+                                                        }}
+                                                        key={itemIndex2}
+                                                    >
+                                                        {selectedDevices.includes(item2.deviceType) ? (
+                                                            <Check2 className="tw-w-5 tw-h-5 tw-rounded-sm tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark" />
+                                                        ) : (
+                                                            <div className="tw-w-5 tw-h-5 tw-rounded-sm tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark" />
+                                                        )}
+                                                        <div className="tw-flex-1 tw-text-left">{item2.humanReadableString}</div>
+                                                    </button>
+                                                )}
+                                                spaceBuilder={(spaceIndex) => (
+                                                    <VerticalSpacer
+                                                        className="tw-h-2"
+                                                        key={spaceIndex}
+                                                    />
+                                                )}
+                                            />
+                                        </React.Fragment>
+                                    )}
+                                    spaceBuilder={(spaceIndex) => (
+                                        <VerticalSpacer
+                                            className="tw-h-2"
+                                            key={spaceIndex}
+                                        />
+                                    )}
+                                />
+                            </div>
+
+                            <VerticalSpacer className="tw-h-8" />
+
+                            <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                <button
+                                    type="button"
+                                    className=""
+                                    onClick={tryToCloseAddDeviceDialog}
+                                >
+                                    Cancel
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className="lg-cta-button"
+                                    disabled={selectedDevices.length == 0}
+                                    onClick={() => {
+                                        const loadCalculatorInputsAction: LoadCalculatorInputsAction = {
+                                            actionType: LoadCalculatorInputsActionType.AddDevices,
+                                            payload: {
+                                                roomIndex: 0,
+                                                devices: selectedDevices.map(selectedDevice => ({
+                                                    deviceType: selectedDevice,
+                                                    deviceDetails: {},
+                                                })),
+                                            },
+                                        };
+
+                                        dispatch(loadCalculatorInputsAction);
+
+                                        tryToCloseAddDeviceDialog();
+                                    }}
+                                >
+                                    Continue
                                 </button>
                             </div>
                         </div>
@@ -1564,7 +1930,7 @@ function EditDeviceDialog({
                             <VerticalSpacer className="tw-h-4" />
 
                             <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-2">
-                                <div className="lg-text-title2 tw-whitespace-nowrap">Power Draw: {getDeviceTypeDetails(currentlyEditingDeviceType).wattage * quantity} Watts</div>
+                                <div className="lg-text-title2">Power Draw: {getDeviceTypeDetails(currentlyEditingDeviceType).wattage * quantity} Watts</div>
                                 <div className="lg-text-body">({getDeviceTypeDetails(currentlyEditingDeviceType).wattage} Watts per Device)</div>
                             </div>
 
@@ -1623,12 +1989,12 @@ function AdditionalInputsSection({
     return (
         <div className="lg-px-screen-edge-2">
             <div className="tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-2">
-                <div>{getVernacularString("loadCalculatorAdditionalInputsT1", userPreferences.language)}</div>
+                <div className="tw-whitespace-nowrap">{getVernacularString("loadCalculatorAdditionalInputsT1", userPreferences.language)}</div>
                 <div className="tw-flex tw-flex-row">
                     <button
                         type="button"
                         className="tw-w-6 tw-h-8 lg-bg-secondary-100 tw-rounded-l-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
-                        onClick={(e) => {
+                        onClick={() => {
                             const newBackupHours = loadCalculatorInputs.backupHours - 1;
                             if (newBackupHours < 1) {
                                 return;
@@ -1664,7 +2030,7 @@ function AdditionalInputsSection({
                     <button
                         type="button"
                         className="tw-w-6 tw-h-8 lg-bg-secondary-100 tw-rounded-r-lg tw-flex tw-flex-col tw-items-center tw-justify-center"
-                        onClick={(e) => {
+                        onClick={() => {
                             const newBackupHours = loadCalculatorInputs.backupHours + 1;
                             if (newBackupHours > 24) {
                                 return;
@@ -1681,7 +2047,7 @@ function AdditionalInputsSection({
                         +
                     </button>
                 </div>
-                <div>{getVernacularString("loadCalculatorAdditionalInputsT2", userPreferences.language)}</div>
+                <div className="tw-whitespace-nowrap">{getVernacularString("loadCalculatorAdditionalInputsT2", userPreferences.language)}</div>
             </div>
 
             <VerticalSpacer className="tw-h-8" />
@@ -1689,7 +2055,7 @@ function AdditionalInputsSection({
             <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
                 <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
 
-                <Popover>
+                <Popover className="tw-h-4">
                     {({open}) => (
                         <>
                             <Popover.Button>
@@ -1979,11 +2345,13 @@ export type LoadCalculatorInputs = {
 
 enum LoadCalculatorInputsActionType {
     SetPropertyType,
+    SetPropertyTypeNewUi,
     AddRoom,
     // TODO: Remove this?
     EditRoom,
     AddDevices,
     RemoveDevice,
+    RemoveSingleDevice,
     ChangeBackupHours,
     ChangeAverageConsumption,
 }
@@ -2020,6 +2388,16 @@ function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action: LoadCa
             const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property = propertyTemplates[propertyType];
+
+            return newState;
+        }
+        case LoadCalculatorInputsActionType.SetPropertyTypeNewUi: {
+            // TODO: Validate that these exist?
+            const propertyType = action.payload;
+
+            const newState: LoadCalculatorInputs = structuredClone(state);
+
+            newState.property = propertyTemplatesNewUi[propertyType];
 
             return newState;
         }
@@ -2068,6 +2446,18 @@ function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action: LoadCa
 
             return newState;
         }
+        case LoadCalculatorInputsActionType.RemoveSingleDevice: {
+            // TODO: Validate that these exist?
+            const roomIndex = action.payload.roomIndex;
+            const deviceType = action.payload.deviceType;
+
+            const newState: LoadCalculatorInputs = structuredClone(state);
+
+            const indexToRemove = newState.property.rooms[roomIndex].devices.findIndex((device) => device.deviceType == deviceType);
+            newState.property.rooms[roomIndex].devices.splice(indexToRemove, 1);
+
+            return newState;
+        }
         case LoadCalculatorInputsActionType.ChangeBackupHours: {
             // TODO: Validate that these exist?
             const backupHours = action.payload;
@@ -2098,6 +2488,16 @@ function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action: LoadCa
 function createInitialState({propertyType}: {propertyType: PropertyType}) {
     const state: LoadCalculatorInputs = {
         property: propertyTemplates[propertyType],
+        backupHours: 4,
+        averageConsumption: 50,
+    };
+
+    return state;
+}
+
+function createInitialStateNewUi({propertyType}: {propertyType: PropertyType}) {
+    const state: LoadCalculatorInputs = {
+        property: propertyTemplatesNewUi[propertyType],
         backupHours: 4,
         averageConsumption: 50,
     };
@@ -3175,5 +3575,864 @@ const propertyTemplates: {[propertyType: string]: Property} = {
         propertyName: "",
         propertyType: PropertyType.Custom,
         rooms: [],
+    },
+};
+
+const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
+    "1-bhk": {
+        propertyName: "",
+        propertyType: PropertyType.OneBhk,
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Fridge
+                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+        ],
+    },
+    "2-bhk": {
+        propertyName: "",
+        propertyType: PropertyType.TwoBhk,
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Fridge
+                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Television
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Set top box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+        ],
+    },
+    "3-bhk": {
+        propertyName: "",
+        propertyType: PropertyType.ThreeBhk,
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Fridge
+                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Television
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Set top box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+        ],
+    },
+    "4-bhk": {
+        propertyName: "",
+        propertyType: PropertyType.FourBhk,
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Air conditioner
+                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Air conditioner
+                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Fridge
+                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Television
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Set top box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+        ],
+    },
+    villa: {
+        propertyName: "",
+        propertyType: PropertyType.Villa,
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Air conditioner
+                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Air conditioner
+                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Air conditioner
+                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Air conditioner
+                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Fridge
+                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust fan
+                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Television
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Set top box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED
+                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Tubelight
+                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Ceiling fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Television
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Set top box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                ],
+            },
+        ],
+    },
+    custom: {
+        propertyName: "",
+        propertyType: PropertyType.Custom,
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [],
+            },
+        ],
     },
 };

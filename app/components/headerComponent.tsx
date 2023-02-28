@@ -1014,14 +1014,14 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                         leaveFrom="tw-translate-y-0"
                         leaveTo="-tw-translate-y-full"
                     >
-                        <div className="tw-w-full lg-bg-secondary-300 tw-p-4">
+                        <div className="tw-w-full lg-bg-secondary-300 tw-p-4 tw-relative">
                             <input
                                 type="text"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 className="tw-w-full tw-bg-transparent tw-py-4 tw-pr-4 tw-pl-14 tw-rounded-full tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
                             />
-                            <Search className="tw-absolute tw-top-[1.875rem] tw-left-8 tw-w-6 tw-h-6" />
+                            <Search className="tw-absolute tw-top-8 tw-left-8 tw-w-6 tw-h-6" />
                         </div>
                     </Transition.Child>
 

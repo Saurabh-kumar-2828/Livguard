@@ -508,6 +508,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अपने घर का प्रकार चुनें",
         [Language.Marathi]: "?????",
     },
+    homeS5T5P3: {
+        [Language.English]: "Add your preferred devices",
+        [Language.Hindi]: "अपने पसंदीदा उपकरण जोड़ें",
+        [Language.Marathi]: "?????",
+    },
+    homeS5T5P4: {
+        [Language.English]: "Select by Devices",
+        [Language.Hindi]: "डिवाइस के अनुसार चुनें",
+        [Language.Marathi]: "?????",
+    },
+    homeS5T5P5: {
+        [Language.English]: "Select by Rooms",
+        [Language.Hindi]: "कमरे के अनुसार चयन करें",
+        [Language.Marathi]: "?????",
+    },
     homeS5T6: {
         [Language.English]: "Let’s Plan",
         [Language.Hindi]: "नतीजा निकालें",
@@ -2812,6 +2827,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     loadCalculatorAdditionalInputsT4: {
         [Language.English]: "Let's Plan",
         [Language.Hindi]: "नतीजा निकालें",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorAdditionalInputsT5: {
+        [Language.English]: "Add Device",
+        [Language.Hindi]: "उपकरण जोड़ें",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorAdditionalInputsT6: {
+        [Language.English]: "Total Watts",
+        [Language.Hindi]: "कुल वाट",
         [Language.Marathi]: "?????",
     },
 
