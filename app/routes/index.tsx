@@ -31,7 +31,7 @@ import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = () => {
@@ -288,15 +288,15 @@ function HeroSection({
 
             <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
                 <DefaultTextAnimation>
-                    <div className="lg-text-banner">{getVernacularString("homeS1T1", userPreferences.language)}</div>
+                    <div className="lg-text-banner">{appendSpaceToString(getVernacularString("homeS1T1", userPreferences.language))}<br />{getVernacularString("homeS1T2", userPreferences.language)}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-title1">{getVernacularString("homeS1T2", userPreferences.language)}</div>
+                    <div className="lg-text-title1"></div>
                 </DefaultTextAnimation>
             </h2>
 
-            <DefaultElementAnimation className="tw-row-6 tw-col-start-1 tw-z-10">
+            <DefaultElementAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
                 <ContactUsCta
                     userPreferences={userPreferences}
                     textVernacId="homeS1T3"
@@ -323,7 +323,7 @@ function EnergyStorageSolutions({userPreferences, className}: {userPreferences: 
         >
             <h1 className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <DefaultTextAnimation>
-                    <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
+                    <div className="lg-text-highlighted">{appendSpaceToString(getVernacularString("homeS2T1", userPreferences.language))}</div>
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
                     <div>{getVernacularString("homeS2T2", userPreferences.language)}</div>
@@ -382,7 +382,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
         >
             <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("homeS3H1T1", userPreferences.language))}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T2", userPreferences.language)}} />
@@ -673,7 +673,7 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4 lg:tw-gap-y-8 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
                 <h2 className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("homeS7H1T1", userPreferences.language))}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T2", userPreferences.language)}} />
                 </h2>
 
@@ -850,7 +850,7 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
                 <VerticalSpacer className="tw-h-4" />
 
                 <h2 className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString(heading.text1, userPreferences.language))}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
                 </h2>
 

@@ -13,6 +13,10 @@ export function getRedirectToUrlFromRequest(request: Request) {
     return request.url.replace(`http://localhost:${process.env.PORT}`, "");
 }
 
+export function appendSpaceToString(input: string): string {
+    return input + " ";
+}
+
 // export function getCalculatedTheme(userPreferences: UserPreferences): Theme | null {
 //     if (userPreferences.theme == Theme.Dark) {
 //         return Theme.Dark;
