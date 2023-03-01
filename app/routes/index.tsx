@@ -258,14 +258,14 @@ function EnergyStorageSolutions({userPreferences, className}: {userPreferences: 
             id="energy-storage-solutions"
             className={className}
         >
-            <div className="tw-flex tw-flex-col tw-items-center lg-text-headline">
+            <h1 className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <DefaultTextAnimation>
                     <div className="lg-text-highlighted">{getVernacularString("homeS2T1", userPreferences.language)}</div>
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
                     <div>{getVernacularString("homeS2T2", userPreferences.language)}</div>
                 </DefaultTextAnimation>
-            </div>
+            </h1>
 
             <VerticalSpacer className="tw-h-8" />
 
