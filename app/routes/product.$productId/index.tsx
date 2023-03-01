@@ -27,13 +27,11 @@ import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries"
 import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 
 export const meta: MetaFunction = (params) => {
-
     return {
         title: "",
         description: "",
     };
 };
-
 
 type LoaderData = {
     userPreferences: UserPreferences;
