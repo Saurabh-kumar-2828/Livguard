@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
@@ -22,7 +22,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {BatteryType, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = () => {
@@ -30,6 +30,10 @@ export const meta: MetaFunction = () => {
         title: "Buy Inverter Battery Online at Best Prices In India",
         description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
     };
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/inverter-batteries/"}];
 };
 
 type LoaderData = {
@@ -66,7 +70,71 @@ export default function () {
             >
                 <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
             </PageScaffold>
+
             <DownloadCatalogueBottomBar userPreferences={userPreferences} />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Livfast Batteries Pvt Ltd",
+                            "url": "https://www.livguard.com/",
+                            "sameAs": [
+                                "https://www.facebook.com/LivguardEnergy/",
+                                "https://twitter.com/LivguardEnergy",
+                                "https://www.youtube.com/channel/UCKO6j1RdJP6_8mjtJrjWPbQ",
+                                "https://www.instagram.com/livguardenergy/?hl=en"
+                            ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "url": "https://www.livguard.com/",
+                            "logo": "https://www.livguard.com/img/livguard-logo.jpg"
+                        },
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "Organization",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Gurgaon",
+                                "addressRegion": "Haryana",
+                                "postalCode": "122016",
+                                "streetAddress": "Plot No. 221, Phase-I, Udyog Vihar,"
+                            },
+                            "email": "marketing@livguard.com",
+                            "image": "hhttps://www.livguard.com/img/livguard-logo.jpg",
+                            "url": "https://www.livguard.com/",
+                            "name": "Livguard Energy Technologies Private Limited",
+                            "contactPoint": [
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+91-124-4987 400",
+                                    "contactType": "customer service",
+                                    "areaServed": "India"
+                                },
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+1 1800-200-5551",
+                                    "contactType": "customer service",
+                                    "contactOption": "TollFree",
+                                    "areaServed": "India"
+                                },
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+1 1860-200-5552",
+                                    "contactType": "customer service",
+                                    "contactOption": "TollFree",
+                                    "areaServed": "India"
+                                }
+                            ]
+                        }
+                    `
+                }}
+            />
         </>
     );
 }
@@ -168,7 +236,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
-                <div className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T3", userPreferences.language)}</div>
+                <h2 className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T3", userPreferences.language)}</h2>
             </DefaultTextAnimation>
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
@@ -202,14 +270,14 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
-            <div className="lg-text-headline tw-text-center">
+            <h2 className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS2HT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS2HT1", userPreferences.language))}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS2HT2", userPreferences.language)}} />
                 </DefaultTextAnimation>
-            </div>
+            </h2>
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -302,10 +370,10 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 export function OurBatteriesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-center", className)}>
-            <div className="lg-text-screen-edge lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T1", userPreferences.language)}} />
+            <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS3T1", userPreferences.language))}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T2", userPreferences.language)}} />
-            </div>
+            </h2>
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -792,14 +860,14 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
+                <h2 className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS8HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS8HT1", userPreferences.language))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS8HT2", userPreferences.language)}} />
                     </DefaultTextAnimation>
-                </div>
+                </h2>
 
                 <VerticalSpacer className="tw-h-6" />
 
