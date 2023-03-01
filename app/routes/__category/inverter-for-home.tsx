@@ -33,7 +33,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/category/inverter-for-home/"}];
+    return [{rel: "canonical", href: "https://www.livguard.com/inverter-for-home/"}];
 };
 
 type LoaderData = {
