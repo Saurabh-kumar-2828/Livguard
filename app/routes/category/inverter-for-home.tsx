@@ -10,7 +10,7 @@ import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelpe
 import {InverterType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {EmpowerYourHomeComponent, OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -70,7 +70,71 @@ export default function () {
             >
                 <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
             </PageScaffold>
+
             <DownloadCatalogueBottomBar userPreferences={userPreferences} />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Livfast Batteries Pvt Ltd",
+                            "url": "https://www.livguard.com/",
+                            "sameAs": [
+                                "https://www.facebook.com/LivguardEnergy/",
+                                "https://twitter.com/LivguardEnergy",
+                                "https://www.youtube.com/channel/UCKO6j1RdJP6_8mjtJrjWPbQ",
+                                "https://www.instagram.com/livguardenergy/?hl=en"
+                            ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "url": "https://www.livguard.com/",
+                            "logo": "https://www.livguard.com/img/livguard-logo.jpg"
+                        },
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "Organization",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Gurgaon",
+                                "addressRegion": "Haryana",
+                                "postalCode": "122016",
+                                "streetAddress": "Plot No. 221, Phase-I, Udyog Vihar,"
+                            },
+                            "email": "marketing@livguard.com",
+                            "image": "hhttps://www.livguard.com/img/livguard-logo.jpg",
+                            "url": "https://www.livguard.com/",
+                            "name": "Livguard Energy Technologies Private Limited",
+                            "contactPoint": [
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+91-124-4987 400",
+                                    "contactType": "customer service",
+                                    "areaServed": "India"
+                                },
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+1 1800-200-5551",
+                                    "contactType": "customer service",
+                                    "contactOption": "TollFree",
+                                    "areaServed": "India"
+                                },
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+1 1860-200-5552",
+                                    "contactType": "customer service",
+                                    "contactOption": "TollFree",
+                                    "areaServed": "India"
+                                }
+                            ]
+                        }
+                    `
+                }}
+            />
         </>
     );
 }
@@ -177,10 +241,10 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
 export function OurInvertersSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-cente", className)}>
-            <div className="lg-text-screen-edge lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T1", userPreferences.language)}} />
+            <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS3T1", userPreferences.language))}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T2", userPreferences.language)}} />
-            </div>
+            </h2>
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -299,14 +363,14 @@ export function InvertersAreMentToLast({userPreferences, className}: {userPrefer
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
-            <div className="lg-text-headline tw-text-center">
+            <h1 className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS2HT1", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS2HT1", userPreferences.language))}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS2HT2", userPreferences.language)}} />
                 </DefaultTextAnimation>
-            </div>
+            </h1>
 
             <VerticalSpacer className="tw-h-6" />
 
@@ -395,14 +459,14 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col tw-items-center">
-                <div className="lg-text-headline tw-text-center">
+                <h2 className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS4HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS4HT1", userPreferences.language))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS4HT2", userPreferences.language)}} />
                     </DefaultTextAnimation>
-                </div>
+                </h2>
 
                 <VerticalSpacer className="tw-h-6" />
 
@@ -688,14 +752,14 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
+                <h2 className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS8HT1", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS8HT1", userPreferences.language))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS8HT2", userPreferences.language)}} />
                     </DefaultTextAnimation>
-                </div>
+                </h2>
 
                 <VerticalSpacer className="tw-h-6" />
 

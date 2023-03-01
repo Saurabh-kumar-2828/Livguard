@@ -288,11 +288,11 @@ function HeroSection({
 
             <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
                 <DefaultTextAnimation>
-                    <div className="lg-text-banner">{appendSpaceToString(getVernacularString("homeS1T1", userPreferences.language))}<br />{getVernacularString("homeS1T2", userPreferences.language)}</div>
+                    <div className="lg-text-banner">{appendSpaceToString(getVernacularString("homeS1T1", userPreferences.language))}</div>
                 </DefaultTextAnimation>
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-title1"></div>
+                    <div className="lg-text-title1">{getVernacularString("homeS1T2", userPreferences.language)}</div>
                 </DefaultTextAnimation>
             </h2>
 

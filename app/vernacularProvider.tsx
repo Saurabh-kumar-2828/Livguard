@@ -2040,7 +2040,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6HT1: {
-        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis </span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted"> Jodis </span>`,
         [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted"> जोड़ियाँ </span>`,
         [Language.Marathi]: "?????",
     },
@@ -2080,7 +2080,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8HT2: {
-        [Language.English]: `<span class="lg-text-highlighted"> Inverter Battery </span> For You`,
+        [Language.English]: `<span class="lg-text-highlighted"> Inverter </span> For You`,
         [Language.Hindi]: `उचित <span class="lg-text-highlighted"> इनवर्टर बैटरी </span> से`,
         [Language.Marathi]: "?????",
     },
