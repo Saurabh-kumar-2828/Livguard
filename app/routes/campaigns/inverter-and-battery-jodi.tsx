@@ -29,7 +29,7 @@ import {getVernacularString} from "~/vernacularProvider";
 export const meta: MetaFunction = () => {
     return {
         title: "Buy  livguard Smart & Strong Inverter and Battery Jodis",
-        desscription: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
+        description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
     };
 };
 

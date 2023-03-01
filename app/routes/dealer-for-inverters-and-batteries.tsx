@@ -31,7 +31,7 @@ import {getVernacularString} from "~/vernacularProvider";
 export const meta: MetaFunction = () => {
     return {
         title: "Dealer Locator | Find Livguard inverter battery shop near me",
-        desscription: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
+        description: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
     };
 };
 

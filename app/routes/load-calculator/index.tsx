@@ -33,7 +33,7 @@ import {getVernacularString} from "~/vernacularProvider";
 export const meta: MetaFunction = () => {
     return {
         title: "Plan the power consumption requirements of your home",
-        desscription: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
+        description: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
     };
 };
 

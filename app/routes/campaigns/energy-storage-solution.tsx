@@ -31,7 +31,7 @@ import {getVernacularString} from "~/vernacularProvider";
 export const meta: MetaFunction = () => {
     return {
         title: "Take charge of your energy with livguard home inverters and inverter batteries",
-        desscription: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
+        description: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
     };
 };
 

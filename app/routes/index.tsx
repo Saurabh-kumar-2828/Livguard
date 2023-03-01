@@ -37,7 +37,7 @@ import {getVernacularString} from "~/vernacularProvider";
 export const meta: MetaFunction = () => {
     return {
         title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
-        desscription: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
+        description: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
     };
 };
 
@@ -55,8 +55,6 @@ export const loader: LoaderFunction = async ({request}) => {
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
-
-    const urlSearchParams = new URL(request.url).searchParams;
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -86,6 +84,69 @@ export default function () {
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Livfast Batteries Pvt Ltd",
+                            "url": "https://www.livguard.com/",
+                            "sameAs": [
+                                "https://www.facebook.com/LivguardEnergy/",
+                                "https://twitter.com/LivguardEnergy",
+                                "https://www.youtube.com/channel/UCKO6j1RdJP6_8mjtJrjWPbQ",
+                                "https://www.instagram.com/livguardenergy/?hl=en"
+                            ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "url": "https://www.livguard.com/",
+                            "logo": "https://www.livguard.com/img/livguard-logo.jpg"
+                        },
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "Organization",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Gurgaon",
+                                "addressRegion": "Haryana",
+                                "postalCode": "122016",
+                                "streetAddress": "Plot No. 221, Phase-I, Udyog Vihar,"
+                            },
+                            "email": "marketing@livguard.com",
+                            "image": "hhttps://www.livguard.com/img/livguard-logo.jpg",
+                            "url": "https://www.livguard.com/",
+                            "name": "Livguard Energy Technologies Private Limited",
+                            "contactPoint": [
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+91-124-4987 400",
+                                    "contactType": "customer service",
+                                    "areaServed": "India"
+                                },
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+1 1800-200-5551",
+                                    "contactType": "customer service",
+                                    "contactOption": "TollFree",
+                                    "areaServed": "India"
+                                },
+                                {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+1 1860-200-5552",
+                                    "contactType": "customer service",
+                                    "contactOption": "TollFree",
+                                    "areaServed": "India"
+                                }
+                            ]
+                        }
+                    `
+                }}
+            />
         </>
     );
 }
@@ -204,7 +265,7 @@ function HeroSection({
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
         >
@@ -225,15 +286,17 @@ function HeroSection({
 
             <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
-                <div className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">{getVernacularString("homeS1T1", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+            <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
+                <DefaultTextAnimation>
+                    <div className="lg-text-banner">{getVernacularString("homeS1T1", userPreferences.language)}</div>
+                </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
-                <div className="lg-text-title1 lg-px-screen-edge tw-z-10">{getVernacularString("homeS1T2", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+                <DefaultTextAnimation>
+                    <div className="lg-text-title1">{getVernacularString("homeS1T2", userPreferences.language)}</div>
+                </DefaultTextAnimation>
+            </h2>
 
-            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 tw-z-10">
+            <DefaultElementAnimation className="tw-row-6 tw-col-start-1 tw-z-10">
                 <ContactUsCta
                     userPreferences={userPreferences}
                     textVernacId="homeS1T3"
@@ -244,7 +307,7 @@ function HeroSection({
 
             <Link
                 to="#energy-storage-solutions"
-                className="tw-row-[11] tw-col-start-1"
+                className="tw-row-[9] tw-col-start-1"
             >
                 <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
             </Link>
@@ -317,14 +380,14 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
             )}
             id="energy-solutions"
         >
-            <div className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
+            <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T1", userPreferences.language)}} />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS3H1T2", userPreferences.language)}} />
                 </DefaultTextAnimation>
-            </div>
+            </h2>
 
             <div className="lg-px-screen-edge tw-grid tw-grid-cols-5 tw-gap-x-4 tw-row-start-2 tw-col-start-1 tw-col-span-full lg:tw-grid-rows-5 lg:tw-grid-cols-1 lg:tw-gap-y-4 lg:tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-col-span-1 lg:tw-py-10">
                 <ItemBuilder
@@ -609,10 +672,10 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4 lg:tw-gap-y-8 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
+                <h2 className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS7H1T2", userPreferences.language)}} />
-                </div>
+                </h2>
 
                 <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 tw-px-6 lg-text-body lg:tw-max-w-[35rem] lg:tw-place-self-center">
                     {getVernacularString("homeS7T2", userPreferences.language)}
@@ -786,11 +849,10 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-h-full lg:tw-justify-center lg:tw-items-center">
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
+                <h2 className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
-
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
-                </div>
+                </h2>
 
                 <VerticalSpacer className="tw-h-4" />
 

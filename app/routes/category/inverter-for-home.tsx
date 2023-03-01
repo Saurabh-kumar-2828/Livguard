@@ -28,7 +28,7 @@ import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthI
 export const meta: MetaFunction = () => {
     return {
         title: "Buy Best Inverter for Home at the Lowest Price in India",
-        desscription: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+        description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
     };
 };
 

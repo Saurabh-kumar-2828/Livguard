@@ -28,7 +28,7 @@ import {getVernacularString} from "~/vernacularProvider";
 export const meta: MetaFunction = () => {
     return {
         title: "Buy Inverter Battery Online at Best Prices In India",
-        desscription: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
+        description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
     };
 };
 

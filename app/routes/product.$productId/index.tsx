@@ -30,7 +30,7 @@ export const meta: MetaFunction = (params) => {
 
     return {
         title: "",
-        desscription: "",
+        description: "",
     };
 };
 
