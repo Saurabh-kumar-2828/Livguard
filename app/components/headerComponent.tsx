@@ -29,7 +29,17 @@ enum SubMenu {
     More,
 }
 
-export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon, breadcrumbs}: {userPreferences: UserPreferences; redirectTo: string; showMobileMenuIcon: boolean; breadcrumbs: Array<{humanReadableString: string, link: string}>}) {
+export function HeaderComponent({
+    userPreferences,
+    redirectTo,
+    showMobileMenuIcon,
+    breadcrumbs,
+}: {
+    userPreferences: UserPreferences;
+    redirectTo: string;
+    showMobileMenuIcon: boolean;
+    breadcrumbs: Array<{humanReadableString: string; link: string}>;
+}) {
     const submit = useSubmit();
 
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
@@ -370,23 +380,30 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
             </div>
 
             {/* lg-text-secondary-700 */}
-            {breadcrumbs == null ? null : <div className="lg-px-screen-edge lg-bg-secondary-300 tw-flex tw-flex-row tw-items-center">
-                <ItemBuilder
-                    items={breadcrumbs}
-                    itemBuilder={(item, itemIndex) => (
-                        <Link
-                            to={item.link}
-                            key={itemIndex}
-                        >
-                            {item.humanReadableString}
-                        </Link>
-                    )}
-                    spaceBuilder={(spaceIndex) => (
-                        // <CaretRight className="tw-w-8 tw-h-4 tw-px-2" key={spaceIndex} />
-                        <div className="tw-px-2" key={spaceIndex}>{">"}</div>
-                    )}
-                />
-            </div>}
+            {breadcrumbs == null ? null : (
+                <div className="lg-px-screen-edge lg-bg-secondary-300 tw-flex tw-flex-row tw-items-center">
+                    <ItemBuilder
+                        items={breadcrumbs}
+                        itemBuilder={(item, itemIndex) => (
+                            <Link
+                                to={item.link}
+                                key={itemIndex}
+                            >
+                                {item.humanReadableString}
+                            </Link>
+                        )}
+                        spaceBuilder={(spaceIndex) => (
+                            // <CaretRight className="tw-w-8 tw-h-4 tw-px-2" key={spaceIndex} />
+                            <div
+                                className="tw-px-2"
+                                key={spaceIndex}
+                            >
+                                {">"}
+                            </div>
+                        )}
+                    />
+                </div>
+            )}
 
             <ContactUsDialog
                 userPreferences={userPreferences}
@@ -768,18 +785,21 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM1T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/inverter-for-home",
+                                                  external: false,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/solar-panels-and-inverters-for-home/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/high-capacity-inverters/",
+                                                  external: true,
                                                   download: null,
                                               },
                                           ]
@@ -789,24 +809,28 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM2T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/inverter-batteries",
+                                                  external: false,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/solar-battery-for-home/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/erickshaw-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T5",
                                                   enterClassName: "tw-delay-[400ms]",
                                                   link: "/vrla-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                           ]
@@ -816,36 +840,42 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM3T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/car-and-suv-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/two-wheeler-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/erickshaw-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T5",
                                                   enterClassName: "tw-delay-[400ms]",
                                                   link: "/bus-and-truck-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T6",
                                                   enterClassName: "tw-delay-[450ms]",
                                                   link: "/tractor-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T7",
                                                   enterClassName: "tw-delay-[450ms]",
                                                   link: "/three-wheeler-batteries/",
+                                                  external: true,
                                                   download: null,
                                               },
                                           ]
@@ -857,18 +887,21 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM5T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/stabilizer-for-AC-and-TV.php",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/E-rickshaw-charger-category/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/lg-trolley-category/",
+                                                  external: true,
                                                   download: null,
                                               },
                                           ]
@@ -882,30 +915,35 @@ function SubMenuDialog({
                                                   linkTextTextContentPiece: "headerMenuSM8T2",
                                                   enterClassName: "tw-delay-[250ms]",
                                                   link: "/about.php",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T6",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/e-waste-management.php",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T3",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "/blog/",
+                                                  external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T4",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://files.growthjockey.com/livguard/files/MGT-7-LETPL-2022.pdf",
+                                                  external: true,
                                                   download: "LETPL Annual return 2021-22",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T5",
                                                   enterClassName: "tw-delay-[300ms]",
                                                   link: "https://files.growthjockey.com/livguard/files/MGT-7-LBPL-2022.pdf",
+                                                  external: true,
                                                   download: "LBPL Annual return 2021-22",
                                               },
                                           ]
@@ -914,6 +952,7 @@ function SubMenuDialog({
                                 itemBuilder={(item, itemIndex) => (
                                     <InternalOrExternalOrDownloadLink
                                         to={item.link}
+                                        external={item.external}
                                         download={item.download}
                                         className="tw-flex tw-flex-row"
                                         key={itemIndex}
@@ -1213,17 +1252,19 @@ function ContactUsDialog({
     );
 }
 
-function InternalOrExternalOrDownloadLink({to, download, className, children}: {to: string; download: string | null; className?: string; children}) {
-    if (to[0] == "/") {
+function InternalOrExternalOrDownloadLink({to, external, download, className, children}: {to: string; external: boolean; download: string | null; className?: string; children}) {
+    if (download != null) {
         return (
-            <Link
-                to={to}
+            <a
+                href={to}
                 className={className}
+                download={download}
+                target="_blank"
             >
                 {children}
-            </Link>
+            </a>
         );
-    } else if (download == null) {
+    } else if (external) {
         return (
             <a
                 href={to}
@@ -1232,18 +1273,16 @@ function InternalOrExternalOrDownloadLink({to, download, className, children}: {
                 {children}
             </a>
         );
+    } else {
+        return (
+            <Link
+                to={to}
+                className={className}
+            >
+                {children}
+            </Link>
+        );
     }
-
-    return (
-        <a
-            href={to}
-            className={className}
-            download={download}
-            target="_blank"
-        >
-            {children}
-        </a>
-    );
 }
 
 type SearchQuery = {
