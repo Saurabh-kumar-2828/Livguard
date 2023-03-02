@@ -1037,6 +1037,7 @@ export function ContactUsDialog({
     const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
     useEffect(() => {
+
         if (fetcher.data == null) {
             return;
         }

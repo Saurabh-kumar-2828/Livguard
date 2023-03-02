@@ -19,6 +19,7 @@ import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, TransformingLives} from "~/routes";
+import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
@@ -87,16 +88,17 @@ export default function () {
 
     return (
         <>
-            <HeaderComponent
+            <CampaignPageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
-            />
+                utmParameters={utmSearchParameters}
+            >
             <LandingPage
                 userPreferences={userPreferences}
                 utmParameters={utmSearchParameters}
             />
-            <FooterSocialLogosAndCopyright userPreferences={userPreferences} />
+            </CampaignPageScaffold>
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
         </>
     );
