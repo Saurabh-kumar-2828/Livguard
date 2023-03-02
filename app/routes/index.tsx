@@ -16,6 +16,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FAQSection} from "~/components/faqs";
 import {LeadersCarousel} from "~/components/leadersCarousel";
+import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
@@ -433,10 +434,10 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                     imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
 
-                                <object
-                                    data={`https://files.growthjockey.com${item.svgIcon}`}
+                                <img
+                                    src={`https://files.growthjockey.com${item.svgIcon}`}
                                     className={concatenateNonNullStringsWithSpaces(
-                                        "tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none",
+                                        "tw-w-6 tw-h-6 dark:tw-invert",
                                         itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50",
                                     )}
                                 />
@@ -1056,126 +1057,90 @@ export function ContactUsDialog({
     }
 
     return (
-        <Transition
-            show={isContactUsDialogOpen}
-            as={React.Fragment}
+        <LivguardDialog
+            isDialogOpen={isContactUsDialogOpen}
+            tryToCloseDialog={tryToCloseContactUsDialog}
+            beforeEnter={() => ""}
+            title={getVernacularString("contactUsT1", userPreferences.language)}
         >
-            <Dialog
-                as="div"
-                className="tw-relative tw-z-50"
-                onClose={tryToCloseContactUsDialog}
+            <fetcher.Form
+                className="tw-w-full tw-flex tw-flex-col"
+                method="post"
+                action="/contact-us-submission"
             >
-                <Transition.Child
-                    as={React.Fragment}
-                    enter="tw-ease-out tw-transition-all tw-duration-200"
-                    enterFrom="tw-opacity-0"
-                    enterTo="tw-opacity-100"
-                    leave="tw-ease-in tw-transition-all tw-duration-200"
-                    leaveFrom="tw-opacity-100"
-                    leaveTo="tw-opacity-0"
+                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <input
+                    type="text"
+                    name="phoneNumber"
+                    pattern={phoneNumberValidationPattern}
+                    required
+                    className="lg-text-input"
+                />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <input
+                    type="text"
+                    name="name"
+                    required
+                    className="lg-text-input"
+                />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <input
+                    type="text"
+                    name="emailId"
+                    className="lg-text-input"
+                    pattern={emailIdValidationPattern}
+                    required
+                />
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <div className="tw-self-center">
+                    <FixedHeightImage
+                        relativePath="/livguard/header/akshay.png"
+                        height="13.75rem"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
+
+                <input
+                    name="utmParameters"
+                    className="tw-hidden"
+                    readOnly
+                    value={JSON.stringify(utmParameters)}
+                />
+
+                <button
+                    type="submit"
+                    className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                    disabled={fetcher.state != "idle"}
                 >
-                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
-                </Transition.Child>
+                    {getVernacularString("contactUsT5", userPreferences.language)}
+                </button>
+            </fetcher.Form>
+        </LivguardDialog>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-mx-auto tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
-                    <Transition.Child
-                        as="div"
-                        enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-opacity-0"
-                        enterTo="tw-opacity-full"
-                        leave="tw-ease-in tw-transition-all tw-duration-200"
-                        leaveFrom="tw-opacity-full"
-                        leaveTo="tw-opacity-0"
-                    >
-                        {formSubmittedSuccessfully ? (
-                            <FormSubmissionSuccess
-                                userPreferences={userPreferences}
-                                tryToCloseDialog={tryToCloseContactUsDialog}
-                            />
-                        ) : (
-                            <fetcher.Form
-                                className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
-                                method="post"
-                                action="/contact-us-submission"
-                            >
-                                <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
-                                    <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{getVernacularString("contactUsT1", userPreferences.language)}</div>
-                                    <X
-                                        className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8 tw-self-start"
-                                        onClick={tryToCloseContactUsDialog}
-                                    />
-                                </div>
 
-                                <VerticalSpacer className="tw-h-4" />
 
-                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    name="phoneNumber"
-                                    pattern={phoneNumberValidationPattern}
-                                    required
-                                    className="lg-text-input"
-                                />
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    name="name"
-                                    required
-                                    className="lg-text-input"
-                                />
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    name="emailId"
-                                    className="lg-text-input"
-                                    pattern={emailIdValidationPattern}
-                                    required
-                                />
-
-                                <VerticalSpacer className="tw-h-8" />
-
-                                <div className="tw-self-center">
-                                    <FixedHeightImage
-                                        relativePath="/livguard/header/akshay.png"
-                                        height="13.75rem"
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
-                                    />
-                                </div>
-
-                                <input
-                                    name="utmParameters"
-                                    className="tw-hidden"
-                                    readOnly
-                                    value={JSON.stringify(utmParameters)}
-                                />
-
-                                <button
-                                    type="submit"
-                                    className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
-                                    disabled={fetcher.state != "idle"}
-                                >
-                                    {getVernacularString("contactUsT5", userPreferences.language)}
-                                </button>
-                            </fetcher.Form>
-                        )}
-                    </Transition.Child>
-                </Dialog.Panel>
-            </Dialog>
-        </Transition>
+                        // {formSubmittedSuccessfully ? (
+                        //     <FormSubmissionSuccess
+                        //         userPreferences={userPreferences}
+                        //         tryToCloseDialog={tryToCloseContactUsDialog}
+                        //     />
+                        // ) : (
     );
 }

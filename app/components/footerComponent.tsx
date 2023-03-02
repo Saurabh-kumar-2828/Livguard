@@ -240,9 +240,11 @@ export function FooterComponent({
                         to="/"
                         className="tw-block dark:tw-hidden"
                     >
-                        <object
-                            data="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            className="tw-h-6 lg:tw-h-12 tw-pointer-events-none"
+                        <img
+                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                            width={385}
+                            height={96}
+                            className="tw-w-auto tw-h-6 lg:tw-h-12"
                         />
                     </Link>
 
@@ -250,9 +252,11 @@ export function FooterComponent({
                         to="/"
                         className="dark:tw-block tw-hidden"
                     >
-                        <object
-                            data="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            className="tw-h-6 lg:tw-h-12 tw-pointer-events-none"
+                        <img
+                            src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            width={385}
+                            height={96}
+                            className="tw-w-auto tw-h-6 lg:tw-h-12"
                         />
                     </Link>
 

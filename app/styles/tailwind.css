@@ -248,4 +248,21 @@
     .lg-range-input::-webkit-slider-thumb:hover {
         @apply lg-bg-primary-500;
     }
+
+    .lg-secondary-700-scrollbar::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* .lg-secondary-700-scrollbar::-webkit-scrollbar-track {
+        background-color: black;
+    } */
+
+    .lg-secondary-700-scrollbar::-webkit-scrollbar-thumb {
+        @apply tw-bg-secondary-700-light dark:tw-bg-secondary-700-dark;
+        border-radius: 25px;
+    }
+
+    #fc_frame {
+        z-index: 49 !important;
+    }
 }

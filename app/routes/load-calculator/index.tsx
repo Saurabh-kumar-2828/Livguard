@@ -408,8 +408,8 @@ function PropertySelectionForTeaser({
                                     relativePath={item.icon}
                                     imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
-                                <object
-                                    data={`https://files.growthjockey.com${item.svgIcon}`}
+                                <img
+                                    src={`https://files.growthjockey.com${item.svgIcon}`}
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-w-full tw-h-full dark:tw-invert",
                                         item.value == loadCalculatorInputs.property.propertyType ? "!tw-invert-0" : null,
@@ -693,8 +693,8 @@ function RoomSelection({
                                                         key={deviceTypeIndex}
                                                     >
                                                         <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-outline-3 tw-outline tw-outline-secondary-100-light dark:tw-outline-secondary-100-dark tw-flex tw-flex-col tw-justify-center tw-items-center">
-                                                            <object
-                                                                data={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
+                                                            <img
+                                                                src={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
                                                                 className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                             />
                                                         </div>
@@ -1298,8 +1298,8 @@ function EditRoomDialog({
                                                 key={deviceTypeToDeviceCountIndex}
                                             >
                                                 <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
-                                                    <object
-                                                        data={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceTypeToDeviceCount.deviceType}.svg`}
+                                                    <img
+                                                        src={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceTypeToDeviceCount.deviceType}.svg`}
                                                         className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                     />
                                                 </div>
@@ -1353,8 +1353,8 @@ function EditRoomDialog({
                                                             key={deviceTypeIndex}
                                                         >
                                                             <div className="tw-w-8 tw-h-8 lg-bg-secondary-900 tw-rounded-full tw-flex tw-flex-col tw-justify-center tw-items-center">
-                                                                <object
-                                                                    data={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
+                                                                <img
+                                                                    src={`https://files.growthjockey.com/livguard/icons/load-calculator/devices/${deviceType}.svg`}
                                                                     className="tw-w-5 tw-h-5 tw-invert dark:tw-invert-0"
                                                                 />
                                                             </div>

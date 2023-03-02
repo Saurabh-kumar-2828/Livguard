@@ -13,9 +13,9 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     to="/"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
-                    <object
-                        data="https://files.growthjockey.com/livguard/icons/bottom-bar/1.svg"
-                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
+                    <img
+                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/1.svg"
+                        className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
 
                     <div className="lg-text-icon">{getVernacularString("bottomBarT1", userPreferences.language)}</div>
@@ -27,9 +27,9 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     to="/inverter-for-home"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2 tw-relative"
                 >
-                    <object
-                        data="https://files.growthjockey.com/livguard/icons/bottom-bar/2.svg"
-                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
+                    <img
+                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/2.svg"
+                        className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div className="lg-text-icon">{getVernacularString("bottomBarT2", userPreferences.language)}</div>
 
@@ -61,9 +61,9 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     to="/dealer-for-inverters-and-batteries"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
-                    <object
-                        data="https://files.growthjockey.com/livguard/icons/bottom-bar/4.svg"
-                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer"
+                    <img
+                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/4.svg"
+                        className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
                     <div className="lg-text-icon">{getVernacularString("bottomBarT4", userPreferences.language)}</div>
                 </Link>
@@ -74,9 +74,9 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     href="tel:18001025551"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
-                    <object
-                        data="https://files.growthjockey.com/livguard/icons/bottom-bar/5.svg"
-                        className="tw-w-6 tw-h-6 dark:tw-invert tw-pointer-events-none"
+                    <img
+                        src="https://files.growthjockey.com/livguard/icons/bottom-bar/5.svg"
+                        className="tw-w-6 tw-h-6 dark:tw-invert"
                     />
 
                     <div className="lg-text-icon">{getVernacularString("bottomBarT5", userPreferences.language)}</div>
