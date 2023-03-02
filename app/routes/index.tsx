@@ -266,7 +266,7 @@ function HeroSection({
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
         >
@@ -463,7 +463,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
-                                buttonLink: "/category/inverter-for-home",
+                                buttonLink: "/inverter-for-home",
                                 target: null,
                             },
                             {
@@ -472,7 +472,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
-                                buttonLink: "/category/inverter-batteries",
+                                buttonLink: "/inverter-batteries",
                                 target: null,
                             },
                             {

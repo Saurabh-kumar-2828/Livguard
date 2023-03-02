@@ -95,12 +95,12 @@ export function FooterComponent({
     const invertersAndBatteriesAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
-            link: "/category/inverter-for-home",
+            link: "/inverter-for-home",
             target: false,
         },
         {
             title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
-            link: "/category/inverter-batteries",
+            link: "/inverter-batteries",
             target: false,
         },
         {

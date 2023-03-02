@@ -24,7 +24,7 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
 
             <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-col tw-items-center tw-gap-y-2">
                 <Link
-                    to="/category/inverter-for-home"
+                    to="/inverter-for-home"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2 tw-relative"
                 >
                     <object

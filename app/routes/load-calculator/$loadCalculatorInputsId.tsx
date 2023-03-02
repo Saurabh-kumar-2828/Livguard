@@ -408,7 +408,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                         <EmptyFlexFiller />
 
                         <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                            <Link to="/category/inverter-for-home">
+                            <Link to="/inverter-for-home">
                                 <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA2", userPreferences.language)}</div>
                             </Link>
                         </DefaultElementAnimation>
@@ -421,7 +421,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                         <EmptyFlexFiller />
 
                         <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
-                            <Link to="/category/inverter-batteries">
+                            <Link to="/inverter-batteries">
                                 <div className="lg-cta-button">{getVernacularString("loadCalculatorRecommendationsS2CTA3", userPreferences.language)}</div>
                             </Link>
                         </DefaultElementAnimation>

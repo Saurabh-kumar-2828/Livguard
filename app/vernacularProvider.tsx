@@ -697,8 +697,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q2A: {
-        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.`,
-        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/inverter-batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
         [Language.Marathi]: "?????",
     },
     homeS9Q3Q: {
@@ -717,8 +717,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9Q4A: {
-        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of <a href="/category/inverters" class="tw-underline">quality and durable options</a> to choose from.`,
-        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के <a href="/category/inverters" class="tw-underline">विकल्प</a> हैं।`,
+        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of <a href="/inverter-batteries" class="tw-underline">quality and durable options</a> to choose from.`,
+        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के <a href="/inverter-batteries" class="tw-underline">विकल्प</a> हैं।`,
         [Language.Marathi]: "?????",
     },
     homeS9Q5Q: {
@@ -2856,8 +2856,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInveterPageFAQQ2A: {
-        [Language.English]: `A sine wave inverter produces a smooth & consistent electrical output which is essential for powering electronics like computers, TVs, and other household appliances. Choose <a href="/category/inverters" class="tw-underline">Livguard's Pure Sine wave inverters</a>for smooth backup.`,
-        [Language.Hindi]: `एक साइन वेव इन्वर्टर एक सुचारू और सुसंगत विद्युत उत्पादन उत्पन्न करता है जो कंप्यूटर, टीवी और अन्य घरेलू उपकरणों जैसे इलेक्ट्रॉनिक्स को शक्ति प्रदान करने के लिए आवश्यक है। बिना रुकावट बैकअप के लिए<a href="/category/inverters" class="tw-underline">लिवगार्ड के प्योर साइन वेव इनवर्टर</a>चुनें।`,
+        [Language.English]: `A sine wave inverter produces a smooth & consistent electrical output which is essential for powering electronics like computers, TVs, and other household appliances. Choose <a href="/inverter-batteries" class="tw-underline">Livguard's Pure Sine wave inverters</a>for smooth backup.`,
+        [Language.Hindi]: `एक साइन वेव इन्वर्टर एक सुचारू और सुसंगत विद्युत उत्पादन उत्पन्न करता है जो कंप्यूटर, टीवी और अन्य घरेलू उपकरणों जैसे इलेक्ट्रॉनिक्स को शक्ति प्रदान करने के लिए आवश्यक है। बिना रुकावट बैकअप के लिए<a href="/inverter-batteries" class="tw-underline">लिवगार्ड के प्योर साइन वेव इनवर्टर</a>चुनें।`,
         [Language.Marathi]: "?????",
     },
     categoryInveterPageFAQQ3Q: {
@@ -2866,8 +2866,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInveterPageFAQQ3A: {
-        [Language.English]: `The number of home appliances a  <a href="/category/inverters" class="tw-underline">Livguard Inverter</a> can run depends on its capacity and power consumption. Livguard offers a wide range of inverters with different capacities that are suitable for various applications of your daily use`,
-        [Language.Hindi]: `<a href="/category/inverters" class="tw-underline">लिवगार्ड इन्वर्टर</a> कितने घरेलू उपकरणों को चला सकता है, यह इसकी क्षमता और बिजली की खपत पर निर्भर करता है। लिवगार्ड विभिन्न क्षमताओं वाले इनवर्टर की एक विस्तृत श्रृंखला प्रदान करता है जो आपके दैनिक उपयोग के विभिन्न अनुप्रयोगों के लिए उपयुक्त हैं।`,
+        [Language.English]: `The number of home appliances a  <a href="/inverter-batteries" class="tw-underline">Livguard Inverter</a> can run depends on its capacity and power consumption. Livguard offers a wide range of inverters with different capacities that are suitable for various applications of your daily use`,
+        [Language.Hindi]: `<a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर</a> कितने घरेलू उपकरणों को चला सकता है, यह इसकी क्षमता और बिजली की खपत पर निर्भर करता है। लिवगार्ड विभिन्न क्षमताओं वाले इनवर्टर की एक विस्तृत श्रृंखला प्रदान करता है जो आपके दैनिक उपयोग के विभिन्न अनुप्रयोगों के लिए उपयुक्त हैं।`,
         [Language.Marathi]: "?????",
     },
     categoryInveterPageFAQQ4Q: {
@@ -2876,7 +2876,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInveterPageFAQQ4A: {
-        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, <a href="/category/inverters" class="tw-underline">Livguard Inverters</a> are the right choice for you.`,
+        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, <a href="/inverter-batteries" class="tw-underline">Livguard Inverters</a> are the right choice for you.`,
         [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, <a href="/load-calculator" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए सही विकल्प हैं।`,
         [Language.Marathi]: "?????",
     },
@@ -2886,8 +2886,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInveterPageFAQQ5A: {
-        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/category/inverters" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
-        [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/category/inverters" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
+        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/inverter-batteries" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
+        [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ1Q: {
@@ -2906,8 +2906,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ2A: {
-        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring a reliable and uninterrupted power supply for your home or office.`,
-        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी </a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/inverter-batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring a reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी </a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ3Q: {
@@ -2916,8 +2916,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ3A: {
-        [Language.English]: `To check your inverter battery's health, disconnect it from the inverter and measure its voltage using a multimeter. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed with advanced technology and undergo rigorous testing, ensuring long-lasting durability and superior performance for reliable and uninterrupted power supply at home or office.`,
-        [Language.Hindi]: `इन्वर्टर बैटरी की स्वास्थ्य जांचने के लिए, इसे इनवर्टर से डिस्कनेक्ट करें और मल्टीमीटर का उपयोग करके उसकी वोल्टेज मापें। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> उन्नत तकनीक के साथ डिज़ाइन की गई हैं और कड़ी मेहनत से टेस्ट की जाती हैं, इससे आपको घर या ऑफिस के लिए दुर्लभ और अविराम बिजली आपूर्ति के लिए दृढ़ और बेहतर प्रदर्शन का विश्वास होगा।`,
+        [Language.English]: `To check your inverter battery's health, disconnect it from the inverter and measure its voltage using a multimeter. <a href="/inverter-batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed with advanced technology and undergo rigorous testing, ensuring long-lasting durability and superior performance for reliable and uninterrupted power supply at home or office.`,
+        [Language.Hindi]: `इन्वर्टर बैटरी की स्वास्थ्य जांचने के लिए, इसे इनवर्टर से डिस्कनेक्ट करें और मल्टीमीटर का उपयोग करके उसकी वोल्टेज मापें। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> उन्नत तकनीक के साथ डिज़ाइन की गई हैं और कड़ी मेहनत से टेस्ट की जाती हैं, इससे आपको घर या ऑफिस के लिए दुर्लभ और अविराम बिजली आपूर्ति के लिए दृढ़ और बेहतर प्रदर्शन का विश्वास होगा।`,
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ4Q: {
@@ -2926,8 +2926,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ4A: {
-        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/category/inverters" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
-        [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/category/inverters" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
+        [Language.English]: `An inverter converts DC (direct current) power from a battery or solar panel into AC (alternating current) power, which can power appliances. <a href="/inverter-batteries" class="tw-underline">Livguard Inverters</a>come with a variety of features and options for an unlimited flow of energy for you.`,
+        [Language.Hindi]: `एक इन्वर्टर DC (डायरेक्ट करंट) पावर को बैटरी या सोलर पैनल से AC (अल्टरनेटिंग करंट) पावर में परिवर्तित करता है, जो बिजली के उपकरणों को चला सकता है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इनवर्टर</a> आपके लिए ऊर्जा के असीमित प्रवाह के लिए कई प्रकार की विशेषताओं और विकल्पों के साथ आते हैं।`,
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ5Q: {
@@ -2936,8 +2936,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteryPageFAQQ5A: {
-        [Language.English]: `On average, a well-maintained Inverter Battery can last between 2 to 5 years, but it's important to keep an eye on its performance and replace it when necessary. Choose <a href="/category/batteries" class="tw-underline">Livguard inverter batteries</a> for long and durable support.`,
-        [Language.Hindi]: `औसतन, एक सुव्यवस्थित इन्वर्टर बैटरी 2 से 5 साल के बीच चल सकती है, लेकिन इसके प्रदर्शन पर नज़र रखना और आवश्यकता पड़ने पर इसे बदलना महत्वपूर्ण है। लंबे और टिकाऊ सपोर्ट के लिए <a href="/category/batteries" class="tw-underline">लिवगार्ड इनवर्टर बैटरी</a> चुनें।`,
+        [Language.English]: `On average, a well-maintained Inverter Battery can last between 2 to 5 years, but it's important to keep an eye on its performance and replace it when necessary. Choose <a href="/inverter-batteries" class="tw-underline">Livguard inverter batteries</a> for long and durable support.`,
+        [Language.Hindi]: `औसतन, एक सुव्यवस्थित इन्वर्टर बैटरी 2 से 5 साल के बीच चल सकती है, लेकिन इसके प्रदर्शन पर नज़र रखना और आवश्यकता पड़ने पर इसे बदलना महत्वपूर्ण है। लंबे और टिकाऊ सपोर्ट के लिए <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इनवर्टर बैटरी</a> चुनें।`,
         [Language.Marathi]: "?????",
     },
     dealerLocatorPageFAQQ1Q: {
@@ -3006,8 +3006,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage1Q2A: {
-        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.`,
-        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/inverter-batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
         [Language.Marathi]: "?????",
     },
     landingPage1Q3Q: {
@@ -3026,8 +3026,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage1Q4A: {
-        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of <a href="/category/inverters" class="tw-underline">quality and durable options</a> to choose from.`,
-        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के <a href="/category/inverters" class="tw-underline">विकल्प</a> हैं।`,
+        [Language.English]: `Inverters are the same for both homes and offices, however, their capacities differ based on power needs & backup required. Whether you need an inverter for your home or business, Livguard has a variety of <a href="/inverter-batteries" class="tw-underline">quality and durable options</a> to choose from.`,
+        [Language.Hindi]: `इन्वर्टर घरों और कार्यालयों दोनों के लिए समान हैं, हालांकि, बिजली की जरूरतों और आवश्यक बैकअप के आधार पर उनकी क्षमता भिन्न होती है। चाहे आपको अपने घर या व्यवसाय के लिए इन्वर्टर की आवश्यकता हो, लिवगार्ड के पास चुनने के लिए कई प्रकार के <a href="/inverter-batteries" class="tw-underline">विकल्प</a> हैं।`,
         [Language.Marathi]: "?????",
     },
     landingPage1Q5Q: {
@@ -3046,8 +3046,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2Q1A: {
-        [Language.English]: `To check your inverter battery's health, disconnect it from the inverter and measure its voltage using a multimeter. <a href="/category/batteries" class="tw-underline"> Livguard Inverter Batteries</a>are designed with advanced technology and undergo rigorous testing, ensuring long-lasting durability and superior performance for reliable and uninterrupted power supply at home or office.`,
-        [Language.Hindi]: `इन्वर्टर बैटरी की स्वास्थ्य जांचने के लिए, इसे इनवर्टर से डिस्कनेक्ट करें और मल्टीमीटर का उपयोग करके उसकी वोल्टेज मापें। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> उन्नत तकनीक के साथ डिज़ाइन की गई हैं और कड़ी मेहनत से टेस्ट की जाती हैं, इससे आपको घर या ऑफिस के लिए दुर्लभ और अविराम बिजली आपूर्ति के लिए दृढ़ और बेहतर प्रदर्शन का विश्वास होगा।`,
+        [Language.English]: `To check your inverter battery's health, disconnect it from the inverter and measure its voltage using a multimeter. <a href="/inverter-batteries" class="tw-underline"> Livguard Inverter Batteries</a>are designed with advanced technology and undergo rigorous testing, ensuring long-lasting durability and superior performance for reliable and uninterrupted power supply at home or office.`,
+        [Language.Hindi]: `इन्वर्टर बैटरी की स्वास्थ्य जांचने के लिए, इसे इनवर्टर से डिस्कनेक्ट करें और मल्टीमीटर का उपयोग करके उसकी वोल्टेज मापें। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> उन्नत तकनीक के साथ डिज़ाइन की गई हैं और कड़ी मेहनत से टेस्ट की जाती हैं, इससे आपको घर या ऑफिस के लिए दुर्लभ और अविराम बिजली आपूर्ति के लिए दृढ़ और बेहतर प्रदर्शन का विश्वास होगा।`,
         [Language.Marathi]: "?????",
     },
     landingPage2Q2Q: {
@@ -3056,8 +3056,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2Q2A: {
-        [Language.English]: `The number of home appliances a <a href="/category/inverters" class="tw-underline">Livguard Inverter</a> can run depends on its capacity and power consumption. Livguard offers a wide range of inverters with different capacities that are suitable for various applications of your daily use.`,
-        [Language.Hindi]: `<a href="/category/inverters" class="tw-underline">लिवगार्ड इन्वर्टर</a> कितने घरेलू उपकरणों को चला सकता है, यह इसकी क्षमता और बिजली की खपत पर निर्भर करता है। लिवगार्ड विभिन्न क्षमताओं वाले इनवर्टर की एक विस्तृत श्रृंखला प्रदान करता है जो आपके दैनिक उपयोग के विभिन्न अनुप्रयोगों के लिए उपयुक्त हैं।`,
+        [Language.English]: `The number of home appliances a <a href="/inverter-batteries" class="tw-underline">Livguard Inverter</a> can run depends on its capacity and power consumption. Livguard offers a wide range of inverters with different capacities that are suitable for various applications of your daily use.`,
+        [Language.Hindi]: `<a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर</a> कितने घरेलू उपकरणों को चला सकता है, यह इसकी क्षमता और बिजली की खपत पर निर्भर करता है। लिवगार्ड विभिन्न क्षमताओं वाले इनवर्टर की एक विस्तृत श्रृंखला प्रदान करता है जो आपके दैनिक उपयोग के विभिन्न अनुप्रयोगों के लिए उपयुक्त हैं।`,
         [Language.Marathi]: "?????",
     },
     landingPage2Q3Q: {
@@ -3066,8 +3066,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2Q3A: {
-        [Language.English]: `A sine wave inverter produces a smooth & consistent electrical output which is essential for powering electronics like computers, TVs, and other household appliances. Choose <a href="/category/inverters" class="tw-underline">Livguard's Pure Sine wave inverters</a> for smooth backup.`,
-        [Language.Hindi]: `एक साइन वेव इन्वर्टर एक सुचारू और सुसंगत विद्युत उत्पादन उत्पन्न करता है जो कंप्यूटर, टीवी और अन्य घरेलू उपकरणों जैसे इलेक्ट्रॉनिक्स को शक्ति प्रदान करने के लिए आवश्यक है। बिना रुकावट बैकअप के लिए <a href="/category/inverters" class="tw-underline">लिवगार्ड के प्योर साइन वेव इनवर्टर</a> चुनें।`,
+        [Language.English]: `A sine wave inverter produces a smooth & consistent electrical output which is essential for powering electronics like computers, TVs, and other household appliances. Choose <a href="/inverter-batteries" class="tw-underline">Livguard's Pure Sine wave inverters</a> for smooth backup.`,
+        [Language.Hindi]: `एक साइन वेव इन्वर्टर एक सुचारू और सुसंगत विद्युत उत्पादन उत्पन्न करता है जो कंप्यूटर, टीवी और अन्य घरेलू उपकरणों जैसे इलेक्ट्रॉनिक्स को शक्ति प्रदान करने के लिए आवश्यक है। बिना रुकावट बैकअप के लिए <a href="/inverter-batteries" class="tw-underline">लिवगार्ड के प्योर साइन वेव इनवर्टर</a> चुनें।`,
         [Language.Marathi]: "?????",
     },
     landingPage2Q4Q: {
@@ -3076,8 +3076,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2Q4A: {
-        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/category/batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring a reliable and uninterrupted power supply for your home or office.`,
-        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/category/batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
+        [Language.English]: `Connecting an inverter to a battery is a simple process of ensuring compatibility, connecting the cables, and testing. <a href="/inverter-batteries" class="tw-underline">Livguard Inverter Batteries</a> are designed for seamless compatibility and superior performance, ensuring a reliable and uninterrupted power supply for your home or office.`,
+        [Language.Hindi]: `इनवर्टर को बैटरी से कनेक्ट करना एक सरल प्रक्रिया है जिसमें संगतता की सुनिश्चितता, केबल कनेक्शन और टेस्टिंग शामिल होती है। <a href="/inverter-batteries" class="tw-underline">लिवगार्ड इन्वर्टर बैटरी</a> सुविधाजनक संगतता और बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपके घर या ऑफिस के लिए विश्वसनीय और अविराम बिजली आपूर्ति सुनिश्चित करती हैं।`,
         [Language.Marathi]: "?????",
     },
     landingPage2Q5Q: {
