@@ -57,7 +57,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure1T3", userPreferences.language)}`,
-            link: "/blog.php",
+            link: "/blog/",
             target: true,
         },
         {
