@@ -790,7 +790,7 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "
+                                                  link: "/solar-battery-for-home/",
                                                   download: null,
                                               },
                                               {
