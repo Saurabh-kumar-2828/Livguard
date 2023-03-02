@@ -207,13 +207,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T4: {
-        [Language.English]: "LETPL Annual return 2021-22",
-        [Language.Hindi]: "LETPL वार्षिक विवरण– 2021-22",
+        [Language.English]: "LBPL Notice dt 01/04/2023",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T5: {
-        [Language.English]: "LBPL Annual return 2021-22",
-        [Language.Hindi]: "LBPL वार्षिक विवरण– 2021-22",
+        [Language.English]: "LBPL Notice dt 01/04/2023",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "headerMenuSM8T5.5": {
+        [Language.English]: "LETPL Notice dt 01/04/2023",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     headerMenuSM8T6: {
