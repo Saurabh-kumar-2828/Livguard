@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Form, useActionData, useFetcher} from "@remix-run/react";
+import {Form, Link, useActionData, useFetcher, useTransition} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
@@ -14,6 +14,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
 import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
+import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -41,9 +42,8 @@ export const links: LinksFunction = () => {
 };
 
 type DealerLocatorActionData = {
-    dealerList: Array<Dealer>;
-    path: string;
-    error: string;
+    dealerList: Array<Dealer> | null;
+    error: string | null;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -53,10 +53,16 @@ export const action: ActionFunction = async ({request, params}) => {
     const dealerList = await getDealerForCity(city);
     // TOOD: Handle dealerList error
 
+    if (dealerList instanceof Error) {
+        return {
+            dealerList: null,
+            error: dealerList.message,
+        };
+    }
+
     const actionData: DealerLocatorActionData = {
         dealerList: dealerList,
-        error: dealerList == null ? "No Dealer Present For Selected Location" : "",
-        path: "/dealer-locator",
+        error: null,
     };
 
     return actionData;
@@ -88,6 +94,12 @@ export default function () {
     const actionData = useActionData();
 
     const utmSearchParameters = useUtmSearchParameters();
+
+    useEffect(() => {
+        if (actionData != null && actionData.error != null) {
+            toast.error(actionData.error);
+        }
+    }, [actionData]);
 
     return (
         <>
@@ -158,19 +170,22 @@ export function DealerLocatorPage({
     };
     className: string;
 }) {
-    const [showDealers, setShowDealers] = useState(false);
-    const [dealerList, setDealerList] = useState<Array<Dealer>>([]);
+    const transition = useTransition();
+
+    const [dealerList, setDealerList] = useState<Array<Dealer> | null>([]);
     // const [selectedCity, setSelectedCity] = useState("");
     const [showMore, setShowMore] = useState(false);
 
     useEffect(() => {
         if (actionData != null) {
-            if (!showMore) {
-                setDealerList(actionData.dealerList.slice(0, 6));
+            if (actionData.dealerList == null) {
+                setDealerList(null);
+            } else if (!showMore) {
+                setDealerList(actionData.dealerList.slice(0, 5));
             } else {
+                // TODO: Add more incrementally
                 setDealerList(actionData.dealerList);
             }
-        } else {
         }
     }, [actionData, showMore]);
 
@@ -238,105 +253,126 @@ export function DealerLocatorPage({
                         <button
                             type="submit"
                             className="lg-cta-button"
+                            disabled={transition.state != "idle"}
+                            onClick={() => {
+                                setDealerList(null);
+                                setShowMore(false);
+                            }}
                         >
                             {`${getVernacularString("dealerLocatorButtonText", userPreferences.language)}`}
                         </button>
                     </Form>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    {actionData == null ? null : actionData.dealerList == null || actionData.dealerList.length == 0 ? (
+                        <>
+                            <VerticalSpacer className="tw-h-4" />
 
-                    {actionData && actionData.dealerList.length == 0 && (
-                        <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
-                    )}
+                            <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
+                        </>
+                    ) : (
+                        <>
+                            <VerticalSpacer className="tw-h-4" />
 
-                    {actionData && actionData.dealerList && actionData.dealerList.length > 0 && (
-                        <div
-                            className="tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-place-self-center"
-                            onClick={() => setShowDealers(true)}
-                        >
-                            {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
-                        </div>
+                            {/* <Link
+                                to="#dealer-list"
+                                className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
+                            >
+                                {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                            </Link> */}
+                            <button
+                                type="button"
+                                className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
+                                onClick={() => document.getElementById("dealer-list")?.scrollIntoView()}
+                            >
+                                {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                            </button>
+                        </>
                     )}
                 </div>
             </div>
 
-            <VerticalSpacer className="tw-h-4" />
-
-            {showDealers && (
-                <div className="tw-flex tw-flex-col tw-gap-4">
-                    <div className="tw-flex tw-flex-col tw-gap-1">
-                        <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
-                        <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
-                        <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div>
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 lg:tw-gap-2">
-                        <ItemBuilder
-                            items={dealerList}
-                            itemBuilder={(dealer, dealerIndex) => (
-                                <React.Fragment key={dealerIndex}>
-                                    <DefaultElementAnimation>
-                                        <div
-                                            className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full"
-                                            key={dealerIndex}
-                                        >
-                                            <div className="lg-text-title1">{dealer.name}</div>
-
-                                            <VerticalSpacer className="tw-h-4" />
-
-                                            <div className="lg-text-body">Dealer Address:</div>
-
-                                            <div className="lg-text-body tw-felx-1">{`${dealer.address}, ${dealer.city}, ${dealer.state}, ${dealer.pinCode}`}</div>
-
-                                            <VerticalSpacer className="tw-h-4" />
-
-                                            <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
-                                                {/* <button
-                                                type="button"
-                                                className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-4"
-                                            >
-                                                Enquire Now
-                                            </button> */}
-                                                <ContactUsCta
-                                                    userPreferences={userPreferences}
-                                                    textVernacId="landingPageBottomBarT2"
-                                                    className="tw-z-10 lg:tw-place-self-end"
-                                                    utmParameters={utmParameters}
-                                                />
-
-                                                {/* <button
-                                                type="button"
-                                                className="tw-border tw-border-secondary-700 tw-p-2 tw-px-4 tw-rounded-3xl"
-                                            >
-                                                Get Direction
-                                            </button> */}
-                                            </div>
-                                        </div>
-                                    </DefaultElementAnimation>
-                                </React.Fragment>
-                            )}
-                        />
-                    </div>
-
+            {dealerList == null || dealerList.length == 0 ? null : (
+                <>
                     <VerticalSpacer className="tw-h-4" />
 
-                    {!showMore && actionData.dealerList.length > 6 && (
-                        <div
-                            className="lg-text-headline lg-text-secondary-300 tw-text-center tw-underline hover:tw-cursor-pointer"
-                            onClick={() => setShowMore(true)}
-                        >
-                            Find More
+                    <div
+                        className="tw-flex tw-flex-col tw-gap-4"
+                        id="dealer-list"
+                    >
+                        <div className="tw-flex tw-flex-col tw-gap-1">
+                            <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
+                            <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
+                            <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div>
                         </div>
-                    )}
-                </div>
+
+                        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 lg:tw-gap-x-2 tw-gap-y-3">
+                            <ItemBuilder
+                                items={dealerList}
+                                itemBuilder={(dealer, dealerIndex) => (
+                                    <React.Fragment key={dealerIndex}>
+                                        <DefaultElementAnimation>
+                                            <div
+                                                className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full"
+                                                key={dealerIndex}
+                                            >
+                                                <div className="lg-text-title1">{dealer.name}</div>
+
+                                                <VerticalSpacer className="tw-h-4" />
+
+                                                <div className="lg-text-body">Dealer Address:</div>
+
+                                                <div className="lg-text-body">{`${dealer.address}, ${dealer.city}, ${dealer.state}, ${dealer.pinCode}`}</div>
+
+                                                <div className="lg-text-body">M: {dealer.phoneNumber}</div>
+
+                                                <EmptyFlexFiller />
+
+                                                <VerticalSpacer className="tw-h-4" />
+
+                                                <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
+                                                    {/* <button
+                                                    type="button"
+                                                    className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-4"
+                                                >
+                                                    Enquire Now
+                                                </button> */}
+                                                    <ContactUsCta
+                                                        userPreferences={userPreferences}
+                                                        textVernacId="landingPageBottomBarT2"
+                                                        className="tw-z-10 lg:tw-place-self-end"
+                                                        utmParameters={utmParameters}
+                                                    />
+
+                                                    {/* <button
+                                                    type="button"
+                                                    className="tw-border tw-border-secondary-700 tw-p-2 tw-px-4 tw-rounded-3xl"
+                                                >
+                                                    Get Direction
+                                                </button> */}
+                                                </div>
+                                            </div>
+                                        </DefaultElementAnimation>
+                                    </React.Fragment>
+                                )}
+                            />
+                        </div>
+
+                        {!showMore && actionData.dealerList && actionData.dealerList.length > 6 && (
+                            <div
+                                className="lg-text-headline lg-text-secondary-900 tw-text-center tw-underline hover:tw-cursor-pointer"
+                                onClick={() => setShowMore(true)}
+                            >
+                                Find More
+                            </div>
+                        )}
+                    </div>
+                </>
             )}
         </div>
     );
 }
 
-function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
+function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
     const defaultCenter = {
         lat: 21.7679,
         lng: 78.8718,
@@ -355,7 +391,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
     };
 
     useEffect(() => {
-        if (dealerList.length > 0) {
+        if (dealerList != null && dealerList.length > 0) {
             const latCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.latitude), Number(0)) / 5;
             const lngCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.longitude), Number(0)) / 5;
             setMapCenter({lat: latCenter, lng: lngCenter});
@@ -373,7 +409,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer>}) {
                 center={mapCenter}
                 zoom={zoomLevel}
             >
-                {dealerList.length > 0 && dealerList.slice(0, 5).map((dealer) => <MarkerF position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}} />)}
+                {dealerList == null || dealerList.length == 0 ? null : dealerList.slice(0, 5).map((dealer, dealerIndex) => <MarkerF position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}} key={dealerIndex} />)}
 
                 {/* <Autocomplete
                     onLoad={()}

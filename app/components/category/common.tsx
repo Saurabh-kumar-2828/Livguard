@@ -339,15 +339,30 @@ export function ProductOverviewComponent({
 }
 
 export function DownloadCta({userPreferences, textVernacId, utmParameters, className}: {userPreferences: UserPreferences; textVernacId: string; utmParameters: {[searchParameter: string]: string}; className?: string}) {
-    const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
+    // const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
 
-    function tryToOpenDownloadDialog() {
-        setIsDownloadDialogOpen(true);
-    }
+    // function tryToOpenDownloadDialog() {
+    //     setIsDownloadDialogOpen(true);
+    // }
 
     return (
         <div className={className}>
-            <div
+            <a
+                href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
+                download
+                className={"tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-2 lg:tw-p-4 tw-justify-start tw-items-center tw-gap-3"}
+                target="_blank"
+            >
+                <div className="tw-h-8 tw-min-w-[32px]">
+                    <FullWidthImage
+                        relativePath="/livguard/icons/downloadCatalogue.png"
+                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
+                    />
+                </div>
+                <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
+            </a>
+
+            {/* <div
                 className={"tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-2 lg:tw-p-4 tw-justify-start tw-items-center tw-gap-3"}
                 onClick={tryToOpenDownloadDialog}
             >
@@ -358,260 +373,260 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
                     />
                 </div>
                 <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
-            </div>
+            </div> */}
 
-            <DownloadDialog
+            {/* <DownloadDialog
                 userPreferences={userPreferences}
                 isDownloadDialogOpen={isDownloadDialogOpen}
                 setIsDownloadDialogOpen={setIsDownloadDialogOpen}
                 utmParameters={utmParameters}
-            />
+            /> */}
         </div>
     );
 }
 
-export function DownloadDialog({
-    userPreferences,
-    isDownloadDialogOpen,
-    setIsDownloadDialogOpen,
-    utmParameters,
-}: {
-    userPreferences: UserPreferences;
-    isDownloadDialogOpen: boolean;
-    setIsDownloadDialogOpen: React.Dispatch<boolean>;
-    utmParameters: {[searchParameter: string]: string};
-}) {
-    // TODO: Understand why we cannot use action for this
-    const fetcher = useFetcher();
+// export function DownloadDialog({
+//     userPreferences,
+//     isDownloadDialogOpen,
+//     setIsDownloadDialogOpen,
+//     utmParameters,
+// }: {
+//     userPreferences: UserPreferences;
+//     isDownloadDialogOpen: boolean;
+//     setIsDownloadDialogOpen: React.Dispatch<boolean>;
+//     utmParameters: {[searchParameter: string]: string};
+// }) {
+//     // TODO: Understand why we cannot use action for this
+//     const fetcher = useFetcher();
 
-    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
+//     const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
-    useEffect(() => {
-        if (fetcher.data == null) {
-            return;
-        }
+//     useEffect(() => {
+//         if (fetcher.data == null) {
+//             return;
+//         }
 
-        if (fetcher.data.error != null) {
-            toast.error(fetcher.data.error);
-            return;
-        }
+//         if (fetcher.data.error != null) {
+//             toast.error(fetcher.data.error);
+//             return;
+//         }
 
-        setFormSubmittedSuccessfully(true);
-    }, [fetcher.data]);
+//         setFormSubmittedSuccessfully(true);
+//     }, [fetcher.data]);
 
-    function tryToCloseDownloadDialog() {
-        setIsDownloadDialogOpen(false);
-    }
+//     function tryToCloseDownloadDialog() {
+//         setIsDownloadDialogOpen(false);
+//     }
 
-    return (
-        <Transition
-            show={isDownloadDialogOpen}
-            as={React.Fragment}
-        >
-            <Dialog
-                as="div"
-                className="tw-relative tw-z-50"
-                onClose={tryToCloseDownloadDialog}
-            >
-                <Transition.Child
-                    as={React.Fragment}
-                    enter="tw-ease-out tw-transition-all tw-duration-200"
-                    enterFrom="tw-opacity-0"
-                    enterTo="tw-opacity-100"
-                    leave="tw-ease-in tw-transition-all tw-duration-200"
-                    leaveFrom="tw-opacity-100"
-                    leaveTo="tw-opacity-0"
-                >
-                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
-                </Transition.Child>
+//     return (
+//         <Transition
+//             show={isDownloadDialogOpen}
+//             as={React.Fragment}
+//         >
+//             <Dialog
+//                 as="div"
+//                 className="tw-relative tw-z-50"
+//                 onClose={tryToCloseDownloadDialog}
+//             >
+//                 <Transition.Child
+//                     as={React.Fragment}
+//                     enter="tw-ease-out tw-transition-all tw-duration-200"
+//                     enterFrom="tw-opacity-0"
+//                     enterTo="tw-opacity-100"
+//                     leave="tw-ease-in tw-transition-all tw-duration-200"
+//                     leaveFrom="tw-opacity-100"
+//                     leaveTo="tw-opacity-0"
+//                 >
+//                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
+//                 </Transition.Child>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-mx-auto tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
-                    <Transition.Child
-                        as="div"
-                        enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-opacity-0"
-                        enterTo="tw-opacity-full"
-                        leave="tw-ease-in tw-transition-all tw-duration-200"
-                        leaveFrom="tw-opacity-full"
-                        leaveTo="tw-opacity-0"
-                    >
-                        {formSubmittedSuccessfully ? (
-                            <DownloadFormSubmissionSuccess
-                                userPreferences={userPreferences}
-                                tryToCloseDialog={tryToCloseDownloadDialog}
-                            />
-                        ) : (
-                            <div
-                                className="lg-px-screen-edge tw-flex tw-flex-col"
-                                id="contactUs"
-                            >
-                                <VerticalSpacer className="tw-h-4" />
+//                 <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-max-w-[30rem] tw-mx-auto tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
+//                     <Transition.Child
+//                         as="div"
+//                         enter="tw-ease-out tw-transition-all tw-duration-200"
+//                         enterFrom="tw-opacity-0"
+//                         enterTo="tw-opacity-full"
+//                         leave="tw-ease-in tw-transition-all tw-duration-200"
+//                         leaveFrom="tw-opacity-full"
+//                         leaveTo="tw-opacity-0"
+//                     >
+//                         {formSubmittedSuccessfully ? (
+//                             <DownloadFormSubmissionSuccess
+//                                 userPreferences={userPreferences}
+//                                 tryToCloseDialog={tryToCloseDownloadDialog}
+//                             />
+//                         ) : (
+//                             <div
+//                                 className="lg-px-screen-edge tw-flex tw-flex-col"
+//                                 id="contactUs"
+//                             >
+//                                 <VerticalSpacer className="tw-h-4" />
 
-                                <DefaultElementAnimation>
-                                    <fetcher.Form
-                                        className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden"
-                                        method="post"
-                                        action="/contact-us-submission"
-                                    >
-                                        <CoverImage
-                                            relativePath="/livguard/contact form/contact_form_background.jpg"
-                                            imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                                            className="tw-row-[1/span_11] tw-col-start-1 tw-rounded-lg tw-opacity-70"
-                                        />
+//                                 <DefaultElementAnimation>
+//                                     <fetcher.Form
+//                                         className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[2rem_auto_1rem_auto_1rem_auto_1rem_auto_1rem_auto_2rem] tw-justify-items-center tw-overflow-hidden"
+//                                         method="post"
+//                                         action="/contact-us-submission"
+//                                     >
+//                                         <CoverImage
+//                                             relativePath="/livguard/contact form/contact_form_background.jpg"
+//                                             imageCdnProvider={ImageCdnProvider.GrowthJockey}
+//                                             className="tw-row-[1/span_11] tw-col-start-1 tw-rounded-lg tw-opacity-70"
+//                                         />
 
-                                        <div className="tw-row-start-2 tw-col-start-1 lg-text-title1 tw-text-center lg-text-secondary-900-dark tw-z-10">
-                                            <DefaultTextAnimation>
-                                                <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT1", userPreferences.language)}} />
-                                            </DefaultTextAnimation>
-                                            <DefaultTextAnimation>
-                                                <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT2", userPreferences.language)}} />
-                                            </DefaultTextAnimation>
-                                        </div>
+//                                         <div className="tw-row-start-2 tw-col-start-1 lg-text-title1 tw-text-center lg-text-secondary-900-dark tw-z-10">
+//                                             <DefaultTextAnimation>
+//                                                 <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT1", userPreferences.language)}} />
+//                                             </DefaultTextAnimation>
+//                                             <DefaultTextAnimation>
+//                                                 <div dangerouslySetInnerHTML={{__html: getVernacularString("downloadFormHT2", userPreferences.language)}} />
+//                                             </DefaultTextAnimation>
+//                                         </div>
 
-                                        <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+//                                         <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+//                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
-                                            <input
-                                                type="text"
-                                                name="phoneNumber"
-                                                pattern={phoneNumberValidationPattern}
-                                                required
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
-                                            />
-                                        </div>
+//                                             <input
+//                                                 type="text"
+//                                                 name="phoneNumber"
+//                                                 pattern={phoneNumberValidationPattern}
+//                                                 required
+//                                                 className="lg-text-input"
+//                                                 placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+//                                             />
+//                                         </div>
 
-                                        <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+//                                         <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+//                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                required
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
-                                            />
-                                        </div>
+//                                             <input
+//                                                 type="text"
+//                                                 name="name"
+//                                                 required
+//                                                 className="lg-text-input"
+//                                                 placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
+//                                             />
+//                                         </div>
 
-                                        <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                            <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+//                                         <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+//                                             <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
 
-                                            <input
-                                                type="text"
-                                                name="emailId"
-                                                pattern={emailIdValidationPattern}
-                                                required
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
-                                            />
-                                        </div>
+//                                             <input
+//                                                 type="text"
+//                                                 name="emailId"
+//                                                 pattern={emailIdValidationPattern}
+//                                                 required
+//                                                 className="lg-text-input"
+//                                                 placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
+//                                             />
+//                                         </div>
 
-                                        <input
-                                            name="utmParameters"
-                                            className="tw-hidden"
-                                            readOnly
-                                            value={JSON.stringify(utmParameters)}
-                                        />
+//                                         <input
+//                                             name="utmParameters"
+//                                             className="tw-hidden"
+//                                             readOnly
+//                                             value={JSON.stringify(utmParameters)}
+//                                         />
 
-                                        <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                                            <button
-                                                type="submit"
-                                                className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
-                                            >
-                                                {getVernacularString("downloadFormT3", userPreferences.language)}
-                                            </button>
-                                        </div>
-                                    </fetcher.Form>
-                                </DefaultElementAnimation>
-                            </div>
-                        )}
-                    </Transition.Child>
-                </Dialog.Panel>
-            </Dialog>
-        </Transition>
-    );
-}
+//                                         <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+//                                             <button
+//                                                 type="submit"
+//                                                 className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+//                                             >
+//                                                 {getVernacularString("downloadFormT3", userPreferences.language)}
+//                                             </button>
+//                                         </div>
+//                                     </fetcher.Form>
+//                                 </DefaultElementAnimation>
+//                             </div>
+//                         )}
+//                     </Transition.Child>
+//                 </Dialog.Panel>
+//             </Dialog>
+//         </Transition>
+//     );
+// }
 
-export function DownloadFormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences; tryToCloseDialog: () => void}) {
-    return (
-        <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-pt-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center tw-relative">
-            <button
-                type="button"
-                className="tw-absolute tw-top-6 tw-right-6"
-                onClick={tryToCloseDialog}
-            >
-                <X className="tw-w-8 tw-h-8" />
-            </button>
+// function DownloadFormSubmissionSuccess({userPreferences, tryToCloseDialog}: {userPreferences: UserPreferences; tryToCloseDialog: () => void}) {
+//     return (
+//         <div className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-pt-6 tw-rounded-lg tw-flex tw-flex-col tw-text-center tw-justify-center tw-items-center tw-relative">
+//             <button
+//                 type="button"
+//                 className="tw-absolute tw-top-6 tw-right-6"
+//                 onClick={tryToCloseDialog}
+//             >
+//                 <X className="tw-w-8 tw-h-8" />
+//             </button>
 
-            <FixedWidthImage
-                relativePath="/livguard/icons/confirmation.png"
-                imageCdnProvider={ImageCdnProvider.GrowthJockey}
-                width="10rem"
-            />
+//             <FixedWidthImage
+//                 relativePath="/livguard/icons/confirmation.png"
+//                 imageCdnProvider={ImageCdnProvider.GrowthJockey}
+//                 width="10rem"
+//             />
 
-            <VerticalSpacer className="tw-h-2" />
+//             <VerticalSpacer className="tw-h-2" />
 
-            <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
-                className="lg-text-banner"
-            />
+//             <div
+//                 dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+//                 className="lg-text-banner"
+//             />
 
-            <VerticalSpacer className="tw-h-4" />
+//             <VerticalSpacer className="tw-h-4" />
 
-            <div
-                dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT2", userPreferences.language)}}
-                className="lg-text-title2"
-            />
+//             <div
+//                 dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT2", userPreferences.language)}}
+//                 className="lg-text-title2"
+//             />
 
-            <VerticalSpacer className="tw-h-8" />
+//             <VerticalSpacer className="tw-h-8" />
 
-            <a
-                href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
-                className="lg-text-body"
-            >
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT3", userPreferences.language)}}
-                    className="lg-text-body"
-                />
-            </a>
+//             <a
+//                 href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
+//                 className="lg-text-body"
+//             >
+//                 <div
+//                     dangerouslySetInnerHTML={{__html: getVernacularString("downloadSuccessT3", userPreferences.language)}}
+//                     className="lg-text-body"
+//                 />
+//             </a>
 
-            <VerticalSpacer className="tw-h-8" />
+//             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-w-full tw-flex tw-justify-evenly">
-                <a
-                    href="https://www.facebook.com/LivguardEnergy/"
-                    target="_blank"
-                >
-                    <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://twitter.com/LivguardEnergy"
-                    target="_blank"
-                >
-                    <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://www.instagram.com/livguardenergy/"
-                    target="_blank"
-                >
-                    <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://www.linkedin.com/company/livguard-energy/"
-                    target="_blank"
-                >
-                    <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-                <a
-                    href="https://www.youtube.com/@LivguardEnergy"
-                    target="_blank"
-                >
-                    <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                </a>
-            </div>
-        </div>
-    );
-}
+//             <div className="tw-w-full tw-flex tw-justify-evenly">
+//                 <a
+//                     href="https://www.facebook.com/LivguardEnergy/"
+//                     target="_blank"
+//                 >
+//                     <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+//                 </a>
+//                 <a
+//                     href="https://twitter.com/LivguardEnergy"
+//                     target="_blank"
+//                 >
+//                     <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+//                 </a>
+//                 <a
+//                     href="https://www.instagram.com/livguardenergy/"
+//                     target="_blank"
+//                 >
+//                     <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+//                 </a>
+//                 <a
+//                     href="https://www.linkedin.com/company/livguard-energy/"
+//                     target="_blank"
+//                 >
+//                     <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+//                 </a>
+//                 <a
+//                     href="https://www.youtube.com/@LivguardEnergy"
+//                     target="_blank"
+//                 >
+//                     <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+//                 </a>
+//             </div>
+//         </div>
+//     );
+// }
 
 export function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     const embeddedVideos = [

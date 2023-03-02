@@ -855,7 +855,7 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryBatteriesS8B2T", userPreferences.language)}`,
                 downloadLink: "https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf",
-                popup: true,
+                popup: false,
             },
         ],
         buttonText: `${getVernacularString("categoryBatteriesS8BT", userPreferences.language)}`,

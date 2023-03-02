@@ -10,11 +10,12 @@ export async function getDealerForCity(city: string): Promise<Array<Dealer> | Er
             FROM
                 livguard.dealer
             WHERE
-                 LOWER(city) = $1 OR pin_code = $1
+                city ILIKE $1 OR
+                pin_code ILIKE $1
             ORDER BY
                 dealer_name DESC
         `,
-        [city.toLowerCase()],
+        [`%${city}%`],
     );
 
     if (result instanceof Error) {
