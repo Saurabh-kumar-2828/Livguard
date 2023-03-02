@@ -540,147 +540,105 @@ export function ApplyNowForDealerDialog({
     }
 
     return (
-        <Transition
-            show={isApplyNowDialogOpen}
-            as={React.Fragment}
-        >
-            <Dialog
-                as="div"
-                className="tw-relative tw-z-50"
-                onClose={tryToCloseApplyNowDialog}
+        <>
+            <LivguardDialog
+                isDialogOpen={isApplyNowDialogOpen && !formSubmittedSuccessfully}
+                tryToCloseDialog={tryToCloseApplyNowDialog}
+                title={getVernacularString("applyNowForDealerT1", userPreferences.language)}
             >
-                <Transition.Child
-                    as={React.Fragment}
-                    enter="tw-ease-out tw-transition-all tw-duration-200"
-                    enterFrom="tw-opacity-0"
-                    enterTo="tw-opacity-100"
-                    leave="tw-ease-in tw-transition-all tw-duration-200"
-                    leaveFrom="tw-opacity-100"
-                    leaveTo="tw-opacity-0"
+                <fetcher.Form
+                    className="tw-w-full tw-flex tw-flex-col"
+                    method="post"
+                    action="/apply-for-dealership"
                 >
-                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
-                </Transition.Child>
+                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT2", userPreferences.language)}*`}</div>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-justify-center tw-items-center">
-                    <Transition.Child
-                        as={React.Fragment}
-                        enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-opacity-0"
-                        enterTo="tw-opacity-full"
-                        leave="tw-ease-in tw-transition-all tw-duration-200"
-                        leaveFrom="tw-opacity-full"
-                        leaveTo="tw-opacity-0"
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <input
+                        type="text"
+                        className="lg-text-input"
+                        name="phoneNumber"
+                        pattern={phoneNumberValidationPattern}
+                        required
+                        placeholder={getVernacularString("applyNowForDealerPH2", userPreferences.language)}
+                    />
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <input
+                        type="text"
+                        className="lg-text-input"
+                        name="name"
+                        required
+                        placeholder={getVernacularString("applyNowForDealerPH3", userPreferences.language)}
+                    />
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT4", userPreferences.language)}*`}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <input
+                        type="text"
+                        className="lg-text-input"
+                        name="emailId"
+                        pattern={emailIdValidationPattern}
+                        required
+                        placeholder={getVernacularString("applyNowForDealerPH4", userPreferences.language)}
+                    />
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT5", userPreferences.language)}*`}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <input
+                        type="text"
+                        className="lg-text-input"
+                        name="city"
+                        required
+                        placeholder={getVernacularString("applyNowForDealerPH5", userPreferences.language)}
+                    />
+
+                    <VerticalSpacer className="tw-h-8" />
+
+                    <div className="tw-self-center">
+                        <FixedHeightImage
+                            relativePath="/livguard/header/akshay.png"
+                            height="13.75rem"
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                        />
+                    </div>
+
+                    <input
+                        name="utmParameters"
+                        className="tw-hidden"
+                        readOnly
+                        value={JSON.stringify(utmParameters)}
+                    />
+
+                    <button
+                        type="submit"
+                        className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                     >
-                        {formSubmittedSuccessfully ? (
-                            <div>
-                                <FormSubmissionSuccess
-                                    userPreferences={userPreferences}
-                                    tryToCloseDialog={tryToCloseApplyNowDialog}
-                                />
-                            </div>
-                        ) : (
-                            <fetcher.Form
-                                className="tw-w-full tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col"
-                                method="post"
-                                action="/apply-for-dealership"
-                            >
-                                <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
-                                    <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">
-                                        {getVernacularString("applyNowForDealerT1", userPreferences.language)}
-                                    </div>
-                                    <X
-                                        className="tw-row-start-1 tw-col-start-3 tw-w-8 tw-h-8"
-                                        onClick={tryToCloseApplyNowDialog}
-                                    />
-                                </div>
+                        {getVernacularString("applyNowForDealerT6", userPreferences.language)}
+                    </button>
+                </fetcher.Form>
+            </LivguardDialog>
 
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT2", userPreferences.language)}*`}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    className="lg-text-input"
-                                    name="phoneNumber"
-                                    pattern={phoneNumberValidationPattern}
-                                    required
-                                    placeholder={getVernacularString("applyNowForDealerPH2", userPreferences.language)}
-                                />
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    className="lg-text-input"
-                                    name="name"
-                                    required
-                                    placeholder={getVernacularString("applyNowForDealerPH3", userPreferences.language)}
-                                />
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT4", userPreferences.language)}*`}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    className="lg-text-input"
-                                    name="emailId"
-                                    pattern={emailIdValidationPattern}
-                                    required
-                                    placeholder={getVernacularString("applyNowForDealerPH4", userPreferences.language)}
-                                />
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT5", userPreferences.language)}*`}</div>
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <input
-                                    type="text"
-                                    className="lg-text-input"
-                                    name="city"
-                                    required
-                                    placeholder={getVernacularString("applyNowForDealerPH5", userPreferences.language)}
-                                />
-
-                                <VerticalSpacer className="tw-h-8" />
-
-                                <div className="tw-self-center">
-                                    <FixedHeightImage
-                                        relativePath="/livguard/header/akshay.png"
-                                        height="13.75rem"
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
-                                    />
-                                </div>
-
-                                <input
-                                    name="utmParameters"
-                                    className="tw-hidden"
-                                    readOnly
-                                    value={JSON.stringify(utmParameters)}
-                                />
-
-                                <button
-                                    type="submit"
-                                    className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
-                                >
-                                    {getVernacularString("applyNowForDealerT6", userPreferences.language)}
-                                </button>
-                            </fetcher.Form>
-                        )}
-                    </Transition.Child>
-                </Dialog.Panel>
-            </Dialog>
-        </Transition>
+            <FormSubmissionSuccessLivguardDialog
+                userPreferences={userPreferences}
+                isDialogOpen={isApplyNowDialogOpen && formSubmittedSuccessfully}
+                tryToCloseDialog={tryToCloseApplyNowDialog}
+            />
+        </>
     );
 }
 
