@@ -777,7 +777,7 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
             tryToCloseDialog={tryToCloseDialog}
             title={null}
         >
-            <div className="tw-w-full tw-flex tw-flex-col tw-items-center">
+            <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-text-center">
                 <FixedWidthImage
                     relativePath="/livguard/icons/confirmation.png"
                     imageCdnProvider={ImageCdnProvider.Imgix}
