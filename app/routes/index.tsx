@@ -28,7 +28,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
-import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
+import {FormSubmissionSuccess, FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
@@ -1057,90 +1057,88 @@ export function ContactUsDialog({
     }
 
     return (
-        <LivguardDialog
-            isDialogOpen={isContactUsDialogOpen}
-            tryToCloseDialog={tryToCloseContactUsDialog}
-            beforeEnter={() => ""}
-            title={getVernacularString("contactUsT1", userPreferences.language)}
-        >
-            <fetcher.Form
-                className="tw-w-full tw-flex tw-flex-col"
-                method="post"
-                action="/contact-us-submission"
+        <>
+            <LivguardDialog
+                isDialogOpen={isContactUsDialogOpen && !formSubmittedSuccessfully}
+                tryToCloseDialog={tryToCloseContactUsDialog}
+                title={getVernacularString("contactUsT1", userPreferences.language)}
             >
-                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-2" />
-
-                <input
-                    type="text"
-                    name="phoneNumber"
-                    pattern={phoneNumberValidationPattern}
-                    required
-                    className="lg-text-input"
-                />
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-2" />
-
-                <input
-                    type="text"
-                    name="name"
-                    required
-                    className="lg-text-input"
-                />
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-2" />
-
-                <input
-                    type="text"
-                    name="emailId"
-                    className="lg-text-input"
-                    pattern={emailIdValidationPattern}
-                    required
-                />
-
-                <VerticalSpacer className="tw-h-8" />
-
-                <div className="tw-self-center">
-                    <FixedHeightImage
-                        relativePath="/livguard/header/akshay.png"
-                        height="13.75rem"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
-                    />
-                </div>
-
-                <input
-                    name="utmParameters"
-                    className="tw-hidden"
-                    readOnly
-                    value={JSON.stringify(utmParameters)}
-                />
-
-                <button
-                    type="submit"
-                    className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
-                    disabled={fetcher.state != "idle"}
+                <fetcher.Form
+                    className="tw-w-full tw-flex tw-flex-col"
+                    method="post"
+                    action="/contact-us-submission"
                 >
-                    {getVernacularString("contactUsT5", userPreferences.language)}
-                </button>
-            </fetcher.Form>
-        </LivguardDialog>
+                    <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
+                    <VerticalSpacer className="tw-h-2" />
 
+                    <input
+                        type="text"
+                        name="phoneNumber"
+                        pattern={phoneNumberValidationPattern}
+                        required
+                        className="lg-text-input"
+                    />
 
-                        // {formSubmittedSuccessfully ? (
-                        //     <FormSubmissionSuccess
-                        //         userPreferences={userPreferences}
-                        //         tryToCloseDialog={tryToCloseContactUsDialog}
-                        //     />
-                        // ) : (
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <input
+                        type="text"
+                        name="name"
+                        required
+                        className="lg-text-input"
+                    />
+
+                    <VerticalSpacer className="tw-h-4" />
+
+                    <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <input
+                        type="text"
+                        name="emailId"
+                        className="lg-text-input"
+                        pattern={emailIdValidationPattern}
+                        required
+                    />
+
+                    <VerticalSpacer className="tw-h-8" />
+
+                    <div className="tw-self-center">
+                        <FixedHeightImage
+                            relativePath="/livguard/header/akshay.png"
+                            height="13.75rem"
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                        />
+                    </div>
+
+                    <input
+                        name="utmParameters"
+                        className="tw-hidden"
+                        readOnly
+                        value={JSON.stringify(utmParameters)}
+                    />
+
+                    <button
+                        type="submit"
+                        className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                        disabled={fetcher.state != "idle"}
+                    >
+                        {getVernacularString("contactUsT5", userPreferences.language)}
+                    </button>
+                </fetcher.Form>
+            </LivguardDialog>
+
+            <FormSubmissionSuccessLivguardDialog
+                userPreferences={userPreferences}
+                isDialogOpen={isContactUsDialogOpen && formSubmittedSuccessfully}
+                tryToCloseDialog={tryToCloseContactUsDialog}
+            />
+        </>
     );
 }

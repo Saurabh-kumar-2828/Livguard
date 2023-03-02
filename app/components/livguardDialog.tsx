@@ -3,7 +3,7 @@ import React from "react";
 import {X} from "react-bootstrap-icons";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 
-export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEnter, title, children}: {isDialogOpen: boolean, tryToCloseDialog: () => void, beforeEnter: () => void, title: string, children}) {
+export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEnter, title, children}: {isDialogOpen: boolean, tryToCloseDialog: () => void, beforeEnter?: () => void, title: string | null, children}) {
     return (
         <Transition
             show={isDialogOpen}
@@ -29,7 +29,7 @@ export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEn
                 <Dialog.Panel className="lg-px-screen-edge tw-py-[var(--lg-px-screen-edge)] tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-place-items-center">
                     <Transition.Child
                         as="div"
-                        className="tw-w-full tw-max-w-[30rem] tw-max-h-full tw-overflow-y-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar"
+                        className="tw-w-full tw-max-w-[30rem] tw-max-h-full tw-overflow-y-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
                         enter="tw-ease-out tw-transition-all tw-duration-200"
                         enterFrom="tw-opacity-0"
                         enterTo="tw-opacity-full"
@@ -38,19 +38,21 @@ export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEn
                         leaveTo="tw-opacity-0"
                         beforeEnter={beforeEnter}
                     >
-                        <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_2rem] tw-items-center">
-                            <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline">{title}</div>
 
-                            <button
-                                type="button"
-                                onClick={tryToCloseDialog}
-                                className="tw-row-start-1 tw-col-start-3 tw-self-start lg-bg-secondary-300 tw-rounded-full tw-relative -tw-top-4 -tw-right-4"
-                            >
-                                <X className="tw-w-8 tw-h-8" />
-                            </button>
-                        </div>
+                        <button
+                            type="button"
+                            onClick={tryToCloseDialog}
+                            className="lg-bg-secondary-300 tw-rounded-full tw-absolute tw-top-2 tw-right-2"
+                        >
+                            <X className="tw-w-8 tw-h-8" />
+                        </button>
 
-                        <VerticalSpacer className="tw-h-4" />
+                        {title == null ? null : (
+                            <>
+                                <div className="tw-row-start-1 tw-col-start-2 tw-flex-1 tw-text-center lg-text-headline tw-px-8">{title}</div>
+                                <VerticalSpacer className="tw-h-4" />
+                            </>
+                        )}
 
                         {children}
                     </Transition.Child>

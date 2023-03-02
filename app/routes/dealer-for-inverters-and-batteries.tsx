@@ -12,6 +12,7 @@ import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
+import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
@@ -95,7 +96,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[{humanReadableString: "Home", link: "/"}, {humanReadableString: "Dealer Locator", link: "#"}]}
+                breadcrumbs={[
+                    {humanReadableString: "Home", link: "/"},
+                    {humanReadableString: "Dealer Locator", link: "#"},
+                ]}
             >
                 <DealerLocatorPage
                     userPreferences={userPreferences}
@@ -763,6 +767,90 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
                 />
             </div>
         </div>
+    );
+}
+
+export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOpen, tryToCloseDialog}: {userPreferences: UserPreferences; isDialogOpen: boolean; tryToCloseDialog: () => void}) {
+    return (
+        <LivguardDialog
+            isDialogOpen={isDialogOpen}
+            tryToCloseDialog={tryToCloseDialog}
+            title={null}
+        >
+            <div className="tw-w-full tw-flex tw-flex-col tw-items-center">
+                <FixedWidthImage
+                    relativePath="/livguard/icons/confirmation.png"
+                    imageCdnProvider={ImageCdnProvider.Imgix}
+                    width="10rem"
+                />
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
+                    className="lg-text-banner"
+                />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
+                    className="lg-text-title2"
+                />
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <div className="tw-w-full tw-flex tw-justify-evenly">
+                    <a
+                        href="https://www.facebook.com/LivguardEnergy/"
+                        target="_blank"
+                    >
+                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://twitter.com/LivguardEnergy"
+                        target="_blank"
+                    >
+                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.instagram.com/livguardenergy/"
+                        target="_blank"
+                    >
+                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/company/livguard-energy/"
+                        target="_blank"
+                    >
+                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.youtube.com/@LivguardEnergy"
+                        target="_blank"
+                    >
+                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                    className="lg-text-body"
+                />
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <div className="tw-self-center">
+                    <FixedHeightImage
+                        relativePath="/livguard/header/akshay.png"
+                        height="13.75rem"
+                        imageCdnProvider={ImageCdnProvider.Imgix}
+                    />
+                </div>
+            </div>
+        </LivguardDialog>
     );
 }
 
