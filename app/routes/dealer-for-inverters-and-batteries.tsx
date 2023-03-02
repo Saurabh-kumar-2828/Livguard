@@ -551,7 +551,7 @@ export function ApplyNowForDealerDialog({
                     method="post"
                     action="/apply-for-dealership"
                 >
-                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT2", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT2", userPreferences.language)}*`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -566,7 +566,7 @@ export function ApplyNowForDealerDialog({
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -580,7 +580,7 @@ export function ApplyNowForDealerDialog({
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT4", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT4", userPreferences.language)}*`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -595,7 +595,7 @@ export function ApplyNowForDealerDialog({
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title2 tw-pl-3">{`${getVernacularString("applyNowForDealerT5", userPreferences.language)}*`}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT5", userPreferences.language)}*`}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -627,6 +627,7 @@ export function ApplyNowForDealerDialog({
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
+                        disabled={fetcher.state != "idle"}
                     >
                         {getVernacularString("applyNowForDealerT6", userPreferences.language)}
                     </button>

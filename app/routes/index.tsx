@@ -1068,7 +1068,7 @@ export function ContactUsDialog({
                     method="post"
                     action="/contact-us-submission"
                 >
-                    <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -1082,7 +1082,7 @@ export function ContactUsDialog({
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
@@ -1095,7 +1095,7 @@ export function ContactUsDialog({
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
