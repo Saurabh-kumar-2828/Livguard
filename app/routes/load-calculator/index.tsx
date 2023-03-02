@@ -204,8 +204,8 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <AdditionalInputsSection
                 userPreferences={userPreferences}
-                loadCalculatorInputs={loadCalculatorInputs}
-                dispatch={dispatch}
+                loadCalculatorInputs={selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs}
+                dispatch={selectedIndex == 0 ? dispatchNewUi : dispatch}
             />
 
             <VerticalSpacer className="tw-h-8" />
