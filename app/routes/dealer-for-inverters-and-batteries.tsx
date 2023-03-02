@@ -83,7 +83,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
-    const initialDealerList: Array<Dealer> = [];
+    // const initialDealerList: Array<Dealer> = [];
 
     const actionData = useActionData();
 

@@ -23,7 +23,6 @@ import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/
 import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, generateUuid, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
-
 import {FaqSection} from "~/routes";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
@@ -109,6 +108,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                breadcrumbs={[
+                    {humanReadableString: "Home", link: "/"},
+                    {humanReadableString: "Load Calculator", link: "#"},
+                ]}
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>

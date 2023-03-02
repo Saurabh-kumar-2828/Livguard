@@ -67,6 +67,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                breadcrumbs={[
+                    {humanReadableString: "Home", link: "/"},
+                    {humanReadableString: "Inverter Batteries", link: "#"},
+                ]}
             >
                 <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
             </PageScaffold>

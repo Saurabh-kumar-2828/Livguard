@@ -74,6 +74,11 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                breadcrumbs={[
+                    {humanReadableString: "Home", link: "/"},
+                    {humanReadableString: "Load Calculator", link: "/load-calculator"},
+                    {humanReadableString: "Your Results", link: "#"},
+                ]}
             >
                 <LoadCalculatorResult
                     userPreferences={userPreferences}

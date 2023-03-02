@@ -1,6 +1,6 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import {Form, Link, useSubmit} from "@remix-run/react";
+import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
@@ -38,7 +38,7 @@ export function HeaderComponent({
     userPreferences: UserPreferences;
     redirectTo: string;
     showMobileMenuIcon: boolean;
-    breadcrumbs: Array<{humanReadableString: string; link: string}>;
+    breadcrumbs?: Array<{humanReadableString: string; link: string}>;
 }) {
     const submit = useSubmit();
 
@@ -379,7 +379,6 @@ export function HeaderComponent({
                 </button>
             </div>
 
-            {/* lg-text-secondary-700 */}
             {breadcrumbs == null ? null : (
                 <div className="lg-px-screen-edge lg-bg-secondary-300 tw-flex tw-flex-row tw-items-center">
                     <ItemBuilder
@@ -457,6 +456,8 @@ function MenuDialog({
     subMenuState: React.MutableRefObject<MenuState>;
     tryToOpenSubMenu: (subMenu: SubMenu) => void;
 }) {
+    const navigate = useNavigate();
+
     function tryToCloseMenu() {
         if (menuState.current == MenuState.Open) {
             setIsMenuOpen(false);
@@ -584,7 +585,13 @@ function MenuDialog({
                                             if (item.subMenu != null) {
                                                 tryToOpenSubMenu(item.subMenu);
                                             } else {
-                                                window.open(item.link, "_blank");
+                                                if (item.link.startsWith("/")) {
+                                                    // TODO: This will break if the link is from the old website! Use with caution!
+                                                    navigate(item.link);
+                                                } else {
+                                                    window.open(item.link, "_blank");
+                                                }
+                                                tryToCloseMenu();
                                             }
                                         }}
                                     >

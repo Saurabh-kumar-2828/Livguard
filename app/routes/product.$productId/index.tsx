@@ -9,7 +9,7 @@ import {getRedirectToUrlFromRequest} from "~/utilities";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {PageScaffold} from "~/components/pageScaffold";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {ProductCardComponent, SocialHandles} from "~/components/category/common";
@@ -68,6 +68,11 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                breadcrumbs={[
+                    {humanReadableString: "Home", link: "/"},
+                    // TODO: Add category
+                    {humanReadableString: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "Product", link: "#"},
+                ]}
             >
                 <ProductPage
                     userPreferences={userPreferences}
