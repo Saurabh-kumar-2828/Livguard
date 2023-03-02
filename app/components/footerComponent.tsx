@@ -77,7 +77,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure1T7", userPreferences.language)}`,
-            link: "https://www.livguard.com/pdf/CSR%20Policy%20(LBPL).pdf",
+            link: "/pdf/CSR%20Policy%20(LBPL).pdf",
             target: true,
         },
         {
@@ -192,7 +192,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
-            link: "/dealer-locator-for-invertors-and-batteries",
+            link: "/dealer-for-invertors-and-batteries",
             target: false,
         },
         {
