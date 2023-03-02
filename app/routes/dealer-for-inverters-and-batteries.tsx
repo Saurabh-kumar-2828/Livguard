@@ -95,6 +95,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                breadcrumbs={[{humanReadableString: "Home", link: "/"}, {humanReadableString: "Dealer Locator", link: "#"}]}
             >
                 <DealerLocatorPage
                     userPreferences={userPreferences}

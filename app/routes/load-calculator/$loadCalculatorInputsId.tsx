@@ -2,7 +2,7 @@ import {ShareIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useLoaderData} from "react-router";
-import {getLoadCalculatorEntry, getLoadCalculatorOutputs, LoadCalculatorOutputs} from "~/backend/loadCalculator";
+import {getLoadCalculatorEntry, getLoadCalculatorOutputs, LoadCalculatorOutputs} from "~/backend/loadCalculator.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";

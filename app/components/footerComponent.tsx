@@ -47,32 +47,32 @@ export function FooterComponent({
     const aboutUsAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure1T1", userPreferences.language)}`,
-            link: "https://livguard.com/contact.php",
+            link: "/contact.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T2", userPreferences.language)}`,
-            link: "https://livguard.com/global-reach.php",
+            link: "/global-reach.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T3", userPreferences.language)}`,
-            link: "https://livguard.com/blog.php",
+            link: "/blog.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T4", userPreferences.language)}`,
-            link: "https://livguard.com/privacy-policy.php",
+            link: "/privacy-policy.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T5", userPreferences.language)}`,
-            link: "https://livguard.com/sales-return-policy.php",
+            link: "/sales-return-policy.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T6", userPreferences.language)}`,
-            link: "https://livguard.com/terms-and-conditions.php",
+            link: "/terms-and-conditions.php",
             target: true,
         },
         {
@@ -82,12 +82,12 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure1T8", userPreferences.language)}`,
-            link: "https://livguard.com/video-galery.php",
+            link: "/video-gallery.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T9", userPreferences.language)}`,
-            link: "https://livguard.com/sitemap.xml",
+            link: "/sitemap.xml",
             target: true,
         },
     ];
@@ -95,17 +95,17 @@ export function FooterComponent({
     const invertersAndBatteriesAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure2T1", userPreferences.language)}`,
-            link: "https://www.livguard.com/category/inverter-for-home",
+            link: "/category/inverter-for-home",
             target: false,
         },
         {
             title: `${getVernacularString("footerDisclosure2T2", userPreferences.language)}`,
-            link: "https://www.livguard.com/category/inverter-batteries",
+            link: "/category/inverter-batteries",
             target: false,
         },
         {
             title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
-            link: "https://www.livguard.com/high-capacity-inverters/",
+            link: "/high-capacity-inverters/",
             target: true,
         },
     ];
@@ -113,27 +113,27 @@ export function FooterComponent({
     const automativeBatteriesAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure3T1", userPreferences.language)}`,
-            link: "https://www.livguard.com/three-wheeler-batteries/",
+            link: "/three-wheeler-batteries/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure3T2", userPreferences.language)}`,
-            link: "https://www.livguard.com/tractor-batteries/",
+            link: "/tractor-batteries/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure3T3", userPreferences.language)}`,
-            link: "https://www.livguard.com/bus-and-truck-batteries/",
+            link: "/bus-and-truck-batteries/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure3T4", userPreferences.language)}`,
-            link: "https://www.livguard.com/tow-wheeler-batteries/",
+            link: "/two-wheeler-batteries/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure3T5", userPreferences.language)}`,
-            link: "https://www.livguard.com/erickshaw-batteries/",
+            link: "/erickshaw-batteries/",
             target: true,
         },
     ];
@@ -141,37 +141,37 @@ export function FooterComponent({
     const solarSolutionsAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure4T1", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-panels-for-home/",
+            link: "/solar-panels-for-home/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure4T2", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-grid-interactive-series-for-home/",
+            link: "/solar-grid-interactive-series-for-home/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure4T3", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
+            link: "/solar-panels-and-inverters-for-home/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure4T4", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-management-unit-for-home/",
+            link: "/solar-management-unit-for-home/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure4T5", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-charge-controller-for-home/",
+            link: "/solar-charge-controller-for-home/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure4T6", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-led-street-light/",
+            link: "/solar-led-street-light/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure4T7", userPreferences.language)}`,
-            link: "https://www.livguard.com/solar-battery-for-home/",
+            link: "/solar-battery-for-home/",
             target: true,
         },
     ];
@@ -179,7 +179,7 @@ export function FooterComponent({
     const stabelizersAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure5T1", userPreferences.language)}`,
-            link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
+            link: "/stabilizer-for-AC-and-TV.php",
             target: true,
         },
     ];
@@ -187,27 +187,27 @@ export function FooterComponent({
     const howCanWehelpAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure6T1", userPreferences.language)}`,
-            link: "https://www.livguard.com/battery-finder.php",
+            link: "/battery-finder.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
-            link: "https://www.livguard.com/dealer-locator-for-invertors-and-batteries",
+            link: "/dealer-locator-for-invertors-and-batteries",
             target: false,
         },
         {
             title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,
-            link: "https://www.livguard.com/bmhr.php",
+            link: "/bmhr.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure6T4", userPreferences.language)}`,
-            link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
+            link: "/register-and-warranty-for-inverters.php",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure6T5", userPreferences.language)}`,
-            link: "https://www.livguard.com/contact.php",
+            link: "/contact.php",
             target: true,
         },
     ];

@@ -34,7 +34,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.Livguard.com/Inverter-and-battery-Jodi/"}];
+    return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
 };
 
 // TODO: Rework for fetcher
@@ -197,7 +197,7 @@ function HeroSection({
                 relativePath="/livguard/landingPages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 imageCdnProvider={ImageCdnProvider.Imgix}
-                alt="Inverter And Battery Jodi"
+                // alt="Inverter And Battery Jodi"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">

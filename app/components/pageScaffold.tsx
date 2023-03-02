@@ -9,6 +9,7 @@ export function PageScaffold({
     redirectTo,
     showMobileMenuIcon,
     utmParameters,
+    breadcrumbs,
 }: {
     userPreferences: UserPreferences;
     children: any;
@@ -17,6 +18,7 @@ export function PageScaffold({
     utmParameters: {
         [searchParameter: string]: string;
     };
+    breadcrumbs: Array<{humanReadableString: string, link: string}>
 }) {
     return (
         <>
@@ -26,6 +28,7 @@ export function PageScaffold({
                     userPreferences={userPreferences}
                     redirectTo={redirectTo}
                     showMobileMenuIcon={showMobileMenuIcon}
+                    breadcrumbs={breadcrumbs}
                 />
 
                 {children}

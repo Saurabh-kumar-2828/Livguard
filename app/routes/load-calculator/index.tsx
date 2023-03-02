@@ -6,7 +6,7 @@ import React, {useEffect, useReducer, useState} from "react";
 import {Check2, PlusCircleFill, Search} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {insertLoadCalculatorEntry} from "~/backend/loadCalculator";
+import {insertLoadCalculatorEntry} from "~/backend/loadCalculator.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -256,9 +256,9 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-gradient-to-b tw-from-primary-500-dark tw-to-secondary-100-dark" />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 tw-z-10">
-                <div className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">
+                <h1 className="lg-text-banner lg-px-screen-edge tw-z-10 tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorS1T1", userPreferences.language)}} />
-                </div>
+                </h1>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10 tw-max-w-2xl">

@@ -1,16 +1,14 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
-import {Bars3Icon, ChevronRightIcon, LanguageIcon} from "@heroicons/react/20/solid";
-import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
+import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
+import {Form, Link, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
-import {ArrowLeftShort, BrightnessHighFill, BrightnessLowFill, Check2, ChevronDown, MoonStarsFill, PhoneFill, Search, Telephone, X} from "react-bootstrap-icons";
+import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {Spacer} from "~/global-common-typescript/components/spacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces, distinct} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -31,7 +29,7 @@ enum SubMenu {
     More,
 }
 
-export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon}: {userPreferences: UserPreferences; redirectTo: string; showMobileMenuIcon: boolean}) {
+export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon, breadcrumbs}: {userPreferences: UserPreferences; redirectTo: string; showMobileMenuIcon: boolean; breadcrumbs: Array<{humanReadableString: string, link: string}>}) {
     const submit = useSubmit();
 
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
@@ -367,6 +365,25 @@ export function HeaderComponent({userPreferences, redirectTo, showMobileMenuIcon
                 </button>
             </div>
 
+            {/* lg-text-secondary-700 */}
+            {breadcrumbs == null ? null : <div className="lg-px-screen-edge lg-bg-secondary-300 tw-flex tw-flex-row tw-items-center">
+                <ItemBuilder
+                    items={breadcrumbs}
+                    itemBuilder={(item, itemIndex) => (
+                        <Link
+                            to={item.link}
+                            key={itemIndex}
+                        >
+                            {item.humanReadableString}
+                        </Link>
+                    )}
+                    spaceBuilder={(spaceIndex) => (
+                        // <CaretRight className="tw-w-8 tw-h-4 tw-px-2" key={spaceIndex} />
+                        <div className="tw-px-2" key={spaceIndex}>{">"}</div>
+                    )}
+                />
+            </div>}
+
             <ContactUsDialog
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
@@ -529,7 +546,7 @@ function MenuDialog({
                                         linkTextTextContentPiece: "headerMenuS1T7",
                                         enterClassName: "tw-delay-[550ms]",
                                         subMenu: null,
-                                        link: "https://www.livguard.com/register-and-warranty-for-inverters.php",
+                                        link: "/register-and-warranty-for-inverters.php",
                                     },
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T8",
@@ -752,13 +769,13 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
+                                                  link: "/solar-panels-and-inverters-for-home/",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T4",
                                                   enterClassName: "tw-delay-[350ms]",
-                                                  link: "https://www.livguard.com/high-capacity-inverters/",
+                                                  link: "/",
                                                   download: null,
                                               },
                                           ]
@@ -773,7 +790,7 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/solar-battery-for-home/",
+                                                  link: "
                                                   download: null,
                                               },
                                               {
@@ -785,7 +802,7 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM2T5",
                                                   enterClassName: "tw-delay-[400ms]",
-                                                  link: "https://www.livguard.com/vrla-batteries/",
+                                                  link: "/vrla-batteries/",
                                                   download: null,
                                               },
                                           ]
@@ -794,19 +811,19 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "https://www.livguard.com/car-and-suv-batteries/",
+                                                  link: "/car-and-suv-batteries/",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/two-wheeler-batteries/",
+                                                  link: "/two-wheeler-batteries/",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T4",
                                                   enterClassName: "tw-delay-[350ms]",
-                                                  link: "https://www.livguard.com/erickshaw-batteries/",
+                                                  link: "/erickshaw-batteries/",
                                                   download: null,
                                               },
                                               {
@@ -818,13 +835,13 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T6",
                                                   enterClassName: "tw-delay-[450ms]",
-                                                  link: "https://www.livguard.com/tractor-batteries/",
+                                                  link: "/tractor-batteries/",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T7",
                                                   enterClassName: "tw-delay-[450ms]",
-                                                  link: "https://www.livguard.com/three-wheeler-batteries/",
+                                                  link: "/three-wheeler-batteries/",
                                                   download: null,
                                               },
                                           ]
@@ -835,19 +852,19 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "https://www.livguard.com/stabilizer-for-AC-and-TV.php",
+                                                  link: "/stabilizer-for-AC-and-TV.php",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/E-rickshaw-charger-category/",
+                                                  link: "/E-rickshaw-charger-category/",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T4",
                                                   enterClassName: "tw-delay-[350ms]",
-                                                  link: "https://www.livguard.com/lg-trolley-category/",
+                                                  link: "/lg-trolley-category/",
                                                   download: null,
                                               },
                                           ]
@@ -860,19 +877,19 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T2",
                                                   enterClassName: "tw-delay-[250ms]",
-                                                  link: "https://www.livguard.com/about.php",
+                                                  link: "/about.php",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T6",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/e-waste-management.php",
+                                                  link: "/e-waste-management.php",
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "https://www.livguard.com/blog/",
+                                                  link: "/blog/",
                                                   download: null,
                                               },
                                               {
@@ -1233,134 +1250,134 @@ type SearchQuery = {
 };
 
 const searchQueries: Array<SearchQuery> = [
-    {keyword: "Inverter", link: "https://www.livguard.com/category/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
-    {keyword: "Inverter", link: "https://www.livguard.com/category/inverter-for-home/", title: "Livguard Home Inverters", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/solar-panels-and-inverters-for-home/", title: "Solar Inverter for Home", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/", title: "Livguard High-Capacity Inverters", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG3500.php", title: "ih-verter LG3500", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG5000.php", title: "ih-verter LG5000", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-2500.php", title: "ih-verter LGS 2500", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 2},
-    {keyword: "Inverter", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
-    {keyword: "Battery", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 1},
-    {keyword: "Battery", link: "https://www.livguard.com/batteries.php", title: "Batteries for All Your Needs", score: 2},
-    {keyword: "Battery", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
-    {keyword: "Dealer", link: "https://www.livguard.com/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
-    {keyword: "Near", link: "https://www.livguard.com/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
-    {keyword: "Store", link: "https://www.livguard.com/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
-    {keyword: "Buy", link: "https://www.livguard.com/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
-    {keyword: "Sine", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
-    {keyword: "Square", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
-    {keyword: "Automotive Battery", link: "https://www.livguard.com/automotive-batteries.php", title: "Batteries for every type of vehicle", score: 1},
-    {keyword: "Automotive Battery", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
-    {keyword: "Home Battery", link: "https://www.livguard.com/category/inverter-batteries/", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 1},
-    {keyword: "Solar", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
-    {keyword: "Jodi", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
-    {keyword: "Car Battery", link: "https://www.livguard.com/car-and-suv-batteries/", title: "Find the right battery for your car", score: 1},
-    {keyword: "Car Battery", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
-    {keyword: "E-Rickshaw Battery", link: "https://www.livguard.com/erickshaw-batteries/", title: "Livguard E Rickshaw Battery", score: 1},
-    {keyword: "Tempo Battery", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
-    {keyword: "Truck Battery", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
-    {keyword: "Service ", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
-    {keyword: "Accessories ", link: "https://www.livguard.com", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 1},
-    {keyword: "3D Grid ", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 2},
-    {keyword: "AI Charging", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
-    {keyword: "Tubular", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "Flat Plate", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "Long Life", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "Load Calculator", link: "https://www.livguard.com/load-calculator", title: "Plan the power consumption requirements of your home ", score: 1},
-    {keyword: "Load", link: "https://www.livguard.com/load-calculator", title: "Plan the power consumption requirements of your home ", score: 1},
-    {keyword: "Power Planner", link: "https://www.livguard.com/load-calculator", title: "Plan the power consumption requirements of your home ", score: 1},
-    {keyword: "700VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "600VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "800VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "900VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "1100VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "1250VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "1500VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "1650VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "2000VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "2500VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "3500VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "4000VA", link: "https://www.livguard.com/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
-    {keyword: "600VA", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 1},
-    {keyword: "800VA", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 1},
-    {keyword: "900VA", link: "https://www.livguard.com/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 1},
-    {keyword: "1500VA", link: "https://www.livguard.com/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 1},
-    {keyword: "2000VA", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 1},
-    {keyword: "2500VA", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 1},
-    {keyword: "3500VA", link: "https://www.livguard.com/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 1},
-    {keyword: "90Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "100Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "110Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "120Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "135Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "150Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "160Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "180Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "200Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "220Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "230Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "260Ah", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "100Ah", link: "https://www.livguard.com/solar-battery-for-home/Solar-Battery-LS-10060TT.php", title: "Livguard Solar Battery LS-10060TT", score: 1},
-    {keyword: "120Ah", link: "https://www.livguard.com/erickshaw-batteries/E-Shakti-LG-C0-ERTU-1800.php", title: "E-Shakti LG C0 ERTU 1800", score: 1},
-    {keyword: "120Ah", link: "https://www.livguard.com/vrla-batteries/vrla-lgv12-120.php", title: "LGV12-120", score: 1},
-    {keyword: "135Ah", link: "https://www.livguard.com/solar-battery-for-home/Solar-battery-LS-13560TT.php", title: "Livguard Solar Battery LS-13560TT", score: 1},
-    {keyword: "150Ah", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1554TT.php", title: "Invertuff IT 1554TT", score: 1},
-    {keyword: "160Ah", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1666TT.php", title: "Invertuff IT 1666TT", score: 1},
-    {keyword: "180Ah", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1866TT.php", title: "Invertuff IT 1866TT", score: 1},
-    {keyword: "200Ah", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1536FP.php", title: "Invertuff IT 1536FP", score: 1},
-    {keyword: "220Ah", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-2266TT.php", title: "Invertuff IT 2266TT", score: 1},
-    {keyword: "IT 2060TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1550TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1639TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 2360TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 2048TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1666TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1554TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1860TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 2266TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1645TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1548TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1560TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1536TT ", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1866TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 2066TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 2672TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1584TT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1636STJ", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1554STJ", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1542STJ", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1848STJ", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT481400ST", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT481500ST", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1048ST", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 9048ST", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 481200ST", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1560STT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1548STT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1160STT", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1536FP", link: "https://www.livguard.com/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
-    {keyword: "IT 1666TT", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1666TT.php", title: "Invertuff IT 1666TT", score: 1},
-    {keyword: "IT 1554TT", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1554TT.php", title: "Invertuff IT 1554TT", score: 1},
-    {keyword: "IT 2266TT", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-2266TT.php", title: "Invertuff IT 2266TT", score: 1},
-    {keyword: "IT 1560TT", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1560TT.php", title: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard", score: 1},
-    {keyword: "IT 1866TT", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1866TT.php", title: "Invertuff IT 1866TT", score: 1},
-    {keyword: "IT 1536FP", link: "https://www.livguard.com/inverter-batteries/invertuff-IT-1536FP.php", title: "Invertuff IT 1536FP", score: 1},
+    {keyword: "Inverter", link: "/category/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
+    {keyword: "Inverter", link: "/category/inverter-for-home/", title: "Livguard Home Inverters", score: 2},
+    {keyword: "Inverter", link: "/solar-panels-and-inverters-for-home/", title: "Solar Inverter for Home", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/", title: "Livguard High-Capacity Inverters", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
+    {keyword: "Inverter", link: "/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LG3500.php", title: "ih-verter LG3500", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LG5000.php", title: "ih-verter LG5000", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LGS-2500.php", title: "ih-verter LGS 2500", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 2},
+    {keyword: "Inverter", link: "/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 2},
+    {keyword: "Inverter", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Battery", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 1},
+    {keyword: "Battery", link: "/batteries.php", title: "Batteries for All Your Needs", score: 2},
+    {keyword: "Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Dealer", link: "/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
+    {keyword: "Near", link: "/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
+    {keyword: "Store", link: "/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
+    {keyword: "Buy", link: "/dealer-for-inverters-and-batteries/", title: "Dealer Locator | Find Livguard inverter battery shop near me  ", score: 1},
+    {keyword: "Sine", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
+    {keyword: "Square", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
+    {keyword: "Automotive Battery", link: "/automotive-batteries.php", title: "Batteries for every type of vehicle", score: 1},
+    {keyword: "Automotive Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
+    {keyword: "Home Battery", link: "/category/inverter-batteries/", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 1},
+    {keyword: "Solar", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
+    {keyword: "Jodi", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Car Battery", link: "/car-and-suv-batteries/", title: "Find the right battery for your car", score: 1},
+    {keyword: "Car Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
+    {keyword: "E-Rickshaw Battery", link: "/erickshaw-batteries/", title: "Livguard E Rickshaw Battery", score: 1},
+    {keyword: "Tempo Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Truck Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Service ", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Accessories ", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 1},
+    {keyword: "3D Grid ", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i-Verter-LGS-1100.php", title: "i-Verter LGS 1100", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-1700.php", title: "i2-Verter LG 1700", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-900.php", title: "i2-Verter LG 900", score: 2},
+    {keyword: "AI Charging", link: "/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 2},
+    {keyword: "AI Charging", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 1},
+    {keyword: "Tubular", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "Flat Plate", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "Long Life", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "Load Calculator", link: "/load-calculator", title: "Plan the power consumption requirements of your home ", score: 1},
+    {keyword: "Load", link: "/load-calculator", title: "Plan the power consumption requirements of your home ", score: 1},
+    {keyword: "Power Planner", link: "/load-calculator", title: "Plan the power consumption requirements of your home ", score: 1},
+    {keyword: "700VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "600VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "800VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "900VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "1100VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "1250VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "1500VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "1650VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "2000VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "2500VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "3500VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "4000VA", link: "/inverter-for-home/", title: "Buy Best Inverter for Home at the Lowest Price in India ", score: 2},
+    {keyword: "600VA", link: "/inverters-for-home-use/i2-verter-LG-700.php", title: "i2-Verter LG 700", score: 1},
+    {keyword: "800VA", link: "/inverters-for-home-use/i-verter-LGS-900.php", title: "i-Verter LGS 900", score: 1},
+    {keyword: "900VA", link: "/inverters-for-home-use/i2-verter-LG-1100.php", title: "i2-Verter LG 1100", score: 1},
+    {keyword: "1500VA", link: "/inverters-for-home-use/i-verter-LGS-1700.php", title: "i-Verter LGS 1700", score: 1},
+    {keyword: "2000VA", link: "/high-capacity-inverters/ih-verter-LG2300.php", title: "ih-verter LG2300", score: 1},
+    {keyword: "2500VA", link: "/high-capacity-inverters/ih-verter-LGS-3000.php", title: "ih-verter LGS 3000", score: 1},
+    {keyword: "3500VA", link: "/high-capacity-inverters/ih-verter-LGS-4000.php", title: "ih-verter LGS 4000", score: 1},
+    {keyword: "90Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "100Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "110Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "120Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "135Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "150Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "160Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "180Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "200Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "220Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "230Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "260Ah", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "100Ah", link: "/solar-battery-for-home/Solar-Battery-LS-10060TT.php", title: "Livguard Solar Battery LS-10060TT", score: 1},
+    {keyword: "120Ah", link: "/erickshaw-batteries/E-Shakti-LG-C0-ERTU-1800.php", title: "E-Shakti LG C0 ERTU 1800", score: 1},
+    {keyword: "120Ah", link: "/vrla-batteries/vrla-lgv12-120.php", title: "LGV12-120", score: 1},
+    {keyword: "135Ah", link: "/solar-battery-for-home/Solar-battery-LS-13560TT.php", title: "Livguard Solar Battery LS-13560TT", score: 1},
+    {keyword: "150Ah", link: "/inverter-batteries/invertuff-IT-1554TT.php", title: "Invertuff IT 1554TT", score: 1},
+    {keyword: "160Ah", link: "/inverter-batteries/invertuff-IT-1666TT.php", title: "Invertuff IT 1666TT", score: 1},
+    {keyword: "180Ah", link: "/inverter-batteries/invertuff-IT-1866TT.php", title: "Invertuff IT 1866TT", score: 1},
+    {keyword: "200Ah", link: "/inverter-batteries/invertuff-IT-1536FP.php", title: "Invertuff IT 1536FP", score: 1},
+    {keyword: "220Ah", link: "/inverter-batteries/invertuff-IT-2266TT.php", title: "Invertuff IT 2266TT", score: 1},
+    {keyword: "IT 2060TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1550TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1639TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 2360TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 2048TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1666TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1554TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1860TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 2266TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1645TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1548TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1560TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1536TT ", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1866TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 2066TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 2672TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1584TT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1636STJ", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1554STJ", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1542STJ", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1848STJ", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT481400ST", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT481500ST", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1048ST", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 9048ST", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 481200ST", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1560STT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1548STT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1160STT", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1536FP", link: "/category/inverter-batteries/", title: "Buy Inverter Battery Online at Best Prices In India ", score: 2},
+    {keyword: "IT 1666TT", link: "/inverter-batteries/invertuff-IT-1666TT.php", title: "Invertuff IT 1666TT", score: 1},
+    {keyword: "IT 1554TT", link: "/inverter-batteries/invertuff-IT-1554TT.php", title: "Invertuff IT 1554TT", score: 1},
+    {keyword: "IT 2266TT", link: "/inverter-batteries/invertuff-IT-2266TT.php", title: "Invertuff IT 2266TT", score: 1},
+    {keyword: "IT 1560TT", link: "/inverter-batteries/invertuff-IT-1560TT.php", title: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard", score: 1},
+    {keyword: "IT 1866TT", link: "/inverter-batteries/invertuff-IT-1866TT.php", title: "Invertuff IT 1866TT", score: 1},
+    {keyword: "IT 1536FP", link: "/inverter-batteries/invertuff-IT-1536FP.php", title: "Invertuff IT 1536FP", score: 1},
 ];

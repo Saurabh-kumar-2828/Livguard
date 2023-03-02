@@ -76,6 +76,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                breadcrumbs={[{humanReadableString: "Home", link: "#"}]}
             >
                 <HomePage
                     userPreferences={userPreferences}
@@ -480,7 +481,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
-                                buttonLink: "https://www.livguard.com/automotive-batteries.php",
+                                buttonLink: "/automotive-batteries.php",
                                 target: "_blank",
                             },
                             {
@@ -498,7 +499,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab5C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
-                                buttonLink: "https://www.livguard.com/lg-trolley-category/",
+                                buttonLink: "/lg-trolley-category/",
                                 target: "_blank",
                             },
                         ]}
@@ -971,7 +972,7 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                 />
 
                 <a
-                    href="https://www.livguard.com/csr-initiatives.php"
+                    href="/csr-initiatives.php"
                     className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg-cta-button tw-justify-self-center"
                 >
                     {getVernacularString("homeS12T4", userPreferences.language)}

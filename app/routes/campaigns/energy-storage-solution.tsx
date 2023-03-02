@@ -36,7 +36,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/energy-storage-solution/"}];
+    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
 };
 
 type LoaderData = {
