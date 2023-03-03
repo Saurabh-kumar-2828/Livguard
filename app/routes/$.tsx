@@ -1,5 +1,4 @@
-import {json} from "@remix-run/node";
-import {Link, Links, LiveReload, Meta, Scripts, ScrollRestoration} from "@remix-run/react";
+import {Link} from "@remix-run/react";
 
 export default function () {
     return (

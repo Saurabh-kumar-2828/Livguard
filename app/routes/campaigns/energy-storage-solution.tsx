@@ -76,7 +76,24 @@ export default function () {
                     userPreferences={userPreferences}
                 />
             </CampaignPageScaffold>
+
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Energy Storage Solution",
+                            "url": "https://www.livguard.com/campaigns/energy-storage-solution",
+                            "logo": "",
+                            "sameAs": ""
+                        }
+                    `
+                }}
+            />
         </>
     );
 }

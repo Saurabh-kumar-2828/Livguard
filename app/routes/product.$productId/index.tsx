@@ -26,12 +26,13 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 
-export const meta: MetaFunction = (params) => {
-    return {
-        title: "",
-        description: "",
-    };
-};
+// TODO: FIX THIS!
+// export const meta: MetaFunction = (params) => {
+//     return {
+//         title: "",
+//         description: "",
+//     };
+// };
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -80,7 +81,29 @@ export default function () {
                     utmParameters={utmSearchParameters}
                 />
             </PageScaffold>
+
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
+
+            {/* TODO: FIX THIS! */}
+            {/* <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org/",
+                            "@type": "Product",
+                            "name": "Invertuff IT 1545TT",
+                            "image": "https://www.livguard.com/img/Invertuff-IT-1545TT.png",
+                            "description": "Built with superior plate grid design and high electrolyte volume, Livguard inverter batteries deliver enhanced performance, every single time. Our range of inverter batteries promises uninterrupted supply of electric power for long hours, which is why it is perfectly suited for Indian power conditions.",
+                            "brand": {
+                                "@type": "Brand",
+                                "name": "Livguard"
+                            }
+                        }
+                    `
+                }}
+            /> */}
+
         </>
     );
 }

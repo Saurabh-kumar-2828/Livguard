@@ -115,6 +115,25 @@ export default function () {
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org/",
+                            "@type": "WebSite",
+                            "name": "https://www.livguard.com",
+                            "url": "https://www.livguard.com/load-calculator",
+                            "potentialAction": {
+                                "@type": "SearchAction",
+                                "target": "https://www.livguard.com/load-calculator/{search_term_string}",
+                                "query-input": "required name=search_term_string"
+                            }
+                        }
+                    `
+                }}
+            />
         </>
     );
 }
@@ -431,10 +450,10 @@ function PropertySelectionForTeaser({
 function PowerPlannerIntroduction({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
-            <div className="tw-flex tw-flex-col lg-text-headline tw-text-center">
+            <h2 className="tw-flex tw-flex-col lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T1", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS5H1T2", userPreferences.language)}} />
-            </div>
+            </h2>
 
             <VerticalSpacer className="tw-h-4" />
 
@@ -2153,9 +2172,6 @@ const roomTypeLibrary: {[id: string]: {humanReadableString: string}} = {
     "2a1fb75c-2256-4cd1-adaf-9fcb7cf31da1": {
         humanReadableString: "Balcony",
     },
-    "0f78ca82-a628-4ed3-812f-223566f5416d": {
-        humanReadableString: "Pooja Room",
-    },
 };
 
 export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; category: string; wattage: number}} = {
@@ -2167,7 +2183,7 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
     "2b74d3cf-6fc2-4c9e-b264-e1865138c394": {
         humanReadableString: "CFL",
         category: "Lighting",
-        wattage: 22.5,
+        wattage: 15,
     },
     "43150663-bea9-4fa9-b273-1b92212f5d30": {
         humanReadableString: "Bulb",
@@ -2177,7 +2193,7 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
     "aba012ef-4a0a-438f-afbe-8fcb92a95c6b": {
         humanReadableString: "Tubelight",
         category: "Lighting",
-        wattage: 30,
+        wattage: 40,
     },
     "89066719-efd8-4e7e-be1c-16da3fc57330": {
         humanReadableString: "Table Lamp",

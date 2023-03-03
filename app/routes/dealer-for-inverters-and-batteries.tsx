@@ -119,40 +119,26 @@ export default function () {
                     utmParameters={utmSearchParameters}
                     className="lg:tw-px-[60px]"
                 />
-
-                <VerticalSpacer className="tw-h-10" />
-
-                <TroubleFindingDealers
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                />
-
-                <VerticalSpacer className="tw-h-10" />
-
-                <FaqSection
-                    userPreferences={userPreferences}
-                    className="lg:tw-px-[72px] xl:tw-px-[120px]"
-                />
-
-                <VerticalSpacer className="tw-h-10" />
-
-                <JoinLivguardNetwork
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                />
-
-                <VerticalSpacer className="tw-h-10" />
-
-                <SocialHandles
-                    userPreferences={userPreferences}
-                    heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
-                    className="lg:tw-px-[72px] xl:tw-px-[120px]"
-                />
-
-                <VerticalSpacer className="tw-h-10" />
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
+
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Dealer Locator",
+                            "url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
+                            "logo": "",
+                            "sameAs": ""
+                        }
+                    `
+                }}
+            />
         </>
     );
 }
@@ -198,177 +184,210 @@ export function DealerLocatorPage({
     // const [query, setQuery] = useState("");
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
-            <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
+        <>
+            <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
+                <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-            <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-4 lg:tw-items-center">
-                <div className="tw-col-start-1 tw-row-start-1">
-                    <GoogleMapView dealerList={dealerList} />
-                </div>
+                <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-4 lg:tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1">
+                        <GoogleMapView dealerList={dealerList} />
+                    </div>
 
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-col-start-2 tw-row-start-1">
-                    <Form
-                        className="tw-flex tw-flex-col tw-items-center tw-justify-center"
-                        method="post"
-                    >
-                        <input
-                            type="text"
-                            name="dealerLocation"
-                            required
-                            className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[22rem]"
-                            placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
-                        ></input>
-
-                        {/* <FancySearchableSelect
-                    id="city"
-                    options={cityList.map((city, cityIndex) => ({
-                        value: cityIndex,
-                        label: city.name,
-                    }))}
-                    className="lg-text-input tw-w-full tw-text-center"
-                    placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
-                    onChange={(newValue) => setSelectedCity(newValue.value)}
-                    datastore={datastore}
-                /> */}
-
-                        {/* <FancySearchableSelect
-                    options={cities}
-                    selected={selected}
-                    setSelected={setSelected}
-                    // primaryAttribute="name"
-                    query={query}
-                    setQuery={setQuery}
-                /> */}
-
-                        <VerticalSpacer className="tw-h-4" />
-                        <input
-                            type="text"
-                            name="dealerLocation"
-                            className="tw-hidden"
-                            readOnly
-                        />
-
-                        <button
-                            type="submit"
-                            className="lg-cta-button"
-                            disabled={transition.state != "idle"}
-                            onClick={() => {
-                                setDealerList(null);
-                                setShowMore(false);
-                            }}
-                        >
-                            {`${getVernacularString("dealerLocatorButtonText", userPreferences.language)}`}
-                        </button>
-                    </Form>
-
-                    {actionData == null ? null : actionData.dealerList == null || actionData.dealerList.length == 0 ? (
-                        <>
-                            <VerticalSpacer className="tw-h-4" />
-
-                            <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
-                        </>
-                    ) : (
-                        <>
-                            <VerticalSpacer className="tw-h-4" />
-
-                            {/* <Link
-                                to="#dealer-list"
-                                className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
-                            >
-                                {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
-                            </Link> */}
-                            <button
-                                type="button"
-                                className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
-                                onClick={() => document.getElementById("dealer-list")?.scrollIntoView()}
-                            >
-                                {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
-                            </button>
-                        </>
-                    )}
-                </div>
-            </div>
-
-            {dealerList == null || dealerList.length == 0 ? null : (
-                <>
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div
-                        className="tw-flex tw-flex-col tw-gap-4"
-                        id="dealer-list"
-                    >
-                        <div className="tw-flex tw-flex-col tw-gap-1">
-                            <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
-                            <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
-                            <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div>
-                        </div>
+                    <div className="tw-col-start-2 tw-row-start-1">
+                        <Form
+                            className="tw-flex tw-flex-col tw-items-center tw-justify-center"
+                            method="post"
+                        >
+                            <input
+                                type="text"
+                                name="dealerLocation"
+                                required
+                                className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[22rem]"
+                                placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+                            ></input>
 
-                        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 lg:tw-gap-x-2 tw-gap-y-3">
-                            <ItemBuilder
-                                items={dealerList}
-                                itemBuilder={(dealer, dealerIndex) => (
-                                    <React.Fragment key={dealerIndex}>
-                                        <DefaultElementAnimation>
-                                            <div
-                                                className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full"
-                                                key={dealerIndex}
-                                            >
-                                                <div className="lg-text-title1">{dealer.name}</div>
+                            {/* <FancySearchableSelect
+                        id="city"
+                        options={cityList.map((city, cityIndex) => ({
+                            value: cityIndex,
+                            label: city.name,
+                        }))}
+                        className="lg-text-input tw-w-full tw-text-center"
+                        placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+                        onChange={(newValue) => setSelectedCity(newValue.value)}
+                        datastore={datastore}
+                    /> */}
 
-                                                <VerticalSpacer className="tw-h-4" />
+                            {/* <FancySearchableSelect
+                        options={cities}
+                        selected={selected}
+                        setSelected={setSelected}
+                        // primaryAttribute="name"
+                        query={query}
+                        setQuery={setQuery}
+                    /> */}
 
-                                                <div className="lg-text-body">Dealer Address:</div>
-
-                                                <div className="lg-text-body">{`${dealer.address}, ${dealer.city}, ${dealer.state}, ${dealer.pinCode}`}</div>
-
-                                                <div className="lg-text-body">M: {dealer.phoneNumber}</div>
-
-                                                <EmptyFlexFiller />
-
-                                                <VerticalSpacer className="tw-h-4" />
-
-                                                <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
-                                                    {/* <button
-                                                    type="button"
-                                                    className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-4"
-                                                >
-                                                    Enquire Now
-                                                </button> */}
-                                                    <ContactUsCta
-                                                        userPreferences={userPreferences}
-                                                        textVernacId="landingPageBottomBarT2"
-                                                        className="tw-z-10 lg:tw-place-self-end"
-                                                        utmParameters={utmParameters}
-                                                    />
-
-                                                    {/* <button
-                                                    type="button"
-                                                    className="tw-border tw-border-secondary-700 tw-p-2 tw-px-4 tw-rounded-3xl"
-                                                >
-                                                    Get Direction
-                                                </button> */}
-                                                </div>
-                                            </div>
-                                        </DefaultElementAnimation>
-                                    </React.Fragment>
-                                )}
+                            <VerticalSpacer className="tw-h-4" />
+                            <input
+                                type="text"
+                                name="dealerLocation"
+                                className="tw-hidden"
+                                readOnly
                             />
-                        </div>
 
-                        {!showMore && actionData.dealerList && actionData.dealerList.length > 6 && (
-                            <div
-                                className="lg-text-headline lg-text-secondary-900 tw-text-center tw-underline hover:tw-cursor-pointer"
-                                onClick={() => setShowMore(true)}
+                            <button
+                                type="submit"
+                                className="lg-cta-button"
+                                disabled={transition.state != "idle"}
+                                onClick={() => {
+                                    setDealerList(null);
+                                    setShowMore(false);
+                                }}
                             >
-                                Find More
-                            </div>
+                                {`${getVernacularString("dealerLocatorButtonText", userPreferences.language)}`}
+                            </button>
+                        </Form>
+
+                        {actionData == null ? null : actionData.dealerList == null || actionData.dealerList.length == 0 ? (
+                            <>
+                                <VerticalSpacer className="tw-h-4" />
+
+                                <div className="lg-text-body tw-text-center lg-text-primary-500">{`${getVernacularString("noDealerLocatorText", userPreferences.language)}`} </div>
+                            </>
+                        ) : (
+                            <>
+                                <VerticalSpacer className="tw-h-4" />
+
+                                {/* <Link
+                                    to="#dealer-list"
+                                    className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
+                                >
+                                    {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                                </Link> */}
+                                <button
+                                    type="button"
+                                    className="tw-block tw-text-title2 tw-text-center tw-px-4 tw-py-1 tw-border lg-border-secondary-900-dark tw-rounded-lg tw-w-fit tw-mx-auto"
+                                    onClick={() => document.getElementById("dealer-list")?.scrollIntoView()}
+                                >
+                                    {`${getVernacularString("dealerLocatorShowText", userPreferences.language)} (${actionData.dealerList.length})`}
+                                </button>
+                            </>
                         )}
                     </div>
-                </>
-            )}
-        </div>
+                </div>
+
+                {dealerList == null || dealerList.length == 0 ? null : (
+                    <>
+                        <VerticalSpacer className="tw-h-4" />
+
+                        <div
+                            className="tw-flex tw-flex-col tw-gap-4"
+                            id="dealer-list"
+                        >
+                            <div className="tw-flex tw-flex-col tw-gap-1">
+                                <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
+                                <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
+                                <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div>
+                            </div>
+
+                            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 lg:tw-gap-x-2 tw-gap-y-3">
+                                <ItemBuilder
+                                    items={dealerList}
+                                    itemBuilder={(dealer, dealerIndex) => (
+                                        <React.Fragment key={dealerIndex}>
+                                            <DefaultElementAnimation>
+                                                <div
+                                                    className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full"
+                                                    key={dealerIndex}
+                                                >
+                                                    <div className="lg-text-title1">{dealer.name}</div>
+
+                                                    <VerticalSpacer className="tw-h-4" />
+
+                                                    <div className="lg-text-body">Dealer Address:</div>
+
+                                                    <div className="lg-text-body">{`${dealer.address}, ${dealer.city}, ${dealer.state}, ${dealer.pinCode}`}</div>
+
+                                                    <div className="lg-text-body">M: {dealer.phoneNumber}</div>
+
+                                                    <EmptyFlexFiller />
+
+                                                    <VerticalSpacer className="tw-h-4" />
+
+                                                    <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
+                                                        {/* <button
+                                                        type="button"
+                                                        className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-4"
+                                                    >
+                                                        Enquire Now
+                                                    </button> */}
+                                                        <ContactUsCta
+                                                            userPreferences={userPreferences}
+                                                            textVernacId="landingPageBottomBarT2"
+                                                            className="tw-z-10 lg:tw-place-self-end"
+                                                            utmParameters={utmParameters}
+                                                        />
+
+                                                        {/* <button
+                                                        type="button"
+                                                        className="tw-border tw-border-secondary-700 tw-p-2 tw-px-4 tw-rounded-3xl"
+                                                    >
+                                                        Get Direction
+                                                    </button> */}
+                                                    </div>
+                                                </div>
+                                            </DefaultElementAnimation>
+                                        </React.Fragment>
+                                    )}
+                                />
+                            </div>
+
+                            {!showMore && actionData.dealerList && actionData.dealerList.length > 6 && (
+                                <div
+                                    className="lg-text-headline lg-text-secondary-900 tw-text-center tw-underline hover:tw-cursor-pointer"
+                                    onClick={() => setShowMore(true)}
+                                >
+                                    Find More
+                                </div>
+                            )}
+                        </div>
+                    </>
+                )}
+            </div>
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <TroubleFindingDealers
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+            />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <FaqSection
+                userPreferences={userPreferences}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <JoinLivguardNetwork
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+            />
+
+            <VerticalSpacer className="tw-h-10" />
+
+            <SocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
+
+            <VerticalSpacer className="tw-h-10" />
+        </>
     );
 }
 
@@ -883,39 +902,39 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 }
 
 const salutations: {[key: string]: {[Language.English]: string; [Language.Hindi]: string}} = {
-    AN: {[Language.English]: "	Namaste", [Language.Hindi]: "	नमस्ते!"},
-    AD: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    AP: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    AS: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    BR: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    CG: {[Language.English]: "	Sat sri akal!", [Language.Hindi]: "सत् श्री अकाल!"},
-    CH: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    AN: {[Language.English]: "Namaste", [Language.Hindi]: "नमस्ते!"},
+    AD: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    AP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    AS: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    BR: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    CG: {[Language.English]: "Sat sri akal!", [Language.Hindi]: "सत् श्री अकाल!"},
+    CH: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
     DNHDD: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
-    DL: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    GA: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    GJ: {[Language.English]: "	Kem Chho!", [Language.Hindi]: "केम छो!"},
-    HR: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    HP: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    JK: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    JH: {[Language.English]: "	Pranaam!", [Language.Hindi]: "प्रणाम!"},
-    KA: {[Language.English]: "	Namaskara!", [Language.Hindi]: "नमस्कारा!"},
-    KL: {[Language.English]: "	Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
-    LD: {[Language.English]: "	Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
-    MP: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    MH: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    MN: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    ML: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    MZ: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    NL: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    OD: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    PY: {[Language.English]: "	Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    PB: {[Language.English]: "	Sat sri akal!", [Language.Hindi]: "सत् श्री, अकाल"},
-    RJ: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    SK: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    TN: {[Language.English]: "	Vanakkam!", [Language.Hindi]: "वनक्कम!"},
-    TS: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    TR: {[Language.English]: "	Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
-    UP: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    UK: {[Language.English]: "	Namaste!", [Language.Hindi]: "नमस्ते!"},
-    WB: {[Language.English]: "	Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
+    DL: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    GA: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    GJ: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
+    HR: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+    HP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    JK: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    JH: {[Language.English]: "Pranaam!", [Language.Hindi]: "प्रणाम!"},
+    KA: {[Language.English]: "Namaskara!", [Language.Hindi]: "नमस्कारा!"},
+    KL: {[Language.English]: "Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
+    LD: {[Language.English]: "Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
+    MP: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    MH: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    MN: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    ML: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    MZ: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    NL: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    OD: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    PY: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+    PB: {[Language.English]: "Sat sri akal!", [Language.Hindi]: "सत् श्री, अकाल"},
+    RJ: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    SK: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    TN: {[Language.English]: "Vanakkam!", [Language.Hindi]: "वनक्कम!"},
+    TS: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    TR: {[Language.English]: "Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
+    UP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    UK: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+    WB: {[Language.English]: "Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
 };

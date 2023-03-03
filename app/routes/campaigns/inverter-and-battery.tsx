@@ -22,6 +22,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
+import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
@@ -62,16 +63,38 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
 
+    const utmSearchParameters = useUtmSearchParameters();
+
     return (
         <>
-            <HeaderComponent
+            <CampaignPageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
-            />
-            <LandingPage userPreferences={userPreferences} />
-            <FooterSocialLogosAndCopyright userPreferences={userPreferences} />
+                utmParameters={utmSearchParameters}
+            >
+                <LandingPage
+                    userPreferences={userPreferences}
+                />
+            </CampaignPageScaffold>
+
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Inverter and Battery Jodi",
+                            "url": "https://www.livguard.com/campaigns/inverter-and-battery-jodi/",
+                            "logo": "",
+                            "sameAs": ""
+                        }
+                    `
+                }}
+            />
         </>
     );
 }

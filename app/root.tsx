@@ -8,6 +8,7 @@ import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
+import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -44,6 +45,42 @@ export const links: LinksFunction = () => [
 export default function () {
     const {userPreferences} = useLoaderData() as LoaderData;
 
+    // Google Tag Manager
+    useEffect(() => {
+        setTimeout(() => {
+            const scriptTag = document.createElement("script");
+            scriptTag.innerHTML = `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-5HRQL29');
+            `;
+            document.body.appendChild(scriptTag);
+        }, 5000);
+    }, []);
+
+    // Meta Pixel
+    useEffect(() => {
+        setTimeout(() => {
+            const scriptTag = document.createElement("script");
+            scriptTag.innerHTML = `
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '635911646858607');
+                fbq('track', 'PageView');
+            `;
+            document.body.appendChild(scriptTag);
+        }, 5000);
+    }, []);
+
+    // Freshchat
     useEffect(() => {
         setTimeout(() => {
             const scriptTag = document.createElement("script");
@@ -61,56 +98,6 @@ export default function () {
             <head>
                 <Meta />
                 <Links />
-
-                {/* Google Tag Manager */}
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                            })(window,document,'script','dataLayer','GTM-5HRQL29');
-                        `,
-                    }}
-                />
-                {/* End Google Tag Manager */}
-
-                {/* Meta Pixel Code */}
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            !function(f,b,e,v,n,t,s)
-                            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                            n.queue=[];t=b.createElement(e);t.async=!0;
-                            t.src=v;s=b.getElementsByTagName(e)[0];
-                            s.parentNode.insertBefore(t,s)}(window, document,'script',
-                            'https://connect.facebook.net/en_US/fbevents.js');
-                            fbq('init', '635911646858607');
-                            fbq('track', 'PageView');
-                        `,
-                    }}
-                />
-                {/* End Meta Pixel Code */}
-
-                <meta
-                    name="facebook-domain-verification"
-                    content="vvv1ovrlljfrtp4dnwttb9j964i14k"
-                />
-
-                {/* <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            if (${userPreferences.theme == Theme.Dark} || (${userPreferences.theme == null} && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-                                document.documentElement.classList.add("tw-dark");
-                            } else {
-                                document.documentElement.classList.remove("tw-dark");
-                            }
-                        `,
-                    }}
-                /> */}
 
                 {/* FOUC hack */}
                 <style
@@ -148,9 +135,13 @@ export default function () {
 export function CatchBoundary() {
     const caught = useCatch();
 
-    console.log("CatchBoundary");
-    console.log(caught);
-    logFrontendError(new Error(caught + ""));
+    const error = getErrorFromUnknown(caught);
+
+    if (error.message.toLowerCase().includes("hydration") || error.message.toLocaleLowerCase().startsWith("minified react error")) {
+        return <></>;
+    }
+
+    logFrontendError(error);
 
     return (
         <html lang="en">
@@ -191,7 +182,7 @@ export function CatchBoundary() {
 }
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
-    if (error.message == "Hydration failed because the initial UI does not match what was rendered on the server." || error.message.toLocaleLowerCase().startsWith("Minified React error")) {
+    if (error.message.toLowerCase().includes("hydration") || error.message.toLocaleLowerCase().startsWith("minified react error")) {
         return <></>;
     }
 

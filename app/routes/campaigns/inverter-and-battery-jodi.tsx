@@ -94,12 +94,29 @@ export default function () {
                 showMobileMenuIcon={false}
                 utmParameters={utmSearchParameters}
             >
-            <LandingPage
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-            />
+                <LandingPage
+                    userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
+                />
             </CampaignPageScaffold>
+
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "Inverter and Battery",
+                            "url": "https://www.livguard.com/campaigns/inverter-and-battery/",
+                            "logo": "",
+                            "sameAs": ""
+                        }
+                    `
+                }}
+            />
         </>
     );
 }
