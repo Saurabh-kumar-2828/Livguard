@@ -1,7 +1,7 @@
 import {execute} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
-import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator";
+import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
 
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();

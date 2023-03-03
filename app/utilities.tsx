@@ -17,6 +17,10 @@ export function appendSpaceToString(input: string): string {
     return input + " ";
 }
 
+export function enumFromStringValue<T>(enum_: {[s: string]: T}, input: string): T | null {
+    return (Object.values(enum_) as unknown as string[]).includes(input) ? (input as unknown as T) : null;
+}
+
 // export function getCalculatedTheme(userPreferences: UserPreferences): Theme | null {
 //     if (userPreferences.theme == Theme.Dark) {
 //         return Theme.Dark;
