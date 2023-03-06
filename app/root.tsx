@@ -3,12 +3,13 @@ import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCa
 import {useEffect} from "react";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
-
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import tailwindStylesheet from "../build/tailwind.css";
 import rootStylesheet from "./styles/root.css";
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getCalculatedTheme} from "~/utilities";
+import {unknown} from "zod";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -90,10 +91,12 @@ export default function () {
         }, 5000);
     }, []);
 
+    const calculatedTheme = getCalculatedTheme(userPreferences);
+
     return (
         <html
             lang="en"
-            className={userPreferences.theme == Theme.Light || (typeof window != "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) ? undefined : "tw-dark"}
+            className={calculatedTheme == Theme.Dark ? "tw-dark" : undefined}
         >
             <head>
                 <Meta />

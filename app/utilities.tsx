@@ -21,20 +21,8 @@ export function enumFromStringValue<T>(enum_: {[s: string]: T}, input: string): 
     return (Object.values(enum_) as unknown as string[]).includes(input) ? (input as unknown as T) : null;
 }
 
-// export function getCalculatedTheme(userPreferences: UserPreferences): Theme | null {
-//     if (userPreferences.theme == Theme.Dark) {
-//         return Theme.Dark;
-//     } else if (userPreferences.theme == Theme.Light) {
-//         return Theme.Light;
-//     }
+export const pollyfilledStructuredClone = structuredClone != null ? structuredClone : (obj: any) => JSON.parse(JSON.stringify(obj));
 
-//     if (typeof window === "undefined") {
-//         return null;
-//     }
-
-//     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-//         return Theme.Dark;
-//     } else {
-//         return Theme.Light;
-//     }
-// }
+export function getCalculatedTheme(userPreferences: UserPreferences): Theme {
+    return  userPreferences.theme == Theme.Light || (typeof window != "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) ? Theme.Light : Theme.Dark;
+}

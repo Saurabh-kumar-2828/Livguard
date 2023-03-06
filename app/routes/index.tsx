@@ -4,6 +4,7 @@ import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {StickyBottomBar} from "~/components/bottomBar";
@@ -31,8 +32,8 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccess, FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
+import {Theme, UserPreferences} from "~/typeDefinitions";
+import {appendSpaceToString, getCalculatedTheme, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = () => {
@@ -263,6 +264,8 @@ function HeroSection({
     };
     className?: string;
 }) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
@@ -270,6 +273,7 @@ function HeroSection({
                 "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
+            ref={ref}
         >
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
@@ -277,14 +281,16 @@ function HeroSection({
                 imageCdnProvider={ImageCdnProvider.Imgix}
             /> */}
 
-            <video
-                src="https://files.growthjockey.com/livguard/videos/home/1/1.mp4"
-                className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-object-cover"
-                autoPlay={true}
-                muted={true}
-                loop={true}
-                controls={false}
-            />
+            {containerWidth == null || containerHeight == null ? null : (
+                <video
+                    src={containerHeight > containerWidth ? "https://files.growthjockey.com/livguard/videos/home/1/1-mobile.mp4" : "https://files.growthjockey.com/livguard/videos/home/1/1-desktop.mp4"}
+                    className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-object-cover"
+                    autoPlay={true}
+                    muted={true}
+                    loop={true}
+                    controls={false}
+                />
+            )}
 
             <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
 
@@ -794,23 +800,16 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 }
 
 export function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
+    const calculatedTheme = getCalculatedTheme(userPreferences);
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
                         <video
-                            src="https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4"
-                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-contain tw-hidden dark:tw-block"
-                            autoPlay={true}
-                            muted={true}
-                            loop={true}
-                            controls={false}
-                        />
-
-                        <video
-                            src="https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"
-                            className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-object-contain dark:tw-hidden tw-block"
+                            src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4" : "https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"}
+                            className="tw-w-full tw-h-full tw-object-contain tw-hidden dark:tw-block"
                             autoPlay={true}
                             muted={true}
                             loop={true}

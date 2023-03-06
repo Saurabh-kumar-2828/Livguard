@@ -20,45 +20,14 @@
         /* --gj-py-section-divider: clamp(2rem, 5vw, 6rem); */
     }
 
-    body {
-        /* FOUC hack */
-        display: block !important;
-        /* /FOUC hack */
-        overflow-x: hidden;
-    }
-
-    @font-face {
-        font-family: lg-brueur-text;
-        font-weight: 700;
-        /* src: url("/brueur-text.ttf") format("truetype"); */
-        src: url("https://files.growthjockey.com/livguard/fonts/brueur-text.ttf");
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: lg-source-sans-3;
-        font-weight: 400;
-        /* src: url("/source-sans-3.ttf") format("truetype"); */
-        src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: lg-source-sans-3;
-        font-weight: 600;
-        /* src: url("/source-sans-3.ttf") format("truetype"); */
-        src: url("https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf");
-        font-display: swap;
-    }
-
     /* TODO: Do we need this? If not, remove */
     .lg-font-brueur {
-        font-family: "lg-brueur-text";
+        font-family: "lg-brueur-text", "lg-brueur-text-fallback";
         font-weight: 700;
     }
 
     .lg-text-banner {
-        font-family: "lg-brueur-text";
+        font-family: "lg-brueur-text", "lg-brueur-text-fallback";
         font-weight: 700;
         /* TODO: Add letter spacing */
 
@@ -66,7 +35,7 @@
     }
 
     .lg-text-headline {
-        font-family: "lg-brueur-text";
+        font-family: "lg-brueur-text", "lg-brueur-text-fallback";
         font-weight: 700;
         /* TODO: Add letter spacing */
 
