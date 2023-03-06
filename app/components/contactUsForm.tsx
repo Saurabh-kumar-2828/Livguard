@@ -56,7 +56,7 @@ export function ContactForm({
                     />
 
                     <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -71,7 +71,7 @@ export function ContactForm({
                     </div>
 
                     <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-2" />
 
@@ -85,7 +85,7 @@ export function ContactForm({
                     </div>
 
                     <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT4", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-2" />
 
