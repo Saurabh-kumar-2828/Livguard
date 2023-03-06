@@ -1,6 +1,6 @@
 import {Language} from "~/typeDefinitions";
 
-export type ProductInfo = {
+export type ProductDetails = {
     images: Array<{image: string}>;
     title: string;
     subTitle: string;
@@ -14,7 +14,7 @@ export type ProductInfo = {
     recommendedProducts: Array<{title: string; imageRelativePath: string; buttonText: string; bestseller: boolean; link: string}>;
 };
 
-export const allProductDetails: {[key: string]: {[key: string]: ProductInfo; [key: string]: ProductInfo}} = {
+export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; [key: string]: ProductDetails}} = {
     LG750i: {
         [Language.English]: {
             images: [

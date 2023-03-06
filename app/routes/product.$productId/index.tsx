@@ -16,7 +16,7 @@ import {ProductCardComponent, SocialHandles} from "~/components/category/common"
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {allProductDetails, ProductInfo} from "~/productData";
+import {allProductDetails, ProductDetails} from "~/productData";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -37,7 +37,7 @@ import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
-    productData: ProductInfo;
+    productData: ProductDetails;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -116,7 +116,7 @@ function ProductPage({
     utmParameters,
 }: {
     userPreferences: UserPreferences;
-    productData: ProductInfo;
+    productData: ProductDetails;
     utmParameters: {
         [searchParameter: string]: string;
     };
@@ -127,7 +127,7 @@ function ProductPage({
 
             <ProductInfo
                 userPreferences={userPreferences}
-                productInfo={productData}
+                productDetails={productData}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
@@ -135,7 +135,7 @@ function ProductPage({
 
             <ProductSpecifications
                 userPreferences={userPreferences}
-                productInfo={productData}
+                ProductDetails={productData}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
@@ -206,7 +206,7 @@ function ProductPage({
     );
 }
 
-function ProductInfo({userPreferences, productInfo, className}: {userPreferences: UserPreferences; productInfo : ProductInfo; className?: string}) {
+function ProductInfo({userPreferences, productDetails, className}: {userPreferences: UserPreferences; productDetails: ProductDetails; className?: string}) {
     const [mainImageIndex, setMainImageIndex] = useState(0);
 
     return (
@@ -216,7 +216,7 @@ function ProductInfo({userPreferences, productInfo, className}: {userPreferences
                     <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-10">
                         <DefaultElementAnimation>
                             <FullWidthImage
-                                relativePath={productInfo.images[mainImageIndex].image}
+                                relativePath={productDetails.images[mainImageIndex].image}
                                 imageCdnProvider={ImageCdnProvider.Imgix}
                                 className="tw-rounded-lg"
                             />
@@ -224,7 +224,7 @@ function ProductInfo({userPreferences, productInfo, className}: {userPreferences
                     </div>
                     <div className="tw-grid tw-grid-rows-1 tw-grid-cols-4 lg:tw-grid-rows-4 lg:tw-grid-cols-1 tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-w-full tw-gap-x-2">
                         <ItemBuilder
-                            items={productInfo.images}
+                            items={productDetails.images}
                             itemBuilder={(image, imageIndex) => (
                                 <div
                                     className="tw-rounded-lg tw-w-full tw-h-[80px] lg:tw-w-[80px] lg:tw-h-full hover:tw-cursor-pointer"
@@ -245,18 +245,18 @@ function ProductInfo({userPreferences, productInfo, className}: {userPreferences
                     <VerticalSpacer className="tw-h-4" />
 
                     <div className="lg-text-title1 tw-text-left">
-                        {productInfo.title} <span className="tw-italic">{productInfo.subTitle} </span>
+                        {productDetails.title} <span className="tw-italic">{productDetails.subTitle} </span>
                     </div>
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="tw-text-left">{productInfo.description}</div>
+                    <div className="tw-text-left">{productDetails.description}</div>
 
                     <VerticalSpacer className="tw-h-4" />
 
                     <div className="tw-grid tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr)] tw-gap-2">
                         <ItemBuilder
-                            items={productInfo.productIcons}
+                            items={productDetails.productIcons}
                             itemBuilder={(icon, iconIndex) => (
                                 <>
                                     <div
@@ -273,7 +273,7 @@ function ProductInfo({userPreferences, productInfo, className}: {userPreferences
                                         <div className="tw-text-center tw-place-items-start">{icon.text}</div>
                                     </div>
 
-                                    {iconIndex < productInfo.productIcons.length - 1 && <div className="tw-w-full tw-border lg-border-secondary-900"></div>}
+                                    {iconIndex < productDetails.productIcons.length - 1 && <div className="tw-w-full tw-border lg-border-secondary-900"></div>}
                                 </>
                             )}
                         />
@@ -284,16 +284,16 @@ function ProductInfo({userPreferences, productInfo, className}: {userPreferences
     );
 }
 
-function ProductSpecifications({userPreferences, productInfo,className}: {userPreferences: UserPreferences; productInfo: ProductInfo; className: string}) {
+function ProductSpecifications({userPreferences, ProductDetails,className}: {userPreferences: UserPreferences; ProductDetails: ProductDetails; className: string}) {
     const [selectedTab, setSelectedTab] = useState("specifications");
 
-    const getDataFromProductInfo = (tab: string) => {
+    const getDataFromProductDetails = (tab: string) => {
         if (tab == "specifications") {
-            return productInfo.specifications;
+            return ProductDetails.specifications;
         } else if (tab == "features") {
-            return productInfo.features;
+            return ProductDetails.features;
         } else if (tab == "additionalInfo") {
-            return productInfo.additionalInfo;
+            return ProductDetails.additionalInfo;
         } else {
             throw Error("value not found");
         }
@@ -337,7 +337,7 @@ function ProductSpecifications({userPreferences, productInfo,className}: {userPr
 
             <div className="tw-flex tw-flex-col">
                 <ItemBuilder
-                    items={getDataFromProductInfo(selectedTab)}
+                    items={getDataFromProductDetails(selectedTab)}
                     itemBuilder={(item, itemIndex) => (
                         <React.Fragment key={itemIndex}>
                             {selectedTab == "features" ? (

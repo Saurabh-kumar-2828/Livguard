@@ -47,7 +47,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuS1T4: {
-        [Language.English]: "Solar Solutions",
+        [Language.English]: "Solar",
         [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
@@ -87,11 +87,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM1T3: {
-        [Language.English]: "Solar Inverters",
-        [Language.Hindi]: "सोलर इनवर्टर",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM1T4: {
         [Language.English]: "High Capacity Inverters",
         [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
         [Language.Marathi]: "?????",
@@ -99,26 +94,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     headerMenuSM2T1: {
         [Language.English]: "Inverter Batteries",
         [Language.Hindi]: "इनवर्टर बैटरी",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM2T2: {
-        [Language.English]: "Inverter Batteries",
-        [Language.Hindi]: "इनवर्टर बैटरी",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM2T3: {
-        [Language.English]: "Solar Batteries",
-        [Language.Hindi]: "सोलर बैटरी",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM2T4: {
-        [Language.English]: "Lithium Batteries",
-        [Language.Hindi]: "लिथियम बैटरी",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM2T5: {
-        [Language.English]: "VRLA Batteries",
-        [Language.Hindi]: "VRLA बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T1: {
@@ -137,32 +112,42 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM3T4: {
-        [Language.English]: "E-Rikshaw Batteries",
-        [Language.Hindi]: "ई-रिक्शा की बैटरी",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM3T5: {
         [Language.English]: "Bus & Truck Batteries",
         [Language.Hindi]: "बस और ट्रक की बैटरी",
         [Language.Marathi]: "?????",
     },
-    headerMenuSM3T6: {
+    headerMenuSM3T5: {
         [Language.English]: "Tractor Batteries",
         [Language.Hindi]: "ट्रैक्टर बैटरी",
         [Language.Marathi]: "?????",
     },
-    headerMenuSM3T7: {
+    headerMenuSM3T6: {
         [Language.English]: "Three Wheeler Batteries",
         [Language.Hindi]: "3-पहिया बैटरी",
         [Language.Marathi]: "?????",
     },
     headerMenuSM4T1: {
+        [Language.English]: "Solar",
+        [Language.Hindi]: "सोलर",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM4T2: {
+        [Language.English]: "Solar Inverters",
+        [Language.Hindi]: "सोलर इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM4T3: {
+        [Language.English]: "Solar Batteries",
+        [Language.Hindi]: "सोलर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM4T4: {
         [Language.English]: "Solar Solutions",
         [Language.Hindi]: "सोलर सलूशन",
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T1: {
-        [Language.English]: "Accessories",
+        [Language.English]: "Accessories & Other Batteries",
         [Language.Hindi]: "सहायक उपकरण",
         [Language.Marathi]: "?????",
     },
@@ -177,6 +162,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerMenuSM5T4: {
+        [Language.English]: "Lithium Batteries",
+        [Language.Hindi]: "लिथियम बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM5T5: {
+        [Language.English]: "VRLA Batteries",
+        [Language.Hindi]: "VRLA बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    headerMenuSM5T6: {
         [Language.English]: "Inverter Trolley",
         [Language.Hindi]: "इनवर्टर ट्राली",
         [Language.Marathi]: "?????",
@@ -2264,7 +2259,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     productPageNumberReviewBefore: {
         [Language.English]: "Based on",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "पर आधारित",
         [Language.Marathi]: "?????",
     },
     productPageNumberReviewAfter: {
@@ -2279,7 +2274,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review1Name: {
         [Language.English]: "Thangamani M",
-        [Language.Hindi]: "विस्तार से देखें",
+        [Language.Hindi]: "तंगमणि एम",
         [Language.Marathi]: "?????",
     },
     review1State: {
@@ -2344,7 +2339,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review4State: {
         [Language.English]: "Uttar Pradesh",
-        [Language.Hindi]: "उतार प्रदेश",
+        [Language.Hindi]: "उत्तर प्रदेश",
         [Language.Marathi]: "?????",
     },
     review4Message: {

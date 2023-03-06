@@ -624,7 +624,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
                                 answer: "landingPage2Q2A",
                             },
                             {
-                                question: "landingPag2Q3Q",
+                                question: "landingPage2Q3Q",
                                 answer: "landingPage2Q3A",
                             },
                             {

@@ -10,7 +10,6 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
-import {getCalculatedTheme} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 enum MenuState {
@@ -23,8 +22,8 @@ enum SubMenu {
     Inverters,
     Batteries,
     AutomotiveBatteries,
-    SolarSolutions,
-    Accessories,
+    Solar,
+    AccessoriesAndotherBatteries,
     DealerLocator,
     RegisterYourBrand,
     More,
@@ -104,8 +103,6 @@ export function HeaderComponent({
             }
         }
     }, [selectedTheme]);
-
-    const calculatedTheme = getCalculatedTheme(userPreferences);
 
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
@@ -282,12 +279,23 @@ export function HeaderComponent({
                 )}
 
                 <Link to="/">
-                    <img
-                        src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
-                        width={385}
-                        height={96}
-                        className="tw-w-auto tw-h-6"
-                    />
+                    <div className="tw-block dark:tw-hidden">
+                        <img
+                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                            width={385}
+                            height={96}
+                            className="tw-w-auto tw-h-6"
+                        />
+                    </div>
+
+                    <div className="dark:tw-block tw-hidden">
+                        <img
+                            src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            width={385}
+                            height={96}
+                            className="tw-w-auto tw-h-6"
+                        />
+                    </div>
                 </Link>
 
                 <div className="tw-w-8 tw-hidden lg:tw-flex" />
@@ -303,14 +311,7 @@ export function HeaderComponent({
                             {getVernacularString("headerMenuS1T1", userPreferences.language)}
                         </button>
 
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.Batteries);
-                            }}
-                        >
-                            {getVernacularString("headerMenuS1T2", userPreferences.language)}
-                        </button>
+                        <Link to="/inverter-batteries">{getVernacularString("headerMenuS1T2", userPreferences.language)}</Link>
 
                         <button
                             type="button"
@@ -321,12 +322,19 @@ export function HeaderComponent({
                             {getVernacularString("headerMenuS1T3", userPreferences.language)}
                         </button>
 
-                        <a href="https://www.livguardsolar.com/">{getVernacularString("headerMenuS1T4", userPreferences.language)}</a>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                tryToOpenSubMenu(SubMenu.Solar);
+                            }}
+                        >
+                            {getVernacularString("headerMenuS1T4", userPreferences.language)}
+                        </button>
 
                         <button
                             type="button"
                             onClick={() => {
-                                tryToOpenSubMenu(SubMenu.Accessories);
+                                tryToOpenSubMenu(SubMenu.AccessoriesAndotherBatteries);
                             }}
                         >
                             {getVernacularString("headerMenuS1T5", userPreferences.language)}
@@ -529,8 +537,8 @@ function MenuDialog({
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T2",
                                         enterClassName: "tw-delay-[300ms]",
-                                        subMenu: SubMenu.Batteries,
-                                        link: null,
+                                        subMenu: null,
+                                        link: "/inverter-batteries",
                                     },
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T3",
@@ -541,13 +549,13 @@ function MenuDialog({
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T4",
                                         enterClassName: "tw-delay-[400ms]",
-                                        subMenu: null,
-                                        link: "https://www.livguardsolar.com/",
+                                        subMenu: SubMenu.Solar,
+                                        link: null,
                                     },
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T5",
                                         enterClassName: "tw-delay-[450ms]",
-                                        subMenu: SubMenu.Accessories,
+                                        subMenu: SubMenu.AccessoriesAndotherBatteries,
                                         link: null,
                                     },
                                     {
@@ -763,9 +771,9 @@ function SubMenuDialog({
                                             ? getVernacularString("headerMenuSM2T1", userPreferences.language)
                                             : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
                                             ? getVernacularString("headerMenuSM3T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.SolarSolutions
+                                            : currentlyOpenSubMenu == SubMenu.Solar
                                             ? getVernacularString("headerMenuSM4T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.Accessories
+                                            : currentlyOpenSubMenu == SubMenu.AccessoriesAndotherBatteries
                                             ? getVernacularString("headerMenuSM5T1", userPreferences.language)
                                             : currentlyOpenSubMenu == SubMenu.DealerLocator
                                             ? getVernacularString("headerMenuSM6T1", userPreferences.language)
@@ -789,13 +797,6 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/solar-panels-and-inverters-for-home/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM1T4",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/high-capacity-inverters/",
                                                   external: true,
@@ -803,36 +804,7 @@ function SubMenuDialog({
                                               },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.Batteries
-                                        ? [
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM2T2",
-                                                  enterClassName: "tw-delay-[250ms]",
-                                                  link: "/inverter-batteries",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM2T3",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/solar-battery-for-home/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM2T4",
-                                                  enterClassName: "tw-delay-[350ms]",
-                                                  link: "/erickshaw-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM2T5",
-                                                  enterClassName: "tw-delay-[400ms]",
-                                                  link: "/vrla-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                          ]
+                                        ? []
                                         : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
                                         ? [
                                               {
@@ -878,9 +850,31 @@ function SubMenuDialog({
                                                   download: null,
                                               },
                                           ]
-                                        : currentlyOpenSubMenu == SubMenu.SolarSolutions
-                                        ? []
-                                        : currentlyOpenSubMenu == SubMenu.Accessories
+                                        : currentlyOpenSubMenu == SubMenu.Solar
+                                        ? [
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM4T2",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/solar-panels-and-inverters-for-home/",
+                                                  external: true,
+                                                  download: null,
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM4T3",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/solar-battery-for-home/",
+                                                  external: true,
+                                                  download: null,
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM4T4",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "https://www.livguardsolar.com/",
+                                                  external: true,
+                                                  download: null,
+                                              },
+                                          ]
+                                        : currentlyOpenSubMenu == SubMenu.AccessoriesAndotherBatteries
                                         ? [
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T2",
@@ -898,6 +892,20 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T4",
+                                                  enterClassName: "tw-delay-[250ms]",
+                                                  link: "/inverter-batteries",
+                                                  external: false,
+                                                  download: null,
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM5T5",
+                                                  enterClassName: "tw-delay-[400ms]",
+                                                  link: "/vrla-batteries/",
+                                                  external: true,
+                                                  download: null,
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM5T6",
                                                   enterClassName: "tw-delay-[350ms]",
                                                   link: "/lg-trolley-category/",
                                                   external: true,
