@@ -20,6 +20,7 @@ import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
+import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
@@ -512,7 +513,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                         ]}
                         itemBuilder={(item, itemIndex) => (
                             <div
-                                className="[@media(max-width: 1024px)]:lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center"
+                                className="[@media(max-width:1024px)]:lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center"
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation className="tw-w-full">
@@ -807,13 +808,9 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
-                        <video
-                            src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/videos/home/10/1-dark.mp4" : "https://files.growthjockey.com/livguard/videos/home/10/1-light.mp4"}
-                            className="tw-w-full tw-h-full tw-object-contain tw-hidden dark:tw-block"
-                            autoPlay={true}
-                            muted={true}
-                            loop={true}
-                            controls={false}
+                        <CoverImage
+                            relativePath={calculatedTheme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </div>
 

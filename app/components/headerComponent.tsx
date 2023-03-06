@@ -10,6 +10,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
+import {getCalculatedTheme} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 enum MenuState {
@@ -103,6 +104,8 @@ export function HeaderComponent({
             }
         }
     }, [selectedTheme]);
+
+    const calculatedTheme = getCalculatedTheme(userPreferences);
 
     return (
         <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
@@ -279,23 +282,12 @@ export function HeaderComponent({
                 )}
 
                 <Link to="/">
-                    <div className="tw-block dark:tw-hidden">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6"
-                        />
-                    </div>
-
-                    <div className="dark:tw-block tw-hidden">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6"
-                        />
-                    </div>
+                    <img
+                        src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                        width={385}
+                        height={96}
+                        className="tw-w-auto tw-h-6"
+                    />
                 </Link>
 
                 <div className="tw-w-8 tw-hidden lg:tw-flex" />

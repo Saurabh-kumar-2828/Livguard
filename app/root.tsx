@@ -6,7 +6,6 @@ import {Theme, UserPreferences} from "~/typeDefinitions";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import tailwindStylesheet from "../build/tailwind.css";
-import rootStylesheet from "./styles/root.css";
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCalculatedTheme} from "~/utilities";
 import {unknown} from "zod";
@@ -36,7 +35,6 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => [
     {rel: "stylesheet", href: tailwindStylesheet},
-    {rel: "stylesheet", href: rootStylesheet},
     {rel: "stylesheet", href: reactToastifyStylesheet},
     {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf", as: "font", crossOrigin: "anonymous"},
     {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/brueur-text.ttf", as: "font", crossOrigin: "anonymous"},

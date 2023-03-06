@@ -12,7 +12,8 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
-import {UserPreferences} from "~/typeDefinitions";
+import {Theme, UserPreferences} from "~/typeDefinitions";
+import {getCalculatedTheme} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function FooterComponent({
@@ -230,30 +231,17 @@ export function FooterComponent({
         },
     ];
 
+    const calculatedTheme = getCalculatedTheme(userPreferences);
+
     return (
         <div className="lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]">
             <VerticalSpacer className="tw-h-8" />
 
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_2rem_auto] lg:tw-grid-cols-[17.5rem_repeat(4,minmax(0,1fr))] lg:tw-gap-x-8 lg:tw-gap-y-4">
                 <div className="lg:tw-row-start-3 lg:tw-col-start-1">
-                    <Link
-                        to="/"
-                        className="tw-block dark:tw-hidden"
-                    >
+                    <Link to="/">
                         <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6 lg:tw-h-12"
-                        />
-                    </Link>
-
-                    <Link
-                        to="/"
-                        className="dark:tw-block tw-hidden"
-                    >
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
                             width={385}
                             height={96}
                             className="tw-w-auto tw-h-6 lg:tw-h-12"

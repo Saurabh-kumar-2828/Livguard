@@ -533,6 +533,20 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LBAmk[?F-nx].TxZtR%fo#R-n%t7",
         placeholderColor: "#787878",
     },
+    "/livguard/home/10/1-dark.jpg": {
+        "width": 974,
+        "height": 1080,
+        "altText": "Dummy alt text",
+        "blurHash": "L02=o*=|ELEf%2oLWVWV9tNa$*xG",
+        "placeholderColor": "#181818"
+    },
+    "/livguard/home/10/1-light.jpg": {
+        "width": 974,
+        "height": 1080,
+        "altText": "Dummy alt text",
+        "blurHash": "LQS$ov?bxu~q?bofj[of%Mt7RjWB",
+        "placeholderColor": "#f8f8f8"
+    },
     "/livguard/home/11/1.jpg": {
         width: 1120,
         height: 798,
