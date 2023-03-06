@@ -190,7 +190,8 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
+            {/* TEMP CHANGES */}
+            {/* <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
                 <button
                     className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500" : "lg-bg-secondary-100")}
                     onClick={() => emblaApi?.scrollTo(0)}
@@ -206,17 +207,19 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 </button>
             </div>
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-8" /> */}
+            {/* /TEMP CHANGES */}
 
             <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P3", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div
+            {/* TEMP CHANGES */}
+            {/* <div
                 className="tw-overflow-hidden tw-w-full"
                 ref={emblaRef}
             >
-                {/* TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? */}
+                {/ * TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? * /}
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-start">
                     <DeviceSelectionNewUi
                         userPreferences={userPreferences}
@@ -230,15 +233,34 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                         dispatch={dispatch}
                     />
                 </div>
-            </div>
+            </div> */}
+            {/* /TEMP CHANGES */}
+
+            {/* TEMP CHANGES */}
+            <RoomSelection
+                userPreferences={userPreferences}
+                loadCalculatorInputs={loadCalculatorInputs}
+                dispatch={dispatch}
+            />
+            {/* /TEMP CHANGES */}
 
             <VerticalSpacer className="tw-h-8" />
 
-            <AdditionalInputsSection
+            {/* TEMP CHANGES */}
+            {/* <AdditionalInputsSection
                 userPreferences={userPreferences}
                 loadCalculatorInputs={selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs}
                 dispatch={selectedIndex == 0 ? dispatchNewUi : dispatch}
+            /> */}
+            {/* /TEMP CHANGES */}
+
+            {/* TEMP CHANGES */}
+            <AdditionalInputsSection
+                userPreferences={userPreferences}
+                loadCalculatorInputs={loadCalculatorInputs}
+                dispatch={dispatch}
             />
+            {/* /TEMP CHANGES */}
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -246,13 +268,25 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 method="post"
                 className="lg-px-screen-edge tw-flex tw-flex-col tw-items-center"
             >
-                <input
+                {/* TEMP CHANGES */}
+                {/* <input
                     type="text"
                     name="loadCalculatorInputs"
                     value={JSON.stringify(selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs)}
                     readOnly
                     className="tw-hidden"
+                /> */}
+                {/* /TEMP CHANGES */}
+
+                {/* TEMP CHANGES */}
+                <input
+                    type="text"
+                    name="loadCalculatorInputs"
+                    value={JSON.stringify(loadCalculatorInputs)}
+                    readOnly
+                    className="tw-hidden"
                 />
+                {/* /TEMP CHANGES */}
 
                 {/* TODO: Handle things like UTM here */}
                 <button
@@ -607,6 +641,8 @@ function PropertySelection({
                                     return;
                                 }
 
+                                // TODO: This gets triggered even if user changed some other variable like consumption percentage,
+                                // because that action causes a deep copy of property. Fix logic.
                                 if (
                                     loadCalculatorInputs.property == propertyTemplates[loadCalculatorInputs.property.propertyType] &&
                                     loadCalculatorInputsNewUi.property == propertyTemplatesNewUi[loadCalculatorInputs.property.propertyType]

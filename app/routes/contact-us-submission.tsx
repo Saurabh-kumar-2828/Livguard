@@ -35,12 +35,12 @@ export const action: ActionFunction = async ({request, params}) => {
     }
 
     const freshsalesResult = await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId}, utmParametersDecoded);
-    if (freshsalesResult instanceof Error) {
-        const actionData: GenericActionData = {
-            error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
-        };
-        return json(actionData);
-    }
+    // if (freshsalesResult instanceof Error) {
+    //     const actionData: GenericActionData = {
+    //         error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
+    //     };
+    //     return json(actionData);
+    // }
 
     const actionData: GenericActionData = {
         error: null,
