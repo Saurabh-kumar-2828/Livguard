@@ -1,5 +1,4 @@
 import {LoadCalculatorInputs, propertyTemplates, propertyTemplatesNewUi, PropertyType} from "~/routes/load-calculator/index.types";
-import {pollyfilledStructuredClone} from "~/utilities";
 
 export enum LoadCalculatorInputsActionType {
     SetPropertyType,
@@ -25,7 +24,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             // TODO: Validate that these exist?
             const propertyType = action.payload;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property = propertyTemplates[propertyType];
 
@@ -35,7 +34,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             // TODO: Validate that these exist?
             const propertyType = action.payload;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property = propertyTemplatesNewUi[propertyType];
 
@@ -45,7 +44,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             // TODO: Validate that these exist?
             const propertyName = action.payload;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property.rooms.push(action.payload);
 
@@ -57,7 +56,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             const roomName = action.payload.roomName;
             const devices = action.payload.devices;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property.rooms[roomIndex].roomName = roomName;
             newState.property.rooms[roomIndex].devices = devices;
@@ -69,7 +68,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             const roomIndex = action.payload.roomIndex;
             const devices = action.payload.devices;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property.rooms[roomIndex].devices.push(...devices);
 
@@ -80,7 +79,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             const roomIndex = action.payload.roomIndex;
             const deviceType = action.payload.deviceType;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.property.rooms[roomIndex].devices = newState.property.rooms[roomIndex].devices.filter((device) => device.deviceType != deviceType);
 
@@ -91,7 +90,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             const roomIndex = action.payload.roomIndex;
             const deviceType = action.payload.deviceType;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             const indexToRemove = newState.property.rooms[roomIndex].devices.findIndex((device) => device.deviceType == deviceType);
             newState.property.rooms[roomIndex].devices.splice(indexToRemove, 1);
@@ -102,7 +101,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             // TODO: Validate that these exist?
             const backupHours = action.payload;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.backupHours = backupHours;
 
@@ -112,7 +111,7 @@ export function loadCalculatorInputsReducer(state: LoadCalculatorInputs, action:
             // TODO: Validate that these exist?
             const averageConsumption = action.payload;
 
-            const newState: LoadCalculatorInputs = pollyfilledStructuredClone(state);
+            const newState: LoadCalculatorInputs = structuredClone(state);
 
             newState.averageConsumption = averageConsumption;
 
