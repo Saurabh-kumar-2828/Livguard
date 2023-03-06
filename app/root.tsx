@@ -83,12 +83,21 @@ export default function () {
 
     // Freshchat
     useEffect(() => {
-        setTimeout(() => {
-            const scriptTag = document.createElement("script");
-            scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
-            scriptTag.setAttribute("chat", "true");
-            document.body.appendChild(scriptTag);
-        }, 5000);
+        const onDocumentLoad = () => {
+            setTimeout(() => {
+                const scriptTag = document.createElement("script");
+                scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
+                scriptTag.setAttribute("chat", "true");
+                document.body.appendChild(scriptTag);
+            }, 5000);
+        };
+
+        if (document.readyState == "complete") {
+            onDocumentLoad();
+        } else {
+            window.addEventListener("load", onDocumentLoad);
+            return () => window.removeEventListener("load", onDocumentLoad);
+        }
     }, []);
 
     const calculatedTheme = getCalculatedTheme(userPreferences);
