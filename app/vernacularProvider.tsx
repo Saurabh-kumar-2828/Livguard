@@ -2780,8 +2780,28 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2T5: {
-        [Language.English]: "View More",
-        [Language.Hindi]: "और देखें",
+        [Language.English]: "View More Inverters",
+        [Language.Hindi]: "और इनवर्टर देखें",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorRecommendationsS2T6: {
+        [Language.English]: "VA Capacity",
+        [Language.Hindi]: "VA कैपेसिटी",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorRecommendationsS2T7: {
+        [Language.English]: "Months Warranty",
+        [Language.Hindi]: "वारंटी",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorRecommendationsS2T8: {
+        [Language.English]: "Ah Capacity",
+        [Language.Hindi]: "Ah कैपेसिटी",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorRecommendationsS2T9: {
+        [Language.English]: "View More Batteries",
+        [Language.Hindi]: "और बैटरी देखें",
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS3H1: {

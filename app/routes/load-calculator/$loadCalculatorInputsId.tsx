@@ -9,6 +9,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {PageScaffold} from "~/components/pageScaffold";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
@@ -267,50 +268,79 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             {/* TODO: Temp hack */}
                                             {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
-                                            <div className="lg-text-secondary-900 tw-px-4">
+                                            <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">
                                                 {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}
                                             </div>
 
                                             <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="lg-text-secondary-900 tw-px-4">
-                                                {recommendation.capacity}VA Capacity
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                                <FixedWidthImage
+                                                    relativePath="/livguard/icons/capacity.png"
+                                                    width="1.5rem"
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
+
+                                                <div className="lg-text-secondary-900 lg-text-icon">
+                                                    {recommendation.capacity}{getVernacularString("loadCalculatorRecommendationsS2T6", userPreferences.language)}
+                                                </div>
                                             </div>
 
-                                            <div className="lg-text-secondary-900 tw-px-4">
-                                                {recommendation.warranty} Month Warranty
+                                            <VerticalSpacer className="tw-h-1" />
+
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                                <FixedWidthImage
+                                                    relativePath="/livguard/icons/waranty.png"
+                                                    width="1.5rem"
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
+
+                                                <div className="lg-text-secondary-900 lg-text-icon">
+                                                    {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                                                </div>
                                             </div>
 
                                             <VerticalSpacer className="tw-h-4" />
 
+                                            {/* TODO: Temp hack, remove once we fix product image! */}
                                             <FullWidthImage
                                                 relativePath={`/livguard/inverter images/${recommendation.model}.png`}
                                                 imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
+
+                                            {/* <div className="tw-w-full tw-aspect-[5/3]">
+                                                <CoverImage
+                                                    relativePath={`/livguard/inverter images/${recommendation.model}.png`}
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
+                                            </div> */}
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
+                                                {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-4" />
                                         </div>
-
-                                        <VerticalSpacer className="tw-h-4" />
-
-                                        <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
-                                            {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
-                                        </div>
-
-                                        <VerticalSpacer className="tw-h-4" />
                                     </Link>
                                 )}
                             />
+
+                            <Link
+                                to="/inverter-for-home"
+                                className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                            >
+                                <VerticalSpacer className="tw-h-3" />
+
+                                <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-4 lg-text-title2 tw-border tw-border-solid tw-border-primary-500-light">
+                                    {getVernacularString("loadCalculatorRecommendationsS2T5", userPreferences.language)}
+                                </div>
+                            </Link>
+
                             <div className="tw-w-px tw-h-full tw-flex-none tw-bg-transparent" />
                         </div>
                     </div>
-
-                    <VerticalSpacer className="tw-h-2" />
-
-                    <Link
-                        to="/inverter-for-home"
-                        className="lg-px-screen-edge tw-w-full tw-text-center lg-text-secondary-700 tw-underline tw-underline-offset-4"
-                    >
-                        {getVernacularString("loadCalculatorRecommendationsS2T5", userPreferences.language)}
-                    </Link>
                 </>
             )}
 
@@ -343,18 +373,36 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             {/* TODO: Temp hack */}
                                             {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
-                                            <div className="lg-text-secondary-900 tw-px-4">
+                                            <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">
                                                 {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}
                                             </div>
 
                                             <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="lg-text-secondary-900 tw-px-4">
-                                                {recommendation.capacity}Ah Capacity
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                                <FixedWidthImage
+                                                    relativePath="/livguard/icons/capacity.png"
+                                                    width="1.5rem"
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
+
+                                                <div className="lg-text-secondary-900 lg-text-icon">
+                                                    {recommendation.capacity}{getVernacularString("loadCalculatorRecommendationsS2T8", userPreferences.language)}
+                                                </div>
                                             </div>
 
-                                            <div className="lg-text-secondary-900 tw-px-4">
-                                                {recommendation.warranty} Month Warranty
+                                            <VerticalSpacer className="tw-h-1" />
+
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                                <FixedWidthImage
+                                                    relativePath="/livguard/icons/waranty.png"
+                                                    width="1.5rem"
+                                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                                />
+
+                                                <div className="lg-text-secondary-900 lg-text-icon">
+                                                    {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                                                </div>
                                             </div>
 
                                             <VerticalSpacer className="tw-h-4" />
@@ -363,34 +411,37 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 relativePath={`/livguard/battery-images/${recommendation.model}.png`}
                                                 imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
+
+                                            <VerticalSpacer className="tw-h-4" />
+
+                                            <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
+                                                {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-4" />
                                         </div>
-
-                                        <VerticalSpacer className="tw-h-4" />
-
-                                        <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">
-                                            {getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}
-                                        </div>
-
-                                        <VerticalSpacer className="tw-h-4" />
                                     </Link>
                                 )}
                             />
+
+                            <Link
+                                to="/inverter-for-home"
+                                className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                            >
+                                <VerticalSpacer className="tw-h-3" />
+
+                                <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-4 lg-text-title2 tw-border tw-border-solid tw-border-primary-500-light">
+                                    {getVernacularString("loadCalculatorRecommendationsS2T9", userPreferences.language)}
+                                </div>
+                            </Link>
+
                             <div className="tw-w-px tw-h-full tw-flex-none tw-bg-transparent" />
                         </div>
                     </div>
-
-                    <VerticalSpacer className="tw-h-2" />
-
-                    <Link
-                        to="/inverter-for-home"
-                        className="lg-px-screen-edge tw-w-full tw-text-center lg-text-secondary-700 tw-underline tw-underline-offset-4"
-                    >
-                        {getVernacularString("loadCalculatorRecommendationsS2T5", userPreferences.language)}
-                    </Link>
                 </>
             )}
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-10" />
 
             <DefaultElementAnimation className="lg-px-screen-edge tw-self-center">
                 <Link to="/dealer-for-inverters-and-batteries">
