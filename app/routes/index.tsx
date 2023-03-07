@@ -402,23 +402,23 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                 <ItemBuilder
                     items={[
                         {
-                            svgIcon: "/livguard/icons/home/3/2-icon.svg",
+                            svgIcon: "/livguard/home/3/2-icon.png",
                             title: "homeS3Tab2H",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/3/3-icon.svg",
+                            svgIcon: "/livguard/home/3/3-icon.png",
                             title: "homeS3Tab3H",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/3/1-icon.svg",
+                            svgIcon: "/livguard/home/3/1-icon.png",
                             title: "homeS3Tab1H",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/3/4-icon.svg",
+                            svgIcon: "/livguard/home/3/4-icon.png",
                             title: "homeS3Tab4H",
                         },
                         {
-                            svgIcon: "/livguard/icons/home/3/5-icon.svg",
+                            svgIcon: "/livguard/home/3/5-icon.png",
                             title: "homeS3Tab5H",
                         },
                     ]}
@@ -442,11 +442,8 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 /> */}
 
                                 <img
-                                    src={`https://files.growthjockey.com${item.svgIcon}`}
-                                    className={concatenateNonNullStringsWithSpaces(
-                                        "tw-w-6 tw-h-6 dark:tw-invert",
-                                        itemIndex == selectedIndex ? "tw-invert tw-scale-125" : "tw-opacity-50",
-                                    )}
+                                    src={`https://growthjockey.imgix.net${item.svgIcon}`}
+                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6", itemIndex == selectedIndex ? "tw-scale-125" : "tw-opacity-50")}
                                 />
                             </div>
 
