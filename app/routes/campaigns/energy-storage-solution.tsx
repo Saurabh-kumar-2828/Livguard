@@ -334,11 +334,11 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
                                 </DefaultImageAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-2">
-                                    <div className="lg-text-title1 tw-whitespace-pre-line">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-title1 tw-whitespace-pre-line tw-text-secondary-900-dark">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
                                 </DefaultTextAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
-                                    <div className="lg-text-body">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
                                 </DefaultTextAnimation>
                             </div>
                         )}
