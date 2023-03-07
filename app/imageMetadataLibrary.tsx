@@ -1,175 +1,175 @@
 import {ImageMetadata} from "~/global-common-typescript/typeDefinitions";
 
 export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | undefined} = {
-    "/livguard/battery images/IT 1048ST.png": {
+    "/livguard/battery-images/IT1048ST.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LtE,W.s:aLr?}Ys:nisA,@sosBo1",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1248ST.png": {
+    "/livguard/battery-images/IT1248ST.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LtE,Z^s:aKr?}Ys:nisA,@sosVo2",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1342ST.png": {
+    "/livguard/battery-images/IT1342ST.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LtE,Z^s:aKr?}Fs:nisA,@sosBo2",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1536FP.png": {
+    "/livguard/battery-images/IT1536FP.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LtE,Z^s:aKr?}Fs:nisA,@sosVo2",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1536TT.png": {
+    "/livguard/battery-images/IT1536TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LUEB%6$*kWae}tw{NGaK~CxGofRP",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1543STJ.png": {
+    "/livguard/battery-images/IT1543STJ.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LaDulP%MR*s:~BxaR*n%x]t7aeay",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1548TT.png": {
+    "/livguard/battery-images/IT1548TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LZE.CVxaxux]^6soV@of~Cs:xat7",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1550TT.png": {
+    "/livguard/battery-images/IT1550TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LRC64H$*V?s:}[s:RPjF-Vt7oen%",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1554STJ.png": {
+    "/livguard/battery-images/IT1554STJ.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LcDbTr%2R*s:~CxuR*o1x]ozaeWB",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1554TT.png": {
+    "/livguard/battery-images/IT1554TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LXEU_st7oyxu}tofM{Wo}[X8kDtR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1560TT.png": {
+    "/livguard/battery-images/IT1560TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LXELa6t7ofxu}togM{ay}[X8kWtR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1584TT.png": {
+    "/livguard/battery-images/IT1584TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LZELHdxGOXoz~C%2S2tR-V%2R*xu",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1636STJ.png": {
+    "/livguard/battery-images/IT1636STJ.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LbDk_a%MR*s:~CxuRjn%x[ozaeay",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1639TT.png": {
+    "/livguard/battery-images/IT1639TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LWEecJt8buxu}togM{Wo}[bboftR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1645TT.png": {
+    "/livguard/battery-images/IT1645TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LXEU_rt7oyxu}tofM{WV}[X8kCtR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1666TT.png": {
+    "/livguard/battery-images/IT1666TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LWEeZDt7buxu}togM{WV~BbIogtR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1860TT.png": {
+    "/livguard/battery-images/IT1860TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LTCFVRxaRPso}[xGRPn%-Bs:ayn*",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 1866TT.png": {
+    "/livguard/battery-images/IT1866TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LWEB?UtRX7tQ}tSgNGof}[bvXRtR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 2048TT.png": {
+    "/livguard/battery-images/IT2048TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LYEo7At7tRxa^6ogIof6~CW;t7t7",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 2060TT.png": {
+    "/livguard/battery-images/IT2060TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LXEU}#xvs:tR}tR*Rjay}[kWogt7",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 2066TT.png": {
+    "/livguard/battery-images/IT2066TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LWEefQt8bbxu}tofM{WV}]bboytR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 2266TT.png": {
+    "/livguard/battery-images/IT2266TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LWEecJt7g2xu}tofM{WV~CbIoftR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 2360TT.png": {
+    "/livguard/battery-images/IT2360TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LRCFk*$+V?s.}[s:RPjF-Vt6j@n+",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 2672TT.png": {
+    "/livguard/battery-images/IT2672TT.png": {
         width: 1100,
         height: 1100,
         altText: "",
         blurHash: "LdDurixaR%xa~Cs:R*t7?HxaX8tR",
         placeholderColor: "#f8f8f8",
     },
-    "/livguard/battery images/IT 9048ST.png": {
+    "/livguard/battery-images/IT9048ST.png": {
         width: 1100,
         height: 1100,
         altText: "",

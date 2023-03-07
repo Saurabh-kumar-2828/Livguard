@@ -19,9 +19,9 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FaqSection, SolarSolutions} from "~/routes";
+import {LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
 import {OurBatteriesSectionInternal} from "~/routes/__category/inverter-batteries";
 import {OurInvertersSectionInternal} from "~/routes/__category/inverter-for-home";
-import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
@@ -265,7 +265,21 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <VerticalSpacer className="tw-h-4" />
 
-                                            <div className="lg-text-secondary-900">{recommendation.model}</div>
+                                            {/* TODO: Temp hack */}
+                                            {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-2" />
+
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.capacity}VA Capacity
+                                            </div>
+
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.warranty} Month Warranty
+                                            </div>
 
                                             <VerticalSpacer className="tw-h-4" />
 
@@ -288,6 +302,15 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                             <div className="tw-w-px tw-h-full tw-flex-none tw-bg-transparent" />
                         </div>
                     </div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <Link
+                        to="/inverter-for-home"
+                        className="lg-px-screen-edge tw-w-full tw-text-center lg-text-secondary-700 tw-underline tw-underline-offset-4"
+                    >
+                        {getVernacularString("loadCalculatorRecommendationsS2T5", userPreferences.language)}
+                    </Link>
                 </>
             )}
 
@@ -318,12 +341,26 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <VerticalSpacer className="tw-h-4" />
 
-                                            <div className="lg-text-secondary-900">{recommendation.model}</div>
+                                            {/* TODO: Temp hack */}
+                                            {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}
+                                            </div>
+
+                                            <VerticalSpacer className="tw-h-2" />
+
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.capacity}Ah Capacity
+                                            </div>
+
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.warranty} Month Warranty
+                                            </div>
 
                                             <VerticalSpacer className="tw-h-4" />
 
                                             <FullWidthImage
-                                                relativePath={`/livguard/battery images/${recommendation.model}.png`}
+                                                relativePath={`/livguard/battery-images/${recommendation.model}.png`}
                                                 imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
                                         </div>
@@ -341,6 +378,15 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                             <div className="tw-w-px tw-h-full tw-flex-none tw-bg-transparent" />
                         </div>
                     </div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <Link
+                        to="/inverter-for-home"
+                        className="lg-px-screen-edge tw-w-full tw-text-center lg-text-secondary-700 tw-underline tw-underline-offset-4"
+                    >
+                        {getVernacularString("loadCalculatorRecommendationsS2T5", userPreferences.language)}
+                    </Link>
                 </>
             )}
 

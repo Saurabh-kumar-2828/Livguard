@@ -325,7 +325,7 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
                                 className="tw-w-full tw-h-full tw-grid tw-grid-rows-[1.5rem_auto_1fr_auto_0_auto_1fr_1.5rem] tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem] tw-gap-2"
                                 key={itemIndex}
                             >
-                                <DefaultImageAnimation className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full -tw-z-10">
+                                <DefaultImageAnimation className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
                                     <FullWidthImage
                                         relativePath={item.imageRelativePath}
                                         className="tw-rounded-lg"
@@ -334,11 +334,11 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
                                 </DefaultImageAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-4 tw-col-start-2">
-                                    <div className="lg-text-title1 tw-whitespace-pre-line">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-title1 tw-whitespace-pre-line tw-text-secondary-900-dark">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
                                 </DefaultTextAnimation>
 
                                 <DefaultTextAnimation className="tw-row-start-6 tw-col-start-2">
-                                    <div className="lg-text-body">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
+                                    <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString(item.bodyTextContentPiece, userPreferences.language)}</div>
                                 </DefaultTextAnimation>
                             </div>
                         )}
