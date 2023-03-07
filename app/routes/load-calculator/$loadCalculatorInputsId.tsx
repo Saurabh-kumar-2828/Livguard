@@ -352,7 +352,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                             <VerticalSpacer className="tw-h-4" />
 
                                             <FullWidthImage
-                                                relativePath={`/livguard/battery images/${recommendation.model}.png`}
+                                                relativePath={`/livguard/battery-images/${recommendation.model}.png`}
                                                 imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
                                         </div>
