@@ -2779,6 +2779,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "मैच",
         [Language.Marathi]: "?????",
     },
+    loadCalculatorRecommendationsS2T5: {
+        [Language.English]: "View More",
+        [Language.Hindi]: "और देखें",
+        [Language.Marathi]: "?????",
+    },
     loadCalculatorRecommendationsS3H1: {
         [Language.English]: "A Quick Guide to",
         [Language.Hindi]: "एक सरल गाइड",
