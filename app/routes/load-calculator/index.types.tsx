@@ -32,8 +32,9 @@ export const roomTypeLibrary: {[id: string]: {humanReadableString: string}} = {
 };
 
 export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; category: string; wattage: number}} = {
+    // Lighting
     "a8450049-3fe8-4b8c-8796-fc3982a5e1ed": {
-        humanReadableString: "LED",
+        humanReadableString: "LED Bulb",
         category: "Lighting",
         wattage: 5,
     },
@@ -48,9 +49,9 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
         wattage: 65,
     },
     "aba012ef-4a0a-438f-afbe-8fcb92a95c6b": {
-        humanReadableString: "Tubelight",
+        humanReadableString: "LED Tubelight",
         category: "Lighting",
-        wattage: 40,
+        wattage: 18,
     },
     "89066719-efd8-4e7e-be1c-16da3fc57330": {
         humanReadableString: "Table Lamp",
@@ -62,15 +63,17 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
         category: "Lighting",
         wattage: 14,
     },
+
+    // Home Appliances
     "97712354-86b6-4863-be85-e3d6d564b882": {
-        humanReadableString: "Television",
+        humanReadableString: "LED TV",
         category: "Home Appliances",
-        wattage: 180,
+        wattage: 65,
     },
     "003f0bae-1065-416e-8330-b82b732624ed": {
-        humanReadableString: "Iron",
+        humanReadableString: "Electric Iron",
         category: "Home Appliances",
-        wattage: 1280,
+        wattage: 1200,
     },
     "d915052b-e216-4dbd-8fba-055d1b4af551": {
         humanReadableString: "Hair Appliances",
@@ -78,14 +81,14 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
         wattage: 1600,
     },
     "f167dc54-7599-45ac-bd4e-e99393870267": {
-        humanReadableString: "Fan",
+        humanReadableString: "Ceiling Fan",
         category: "Home Appliances",
-        wattage: 60,
+        wattage: 80,
     },
     "f0896a88-d01f-44e3-8004-53a9bc5ad603": {
-        humanReadableString: "Printer",
+        humanReadableString: "Printer - Laser",
         category: "Home Appliances",
-        wattage: 128,
+        wattage: 200,
     },
     "152594ae-c517-4e75-8f1e-8a58301f2ff3": {
         humanReadableString: "Computer",
@@ -98,29 +101,41 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
         wattage: 50,
     },
     "360aae7f-2bd0-4cb9-8083-df636906c55a": {
-        humanReadableString: "Router",
+        humanReadableString: "WiFi Router",
         category: "Home Appliances",
-        wattage: 25,
+        wattage: 20,
     },
     "75c95a14-5df5-4a15-bc31-03ce4f2f07b0": {
         humanReadableString: "Speaker",
         category: "Home Appliances",
         wattage: 80,
     },
+
+    // Kitchen Appliances
     "3a401059-08d9-464b-9e56-e280a1c9919d": {
-        humanReadableString: "Fridge",
+        humanReadableString: "Fridge (Upto 200L)",
+        category: "Kitchen Appliances",
+        wattage: 200,
+    },
+    "72e9c209-513e-415c-946e-1135f90eccef": {
+        humanReadableString: "Fridge (Upto 500L)",
         category: "Kitchen Appliances",
         wattage: 335,
     },
     "87702654-5068-44f5-befc-814fcb4da640": {
         humanReadableString: "Microwave Oven",
         category: "Kitchen Appliances",
-        wattage: 800,
+        wattage: 900,
     },
     "2bf7a137-3aeb-456b-8a7c-8ae1aef146e2": {
         humanReadableString: "Mixer/Grinder",
         category: "Kitchen Appliances",
-        wattage: 700,
+        wattage: 500,
+    },
+    "5349b781-7388-4829-b20e-f29b47cf547f": {
+        humanReadableString: "Blender",
+        category: "Kitchen Appliances",
+        wattage: 420,
     },
     "6e6ebc73-5deb-4c2f-b7f3-f6d596385d4e": {
         humanReadableString: "Water Purifier",
@@ -147,25 +162,27 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
         category: "Kitchen Appliances",
         wattage: 2500,
     },
+
+    // Heavy Load Appliances
     "56b3b38d-ca34-4bda-a1c1-fe6b5032e122": {
-        humanReadableString: "Air Conditioner",
+        humanReadableString: "Air Conditioner (1 Ton 5*)",
         category: "Heavy Load Appliances",
-        wattage: 1600,
+        wattage: 1200,
     },
     "fbbb26c8-2550-4a31-b7c0-2720f72ede55": {
         humanReadableString: "Washing Machine",
         category: "Heavy Load Appliances",
-        wattage: 600,
+        wattage: 520,
     },
     "a54d76f2-1ccb-4769-aa3d-5eaafd44843d": {
-        humanReadableString: "Dessert Cooler",
+        humanReadableString: "Room Cooler (BLDC)",
         category: "Heavy Load Appliances",
-        wattage: 380,
+        wattage: 120,
     },
     "56c4df60-b175-4c71-bcc9-ecfd2b5bc68a": {
         humanReadableString: "Geyser",
         category: "Heavy Load Appliances",
-        wattage: 1800,
+        wattage: 2000,
     },
     "59f3154c-0433-4086-8417-45f8e4fa0f3d": {
         humanReadableString: "Air Purifier",
@@ -180,12 +197,12 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
     "54933747-ce3f-4f00-a003-a98eda1ce406": {
         humanReadableString: "Vacuum Cleaner",
         category: "Heavy Load Appliances",
-        wattage: 900,
+        wattage: 1400,
     },
     "966dafd8-21e7-448a-970e-38b0bebf8122": {
-        humanReadableString: "Heater",
+        humanReadableString: "Room Heater",
         category: "Heavy Load Appliances",
-        wattage: 1400,
+        wattage: 2200,
     },
     "276efb37-0741-419f-a743-725022423dc1": {
         humanReadableString: "Kettle",
@@ -195,17 +212,24 @@ export const deviceTypeLibrary: {[id: string]: {humanReadableString: string; cat
     "a36ecf7f-a597-4a46-a12e-44c82b5b8f56": {
         humanReadableString: "Toaster",
         category: "Heavy Load Appliances",
-        wattage: 1200,
+        wattage: 800,
     },
+
+    // Accessories
     "0a85d525-7268-4aef-81bd-23e1246ddbfb": {
-        humanReadableString: "Charger",
+        humanReadableString: "Phone Charger",
         category: "Accessories",
         wattage: 40,
+    },
+    "a358564d-c474-4c9f-a769-47a46e377ebf": {
+        humanReadableString: "Laptop",
+        category: "Accessories",
+        wattage: 45,
     },
     "01bc2756-1b2b-4250-a927-c4c0722f5686": {
         humanReadableString: "CCTV Camera",
         category: "Accessories",
-        wattage: 15,
+        wattage: 100,
     },
 };
 
@@ -259,7 +283,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -269,13 +293,18 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Room Cooler (BLDC)
+                        deviceType: "a54d76f2-1ccb-4769-aa3d-5eaafd44843d",
                         deviceDetails: {},
                     },
                 ],
@@ -285,23 +314,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "71824c29-731e-4625-9c66-cfde9763a46a",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
                         deviceDetails: {},
                     },
                 ],
@@ -311,7 +325,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -322,27 +336,17 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "c55cef3d-ea14-4810-926c-eac96452906d",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // LED TV
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // Set Top Box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
+                        // WiFi Router
                         deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
@@ -359,7 +363,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -369,13 +373,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -385,7 +389,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -395,13 +399,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -411,22 +415,12 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "71824c29-731e-4625-9c66-cfde9763a46a",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Fridge
+                        // Fridge (Upto 200L)
                         deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
                         deviceDetails: {},
                     },
@@ -437,13 +431,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                 ],
@@ -453,38 +442,18 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "c55cef3d-ea14-4810-926c-eac96452906d",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
                 ],
@@ -500,7 +469,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -510,13 +479,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Phone Charger
+                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -526,7 +495,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -536,39 +505,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
-                ],
-            },
-            {
-                roomName: "Bedroom 3",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -578,38 +521,17 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "71824c29-731e-4625-9c66-cfde9763a46a",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
+                        // Fridge (Upto 500L)
+                        deviceType: "72e9c209-513e-415c-946e-1135f90eccef",
                         deviceDetails: {},
                     },
                     {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Washroom",
-                roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
+                        // Exhaust Fan
                         deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
@@ -620,13 +542,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                 ],
@@ -636,38 +553,18 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "c55cef3d-ea14-4810-926c-eac96452906d",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
                 ],
@@ -683,7 +580,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -693,18 +590,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -714,7 +606,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -724,70 +616,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 3",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 4",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -797,23 +632,23 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "71824c29-731e-4625-9c66-cfde9763a46a",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
+                        // Fridge (Upto 500L)
+                        deviceType: "72e9c209-513e-415c-946e-1135f90eccef",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust Fan
                         deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                     {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        // Blender
+                        deviceType: "5349b781-7388-4829-b20e-f29b47cf547f",
                         deviceDetails: {},
                     },
                 ],
@@ -823,29 +658,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Washroom",
-                roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                 ],
@@ -855,38 +669,18 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "c55cef3d-ea14-4810-926c-eac96452906d",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
                 ],
@@ -902,7 +696,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -912,18 +706,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -933,7 +722,7 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -943,18 +732,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                 ],
@@ -964,163 +748,13 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
                     {
                         // Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 4",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 5",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 6",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 7",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Bedroom 8",
-                roomType: "dda75244-60f2-40e8-8936-d4ea2ae25f34",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                 ],
@@ -1130,23 +764,23 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "71824c29-731e-4625-9c66-cfde9763a46a",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
+                        // Fridge (Upto 500L)
+                        deviceType: "72e9c209-513e-415c-946e-1135f90eccef",
+                        deviceDetails: {},
+                    },
+                    {
+                        // Exhaust Fan
                         deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                     {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        // Washing Machine
+                        deviceType: "fbbb26c8-2550-4a31-b7c0-2720f72ede55",
                         deviceDetails: {},
                     },
                 ],
@@ -1156,61 +790,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Washroom",
-                roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Washroom",
-                roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Washroom",
-                roomType: "be1a5624-4f6d-49b1-a7ea-45fdde15b0e8",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                 ],
@@ -1220,79 +801,28 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                 roomType: "c55cef3d-ea14-4810-926c-eac96452906d",
                 devices: [
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
-                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
-                        deviceDetails: {},
-                    },
-                ],
-            },
-            {
-                roomName: "Hall",
-                roomType: "c55cef3d-ea14-4810-926c-eac96452906d",
-                devices: [
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // CCTV Camera
+                        deviceType: "01bc2756-1b2b-4250-a927-c4c0722f5686",
                         deviceDetails: {},
                     },
                 ],
@@ -1316,7 +846,7 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                 roomType: "",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1326,62 +856,42 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
+                        // Room Cooler (BLDC)
+                        deviceType: "a54d76f2-1ccb-4769-aa3d-5eaafd44843d",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // LED TV
+                        deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // Set Top Box
+                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
+                        // WiFi Router
                         deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
@@ -1398,7 +908,7 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                 roomType: "",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1408,17 +918,17 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1428,78 +938,43 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Fridge
+                        // Fridge (Upto 200L)
                         deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
                 ],
@@ -1515,7 +990,7 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                 roomType: "",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1525,17 +1000,17 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
+                        deviceDetails: {},
+                    },
+                    {
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1545,108 +1020,48 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Fridge (Upto 500L)
+                        deviceType: "72e9c209-513e-415c-946e-1135f90eccef",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
+                        // Exhaust Fan
                         deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                     {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
                 ],
@@ -1662,7 +1077,7 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                 roomType: "",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1672,22 +1087,17 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1697,133 +1107,53 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Fridge (Upto 500L)
+                        deviceType: "72e9c209-513e-415c-946e-1135f90eccef",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
+                        // Exhaust Fan
                         deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                     {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        // Blender
+                        deviceType: "5349b781-7388-4829-b20e-f29b47cf547f",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
                         deviceDetails: {},
                     },
                 ],
@@ -1839,7 +1169,7 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                 roomType: "",
                 devices: [
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1849,22 +1179,17 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1874,22 +1199,17 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
+                        // Phone Charger
                         deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
                         deviceDetails: {},
                     },
                     {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
+                        // Laptop
+                        deviceType: "a358564d-c474-4c9f-a769-47a46e377ebf",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
@@ -1899,253 +1219,53 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
+                        // LED Tubelight
                         deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
                         deviceDetails: {},
                     },
                     {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
+                        // Fridge (Upto 500L)
+                        deviceType: "72e9c209-513e-415c-946e-1135f90eccef",
                         deviceDetails: {},
                     },
                     {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Air conditioner
-                        deviceType: "56b3b38d-ca34-4bda-a1c1-fe6b5032e122",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Charger
-                        deviceType: "0a85d525-7268-4aef-81bd-23e1246ddbfb",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
+                        // Exhaust Fan
                         deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
                         deviceDetails: {},
                     },
                     {
-                        // Fridge
-                        deviceType: "3a401059-08d9-464b-9e56-e280a1c9919d",
+                        // Washing Machine
+                        deviceType: "fbbb26c8-2550-4a31-b7c0-2720f72ede55",
                         deviceDetails: {},
                     },
                     {
-                        // LED
+                        // LED Bulb
                         deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
                         deviceDetails: {},
                     },
                     {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Exhaust fan
-                        deviceType: "33bbcf19-e0cb-4eb6-8379-5c5226c2e8bf",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
-                        deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // LED
-                        deviceType: "a8450049-3fe8-4b8c-8796-fc3982a5e1ed",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Ceiling fan
-                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Router
-                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
-                        deviceDetails: {},
-                    },
-                    {
-                        // Television
+                        // LED TV
                         deviceType: "97712354-86b6-4863-be85-e3d6d564b882",
                         deviceDetails: {},
                     },
                     {
-                        // Set top box
+                        // Set Top Box
                         deviceType: "ddef3ea3-c364-47c8-a3de-2af0a685ac95",
+                        deviceDetails: {},
+                    },
+                    {
+                        // WiFi Router
+                        deviceType: "360aae7f-2bd0-4cb9-8083-df636906c55a",
+                        deviceDetails: {},
+                    },
+                    {
+                        // CCTV Camera
+                        deviceType: "01bc2756-1b2b-4250-a927-c4c0722f5686",
                         deviceDetails: {},
                     },
                 ],
@@ -2155,12 +1275,6 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
     custom: {
         propertyName: "",
         propertyType: PropertyType.Custom,
-        rooms: [
-            {
-                roomName: "",
-                roomType: "",
-                devices: [],
-            },
-        ],
+        rooms: [],
     },
 };
