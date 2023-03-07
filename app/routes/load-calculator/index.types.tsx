@@ -288,8 +288,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -368,8 +368,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -394,8 +394,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -474,8 +474,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -500,8 +500,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -585,8 +585,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -611,8 +611,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -753,8 +753,8 @@ export const propertyTemplates: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                 ],
@@ -851,8 +851,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -913,8 +913,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -933,8 +933,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -995,8 +995,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -1015,8 +1015,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -1082,8 +1082,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -1102,8 +1102,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -1174,8 +1174,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -1194,8 +1194,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
@@ -1214,8 +1214,8 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
                         deviceDetails: {},
                     },
                     {
-                        // Tubelight
-                        deviceType: "aba012ef-4a0a-438f-afbe-8fcb92a95c6b",
+                        // Ceiling Fan
+                        deviceType: "f167dc54-7599-45ac-bd4e-e99393870267",
                         deviceDetails: {},
                     },
                     {
