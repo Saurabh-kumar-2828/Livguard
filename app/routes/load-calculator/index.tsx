@@ -190,8 +190,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <VerticalSpacer className="tw-h-8" />
 
-            {/* TEMP CHANGES */}
-            {/* <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
+            <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
                 <button
                     className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500" : "lg-bg-secondary-100")}
                     onClick={() => emblaApi?.scrollTo(0)}
@@ -207,19 +206,17 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 </button>
             </div>
 
-            <VerticalSpacer className="tw-h-8" /> */}
-            {/* /TEMP CHANGES */}
+            <VerticalSpacer className="tw-h-8" />
 
             <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P3", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
-            {/* TEMP CHANGES */}
-            {/* <div
+            <div
                 className="tw-overflow-hidden tw-w-full"
                 ref={emblaRef}
             >
-                {/ * TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? * /}
+                {/* TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? */}
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-start">
                     <DeviceSelectionNewUi
                         userPreferences={userPreferences}
@@ -233,34 +230,15 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                         dispatch={dispatch}
                     />
                 </div>
-            </div> */}
-            {/* /TEMP CHANGES */}
-
-            {/* TEMP CHANGES */}
-            <RoomSelection
-                userPreferences={userPreferences}
-                loadCalculatorInputs={loadCalculatorInputs}
-                dispatch={dispatch}
-            />
-            {/* /TEMP CHANGES */}
+            </div>
 
             <VerticalSpacer className="tw-h-8" />
 
-            {/* TEMP CHANGES */}
-            {/* <AdditionalInputsSection
+            <AdditionalInputsSection
                 userPreferences={userPreferences}
                 loadCalculatorInputs={selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs}
                 dispatch={selectedIndex == 0 ? dispatchNewUi : dispatch}
-            /> */}
-            {/* /TEMP CHANGES */}
-
-            {/* TEMP CHANGES */}
-            <AdditionalInputsSection
-                userPreferences={userPreferences}
-                loadCalculatorInputs={loadCalculatorInputs}
-                dispatch={dispatch}
             />
-            {/* /TEMP CHANGES */}
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -268,25 +246,13 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 method="post"
                 className="lg-px-screen-edge tw-flex tw-flex-col tw-items-center"
             >
-                {/* TEMP CHANGES */}
-                {/* <input
+                <input
                     type="text"
                     name="loadCalculatorInputs"
                     value={JSON.stringify(selectedIndex == 0 ? loadCalculatorInputsNewUi : loadCalculatorInputs)}
                     readOnly
                     className="tw-hidden"
-                /> */}
-                {/* /TEMP CHANGES */}
-
-                {/* TEMP CHANGES */}
-                <input
-                    type="text"
-                    name="loadCalculatorInputs"
-                    value={JSON.stringify(loadCalculatorInputs)}
-                    readOnly
-                    className="tw-hidden"
                 />
-                {/* /TEMP CHANGES */}
 
                 {/* TODO: Handle things like UTM here */}
                 <button
