@@ -274,7 +274,11 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                             <VerticalSpacer className="tw-h-2" />
 
                                             <div className="lg-text-secondary-900 tw-px-4">
-                                                {recommendation.capacity}VA Capacity, {recommendation.warranty} Month Warranty
+                                                {recommendation.capacity}VA Capacity
+                                            </div>
+
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.warranty} Month Warranty
                                             </div>
 
                                             <VerticalSpacer className="tw-h-4" />
@@ -346,7 +350,11 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                             <VerticalSpacer className="tw-h-2" />
 
                                             <div className="lg-text-secondary-900 tw-px-4">
-                                                {recommendation.capacity}Ah Capacity, {recommendation.warranty} Month Warranty
+                                                {recommendation.capacity}Ah Capacity
+                                            </div>
+
+                                            <div className="lg-text-secondary-900 tw-px-4">
+                                                {recommendation.warranty} Month Warranty
                                             </div>
 
                                             <VerticalSpacer className="tw-h-4" />
