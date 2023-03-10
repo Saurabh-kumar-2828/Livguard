@@ -2,25 +2,19 @@ import {Dialog, Transition} from "@headlessui/react";
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect} from "react";
-import {useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
-import {toast} from "react-toastify";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -60,7 +54,9 @@ export function OurSuggestionsComponent({
         description: string;
         specificationHeading: string;
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
-        imageRelativePath: string;
+        imagesRelativePath: string;
+        link: string;
+        exploreButton: string;
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
     };
@@ -121,6 +117,16 @@ export function OurSuggestionsComponent({
                         )}
                     />
                 </div>
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <Link
+                    to={vernacularContent.link}
+                    className="lg-cta-button tw-w-fit"
+                >
+                    {" "}
+                    {vernacularContent.exploreButton}{" "}
+                </Link>
             </div>
 
             <div className="tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-justify-center">
@@ -128,7 +134,7 @@ export function OurSuggestionsComponent({
 
                 <div className="tw-rounded-lg tw-w-full tw-flex tw-justify-center">
                     <FixedWidthImage
-                        relativePath={vernacularContent.imageRelativePath}
+                        relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading}.png`}
                         imageCdnProvider={ImageCdnProvider.Imgix}
                         width="200px"
                         className="tw-mx-auto"
@@ -146,21 +152,41 @@ export function OurSuggestionsComponent({
                     lg:tw-hidden
                 />
 
-                <CarouselStyle4
-                    items={vernacularContent.relatedProducts.map((relatedProduct) => (
-                        <Link
-                            to={`/product/${relatedProduct}`}
-                            className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
-                        >
-                            <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
-                            <FixedWidthImage
-                                relativePath={vernacularContent.imageRelativePath}
-                                imageCdnProvider={ImageCdnProvider.Imgix}
-                                width="110px"
-                            />
-                        </Link>
-                    ))}
-                />
+                {vernacularContent.relatedProducts.length > 3 ? (
+                    <CarouselStyle4
+                        items={vernacularContent.relatedProducts.map((relatedProduct) => (
+                            <Link
+                                to={`/product/${relatedProduct}`}
+                                className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                            >
+                                <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
+                                <FullWidthImage
+                                    relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}.png`}
+                                    imageCdnProvider={ImageCdnProvider.Imgix}
+                                />
+                            </Link>
+                        ))}
+                    />
+                ) : (
+                    <div className="tw-flex tw-flex-row tw-justify-center tw-w-full tw-gap-x-2">
+                        <ItemBuilder
+                            items={vernacularContent.relatedProducts}
+                            itemBuilder={(item, itemIndex) => (
+                                <Link
+                                    to={`/product/${item}`}
+                                    className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
+                                    key={itemIndex}
+                                >
+                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{item}</div>
+                                    <FullWidthImage
+                                        relativePath={`${vernacularContent.imagesRelativePath}${item}.png`}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
+                                    />
+                                </Link>
+                            )}
+                        />
+                    </div>
+                )}
             </div>
 
             <VerticalSpacer className="tw-h-4" />

@@ -229,6 +229,16 @@ export function FooterComponent({
             link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
+        {
+            title: `${getVernacularString("footerDisclosure7T4", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/MGT-7_2021-22_LBPL.pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure7T4", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/MGT-7_2021-22_LETPL.pdf",
+            target: true,
+        },
     ];
 
     const calculatedTheme = getCalculatedTheme(userPreferences);
@@ -553,7 +563,7 @@ export function FooterComponent({
                     />
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-justify-between lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-row-span-3">
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure2H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
@@ -580,11 +590,12 @@ export function FooterComponent({
                             )}
                         />
                     </div>
+                    <VerticalSpacer className="tw-h-8" />
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure6H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
-                            items={howCanWehelpAccordianList}
+                            items={investersAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -608,7 +619,7 @@ export function FooterComponent({
                     </div>
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-justify-between lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-row-span-3">
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure3H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
@@ -640,7 +651,7 @@ export function FooterComponent({
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure7H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
-                            items={investersAccordianList}
+                            items={howCanWehelpAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -664,7 +675,7 @@ export function FooterComponent({
                     </div>
                 </div>
 
-                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-justify-between lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
+                <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure4H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
@@ -691,6 +702,7 @@ export function FooterComponent({
                             )}
                         />
                     </div>
+                    <VerticalSpacer className="tw-h-8" />
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure5H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />

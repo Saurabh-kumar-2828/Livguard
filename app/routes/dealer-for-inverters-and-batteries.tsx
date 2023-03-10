@@ -411,8 +411,11 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
 
     useEffect(() => {
         if (dealerList != null && dealerList.length > 0) {
+            console.log("dealer list 5",dealerList.slice(0,5));
             const latCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.latitude), Number(0)) / 5;
             const lngCenter = dealerList.slice(0, 5).reduce((accumulator, dealer) => accumulator + Number(dealer.longitude), Number(0)) / 5;
+            console.log("avg latitude",latCenter);
+            console.log("avg longitude", lngCenter);
             setMapCenter({lat: latCenter, lng: lngCenter});
             setZoomLevel(12);
         }

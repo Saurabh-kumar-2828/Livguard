@@ -394,7 +394,9 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
         description: string;
         specificationHeading: string;
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
-        imageRelativePath: string;
+        imagesRelativePath: string;
+        link: string;
+        exploreButton: string;
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
     }> = [
@@ -424,9 +426,11 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+            imagesRelativePath: "/livguard/inverter images/",
+            link: "/product/LGS1100i",
+            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["LGS1000i", "LGS1100i", "LGS1600", "LGS1700"],
+            relatedProducts: ["LGS900i", "LGS1000i", "LGS1100i", "LGS1600", "LGS1700"],
         },
         {
             heading: `${getVernacularString("categoryInvertersS4Slide2Heading", userPreferences.language)}`,
@@ -454,9 +458,11 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+            imagesRelativePath: "/livguard/inverter images/",
+            link: "/product/LG1550i",
+            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["LG1150i", "LG1450i", "LG1550i", "LG1950i", "LG750i"],
+            relatedProducts: ["LG700E", "LG900", "LG1100", "LG1450i", "LG1550i", "LG1950i"],
         },
     ];
 

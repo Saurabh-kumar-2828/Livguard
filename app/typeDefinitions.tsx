@@ -50,8 +50,10 @@ export function languageToShortHumanFriendlyFormat(language: Language) {
 }
 
 export enum BatteryType {
-    flat = "Flat Plate Battery",
-    tubular = "Tubular Battery",
+    TT = "Tall Tubular",
+    ST = "Short Tubular",
+    STT = "Short Tall Tubular",
+    STJ = "Short Tubular Jumbo",
 }
 
 export enum InverterType {

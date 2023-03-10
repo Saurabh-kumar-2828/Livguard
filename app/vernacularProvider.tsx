@@ -1449,13 +1449,23 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बैटरी का टाइप चुनें",
         [Language.Marathi]: "?????",
     },
-    categoryBatteriesS4BTFlat: {
-        [Language.English]: "Flat Plate Battery",
+    categoryBatteriesS4TT: {
+        [Language.English]: "Tall Tubular",
         [Language.Hindi]: "फ्लैट प्लेट बैटरी",
         [Language.Marathi]: "?????",
     },
-    categoryBatteriesS4BTTubular: {
-        [Language.English]: "Tubular Battery",
+    categoryBatteriesS4ST: {
+        [Language.English]: "Short Tubular",
+        [Language.Hindi]: "ट्यूबुलर",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4STT: {
+        [Language.English]: "Short Tall Tubular",
+        [Language.Hindi]: "ट्यूबुलर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4STJ: {
+        [Language.English]: "Short Tubular Jumbo",
         [Language.Hindi]: "ट्यूबुलर बैटरी",
         [Language.Marathi]: "?????",
     },
@@ -1469,59 +1479,61 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "विस्तार से देखें",
         [Language.Marathi]: "?????",
     },
+    categoryBatteriesS2KS1Title: {
+        [Language.English]: "Warranty",
+        [Language.Hindi]: "वारंटी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS2KS3Title: {
+        [Language.English]: "3D Grid",
+        [Language.Hindi]: "3D ग्रिड",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS2KS2Title: {
+        [Language.English]: "Capacity",
+        [Language.Hindi]: "क्षमता",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS2KS4Title: {
+        [Language.English]: "Dimensions",
+        [Language.Hindi]: "आयाम",
+        [Language.Marathi]: "?????",
+    },
     categoryBatteriesS4Slide1Heading: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
+        [Language.English]: "IT1584TT",
+        [Language.Hindi]: "IT1584TT",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide1Description: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS2Slide1KS1Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
+        [Language.English]:
+            "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+        [Language.Hindi]:
+            "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS1Description: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS2Slide1KS2Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
+        [Language.English]: "60 + 24* Months",
+        [Language.Hindi]: "60 + 24* महीने",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS2Description: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS2Slide1KS3Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
+        [Language.English]: "150 Ah",
+        [Language.Hindi]: "150 Ah",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS3Description: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS2Slide1KS4Title: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
+        [Language.English]: "Longer Life",
+        [Language.Hindi]: "लम्बी अवधी",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS4Description: {
-        [Language.English]: "?????",
-        [Language.Hindi]: "?????",
+        [Language.English]: "505 (L) X  188 (W) X 410 (H)",
+        [Language.Hindi]: "505 (L) X  188 (W) X 410 (H)",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide2Heading: {
-        [Language.English]: "IT1584TT",
-        [Language.Hindi]: "IT1584TT",
+        [Language.English]: "IT1048ST",
+        [Language.Hindi]: "IT1048ST",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide2Description: {
@@ -1531,29 +1543,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
         [Language.Marathi]: "?????",
     },
-    categoryBatteriesS2Slide2KS1Title: {
-        [Language.English]: "Warranty",
-        [Language.Hindi]: "वारंटी",
-        [Language.Marathi]: "?????",
-    },
     categoryBatteriesSlide2KS1Description: {
-        [Language.English]: "60 + 24* Months",
-        [Language.Hindi]: "60 + 24* महीने",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS2Slide2KS2Title: {
-        [Language.English]: "Capacity",
-        [Language.Hindi]: "क्षमता",
+        [Language.English]: "24 + 24* Months",
+        [Language.Hindi]: "24 + 24* महीने",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide2KS2Description: {
-        [Language.English]: "150 Ah",
-        [Language.Hindi]: "150 Ah",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS2Slide2KS3Title: {
-        [Language.English]: "3D Grid",
-        [Language.Hindi]: "3D ग्रिड",
+        [Language.English]: "100 Ah",
+        [Language.Hindi]: "100 Ah",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide2KS3Description: {
@@ -1561,14 +1558,73 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "लम्बी अवधी",
         [Language.Marathi]: "?????",
     },
-    categoryBatteriesS2Slide2KS4Title: {
-        [Language.English]: "Dimensions",
-        [Language.Hindi]: "आयाम",
+    categoryBatteriesSlide2KS4Description: {
+        [Language.English]: "520 (L) X 218 (W) X 290 (H)",
+        [Language.Hindi]: "520 (L) X 218 (W) X 290 (H)",
         [Language.Marathi]: "?????",
     },
-    categoryBatteriesSlide2KS4Description: {
-        [Language.English]: "505 (L) X  188 (W) X 410 (H)",
-        [Language.Hindi]: "505 (L) X  188 (W) X 410 (H)",
+    categoryBatteriesS4Slide3Heading: {
+        [Language.English]: "IT1560STT",
+        [Language.Hindi]: "IT1560STT",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide3Description: {
+        [Language.English]:
+            "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+        [Language.Hindi]:
+            "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide3KS1Description: {
+        [Language.English]: "36 + 24* Months",
+        [Language.Hindi]: "36 + 24* महीने",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide3KS2Description: {
+        [Language.English]: "150 Ah",
+        [Language.Hindi]: "150 Ah",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide3KS3Description: {
+        [Language.English]: "Longer Life",
+        [Language.Hindi]: "लम्बी अवधी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide3KS4Description: {
+        [Language.English]: "505 (L) X 188 (W) X 367 (H)",
+        [Language.Hindi]: "505 (L) X 188 (W) X 367 (H)",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide4Heading: {
+        [Language.English]: "IT1636STJ",
+        [Language.Hindi]: "IT1636STJ",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide4Description: {
+        [Language.English]:
+            "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
+        [Language.Hindi]:
+            "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide4KS1Description: {
+        [Language.English]: "18 + 18* Months",
+        [Language.Hindi]: "18 + 18* महीने",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide4KS2Description: {
+        [Language.English]: "160 Ah",
+        [Language.Hindi]: "160 Ah",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide4KS3Description: {
+        [Language.English]: "Longer Life",
+        [Language.Hindi]: "लम्बी अवधी",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesSlide4KS4Description: {
+        [Language.English]: "505 (L) X 188 (W) X 367 (H)",
+        [Language.Hindi]: "505 (L) X 188 (W) X 367 (H)",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4RelatedProductsHeading: {
@@ -2567,6 +2623,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     footerDisclosure7T3: {
         [Language.English]: "LETPL_Notice of Secured creditors meeting dt 01/04/2023",
         [Language.Hindi]: "LETPL_Notice of Secured creditors meeting dt 01/04/2023",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7T4: {
+        [Language.English]: "MGT-7_2021-22_LBPL",
+        [Language.Hindi]: "MGT-7_2021-22_LBPL",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7T5: {
+        [Language.English]: "MGT-7_2021-22_LETPL",
+        [Language.Hindi]: "MGT-7_2021-22_LETPL",
         [Language.Marathi]: "?????",
     },
     footerContactT1: {

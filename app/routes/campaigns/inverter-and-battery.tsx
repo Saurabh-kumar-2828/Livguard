@@ -524,23 +524,23 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
 export function ExploreStarProducts({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData = [
         {
-            title: "LG1150i",
-            image: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+            title: "LG700E",
+            image: "/livguard/inverter images/LG700E.png",
             bestSeller: true,
         },
         {
             title: "LGS1100i",
-            image: "/livguard/inverter images/LGS1700PV-SW-L.png",
+            image: "/livguard/inverter images/LGS1100i.png",
             bestSeller: false,
         },
         {
             title: "IT1550TT",
-            image: "/livguard/battery images/IT 1248ST.png",
+            image: "/livguard/battery images/IT 1550TT.png",
             bestSeller: false,
         },
         {
             title: "IT2060TT",
-            image: "/livguard/battery images/IT 1584TT.png",
+            image: "/livguard/battery images/IT 2060TT.png",
             bestSeller: true,
         },
     ];

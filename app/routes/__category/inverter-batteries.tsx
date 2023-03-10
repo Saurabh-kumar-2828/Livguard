@@ -493,74 +493,146 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
 }
 
 export function OurSuggestionsSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const [selectedBatteryType, setSelectedBatteryType] = useState(BatteryType.flat);
+    const [selectedBatteryTypeIndex, setSelectedBatteryTypeIndex] = useState(0);
 
     const sectionData: Array<{
         heading: string;
         description: string;
         specificationHeading: string;
         keySpecifications: Array<{keySpecificationTitle: string; keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
-        imageRelativePath: string;
+        imagesRelativePath: string;
+        link: string;
+        exploreButton: string;
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
     }> = [
-        // {
-        //     heading: `${getVernacularString("categoryBatteriesS4Slide1Heading", userPreferences.language)}`,
-        //     description: `${getVernacularString("categoryBatteriesS4Slide1Description", userPreferences.language)}`,
-        //     specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
-        //     keySpecifications: [
-        //         {
-        //             keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide1KS1Title", userPreferences.language),
-        //             keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS1Description", userPreferences.language),
-        //             keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
-        //         },
-        //         {
-        //             keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide1KS2Title", userPreferences.language),
-        //             keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS2Description", userPreferences.language),
-        //             keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
-        //         },
-        //         {
-        //             keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide1KS3Title", userPreferences.language),
-        //             keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS3Description", userPreferences.language),
-        //             keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
-        //         },
-        //         {
-        //             keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide1KS4Title", userPreferences.language),
-        //             keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS4Description", userPreferences.language),
-        //             keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
-        //         },
-        //     ],
-        //     imageRelativePath: "/livguard/battery images/IT 1048ST.png",
-        // },
+        {
+            heading: `${getVernacularString("categoryBatteriesS4Slide1Heading", userPreferences.language)}`,
+            description: `${getVernacularString("categoryBatteriesS4Slide1Description", userPreferences.language)}`,
+            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
+            keySpecifications: [
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS1Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS2Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS3Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS4Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
+                },
+            ],
+            imagesRelativePath: "/livguard/battery-images/",
+            link: "/product/IT1584TT",
+            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
+            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
+            relatedProducts: ["IT1550TT", "IT1584TT", "IT1639TT", "IT1645TT", "IT1666TT", "IT1860TT", "IT1866TT", "IT2048TT", "IT2060TT", "IT2066TT", "IT2266TT", "IT2360TT", "IT2672TT"],
+        },
         {
             heading: `${getVernacularString("categoryBatteriesS4Slide2Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBatteriesS4Slide2Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
             keySpecifications: [
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide2KS1Title", userPreferences.language),
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS1Description", userPreferences.language),
                     keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide2KS2Title", userPreferences.language),
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS2Description", userPreferences.language),
                     keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide2KS3Title", userPreferences.language),
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS3Description", userPreferences.language),
                     keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
                 },
                 {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2Slide2KS4Title", userPreferences.language),
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS4Description", userPreferences.language),
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+            imagesRelativePath: "/livguard/battery-images/",
+            link: "/product/IT1048ST",
+            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["IT1554STJ", "IT1550TT", "IT1560STT", "IT1584TT", "IT1639TT"],
+            relatedProducts: ["IT9048ST"],
+        },
+        {
+            heading: `${getVernacularString("categoryBatteriesS4Slide3Heading", userPreferences.language)}`,
+            description: `${getVernacularString("categoryBatteriesS4Slide3Description", userPreferences.language)}`,
+            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
+            keySpecifications: [
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS1Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS2Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS3Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS4Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
+                },
+            ],
+            imagesRelativePath: "/livguard/battery-images/",
+            link: "/product/IT1560STT",
+            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
+            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
+            relatedProducts: ["IT1160STT", "IT1548STT"],
+        },
+        {
+            heading: `${getVernacularString("categoryBatteriesS4Slide4Heading", userPreferences.language)}`,
+            description: `${getVernacularString("categoryBatteriesS4Slide4Description", userPreferences.language)}`,
+            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
+            keySpecifications: [
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS1Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS2Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS3Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
+                },
+                {
+                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
+                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS4Description", userPreferences.language),
+                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
+                },
+            ],
+            imagesRelativePath: "/livguard/battery-images/",
+            link: "/product/IT1636STJ",
+            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
+            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
+            relatedProducts: ["IT1554STJ", "IT1542STJ"],
         },
     ];
 
@@ -584,54 +656,39 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
 
                 <VerticalSpacer className="tw-h-4" /> */}
 
-                {/* <div className="tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-4">
-                    <DefaultElementAnimation>
-                        <button
-                            type="button"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-col-start-1 tw-w-full tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                                `${selectedBatteryType == BatteryType.flat ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
+                <DefaultElementAnimation>
+                    <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-4 tw-items-center">
+                        <ItemBuilder
+                            items={["categoryBatteriesS4TT", "categoryBatteriesS4ST", "categoryBatteriesS4STT", "categoryBatteriesS4STJ"]}
+                            itemBuilder={(item, itemIndex) => (
+                                <button
+                                    type="button"
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-col-start-1 tw-w-full tw-flex tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                        `${selectedBatteryTypeIndex == itemIndex ? "lg-bg-primary-500" : "lg-bg-secondary-100"} `,
+                                        `tw-col-start-${itemIndex + 1}`
+                                    )}
+                                    onClick={() => setSelectedBatteryTypeIndex(itemIndex)}
+                                    key={itemIndex}
+                                >
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "tw-text-body tw-text-center",
+                                            `${selectedBatteryTypeIndex == itemIndex ? "tw-text-secondary-900-dark" : "lg-text-secondary-900"}`,
+                                        )}
+                                    >
+                                        {getVernacularString(item, userPreferences.language)}
+                                    </div>
+                                </button>
                             )}
-                            onClick={() => setSelectedBatteryType(BatteryType.flat)}
-                        >
-                            <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
-                                <FullWidthImage
-                                    relativePath="/livguard/icons/flat-plate.png"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
-                                />
-                            </div>
-                            <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.flat ? "tw-text-secondary-900-dark" : "lg-text-secondary-100"}`)}>
-                                {getVernacularString("categoryBatteriesS4BTFlat", userPreferences.language)}
-                            </div>
-                        </button>
-                    </DefaultElementAnimation>
+                        />
+                    </div>
+                </DefaultElementAnimation>
 
-                    <DefaultElementAnimation>
-                        <button
-                            type="button"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-col-start-2 tw-w-full tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                                `${selectedBatteryType == BatteryType.tubular ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
-                            )}
-                            onClick={() => setSelectedBatteryType(BatteryType.tubular)}
-                        >
-                            <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
-                                <FullWidthImage
-                                    relativePath="/livguard/icons/tall-tubular.png"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
-                                />
-                            </div>
-                            <div className={concatenateNonNullStringsWithSpaces("lg-text-body", `${selectedBatteryType == BatteryType.tubular ? "tw-text-secondary-900-dark" : "lg-text-secondary-100"}`)}>
-                                {getVernacularString("categoryBatteriesS4BTTubular", userPreferences.language)}
-                            </div>
-                        </button>
-                    </DefaultElementAnimation>
-                </div> */}
-
-                {/* <VerticalSpacer className="tw-h-4" /> */}
+                <VerticalSpacer className="tw-h-4" />
 
                 <OurSuggestionsComponent
-                    vernacularContent={selectedBatteryType == BatteryType.flat ? sectionData[0] : sectionData[1]}
+                    vernacularContent={sectionData[selectedBatteryTypeIndex]}
                     // className={selectedBatteryType == BatteryType.flat ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
                     className="lg-bg-secondary-100"
                 />
