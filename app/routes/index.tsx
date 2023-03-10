@@ -384,7 +384,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr) tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6",
+                "tw-grid tw-grid-rows-[auto,auto,minmax(0,1fr)] tw-grid-cols-1 lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[auto,minmax(0,1fr)] tw-gap-x-4 tw-gap-y-6",
                 className,
             )}
             id="energy-solutions"
