@@ -137,7 +137,7 @@ export function HeaderComponent({
                         value={selectedTheme}
                         onChange={setSelectedTheme}
                     >
-                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900">
+                        <Listbox.Button className="lg-text-secondary-900">
                             <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
                             <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
                         </Listbox.Button>
@@ -205,7 +205,7 @@ export function HeaderComponent({
                         value={selectedLanguage}
                         onChange={setSelectedLanguage}
                     >
-                        <Listbox.Button className="lg-bg-transparent lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+                        <Listbox.Button className="lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
                             {languageToShortHumanFriendlyFormat(selectedLanguage)}
                             <ChevronDown className="tw-w-4 tw-h-4" />
                         </Listbox.Button>
