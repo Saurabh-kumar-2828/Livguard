@@ -1,4 +1,4 @@
-import {getPostgresDatabaseManager, getSystemPostgresDatabaseCredentials} from "~/global-common-typescript/server/postgresDatabaseManager.server";
+import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
