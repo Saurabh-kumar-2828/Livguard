@@ -23,7 +23,6 @@ export const action: ActionFunction = async ({request}) => {
         userPreferencesCookie.unset("language");
     }
 
-    // TODO: Redirect to redirectTo urlSearchParam
     return redirect(redirectTo, {
         headers: {
             "Set-Cookie": await commitUserPreferencesCookie(userPreferencesCookie),
