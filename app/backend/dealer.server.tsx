@@ -1,9 +1,14 @@
-import {execute} from "~/global-common-typescript/server/postgresDatabaseManager.server";
+import {getPostgresDatabaseManager, getSystemPostgresDatabaseCredentials} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
 export async function getDealerForCity(city: string): Promise<Array<Dealer> | Error> {
-    const result = await execute(
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
         `
             SELECT
                 *
@@ -43,7 +48,12 @@ function rowToDealerInformation(row: any): Dealer {
 }
 
 export async function insertDealerLeads(formResponse: {phoneNumber: string; name: string; emailId: string; city: string}): Promise<void | Error> {
-    const result = await execute(
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
         `
             INSERT INTO
                 livguard.dealer_form_leads
@@ -69,7 +79,12 @@ export async function insertContactLeads(formResponse: {
         [searchParameter: string]: string;
     };
 }): Promise<void | Error> {
-    const result = await execute(
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
         `
             INSERT INTO
                 livguard.contact_us_leads
@@ -95,7 +110,12 @@ export async function insertSubscriptionLeads(formResponse: {
         [searchParameter: string]: string;
     };
 }): Promise<void | Error> {
-    const result = await execute(
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
         `
             INSERT INTO
                 livguard.subscribe_leads

@@ -1,4 +1,4 @@
-import {execute} from "~/global-common-typescript/server/postgresDatabaseManager.server";
+import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {Integer, Uuid} from "~/global-common-typescript/typeDefinitions";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
@@ -6,7 +6,12 @@ import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();
 
-    const result = await execute(
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
         `
             INSERT INTO livguard.load_calculator_entries(
                 id,
@@ -32,7 +37,12 @@ export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): P
 }
 
 export async function getLoadCalculatorEntry(id: Uuid): Promise<LoadCalculatorInputs | Error> {
-    const result = await execute(
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
         `
             SELECT
                 data
