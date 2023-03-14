@@ -44,7 +44,7 @@ export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferenc
     );
 }
 
-export function gitOurSuggestionsComponent({
+export function OurSuggestionsComponent({
     vernacularContent,
     className,
 }: {
