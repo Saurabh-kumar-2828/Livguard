@@ -2328,6 +2328,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "विस्तार से देखें",
         [Language.Marathi]: "?????",
     },
+    categoryViewJodiButtontext: {
+        [Language.English]: "View Jodi",
+        [Language.Hindi]: "विस्तार से देखें",
+        [Language.Marathi]: "?????",
+    },
     review1Name: {
         [Language.English]: "Thangamani M",
         [Language.Hindi]: "तंगमणि एम",
