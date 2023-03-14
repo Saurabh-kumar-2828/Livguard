@@ -1,8 +1,7 @@
-import {Dialog, Transition} from "@headlessui/react";
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
-import {Link, useFetcher} from "@remix-run/react";
-import React, {useEffect} from "react";
-import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {Link} from "@remix-run/react";
+import React from "react";
+import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -45,7 +44,7 @@ export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferenc
     );
 }
 
-export function OurSuggestionsComponent({
+export function gitOurSuggestionsComponent({
     vernacularContent,
     className,
 }: {
