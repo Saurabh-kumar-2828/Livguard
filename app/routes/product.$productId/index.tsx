@@ -16,7 +16,7 @@ import {ProductCardComponent, SocialHandles} from "~/components/category/common"
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {allProductDetails, ProductDetails} from "~/productData";
+import {allProductDetails, ProductDetails, ProductType} from "~/productData";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -71,6 +71,7 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 breadcrumbs={[
                     {humanReadableString: "Home", link: "/"},
+                    productData.type == ProductType.inverter ? {humanReadableString: "Inverters For Home", link: "/inverter-for-home"} : productData.type == ProductType.battery ? {humanReadableString: "Inverter Batteries", link: "/inverter-batteries"} : productData.type == ProductType.jodi ? {humanReadableString: "Inverters For Home", link: "/inverter-for-home"} : {humanReadableString: "Inverters For Home", link: "/inverter-for-home"},
                     // TODO: Add category
                     {humanReadableString: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "Product", link: "#"},
                 ]}

@@ -1,5 +1,11 @@
 import {Language} from "~/typeDefinitions";
 
+export const enum ProductType {
+    inverter = 0,
+    battery = 1,
+    jodi = 2,
+};
+
 export type ProductDetails = {
     images: Array<{image: string}>;
     title: string;
@@ -12,6 +18,7 @@ export type ProductDetails = {
     productDescription: {description: string; images: Array<{image: string}>};
     reviews: {rating: number; numberOfReviews: number};
     recommendedProducts: Array<{title: string; imageRelativePath: string; buttonText: string; bestseller: boolean; link: string}>;
+    type: ProductType;
 };
 
 export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; [key: string]: ProductDetails}} = {
@@ -156,6 +163,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1100",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -299,6 +307,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1100",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LG900: {
@@ -443,6 +452,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -587,6 +597,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LG1100: {
@@ -730,6 +741,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1600",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -873,6 +885,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1600",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LG1450i: {
@@ -1016,6 +1029,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1950i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -1159,6 +1173,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1950i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LG1550i: {
@@ -1302,6 +1317,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -1445,6 +1461,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LG1950i: {
@@ -1588,6 +1605,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -1731,6 +1749,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LGS900i: {
@@ -1875,6 +1894,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1100i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -2017,6 +2037,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1100i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LGS1000i: {
@@ -2161,6 +2182,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -2303,6 +2325,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LGS1100i: {
@@ -2447,6 +2470,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1600",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -2589,6 +2613,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1600",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LGS1700: {
@@ -2733,6 +2758,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -2875,6 +2901,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     LGS1600: {
@@ -3019,6 +3046,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
         [Language.Hindi]: {
             images: [
@@ -3161,6 +3189,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LG1450i",
                 },
             ],
+            type: ProductType.inverter,
         },
     },
     IT9048ST: {
@@ -3284,6 +3313,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1542STJ",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -3404,6 +3434,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1542STJ",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1048ST: {
@@ -3527,6 +3558,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1548TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -3647,6 +3679,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1548TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1160STT: {
@@ -3786,6 +3819,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1100i",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -3922,6 +3956,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1100i",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1584TT: {
@@ -4061,6 +4096,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560STT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -4197,6 +4233,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560STT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1554STJ: {
@@ -4333,6 +4370,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1550TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -4469,6 +4507,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1550TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1542STJ: {
@@ -4592,6 +4631,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1554TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -4712,6 +4752,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1554TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1548STT: {
@@ -4851,6 +4892,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1100i",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -4987,6 +5029,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/LGS1100i",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1560STT: {
@@ -5126,6 +5169,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -5262,6 +5306,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1550TT: {
@@ -5401,6 +5446,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1548TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -5537,6 +5583,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1548TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1554TT: {
@@ -5660,6 +5707,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1636STJ",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -5780,6 +5828,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1636STJ",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1560TT: {
@@ -5903,6 +5952,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1666TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -6023,6 +6073,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1666TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1536TT: {
@@ -6146,6 +6197,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1639TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -6266,6 +6318,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1639TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1548TT: {
@@ -6389,6 +6442,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1645TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -6509,6 +6563,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1645TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1666TT: {
@@ -6648,6 +6703,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1866TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -6784,6 +6840,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1866TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1639TT: {
@@ -6923,6 +6980,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2060TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -7059,6 +7117,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2060TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1645TT: {
@@ -7198,6 +7257,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -7334,6 +7394,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1860TT: {
@@ -7473,6 +7534,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2048TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -7609,6 +7671,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2048TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT2048TT: {
@@ -7748,6 +7811,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -7884,6 +7948,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1866TT: {
@@ -8023,6 +8088,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2266TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -8159,6 +8225,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2266TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT1636STJ: {
@@ -8282,6 +8349,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -8402,6 +8470,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT2060TT: {
@@ -8541,6 +8610,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2360TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -8677,6 +8747,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2360TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT2066TT: {
@@ -8816,6 +8887,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2672TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -8952,6 +9024,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2672TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT2266TT: {
@@ -9091,6 +9164,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -9227,6 +9301,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT2360TT: {
@@ -9366,6 +9441,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -9502,6 +9578,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     IT2672TT: {
@@ -9641,6 +9718,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT2066TT",
                 },
             ],
+            type: ProductType.battery,
         },
         [Language.Hindi]: {
             images: [
@@ -9777,6 +9855,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.battery,
         },
     },
     "urban-jodi": {
@@ -9914,6 +9993,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
         [Language.Hindi]: {
             images: [
@@ -10045,6 +10125,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
     },
     "peace-of-mind-jodi": {
@@ -10182,6 +10263,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
         [Language.Hindi]: {
             images: [
@@ -10317,6 +10399,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
     },
     "super-life-jodi": {
@@ -10454,6 +10537,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
         [Language.Hindi]: {
             images: [
@@ -10589,6 +10673,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
     },
     "hi-power-jodi": {
@@ -10726,6 +10811,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
         [Language.Hindi]: {
             images: [
@@ -10861,6 +10947,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     link: "/product/IT1560TT",
                 },
             ],
+            type: ProductType.jodi,
         },
     },
 };
