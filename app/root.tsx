@@ -1,18 +1,18 @@
 import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
+import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData, useLocation} from "@remix-run/react";
 import {useEffect} from "react";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import tailwindStylesheet from "../build/tailwind.css";
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCalculatedTheme} from "~/utilities";
-import {unknown} from "zod";
-import {UserPreferencesContext} from "~/contexts/userPreferencesContext";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 
 type LoaderData = {
     userPreferences: UserPreferences;
+    canonicalUrl: string,
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -21,8 +21,11 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const canonicalUrl = request.url.includes("?") ? request.url : request.url.endsWith("/") ? request.url : `${request.url}/`;
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
+        canonicalUrl: canonicalUrl,
     };
 
     return json(loaderData);
@@ -43,7 +46,7 @@ export const links: LinksFunction = () => [
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function () {
-    const {userPreferences} = useLoaderData() as LoaderData;
+    const {userPreferences, canonicalUrl} = useLoaderData() as LoaderData;
 
     // // Google Tag Manager
     // useEffect(() => {
@@ -104,12 +107,21 @@ export default function () {
     return (
         // <UserPreferencesContext.Provider value={userPreferences}>
             <html
-                // lang="en"
+                lang={userPreferences.language == Language.English ? "en-in" : userPreferences.language == Language.Hindi ? "hi-in" : userPreferences.language == Language.Marathi ? "mr-in" : "en"}
                 className={calculatedTheme == Theme.Dark ? "tw-dark" : undefined}
             >
                 <head>
                     <Meta />
                     <Links />
+
+                    {/* TODO: Move canonicalUrl thing here? */}
+
+                    <ItemBuilder
+                        items={[Language.English, Language.Hindi].filter(language => language != userPreferences.language)}
+                        itemBuilder={(language, languageIndex) => (
+                            <link rel="alternate" href={canonicalUrl} hrefLang={language} key={languageIndex} />
+                        )}
+                    />
 
                     {/* Google Tag Manager */}
                     <script
@@ -191,6 +203,7 @@ export function CatchBoundary() {
 
     return (
         <html
+            // TODO: Re-enable this
             // lang="en"
         >
             <head>
@@ -238,6 +251,7 @@ export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
 
     return (
         <html
+            // TODO: Re-enable this
             // lang="en"
         >
             <head>

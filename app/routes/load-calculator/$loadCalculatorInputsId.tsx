@@ -425,7 +425,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                             />
 
                             <Link
-                                to="/inverter-for-home"
+                                to="/inverter-batteries"
                                 className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                             >
                                 <VerticalSpacer className="tw-h-3" />
