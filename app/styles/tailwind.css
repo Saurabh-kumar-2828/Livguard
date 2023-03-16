@@ -8,6 +8,8 @@
 
         /* Used to retain the sticky elements while a Dialog is open. Has the side-effect that user can still scroll. */
         overflow: unset !important;
+        padding-right: 0 !important;
+        /* /Hack */
 
         --lg-header-height: 6.5rem;
         /* --lg-mobile-ui-height: 4rem; */
