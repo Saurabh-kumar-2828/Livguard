@@ -73,23 +73,23 @@ export function OurSuggestionsComponent({
             <div className="tw-row-start-1 tw-col-span lg:tw-col-start-1 tw-flex tw-flex-col tw-w-full lg:tw-row-start-2 lg:tw-pl-20">
                 <VerticalSpacer className="tw-h-4" />
 
-                <DefaultTextAnimation>
-                    <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.heading}</div>
-                </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.heading}</div>
+                    </DefaultTextAnimation>
 
-                <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-4" />
 
-                <DefaultTextAnimation>
-                    <div className="tw-text-body tw-text-center lg:tw-text-left tw-max-w-[35rem]">{vernacularContent.description}</div>
-                </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div className="tw-text-body tw-text-center lg:tw-text-left tw-max-w-[35rem]">{vernacularContent.description}</div>
+                    </DefaultTextAnimation>
 
-                <VerticalSpacer className="tw-h-10" />
+                    <VerticalSpacer className="tw-h-10" />
 
-                <DefaultTextAnimation>
-                    <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.specificationHeading}</div>
-                </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.specificationHeading}</div>
+                    </DefaultTextAnimation>
 
-                <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
                     <ItemBuilder
@@ -108,16 +108,16 @@ export function OurSuggestionsComponent({
                                     />
                                 </div>
 
-                                <div className="tw-flex tw-flex-col tw-gap-1">
-                                    <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
-                                    <div className="lg-text-body">{keySpecification.keySpecificationContent}</div>
+                                    <div className="tw-flex tw-flex-col tw-gap-1">
+                                        <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
+                                        <div className="lg-text-body">{keySpecification.keySpecificationContent}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                    />
-                </div>
+                            )}
+                        />
+                    </div>
 
-                <VerticalSpacer className="tw-h-8" />
+                    <VerticalSpacer className="tw-h-8" />
 
                 <Link
                     to={vernacularContent.link}
@@ -128,8 +128,8 @@ export function OurSuggestionsComponent({
                 </Link>
             </div>
 
-            <div className="tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-justify-center">
-                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+                <div className="tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-justify-center">
+                    <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="tw-rounded-lg tw-w-full tw-flex tw-justify-center">
                     <FixedWidthImage
@@ -142,14 +142,14 @@ export function OurSuggestionsComponent({
 
                 {/* <VerticalSpacer className="tw-h-16 lg:tw-hidden" /> */}
 
-                <DefaultTextAnimation>
-                    <div className="lg-text-title1 tw-text-center">{vernacularContent.relatedProductsHeading}</div>
-                </DefaultTextAnimation>
+                    <DefaultTextAnimation>
+                        <div className="lg-text-title1 tw-text-center">{vernacularContent.relatedProductsHeading}</div>
+                    </DefaultTextAnimation>
 
-                <VerticalSpacer
-                    className="tw-h-4"
-                    lg:tw-hidden
-                />
+                    <VerticalSpacer
+                        className="tw-h-4"
+                        lg:tw-hidden
+                    />
 
                 {vernacularContent.relatedProducts.length > 3 ? (
                     <CarouselStyle4
@@ -189,7 +189,7 @@ export function OurSuggestionsComponent({
                 )}
             </div>
 
-            <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4" />
         </div>
     );
 }

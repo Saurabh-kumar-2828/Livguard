@@ -797,7 +797,7 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
-                                                  enterClassName: "tw-delay-[350ms]",
+                                                  enterClassName: "tw-delay-[300ms]",
                                                   link: "/high-capacity-inverters/",
                                                   external: true,
                                                   download: null,
@@ -823,14 +823,14 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T4",
-                                                  enterClassName: "tw-delay-[400ms]",
+                                                  enterClassName: "tw-delay-[350ms]",
                                                   link: "/bus-and-truck-batteries/",
                                                   external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM3T5",
-                                                  enterClassName: "tw-delay-[450ms]",
+                                                  enterClassName: "tw-delay-[400ms]",
                                                   link: "/tractor-batteries/",
                                                   external: true,
                                                   download: null,
@@ -847,7 +847,7 @@ function SubMenuDialog({
                                         ? [
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM4T2",
-                                                  enterClassName: "tw-delay-[300ms]",
+                                                  enterClassName: "tw-delay-[250ms]",
                                                   link: "/solar-panels-and-inverters-for-home/",
                                                   external: true,
                                                   download: null,
@@ -861,7 +861,7 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM4T4",
-                                                  enterClassName: "tw-delay-[300ms]",
+                                                  enterClassName: "tw-delay-[350ms]",
                                                   link: "https://www.livguardsolar.com/",
                                                   external: true,
                                                   download: null,
@@ -885,7 +885,7 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T4",
-                                                  enterClassName: "tw-delay-[250ms]",
+                                                  enterClassName: "tw-delay-[350ms]",
                                                   link: "/inverter-batteries",
                                                   external: false,
                                                   download: null,
@@ -899,7 +899,7 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM5T6",
-                                                  enterClassName: "tw-delay-[350ms]",
+                                                  enterClassName: "tw-delay-[450ms]",
                                                   link: "/lg-trolley-category/",
                                                   external: true,
                                                   download: null,
@@ -927,28 +927,28 @@ function SubMenuDialog({
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T3",
-                                                  enterClassName: "tw-delay-[300ms]",
+                                                  enterClassName: "tw-delay-[350ms]",
                                                   link: "/blog/",
                                                   external: true,
                                                   download: null,
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T4",
-                                                  enterClassName: "tw-delay-[300ms]",
+                                                  enterClassName: "tw-delay-[400ms]",
                                                   link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
                                                   external: true,
                                                   download: "LETPL Annual return 2021-22",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T5",
-                                                  enterClassName: "tw-delay-[300ms]",
+                                                  enterClassName: "tw-delay-[450ms]",
                                                   link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
                                                   external: true,
                                                   download: "LBPL Annual return 2021-22",
                                               },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T5.5",
-                                                  enterClassName: "tw-delay-[300ms]",
+                                                  enterClassName: "tw-delay-[500ms]",
                                                   link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
                                                   external: true,
                                                   download: "LBPL Annual return 2021-22",
@@ -1260,6 +1260,8 @@ function ContactUsDialog({
 }
 
 function InternalOrExternalOrDownloadLink({to, external, download, className, children}: {to: string; external: boolean; download: string | null; className?: string; children}) {
+    console.log(to, external, download);
+
     if (download != null) {
         return (
             <a

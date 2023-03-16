@@ -390,9 +390,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
 
 export function OurBatteriesSectionInternal({userPreferences}: {userPreferences: UserPreferences;}) {
     return (
-        <div
-            className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem] tw-gap-x-2"
-        >
+        <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem] tw-gap-x-2">
             {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
             {/* <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg" /> */}
@@ -400,20 +398,20 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg" />
 
             {/* <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
-                <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
-                    <FullWidthImage
-                        relativePath="/livguard/category/batteries/4/1.png"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
-                    />
-                </div>
-                <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
-                    <FixedWidthImage
-                        relativePath="/livguard/category/batteries/4/1.png"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
-                        width="10rem"
-                    />
-                </div>
-            </div> */}
+                    <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                        <FullWidthImage
+                            relativePath="/livguard/category/batteries/4/1.png"
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                        />
+                    </div>
+                    <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                        <FixedWidthImage
+                            relativePath="/livguard/category/batteries/4/1.png"
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            width="10rem"
+                        />
+                    </div>
+                </div> */}
 
             <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                 <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
@@ -440,8 +438,8 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             </div>
 
             {/* <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                {getVernacularString("categoryBatteriesS3R2C2", userPreferences.language)}
-            </div> */}
+                    {getVernacularString("categoryBatteriesS3R2C2", userPreferences.language)}
+                </div> */}
 
             <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
                 {getVernacularString("categoryBatteriesS3R2C3", userPreferences.language)}
@@ -452,8 +450,8 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             </div>
 
             {/* <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                {getVernacularString("categoryBatteriesS3R3C2", userPreferences.language)}
-            </div> */}
+                    {getVernacularString("categoryBatteriesS3R3C2", userPreferences.language)}
+                </div> */}
 
             <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
                 {getVernacularString("categoryBatteriesS3R3C3", userPreferences.language)}
@@ -464,8 +462,8 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             </div>
 
             {/* <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                {getVernacularString("categoryBatteriesS3R4C2", userPreferences.language)}
-            </div> */}
+                    {getVernacularString("categoryBatteriesS3R4C2", userPreferences.language)}
+                </div> */}
 
             <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
                 {getVernacularString("categoryBatteriesS3R4C3", userPreferences.language)}
@@ -476,18 +474,18 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
             </div>
 
             {/* <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                {getVernacularString("categoryBatteriesS3R5C2", userPreferences.language)}
-            </div> */}
+                    {getVernacularString("categoryBatteriesS3R5C2", userPreferences.language)}
+                </div> */}
 
-            <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
+            <div className="tw-row-start-6 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
                 {getVernacularString("categoryBatteriesS3R5C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-8 lg-text-icon tw-text-secondary-900">{getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}</div>
+            <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon tw-text-secondary-900">{getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}</div>
 
             {/* <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryBatteriesS3R6C2", userPreferences.language)}</div> */}
 
-            <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-8 tw-text-center">{getVernacularString("categoryBatteriesS3R6C3", userPreferences.language)}</div>
+            <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryBatteriesS3R6C3", userPreferences.language)}</div>
         </div>
     );
 }
@@ -692,7 +690,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="lg-bg-secondary-100 tw-opacity-60 tw-border tw-border-dashed tw-rounded-md tw-px-4 tw-py-2">{sectionData[selectedBatteryTypeIndex].typeDescription}</div>
+                <div className="lg-bg-secondary-100 tw-opacity-60 tw-text-center tw-border tw-border-dashed tw-rounded-md tw-px-4 tw-py-2">{sectionData[selectedBatteryTypeIndex].typeDescription}</div>
 
                 <VerticalSpacer className="tw-h-4" />
 
