@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-width: 5px;
+  scrollbar-color: #eb2a2b;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #474546;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #eb2a2b;
+  border-radius: 14px;
+  border: 3px solid #eb2a2b;
+}
+
 @layer components {
     html {
         scroll-behavior: smooth;

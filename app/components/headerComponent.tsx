@@ -380,7 +380,7 @@ export function HeaderComponent({
             </div>
 
             {breadcrumbs == null ? null : (
-                <div className="lg-px-screen-edge lg-bg-secondary-300 tw-flex tw-flex-row tw-items-center">
+                <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-row tw-items-center tw-py-1">
                     <ItemBuilder
                         items={breadcrumbs}
                         itemBuilder={(item, itemIndex) => (

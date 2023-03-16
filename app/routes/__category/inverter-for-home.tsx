@@ -146,28 +146,28 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <InvertersAreMentToLast
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurInvertersSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurSuggestionsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             {/* <SideBySideOverviewSection userPreferences={userPreferences} />
 
@@ -178,13 +178,13 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
-                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full"
+                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
                 />
 
                 <ChooseBestInverterBattery
@@ -194,14 +194,14 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[50px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <SocialHandles
                 userPreferences={userPreferences}
@@ -209,14 +209,14 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 }
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
     return (
-        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-4.75rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center">
+        <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-4.75rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3.5rem] tw-justify-items-center tw-text-center">
             <CoverImage
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
@@ -260,9 +260,9 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
         <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem_22rem] tw-gap-x-2">
             {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
-            <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg" />
+            <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-bg-secondary-100 tw-rounded-lg" />
 
-            <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg" />
+            <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-bg-secondary-300 tw-rounded-lg" />
 
             <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                 <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
@@ -324,11 +324,11 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon lg-text-secondary-900">{getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon lg-text-secondary-900">{getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}</div>
 
-            <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}</div>
 
-            <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-col-start-3 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryInvertersS3R4C3", userPreferences.language)}</div>
 
             {/* <div className="tw-row-start-6 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS3R5C1", userPreferences.language)}</div>
 
@@ -374,7 +374,7 @@ export function InvertersAreMentToLast({userPreferences, className}: {userPrefer
                 </DefaultTextAnimation>
             </h1>
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <CategoryCarousel1
                 userPreferences={userPreferences}
@@ -428,7 +428,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
             link: "/product/LGS1100i",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["LGS900i", "LGS1000i", "LGS1100i", "LGS1600", "LGS1700"],
+            relatedProducts: ["LGS900i", "LGS1000i", "LGS1600", "LGS1700"],
         },
         {
             heading: `${getVernacularString("categoryInvertersS4Slide2Heading", userPreferences.language)}`,
@@ -460,7 +460,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
             link: "/product/LG1550i",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["LG700E", "LG900", "LG1100", "LG1450i", "LG1550i", "LG1950i"],
+            relatedProducts: ["LG700E", "LG900", "LG1100", "LG1450i", "LG1950i"],
         },
     ];
 
@@ -488,7 +488,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     <DefaultElementAnimation>
                         <button
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full tw-col-start-1 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                "tw-w-full tw-min-w-[10rem] tw-col-start-1 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
                                 `${secledtedInverterType == InverterType.sine ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
                             )}
                             onClick={() => setsecledtedInverterType(InverterType.sine)}
@@ -508,7 +508,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     <DefaultElementAnimation>
                         <button
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full tw-col-start-2 tw-flex tw-flex-row tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
+                                "tw-w-full tw-min-w-[10rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
                                 `${secledtedInverterType == InverterType.square ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
                             )}
                             onClick={() => setsecledtedInverterType(InverterType.square)}

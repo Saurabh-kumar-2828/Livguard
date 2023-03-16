@@ -170,13 +170,13 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             {/* <PowerPlannerIntroduction userPreferences={userPreferences} />
 
             <VerticalSpacer className="tw-h-8" /> */}
 
-            <div className="lg-text-title2 tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-text-center">{getVernacularString("homeS5T5P1", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-8" />
 
@@ -263,14 +263,14 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
                 </button>
             </Form>
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 }
@@ -555,11 +555,11 @@ function PropertySelection({
 
     return (
         <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-            <div className="lg-text-body tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
+            <div className="lg-text-title2 tw-text-center lg-text-secondary-900">{getVernacularString("homeS5T5P2", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-grid tw-grid-cols-3 tw-gap-2">
+            <div className="tw-w-full tw-grid tw-grid-cols-3 tw-gap-2 lg:tw-max-w-[500px]">
                 <ItemBuilder
                     items={[
                         {
@@ -597,7 +597,7 @@ function PropertySelection({
                         <button
                             type="button"
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-rounded-lg tw-flex tw-items-center tw-gap-2 tw-py-3 tw-px-2 tw-group tw-duration-200",
+                                "tw-rounded-lg tw-flex tw-items-center tw-gap-2 tw-py-3 tw-px-2 tw-group tw-duration-200 lg:tw-max-w-[10rem]",
                                 item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-primary-500" : "lg-bg-secondary-100",
                             )}
                             key={itemIndex}
@@ -688,7 +688,7 @@ function RoomSelection({
 
     return (
         <div className="lg-px-screen-edge-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-            <div className="tw-w-full tw-grid tw-grid-cols-2 tw-gap-2 lg:tw-grid-cols-3">
+            <div className="tw-w-full tw-grid tw-grid-cols-2 tw-gap-2 lg:tw-grid-cols-3 lg:tw-max-w-4xl">
                 <ItemBuilder
                     items={loadCalculatorInputs.property.rooms}
                     itemBuilder={(room, roomIndex) => (
@@ -756,11 +756,11 @@ function RoomSelection({
 
                 <button
                     type="button"
-                    className="tw-w-full tw-h-[7.5rem] tw-rounded-lg tw-flex tw-flex-col tw-justify-center tw-items-center tw-gap-y-2 tw-group tw-duration-200 lg-bg-secondary-100"
+                    className="tw-w-full tw-h-[8rem] tw-rounded-lg tw-flex tw-opacity-60 tw-border tw-border-dashed tw-flex-col tw-justify-center tw-items-center tw-gap-y-2 tw-group tw-duration-200 lg-bg-secondary-100"
                     onClick={tryToOpenNewRoomDialog}
                 >
-                    <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700" />
-                    <div>Add Room</div>
+                    <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700 tw-opacity-100" />
+                    <div className="tw-opacity-100">Add Room</div>
                 </button>
             </div>
 
@@ -817,12 +817,21 @@ function DeviceSelectionNewUi({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-max-w-2xl tw-grid tw-grid-cols-[minmax(0,1fr)_auto_auto] tw-items-center tw-gap-x-8 tw-gap-y-4">
+            <div className="tw-w-full tw-max-w-3xl tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] tw-items-center tw-gap-x-8 tw-gap-y-4">
+
+                <div className="lg-text-body tw-text-left">{getVernacularString("loadCalculatorNewUIHeader1", userPreferences.language)}</div>
+                <div className="lg-text-body">{getVernacularString("loadCalculatorNewUIHeader2", userPreferences.language)}</div>
+                <div className="lg-text-body">{getVernacularString("loadCalculatorNewUIHeader3", userPreferences.language)}</div>
+                <div className="lg-text-body">{getVernacularString("loadCalculatorNewUIHeader4", userPreferences.language)}</div>
+                <div className="tw-col-span-4 tw-border-b tw-border-solid tw-border-secondary-300-light dark:tw-border-secondary-300-dark" />
+
                 <ItemBuilder
                     items={deviceTypeToDeviceCounts}
                     itemBuilder={(item, itemIndex) => (
                         <React.Fragment key={itemIndex}>
                             <div className="tw-text-left">{deviceTypeLibrary[item.deviceType].humanReadableString}</div>
+
+                            <div>{deviceTypeLibrary[item.deviceType].wattage} Watts</div>
 
                             <div className="tw-flex tw-flex-row tw-gap-x-4 tw-items-center">
                                 <button
@@ -869,9 +878,9 @@ function DeviceSelectionNewUi({
                                 </button>
                             </div>
 
-                            <div>{deviceTypeLibrary[item.deviceType].wattage} Watts</div>
+                            <div>{deviceTypeLibrary[item.deviceType].wattage * item.deviceCount} Watts</div>
 
-                            <div className="tw-col-span-3 tw-border-b tw-border-solid tw-border-secondary-300-light dark:tw-border-secondary-300-dark" />
+                            <div className="tw-col-span-4 tw-border-b tw-border-solid tw-border-secondary-300-light dark:tw-border-secondary-300-dark" />
                         </React.Fragment>
                     )}
                 />
@@ -879,7 +888,7 @@ function DeviceSelectionNewUi({
 
             <div className="tw-h-4" />
 
-            <div className="tw-w-full tw-max-w-2xl">
+            <div className="tw-w-full tw-max-w-3xl">
                 <button
                     type="button"
                     onClick={tryToOpenNewDeviceDialog}
@@ -1285,7 +1294,7 @@ function EditRoomDialog({
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="lg-px-screen-edge tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
+                <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[1fr_auto_1fr] tw-grid-cols-1 tw-justify-center tw-items-center">
                     <div />
 
                     <Transition.Child
@@ -1297,24 +1306,24 @@ function EditRoomDialog({
                         leaveFrom="tw-opacity-full"
                         leaveTo="tw-opacity-0"
                     >
-                        <div className="tw-w-full lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
-                            <div className="lg-text-title1">Edit {room.roomName}</div>
+                        <div className="tw-w-full lg-bg-secondary-100 tw-py-6 tw-rounded-lg tw-max-w-lg tw-mx-auto">
+                            <div className="lg-text-title1 lg-px-screen-edge">Edit {room.roomName}</div>
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-body-bold lg-text-secondary-900">Selected Devices</div>
+                            <div className="lg-text-body-bold lg-px-screen-edge lg-text-secondary-900">Selected Devices</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
                             {room.devices.length == 0 ? (
-                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2">
+                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2 lg-px-screen-edge">
                                     <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-y-2 tw-text-center">
                                         <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-700" />
                                         <div className="lg-text-icon">No device</div>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2">
+                                <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-x-2 tw-gap-y-2 lg-px-screen-edge">
                                     <ItemBuilder
                                         items={deviceTypeToDeviceCounts}
                                         itemBuilder={(deviceTypeToDeviceCount, deviceTypeToDeviceCountIndex) => (
@@ -1347,17 +1356,17 @@ function EditRoomDialog({
                                 </div>
                             )}
 
-                            <VerticalSpacer className="tw-h-8" />
+                            <VerticalSpacer className="tw-h-3" />
 
-                            <div className="lg-text-body-bold lg-text-secondary-900">Select Devices</div>
+                            <div className="lg-text-body-bold lg-text-secondary-900 lg-px-screen-edge">Select Devices</div>
 
                             <VerticalSpacer className="tw-h-2" />
 
-                            <div className="tw-h-40 tw-overflow-x-visible tw-overflow-y-auto">
+                            <div className="tw-h-96 tw-overflow-x-visible tw-overflow-y-auto lg-bg-secondary-300 tw-relative">
                                 <ItemBuilder
                                     items={distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category))}
                                     itemBuilder={(deviceCategory, deviceCategoryIndex) => (
-                                        <React.Fragment key={deviceCategoryIndex}>
+                                        <div className="tw-p-4" key={deviceCategoryIndex}>
                                             <div className="lg-text-body">{deviceCategory}</div>
 
                                             <VerticalSpacer className="tw-h-2" />
@@ -1397,18 +1406,13 @@ function EditRoomDialog({
                                                     )}
                                                 />
                                             </div>
-                                        </React.Fragment>
-                                    )}
-                                    spaceBuilder={(spaceIndex) => (
-                                        <VerticalSpacer
-                                            className="tw-h-4"
-                                            key={spaceIndex}
-                                        />
+                                        </div>
                                     )}
                                 />
+                                <div className="tw-sticky tw-w-full tw-bottom-0 tw-h-4 tw-bg-gradient-to-b tw-from-[#1f202200] tw-to-[#1f2022ff]"></div>
                             </div>
 
-                            <VerticalSpacer className="tw-h-8" />
+                            <VerticalSpacer className="tw-h-6" />
 
                             {/* <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                 <button
@@ -1442,7 +1446,7 @@ function EditRoomDialog({
                                 </button>
                             </div> */}
 
-                            <div className="tw-flex tw-flex-row tw-justify-center tw-items-center">
+                            <div className="tw-flex tw-flex-row tw-justify-center tw-items-center lg-px-screen-edge">
                                 <button
                                     type="button"
                                     className=""
@@ -2086,68 +2090,70 @@ function AdditionalInputsSection({
 
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
-                <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
+            <div className="tw-flex-col tw-flex tw-max-w-3xl tw-w-full tw-mx-auto tw-p-4 tw-px-8 tw-pb-8 tw-rounded-lg lg-bg-secondary-100 tw-place-self-center tw-justify-self-center">
+                <div className="tw-flex tw-flex-row tw-items-center tw-gap-x-2 tw-relative">
+                    <div className="tw-flex-none">{getVernacularString("loadCalculatorAdditionalInputsT3", userPreferences.language)}</div>
 
-                <Popover className="tw-h-4">
-                    {({open}) => (
-                        <>
-                            <Popover.Button>
-                                <InformationCircleIcon className="tw-w-4 tw-h-4 tw-flex-none" />
-                            </Popover.Button>
+                    <Popover className="tw-h-4">
+                        {({open}) => (
+                            <>
+                                <Popover.Button>
+                                    <InformationCircleIcon className="tw-w-4 tw-h-4 tw-flex-none" />
+                                </Popover.Button>
 
-                            <Transition
-                                as={React.Fragment}
-                                enter="transition ease-out duration-200"
-                                enterFrom="opacity-0 translate-y-1"
-                                enterTo="opacity-100 translate-y-0"
-                                leave="transition ease-in duration-150"
-                                leaveFrom="opacity-100 translate-y-0"
-                                leaveTo="opacity-0 translate-y-1"
-                            >
-                                <Popover.Panel className="tw-absolute tw-left-0 tw-right-0 tw-z-10 tw-mt-3 tw-max-w-sm tw-transform tw-px-4 tw-sm:px-0 tw-lg:max-w-3xl">
-                                    <div className="lg-bg-secondary-300 tw-p-2 tw-rounded-lg">What percentage of the total load you expect to be running at any given time</div>
-                                </Popover.Panel>
-                            </Transition>
-                        </>
-                    )}
-                </Popover>
-                {/* <Popover className="tw-absolute tw-left-8">
+                                <Transition
+                                    as={React.Fragment}
+                                    enter="transition ease-out duration-200"
+                                    enterFrom="opacity-0 translate-y-1"
+                                    enterTo="opacity-100 translate-y-0"
+                                    leave="transition ease-in duration-150"
+                                    leaveFrom="opacity-100 translate-y-0"
+                                    leaveTo="opacity-0 translate-y-1"
+                                >
+                                    <Popover.Panel className="tw-absolute tw-left-0 tw-right-0 tw-z-10 tw-mt-3 tw-max-w-sm tw-transform tw-px-4 tw-sm:px-0 tw-lg:max-w-3xl">
+                                        <div className="lg-bg-secondary-300 tw-p-2 tw-rounded-lg">What percentage of the total load you expect to be running at any given time</div>
+                                    </Popover.Panel>
+                                </Transition>
+                            </>
+                        )}
+                    </Popover>
+                    {/* <Popover className="tw-absolute tw-left-8">
                     <Popover.Button>Solutions</Popover.Button>
 
                     <Popover.Panel>"Hello Beby"</Popover.Panel>
                 </Popover> */}
-                <EmptyFlexFiller />
-                <div className="tw-flex-none lg-text-body-bold lg-text-secondary-900">{loadCalculatorInputs.averageConsumption}%</div>
-            </div>
+                    <EmptyFlexFiller />
+                    <div className="tw-flex-none lg-text-body-bold lg-text-secondary-900">{loadCalculatorInputs.averageConsumption}%</div>
+                </div>
 
-            <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-grid tw-grid-cols-[3rem_minmax(0,1fr)_3rem] tw-items-center">
-                <input
-                    type="range"
-                    min="20"
-                    max="100"
-                    value={loadCalculatorInputs.averageConsumption}
-                    onChange={(e) => {
-                        const newAverageConsumption = safeParse(getIntegerFromUnknown, e.target.value);
-                        if (newAverageConsumption == null || newAverageConsumption < 20 || newAverageConsumption > 100) {
-                            return;
-                        }
+                <div className="tw-grid tw-grid-cols-[3rem_minmax(0,1fr)_3rem] tw-items-center">
+                    <input
+                        type="range"
+                        min="20"
+                        max="100"
+                        value={loadCalculatorInputs.averageConsumption}
+                        onChange={(e) => {
+                            const newAverageConsumption = safeParse(getIntegerFromUnknown, e.target.value);
+                            if (newAverageConsumption == null || newAverageConsumption < 20 || newAverageConsumption > 100) {
+                                return;
+                            }
 
-                        const action: LoadCalculatorInputsAction = {
-                            actionType: LoadCalculatorInputsActionType.ChangeAverageConsumption,
-                            payload: newAverageConsumption,
-                        };
+                            const action: LoadCalculatorInputsAction = {
+                                actionType: LoadCalculatorInputsActionType.ChangeAverageConsumption,
+                                payload: newAverageConsumption,
+                            };
 
-                        dispatch(action);
-                    }}
-                    className="tw-row-start-1 tw-col-start-1 tw-col-span-3 lg-range-input"
-                />
+                            dispatch(action);
+                        }}
+                        className="tw-row-start-1 tw-col-start-1 tw-col-span-3 lg-range-input"
+                    />
 
-                <div className="tw-row-start-1 tw-col-start-1 tw-relative tw-top-4 lg-text-icon">20%</div>
-                <div className="tw-row-start-1 tw-col-start-3 tw-justify-self-end tw-relative tw-top-4 lg-text-icon">100%</div>
-                {/* <div className="tw-row-start-1 tw-col-start-3 tw-justify-self-end tw-relative -tw-top-8">{loadCalculatorInputs.averageConsumption}%</div> */}
+                    <div className="tw-row-start-1 tw-col-start-1 tw-relative tw-top-4 lg-text-icon">20%</div>
+                    <div className="tw-row-start-1 tw-col-start-3 tw-justify-self-end tw-relative tw-top-4 lg-text-icon">100%</div>
+                    {/* <div className="tw-row-start-1 tw-col-start-3 tw-justify-self-end tw-relative -tw-top-8">{loadCalculatorInputs.averageConsumption}%</div> */}
+                </div>
             </div>
         </div>
     );

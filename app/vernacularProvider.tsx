@@ -1356,7 +1356,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryBatteriesS3R2C1: {
         [Language.English]: "Cycle Life",
-        [Language.Hindi]: "साइकिल अवधि",
+        [Language.Hindi]: "साइकिल जीवन",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R2C2: {
@@ -1365,13 +1365,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R2C3: {
-        [Language.English]: "Limited",
-        [Language.Hindi]: "सीमित",
+        [Language.English]: "Assures a longer cycle life that empowers your home for the long run.",
+        [Language.Hindi]: "लंबी साइकिल जीवन का वादा जो आपके घर को लंबे समय तक के लिए सशक्त करे।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R3C1: {
-        [Language.English]: "Usability",
-        [Language.Hindi]: "उपयुक्तता",
+        [Language.English]: "Application Suitability",
+        [Language.Hindi]: "आप्लिकेशन उपयुक्तता",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R3C2: {
@@ -1380,13 +1380,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R3C3: {
-        [Language.English]: "Suitable for shorter duration applications",
-        [Language.Hindi]: "कम अवधि के अनुप्रयोगों के लिए उपयुक्त",
+        [Language.English]: "Suitable for high-power cut applications.",
+        [Language.Hindi]: "लंबे समय के बिजली कट के लिए उपयुक्त।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R4C1: {
-        [Language.English]: "Economical",
-        [Language.Hindi]: "किफ़ायती",
+        [Language.English]: "Cost of Ownership",
+        [Language.Hindi]: "मालिकी की क़ीमत",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R4C2: {
@@ -1395,13 +1395,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R4C3: {
-        [Language.English]: "Relatively Higher",
-        [Language.Hindi]: "उच्चतर",
+        [Language.English]: "Highly Economical, with various options to choose from.",
+        [Language.Hindi]: "अत्यधिक किफायती, विभिन्न विकल्पों के साथ।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R5C1: {
         [Language.English]: "Maintenace",
-        [Language.Hindi]: "देखभाल",
+        [Language.Hindi]: "मेंटेनेंस",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R5C2: {
@@ -1410,8 +1410,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R5C3: {
-        [Language.English]: "Comparatively Higher",
-        [Language.Hindi]: "तुलनात्मक रूप से अधिक",
+        [Language.English]: "Hassle-free usage with low maintenance requirements.",
+        [Language.Hindi]: "परेशानी मुक्त उपयोग कम देख-रेख की आवश्यकता के साथ।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R6C1: {
@@ -1593,6 +1593,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     categoryBatteriesSlide3KS4Description: {
         [Language.English]: "505 (L) X 188 (W) X 367 (H)",
         [Language.Hindi]: "505 (L) X 188 (W) X 367 (H)",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide1TypeDescription: {
+        [Language.English]: "The best-in-class choice for your backup requirements.",
+        [Language.Hindi]: "आपकी बैकअप आवश्यकताओं के लिए श्रेणी में सर्वश्रेष्ठ विकल्प।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide2TypeDescription: {
+        [Language.English]: "The space-friendly choice for your home with high performance.",
+        [Language.Hindi]: "उच्च प्रदर्शन के साथ आपके घर के लिए जगह के अनुकूल पसंद।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide3TypeDescription: {
+        [Language.English]: " Another great choice to empower your home with high backup.",
+        [Language.Hindi]: "उच्च बैकअप के साथ अपने घर को सशक्त बनाने का एक और बढ़िया विकल्प।",
+        [Language.Marathi]: "?????",
+    },
+    categoryBatteriesS4Slide4TypeDescription: {
+        [Language.English]: "Compliments your home with its compact size and higher backup.",
+        [Language.Hindi]: "अपने कॉम्पैक्ट आकार और उच्च बैकअप के साथ अपने घर को बेहतर बनाने वाला विकल्प।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide4Heading: {
@@ -1847,13 +1867,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R2C2: {
-        [Language.English]: "Advanced + Ai Technology",
-        [Language.Hindi]: " एडवांस + एआई तकनीक",
+        [Language.English]: "Advanced + Ai Technology for better performance.",
+        [Language.Hindi]: " एडवांस + ए आई तकनीक बेहतर प्रदर्शन के लिए।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R2C3: {
-        [Language.English]: "Ai Technology",
-        [Language.Hindi]: "एआई तकनीक",
+        [Language.English]: "Ai Technology for efficient charging and performance",
+        [Language.Hindi]: "ए आई तकनीक, कुशल चार्जिंग और प्रदर्शन के लिए।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R3C1: {
@@ -1862,13 +1882,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R3C2: {
-        [Language.English]: "Supports sensitive appliances like Computers, Laptops, Refrigerators, Ovens",
-        [Language.Hindi]: "कंप्यूटर, लैपटॉप, फ्रिज, ओवन जैसे उपकरणों का समर्थन करता है।",
+        [Language.English]: "Smooth backup for essential as well as sensitive appliances like Computers, Laptops, Refrigerators, and Ovens.",
+        [Language.Hindi]: "आवश्यक और संवेदनशील उपकरणों जैसे कंप्यूटर, लैपटॉप, फ्रिज और ओवन के लिये सहज बैकअप।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R3C3: {
-        [Language.English]: "Supports basic appliances like fans, lights, motors",
-        [Language.Hindi]: "पंखे, रोशनी, मोटर जैसे उपकरणों का समर्थन करता है।",
+        [Language.English]: "Smooth backup for essential appliances like fans, lights, and motors.",
+        [Language.Hindi]: "पंखे, लाइट और मोटर जैसे आवश्यक उपकरणों के लिए सहज बैकअप।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R4C1: {
@@ -1877,13 +1897,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R4C2: {
-        [Language.English]: "High safety of appliances",
-        [Language.Hindi]: "उपकरणों की उच्च सुरक्षा",
+        [Language.English]: "Helps to maintain the longevity of appliances.",
+        [Language.Hindi]: "उपकरणों की लंबी उमर बनाए रखने में मदद करता है।",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R4C3: {
-        [Language.English]: "Moderate safety of appliances",
-        [Language.Hindi]: "उपकरणों की सीमित सुरक्षा।",
+        [Language.English]: "--",
+        [Language.Hindi]: "--",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS3R5C1: {
@@ -2933,6 +2953,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     loadCalculatorAdditionalInputsT6: {
         [Language.English]: "Total Watts",
         [Language.Hindi]: "कुल वाट",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorNewUIHeader1: {
+        [Language.English]: "Device",
+        [Language.Hindi]: "उपकरण",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorNewUIHeader2: {
+        [Language.English]: "Consumption per device",
+        [Language.Hindi]: "प्रति उपकरण खपत",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorNewUIHeader3: {
+        [Language.English]: "Qty",
+        [Language.Hindi]: "संख्या",
+        [Language.Marathi]: "?????",
+    },
+    loadCalculatorNewUIHeader4: {
+        [Language.English]: "Total",
+        [Language.Hindi]: "कुल",
         [Language.Marathi]: "?????",
     },
 

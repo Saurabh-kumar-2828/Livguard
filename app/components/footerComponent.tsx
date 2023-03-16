@@ -244,11 +244,11 @@ export function FooterComponent({
     const calculatedTheme = getCalculatedTheme(userPreferences);
 
     return (
-        <div className="lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]">
+        <div className="lg-px-screen-edge lg:tw-px-0">
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_2rem_auto] lg:tw-grid-cols-[17.5rem_repeat(4,minmax(0,1fr))] lg:tw-gap-x-8 lg:tw-gap-y-4">
-                <div className="lg:tw-row-start-3 lg:tw-col-start-1">
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_auto] lg:tw-grid-cols-[21.5rem_repeat(4,minmax(0,1fr))_1.5rem] lg:tw-gap-x-8 lg:tw-gap-y-4">
+                <div className="lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px]">
                     <Link to="/">
                         <img
                             src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
@@ -261,40 +261,44 @@ export function FooterComponent({
                     <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
                 </div>
 
-                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between lg:tw-items-center ">
-                    <div className="lg-text-secondary-900 lg-text-headline lg:tw-max-w-lg">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
+                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex lg:tw-flex-row lg:tw-justify-between lg:tw-items-center lg:lg-bg-secondary-100 lg:tw-px-[72px] lg:tw-py-4 lg:tw-gap-10">
+                    <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-start lg:tw-gap-10 lg:tw-items-center">
+                        <div className="lg-text-secondary-900 lg-text-title1 lg:tw-max-w-[40rem]">{getVernacularString("footerSubscribeT1", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
+                        <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
-                    <fetcher.Form
-                        method="post"
-                        action="/subscribe"
-                        className="tw-w-full lg:tw-max-w-sm"
-                    >
-                        <div className="tw-relative">
-                            <input
-                                type="text"
-                                name="emailId"
-                                id="signup_email"
-                                pattern={emailIdValidationPattern}
-                                placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
-                                className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
-                            />
+                        <fetcher.Form
+                            method="post"
+                            action="/subscribe"
+                            className="tw-w-full lg:tw-max-w-sm"
+                        >
+                            <div className="tw-relative">
+                                <input
+                                    type="text"
+                                    name="emailId"
+                                    id="signup_email"
+                                    pattern={emailIdValidationPattern}
+                                    placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
+                                    className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
+                                />
 
-                            <input
-                                name="utmParameters"
-                                className="tw-hidden"
-                                readOnly
-                                value={JSON.stringify(utmParameters)}
-                            />
-                            <button
-                                type="submit"
-                                className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border"
-                            >
-                                <ChevronRightIcon className="tw-w-8 tw-h-8" />
-                            </button>
-                        </div>
-                    </fetcher.Form>
+                                <input
+                                    name="utmParameters"
+                                    className="tw-hidden"
+                                    readOnly
+                                    value={JSON.stringify(utmParameters)}
+                                />
+                                <button
+                                    type="submit"
+                                    className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border"
+                                >
+                                    <ChevronRightIcon className="tw-w-8 tw-h-8" />
+                                </button>
+                            </div>
+                        </fetcher.Form>
+                    </div>
+
+                    <SocialMediaIcons className="tw-hidden lg:tw-flex lg:tw-justify-self-end" />
 
                     <SubscribeSuccessDialog
                         userPreferences={userPreferences}
@@ -304,6 +308,8 @@ export function FooterComponent({
 
                     <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
                 </div>
+
+                <VerticalSpacer className="tw-h-6 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure1H", userPreferences.language)}
@@ -495,7 +501,7 @@ export function FooterComponent({
 
                 <VerticalSpacer className="tw-h-5 lg:tw-hidden" />
 
-                <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center lg:tw-text-left">
+                <div className="lg:tw-row-start-5 lg:tw-col-start-1 tw-flex tw-flex-col lg-text-secondary-900 tw-px-10 lg:tw-px-0 tw-text-center lg:tw-text-left lg:tw-pl-[4.5rem]">
                     <div>{getVernacularString("footerContactT1", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-4" />
@@ -525,8 +531,6 @@ export function FooterComponent({
                     <div>{getVernacularString("footerContactT3", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-3 tw-hidden lg:tw-block" />
-
-                    <SocialMediaIcons className="tw-hidden lg:tw-flex" />
                 </div>
 
                 <VerticalSpacer className="tw-h-2 lg:tw-hidden" />
@@ -731,7 +735,7 @@ export function FooterComponent({
                     </div>
                 </div>
 
-                <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left">
+                <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left lg:tw-px-[72px]">
                     {getVernacularString("footerCopyWriteText", userPreferences.language)}
                 </div>
             </div>

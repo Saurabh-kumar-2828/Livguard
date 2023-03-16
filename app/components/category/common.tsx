@@ -19,8 +19,8 @@ import {getVernacularString} from "~/vernacularProvider";
 
 export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferences: UserPreferences; item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}}) {
     return (
-        <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,3fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
-            <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:te-text-left">
+        <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[auto,minmax(0,1fr)] tw-gap-6 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 lg:tw-gap-10 tw-items-center tw-justify-center">
+            <div className="tw-row-start-1 lg:tw-col-start-1 tw-text-center lg:tw-text-left lg:tw-pl-20">
                 <DefaultTextAnimation>
                     <div className="lg-text-title1">{getVernacularString(item.titleTextContentPiece, userPreferences.language)}</div>
                 </DefaultTextAnimation>
@@ -64,13 +64,13 @@ export function OurSuggestionsComponent({
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "lg-px-screen-edge tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-rows-[2rem,auto,2rem] lg:tw-grid-cols-2 tw-rounded-lg tw-w-full tw-items-center",
+                "lg-px-screen-edge tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-rows-[2rem,auto,2rem] lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-rounded-lg tw-w-full tw-items-center",
                 className,
             )}
         >
             <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-row-start-1 tw-col-span lg:tw-col-start-1 tw-flex tw-flex-col tw-w-full lg:tw-row-start-2">
+            <div className="tw-row-start-1 tw-col-span lg:tw-col-start-1 tw-flex tw-flex-col tw-w-full lg:tw-row-start-2 lg:tw-pl-20">
                 <VerticalSpacer className="tw-h-4" />
 
                 <DefaultTextAnimation>
@@ -99,7 +99,7 @@ export function OurSuggestionsComponent({
                                 className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
                                 key={keySpecificationIndex}
                             >
-                                <div className={`tw-flex tw-w-8 tw-h-8 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
+                                <div className={`tw-flex tw-w-8 tw-h-8 lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
                                     <FixedWidthImage
                                         relativePath={keySpecification.keySpecificationIconRelativePath}
                                         imageCdnProvider={ImageCdnProvider.Imgix}
@@ -121,7 +121,7 @@ export function OurSuggestionsComponent({
 
                 <Link
                     to={vernacularContent.link}
-                    className="lg-cta-button tw-w-fit"
+                    className="lg-cta-button tw-w-fit lg:tw-place-self-start tw-place-self-center"
                 >
                     {" "}
                     {vernacularContent.exploreButton}{" "}
@@ -135,12 +135,12 @@ export function OurSuggestionsComponent({
                     <FixedWidthImage
                         relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading}.png`}
                         imageCdnProvider={ImageCdnProvider.Imgix}
-                        width="200px"
+                        width="250px"
                         className="tw-mx-auto"
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-16 lg:tw-hidden" />
+                {/* <VerticalSpacer className="tw-h-16 lg:tw-hidden" /> */}
 
                 <DefaultTextAnimation>
                     <div className="lg-text-title1 tw-text-center">{vernacularContent.relatedProductsHeading}</div>
@@ -156,7 +156,7 @@ export function OurSuggestionsComponent({
                         items={vernacularContent.relatedProducts.map((relatedProduct) => (
                             <Link
                                 to={`/product/${relatedProduct}`}
-                                className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                                className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                             >
                                 <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
                                 <FullWidthImage
@@ -165,6 +165,7 @@ export function OurSuggestionsComponent({
                                 />
                             </Link>
                         ))}
+                        className="lg:tw-max-w-[440px]"
                     />
                 ) : (
                     <div className="tw-flex tw-flex-row tw-justify-center tw-w-full tw-gap-x-2">
@@ -285,7 +286,9 @@ export function WhatsBestForYouComponent({
                                         target={"_blank"}
                                     >
                                         <div
-                                            className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-justify-start tw-items-center tw-gap-3`}
+                                            className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg ${
+                                                downloadButtonIndex == 1 ? "tw-p-2 lg:tw-p-4" : "tw-p-4"
+                                            } tw-justify-start tw-items-center tw-gap-3`}
                                         >
                                             <div className="tw-h-8 tw-min-w-[32px]">
                                                 <FullWidthImage
@@ -729,13 +732,13 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
             <div className="tw-hidden lg:tw-flex tw-flex-col tw-justify-center tw-text-center">
                 <VerticalSpacer className="tw-h-4" />
 
-                <div className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
+                <div className="lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
 
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-8" />
 
                 <div className="tw-grid tw-grid-cols-3 tw-gap-2">
                     <ItemBuilder

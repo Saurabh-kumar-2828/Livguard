@@ -23,7 +23,7 @@ export async function sendDataToFreshSales(
     };
 
     try {
-        const response = await fetch(`${process.env.FRESH_SALES_API_END_POINT}/contacts`, {
+        const response = await fetch(`${process.env.FRESH_SALES_API_END_POINT}/contacts/upsert`, {
             method: "POST",
             headers: {
                 Authorization: `Token token=${process.env.FRESH_SALES_API_TOKEN}`,

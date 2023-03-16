@@ -172,28 +172,28 @@ function HomePage({
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-8" />
+            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <EnergyStorageSolutions
                 userPreferences={userPreferences}
                 className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <EnergySolutions
                 userPreferences={userPreferences}
                 className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <PowerPlannerTeaser
                 userPreferences={userPreferences}
                 className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <DealerLocator
                 userPreferences={userPreferences}
@@ -201,42 +201,42 @@ function HomePage({
                 className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
             />
 
-            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[12] lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[12] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <WeAreOneOfAKind
                 userPreferences={userPreferences}
                 className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px] lg:tw-pr-0"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-20" />
 
             <SolarSolutions
                 userPreferences={userPreferences}
                 className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <MeetOurLeadership
                 userPreferences={userPreferences}
                 className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-20" />
 
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
@@ -244,7 +244,7 @@ function HomePage({
                 className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-20" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
@@ -271,7 +271,7 @@ function HeroSection({
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-15rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
             ref={ref}
@@ -627,7 +627,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                 </DefaultTextAnimation>
             </div>
 
-            <VerticalSpacer className="tw-h-6" />
+            <VerticalSpacer className="tw-h-8" />
 
             <TestimonialsCarousel
                 userPreferences={userPreferences}
@@ -841,7 +841,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
 export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge lg:tw-h-full", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-h-full lg:tw-justify-center lg:tw-items-center">
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-h-full lg:tw-justify-center lg:tw-items-center lg:tw-py-4">
                 <VerticalSpacer className="tw-h-4" />
 
                 <h2 className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
@@ -921,7 +921,7 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
 export function PowerfulPurposePowerfulImpact({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-bg-secondary-100 tw-px-4 tw-py-4 tw-rounded-lg">
+            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-bg-secondary-100 tw-px-4 lg:tw-pl-8 tw-py-4 tw-rounded-lg">
                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
@@ -967,7 +967,7 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
 
                 <a
                     href="/csr-initiatives.php"
-                    className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg-cta-button tw-justify-self-center"
+                    className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg-cta-button tw-justify-self-center lg:tw-justify-self-start"
                 >
                     {getVernacularString("homeS12T4", userPreferences.language)}
                 </a>

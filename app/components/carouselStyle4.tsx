@@ -7,15 +7,15 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
-export function CarouselStyle4({items}: {items: Array<any>}) {
+export function CarouselStyle4({items, className}: {items: Array<any>; className?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"}, 8000);
 
     return (
         <div
-            className="tw-overflow-hidden tw-w-full"
+            className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full",className)}
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[50%] lg:tw-auto-cols-[33%]">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[50%]">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
@@ -31,7 +31,7 @@ export function CarouselStyle4({items}: {items: Array<any>}) {
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center">
+            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10">
                 <button
                     type="button"
                     className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"

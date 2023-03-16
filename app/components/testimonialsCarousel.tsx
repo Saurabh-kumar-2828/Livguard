@@ -26,15 +26,15 @@ export function TestimonialsCarousel({
                 className="tw-overflow-hidden"
                 ref={emblaRef}
             >
-                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[40%] tw-h-full">
+                <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[35rem] tw-h-full tw-min-h-[15rem]">
                     <ItemBuilder
                         items={testimonials}
                         itemBuilder={(testimonial, testimonialIndex) => (
                             <div
-                                className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge",`tw-mr-4`)}
+                                className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", `lg:tw-mr-4`)}
                                 key={testimonialIndex}
                             >
-                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] lg:tw-min-w-[23rem] tw-grid-rows-[auto,auto] tw-p-3 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-center lg-bg-secondary-100 tw-rounded-lg tw-h-full">
+                                <div className="tw-grid tw-grid-cols-[auto,minmax(0,1fr),auto] lg:tw-min-w-[23rem] lg:tw-max-w-[35rem] tw-grid-rows-[auto,auto] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-bg-secondary-100 tw-rounded-lg tw-h-full">
                                     <div className="tw-col-start-1 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.image}
@@ -73,7 +73,7 @@ export function TestimonialsCarousel({
                                         />
                                     </div>
 
-                                    <div className="tw-col-start-1 tw-col-span-3 tw-row-start-2">
+                                    <div className="tw-col-start-1 tw-col-span-3 tw-row-start-2 tw-h-full">
                                         <div className="lg-text-body tw-text-center tw-flex-1">{testimonial.message}</div>
                                     </div>
                                 </div>

@@ -29,7 +29,7 @@ export function CarouselStyle3({items, className}: {items: Array<any>, className
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center">
+            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10">
                 <button
                     type="button"
                     className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"

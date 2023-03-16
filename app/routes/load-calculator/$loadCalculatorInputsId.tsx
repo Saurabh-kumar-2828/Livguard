@@ -104,13 +104,15 @@ function LoadCalculatorResult({
 }) {
     return (
         <>
+            <VerticalSpacer className="lg:tw-h-20" />
+
             <TotalLoadSection
                 userPreferences={userPreferences}
                 loadCalculatorInputs={loadCalculatorInputs}
                 loadCalculatorOutputs={loadCalculatorOutputs}
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
@@ -128,7 +130,7 @@ function LoadCalculatorResult({
                         loadCalculatorOutputs={loadCalculatorOutputs}
                     />
 
-                    <VerticalSpacer className="tw-h-10" />
+                    <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
                     <OurSuggestionsSection userPreferences={userPreferences} />
                 </>
@@ -146,14 +148,14 @@ function LoadCalculatorResult({
                 </>
             )}
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 }
@@ -168,7 +170,7 @@ function TotalLoadSection({
     loadCalculatorOutputs: LoadCalculatorOutputs;
 }) {
     return (
-        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:tw-px-[72px] xl:tw-px-[120px]">
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:tw-grid-cols-[minmax(0,4fr)_minmax(0,2fr)] lg:tw-px-[72px] xl:tw-px-[120px]">
             <div className="tw-row-start-1 tw-col-start-1 tw-w-full tw-aspect-[2/1] tw-overflow-hidden">
                 <CoverImage
                     relativePath="/livguard/load-calculator/1.jpg"
@@ -245,7 +247,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                     <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{getVernacularString("loadCalculatorRecommendationsS2T1", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-6" />
 
                     <div className="tw-w-full tw-grid tw-grid-cols-1 tw-grid-rows-1 tw-overflow-x-auto tw-pl-6 tw-pr-[calc(1.5rem-1px)]">
                         <div className="tw-flex tw-flex-row tw-gap-x-4 sm:tw-justify-center">
@@ -254,7 +256,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                 itemBuilder={(recommendation, recommendationIndex) => (
                                     <Link
                                         to={`/product/${recommendation.model}`.replace(" ", "")}
-                                        className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                        className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                                         key={recommendationIndex}
                                     >
                                         <VerticalSpacer className="tw-h-3" />
@@ -274,7 +276,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-1">
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/capacity.png"
                                                     width="1.5rem"
@@ -286,9 +288,9 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 </div>
                                             </div>
 
-                                            <VerticalSpacer className="tw-h-1" />
+                                            <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-1">
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/waranty.png"
                                                     width="1.5rem"
@@ -329,7 +331,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                             <Link
                                 to="/inverter-for-home"
-                                className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                             >
                                 <VerticalSpacer className="tw-h-3" />
 
@@ -346,11 +348,11 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
             {loadCalculatorOutputs.recommendedBatteries == null ? null : (
                 <>
-                    <VerticalSpacer className="tw-h-6" />
+                    <VerticalSpacer className="tw-h-8" />
 
                     <div className="lg-px-screen-edge tw-w-full lg-text-title1 tw-text-center">{getVernacularString("loadCalculatorRecommendationsS2T2", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-6" />
 
                     <div className="tw-w-full tw-grid tw-grid-cols-1 tw-grid-rows-1 tw-overflow-x-auto tw-pl-6 tw-pr-[calc(1.5rem-1px)]">
                         <div className="tw-flex tw-flex-row tw-gap-x-4 sm:tw-justify-center">
@@ -359,7 +361,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                 itemBuilder={(recommendation, recommendationIndex) => (
                                     <Link
                                         to={`/product/${recommendation.model.replace(" ", "")}`}
-                                        className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                        className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                                         key={recommendationIndex}
                                     >
                                         <VerticalSpacer className="tw-h-3" />
@@ -379,10 +381,10 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-1">
                                                 <FixedWidthImage
-                                                    relativePath="/livguard/icons/capacity.png"
-                                                    width="1.5rem"
+                                                    relativePath="/livguard/icons/battery_capacity.png"
+                                                    width="1.25rem"
                                                     imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
 
@@ -391,9 +393,9 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 </div>
                                             </div>
 
-                                            <VerticalSpacer className="tw-h-1" />
+                                            <VerticalSpacer className="tw-h-2" />
 
-                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-start tw-items-center tw-gap-x-1">
+                                            <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-items-center tw-gap-x-1">
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/waranty.png"
                                                     width="1.5rem"
@@ -426,7 +428,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                             <Link
                                 to="/inverter-batteries"
-                                className="tw-w-40 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
                             >
                                 <VerticalSpacer className="tw-h-3" />
 
@@ -456,7 +458,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
-        <div>
+        <div className="tw-flex tw-flex-col tw-justify-center">
             <div className="lg-px-screen-edge-2 lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("loadCalculatorRecommendationsS3H1", userPreferences.language)}} />
@@ -468,7 +470,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
 
             <VerticalSpacer className="tw-h-6" />
 
-            <div className="lg-px-screen-edge-2 tw-grid tw-grid-cols-2 tw-items-center">
+            <div className="tw-grid tw-grid-cols-2 tw-items-center tw-max-w-[350px] tw-min-w-[350px] tw-place-self-center">
                 <button
                     type="button"
                     className={concatenateNonNullStringsWithSpaces(
@@ -492,7 +494,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                 </button>
             </div>
 
-            <div className="lg-px-screen-edge-2">
+            <div className="tw-max-w-[350px] tw-min-w-[350px] tw-place-self-center">
                 <VerticalSpacer className="tw-h-4 tw-border-solid tw-border-b lg-border-secondary-900" />
             </div>
 
@@ -503,7 +505,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                 ref={emblaRef}
             >
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
-                    <div className="tw-h-full tw-flex tw-flex-col tw-max-w-2xl">
+                    <div className="tw-h-full tw-flex tw-flex-col tw-place-self-center">
                         <OurInvertersSectionInternal userPreferences={userPreferences} />
 
                         <VerticalSpacer className="tw-h-4" />
@@ -516,7 +518,7 @@ function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferen
                         </DefaultElementAnimation>
                     </div>
 
-                    <div className="tw-h-full tw-flex tw-flex-col tw-max-w-2xl">
+                    <div className="tw-h-full tw-flex tw-flex-col tw-place-self-center">
                         <OurBatteriesSectionInternal userPreferences={userPreferences} />
 
                         <VerticalSpacer className="tw-h-4" />

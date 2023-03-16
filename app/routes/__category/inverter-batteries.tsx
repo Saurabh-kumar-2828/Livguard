@@ -148,28 +148,28 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
         <>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-8 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <BatteriesAreMeantToLast
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurBatteriesSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurSuggestionsSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             {/* <SideBySideOverviewSection userPreferences={userPreferences} />
 
@@ -180,13 +180,13 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 llg:tw-h-20" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
-                    className="tw-row-start-1 tw-col-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full"
+                    className="tw-row-start-1 tw-col-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
                 />
 
                 <ChooseBestInverterBattery
@@ -196,14 +196,14 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[50px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <SocialHandles
                 userPreferences={userPreferences}
@@ -211,7 +211,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 }
@@ -483,11 +483,11 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
                 {getVernacularString("categoryBatteriesS3R5C3", userPreferences.language)}
             </div>
 
-            <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-text-secondary-900">{getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}</div>
+            <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-8 lg-text-icon tw-text-secondary-900">{getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}</div>
 
             {/* <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryBatteriesS3R6C2", userPreferences.language)}</div> */}
 
-            <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryBatteriesS3R6C3", userPreferences.language)}</div>
+            <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-8 tw-text-center">{getVernacularString("categoryBatteriesS3R6C3", userPreferences.language)}</div>
         </div>
     );
 }
@@ -496,6 +496,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
     const [selectedBatteryTypeIndex, setSelectedBatteryTypeIndex] = useState(0);
 
     const sectionData: Array<{
+        typeDescription: string;
         heading: string;
         description: string;
         specificationHeading: string;
@@ -507,6 +508,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
         relatedProducts: Array<string>;
     }> = [
         {
+            typeDescription: `${getVernacularString("categoryBatteriesS4Slide1TypeDescription", userPreferences.language)}`,
             heading: `${getVernacularString("categoryBatteriesS4Slide1Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBatteriesS4Slide1Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
@@ -539,6 +541,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
             relatedProducts: ["IT1550TT", "IT1584TT", "IT1639TT", "IT1645TT", "IT1666TT", "IT1860TT", "IT1866TT", "IT2048TT", "IT2060TT", "IT2066TT", "IT2266TT", "IT2360TT", "IT2672TT"],
         },
         {
+            typeDescription: `${getVernacularString("categoryBatteriesS4Slide2TypeDescription", userPreferences.language)}`,
             heading: `${getVernacularString("categoryBatteriesS4Slide2Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBatteriesS4Slide2Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
@@ -571,6 +574,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
             relatedProducts: ["IT9048ST"],
         },
         {
+            typeDescription: `${getVernacularString("categoryBatteriesS4Slide3TypeDescription", userPreferences.language)}`,
             heading: `${getVernacularString("categoryBatteriesS4Slide3Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBatteriesS4Slide3Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
@@ -603,6 +607,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
             relatedProducts: ["IT1160STT", "IT1548STT"],
         },
         {
+            typeDescription: `${getVernacularString("categoryBatteriesS4Slide4TypeDescription", userPreferences.language)}`,
             heading: `${getVernacularString("categoryBatteriesS4Slide4Heading", userPreferences.language)}`,
             description: `${getVernacularString("categoryBatteriesS4Slide4Description", userPreferences.language)}`,
             specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
@@ -684,6 +689,10 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                         />
                     </div>
                 </DefaultElementAnimation>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-bg-secondary-100 tw-opacity-60 tw-border tw-border-dashed tw-rounded-md tw-px-4 tw-py-2">{sectionData[selectedBatteryTypeIndex].typeDescription}</div>
 
                 <VerticalSpacer className="tw-h-4" />
 
