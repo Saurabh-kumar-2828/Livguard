@@ -2,18 +2,21 @@ import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunctio
 import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData, useLocation} from "@remix-run/react";
 import {useEffect} from "react";
 import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {Language, Theme, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import tailwindStylesheet from "../build/tailwind.css";
-import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCalculatedTheme} from "~/utilities";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {getRequiredEnvironmentVariable, getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
+import {WebsiteConfigurationContext} from "~/contexts/websiteConfigurationContext";
 
 type LoaderData = {
     userPreferences: UserPreferences;
-    canonicalUrl: string,
+    canonicalUrl: string;
+    websiteConfiguration: WebsiteConfiguration;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -22,12 +25,36 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const websiteBaseUrl = getRequiredEnvironmentVariable("WEBSITE_BASE_URL");
+    if (websiteBaseUrl instanceof Error) {
+        throw websiteBaseUrl;
+    }
+
+    const debugMode = getBooleanFromUnknown(getRequiredEnvironmentVariable("DEBUG_MODE"));
+    if (debugMode instanceof Error) {
+        throw websiteBaseUrl;
+    }
+
+    const imageCdnProviderStr = getRequiredEnvironmentVariable("DEBUG_MODE");
+    if (imageCdnProviderStr instanceof Error) {
+        throw imageCdnProviderStr;
+    }
+    // TODO: Do this properly
+    const imageCdnProvider = imageCdnProviderStr == "imgix" ? ImageCdnProvider.Imgix : ImageCdnProvider.GrowthJockey;
+
+    const websiteConfiguration: WebsiteConfiguration = {
+        websiteBaseUrl: websiteBaseUrl,
+        debugMode: debugMode,
+        imageCdnProvider: imageCdnProvider,
+    };
+
     const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL"));
     const canonicalUrl = requestUrl.includes("?") ? requestUrl : requestUrl.endsWith("/") ? requestUrl : `${requestUrl}/`;
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         canonicalUrl: canonicalUrl,
+        websiteConfiguration: websiteConfiguration,
     };
 
     return json(loaderData);
@@ -48,7 +75,7 @@ export const links: LinksFunction = () => [
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function () {
-    const {userPreferences, canonicalUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, canonicalUrl, websiteConfiguration} = useLoaderData() as LoaderData;
 
     // // Google Tag Manager
     // useEffect(() => {
@@ -108,6 +135,7 @@ export default function () {
 
     return (
         // <UserPreferencesContext.Provider value={userPreferences}>
+        <WebsiteConfigurationContext.Provider value={websiteConfiguration}>
             <html
                 lang={userPreferences.language == Language.English ? "en-in" : userPreferences.language == Language.Hindi ? "hi-in" : userPreferences.language == Language.Marathi ? "mr-in" : "en"}
                 className={calculatedTheme == Theme.Dark ? "tw-dark" : undefined}
@@ -119,9 +147,14 @@ export default function () {
                     {/* TODO: Move canonicalUrl thing here? */}
 
                     <ItemBuilder
-                        items={[Language.English, Language.Hindi].filter(language => language != userPreferences.language)}
+                        items={[Language.English, Language.Hindi].filter((language) => language != userPreferences.language)}
                         itemBuilder={(language, languageIndex) => (
-                            <link rel="alternate" href={canonicalUrl} hrefLang={language} key={languageIndex} />
+                            <link
+                                rel="alternate"
+                                href={canonicalUrl}
+                                hrefLang={language}
+                                key={languageIndex}
+                            />
                         )}
                     />
 
@@ -188,6 +221,7 @@ export default function () {
                     <LiveReload />
                 </body>
             </html>
+        </WebsiteConfigurationContext.Provider>
         // </UserPreferencesContext.Provider>
     );
 }

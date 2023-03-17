@@ -1,7 +1,14 @@
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 
 export type UserDetails = {
     id: Uuid;
+};
+
+export type WebsiteConfiguration = {
+    websiteBaseUrl: string;
+    debugMode: boolean;
+    imageCdnProvider: ImageCdnProvider;
 };
 
 // export const zodAccessToken = zod.object();
