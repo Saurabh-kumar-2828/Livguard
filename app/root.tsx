@@ -9,6 +9,7 @@ import tailwindStylesheet from "../build/tailwind.css";
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCalculatedTheme} from "~/utilities";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -21,7 +22,8 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
-    const canonicalUrl = request.url.includes("?") ? request.url : request.url.endsWith("/") ? request.url : `${request.url}/`;
+    const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL"));
+    const canonicalUrl = requestUrl.includes("?") ? requestUrl : requestUrl.endsWith("/") ? request.url : `${request.url}/`;
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
