@@ -62,134 +62,136 @@ export function OurSuggestionsComponent({
     className?: string;
 }) {
     return (
-        <div
-            className={concatenateNonNullStringsWithSpaces(
-                "lg-px-screen-edge tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-rows-[2rem,auto,2rem] lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-rounded-lg tw-w-full tw-items-center",
-                className,
-            )}
-        >
-            <VerticalSpacer className="tw-h-8" />
+        <div>
+            <div
+                className={concatenateNonNullStringsWithSpaces(
+                    "lg-px-screen-edge tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-rows-[2rem,auto,2rem] lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-rounded-lg tw-w-full tw-items-center",
+                    className,
+                )}
+            >
+                <VerticalSpacer className="tw-h-8" />
 
-            <div className="tw-row-start-1 tw-col-span lg:tw-col-start-1 tw-flex tw-flex-col tw-w-full lg:tw-row-start-2 lg:tw-pl-20">
-                <VerticalSpacer className="tw-h-4" />
-
-                    <DefaultTextAnimation>
-                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.heading}</div>
-                    </DefaultTextAnimation>
-
+                <div className="tw-row-start-1 tw-col-span lg:tw-col-start-1 tw-flex tw-flex-col tw-w-full lg:tw-row-start-2 lg:tw-pl-20">
                     <VerticalSpacer className="tw-h-4" />
 
-                    <DefaultTextAnimation>
-                        <div className="tw-text-body tw-text-center lg:tw-text-left tw-max-w-[35rem]">{vernacularContent.description}</div>
-                    </DefaultTextAnimation>
+                        <DefaultTextAnimation>
+                            <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.heading}</div>
+                        </DefaultTextAnimation>
 
-                    <VerticalSpacer className="tw-h-10" />
+                        <VerticalSpacer className="tw-h-4" />
 
-                    <DefaultTextAnimation>
-                        <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.specificationHeading}</div>
-                    </DefaultTextAnimation>
+                        <DefaultTextAnimation>
+                            <div className="tw-text-body tw-text-center lg:tw-text-left tw-max-w-[35rem]">{vernacularContent.description}</div>
+                        </DefaultTextAnimation>
 
-                    <VerticalSpacer className="tw-h-4" />
+                        <VerticalSpacer className="tw-h-10" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
-                    <ItemBuilder
-                        items={vernacularContent.keySpecifications}
-                        itemBuilder={(keySpecification, keySpecificationIndex) => (
-                            <div
-                                className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
-                                key={keySpecificationIndex}
-                            >
-                                <div className={`tw-flex tw-w-8 tw-h-8 lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
-                                    <FixedWidthImage
-                                        relativePath={keySpecification.keySpecificationIconRelativePath}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
-                                        width="1.5rem"
-                                        className="tw-place-self-center"
-                                    />
-                                </div>
+                        <DefaultTextAnimation>
+                            <div className="lg-text-title1 tw-text-center lg:tw-text-left">{vernacularContent.specificationHeading}</div>
+                        </DefaultTextAnimation>
 
-                                    <div className="tw-flex tw-flex-col tw-gap-1">
-                                        <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
-                                        <div className="lg-text-body">{keySpecification.keySpecificationContent}</div>
+                        <VerticalSpacer className="tw-h-4" />
+
+                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+                        <ItemBuilder
+                            items={vernacularContent.keySpecifications}
+                            itemBuilder={(keySpecification, keySpecificationIndex) => (
+                                <div
+                                    className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
+                                    key={keySpecificationIndex}
+                                >
+                                    <div className={`tw-flex tw-w-8 tw-h-8 lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
+                                        <FixedWidthImage
+                                            relativePath={keySpecification.keySpecificationIconRelativePath}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                            width="1.5rem"
+                                            className="tw-place-self-center"
+                                        />
                                     </div>
-                                </div>
-                            )}
+
+                                        <div className="tw-flex tw-flex-col tw-gap-1">
+                                            <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
+                                            <div className="lg-text-body">{keySpecification.keySpecificationContent}</div>
+                                        </div>
+                                    </div>
+                                )}
+                            />
+                        </div>
+
+                        <VerticalSpacer className="tw-h-8" />
+
+                    <Link
+                        to={vernacularContent.link}
+                        className="lg-cta-button tw-w-fit lg:tw-place-self-start tw-place-self-center"
+                    >
+                        {" "}
+                        {vernacularContent.exploreButton}{" "}
+                    </Link>
+                </div>
+
+                    <div className="tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-justify-center">
+                        <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+
+                    <div className="tw-rounded-lg tw-w-full tw-flex tw-justify-center">
+                        <FixedWidthImage
+                            relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading}.png`}
+                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            width="250px"
+                            className="tw-mx-auto"
                         />
                     </div>
 
-                    <VerticalSpacer className="tw-h-8" />
+                    {/* <VerticalSpacer className="tw-h-16 lg:tw-hidden" /> */}
 
-                <Link
-                    to={vernacularContent.link}
-                    className="lg-cta-button tw-w-fit lg:tw-place-self-start tw-place-self-center"
-                >
-                    {" "}
-                    {vernacularContent.exploreButton}{" "}
-                </Link>
-            </div>
+                        <DefaultTextAnimation>
+                            <div className="lg-text-title1 tw-text-center">{vernacularContent.relatedProductsHeading}</div>
+                        </DefaultTextAnimation>
 
-                <div className="tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col tw-items-center tw-justify-center">
-                    <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+                        <VerticalSpacer
+                            className="tw-h-4"
+                            lg:tw-hidden
+                        />
 
-                <div className="tw-rounded-lg tw-w-full tw-flex tw-justify-center">
-                    <FixedWidthImage
-                        relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading}.png`}
-                        imageCdnProvider={ImageCdnProvider.Imgix}
-                        width="250px"
-                        className="tw-mx-auto"
-                    />
-                </div>
-
-                {/* <VerticalSpacer className="tw-h-16 lg:tw-hidden" /> */}
-
-                    <DefaultTextAnimation>
-                        <div className="lg-text-title1 tw-text-center">{vernacularContent.relatedProductsHeading}</div>
-                    </DefaultTextAnimation>
-
-                    <VerticalSpacer
-                        className="tw-h-4"
-                        lg:tw-hidden
-                    />
-
-                {vernacularContent.relatedProducts.length > 3 ? (
-                    <CarouselStyle4
-                        items={vernacularContent.relatedProducts.map((relatedProduct) => (
-                            <Link
-                                to={`/product/${relatedProduct}`}
-                                className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
-                            >
-                                <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
-                                <FullWidthImage
-                                    relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}.png`}
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
-                                />
-                            </Link>
-                        ))}
-                        className="lg:tw-max-w-[440px]"
-                    />
-                ) : (
-                    <div className="tw-flex tw-flex-row tw-justify-center tw-w-full tw-gap-x-2">
-                        <ItemBuilder
-                            items={vernacularContent.relatedProducts}
-                            itemBuilder={(item, itemIndex) => (
+                    {vernacularContent.relatedProducts.length > 3 ? (
+                        <CarouselStyle4
+                            items={vernacularContent.relatedProducts.map((relatedProduct) => (
                                 <Link
-                                    to={`/product/${item}`}
-                                    className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
-                                    key={itemIndex}
+                                    to={`/product/${relatedProduct}`}
+                                    className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                                 >
-                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{item}</div>
+                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
                                     <FullWidthImage
-                                        relativePath={`${vernacularContent.imagesRelativePath}${item}.png`}
+                                        relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}.png`}
                                         imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </Link>
-                            )}
+                            ))}
+                            className="lg:tw-max-w-[440px]"
                         />
-                    </div>
-                )}
-            </div>
+                    ) : (
+                        <div className="tw-flex tw-flex-row tw-justify-center tw-w-full tw-gap-x-2">
+                            <ItemBuilder
+                                items={vernacularContent.relatedProducts}
+                                itemBuilder={(item, itemIndex) => (
+                                    <Link
+                                        to={`/product/${item}`}
+                                        className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
+                                        key={itemIndex}
+                                    >
+                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{item}</div>
+                                        <FullWidthImage
+                                            relativePath={`${vernacularContent.imagesRelativePath}${item}.png`}
+                                            imageCdnProvider={ImageCdnProvider.Imgix}
+                                        />
+                                    </Link>
+                                )}
+                            />
+                        </div>
+                    )}
+                </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-4" />
+            </div>
         </div>
     );
 }
