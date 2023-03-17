@@ -23,7 +23,7 @@ export const loader: LoaderFunction = async ({request}) => {
     }
 
     const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL"));
-    const canonicalUrl = requestUrl.includes("?") ? requestUrl : requestUrl.endsWith("/") ? request.url : `${request.url}/`;
+    const canonicalUrl = requestUrl.includes("?") ? requestUrl : requestUrl.endsWith("/") ? requestUrl : `${requestUrl}/`;
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
