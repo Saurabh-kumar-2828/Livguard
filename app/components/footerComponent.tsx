@@ -245,7 +245,7 @@ export function FooterComponent({
 
     return (
         <div className="lg-px-screen-edge lg:tw-px-0">
-            <VerticalSpacer className="tw-h-8" />
+            <VerticalSpacer className="tw-h-8 lg:tw-hidden" />
 
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_2rem_auto_2rem_auto_auto] lg:tw-grid-cols-[21.5rem_repeat(4,minmax(0,1fr))_1.5rem] lg:tw-gap-x-8 lg:tw-gap-y-4">
                 <div className="lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px]">

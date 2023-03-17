@@ -817,12 +817,11 @@ function DeviceSelectionNewUi({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-max-w-3xl tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] tw-items-center tw-gap-x-8 tw-gap-y-4">
-
-                <div className="lg-text-body tw-text-left">{getVernacularString("loadCalculatorNewUIHeader1", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("loadCalculatorNewUIHeader2", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("loadCalculatorNewUIHeader3", userPreferences.language)}</div>
-                <div className="lg-text-body">{getVernacularString("loadCalculatorNewUIHeader4", userPreferences.language)}</div>
+            <div className="tw-w-full tw-max-w-3xl tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] tw-items-center tw-justify-center tw-gap-x-4 lg:tw-gap-x-8 tw-gap-y-4">
+                <div className="lg-text-body tw-text-left tw-place-self-start">{getVernacularString("loadCalculatorNewUIHeader1", userPreferences.language)}</div>
+                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{getVernacularString("loadCalculatorNewUIHeader2", userPreferences.language)}</div>
+                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{getVernacularString("loadCalculatorNewUIHeader3", userPreferences.language)}</div>
+                <div className="lg-text-body tw-place-self-start tw-text-center tw-w-full">{getVernacularString("loadCalculatorNewUIHeader4", userPreferences.language)}</div>
                 <div className="tw-col-span-4 tw-border-b tw-border-solid tw-border-secondary-300-light dark:tw-border-secondary-300-dark" />
 
                 <ItemBuilder

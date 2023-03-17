@@ -92,22 +92,22 @@ export function OurSuggestionsComponent({
 
                         <VerticalSpacer className="tw-h-4" />
 
-                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
-                        <ItemBuilder
-                            items={vernacularContent.keySpecifications}
-                            itemBuilder={(keySpecification, keySpecificationIndex) => (
-                                <div
-                                    className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
-                                    key={keySpecificationIndex}
-                                >
-                                    <div className={`tw-flex tw-w-8 tw-h-8 lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
-                                        <FixedWidthImage
-                                            relativePath={keySpecification.keySpecificationIconRelativePath}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
-                                            width="1.5rem"
-                                            className="tw-place-self-center"
-                                        />
-                                    </div>
+                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+                    <ItemBuilder
+                        items={vernacularContent.keySpecifications}
+                        itemBuilder={(keySpecification, keySpecificationIndex) => (
+                            <div
+                                className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${(keySpecificationIndex % 2) + 1} tw-flex tw-flex-row tw-items-between tw-gap-3`}
+                                key={keySpecificationIndex}
+                            >
+                                <div className={`tw-flex tw-min-w-[40px] tw-h-[40px] lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
+                                    <FixedWidthImage
+                                        relativePath={keySpecification.keySpecificationIconRelativePath}
+                                        imageCdnProvider={ImageCdnProvider.Imgix}
+                                        width="1.5rem"
+                                        className="tw-place-self-center"
+                                    />
+                                </div>
 
                                         <div className="tw-flex tw-flex-col tw-gap-1">
                                             <div className="lg-text-body tw-font-bold">{keySpecification.keySpecificationTitle}</div>
@@ -677,7 +677,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
@@ -732,7 +732,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
             </div>
 
             <div className="tw-hidden lg:tw-flex tw-flex-col tw-justify-center tw-text-center">
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />

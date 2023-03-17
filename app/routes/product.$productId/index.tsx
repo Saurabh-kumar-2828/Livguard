@@ -132,7 +132,7 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <ProductSpecifications
                 userPreferences={userPreferences}
@@ -140,7 +140,7 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <ProductDescription
                 userPreferences={userPreferences}
@@ -148,7 +148,7 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-8 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <ProductRating
                 userPreferences={userPreferences}
@@ -156,20 +156,20 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
-                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full"
+                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
                 />
 
                 <ChooseBestInverterBattery
@@ -179,7 +179,7 @@ function ProductPage({
                 />
             </div>
 
-            <VerticalSpacer className="lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <SuggestedProducts
                 userPreferences={userPreferences}
@@ -187,14 +187,14 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[50px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <SocialHandles
                 userPreferences={userPreferences}
@@ -202,7 +202,7 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 }
@@ -223,12 +223,12 @@ function ProductInfo({userPreferences, productDetails, className}: {userPreferen
                             />
                         </DefaultElementAnimation>
                     </div>
-                    <div className="tw-grid tw-grid-rows-1 tw-grid-cols-4 lg:tw-grid-rows-4 lg:tw-grid-cols-1 tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-w-full tw-gap-x-2">
+                    <div className="tw-row-start-2 lg:tw-col-start-1 lg:tw-row-start-1 tw-gap-4 tw-flex tw-flex-row lg:tw-flex-col">
                         <ItemBuilder
                             items={productDetails.images}
                             itemBuilder={(image, imageIndex) => (
                                 <div
-                                    className="tw-rounded-lg tw-w-full tw-h-[80px] lg:tw-w-[80px] lg:tw-h-full hover:tw-cursor-pointer"
+                                    className="tw-rounded-lg tw-h-[80px] tw-max-h-[80px] tw-max-w-[80px] tw-w-[80px] hover:tw-cursor-pointer"
                                     key={imageIndex}
                                     onClick={() => setMainImageIndex(imageIndex)}
                                 >
@@ -253,7 +253,7 @@ function ProductInfo({userPreferences, productDetails, className}: {userPreferen
 
                     <div className="tw-text-left">{productDetails.description}</div>
 
-                    <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-8" />
 
                     <div className="tw-grid tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr)] tw-gap-2">
                         <ItemBuilder

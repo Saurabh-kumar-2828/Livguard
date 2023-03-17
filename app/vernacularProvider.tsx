@@ -2961,7 +2961,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     loadCalculatorNewUIHeader2: {
-        [Language.English]: "Consumption per device",
+        [Language.English]: "Usage per device",
         [Language.Hindi]: "प्रति उपकरण खपत",
         [Language.Marathi]: "?????",
     },

@@ -521,7 +521,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
@@ -554,7 +554,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide2KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
@@ -587,7 +587,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide3KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
@@ -620,7 +620,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),

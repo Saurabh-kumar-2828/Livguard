@@ -193,7 +193,7 @@ export function DealerLocatorPage({
                         <GoogleMapView dealerList={dealerList} />
                     </div>
 
-                    <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                     <div className="tw-col-start-2 tw-row-start-1">
                         <Form
@@ -280,7 +280,7 @@ export function DealerLocatorPage({
 
                 {dealerList == null || dealerList.length == 0 ? null : (
                     <>
-                        <VerticalSpacer className="tw-h-4" />
+                        <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
                         <div
                             className="tw-flex tw-flex-col tw-gap-4"
@@ -357,28 +357,28 @@ export function DealerLocatorPage({
                 )}
             </div>
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <TroubleFindingDealers
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <JoinLivguardNetwork
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <SocialHandles
                 userPreferences={userPreferences}
@@ -386,7 +386,7 @@ export function DealerLocatorPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-h-10" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
         </>
     );
 }
