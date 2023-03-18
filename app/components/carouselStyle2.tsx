@@ -1,11 +1,8 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import Autoplay from "embla-carousel-autoplay";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
@@ -35,7 +32,6 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
                                     <FullWidthImage
                                         relativePath={item.imageRelativePath}
                                         className="tw-rounded-lg"
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </DefaultImageAnimation>
 

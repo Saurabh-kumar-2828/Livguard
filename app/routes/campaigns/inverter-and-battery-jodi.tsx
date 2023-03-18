@@ -6,13 +6,10 @@ import {getDealerForCity} from "~/backend/dealer.server";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
-import {FooterSocialLogosAndCopyright} from "~/components/footerComponent";
-import {HeaderComponent} from "~/components/headerComponent";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
@@ -22,7 +19,7 @@ import {ContactUsCta, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Dealer, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -38,35 +35,13 @@ export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
 };
 
-// TODO: Rework for fetcher
-type DealerLocatorActionData = {
-    dealerList: Array<Dealer>;
-    path: string;
-    error: string;
-};
-
-export const action: ActionFunction = async ({request, params}) => {
-    const body = await request.formData();
-
-    const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
-    const dealerList = await getDealerForCity(city);
-
-    const actionData: DealerLocatorActionData = {
-        dealerList: dealerList,
-        error: dealerList == null ? "No Dealer Present For Selected Location" : "",
-        path: "/dealer-for-inverters-and-batteries",
-    };
-
-    return actionData;
-};
-
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -81,8 +56,6 @@ export const loader: LoaderFunction = async ({request}) => {
 
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
-
-    const actionData = useActionData();
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -215,7 +188,6 @@ function HeroSection({
             <CoverImage
                 relativePath="/livguard/landingPages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
                 // alt="Inverter And Battery Jodi"
             />
 
@@ -316,7 +288,6 @@ export function TapIntoEfficiency({
                             <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-w-full">
                                 <FullWidthImage
                                     relativePath={card.imageRelativePath}
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                     className="tw-rounded-lg tw-w-full"
                                 />
                             </div>

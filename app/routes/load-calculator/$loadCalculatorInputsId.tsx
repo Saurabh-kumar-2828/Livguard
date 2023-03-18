@@ -1,4 +1,3 @@
-import {ShareIcon} from "@heroicons/react/20/solid";
 import {LoaderFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useLoaderData} from "react-router";
@@ -11,8 +10,6 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
-import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getUuidFromUnkown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
@@ -23,7 +20,7 @@ import {FaqSection, SolarSolutions} from "~/routes";
 import {LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
 import {OurBatteriesSectionInternal} from "~/routes/__category/inverter-batteries";
 import {OurInvertersSectionInternal} from "~/routes/__category/inverter-for-home";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -36,7 +33,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -174,7 +171,6 @@ function TotalLoadSection({
             <div className="tw-row-start-1 tw-col-start-1 tw-w-full tw-aspect-[2/1] tw-overflow-hidden">
                 <CoverImage
                     relativePath="/livguard/load-calculator/1.jpg"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
 
@@ -280,7 +276,6 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/capacity.png"
                                                     width="1.5rem"
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
 
                                                 <div className="lg-text-secondary-900 lg-text-icon">
@@ -294,7 +289,6 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/waranty.png"
                                                     width="1.5rem"
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
 
                                                 <div className="lg-text-secondary-900 lg-text-icon">
@@ -307,13 +301,11 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                             {/* TODO: Temp hack, remove once we fix product image! */}
                                             <FullWidthImage
                                                 relativePath={`/livguard/inverter images/${recommendation.model}.png`}
-                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
 
                                             {/* <div className="tw-w-full tw-aspect-[5/3]">
                                                 <CoverImage
                                                     relativePath={`/livguard/inverter images/${recommendation.model}.png`}
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
                                             </div> */}
 
@@ -385,7 +377,6 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/battery_capacity.png"
                                                     width="1.25rem"
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
 
                                                 <div className="lg-text-secondary-900 lg-text-icon">
@@ -399,7 +390,6 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                                                 <FixedWidthImage
                                                     relativePath="/livguard/icons/waranty.png"
                                                     width="1.5rem"
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
 
                                                 <div className="lg-text-secondary-900 lg-text-icon">
@@ -411,7 +401,6 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                                             <FullWidthImage
                                                 relativePath={`/livguard/battery-images/${recommendation.model}.png`}
-                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                             />
 
                                             <VerticalSpacer className="tw-h-4" />

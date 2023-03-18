@@ -28,7 +28,8 @@ export function DefaultTextAnimation({delay, className, children}: {delay?: numb
             direction="up"
             delay={delay}
             className={className}
-            // triggerOnce
+            fraction={0}
+            triggerOnce
         >
             {children}
         </Fade>

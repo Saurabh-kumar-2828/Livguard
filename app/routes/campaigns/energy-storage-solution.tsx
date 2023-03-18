@@ -16,7 +16,6 @@ import {HeaderComponent} from "~/components/headerComponent";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -24,7 +23,7 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -46,7 +45,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -216,13 +215,11 @@ function HeroSection({
             <CoverImage
                 relativePath="/livguard/hero-banners/lp-1-hero-mobile.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 lg:tw-hidden"
-                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <CoverImage
                 relativePath="/livguard/hero-banners/lp-1-hero-desktop.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
-                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
@@ -329,7 +326,6 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
                                     <FullWidthImage
                                         relativePath={item.imageRelativePath}
                                         className="tw-rounded-lg"
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </DefaultImageAnimation>
 

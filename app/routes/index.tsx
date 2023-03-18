@@ -1,9 +1,8 @@
-import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
-import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -23,18 +22,17 @@ import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
-import {FormSubmissionSuccess, FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
+import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getCalculatedTheme, getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = () => {
@@ -54,7 +52,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -279,7 +277,6 @@ function HeroSection({
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
             /> */}
 
             {containerWidth == null || containerHeight == null ? null : (
@@ -438,7 +435,6 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 {/* <FixedWidthImage
                                     relativePath={item.icon}
                                     width="1.5rem"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
 
                                 <img
@@ -516,7 +512,6 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 <DefaultImageAnimation className="tw-w-full">
                                     <FullWidthImage
                                         relativePath={item.image}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className="tw-rounded-lg"
                                     />
                                 </DefaultImageAnimation>
@@ -600,14 +595,12 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
                 <DefaultImageAnimation className="tw-block lg:tw-hidden tw-w-full">
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-mobile.jpg"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </DefaultImageAnimation>
 
                 <DefaultImageAnimation className="tw-hidden lg:tw-block tw-w-full">
                     <FullWidthImage
                         relativePath="/livguard/home/4/1-desktop.jpg"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </DefaultImageAnimation>
             </div>
@@ -798,16 +791,13 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 }
 
 export function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    const calculatedTheme = getCalculatedTheme(userPreferences);
-
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
                         <CoverImage
-                            relativePath={calculatedTheme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"}
-                            imageCdnProvider={ImageCdnProvider.Imgix}
+                            relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"}
                         />
                     </div>
 
@@ -949,17 +939,14 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                     items={[
                         <FullWidthImage
                             relativePath="/livguard/home/11/1.jpg"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                             className="tw-rounded-lg"
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/2.jpg"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                             className="tw-rounded-lg"
                         />,
                         <FullWidthImage
                             relativePath="/livguard/home/11/3.jpg"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                             className="tw-rounded-lg"
                         />,
                     ]}
@@ -1106,7 +1093,6 @@ export function ContactUsDialog({
                         <FixedHeightImage
                             relativePath="/livguard/header/akshay.png"
                             height="13.75rem"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </div>
 

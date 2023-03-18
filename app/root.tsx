@@ -1,17 +1,16 @@
 import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData, useLocation} from "@remix-run/react";
+import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
 import {useEffect} from "react";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
-import {logFrontendError} from "~/global-common-typescript/logging";
-import tailwindStylesheet from "../build/tailwind.css";
-import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {getCalculatedTheme} from "~/utilities";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {getRequiredEnvironmentVariable, getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {WebsiteConfigurationContext} from "~/contexts/websiteConfigurationContext";
+import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {logFrontendError} from "~/global-common-typescript/logging";
+import {getRequiredEnvironmentVariable, getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
+import tailwindStylesheet from "../build/tailwind.css";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -20,7 +19,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -131,14 +130,12 @@ export default function () {
         }
     }, []);
 
-    const calculatedTheme = getCalculatedTheme(userPreferences);
-
     return (
         // <UserPreferencesContext.Provider value={userPreferences}>
         <WebsiteConfigurationContext.Provider value={websiteConfiguration}>
             <html
-                lang={userPreferences.language == Language.English ? "en-in" : userPreferences.language == Language.Hindi ? "hi-in" : userPreferences.language == Language.Marathi ? "mr-in" : "en"}
-                className={calculatedTheme == Theme.Dark ? "tw-dark" : undefined}
+                lang={userPreferences.language}
+                className={userPreferences.theme == Theme.Dark ? "tw-dark" : undefined}
             >
                 <head>
                     <Meta />
@@ -151,7 +148,7 @@ export default function () {
                         itemBuilder={(language, languageIndex) => (
                             <link
                                 rel="alternate"
-                                href={canonicalUrl}
+                                href={`${canonicalUrl}${canonicalUrl.includes("?") ? "&" : "?"}language=${language}`}
                                 hrefLang={language}
                                 key={languageIndex}
                             />

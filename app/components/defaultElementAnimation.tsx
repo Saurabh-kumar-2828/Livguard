@@ -5,6 +5,8 @@ export function DefaultElementAnimation({delay, className, children}: {delay?: n
         <Fade
             delay={500 + (delay ?? 0)}
             className={className}
+            fraction={0}
+            triggerOnce
         >
             {children}
         </Fade>

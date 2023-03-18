@@ -5,7 +5,6 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -56,7 +55,6 @@ export function LandingPage3Carousel({
                                         <DefaultImageAnimation className="tw-w-full">
                                             <FullWidthImage
                                                 relativePath={item.imageRelativePath}
-                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                 className="tw-rounded-lg tw-w-full"
                                             />
                                         </DefaultImageAnimation>

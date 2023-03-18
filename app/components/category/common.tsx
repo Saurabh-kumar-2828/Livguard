@@ -10,7 +10,6 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -35,7 +34,6 @@ export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferenc
                 <DefaultImageAnimation>
                     <FullWidthImage
                         relativePath={item.imageRelativePath}
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                         className="tw-rounded-lg"
                     />
                 </DefaultImageAnimation>
@@ -103,7 +101,6 @@ export function OurSuggestionsComponent({
                                 <div className={`tw-flex tw-min-w-[40px] tw-h-[40px] lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
                                     <FixedWidthImage
                                         relativePath={keySpecification.keySpecificationIconRelativePath}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         width="1.5rem"
                                         className="tw-place-self-center"
                                     />
@@ -135,7 +132,6 @@ export function OurSuggestionsComponent({
                     <div className="tw-rounded-lg tw-w-full tw-flex tw-justify-center">
                         <FixedWidthImage
                             relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading}.png`}
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                             width="250px"
                             className="tw-mx-auto"
                         />
@@ -162,7 +158,6 @@ export function OurSuggestionsComponent({
                                     <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
                                     <FullWidthImage
                                         relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}.png`}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </Link>
                             ))}
@@ -181,7 +176,6 @@ export function OurSuggestionsComponent({
                                         <div className="tw-w-full lg-text-body-bold tw-text-center">{item}</div>
                                         <FullWidthImage
                                             relativePath={`${vernacularContent.imagesRelativePath}${item}.png`}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                         />
                                     </Link>
                                 )}
@@ -227,7 +221,6 @@ export function ProductCardComponent({
                 <div className="tw-px-4 tw-rounded-lg">
                     <FullWidthImage
                         relativePath={vernacularContent.imageRelativePath}
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </div>
             </DefaultImageAnimation>
@@ -295,7 +288,6 @@ export function WhatsBestForYouComponent({
                                             <div className="tw-h-8 tw-min-w-[32px]">
                                                 <FullWidthImage
                                                     relativePath={downloadButton.iconRelativePath}
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
                                             </div>
                                             <div className="lg-text-title2">{downloadButton.text}</div>
@@ -386,7 +378,6 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
                 <div className="tw-h-8 tw-min-w-[32px]">
                     <FullWidthImage
                         relativePath="/livguard/icons/downloadCatalogue.png"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                     />
                 </div>
                 <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
@@ -399,7 +390,6 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
                 <div className="tw-h-8 tw-min-w-[32px]">
                     <FullWidthImage
                         relativePath="/livguard/icons/downloadCatalogue.png"
-                        imageCdnProvider={ImageCdnProvider.GrowthJockey}
                     />
                 </div>
                 <div className="lg-text-title2">{getVernacularString(textVernacId, userPreferences.language)}</div>
@@ -500,7 +490,6 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
 //                                     >
 //                                         <CoverImage
 //                                             relativePath="/livguard/contact form/contact_form_background.jpg"
-//                                             imageCdnProvider={ImageCdnProvider.GrowthJockey}
 //                                             className="tw-row-[1/span_11] tw-col-start-1 tw-rounded-lg tw-opacity-70"
 //                                         />
 
@@ -590,7 +579,6 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
 
 //             <FixedWidthImage
 //                 relativePath="/livguard/icons/confirmation.png"
-//                 imageCdnProvider={ImageCdnProvider.GrowthJockey}
 //                 width="10rem"
 //             />
 

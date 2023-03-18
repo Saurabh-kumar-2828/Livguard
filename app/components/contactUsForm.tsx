@@ -3,7 +3,6 @@ import {FetcherWithComponents} from "@remix-run/react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
@@ -51,7 +50,6 @@ export function ContactForm({
                 >
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                         className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
                     />
 

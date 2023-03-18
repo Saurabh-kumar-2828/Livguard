@@ -1,9 +1,7 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useLoaderData} from "react-router";
-import {Accordion} from "~/components/accordian";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -14,14 +12,13 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {DealerLocator, ShowerSomeLoveOnSocialHandles} from "~/routes";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {BatteryType, UserPreferences} from "~/typeDefinitions";
+import {DealerLocator} from "~/routes";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import {UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -42,7 +39,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -227,7 +224,6 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             <CoverImage
                 relativePath="/livguard/category/batteries/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
                 // alt="Inverter battery"
             />
 
@@ -324,8 +320,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 //                             <div className="tw-h-6 tw-w-6">
 //                                 <FullWidthImage
 //                                     relativePath="/livguard/icons/flatPlate.png"
-//                                     imageCdnProvider={ImageCdnProvider.Imgix}
-//                                 />
+////                                 />
 //                             </div>
 //                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.flat ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
 //                                 {getVernacularString("categoryBatteriesS4BTFlat", userPreferences.language)}
@@ -344,8 +339,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 //                             <div className="tw-h-6 tw-w-6 tw-overflow-hidden">
 //                                 <FullWidthImage
 //                                     relativePath="/livguard/icons/tallTubular.png"
-//                                     imageCdnProvider={ImageCdnProvider.Imgix}
-//                                 />
+////                                 />
 //                             </div>
 //                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedBatteryType == BatteryType.tubular ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
 //                                 {getVernacularString("categoryBatteriesS4BTTubular", userPreferences.language)}
@@ -402,13 +396,11 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
                         <FullWidthImage
                             relativePath="/livguard/category/batteries/4/1.png"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </div>
                     <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                         <FixedWidthImage
                             relativePath="/livguard/category/batteries/4/1.png"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                             width="10rem"
                         />
                     </div>
@@ -418,13 +410,11 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
                         <FullWidthImage
                             relativePath="/livguard/category/batteries/4/2.png"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </div>
                     <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                         <FixedWidthImage
                             relativePath="/livguard/category/batteries/4/2.png"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                             width="10rem"
                         />
                     </div>

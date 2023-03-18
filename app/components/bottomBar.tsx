@@ -1,7 +1,4 @@
 import {Link} from "@remix-run/react";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -33,7 +30,6 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     />
                     {/* <FixedWidthImage
                         relativePath="/livguard/"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                         width="1.5rem"
                         className="tw-bg-secondary-900-light"
                     /> */}

@@ -6,7 +6,6 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
 import {InverterType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator} from "~/routes";
@@ -14,7 +13,6 @@ import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -22,6 +20,7 @@ import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBa
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {FAQSection} from "~/components/faqs";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 
 export const meta: MetaFunction = () => {
     return {
@@ -40,7 +39,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -220,7 +219,6 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
             <CoverImage
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
@@ -269,13 +267,11 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                         <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
                             <FullWidthImage
                                 relativePath="/livguard/category/inverters/4/1.png"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </div>
                         <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                             <FixedWidthImage
                                 relativePath="/livguard/category/inverters/4/1.png"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 width="10rem"
                             />
                         </div>
@@ -285,13 +281,11 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
                         <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
                             <FullWidthImage
                                 relativePath="/livguard/category/inverters/4/2.png"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </div>
                         <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                             <FixedWidthImage
                                 relativePath="/livguard/category/inverters/4/2.png"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 width="10rem"
                             />
                         </div>
@@ -498,7 +492,6 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/sineWave.png"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.sine ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
@@ -518,7 +511,6 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
                                 <FullWidthImage
                                     relativePath="/livguard/icons/squareWave.png"
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.square ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>

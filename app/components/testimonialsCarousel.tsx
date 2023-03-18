@@ -3,7 +3,6 @@ import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import {StarFill} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
@@ -39,7 +38,6 @@ export function TestimonialsCarousel({
                                         <FixedWidthImage
                                             relativePath={testimonial.image}
                                             width="5rem"
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                             className="tw-rounded-full"
                                         />
                                     </div>
@@ -68,7 +66,6 @@ export function TestimonialsCarousel({
                                     <div className="tw-col-start-3 tw-row-start-1">
                                         <FixedWidthImage
                                             relativePath={testimonial.productImage}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                             width="100px"
                                         />
                                     </div>

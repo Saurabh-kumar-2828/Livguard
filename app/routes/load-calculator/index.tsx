@@ -13,7 +13,6 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
@@ -34,7 +33,7 @@ import {
     Room,
     roomTypeLibrary
 } from "~/routes/load-calculator/index.types";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {enumFromStringValue, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -83,7 +82,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -282,7 +281,6 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
             {/* <CoverImage
                 relativePath="/livguard/home/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                imageCdnProvider={ImageCdnProvider.Imgix}
             /> */}
 
             <div className="tw-row-[1/span_12] tw-col-start-1 tw-w-full tw-h-full tw-bg-gradient-to-b tw-from-primary-500-dark tw-to-secondary-100-dark" />
@@ -301,7 +299,6 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
                 <div className="tw-w-3/5 tw-max-w-xl tw-mx-auto">
                     <FullWidthImage
                         relativePath="/livguard/home/5/1.png"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </div>
             </div>
@@ -330,7 +327,6 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
                     <FixedWidthImage
                         relativePath="/livguard/home/5/1.png"
                         width="20rem"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </DefaultImageAnimation>
 
@@ -438,7 +434,6 @@ function PropertySelectionForTeaser({
                             >
                                 {/* <FullWidthImage
                                     relativePath={item.icon}
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                 /> */}
                                 <img
                                     src={`https://files.growthjockey.com${item.svgIcon}`}
@@ -475,7 +470,6 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
                 <FixedWidthImage
                     relativePath="/livguard/home/5/1.png"
                     width="10rem"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </DefaultImageAnimation>
 
@@ -513,7 +507,6 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
                                 <div className="lg-bg-primary-500 tw-h-12 tw-w-12 tw-rounded-full tw-p-2 tw-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
                                     <FullWidthImage
                                         relativePath={item.icon}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                     />
                                 </div>
                             </div>
@@ -640,7 +633,6 @@ function PropertySelection({
                             >
                                 <FullWidthImage
                                     relativePath={item.icon}
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                     className="tw-invert dark:tw-invert-0"
                                 />
                             </div>

@@ -4,7 +4,6 @@ import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
 import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -639,7 +638,6 @@ function MenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </Transition.Child>
 
@@ -712,7 +710,7 @@ function SubMenuDialog({
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-max-w-lg tw-overflow-y-auto tw-grid tw-grid-cols">
+                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-bottom-0 tw-max-w-lg tw-overflow-y-auto tw-grid tw-grid-cols tw-overflow-x-hidden">
                     <Transition.Child
                         as={React.Fragment}
                         enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -1008,7 +1006,6 @@ function SubMenuDialog({
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                             />
                         </Transition.Child>
 
@@ -1260,8 +1257,6 @@ function ContactUsDialog({
 }
 
 function InternalOrExternalOrDownloadLink({to, external, download, className, children}: {to: string; external: boolean; download: string | null; className?: string; children}) {
-    console.log(to, external, download);
-
     if (download != null) {
         return (
             <a

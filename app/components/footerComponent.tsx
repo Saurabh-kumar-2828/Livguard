@@ -6,14 +6,12 @@ import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-boo
 import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSubmissionSuccess} from "~/routes/dealer-for-inverters-and-batteries";
 import {Theme, UserPreferences} from "~/typeDefinitions";
-import {getCalculatedTheme} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function FooterComponent({
@@ -241,8 +239,6 @@ export function FooterComponent({
         },
     ];
 
-    const calculatedTheme = getCalculatedTheme(userPreferences);
-
     return (
         <div className="lg-px-screen-edge lg:tw-px-0">
             <VerticalSpacer className="tw-h-8 lg:tw-hidden" />
@@ -251,7 +247,7 @@ export function FooterComponent({
                 <div className="lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px]">
                     <Link to="/">
                         <img
-                            src={calculatedTheme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                            src={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
                             width={385}
                             height={96}
                             className="tw-w-auto tw-h-6 lg:tw-h-12"

@@ -4,7 +4,6 @@ import {EmpowerYourHomeComponent} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -85,7 +84,6 @@ export function JodiCarousel({
                                                             <div className="tw-flex tw-min-w-[2.5rem] tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
                                                                 <FixedWidthImage
                                                                     relativePath={keySpecification.keySpecificationIconRelativePath}
-                                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                                     width="1.5rem"
                                                                 />
                                                             </div>
@@ -107,7 +105,6 @@ export function JodiCarousel({
                                             <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 tw-mx-12 tw-flex-1">
                                                 <FullWidthImage
                                                     relativePath={item.jodiImageRelativePath}
-                                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                                 />
                                             </div>
                                         </div>

@@ -1,30 +1,27 @@
-import {LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LoaderFunction} from "@remix-run/node";
+import React, {useState} from "react";
+import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
-import {UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {DealerLocator, EnergySolutions, FaqSection, ShowerSomeLoveOnSocialHandles, TransformingLives} from "~/routes";
-import {getRedirectToUrlFromRequest} from "~/utilities";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {ProductCardComponent, SocialHandles} from "~/components/category/common";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {PageScaffold} from "~/components/pageScaffold";
+import {ProductInfoCarousel} from "~/components/productInfoCarousel";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
-import {useState} from "react";
-import {CircleFill, StarFill} from "react-bootstrap-icons";
-import {ProductCardComponent, SocialHandles} from "~/components/category/common";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {allProductDetails, ProductDetails, ProductType} from "~/productData";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import React from "react";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {allProductDetails, ProductDetails, ProductType} from "~/productData";
+import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
-import {ProductInfoCarousel} from "~/components/productInfoCarousel";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import {UserPreferences} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 // TODO: FIX THIS!
 // export const meta: MetaFunction = (params) => {
@@ -41,7 +38,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -218,7 +215,6 @@ function ProductInfo({userPreferences, productDetails, className}: {userPreferen
                         <DefaultElementAnimation>
                             <FullWidthImage
                                 relativePath={productDetails.images[mainImageIndex].image}
-                                imageCdnProvider={ImageCdnProvider.Imgix}
                                 className="tw-rounded-lg"
                             />
                         </DefaultElementAnimation>
@@ -234,7 +230,6 @@ function ProductInfo({userPreferences, productDetails, className}: {userPreferen
                                 >
                                     <FullWidthImage
                                         relativePath={image.image}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className={`tw-rounded-lg ${imageIndex == mainImageIndex ? "lg-border-primary-500 tw-border-2" : ""}`}
                                     />
                                 </div>
@@ -267,7 +262,6 @@ function ProductInfo({userPreferences, productDetails, className}: {userPreferen
                                         <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
                                             <FixedWidthImage
                                                 relativePath={icon.icon}
-                                                imageCdnProvider={ImageCdnProvider.Imgix}
                                                 width="1.5rem"
                                             />
                                         </div>
@@ -382,7 +376,6 @@ function ProductDescription({userPreferences, productDescription,className}: {us
                             <div className="tw-rounded-lg tw-w-full">
                                 <FullWidthImage
                                     relativePath={image.image}
-                                    imageCdnProvider={ImageCdnProvider.Imgix}
                                     className="tw-rounded-lg"
                                 />
                             </div>

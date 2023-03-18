@@ -2,7 +2,6 @@ import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
 import {StarFill} from "react-bootstrap-icons";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
@@ -33,7 +32,6 @@ export function LeadersCarousel({userPreferences, leaders}: {userPreferences: Us
                                             relativePath={leader.image}
                                             width="8rem"
                                             className="tw-rounded-full"
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                         />
 
                                         <div className="tw-h-full tw-flex tw-flex-row tw-items-start tw-gap-x-4">

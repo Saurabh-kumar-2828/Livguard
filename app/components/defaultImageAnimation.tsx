@@ -4,8 +4,9 @@ export function DefaultImageAnimation({delay, className, children}: {delay?: num
     return (
         <Fade
             delay={100 + (delay ?? 0)}
-            fraction={0.25}
             className={className}
+            fraction={0}
+            triggerOnce
         >
             {children}
         </Fade>

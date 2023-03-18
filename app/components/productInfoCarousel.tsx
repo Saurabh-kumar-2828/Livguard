@@ -2,7 +2,6 @@ import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -29,7 +28,6 @@ export function ProductInfoCarousel({items}: {items: Array<any>}) {
                                 <div className="tw-rounded-lg tw-w-full">
                                     <FullWidthImage
                                         relativePath={item.image}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         className="tw-rounded-lg"
                                     />
                                 </div>

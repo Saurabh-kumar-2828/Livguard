@@ -1,5 +1,4 @@
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {Spacer} from "~/global-common-typescript/components/spacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
@@ -16,7 +15,6 @@ export function StickyLandingPageBottomBar({userPreferences}: {userPreferences: 
                     <FixedWidthImage
                         relativePath="/livguard/icons/dealer.png"
                         width="1.5rem"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                     <Spacer className="tw-w-2" />
                     <div className="lg-text-icon">{getVernacularString("landingPageBottomBarT1", userPreferences.language)}</div>
@@ -31,7 +29,6 @@ export function StickyLandingPageBottomBar({userPreferences}: {userPreferences: 
                     <FixedWidthImage
                         relativePath="/livguard/icons/enquire_now.png"
                         width="1.5rem"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                     <Spacer className="tw-w-2" />
                     <div className="lg-text-icon tw-text-[#FFFFFF]">{getVernacularString("landingPageBottomBarT2", userPreferences.language)}</div>

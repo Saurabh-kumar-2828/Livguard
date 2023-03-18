@@ -1,7 +1,6 @@
-import {Dialog, Transition} from "@headlessui/react";
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Form, Link, useActionData, useFetcher, useTransition} from "@remix-run/react";
+import {Form, useActionData, useFetcher, useTransition} from "@remix-run/react";
 import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
@@ -17,7 +16,6 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
@@ -25,7 +23,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {ContactUsCta} from "~/routes";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -74,7 +72,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -416,8 +414,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
             let sumLng = 0;
             let sumDealer = 0;
             for(const dealer of dealerList){
-                console.log(`index: ${index}`)
-                if(index >=5 ){
+                if(index >= 5){
                     break;
                 }
                 if(dealer.latitude != null && dealer.longitude != null){
@@ -684,7 +681,6 @@ export function ApplyNowForDealerDialog({
                         <FixedHeightImage
                             relativePath="/livguard/header/akshay.png"
                             height="13.75rem"
-                            imageCdnProvider={ImageCdnProvider.Imgix}
                         />
                     </div>
 
@@ -727,7 +723,6 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
 
             <FixedWidthImage
                 relativePath="/livguard/icons/confirmation.png"
-                imageCdnProvider={ImageCdnProvider.Imgix}
                 width="10rem"
             />
 
@@ -793,7 +788,6 @@ export function FormSubmissionSuccess({userPreferences, tryToCloseDialog}: {user
                 <FixedHeightImage
                     relativePath="/livguard/header/akshay.png"
                     height="13.75rem"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
                 />
             </div>
         </div>
@@ -810,7 +804,6 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
             <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-text-center">
                 <FixedWidthImage
                     relativePath="/livguard/icons/confirmation.png"
-                    imageCdnProvider={ImageCdnProvider.Imgix}
                     width="10rem"
                 />
 
@@ -876,7 +869,6 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
                     <FixedHeightImage
                         relativePath="/livguard/header/akshay.png"
                         height="13.75rem"
-                        imageCdnProvider={ImageCdnProvider.Imgix}
                     />
                 </div>
             </div>

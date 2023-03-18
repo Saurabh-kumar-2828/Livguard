@@ -9,14 +9,11 @@ import {ContactForm} from "~/components/contactUsForm";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FooterSocialLogosAndCopyright} from "~/components/footerComponent";
-import {HeaderComponent} from "~/components/headerComponent";
 import {JodiCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -25,7 +22,7 @@ import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
-import {getUserPreferencesFromCookies} from "~/server/userPreferencesCookieHelper.server";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -47,7 +44,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({request}) => {
-    const userPreferences = await getUserPreferencesFromCookies(request);
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     if (userPreferences instanceof Error) {
         throw userPreferences;
     }
@@ -233,7 +230,6 @@ function HeroSection({
             <CoverImage
                 relativePath="/livguard/landingPages/2/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
-                imageCdnProvider={ImageCdnProvider.Imgix}
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
@@ -452,7 +448,6 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
                                 <div className="tw-flex tw-items-center tw-justify-center">
                                     <FixedWidthImage
                                         relativePath={item.image}
-                                        imageCdnProvider={ImageCdnProvider.Imgix}
                                         width="150px"
                                     />
                                 </div>
@@ -575,7 +570,6 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
 
                                         <FullWidthImage
                                             relativePath={product.image}
-                                            imageCdnProvider={ImageCdnProvider.Imgix}
                                         />
 
                                         <VerticalSpacer className="tw-h-4" />

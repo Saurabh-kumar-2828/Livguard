@@ -1,4 +1,3 @@
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 
 export type UserDetails = {
@@ -14,7 +13,7 @@ export type WebsiteConfiguration = {
 // export const zodAccessToken = zod.object();
 export type UserPreferences = {
     language: Language;
-    theme: Theme | null;
+    theme: Theme;
 };
 
 export enum Language {
@@ -99,6 +98,24 @@ export function themeToHumanFriendlyString(userPreferences: UserPreferences, the
             const exhaustiveCheck: never = theme;
             throw new Error(`Unexpected value for Theme: ${theme}`);
     }
+}
+
+export function getLanguageFromUnknown(input: unknown): Language {
+    // TODO: Replace with zod
+    if (typeof(input) != "string") {
+        throw new Error(`${input} of type ${typeof(input)} is not a valid Language!`);
+    }
+
+    return (input == Language.Hindi ? Language.Hindi : input == Language.Marathi ? Language.Marathi : Language.English);
+}
+
+export function getThemeFromUnknown(input: unknown): Theme {
+    // TODO: Replace with zod
+    if (typeof(input) != "string") {
+        throw new Error(`${input} of type ${typeof(input)} is not a valid Theme!`);
+    }
+
+    return (input == Theme.Light ? Theme.Light : Theme.Dark);
 }
 
 export type Dealer = {
