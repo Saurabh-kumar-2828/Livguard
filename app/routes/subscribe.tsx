@@ -1,6 +1,6 @@
 import {ActionFunction, json} from "@remix-run/node";
 import {insertContactLeads} from "~/backend/dealer.server";
-import {sendDataToFreshSales} from "~/backend/freshSales.server";
+import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {insertSubscriptionLeads} from "~/backend/subscribe.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {GenericActionData} from "~/routes/contact-us-submission";
@@ -29,7 +29,7 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    // const freshsalesResult = await sendDataToFreshSales({email: emailId}, utmParametersDecoded);
+    // const freshsalesResult = await sendDataToFreshsales({email: emailId}, utmParametersDecoded);
     // if (freshsalesResult instanceof Error) {
     //     const actionData: GenericActionData = {
     //         error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",

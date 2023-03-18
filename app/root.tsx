@@ -10,7 +10,7 @@ import {getRequiredEnvironmentVariable, getRequiredEnvironmentVariableNew} from 
 import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
-import tailwindStylesheet from "../build/tailwind.css";
+import tailwindStylesheet from "~/tailwind.css";
 
 type LoaderData = {
     userPreferences: UserPreferences;

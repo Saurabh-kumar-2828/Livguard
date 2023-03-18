@@ -3313,6 +3313,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "कस्टम",
         [Language.Marathi]: "?????",
     },
+    "75a44862-4242-4b1b-a7b7-bd6b57e40da7": {
+        [Language.English]: "Total Capacity",
+        [Language.Hindi]: "कुल कैपेसिटी",
+        [Language.Marathi]: "?????",
+    },
+    "750f6ea3-5bc7-4589-a49e-55015d845288": {
+        [Language.English]: "Battery Required",
+        [Language.Hindi]: "बैटरी आवश्यक",
+        [Language.Marathi]: "?????",
+    },
+    "2d7f7aaa-9ae0-4db0-932b-0714a82a39bf": {
+        [Language.English]: "Batteries Required",
+        [Language.Hindi]: "बैटरी आवश्यक",
+        [Language.Marathi]: "?????",
+    },
+    "313dd4e5-acd4-4f7c-a48c-0fe0379f1b5e": {
+        [Language.English]: "Battery",
+        [Language.Hindi]: "बैटरी",
+        [Language.Marathi]: "?????",
+    },
 
     "?????": {
         [Language.English]: "?????",

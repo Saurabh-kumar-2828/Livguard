@@ -242,7 +242,7 @@ function HomePage({
                 className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
             />
 
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-20" />
+            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:col-start-[18] tw-h-10 lg:tw-h-20" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}

@@ -1,6 +1,6 @@
 import {ActionFunction, json} from "@remix-run/node";
 import {insertDealerLeads} from "~/backend/dealer.server";
-import {sendDataToFreshSales} from "~/backend/freshSales.server";
+import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {GenericActionData} from "~/routes/contact-us-submission";
@@ -32,7 +32,7 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    const freshsalesResult = await sendDataToFreshSales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city}, utmParametersDecoded);
+    const freshsalesResult = await sendDataToFreshsales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city}, utmParametersDecoded);
     if (freshsalesResult instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 221af103-e2ad-4fe1-86af-25ed6494da30",

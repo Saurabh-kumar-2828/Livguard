@@ -2,7 +2,7 @@ import {logBackendError} from "~/global-common-typescript/server/logging.server"
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 
-export async function sendDataToFreshSales(
+export async function sendDataToFreshsales(
     formResponse: {mobile_number?: string; first_name?: string; email: string; city?: string},
     utmParameters: {[searchParameter: string]: string},
 ): Promise<void | Error> {
@@ -22,6 +22,10 @@ export async function sendDataToFreshSales(
         created_at: getCurrentIsoTimestamp(),
     };
 
+    const uniqueIdentifierData = {
+        "mobile_number": formResponse.mobile_number,
+    };
+
     try {
         const response = await fetch(`${process.env.FRESH_SALES_API_END_POINT}/contacts/upsert`, {
             method: "POST",
@@ -29,7 +33,7 @@ export async function sendDataToFreshSales(
                 Authorization: `Token token=${process.env.FRESH_SALES_API_TOKEN}`,
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({contact: contactData}),
+            body: JSON.stringify({unique_identifier: uniqueIdentifierData, contact: contactData}),
         });
 
         if (!response.ok) {
