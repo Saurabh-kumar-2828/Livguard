@@ -2,9 +2,7 @@ import {ActionFunction, json} from "@remix-run/node";
 import {insertDealerLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {GenericActionData} from "~/routes/contact-us-submission";
-import {Dealer} from "~/typeDefinitions";
 
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
