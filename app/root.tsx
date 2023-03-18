@@ -188,6 +188,21 @@ export default function () {
                     />
                     {/* End Meta Pixel Code */}
 
+                    {/* Microsoft Clarity Code */}
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                (function(c,l,a,r,i,t,y){
+                                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                                })(window, document, "clarity", "script", "ganufjw8cz");
+                            `
+                        }}
+                    />
+                    {/* End Microsoft Clarity Code */}
+
+                    {/* TODO: Can we remove this now? */}
                     {/* FOUC hack */}
                     <style
                         dangerouslySetInnerHTML={{
