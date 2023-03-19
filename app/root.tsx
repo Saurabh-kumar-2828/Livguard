@@ -34,7 +34,7 @@ export const loader: LoaderFunction = async ({request}) => {
         throw websiteBaseUrl;
     }
 
-    const imageCdnProviderStr = getRequiredEnvironmentVariable("DEBUG_MODE");
+    const imageCdnProviderStr = getRequiredEnvironmentVariable("IMAGE_CDN_PROVIDER");
     if (imageCdnProviderStr instanceof Error) {
         throw imageCdnProviderStr;
     }
