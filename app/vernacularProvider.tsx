@@ -2354,18 +2354,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review1Name: {
-        [Language.English]: "Thangamani M",
-        [Language.Hindi]: "तंगमणि एम",
+        [Language.English]: "Rehan",
+        [Language.Hindi]: "रेहान",
         [Language.Marathi]: "?????",
     },
     review1State: {
-        [Language.English]: "Tamil Nadu",
-        [Language.Hindi]: "तमिलनाडु",
+        [Language.English]: "Uttar Pradesh",
+        [Language.Hindi]: "उत्तर प्रदेश",
         [Language.Marathi]: "?????",
     },
     review1Message: {
-        [Language.English]: `\"Suitable for looking mid price range with long warranty Installation done recently, good product and support and demo given by Livguard.Value for money, will update the review later on backup timing.\"`,
-        [Language.Hindi]: `\"लंबी वारंटी के साथ मध्य मूल्य सीमा देखने के लिए उपयुक्त। स्थापना, हाल ही में की गई, अच्छा उत्पाद और समर्थन और  लिवगार्ड द्वारा दिया गया डेमो। पैसा वसूल,समीक्षा को बाद में बैकअप टाइमिंग पर अपडेट करेंगे\"`,
+        [Language.English]: `\"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard jodi a 10/10!\"`,
+        [Language.Hindi]: `\"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड जोड़ी को 10/10 दूंगा!\"`,
         [Language.Marathi]: "?????",
     },
     review1ProductName: {
@@ -2374,18 +2374,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review2Name: {
-        [Language.English]: "Ankit",
-        [Language.Hindi]: "अंकित",
+        [Language.English]: "Rishab",
+        [Language.Hindi]: "रिषभ",
         [Language.Marathi]: "?????",
     },
     review2State: {
-        [Language.English]: "Delhi",
-        [Language.Hindi]: "दिल्ली",
+        [Language.English]: "Uttar Pradesh",
+        [Language.Hindi]: "उत्तर प्रदेश",
         [Language.Marathi]: "?????",
     },
     review2Message: {
-        [Language.English]: `\"It's cheap and best product. This is good looking and nice product and the service of livgaurd is too good and supportive.\"`,
-        [Language.Hindi]: `\"यह सस्ता और बेहतरीन प्रोडक्ट है। यह अच्छा दिखने वाला और अच्छा उत्पाद है और लिवगार्ड की सर्विस बहुत अच्छी और सहायक है।\"`,
+        [Language.English]: `\"I have been using Livguard inverter and batteries from the past 3 years now, and they are still performing so well!\"`,
+        [Language.Hindi]: `\"मैं पिछले 3 साल से लिवगार्ड इनवर्टर और बैटरी का इस्तेमाल कर रहा हूँ, घर पर भी और अपने शो रूम में भी, और यह आज भी पहले जैसे ही काम कर रहे हैं!\"`,
         [Language.Marathi]: "?????",
     },
     review2ProductName: {

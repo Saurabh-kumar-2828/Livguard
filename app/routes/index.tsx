@@ -1,3 +1,4 @@
+import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
@@ -611,7 +612,7 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
 export function TransformingLives({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={className}>
-            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center lg:tw-pr-[72px] xl:tw-pr-[120px]">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
                 </DefaultTextAnimation>
@@ -626,7 +627,12 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                 userPreferences={userPreferences}
                 testimonials={[
                     {
-                        image: "/livguard/home/6/3.jpg",
+                        video: (
+                            <EmbeddedYoutubeVideo
+                                id="rVC-ncTBhls"
+                                style={{aspectRatio: "560/315"}}
+                            />
+                        ),
                         name: `${getVernacularString("review1Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
@@ -635,7 +641,12 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/2.jpg",
+                        video: (
+                            <EmbeddedYoutubeVideo
+                                id="pNMTMVDWtiU"
+                                style={{aspectRatio: "560/315"}}
+                            />
+                        ),
                         name: `${getVernacularString("review2Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review2State", userPreferences.language)}`,
@@ -644,7 +655,6 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/4.jpg",
                         name: `${getVernacularString("review3Name", userPreferences.language)}`,
                         rating: 5,
                         state: `${getVernacularString("review3State", userPreferences.language)}`,
@@ -653,9 +663,8 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                     },
                     {
-                        image: "/livguard/home/6/1.jpg",
                         name: `${getVernacularString("review4Name", userPreferences.language)}`,
-                        rating: 5,
+                        rating: 4,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,
                         message: `${getVernacularString("review4Message", userPreferences.language)}`,
                         productImage: "/livguard/category/jodi/urban_jodi.png",

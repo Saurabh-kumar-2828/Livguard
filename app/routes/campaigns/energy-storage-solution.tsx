@@ -127,13 +127,14 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 isContactUsSubmissionSuccess={formSubmittedSuccessfully}
             />
 
-            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
-            <div className="tw-row-start-3 tw-col-start-1 lg:tw-hidden" id="contact-us-form-mobile">
+            <div
+                className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
+                id="contact-us-form-mobile"
+            >
                 {formSubmittedSuccessfully ? (
-                    <ContactFormSuccess
-                        userPreferences={userPreferences}
-                    />
+                    <ContactFormSuccess userPreferences={userPreferences} />
                 ) : (
                     <ContactForm
                         userPreferences={userPreferences}
@@ -150,42 +151,42 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 tw-h-10 lg:tw-hidden lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 tw-h-10 lg:tw-hidden lg:tw-h-20" />
 
             <QualityMeetsExpertise
                 userPreferences={userPreferences}
                 className="tw-row-start-7 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 tw-h-10 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 tw-h-10 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-h-20" />
 
             <LimitlessEnergy
                 userPreferences={userPreferences}
                 className="tw-row-start-9 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-5 lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 tw-h-10 lg:tw-row-start-[6] lg:tw-col-span-full lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 tw-h-10 lg:tw-row-start-[6] lg:tw-col-span-full lg:tw-h-20" />
 
             <PowerPlannerTeaser
                 userPreferences={userPreferences}
                 className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-7 lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 tw-h-10 lg:tw-row-start-[8] lg:tw-col-span-full lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 tw-h-10 lg:tw-row-start-[8] lg:tw-col-span-full lg:tw-h-20" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-[9] lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-[9] lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
                 className="tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-[11] lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[16] tw-col-start-1 tw-h-10 lg:tw-row-start-[12] lg:tw-col-span-full lg:tw-h-[72px]" />
+            <VerticalSpacer className="tw-row-start-[16] tw-col-start-1 tw-h-10 lg:tw-row-start-[12] lg:tw-col-span-full lg:tw-h-20" />
         </div>
     );
 }
