@@ -74,9 +74,9 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 breadcrumbs={[
-                    {humanReadableString: "Home", link: "/"},
-                    {humanReadableString: "Load Calculator", link: "/load-calculator"},
-                    {humanReadableString: "Your Results", link: "#"},
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "/load-calculator"},
+                    {contentId: "ded4f739-d43e-47af-ad85-2f4885413cfc", link: "#"},
                 ]}
             >
                 <LoadCalculatorResult
@@ -241,35 +241,37 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                     <VerticalSpacer className="tw-h-6" />
 
                     <div className="lg-px-screen-edge tw-w-full tw-grid tw-grid-cols lg:tw-justify-center">
-                        <div className="lg-bg-primary-500 tw-p-4 tw-rounded-lg tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-justify-items-center tw-items-center tw-gap-x-4 tw-gap-y-4">
-                            <div className="tw-col-span-full">
-                                <div className="tw-w-full tw-text-center lg-text-title2">
-                                    {getVernacularString("75a44862-4242-4b1b-a7b7-bd6b57e40da7", userPreferences.language)}: {loadCalculatorOutputs.ah}Ah
+                        <div>
+                            <div className="lg-bg-primary-500 tw-p-4 tw-rounded-lg tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-justify-items-center tw-items-center tw-gap-x-4 tw-gap-y-4">
+                                <div className="tw-col-span-full">
+                                    <div className="tw-w-full tw-text-center lg-text-title2">
+                                        {getVernacularString("75a44862-4242-4b1b-a7b7-bd6b57e40da7", userPreferences.language)}: {loadCalculatorOutputs.totalWatts}W, {Math.round(loadCalculatorOutputs.ah)}Ah
+                                    </div>
+
+                                    <VerticalSpacer className="tw-h-2" />
+
+                                    <div className="tw-w-full tw-text-center">
+                                        {appendSpaceToString(String(loadCalculatorOutputs.recommendedInverters[0].nBatteries))}
+                                        {loadCalculatorOutputs.recommendedInverters[0].nBatteries == 1
+                                            ? getVernacularString("750f6ea3-5bc7-4589-a49e-55015d845288", userPreferences.language)
+                                            : getVernacularString("2d7f7aaa-9ae0-4db0-932b-0714a82a39bf", userPreferences.language)}
+                                    </div>
                                 </div>
 
-                                <VerticalSpacer className="tw-h-2" />
+                                <HorizontalInverterRecommendationCard
+                                    recommendation={loadCalculatorOutputs.recommendedInverters[0]}
+                                    userPreferences={userPreferences}
+                                    className="lg:tw-justify-self-end"
+                                />
 
-                                <div className="tw-w-full tw-text-center">
-                                    {appendSpaceToString(String(loadCalculatorOutputs.recommendedInverters[0].nBatteries))}
-                                    {loadCalculatorOutputs.recommendedInverters[0].nBatteries == 1
-                                        ? getVernacularString("750f6ea3-5bc7-4589-a49e-55015d845288", userPreferences.language)
-                                        : getVernacularString("2d7f7aaa-9ae0-4db0-932b-0714a82a39bf", userPreferences.language)}
-                                </div>
+                                <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-100 lg-bg-secondary-900 tw-rounded-full" />
+
+                                <HorizontalBatteryRecommendationCard
+                                    recommendation={loadCalculatorOutputs.recommendedBatteries[0]}
+                                    userPreferences={userPreferences}
+                                    className="lg:tw-justify-self-end"
+                                />
                             </div>
-
-                            <HorizontalInverterRecommendationCard
-                                recommendation={loadCalculatorOutputs.recommendedInverters[0]}
-                                userPreferences={userPreferences}
-                                className="lg:tw-justify-self-end"
-                            />
-
-                            <PlusCircleFill className="tw-w-8 tw-h-8 lg-text-secondary-100 lg-bg-secondary-900 tw-rounded-full" />
-
-                            <HorizontalBatteryRecommendationCard
-                                recommendation={loadCalculatorOutputs.recommendedBatteries[0]}
-                                userPreferences={userPreferences}
-                                className="lg:tw-justify-self-end"
-                            />
                         </div>
                     </div>
                 </>

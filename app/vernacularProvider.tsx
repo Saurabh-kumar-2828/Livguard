@@ -3333,6 +3333,41 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "बैटरी",
         [Language.Marathi]: "?????",
     },
+    "cfab263f-0175-43fb-91e5-fccc64209d36": {
+        [Language.English]: "Home",
+        [Language.Hindi]: "होम",
+        [Language.Marathi]: "?????",
+    },
+    "ee7b3699-a35c-4ad9-981d-ee178abd03e3": {
+        [Language.English]: "Dealer Locator",
+        [Language.Hindi]: "डीलर लोकेटर",
+        [Language.Marathi]: "?????",
+    },
+    "cea6d04c-15b9-4c11-8d83-2e51af979f54": {
+        [Language.English]: "Load Calculator",
+        [Language.Hindi]: "लोड कैलकुलेटर",
+        [Language.Marathi]: "?????",
+    },
+    "ded4f739-d43e-47af-ad85-2f4885413cfc": {
+        [Language.English]: "Our Recommendations",
+        [Language.Hindi]: "हमारे सुझाव",
+        [Language.Marathi]: "?????",
+    },
+    "09b8631b-98e0-4ae8-bafb-65bb57001872": {
+        [Language.English]: "Inverter Batteries",
+        [Language.Hindi]: "इनवर्टर बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    "377e65a0-631b-4188-b63a-7ae3661bbe85": {
+        [Language.English]: "Inverters for home",
+        [Language.Hindi]: "घर के लिए इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    "7f1b0663-3535-464c-86c9-78967d00dcc8": {
+        [Language.English]: "Product",
+        [Language.Hindi]: "उत्पाद",
+        [Language.Marathi]: "?????",
+    },
 
     "?????": {
         [Language.English]: "?????",

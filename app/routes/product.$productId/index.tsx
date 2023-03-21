@@ -1,4 +1,4 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LoaderFunction, MetaFunction} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
@@ -23,14 +23,6 @@ import {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-// TODO: FIX THIS!
-// export const meta: MetaFunction = (params) => {
-//     return {
-//         title: "",
-//         description: "",
-//     };
-// };
-
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
@@ -54,6 +46,15 @@ export const loader: LoaderFunction = async ({request, params}) => {
     return loaderData;
 };
 
+// export const meta: MetaFunction = ({data: loaderData}) => {
+
+
+//     return {
+//         title: "",
+//         description: "",
+//     };
+// };
+
 export default function () {
     const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
 
@@ -67,10 +68,15 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 breadcrumbs={[
-                    {humanReadableString: "Home", link: "/"},
-                    productData.type == ProductType.inverter ? {humanReadableString: "Inverters For Home", link: "/inverter-for-home"} : productData.type == ProductType.battery ? {humanReadableString: "Inverter Batteries", link: "/inverter-batteries"} : productData.type == ProductType.jodi ? {humanReadableString: "Inverters For Home", link: "/inverter-for-home"} : {humanReadableString: "Inverters For Home", link: "/inverter-for-home"},
-                    // TODO: Add category
-                    {humanReadableString: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "Product", link: "#"},
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    productData.type == ProductType.inverter ? (
+                        {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
+                    ) : productData.type == ProductType.battery ? (
+                        {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "/inverter-batteries"}
+                    ) : productData.type == ProductType.jodi ? (
+                        {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
+                    ) : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"},
+                    {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
                 ]}
             >
                 <ProductPage

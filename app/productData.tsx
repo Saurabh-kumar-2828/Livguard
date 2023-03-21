@@ -19,6 +19,12 @@ export type ProductDetails = {
     reviews: {rating: number; numberOfReviews: number};
     recommendedProducts: Array<{title: string; imageRelativePath: string; buttonText: string; bestseller: boolean; link: string}>;
     type: ProductType;
+    metadata: {
+        canonicalUrl: string;
+        title: string;
+        description: string;
+        schema: string;
+    };
 };
 
 export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; [key: string]: ProductDetails}} = {
@@ -164,6 +170,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -308,6 +322,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LG900: {
@@ -453,6 +475,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -598,6 +628,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LG1100: {
@@ -742,6 +780,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -886,6 +932,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LG1450i: {
@@ -1030,6 +1084,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -1174,6 +1236,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LG1550i: {
@@ -1318,6 +1388,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -1462,6 +1540,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LG1950i: {
@@ -1606,6 +1692,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -1750,6 +1844,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LGS900i: {
@@ -1895,6 +1997,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -2038,6 +2148,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LGS1000i: {
@@ -2183,6 +2301,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -2326,6 +2452,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LGS1100i: {
@@ -2471,6 +2605,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -2614,6 +2756,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LGS1700: {
@@ -2759,6 +2909,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -2902,6 +3060,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     LGS1600: {
@@ -3047,6 +3213,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -3190,6 +3364,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT9048ST: {
@@ -3330,6 +3512,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -3467,6 +3657,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1048ST: {
@@ -3607,6 +3805,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -3744,6 +3950,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1160STT: {
@@ -3884,6 +4098,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -4021,6 +4243,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1584TT: {
@@ -4161,6 +4391,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -4298,6 +4536,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1554STJ: {
@@ -4435,6 +4681,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -4572,6 +4826,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1542STJ: {
@@ -4712,6 +4974,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -4849,6 +5119,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1548STT: {
@@ -4989,6 +5267,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -5126,6 +5412,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1560STT: {
@@ -5266,6 +5560,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -5403,6 +5705,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1550TT: {
@@ -5543,6 +5853,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -5680,6 +5998,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1554TT: {
@@ -5820,6 +6146,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -5957,6 +6291,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1560TT: {
@@ -6097,6 +6439,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -6234,6 +6584,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1536TT: {
@@ -6374,6 +6732,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -6511,6 +6877,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1548TT: {
@@ -6651,6 +7025,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -6788,6 +7170,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1666TT: {
@@ -6928,6 +7318,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -7065,6 +7463,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1639TT: {
@@ -7205,6 +7611,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -7342,6 +7756,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1645TT: {
@@ -7482,6 +7904,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -7619,6 +8049,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1860TT: {
@@ -7759,6 +8197,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -7896,6 +8342,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT2048TT: {
@@ -8036,6 +8490,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -8173,6 +8635,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1866TT: {
@@ -8313,6 +8783,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -8450,6 +8928,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT1636STJ: {
@@ -8590,6 +9076,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -8727,6 +9221,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT2060TT: {
@@ -8867,6 +9369,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -9004,6 +9514,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT2066TT: {
@@ -9144,6 +9662,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -9281,6 +9807,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT2266TT: {
@@ -9421,6 +9955,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -9558,6 +10100,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT2360TT: {
@@ -9698,6 +10248,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -9835,6 +10393,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     IT2672TT: {
@@ -9975,6 +10541,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -10112,6 +10686,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.battery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     "urban-jodi": {
@@ -10250,6 +10832,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -10382,6 +10972,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     "peace-of-mind-jodi": {
@@ -10520,6 +11118,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -10656,6 +11262,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     "super-life-jodi": {
@@ -10794,6 +11408,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -10930,6 +11552,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
     "hi-power-jodi": {
@@ -11068,6 +11698,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
         [Language.Hindi]: {
             images: [
@@ -11204,6 +11842,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
             ],
             type: ProductType.jodi,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
         },
     },
 };

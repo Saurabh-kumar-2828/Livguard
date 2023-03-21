@@ -18,7 +18,7 @@ export function PageScaffold({
     utmParameters: {
         [searchParameter: string]: string;
     };
-    breadcrumbs: Array<{humanReadableString: string, link: string}>
+    breadcrumbs: Array<{contentId: string, link: string}>
 }) {
     return (
         <>
