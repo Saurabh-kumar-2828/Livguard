@@ -1,7 +1,8 @@
-import {LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
+import {DynamicLinksFunction} from "remix-utils";
 import {ProductCardComponent, SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -12,6 +13,7 @@ import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthI
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -19,9 +21,9 @@ import {allProductDetails, ProductDetails, ProductType} from "~/productData";
 import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {addVernacularString, getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -46,19 +48,39 @@ export const loader: LoaderFunction = async ({request, params}) => {
     return loaderData;
 };
 
-// export const meta: MetaFunction = ({data: loaderData}) => {
-
-
-//     return {
-//         title: "",
-//         description: "",
-//     };
+// export const dynamicLinks: DynamicLinksFunction = ({data: loaderData}: {data: LoaderData}) => {
+//     return [
+//         {rel: "canonical", href: `${getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL")}${loaderData.productData.metadata.canonicalUrl}`}
+//     ];
 // };
+
+export const meta: MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    return {
+        title: loaderData.productData.metadata.title,
+        description: loaderData.productData.metadata.description,
+    };
+};
 
 export default function () {
     const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+
+    // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
+    // TODO: This is a very ugly hack, see if there is some other way around this
+    let breadcrumbLastContentId;
+    const modelNumber = getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value;
+    if (modelNumber == null) {
+        breadcrumbLastContentId = "7f1b0663-3535-464c-86c9-78967d00dcc8";
+    } else {
+        breadcrumbLastContentId = "a3c3f514-2bf9-401e-9351-d921d4f1cbe4";
+        addVernacularString(breadcrumbLastContentId, {
+            [Language.English]: modelNumber,
+            [Language.Hindi]: modelNumber,
+            [Language.Marathi]: modelNumber,
+        });
+    }
+    // /Hack
 
     return (
         <>
@@ -76,7 +98,9 @@ export default function () {
                     ) : productData.type == ProductType.jodi ? (
                         {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
                     ) : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"},
-                    {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
+                    // TODO: Somehow get this to work
+                    // {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
+                    {contentId: breadcrumbLastContentId, link: "#"},
                 ]}
             >
                 <ProductPage
@@ -88,31 +112,15 @@ export default function () {
 
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
 
-            {/* TODO: FIX THIS! */}
-            {/* <script
+            <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org/",
-                            "@type": "Product",
-                            "name": "Invertuff IT 1545TT",
-                            "image": "https://www.livguard.com/img/Invertuff-IT-1545TT.png",
-                            "description": "Built with superior plate grid design and high electrolyte volume, Livguard inverter batteries deliver enhanced performance, every single time. Our range of inverter batteries promises uninterrupted supply of electric power for long hours, which is why it is perfectly suited for Indian power conditions.",
-                            "brand": {
-                                "@type": "Brand",
-                                "name": "Livguard"
-                            }
-                        }
-                    `
+                    __html: productData.metadata.schema,
                 }}
-            /> */}
-
+            />
         </>
     );
 }
-
-
 
 function ProductPage({
     userPreferences,

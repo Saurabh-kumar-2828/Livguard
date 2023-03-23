@@ -2,21 +2,32 @@ import {Language} from "~/typeDefinitions";
 
 export function getVernacularString(textContentPiece: string, language: Language): string {
     if (!(textContentPiece in vernacularStrings)) {
+        console.log("Invalid string requested: ", textContentPiece);
         // @ts-ignore
         return vernacularStrings["invalidKey"][language];
     }
 
     // TODO: Debugging
-    const translation = vernacularStrings[textContentPiece][language];
-    if (translation == "?????") {
-        return `${textContentPiece} - ${translation}`;
-    } else {
-        return translation;
-    }
+    // const translation = vernacularStrings[textContentPiece][language];
+    // if (translation == "?????") {
+    //     return `${textContentPiece} - ${translation}`;
+    // } else {
+    //     return translation;
+    // }
 
     // @ts-ignore
     return vernacularStrings[textContentPiece][language];
 }
+
+// Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
+export function addVernacularString(id: string, value: {
+    [Language.English]: string;
+    [Language.Hindi]: string;
+    [Language.Marathi]: string;
+}) {
+    vernacularStrings[id] = value;
+}
+// /Hack
 
 // @ts-ignore
 const vernacularStrings: {[textContentPiece: string]: {[language: Language]: string}} = {

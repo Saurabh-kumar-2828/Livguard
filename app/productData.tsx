@@ -171,10 +171,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard i2-verter pro inverter Online 600VA with 3-Year warranty",
+                description: "Buy Square Wave Inverter 600 VA, with a 3-year Warranty, Suitable inverter for small offices, homes, and small shops ",
+                canonicalUrl: `/product/lg700e`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LG700E",
+                    "url": "https://www.livguard.com/product/LG700E",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG750i/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -476,10 +488,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard Square Wave Inverter Online 800VA",
+                description: "Buy a Livguard i2 - verter pro Square Wave Inverter 800 VA  with a 3-year warranty. Suitable inverter for small offices, homes, and Small shops ",
+                canonicalUrl: `/product/lg900`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LG900",
+                    "url": "https://www.livguard.com/product/LG900",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG950i/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -781,10 +805,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Square Wave Inverter Online 900VA - Livguard",
+                description: "Get Livguard i2 - verter pro Square Wave Inverter 900 VA with a 3-year service promise, equipped with the best-in-class services and smart AI charging.",
+                canonicalUrl: `/product/lg1100`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LG1100",
+                    "url": "https://www.livguard.com/product/LG1100",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1150i/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -1085,10 +1121,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard i2-verter pro Sqaure Wave Inverter Online 1100VA",
+                description: "Buy Livguard i2 - verter pro Square Wave Inverter 1100 VA with a 3-Year warranty. Suitable for small offices, homes, and small shops",
+                canonicalUrl: `/product/lg1450i`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LG1450i",
+                    "url": "https://www.livguard.com/product/LG1450i",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1450ii/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -1389,10 +1437,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard i2-verter pro-Square Wave Inverter online",
+                description: "Get Livguard Square Wave Inverter 1100VA  with a 3-year warranty. Bring home the power of unlimited energy with our inverter. Suitable for small offices, homes, and small shops.",
+                canonicalUrl: `/product/lg1550i`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LG1550i",
+                    "url": "https://www.livguard.com/product/LG1550i",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1550ii/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -1693,10 +1753,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Square Wave Inverter 1650va - Livgaurd",
+                description: "Buy Livguard i2 - verter pro Square Wave Inverter 1100VA  with a 3-year warranty & Smart AI charging. Suitable inverter for small offices, homes, and small shops. ",
+                canonicalUrl: `/product/lg1950i`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LG1950I",
+                    "url": "https://www.livguard.com/product/LG1950I",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1950Ii/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -1998,10 +2070,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Pure Sine Wave Inverter 700VA Online - Livguard",
+                description: "Get Livguard i2 - verter pro Pure Sine Wave inverter 700 VA  With a 3-year warranty and pure sine wave output. Experience energy unlimited  ",
+                canonicalUrl: `/product/lgs900i`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LGS900i",
+                    "url": "https://www.livguard.com/product/LGS900i",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS900i/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -2302,10 +2386,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Pure Sine Wave inverter 800 VA - Livguard",
+                description: "Buy Livguard Pure Sine Wave Inverter 800VA  with a 3-year warranty, a suitable inverter for small offices, homes, and small shops, with an assured warranty.",
+                canonicalUrl: `/product/lgs1000i`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LGS1000i",
+                    "url": "https://www.livguard.com/product/LGS1000i",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1000i/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -2606,10 +2702,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard Pure Sine Wave inverter 900 VA Online",
+                description: " Get Livguard Sine Wave inverter 900 VA, suitable for small offices, homes, and small shops. Comes with extra load handling capacity and supports all battery types",
+                canonicalUrl: `/product/lgs1100i`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LGS1100i",
+                    "url": "https://www.livguard.com/product/LGS1100i",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1100i/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -2910,10 +3018,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Pure Sine Wave Inverter 1500 VA - Livguard Online",
+                description: "Buy Livguard i-verter pro with an assured warranty and Pure Sine Wave output. Backed with smart artificial intelligent charging",
+                canonicalUrl: `/product/lgs1700`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LGS1700",
+                    "url": "https://www.livguard.com/product/LGS1700",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1700/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -3214,10 +3334,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard i-verter pro Pure Sine Wave inverter with 3-Year warranty",
+                description: "Get Livguard i-verter pro pure sine wave inverter 1500 VA with a 3-year warranty.   Suitable inverter for small offices, homes, and small shops. ",
+                canonicalUrl: `/product/lgs1600`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "LGS1600",
+                    "url": "https://www.livguard.com/product/LGS1600",
+                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1600/infographic/1.jpg?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
+
 
                 `,
             },
@@ -3513,10 +3646,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Short Tubular 90 Ah Online",
+                description: "Get an INVERTUFF Short Tubular 90 Ah inverter battery online from Livguard with a 24+24* warranty; ideal for households, small businesses, and workplaces.",
+                canonicalUrl: `/product/it9048st`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT9048ST",
+                    "url": "https://www.livguard.com/product/IT9048ST",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%209048ST.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -3806,10 +3951,25 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Short Tubular 100 Ah Battery Online- Livguard",
+                description: "Enjoy constant electric power with a 100 Ah INVERTUFF Short Tubular Battery from Livguard with a 24+24* warranty. It's great for homes, offices, and small companies",
+                canonicalUrl: `/product/it1048st`,
                 schema: `
+
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "IT1048ST",
+    "url": "https://www.livguard.com/product/IT1048ST",
+    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201048ST.png?w=508",
+    "description": "",
+    "brand": {
+            "@type": "Brand",
+            "name": "Livgaurd"
+    }
+}
+
+
 
                 `,
             },
@@ -4099,10 +4259,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF with 60-month warranty - Check Now",
+                description: "Get an INVERTUFF Short Tall Tubular 110 Ah Battery from Livguard with a 42+18* month warranty. Enjoy a constant electricity supply for long periods of time.",
+                canonicalUrl: `/product/it1160stt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1160STT",
+                    "url": "https://www.livguard.com/product/IT1160STT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201160ST.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
+
 
                 `,
             },
@@ -4392,10 +4565,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Tall Tubular 150 Ah with 60+24 month Warranty",
+                description: "Buy INVERTUFF Tall Tubular 150 Ah Battery with 60+24* Months warranty from Livguard. Enjoy uninterrupted power with Livguard INVERTUFF.",
+                canonicalUrl: `/product/it1584tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1584TT",
+                    "url": "https://www.livguard.com/product/IT1584TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201584ST.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -4682,10 +4867,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Short Tubular Jumbo 150 Ah Battery- Livguard",
+                description: "Get Livguard INVERTUFF Short Tubular Jumbo150 Ah Battery with 36+18* Months warranty to benefit from a constant supply of electricity for long periods of time.",
+                canonicalUrl: `/product/it1554stj`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1554STJ",
+                    "url": "https://www.livguard.com/product/IT1554STJ",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201554STJ.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -4975,10 +5172,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Short Tubular 150 Ah Online",
+                description: "Buy Livguard INVERTUFF Short Tubular Jumbo 150 Ah Battery at the best price with 24+18* Months warranty; best for homes, small offices, and small shops.",
+                canonicalUrl: `/product/it1542stj`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1542STJ",
+                    "url": "https://www.livguard.com/product/IT1542STJ",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201542STJ.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -5268,10 +5477,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Short Tall Tubular 150 Ah Battery",
+                description: "Buy Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 24+24* months warranty. Our batteries deliver satisfactory performance with long and durable battery life.",
+                canonicalUrl: `/product/it1548stt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1548STT",
+                    "url": "https://www.livguard.com/product/IT1548STT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201548STT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -5561,10 +5782,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Short Tall Tubular 150Ah Battery with 4-year warranty- Livguard",
+                description: "Get the 36+24* month warranty INVERTUFF Short Tall Tubular 150 Ah Battery, with  Futuristic Design to complement the aesthetics of your home",
+                canonicalUrl: `/product/it1560stt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1560STT",
+                    "url": "https://www.livguard.com/product/IT1560STT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201560STT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -5854,10 +6087,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Tall Tubular 150 Ah Battery Online",
+                description: "Enjoy a constant supply of electric power with INVERTUFF Tall Tubular 150 Ah Battery with 36+14* Months warranty from Livguard; great for small offices and homes.",
+                canonicalUrl: `/product/it1550tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT 1550TT",
+                    "url": "https://www.livguard.com/product/IT 1550TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201550TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -6147,10 +6392,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy 150 Ah Tall Tubular Battery Online - Livguard",
+                description: "Get Livguard INVERTUFF Tall Tubular 150 Ah Battery with a 54-month warranty, and enjoy a constant supply of electric power for long hours without any trouble.",
+                canonicalUrl: `/product/it1554tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1554TT",
+                    "url": "https://www.livguard.com/product/IT1554TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201554TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -6440,10 +6697,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "INVERTUFF Short Tall Tubular 150 Ah Battery online- Livguard",
+                description: "Buy INVERTUFF short tall tabular 150 Ah battery online from Livguard, with a 50-month warranty and High Charge Acceptance For Higher Backup.",
+                canonicalUrl: `/product/it1560tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1560TT",
+                    "url": "https://www.livguard.com/product/IT1560TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201560TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -6733,10 +7002,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Tall Tubular 150 Ah battery with 18 months warranty- Livguard",
+                description: "Get a Livguard INVERTUFF Tall Tubular 150 Ah Battery with an 18+18* month warranty. Bring home the power of unlimited energy with our inverter battery.",
+                canonicalUrl: `/product/it1536tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1536TT",
+                    "url": "https://www.livguard.com/product/IT1536TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201536TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -7026,10 +7307,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy INVERTUFF Tall Tubular 150 Ah Online - Livguard",
+                description: "Buy INVERTUFF tall tubular 150 Ah online from Livguard. With our Livguard battery at your home, experience what limitless energy feels like.",
+                canonicalUrl: `/product/it1548tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1548TT",
+                    "url": "https://www.livguard.com/product/IT1548TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201548TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -7319,10 +7612,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Tall Tubular battery 160 Ah online",
+                description: "Buy Livguard INVERTUFF Tall Tubular Jumbo 160 Ah Battery with 42+24* Months warranty, which is a suitable inverter battery for small offices, homes, and small shops.",
+                canonicalUrl: `/product/it1666tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1666TT",
+                    "url": "https://www.livguard.com/product/IT1666TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201666TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -7612,10 +7917,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard 160 Ah Tall Tubular with 39 months warranty",
+                description: "Get an INVERTUFF Tall Tubular 160 Ah Battery with a 21+18* Months warranty from Livguard online and enjoy a constant supply of electrical power.",
+                canonicalUrl: `/product/it1639tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1639TT",
+                    "url": "https://www.livguard.com/product/IT1639TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201639TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -7905,10 +8222,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard Tall Tubular 160 Ah battery with 45 months warranty",
+                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 27+18* month warranty is built with a 3D grid design and high storage capacity. ",
+                canonicalUrl: `/product/it1645tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1645TT",
+                    "url": "https://www.livguard.com/product/IT1645TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201645TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -8198,10 +8527,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy INVERTUFF Tall Tubular 180 Ah - Livguard Online",
+                description: "Livguard INVERTUFF Tall Tubular 180 Ah Battery delivers satisfactory performance every time, with long and durable battery life and a 36+24* Months warranty. ",
+                canonicalUrl: `/product/it1860tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1860TT",
+                    "url": "https://www.livguard.com/product/IT1860TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201860TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -8491,10 +8832,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Livguard INVERTUFF Tall Tubular 200 Ah Battery online",
+                description: "Buy Livguard INVERTUFF Tall tubular 200 Ah battery with 24+24* months warranty, suitable for small offices, homes, and small shops. ",
+                canonicalUrl: `/product/it2048tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT2048TT",
+                    "url": "https://www.livguard.com/product/IT2048TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202048TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -8784,10 +9137,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Tall Tubular 180 Ah battery with 66 months warranty- Livguard",
+                description: "Buy Livguard INVERTUFF Tall Tubular 180 Ah Battery with 42+24* Months warranty, which is a suitable Inverter for small offices, homes, and small shops",
+                canonicalUrl: `/product/it1866tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1866TT",
+                    "url": "https://www.livguard.com/product/IT1866TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201866TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -9077,10 +9442,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "INVERTUFF Short Tubular Jumbo160 Ah battery - Livguard online",
+                description: "Get an INVERTUFF short tubular 160 Ah inverter battery online from Livguard with an 18+18* warranty; ideal for households, small shops, and workplaces.",
+                canonicalUrl: `/product/it1636stj`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT1636STJ",
+                    "url": "https://www.livguard.com/product/IT1636STJ",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201636STJ.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
+            </s
 
                 `,
             },
@@ -9370,10 +9748,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy INVERTUFF Tall Tubular 200 Ah - Livguard Online",
+                description: "Get Livguard INVERTUFF Tall Tubular 200 Ah Battery with 36+ 24*  months warranty. It is a suitable inverter for small offices, homes, and small shops.",
+                canonicalUrl: `/product/it2060tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT2060TT",
+                    "url": "https://www.livguard.com/product/IT2060TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202060TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -9663,10 +10053,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy INVERTUFF Tall Tubular 200 Ah Battery - Livguard",
+                description: "Get Livguard INVERTUFF tall tubular 200 Ah battery with 36 +24* months warranty, a suitable inverter for small offices, homes, and small shops. ",
+                canonicalUrl: `/product/it2066tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT2066TT",
+                    "url": "https://www.livguard.com/product/IT2066TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202066TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -9956,10 +10358,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Tall Tubular 220 Ah with 3-year warranty - Livguard",
+                description: "Buy Livguard INVERTUFF Tall Tubular 220 Ah battery with 42+24* months warranty. Suitable inverter is for small offices, homes, and small shops?",
+                canonicalUrl: `/product/it2266tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT2266TT",
+                    "url": "https://www.livguard.com/product/IT2266TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202266TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -10249,10 +10663,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Tall Tubular 230 battery with 60 months warranty- Livguard ",
+                description: "Get Livguard INVERTUFF tall tubular 230 Ah battery with 36 +24* months warranty, suitable inverter for small offices, homes, and small shops. ",
+                canonicalUrl: `/product/it2360tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT2360TT",
+                    "url": "https://www.livguard.com/product/IT2360TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202360TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
@@ -10542,10 +10968,22 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
-                canonicalUrl: "",
+                title: "Buy Livguard INVERTUFF Tall Tubular 260 Ah Battery",
+                description: "Buy Livguard INVERTUFF Tall Tubular 260 Ah Battery with Long Lasting Battery Life for an unlimited flow of energy",
+                canonicalUrl: `/product/it2672tt`,
                 schema: `
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Product",
+                    "name": "IT2672TT",
+                    "url": "https://www.livguard.com/product/IT2672TT",
+                    "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202672TT.png?w=508",
+                    "description": "",
+                    "brand": {
+                            "@type": "Brand",
+                            "name": "Livgaurd"
+                    }
+            }
 
                 `,
             },
