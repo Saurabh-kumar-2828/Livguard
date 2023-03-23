@@ -37,7 +37,7 @@ export function HeaderComponent({
     userPreferences: UserPreferences;
     redirectTo: string;
     showMobileMenuIcon: boolean;
-    breadcrumbs?: Array<{humanReadableString: string; link: string}>;
+    breadcrumbs?: Array<{contentId: string; link: string}>;
 }) {
     const submit = useSubmit();
 
@@ -387,7 +387,7 @@ export function HeaderComponent({
                                 to={item.link}
                                 key={itemIndex}
                             >
-                                {item.humanReadableString}
+                                {getVernacularString(item.contentId, userPreferences.language)}
                             </Link>
                         )}
                         spaceBuilder={(spaceIndex) => (

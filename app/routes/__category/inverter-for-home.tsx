@@ -65,8 +65,8 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 breadcrumbs={[
-                    {humanReadableString: "Home", link: "/"},
-                    {humanReadableString: "Inverters For Home", link: "#"},
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "#"},
                 ]}
             >
                 <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />

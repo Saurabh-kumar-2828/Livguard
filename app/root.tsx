@@ -11,6 +11,7 @@ import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typesc
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import tailwindStylesheet from "~/tailwind.css";
+import {DynamicLinks} from "remix-utils";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -139,6 +140,7 @@ export default function () {
             >
                 <head>
                     <Meta />
+                    <DynamicLinks />
                     <Links />
 
                     {/* TODO: Move canonicalUrl thing here? */}
@@ -256,6 +258,7 @@ export function CatchBoundary() {
         >
             <head>
                 <Meta />
+                <DynamicLinks />
                 <Links />
             </head>
 
@@ -304,6 +307,7 @@ export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
         >
             <head>
                 <Meta />
+                <DynamicLinks />
                 <Links />
             </head>
 

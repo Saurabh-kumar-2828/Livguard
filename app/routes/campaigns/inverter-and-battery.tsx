@@ -230,7 +230,7 @@ function HeroSection({
         >
             <CoverImage
                 relativePath="/livguard/landingPages/2/hero_image.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full -tw-z-10"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
@@ -441,76 +441,78 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
 
                 <VerticalSpacer className="tw-h-10" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3 tw-flex-1">
-                    <ItemBuilder
-                        items={sectionData}
-                        itemBuilder={(item, itemIndex) => (
-                            <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}>
-                                <div className="tw-flex tw-items-center tw-justify-center">
-                                    <FixedWidthImage
-                                        relativePath={item.image}
-                                        width="150px"
-                                    />
-                                </div>
+                <div>
+                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3 tw-flex-1">
+                        <ItemBuilder
+                            items={sectionData}
+                            itemBuilder={(item, itemIndex) => (
+                                <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}>
+                                    <div className="tw-flex tw-items-center tw-justify-center">
+                                        <FixedWidthImage
+                                            relativePath={item.image}
+                                            width="150px"
+                                        />
+                                    </div>
 
-                                <VerticalSpacer className="tw-h-4" />
+                                    <VerticalSpacer className="tw-h-4" />
 
-                                <div className="lg-text-title1 tw-text-left lg:tw-place-self-left">{item.title}</div>
+                                    <div className="lg-text-title1 tw-text-left lg:tw-place-self-left">{item.title}</div>
 
-                                <VerticalSpacer className="tw-h-4" />
+                                    <VerticalSpacer className="tw-h-4" />
 
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content1}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
+                                    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                        <div className="tw-text-body">{item.content1}</div>
+                                        <div className="tw-w-5">
+                                            {item.highlighted ? (
+                                                <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            ) : (
+                                                <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
+
+                                    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                        <div className="tw-text-body">{item.content2}</div>
+                                        <div className="tw-w-5">
+                                            {item.highlighted ? (
+                                                <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            ) : (
+                                                <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
+
+                                    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                        <div className="tw-text-body">{item.content3}</div>
+                                        <div className="tw-w-5">
+                                            {item.highlighted ? (
+                                                <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            ) : (
+                                                <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
+
+                                    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                        <div className="tw-text-body">{item.content4}</div>
+                                        <div className="tw-w-5">
+                                            {item.highlighted ? (
+                                                <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            ) : (
+                                                <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content2}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content3}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
-
-                                <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                    <div className="tw-text-body">{item.content4}</div>
-                                    <div className="tw-w-5">
-                                        {item.highlighted ? (
-                                            <CheckCircleIcon className="tw-h-5 tw-w-5 lg-text-primary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        ) : (
-                                            <XCircleIcon className="tw-h-5 tw-w-5 lg-text-secondary-500 tw-rounded-full -tw-translate-y-[.10rem]" />
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    />
+                            )}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
