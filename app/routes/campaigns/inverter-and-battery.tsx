@@ -230,7 +230,7 @@ function HeroSection({
         >
             <CoverImage
                 relativePath="/livguard/landingPages/2/hero_image.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full -tw-z-10"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">

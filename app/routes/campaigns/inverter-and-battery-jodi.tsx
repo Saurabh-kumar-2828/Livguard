@@ -187,7 +187,7 @@ function HeroSection({
         >
             <CoverImage
                 relativePath="/livguard/landingPages/3/hero_image.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1"
+                className="tw-row-[1/span_12] tw-col-start-1 -tw-z-10"
                 // alt="Inverter And Battery Jodi"
             />
 

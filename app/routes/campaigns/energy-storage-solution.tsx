@@ -215,12 +215,12 @@ function HeroSection({
         >
             <CoverImage
                 relativePath="/livguard/hero-banners/lp-1-hero-mobile.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-hidden"
+                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-hidden -tw-z-10"
             />
 
             <CoverImage
                 relativePath="/livguard/hero-banners/lp-1-hero-desktop.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full -tw-z-10"
             />
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
