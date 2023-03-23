@@ -3473,13 +3473,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery  1048ST/infographic/1.jpg",
+                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1048ST/infographic/2.jpg",
+                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1048ST/infographic/3.jpg",
+                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/3.jpg",
                 },
             ],
             title: "Livguard INVERTUFF Short Tubular 100 Ah Battery with 24+24* Months Warranty",
@@ -3562,13 +3562,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery  1048ST/A+/1.jpg",
+                        image: "/livguard/product/Batteries/Battery -1048ST/A+/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1048ST/A+/2.jpg",
+                        image: "/livguard/product/Batteries/Battery -1048ST/A+/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1048ST/A+/3.jpg",
+                        image: "/livguard/product/Batteries/Battery -1048ST/A+/3.jpg",
                     },
                 ],
             },
@@ -3611,13 +3611,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery  1048ST/infographic/1.jpg",
+                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1048ST/infographic/2.jpg",
+                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1048ST/infographic/3.jpg",
+                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 100 Ah बैटरी 24+24* महीने की वारंटी के साथ",
@@ -3699,13 +3699,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery  1048ST/A+/1.jpg",
+                        image: "/livguard/product/Batteries/Battery -1048ST/A+/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1048ST/A+/2.jpg",
+                        image: "/livguard/product/Batteries/Battery -1048ST/A+/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1048ST/A+/3.jpg",
+                        image: "/livguard/product/Batteries/Battery -1048ST/A+/3.jpg",
                     },
                 ],
             },
@@ -4578,13 +4578,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery  1542STJ/infographic/1.jpg",
+                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1542STJ/infographic/2.jpg",
+                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1542STJ/infographic/3.jpg",
+                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/3.jpg",
                 },
             ],
             title: " Livguard INVERTUFF Short Jumbo Tubular 150 Ah Battery with 24+18* Months Warranty",
@@ -4667,13 +4667,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery  1542STJ/A+/1.jpg",
+                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1542STJ/A+/2.jpg",
+                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1542STJ/A+/3.jpg",
+                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/3.jpg",
                     },
                 ],
             },
@@ -4716,13 +4716,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery  1542STJ/infographic/1.jpg",
+                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1542STJ/infographic/2.jpg",
+                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  1542STJ/infographic/3.jpg",
+                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/3.jpg",
                 },
             ],
             title: "लिवगार्ड INVERTUFF  शोर्ट जंबो ट्यूबुलर  150 Ah बैटरी 24+18* महीने की वारंटी के साथ",
@@ -4804,13 +4804,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery  1542STJ/A+/1.jpg",
+                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1542STJ/A+/2.jpg",
+                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1542STJ/A+/3.jpg",
+                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/3.jpg",
                     },
                 ],
             },
