@@ -212,21 +212,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "ब्लॉग",
         [Language.Marathi]: "?????",
     },
-    headerMenuSM8T4: {
-        [Language.English]: "LBPL Notice dt 01/04/2023",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
-    headerMenuSM8T5: {
-        [Language.English]: "LBPL Notice dt 01/04/2023",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
-    "headerMenuSM8T5.5": {
-        [Language.English]: "LETPL Notice dt 01/04/2023",
-        [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
-    },
     headerMenuSM8T6: {
         [Language.English]: "E-Waste Management",
         [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
@@ -2497,8 +2482,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     footerDisclosure1T7: {
-        [Language.English]: "CSR Policy",
-        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व नीति",
+        [Language.English]: "CSR",
+        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व",
         [Language.Marathi]: "?????",
     },
     footerDisclosure1T8: {
@@ -2671,14 +2656,39 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "MGT-7_2021-22_LETPL",
         [Language.Marathi]: "?????",
     },
+    footerDisclosure7T6: {
+        [Language.English]: "LBPL Notice dt 01/04/2023",
+        [Language.Hindi]: "LBPL Notice dt 01/04/2023",
+        [Language.Marathi]: "?????",
+    },
+    footerDisclosure7T7: {
+        [Language.English]: "LBPL Notice dt 01/04/2023",
+        [Language.Hindi]: "LBPL Notice dt 01/04/2023",
+        [Language.Marathi]: "?????",
+    },
+    "footerDisclosure7T8": {
+        [Language.English]: "LETPL Notice dt 01/04/2023",
+        [Language.Hindi]: "LETPL Notice dt 01/04/2023",
+        [Language.Marathi]: "?????",
+    },
     footerContactT1: {
         [Language.English]: "GET IN TOUCH",
         [Language.Hindi]: "संपर्क करें",
         [Language.Marathi]: "?????",
     },
+    "footerContactT1.5": {
+        [Language.English]: "Livguard Energy Technologies Private Limited",
+        [Language.Hindi]: "Livguard Energy Technologies Private Limited",
+        [Language.Marathi]: "?????",
+    },
     footerContactT2: {
-        [Language.English]: "Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India",
-        [Language.Hindi]: "प्लॉट नंबर 221, फेज-1, उद्योग विहार, गुरुग्राम 122016 हरियाणा, भारत",
+        [Language.English]: "Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India",
+        [Language.Hindi]: "Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India",
+        [Language.Marathi]: "?????",
+    },
+    "footerContactT2.5": {
+        [Language.English]: "CIN - U51909HR2014FTC091348",
+        [Language.Hindi]: "CIN - U51909HR2014FTC091348",
         [Language.Marathi]: "?????",
     },
     footerContactT3: {

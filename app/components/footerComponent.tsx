@@ -76,7 +76,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure1T7", userPreferences.language)}`,
-            link: "/pdf/CSR%20Policy%20(LBPL).pdf",
+            link: "/csr-initiatives.php",
             target: true,
         },
         {
@@ -235,6 +235,21 @@ export function FooterComponent({
         {
             title: `${getVernacularString("footerDisclosure7T4", userPreferences.language)}`,
             link: "https://files.growthjockey.com/livguard/files/MGT-7_2021-22_LETPL.pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure7T6", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure7T7", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
+            target: true,
+        },
+        {
+            title: `${getVernacularString("footerDisclosure7T8", userPreferences.language)}`,
+            link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
     ];
@@ -503,7 +518,15 @@ export function FooterComponent({
 
                     <VerticalSpacer className="tw-h-4" />
 
+                    <div>{getVernacularString("footerContactT1.5", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-3" />
+
                     <div>{getVernacularString("footerContactT2", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-3" />
+
+                    <div>{getVernacularString("footerContactT2.5", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-3" />
 
@@ -593,10 +616,10 @@ export function FooterComponent({
                     </div>
                     <VerticalSpacer className="tw-h-8" />
                     <div className="tw-flex tw-flex-col">
-                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure6H", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure4H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
-                            items={investersAccordianList}
+                            items={solarSolutionsAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -649,7 +672,7 @@ export function FooterComponent({
                     </div>
                     <VerticalSpacer className="tw-h-8" />
                     <div className="tw-flex tw-flex-col">
-                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure7H", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure6H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
                             items={howCanWehelpAccordianList}
@@ -678,10 +701,10 @@ export function FooterComponent({
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
                     <div className="tw-flex tw-flex-col">
-                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure4H", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure5H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
-                            items={solarSolutionsAccordianList}
+                            items={stabelizersAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -705,10 +728,10 @@ export function FooterComponent({
                     </div>
                     <VerticalSpacer className="tw-h-8" />
                     <div className="tw-flex tw-flex-col">
-                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure5H", userPreferences.language)}</div>
+                        <div className="lg-text-body-bold">{getVernacularString("footerDisclosure7H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
-                            items={stabelizersAccordianList}
+                            items={investersAccordianList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"

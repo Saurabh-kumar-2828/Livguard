@@ -930,27 +930,6 @@ function SubMenuDialog({
                                                   external: true,
                                                   download: null,
                                               },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T4",
-                                                  enterClassName: "tw-delay-[400ms]",
-                                                  link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
-                                                  external: true,
-                                                  download: "LETPL Annual return 2021-22",
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T5",
-                                                  enterClassName: "tw-delay-[450ms]",
-                                                  link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
-                                                  external: true,
-                                                  download: "LBPL Annual return 2021-22",
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T5.5",
-                                                  enterClassName: "tw-delay-[500ms]",
-                                                  link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
-                                                  external: true,
-                                                  download: "LBPL Annual return 2021-22",
-                                              },
                                           ]
                                         : []
                                 }
