@@ -463,10 +463,14 @@ function HorizontalInverterRecommendationCard({
     className?: string;
 }) {
     return (
-        <Link
-            to={`/product/${recommendation.model}`.replace(" ", "")}
+        <a
+            href={`/product/${recommendation.model}`.replace(" ", "")}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
+        {/* <Link
+            to={`/product/${recommendation.model}`.replace(" ", "")}
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
+        > */}
             <VerticalSpacer className="tw-h-3" />
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
@@ -514,7 +518,8 @@ function HorizontalInverterRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        </Link>
+        {/* </Link> */}
+        </a>
     );
 }
 
@@ -535,10 +540,14 @@ function HorizontalBatteryRecommendationCard({
     className?: string;
 }) {
     return (
-        <Link
-            to={`/product/${recommendation.model}`.replace(" ", "")}
+        <a
+            href={`/product/${recommendation.model}`.replace(" ", "")}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
+        {/* <Link
+            to={`/product/${recommendation.model}`.replace(" ", "")}
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
+        > */}
             <VerticalSpacer className="tw-h-3" />
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
@@ -586,7 +595,8 @@ function HorizontalBatteryRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        </Link>
+        {/* </Link> */}
+        </a>
     );
 }
 
@@ -608,10 +618,14 @@ function VerticalInverterRecommendationCard({
     className?: string;
 }) {
     return (
-        <Link
-            to={`/product/${recommendation.model}`.replace(" ", "")}
+        <a
+            href={`/product/${recommendation.model}`.replace(" ", "")}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
+        {/* <Link
+            to={`/product/${recommendation.model}`.replace(" ", "")}
+            className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
+        > */}
             <VerticalSpacer className="tw-h-3" />
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
@@ -671,7 +685,8 @@ function VerticalInverterRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        </Link>
+        {/* </Link> */}
+        </a>
     );
 }
 
@@ -693,10 +708,14 @@ function VerticalBatteryRecommendationCard({
     className?: string;
 }) {
     return (
-        <Link
-            to={`/product/${recommendation.model.replace(" ", "")}`}
+        <a
+            href={`/product/${recommendation.model.replace(" ", "")}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
+        {/* <Link
+            to={`/product/${recommendation.model.replace(" ", "")}`}
+            className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
+        > */}
             <VerticalSpacer className="tw-h-3" />
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
@@ -749,6 +768,7 @@ function VerticalBatteryRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        </Link>
+        {/* </Link> */}
+        </a>
     );
 }
