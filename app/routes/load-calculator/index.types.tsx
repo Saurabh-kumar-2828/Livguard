@@ -1275,6 +1275,12 @@ export const propertyTemplatesNewUi: {[propertyType: string]: Property} = {
     custom: {
         propertyName: "",
         propertyType: PropertyType.Custom,
-        rooms: [],
+        rooms: [
+            {
+                roomName: "",
+                roomType: "",
+                devices: [],
+            },
+        ],
     },
 };

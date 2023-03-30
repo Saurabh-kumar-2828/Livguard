@@ -342,7 +342,7 @@ export function DealerLocatorPage({
                                 />
                             </div>
 
-                            {!showMore && actionData.dealerList && actionData.dealerList.length > 6 && (
+                            {!showMore && actionData && actionData.dealerList && actionData.dealerList.length > 6 && (
                                 <div
                                     className="lg-text-headline lg-text-secondary-900 tw-text-center tw-underline hover:tw-cursor-pointer"
                                     onClick={() => setShowMore(true)}

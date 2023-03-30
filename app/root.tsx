@@ -11,7 +11,7 @@ import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typesc
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import tailwindStylesheet from "~/tailwind.css";
-import {DynamicLinks} from "remix-utils";
+import {DynamicLinks, DynamicLinksFunction} from "remix-utils";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -72,6 +72,21 @@ export const links: LinksFunction = () => [
     {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf", as: "font", crossOrigin: "anonymous"},
     {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/brueur-text.ttf", as: "font", crossOrigin: "anonymous"},
 ];
+
+const dynamicLinks: DynamicLinksFunction<LoaderData> = ({
+    id,
+    data,
+    params,
+    location,
+    parentsData,
+}) => {
+    if (!data) return [];
+    return [{rel: "canonical", href: data.canonicalUrl}];
+};
+
+export const handle = {
+    dynamicLinks: dynamicLinks,
+};
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function () {
@@ -145,8 +160,13 @@ export default function () {
 
                     {/* TODO: Move canonicalUrl thing here? */}
 
+                    <link
+                        rel="alternate"
+                        href={canonicalUrl}
+                        hrefLang={Language.English}
+                    />
                     <ItemBuilder
-                        items={[Language.English, Language.Hindi].filter((language) => language != userPreferences.language)}
+                        items={[Language.English, Language.Hindi]}
                         itemBuilder={(language, languageIndex) => (
                             <link
                                 rel="alternate"
@@ -243,14 +263,6 @@ export default function () {
 export function CatchBoundary() {
     const caught = useCatch();
 
-    const error = getErrorFromUnknown(caught);
-
-    if (error.message.toLowerCase().includes("hydration") || error.message.toLocaleLowerCase().startsWith("minified react error")) {
-        return <></>;
-    }
-
-    logFrontendError(error);
-
     return (
         <html
             // TODO: Re-enable this
@@ -265,9 +277,19 @@ export function CatchBoundary() {
             <body className="lg-bg-primary-500 lg-text-secondary-900 lg-text-body tw-text-secondary-900-dark">
                 <div className="tw-grow tw-grid tw-place-items-center tw-min-h-screen">
                     <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
-                        <div className="lg-text-banner">Something went wrong</div>
+                        {caught.status == 404 ? (
+                            <>
+                                <div className="lg-text-banner">404</div>
 
-                        <div>We have notified our team, they are on it.</div>
+                                <div>Page not found</div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="lg-text-banner">{caught.status}</div>
+
+                                <div>We have notified our team, they are on it.</div>
+                            </>
+                        )}
                     </div>
 
                     <Link

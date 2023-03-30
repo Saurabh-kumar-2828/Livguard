@@ -1,4 +1,4 @@
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction, Response} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
@@ -39,22 +39,35 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
     const productId = getNonEmptyStringFromUnknown(params.productId as string);
 
+    const productData = allProductDetails[productId];
+    if (productData == null) {
+        throw new Response(null, {status: 404});
+    }
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
-        productData: allProductDetails[productId][userPreferences.language],
+        productData: productData[userPreferences.language],
     };
 
     return loaderData;
 };
 
-// export const dynamicLinks: DynamicLinksFunction = ({data: loaderData}: {data: LoaderData}) => {
+// export const handle: DynamicLinksFunction = ({data: loaderData}: {data: LoaderData}) => {
+//     if (loaderData == null) {
+//         return [];
+//     }
+
 //     return [
-//         {rel: "canonical", href: `${getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL")}${loaderData.productData.metadata.canonicalUrl}`}
+//         {rel: "canonical", href: loaderData.productData.metadata.canonicalUrl},
 //     ];
 // };
 
-export const meta: MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+export const meta: MetaFunction = ({data: loaderData}: {data?: LoaderData}) => {
+    if (loaderData == null) {
+        return {};
+    }
+
     return {
         title: loaderData.productData.metadata.title,
         description: loaderData.productData.metadata.description,

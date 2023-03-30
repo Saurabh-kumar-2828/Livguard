@@ -191,7 +191,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure6T2", userPreferences.language)}`,
-            link: "/dealer-for-invertors-and-batteries",
+            link: "/dealer-for-inverters-and-batteries",
             target: false,
         },
         {
