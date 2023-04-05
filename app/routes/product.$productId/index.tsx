@@ -316,7 +316,7 @@ function ProductInfo({userPreferences, productDetails, className, utmParameters}
                         userPreferences={userPreferences}
                         textVernacId="categoryBatteriesS6Buttontext"
                         utmParameters={utmParameters}
-                        className="tw-hidden lg:tw-place-self-start lg:tw-grid"
+                        className="tw-place-self-center lg:tw-place-self-start"
                     />
                 </div>
             </div>
