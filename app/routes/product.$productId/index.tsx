@@ -314,7 +314,7 @@ function ProductInfo({userPreferences, productDetails, className, utmParameters}
 
                     <ContactUsCta
                         userPreferences={userPreferences}
-                        textVernacId="categoryBatteriesS6Buttontext"
+                        textVernacId="landingPage1S1T3"
                         utmParameters={utmParameters}
                         className="tw-place-self-center lg:tw-place-self-start"
                     />

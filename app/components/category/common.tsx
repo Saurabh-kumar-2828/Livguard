@@ -370,7 +370,7 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
     return (
         <div className={className}>
             <a
-                href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
+                href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
                 download
                 className={"tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg tw-p-2 lg:tw-p-4 tw-justify-start tw-items-center tw-gap-3"}
                 target="_blank"
@@ -599,7 +599,7 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
 //             <VerticalSpacer className="tw-h-8" />
 
 //             <a
-//                 href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
+//                 href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
 //                 className="lg-text-body"
 //             >
 //                 <div

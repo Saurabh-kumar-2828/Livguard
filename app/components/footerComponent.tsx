@@ -214,42 +214,42 @@ export function FooterComponent({
     const investersAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure7T1", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            link: "https://www.livguard.com/static-assets/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T2", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
+            link: "https://www.livguard.com/static-assets/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T3", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            link: "https://www.livguard.com/static-assets/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T4", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/MGT-7_2021-22_LBPL.pdf",
+            link: "https://www.livguard.com/static-assets/MGT-7_2021-22_LBPL.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T4", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/MGT-7_2021-22_LETPL.pdf",
+            link: "https://www.livguard.com/static-assets/MGT-7_2021-22_LETPL.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T6", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            link: "https://www.livguard.com/static-assets/LBPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T7", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
+            link: "https://www.livguard.com/static-assets/LBPL_Notice of Unsecured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure7T8", userPreferences.language)}`,
-            link: "https://files.growthjockey.com/livguard/files/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
+            link: "https://www.livguard.com/static-assets/LETPL_Notice of Secured creditors meeting dt 01.04.2023.pdf",
             target: true,
         },
     ];

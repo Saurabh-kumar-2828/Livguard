@@ -738,13 +738,13 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
             {
                 iconRelativePath: "/livguard/icons/buyingGuide.png",
                 text: `${getVernacularString("categoryInvertersS8B1T", userPreferences.language)}`,
-                downloadLink: "https://files.growthjockey.com/livguard/files/livguard-buying-guide.pdf",
+                downloadLink: "https://www.livguard.com/static-assets/livguard-buying-guide.pdf",
                 popup: false,
             },
             {
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryInvertersS8B2T", userPreferences.language)}`,
-                downloadLink: "https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf",
+                downloadLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
                 popup: false,
             },
         ],

@@ -10,7 +10,7 @@ export function DownloadCatalogueBottomBar({userPreferences}: {userPreferences: 
         <div className="lg:tw-hidden tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-flex tw-flex-row tw-py-[0.8125rem] tw-text-center tw-justify-between lg:tw-justify-center lg:tw-gap-10 tw-px-2 tw-z-50">
             <div className="tw-flex tw-flex-row tw-items-center tw-text-center lg-bg-secondary-100 tw-rounded-3xl tw-p-2 tw-px-5">
                 <a
-                    href="https://files.growthjockey.com/livguard/files/livguard-ib-leaflet.pdf"
+                    href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
                     download
                     className="tw-flex tw-flex-row tw-items-center"
                     target="_blank"
