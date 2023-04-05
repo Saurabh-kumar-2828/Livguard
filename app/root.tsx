@@ -177,6 +177,13 @@ export default function () {
                         )}
                     />
 
+                    {/* Site Verification start*/}
+                    <meta
+                        name="google-site-verification"
+                        content="kBcFXIhI8Fo0WubHw2RPr_SmmpuizSmpkWqmJdsl3g0"
+                    />
+                    {/* Site Verification end*/}
+
                     {/* Google Tag Manager */}
                     <script
                         dangerouslySetInnerHTML={{
@@ -219,7 +226,7 @@ export default function () {
                                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                                 })(window, document, "clarity", "script", "ganufjw8cz");
-                            `
+                            `,
                         }}
                     />
                     {/* End Microsoft Clarity Code */}
