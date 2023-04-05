@@ -638,7 +638,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
                         message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                        productImage: "/livguard/inverter images/LGS1700PV-SW_.png",
+                        productImage: "/livguard/category/jodi/rural_jodi.png",
                         productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
@@ -652,7 +652,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review2State", userPreferences.language)}`,
                         message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "/livguard/battery images/IT 1550TT.png",
+                        productImage: "/livguard/category/jodi/urban_jodi.png",
                         productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {

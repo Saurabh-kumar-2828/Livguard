@@ -18,7 +18,7 @@ import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {allProductDetails, ProductDetails, ProductType} from "~/productData";
-import {DealerLocator, FaqSection, TransformingLives} from "~/routes";
+import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
@@ -153,6 +153,7 @@ function ProductPage({
             <ProductInfo
                 userPreferences={userPreferences}
                 productDetails={productData}
+                utmParameters={utmParameters}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
@@ -231,7 +232,15 @@ function ProductPage({
     );
 }
 
-function ProductInfo({userPreferences, productDetails, className}: {userPreferences: UserPreferences; productDetails: ProductDetails; className?: string}) {
+function ProductInfo({userPreferences, productDetails, className, utmParameters}:
+    {
+        userPreferences: UserPreferences;
+        productDetails: ProductDetails;
+        className?: string;
+        utmParameters: {
+            [searchParameter: string]: string;
+        };
+    }) {
     const [mainImageIndex, setMainImageIndex] = useState(0);
 
     return (
@@ -300,6 +309,15 @@ function ProductInfo({userPreferences, productDetails, className}: {userPreferen
                             )}
                         />
                     </div>
+
+                    <VerticalSpacer className="tw-h-8" />
+
+                    <ContactUsCta
+                        userPreferences={userPreferences}
+                        textVernacId="categoryBatteriesS6Buttontext"
+                        utmParameters={utmParameters}
+                        className="tw-hidden lg:tw-place-self-start lg:tw-grid"
+                    />
                 </div>
             </div>
         </div>

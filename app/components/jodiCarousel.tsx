@@ -71,15 +71,15 @@ export function JodiCarousel({
 
                                         <VerticalSpacer className="tw-h-6" />
 
-                                        <div className="tw-grid tw-grid-rows-2 tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] lg:tw-grid-rows-1">
-                                            <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-3 tw-gap-y-10">
+                                        <div className="tw-grid tw-grid-rows-[auto_auto] tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] lg:tw-grid-rows-1 tw-gap-y-2">
+                                            <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[repeat(2,minmax(0,max-content))] tw-gap-x-3 tw-gap-y-8 tw-max-h-fit">
                                                 <ItemBuilder
                                                     items={item.keySpecifications}
                                                     itemBuilder={(keySpecification, keySpecificationIndex) => (
                                                         <div
-                                                            className={`tw-row-start-${keySpecificationIndex / 2 + 1} tw-col-start-${
+                                                            className={`tw-row-start-${keySpecificationIndex <= 1 ? "1" : "2"} tw-col-start-${
                                                                 (keySpecificationIndex % 2) + 1
-                                                            } tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-3 tw-mx-auto tw-w-[120px]`}
+                                                            } tw-flex tw-flex-row tw-items-start tw-justify-start tw-gap-3 tw-mx-auto tw-w-[120px]`}
                                                         >
                                                             <div className="tw-flex tw-min-w-[2.5rem] tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
                                                                 <FixedWidthImage
@@ -100,9 +100,9 @@ export function JodiCarousel({
                                                 />
                                             </div>
 
-                                            <VerticalSpacer className="tw-h-4" />
+                                            {/* <VerticalSpacer className="tw-h-4" /> */}
 
-                                            <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 tw-mx-12 tw-flex-1">
+                                            <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 tw-mx-12">
                                                 <FullWidthImage
                                                     relativePath={item.jodiImageRelativePath}
                                                 />
