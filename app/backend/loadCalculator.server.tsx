@@ -95,10 +95,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
         recommendedBatteries: null,
     };
 
-    if (totalWatts <= 525 && ah <= 90) {
+    if (totalWatts <= 525 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -112,6 +112,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -148,7 +149,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 90) {
+    }else if (totalWatts <= 595 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -167,7 +168,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -201,7 +202,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 90) {
+    }else if (totalWatts <= 680 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -212,7 +213,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -254,10 +255,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 90) {
+    }else if (totalWatts <= 704 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -273,7 +274,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -307,7 +308,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 90) {
+    }else if (totalWatts <= 765 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -360,10 +361,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 90) {
+    }else if (totalWatts <= 792 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -413,7 +414,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 90) {
+    }else if (totalWatts <= 924 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -466,7 +467,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 90) {
+    }else if (totalWatts <= 1050 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -519,7 +520,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 90) {
+    }else if (totalWatts <= 1260 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -572,7 +573,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 90) {
+    }else if (totalWatts <= 1386 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -625,7 +626,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 90) {
+    }else if (totalWatts <= 1600 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -678,7 +679,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 90) {
+    }else if (totalWatts <= 1680 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -731,7 +732,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 90) {
+    }else if (totalWatts <= 2100 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -784,7 +785,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 90) {
+    }else if (totalWatts <= 2800 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -837,7 +838,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 90) {
+    }else if (totalWatts <= 2940 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -890,7 +891,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 90) {
+    }else if (totalWatts <= 3360 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -943,7 +944,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 90) {
+    }else if (totalWatts <= 4000 && ah <=90 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -996,10 +997,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 100) {
+    }else if (totalWatts <= 525 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1013,6 +1014,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -1049,7 +1051,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 100) {
+    }else if (totalWatts <= 595 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -1068,7 +1070,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1102,7 +1104,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 100) {
+    }else if (totalWatts <= 680 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -1113,7 +1115,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1155,10 +1157,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 100) {
+    }else if (totalWatts <= 704 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1174,7 +1176,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1208,7 +1210,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 100) {
+    }else if (totalWatts <= 765 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -1261,10 +1263,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 100) {
+    }else if (totalWatts <= 792 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1314,7 +1316,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 100) {
+    }else if (totalWatts <= 924 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -1367,7 +1369,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 100) {
+    }else if (totalWatts <= 1050 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -1420,7 +1422,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 100) {
+    }else if (totalWatts <= 1260 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -1473,7 +1475,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 100) {
+    }else if (totalWatts <= 1386 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -1526,7 +1528,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 100) {
+    }else if (totalWatts <= 1600 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -1579,7 +1581,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 100) {
+    }else if (totalWatts <= 1680 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -1632,7 +1634,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 100) {
+    }else if (totalWatts <= 2100 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -1685,7 +1687,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 100) {
+    }else if (totalWatts <= 2800 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -1738,7 +1740,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 100) {
+    }else if (totalWatts <= 2940 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -1791,7 +1793,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 100) {
+    }else if (totalWatts <= 3360 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -1844,7 +1846,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 100) {
+    }else if (totalWatts <= 4000 && ah <=100 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -1897,10 +1899,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 84,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 110) {
+    }else if (totalWatts <= 525 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -1914,6 +1916,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -1950,7 +1953,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 110) {
+    }else if (totalWatts <= 595 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -1969,7 +1972,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2003,7 +2006,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 110) {
+    }else if (totalWatts <= 680 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -2014,7 +2017,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2056,10 +2059,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 110) {
+    }else if (totalWatts <= 704 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2075,7 +2078,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2109,7 +2112,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 110) {
+    }else if (totalWatts <= 765 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -2162,10 +2165,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 110) {
+    }else if (totalWatts <= 792 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2215,7 +2218,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 110) {
+    }else if (totalWatts <= 924 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -2268,7 +2271,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 110) {
+    }else if (totalWatts <= 1050 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -2321,7 +2324,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 110) {
+    }else if (totalWatts <= 1260 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -2374,7 +2377,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 110) {
+    }else if (totalWatts <= 1386 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -2427,7 +2430,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 110) {
+    }else if (totalWatts <= 1600 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -2480,7 +2483,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 110) {
+    }else if (totalWatts <= 1680 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -2533,7 +2536,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 110) {
+    }else if (totalWatts <= 2100 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -2586,7 +2589,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 110) {
+    }else if (totalWatts <= 2800 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -2639,7 +2642,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 110) {
+    }else if (totalWatts <= 2940 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -2692,7 +2695,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 110) {
+    }else if (totalWatts <= 3360 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -2745,7 +2748,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 110) {
+    }else if (totalWatts <= 4000 && ah <=110 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -2798,10 +2801,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 54,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 150) {
+    }else if (totalWatts <= 525 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2815,6 +2818,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -2851,7 +2855,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 150) {
+    }else if (totalWatts <= 595 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -2870,7 +2874,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2904,7 +2908,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 150) {
+    }else if (totalWatts <= 680 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -2915,7 +2919,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2957,10 +2961,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 150) {
+    }else if (totalWatts <= 704 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -2976,7 +2980,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3010,7 +3014,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 150) {
+    }else if (totalWatts <= 765 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -3063,10 +3067,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 150) {
+    }else if (totalWatts <= 792 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3116,7 +3120,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 150) {
+    }else if (totalWatts <= 924 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -3169,7 +3173,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 150) {
+    }else if (totalWatts <= 1050 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -3222,7 +3226,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 150) {
+    }else if (totalWatts <= 1260 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -3275,7 +3279,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 150) {
+    }else if (totalWatts <= 1386 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -3328,7 +3332,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 150) {
+    }else if (totalWatts <= 1600 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -3381,7 +3385,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 150) {
+    }else if (totalWatts <= 1680 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -3434,7 +3438,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 150) {
+    }else if (totalWatts <= 2100 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -3487,7 +3491,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 150) {
+    }else if (totalWatts <= 2800 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -3540,7 +3544,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 150) {
+    }else if (totalWatts <= 2940 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -3593,7 +3597,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 150) {
+    }else if (totalWatts <= 3360 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -3646,7 +3650,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 150) {
+    }else if (totalWatts <= 4000 && ah <=150 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -3699,10 +3703,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 160) {
+    }else if (totalWatts <= 525 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3716,6 +3720,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -3752,7 +3757,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 160) {
+    }else if (totalWatts <= 595 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -3771,7 +3776,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3805,7 +3810,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 160) {
+    }else if (totalWatts <= 680 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -3816,7 +3821,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3858,10 +3863,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 160) {
+    }else if (totalWatts <= 704 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3877,7 +3882,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -3911,7 +3916,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 160) {
+    }else if (totalWatts <= 765 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -3964,10 +3969,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 160) {
+    }else if (totalWatts <= 792 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4017,7 +4022,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 160) {
+    }else if (totalWatts <= 924 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -4070,7 +4075,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 160) {
+    }else if (totalWatts <= 1050 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -4123,7 +4128,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 160) {
+    }else if (totalWatts <= 1260 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -4176,7 +4181,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 160) {
+    }else if (totalWatts <= 1386 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -4229,7 +4234,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 160) {
+    }else if (totalWatts <= 1600 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -4282,7 +4287,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 160) {
+    }else if (totalWatts <= 1680 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -4335,7 +4340,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 160) {
+    }else if (totalWatts <= 2100 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -4388,7 +4393,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 160) {
+    }else if (totalWatts <= 2800 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -4441,7 +4446,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 160) {
+    }else if (totalWatts <= 2940 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -4494,7 +4499,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 160) {
+    }else if (totalWatts <= 3360 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -4547,7 +4552,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 160) {
+    }else if (totalWatts <= 4000 && ah <=160 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -4600,10 +4605,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 180) {
+    }else if (totalWatts <= 525 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4617,6 +4622,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -4653,7 +4659,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 180) {
+    }else if (totalWatts <= 595 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -4672,7 +4678,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4706,7 +4712,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 180) {
+    }else if (totalWatts <= 680 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -4717,7 +4723,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4759,10 +4765,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 180) {
+    }else if (totalWatts <= 704 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4778,7 +4784,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4812,7 +4818,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 180) {
+    }else if (totalWatts <= 765 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -4865,10 +4871,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 180) {
+    }else if (totalWatts <= 792 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -4918,7 +4924,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 180) {
+    }else if (totalWatts <= 924 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -4971,7 +4977,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 180) {
+    }else if (totalWatts <= 1050 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -5024,7 +5030,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 180) {
+    }else if (totalWatts <= 1260 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -5077,7 +5083,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 180) {
+    }else if (totalWatts <= 1386 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -5130,7 +5136,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 180) {
+    }else if (totalWatts <= 1600 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -5183,7 +5189,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 180) {
+    }else if (totalWatts <= 1680 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -5236,7 +5242,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 180) {
+    }else if (totalWatts <= 2100 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -5289,7 +5295,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 180) {
+    }else if (totalWatts <= 2800 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -5342,7 +5348,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 180) {
+    }else if (totalWatts <= 2940 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -5395,7 +5401,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 180) {
+    }else if (totalWatts <= 3360 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -5448,7 +5454,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 180) {
+    }else if (totalWatts <= 4000 && ah <=180 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -5501,10 +5507,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 200) {
+    }else if (totalWatts <= 525 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -5518,6 +5524,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -5554,7 +5561,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 200) {
+    }else if (totalWatts <= 595 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -5573,7 +5580,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -5607,7 +5614,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 200) {
+    }else if (totalWatts <= 680 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -5618,7 +5625,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -5660,10 +5667,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 200) {
+    }else if (totalWatts <= 704 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -5679,7 +5686,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -5713,7 +5720,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 200) {
+    }else if (totalWatts <= 765 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -5766,10 +5773,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 200) {
+    }else if (totalWatts <= 792 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -5819,7 +5826,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 200) {
+    }else if (totalWatts <= 924 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -5872,7 +5879,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 200) {
+    }else if (totalWatts <= 1050 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -5925,7 +5932,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 200) {
+    }else if (totalWatts <= 1260 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -5978,7 +5985,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 200) {
+    }else if (totalWatts <= 1386 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -6031,7 +6038,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 200) {
+    }else if (totalWatts <= 1600 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -6084,7 +6091,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 200) {
+    }else if (totalWatts <= 1680 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -6137,7 +6144,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 200) {
+    }else if (totalWatts <= 2100 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -6190,7 +6197,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 200) {
+    }else if (totalWatts <= 2800 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -6243,7 +6250,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 200) {
+    }else if (totalWatts <= 2940 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -6296,7 +6303,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 200) {
+    }else if (totalWatts <= 3360 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -6349,7 +6356,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 200) {
+    }else if (totalWatts <= 4000 && ah <=200 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -6402,10 +6409,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 220) {
+    }else if (totalWatts <= 525 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -6419,6 +6426,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -6455,7 +6463,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 220) {
+    }else if (totalWatts <= 595 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -6474,7 +6482,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -6508,7 +6516,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 220) {
+    }else if (totalWatts <= 680 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -6519,7 +6527,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -6561,10 +6569,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 220) {
+    }else if (totalWatts <= 704 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -6580,7 +6588,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -6614,7 +6622,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 220) {
+    }else if (totalWatts <= 765 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -6667,10 +6675,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 220) {
+    }else if (totalWatts <= 792 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -6720,7 +6728,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 220) {
+    }else if (totalWatts <= 924 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -6773,7 +6781,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 220) {
+    }else if (totalWatts <= 1050 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -6826,7 +6834,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 220) {
+    }else if (totalWatts <= 1260 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -6879,7 +6887,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 220) {
+    }else if (totalWatts <= 1386 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -6932,7 +6940,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 220) {
+    }else if (totalWatts <= 1600 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -6985,7 +6993,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 220) {
+    }else if (totalWatts <= 1680 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -7038,7 +7046,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 220) {
+    }else if (totalWatts <= 2100 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -7091,7 +7099,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 220) {
+    }else if (totalWatts <= 2800 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -7144,7 +7152,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 220) {
+    }else if (totalWatts <= 2940 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -7197,7 +7205,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 220) {
+    }else if (totalWatts <= 3360 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -7250,7 +7258,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 220) {
+    }else if (totalWatts <= 4000 && ah <=220 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -7303,10 +7311,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 230) {
+    }else if (totalWatts <= 525 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -7320,6 +7328,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -7356,7 +7365,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 230) {
+    }else if (totalWatts <= 595 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -7375,7 +7384,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -7409,7 +7418,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 230) {
+    }else if (totalWatts <= 680 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -7420,7 +7429,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -7462,10 +7471,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 230) {
+    }else if (totalWatts <= 704 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -7481,7 +7490,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -7515,7 +7524,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 230) {
+    }else if (totalWatts <= 765 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -7568,10 +7577,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 230) {
+    }else if (totalWatts <= 792 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -7621,7 +7630,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 230) {
+    }else if (totalWatts <= 924 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -7674,7 +7683,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 230) {
+    }else if (totalWatts <= 1050 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -7727,7 +7736,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 230) {
+    }else if (totalWatts <= 1260 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -7780,7 +7789,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 230) {
+    }else if (totalWatts <= 1386 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -7833,7 +7842,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 230) {
+    }else if (totalWatts <= 1600 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -7886,7 +7895,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 230) {
+    }else if (totalWatts <= 1680 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -7939,7 +7948,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 230) {
+    }else if (totalWatts <= 2100 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -7992,7 +8001,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 230) {
+    }else if (totalWatts <= 2800 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -8045,7 +8054,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 230) {
+    }else if (totalWatts <= 2940 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -8098,7 +8107,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 230) {
+    }else if (totalWatts <= 3360 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -8151,7 +8160,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 230) {
+    }else if (totalWatts <= 4000 && ah <=230 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -8204,10 +8213,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 260) {
+    }else if (totalWatts <= 525 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -8221,6 +8230,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -8257,7 +8267,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 260) {
+    }else if (totalWatts <= 595 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -8276,7 +8286,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -8310,7 +8320,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 260) {
+    }else if (totalWatts <= 680 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -8321,7 +8331,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -8363,10 +8373,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 260) {
+    }else if (totalWatts <= 704 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -8382,7 +8392,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -8416,7 +8426,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 260) {
+    }else if (totalWatts <= 765 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -8469,10 +8479,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 260) {
+    }else if (totalWatts <= 792 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -8522,7 +8532,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 260) {
+    }else if (totalWatts <= 924 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -8575,7 +8585,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 260) {
+    }else if (totalWatts <= 1050 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -8628,7 +8638,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 260) {
+    }else if (totalWatts <= 1260 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -8681,7 +8691,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 260) {
+    }else if (totalWatts <= 1386 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -8734,7 +8744,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 260) {
+    }else if (totalWatts <= 1600 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -8787,7 +8797,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 260) {
+    }else if (totalWatts <= 1680 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -8840,7 +8850,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 260) {
+    }else if (totalWatts <= 2100 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -8893,7 +8903,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 260) {
+    }else if (totalWatts <= 2800 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -8946,7 +8956,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 260) {
+    }else if (totalWatts <= 2940 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -8999,7 +9009,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 260) {
+    }else if (totalWatts <= 3360 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -9052,7 +9062,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 260) {
+    }else if (totalWatts <= 4000 && ah <=260 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -9105,10 +9115,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 525 && ah <= 290) {
+    }else if (totalWatts <= 525 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG750i",
+                model: "LG700E",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -9122,6 +9132,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 nBatteries: 1,
                 capacity: 700,
                 warranty: 72,
+
             },
             {
                 model: "LGS1000i",
@@ -9142,7 +9153,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 595 && ah <= 290) {
+    }else if (totalWatts <= 595 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS900i",
@@ -9161,7 +9172,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -9179,7 +9190,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 680 && ah <= 290) {
+    }else if (totalWatts <= 680 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1000i",
@@ -9190,7 +9201,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 9,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -9216,10 +9227,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 704 && ah <= 290) {
+    }else if (totalWatts <= 704 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG950i",
+                model: "LG900",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -9235,7 +9246,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 8,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -9253,7 +9264,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 765 && ah <= 290) {
+    }else if (totalWatts <= 765 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1100i",
@@ -9290,10 +9301,10 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 792 && ah <= 290) {
+    }else if (totalWatts <= 792 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
-                model: "LG1150i",
+                model: "LG1100",
                 score: 10,
                 humanFriendlyString: "",
                 nBatteries: 1,
@@ -9327,7 +9338,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 924 && ah <= 290) {
+    }else if (totalWatts <= 924 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1450i",
@@ -9364,7 +9375,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1050 && ah <= 290) {
+    }else if (totalWatts <= 1050 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1550i",
@@ -9401,7 +9412,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 290) {
+    }else if (totalWatts <= 1260 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1600",
@@ -9438,7 +9449,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 290) {
+    }else if (totalWatts <= 1386 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -9475,7 +9486,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 290) {
+    }else if (totalWatts <= 1600 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -9512,7 +9523,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 290) {
+    }else if (totalWatts <= 1680 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -9549,7 +9560,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 290) {
+    }else if (totalWatts <= 2100 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -9586,7 +9597,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 290) {
+    }else if (totalWatts <= 2800 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -9623,7 +9634,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 290) {
+    }else if (totalWatts <= 2940 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -9660,7 +9671,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 290) {
+    }else if (totalWatts <= 3360 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -9697,7 +9708,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 290) {
+    }else if (totalWatts <= 4000 && ah <=290 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -9734,7 +9745,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 300) {
+    }else if (totalWatts <= 1260 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -9787,7 +9798,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 300) {
+    }else if (totalWatts <= 1386 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -9840,7 +9851,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 300) {
+    }else if (totalWatts <= 1600 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -9893,7 +9904,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 300) {
+    }else if (totalWatts <= 1680 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -9946,7 +9957,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 300) {
+    }else if (totalWatts <= 2100 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -9999,7 +10010,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 300) {
+    }else if (totalWatts <= 2800 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -10052,7 +10063,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 300) {
+    }else if (totalWatts <= 2940 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -10105,7 +10116,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 300) {
+    }else if (totalWatts <= 3360 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -10158,7 +10169,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 300) {
+    }else if (totalWatts <= 4000 && ah <=300 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -10211,7 +10222,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 60,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 320) {
+    }else if (totalWatts <= 1260 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -10264,7 +10275,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 320) {
+    }else if (totalWatts <= 1386 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -10317,7 +10328,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 320) {
+    }else if (totalWatts <= 1600 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -10370,7 +10381,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 320) {
+    }else if (totalWatts <= 1680 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -10423,7 +10434,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 320) {
+    }else if (totalWatts <= 2100 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -10476,7 +10487,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 320) {
+    }else if (totalWatts <= 2800 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -10529,7 +10540,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 320) {
+    }else if (totalWatts <= 2940 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -10582,7 +10593,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 320) {
+    }else if (totalWatts <= 3360 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -10635,7 +10646,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 320) {
+    }else if (totalWatts <= 4000 && ah <=320 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -10688,7 +10699,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 39,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 360) {
+    }else if (totalWatts <= 1260 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -10741,7 +10752,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 360) {
+    }else if (totalWatts <= 1386 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -10794,7 +10805,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 360) {
+    }else if (totalWatts <= 1600 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -10847,7 +10858,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 360) {
+    }else if (totalWatts <= 1680 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -10900,7 +10911,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 360) {
+    }else if (totalWatts <= 2100 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -10953,7 +10964,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 360) {
+    }else if (totalWatts <= 2800 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -11006,7 +11017,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 360) {
+    }else if (totalWatts <= 2940 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -11059,7 +11070,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 360) {
+    }else if (totalWatts <= 3360 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -11112,7 +11123,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 360) {
+    }else if (totalWatts <= 4000 && ah <=360 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -11165,7 +11176,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 400) {
+    }else if (totalWatts <= 1260 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -11218,7 +11229,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 400) {
+    }else if (totalWatts <= 1386 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -11271,7 +11282,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 400) {
+    }else if (totalWatts <= 1600 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -11324,7 +11335,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 400) {
+    }else if (totalWatts <= 1680 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -11377,7 +11388,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 400) {
+    }else if (totalWatts <= 2100 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -11430,7 +11441,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 400) {
+    }else if (totalWatts <= 2800 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -11483,7 +11494,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 400) {
+    }else if (totalWatts <= 2940 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -11536,7 +11547,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 400) {
+    }else if (totalWatts <= 3360 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -11589,7 +11600,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 400) {
+    }else if (totalWatts <= 4000 && ah <=400 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -11642,7 +11653,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 440) {
+    }else if (totalWatts <= 1260 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -11695,7 +11706,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 440) {
+    }else if (totalWatts <= 1386 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -11748,7 +11759,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 440) {
+    }else if (totalWatts <= 1600 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -11801,7 +11812,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 440) {
+    }else if (totalWatts <= 1680 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -11854,7 +11865,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 440) {
+    }else if (totalWatts <= 2100 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -11907,7 +11918,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 440) {
+    }else if (totalWatts <= 2800 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -11960,7 +11971,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 440) {
+    }else if (totalWatts <= 2940 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -12013,7 +12024,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 440) {
+    }else if (totalWatts <= 3360 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -12066,7 +12077,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 440) {
+    }else if (totalWatts <= 4000 && ah <=440 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -12119,7 +12130,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 460) {
+    }else if (totalWatts <= 1260 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -12172,7 +12183,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 460) {
+    }else if (totalWatts <= 1386 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -12225,7 +12236,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 460) {
+    }else if (totalWatts <= 1600 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -12278,7 +12289,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 460) {
+    }else if (totalWatts <= 1680 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -12331,7 +12342,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 460) {
+    }else if (totalWatts <= 2100 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -12384,7 +12395,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 460) {
+    }else if (totalWatts <= 2800 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -12437,7 +12448,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 460) {
+    }else if (totalWatts <= 2940 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -12490,7 +12501,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 460) {
+    }else if (totalWatts <= 3360 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -12543,7 +12554,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 460) {
+    }else if (totalWatts <= 4000 && ah <=460 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -12596,7 +12607,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 520) {
+    }else if (totalWatts <= 1260 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -12649,7 +12660,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 520) {
+    }else if (totalWatts <= 1386 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -12702,7 +12713,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 520) {
+    }else if (totalWatts <= 1600 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -12755,7 +12766,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 520) {
+    }else if (totalWatts <= 1680 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -12808,7 +12819,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 520) {
+    }else if (totalWatts <= 2100 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -12861,7 +12872,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 520) {
+    }else if (totalWatts <= 2800 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -12914,7 +12925,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 520) {
+    }else if (totalWatts <= 2940 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -12967,7 +12978,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 520) {
+    }else if (totalWatts <= 3360 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -13020,7 +13031,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 520) {
+    }else if (totalWatts <= 4000 && ah <=520 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -13073,7 +13084,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 1260 && ah <= 550) {
+    }else if (totalWatts <= 1260 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS1700",
@@ -13110,7 +13121,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1386 && ah <= 550) {
+    }else if (totalWatts <= 1386 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG1950i",
@@ -13147,7 +13158,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1600 && ah <= 550) {
+    }else if (totalWatts <= 1600 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG2300",
@@ -13184,7 +13195,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 1680 && ah <= 550) {
+    }else if (totalWatts <= 1680 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS2500",
@@ -13221,7 +13232,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2100 && ah <= 550) {
+    }else if (totalWatts <= 2100 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS3000",
@@ -13258,7 +13269,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 550) {
+    }else if (totalWatts <= 2800 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -13295,7 +13306,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 550) {
+    }else if (totalWatts <= 2940 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -13332,7 +13343,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 550) {
+    }else if (totalWatts <= 3360 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -13369,7 +13380,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 550) {
+    }else if (totalWatts <= 4000 && ah <=550 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -13406,7 +13417,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 600) {
+    }else if (totalWatts <= 2800 && ah <=600 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -13459,7 +13470,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 600) {
+    }else if (totalWatts <= 2940 && ah <=600 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -13512,7 +13523,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 600) {
+    }else if (totalWatts <= 3360 && ah <=600 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -13565,7 +13576,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 600) {
+    }else if (totalWatts <= 4000 && ah <=600 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -13618,7 +13629,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 48,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 660) {
+    }else if (totalWatts <= 2800 && ah <=660 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -13671,7 +13682,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 660) {
+    }else if (totalWatts <= 2940 && ah <=660 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -13724,7 +13735,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 660) {
+    }else if (totalWatts <= 3360 && ah <=660 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -13777,7 +13788,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 660) {
+    }else if (totalWatts <= 4000 && ah <=660 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -13830,7 +13841,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 690) {
+    }else if (totalWatts <= 2800 && ah <=690 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -13883,7 +13894,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 690) {
+    }else if (totalWatts <= 2940 && ah <=690 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -13936,7 +13947,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 690) {
+    }else if (totalWatts <= 3360 && ah <=690 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -13989,7 +14000,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 690) {
+    }else if (totalWatts <= 4000 && ah <=690 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -14042,7 +14053,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 780) {
+    }else if (totalWatts <= 2800 && ah <=780 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -14095,7 +14106,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 780) {
+    }else if (totalWatts <= 2940 && ah <=780 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -14148,7 +14159,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 780) {
+    }else if (totalWatts <= 3360 && ah <=780 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -14201,7 +14212,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 780) {
+    }else if (totalWatts <= 4000 && ah <=780 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -14254,7 +14265,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 870) {
+    }else if (totalWatts <= 2800 && ah <=870 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -14291,7 +14302,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2940 && ah <= 870) {
+    }else if (totalWatts <= 2940 && ah <=870 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS4000",
@@ -14328,7 +14339,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 870) {
+    }else if (totalWatts <= 3360 && ah <=870 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -14365,7 +14376,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 870) {
+    }else if (totalWatts <= 4000 && ah <=870 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -14402,150 +14413,8 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 880) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG3500",
-                score: 10,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 3500,
-                warranty: 72,
-            },
-            {
-                model: "LGS5000",
-                score: 8,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "LG5000",
-                score: 8,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT2266TT",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 220,
-                warranty: 60,
-            },
-            {
-                model: "IT2360TT",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "IT2066TT",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 200,
-                warranty: 66,
-            },
-        ];
-    } else if (totalWatts <= 3360 && ah <= 880) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LGS5000",
-                score: 10,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "LG5000",
-                score: 9,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT2266TT",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 220,
-                warranty: 60,
-            },
-            {
-                model: "IT2360TT",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "IT2066TT",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 200,
-                warranty: 66,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 880) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "LG5000",
-                score: 10,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "LGS5000",
-                score: 9,
-                humanFriendlyString: "",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "IT2266TT",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 220,
-                warranty: 60,
-            },
-            {
-                model: "IT2360TT",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "IT2066TT",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 200,
-                warranty: 66,
-            },
-        ];
-    } else if (totalWatts <= 2800 && ah <= 920) {
+    }
+        else if (totalWatts <= 2800 && ah <=880 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -14598,7 +14467,150 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 920) {
+    }else if (totalWatts <= 3360 && ah <=880 ) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LGS5000",
+                score: 10,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 4000,
+                warranty: 72,
+            },
+            {
+                model: "LG5000",
+                score: 9,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 5000,
+                warranty: 72,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT2266TT",
+                score: 10,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 220,
+                warranty: 60,
+            },
+            {
+                model: "IT2360TT",
+                score: 9,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 230,
+                warranty: 60,
+            },
+            {
+                model: "IT2066TT",
+                score: 8,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 200,
+                warranty: 66,
+            },
+        ];
+    }else if (totalWatts <= 4000 && ah <=880 ) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG5000",
+                score: 10,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 5000,
+                warranty: 72,
+            },
+            {
+                model: "LGS5000",
+                score: 9,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 4000,
+                warranty: 72,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT2266TT",
+                score: 10,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 220,
+                warranty: 60,
+            },
+            {
+                model: "IT2360TT",
+                score: 9,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 230,
+                warranty: 60,
+            },
+            {
+                model: "IT2066TT",
+                score: 8,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 200,
+                warranty: 66,
+            },
+        ];
+    }else if (totalWatts <= 2800 && ah <=920 ) {
+        loadCalculatorOutputs.recommendedInverters = [
+            {
+                model: "LG3500",
+                score: 10,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 3500,
+                warranty: 72,
+            },
+            {
+                model: "LGS5000",
+                score: 8,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 4000,
+                warranty: 72,
+            },
+            {
+                model: "LG5000",
+                score: 8,
+                humanFriendlyString: "",
+                nBatteries: 4,
+                capacity: 5000,
+                warranty: 72,
+            },
+        ];
+        loadCalculatorOutputs.recommendedBatteries = [
+            {
+                model: "IT2266TT",
+                score: 10,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 220,
+                warranty: 60,
+            },
+            {
+                model: "IT2360TT",
+                score: 9,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 230,
+                warranty: 60,
+            },
+            {
+                model: "IT2066TT",
+                score: 8,
+                humanFriendlyString: "INVERTUFF Tall Tubular",
+                nBatteries: 4,
+                capacity: 200,
+                warranty: 66,
+            },
+        ];
+    }else if (totalWatts <= 3360 && ah <=920 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -14643,7 +14655,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 920) {
+    }else if (totalWatts <= 4000 && ah <=920 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -14688,7 +14700,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 1040) {
+    }else if (totalWatts <= 2800 && ah <=1040 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -14741,7 +14753,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 1040) {
+    }else if (totalWatts <= 3360 && ah <=1040 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -14786,7 +14798,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 1040) {
+    }else if (totalWatts <= 4000 && ah <=1040 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
@@ -14831,7 +14843,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 66,
             },
         ];
-    } else if (totalWatts <= 2800 && ah <= 1080) {
+    }else if (totalWatts <= 2800 && ah <=1080 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG3500",
@@ -14868,7 +14880,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 3360 && ah <= 1080) {
+    }else if (totalWatts <= 3360 && ah <=1080 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LGS5000",
@@ -14897,7 +14909,7 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 1080) {
+    }else if (totalWatts <= 4000 && ah <=1080 ) {
         loadCalculatorOutputs.recommendedInverters = [
             {
                 model: "LG5000",
