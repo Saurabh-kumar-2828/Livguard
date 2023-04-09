@@ -1,5 +1,5 @@
 import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
+import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, ShouldRevalidateFunction, useCatch, useLoaderData} from "@remix-run/react";
 import {useEffect} from "react";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {WebsiteConfigurationContext} from "~/contexts/websiteConfigurationContext";
@@ -60,6 +60,10 @@ export const loader: LoaderFunction = async ({request}) => {
     return json(loaderData);
 };
 
+export const shouldRevalidate: ShouldRevalidateFunction = () => {
+    return true;
+};
+
 export const meta: MetaFunction = () => ({
     charset: "utf-8",
     title: "Livguard",
@@ -80,7 +84,10 @@ const dynamicLinks: DynamicLinksFunction<LoaderData> = ({
     location,
     parentsData,
 }) => {
-    if (!data) return [];
+    if (!data) {
+        return []
+    };
+
     return [{rel: "canonical", href: data.canonicalUrl}];
 };
 
