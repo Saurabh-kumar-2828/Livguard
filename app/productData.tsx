@@ -2234,8 +2234,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             type: ProductType.inverter,
             metadata: {
                 title: "प्योर साइन वेव इनवर्टर 700VA ऑनलाइन  - लिवगार्ड",
-                description: "पाइए लिवगार्ड i2-वर्टर प्रो प्योर साइन वेव इनवर्टर 700 VA   3 वर्ष की वारंटी और प्योर साइन वेव
-आउटपुट के साथ। अनुभव करें असीमित ऊर्जा।",
+                description: "पाइए लिवगार्ड i2-वर्टर प्रो प्योर साइन वेव इनवर्टर 700 VA   3 वर्ष की वारंटी और प्योर साइन वेव आउटपुट के साथ। अनुभव करें असीमित ऊर्जा।",
                 canonicalUrl: "",
                 schema: `
 

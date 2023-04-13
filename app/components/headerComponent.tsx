@@ -1041,7 +1041,6 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
             formData.set("searchTerm", query);
 
             queryFetcher.submit(formData, {method: "post", action: "/insert-search-term-db"});
-
         }
     }, [query]);
 

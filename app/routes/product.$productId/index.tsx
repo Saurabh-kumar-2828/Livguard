@@ -1,8 +1,7 @@
-import {LinksFunction, LoaderFunction, MetaFunction, Response} from "@remix-run/node";
+import {LoaderFunction, MetaFunction, Response} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
-import {DynamicLinksFunction} from "remix-utils";
 import {ProductCardComponent, SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -13,7 +12,6 @@ import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthI
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
