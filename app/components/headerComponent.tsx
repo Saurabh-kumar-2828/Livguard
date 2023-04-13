@@ -1018,13 +1018,12 @@ function SubMenuDialog({
 function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPreferences: UserPreferences; isSearchOpen: boolean; setIsSearchOpen: React.Dispatch<boolean>}) {
     const [query, setQuery] = useState<string>("");
     const [searchResults, setSearchResults] = useState<Array<SearchQuery> | null>(null);
-    const [searchTerm, setSearchTerm] = useState<string>("");
 
     const queryFetcher = useFetcher();
 
     function tryToCloseSearch() {
         setIsSearchOpen(false);
-        setQuery("");
+        // setQuery("");
     }
 
     useEffect(() => {
@@ -1037,16 +1036,19 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                 .filter((searchQuery) => searchQuery.keyword.toLowerCase().includes(queryLowerCase))
                 .sort((searchQuery1, searchQuery2) => searchQuery1.score - searchQuery2.score);
 
+            setSearchResults(results);
+
             const formData = new FormData();
             formData.set("searchTerm", query);
 
-            queryFetcher.submit(formData, {method: "post", action: "/insert-search-term-db"});
+            queryFetcher.submit(formData, {method: "post", action: "/track-search-query"});
         }
     }, [query]);
 
     return (
         <Transition
             show={isSearchOpen}
+            beforeEnter={() => setQuery("")}
             as={React.Fragment}
         >
             <Dialog
@@ -1097,7 +1099,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                                         itemBuilder={(result, resultIndex) => (
                                             // TODO: Convert to link once we convert everything to new website
                                             <a
-                                                href={`${result.link}?searchTerm=${searchTerm}`}
+                                                href={`http://localhost:3050${result.link}?q=${query}`}
                                                 key={resultIndex}
                                                 className="lg-bg-secondary-700 tw-p-4 tw-flex tw-flex-row tw-justify-between tw-items-center tw-rounded-lg"
                                                 onClick={tryToCloseSearch}
