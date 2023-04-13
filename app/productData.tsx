@@ -335,8 +335,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड i2-वर्टर प्रो इनवर्टर ऑनलाइन 600 VA, 3 वर्ष की वारंटी के साथ",
+                description: "ख़रीदें स्क्वायर वेव इनवर्टर 600 VA और 3 वर्ष की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -653,8 +653,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड स्क्वायर वेव इनवर्टर ऑनलाइन 800VA",
+                description: "ख़रीदें लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इनवर्टर 800 VA,  3 वर्ष की वारंटी के साथ। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -969,8 +969,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें स्क्वायर वेव इनवर्टर ऑनलाइन 900VA - लिवगार्ड",
+                description: "पाइए लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इनवर्टर 900 VA, 3 वर्ष की सर्विस के भरोसे के साथ, श्रेणी में सर्वश्रेष्ठ सेवाओं और स्मार्ट एआई चार्जिंग से युक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -1285,8 +1285,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड i2 - वर्टर प्रो स्क्वायर वेव इनवर्टर ऑनलाइन 1100VA",
+                description: "ख़रीदें लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इनवर्टर 1100 VA 3 वर्ष की वारंटी के साथ। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -1601,8 +1601,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड i2 - वर्टर प्रो- स्क्वायर वेव इनवर्टर ऑनलाइन ",
+                description: "पाइए लिवगार्ड स्क्वायर वेव इनवर्टर 1100VA,  3 वर्ष की वारंटी के साथ। घर लाएं असीमित ऊर्जा की शक्ति। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -1917,8 +1917,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें स्क्वायर वेव इनवर्टर 1650va - लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इनवर्टर 1100VA , 3 वर्ष की वारंटी और स्मार्ट एआई चार्जिंग के साथ। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -2233,8 +2233,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "प्योर साइन वेव इनवर्टर 700VA ऑनलाइन  - लिवगार्ड",
+                description: "पाइए लिवगार्ड i2-वर्टर प्रो प्योर साइन वेव इनवर्टर 700 VA   3 वर्ष की वारंटी और प्योर साइन वेव
+आउटपुट के साथ। अनुभव करें असीमित ऊर्जा।",
                 canonicalUrl: "",
                 schema: `
 
@@ -2549,8 +2550,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें प्योर साइन वेव इनवर्टर 800 VA - लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड प्योर साइन वेव इनवर्टर 800VA  3 वर्ष की वारंटी के साथ। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त इनवर्टर, सुनिश्चित वारंटी के साथ।",
                 canonicalUrl: "",
                 schema: `
 
@@ -2865,8 +2866,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड प्योर साइन वेव इनवर्टर 900 VA ऑनलाइन ",
+                description: "पाइए लिवगार्ड साइन वेव इनवर्टर 900 VA, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त, जो अतिरिक्त लोड संभालने की क्षमता और सभी प्रकार की बैटरी का समर्थन करता है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -3181,8 +3182,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "प्योर साइन वेव इनवर्टर 1500 VA - लिवगार्ड ऑनलाइन ",
+                description: "ख़रीदें लिवगार्ड i-वर्टर प्रो, सुनिश्चित वारंटी और प्योर साइन वेव आउटपुट के साथ। स्मार्ट एआई चार्जिंग से युक्त इनवर्टर।",
                 canonicalUrl: "",
                 schema: `
 
@@ -3498,8 +3499,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड i - वर्टर प्रो प्योर साइन वेव इनवर्टर with 3 वर्ष की वारंटी के साथ",
+                description: "पाइए लिवगार्ड i-वर्टर प्रो प्योर साइन वेव इनवर्टर 1500 VA 3 वर्ष की वारंटी के साथ। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त इनवर्टर।",
                 canonicalUrl: "",
                 schema: `
 
@@ -3803,8 +3804,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah ऑनलाइन ",
+                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah इनवर्टर बैटरी ऑनलाइन 24+24* महीने की वारंटी के साथ; छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -4111,8 +4112,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "शोर्ट ट्यूबुलर ऑनलाइन - लिवगार्ड 100 Ah बैटरी",
+                description: "निरंतर ऊर्जा का आनंद लें लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 100 Ah बैटरी के साथ, जो 24+24* महीने की वारंटी के साथ आती है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -4417,8 +4418,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF 60 महीने की वारंटी के साथ - अभी देखें",
+                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 110 Ah  बैटरी 42+18* महीने की वारंटी के साथ। लंबे समय तक निरंतर ऊर्जा का आनंद लें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -4722,8 +4723,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah, 60+24 महीने की वारंटी के साथ",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 60+24* महीने की वारंटी के साथ। लिवगार्ड INVERTUFF के साथ असीमित ऊर्जा का आनंद लें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -5024,8 +5025,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी- लिवगार्ड",
+                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी 36+18* महीने की वारंटी के साथ, असीमित ऊर्जा के अनुभव के लिए।",
                 canonicalUrl: "",
                 schema: `
 
@@ -5329,8 +5330,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 150 Ah ऑनलाइन ",
+                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी सबसे एक दामों में, 24+18* महीने की वारंटी के साथ; छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -5634,8 +5635,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी",
+                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी 24+24* महीने की वारंटी के साथ। हमारी बैटरी सुनिश्चित बैटरी अवधि के साथ लंबे समय तक आपका साथ देगी।",
                 canonicalUrl: "",
                 schema: `
 
@@ -5939,8 +5940,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें शोर्ट टॉल ट्यूबुलर150Ah बैटरी 4 वर्ष की वारंटी के साथ",
+                description: "36+24* महीने की वारंटी के साथ लिवगार्ड INVERTUFF शॉर्ट टॉल ट्यूबलर 150 Ah बैटरी ख़रीदें, फ्यूचरिस्टिक डिज़ाइन के साथ आपके घर की सुंदरता को बढ़ाने के लिए।",
                 canonicalUrl: "",
                 schema: `
 
@@ -6244,8 +6245,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF टॉल ट्यूबुलर150 Ah बैटरी ऑनलाइन ",
+                description: "36+14* महीने की वारंटी वाली लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ असीमित ऊर्जा  का आनंद लें; छोटे कार्यालयों और घरों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -6549,8 +6550,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें 150 Ah टॉल ट्यूबुलर बैटरी ऑनलाइन  - लिवगार्ड",
+                description: "पाइए लिवगार्ड INVERTUFF टॉल ट्यूबुलर 150 Ah बैटरी 54 महीने की वारंटी के साथ, और बिना किसी परेशानी के लंबे समय तक असीमित ऊर्जा का आनंद लें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -6854,8 +6855,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी ऑनलाइन- लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी ऑनलाइन, 50 महीने की वारंटी और उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के साथ।",
                 canonicalUrl: "",
                 schema: `
 
@@ -7159,8 +7160,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें टॉल ट्यूबुलर 150 Ah बैटरी 18 महीने की वारंटी के साथ- लिवगार्ड",
+                description: "पाइए लिवगार्ड INVERTUFF टॉल ट्यूबुलर 150 Ah बैटरी 18+18* महीने की वारंटी के साथ। घर लाएं असीमित ऊर्जा की शक्ति हमारी इनवर्टर  बैटरी के साथ।",
                 canonicalUrl: "",
                 schema: `
 
@@ -7464,8 +7465,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें  INVERTUFF टॉल ट्यूबुलर 150 Ah ऑनलाइन- लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबुलर 150 Ah बैटरी ऑनलाइन। लिवगार्ड बैटरी के साथ, असीमित ऊर्जा का अनुभव करें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -7769,8 +7770,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF टॉल ट्यूबुलर बैटरी 160 Ah ऑनलाइन",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबुलर 160 Ah बैटरी, 42+24* महीने की वारंटी के साथ, जो छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त बैटरी है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -8074,8 +8075,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड  160 Ah टॉल ट्यूबुलर 39 महीने की वारंटी के साथ",
+                description: "पाइए लिवगार्ड INVERTUFF टॉल ट्यूबुलर 160 Ah बैटरी, 21+18* महीने की वारंटी के साथ ऑनलाइन, और निरंतर ऊर्जा  का आनंद लें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -8379,8 +8380,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड टॉल ट्यूबुलर 160 Ah बैटरी 45 महीने की वारंटी के साथ",
+                description: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 160 Ah बैटरी 27+18* महीने की वारंटी के साथ 3डी ग्रिड तकनीक और उच्च भंडारण क्षमता के साथ बनाई गई है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -8684,8 +8685,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें INVERTUFF टॉल ट्यूबुलर 180 Ah - लिवगार्ड ऑनलाइन",
+                description: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 180 Ah बैटरी हर बार संतोषजनक प्रदर्शन देता है, लंबी बैटरी लाइफ और 36+24* महीने की वारंटी के साथ।",
                 canonicalUrl: "",
                 schema: `
 
@@ -8989,8 +8990,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "लिवगार्ड INVERTUFF टॉल ट्यूबुलर 200 Ah बैटरी ऑनलाइन",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 24+24* महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -9294,8 +9295,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "टॉल ट्यूबुलर 180 Ah बैटरी 66 महीने की वारंटी के साथ- लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF  टॉल ट्यूबलर 180 Ah बैटरी  42+24* महीने की वारंटी के साथ , छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -9600,8 +9601,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "INVERTUFF शोर्ट ट्यूबुलर जंबो160 Ah बैटरी- लिवगार्ड ऑनलाइन",
+                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो160 Ah इनवर्टर बैटरी ऑनलाइन, 18+18* महीने की वारंटी के साथ। छोटे कार्यालयों और घरों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -9905,8 +9906,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें INVERTUFF टॉल ट्यूबुलर 200 Ah - लिवगार्ड ऑनलाइन",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 36+ 24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -10210,8 +10211,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें INVERTUFF टॉल ट्यूबुलर 200 Ah बैटरी - लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 36 +24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -10515,8 +10516,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "टॉल ट्यूबुलर 220 Ah 3 वर्ष की वारंटी के साथ - लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 220 Ah बैटरी  42+24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -10820,8 +10821,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "टॉल ट्यूबुलर 230 बैटरी 60 महीने की वारंटी के साथ -  लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 230 Ah बैटरी  36 +24* महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -11125,8 +11126,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.battery,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबुलर 260 Ah बैटरी",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी; लंबे समय तक चलने वाली बैटरी लाइफ के साथ , ऊर्जा के असीमित प्रवाह के लिए।",
                 canonicalUrl: "",
                 schema: `
 
@@ -11271,8 +11272,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "Buy Livguard Inverter and Battery Urban Jodi Online",
+                description: "Livguard Urban Jodi comes with i-verter pro Sinewave 1500 VA Inverter and INVERTUFF Tall Tubular 150 Ah Battery Backed with Smart Artificial Intelligent Charging ",
                 canonicalUrl: "",
                 schema: `
 
@@ -11411,8 +11412,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी अर्बन जोड़ी ऑनलाइन",
+                description: "लिवगार्ड अर्बन जोड़ी, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर  और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह जोड़ी स्मार्ट ए आई चार्जिंग से युक्त है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -11557,8 +11558,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "Buy Livguard Inverter and battery peace of mind jodi online",
+                description: "Livguard Peace of mind Jodi comes with an i2-verter pro Square wave 1250 VA Inverter and  INVERTUFF  Tall Tubular 200 Ah Battery",
                 canonicalUrl: "",
                 schema: `
 
@@ -11701,8 +11702,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी मन की शांति वाली जोड़ी ऑनलाइन",
+                description: "लिवगार्ड  मन की शांति वाली जोड़ी,  i2-वर्टर प्रो स्क्वायर वेव 1250 VA इनवर्टर  और INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी के साथ आती है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -11847,8 +11848,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "Buy Livguard Inverter and Battery super life Jodi online",
+                description: "Livguard Super life Jodi comes with i-verter pro Sinewave 1500 VA Inverter and  INVERTUFF Tall Tubular 150 Ah  Battery with High Charge Acceptance For Higher Backup",
                 canonicalUrl: "",
                 schema: `
 
@@ -11991,8 +11992,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी सुपर लाइफ जोड़ी ऑनलाइन",
+                description: "लिवगार्ड सुपर लाइफ जोड़ी, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह जोड़ी उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के योग्य है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -12137,8 +12138,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "Buy Livguard Inverter and Battery Hi-power Jodi online",
+                description: "Livguard Hi-power jodi comes with a Heavy Duty Sinewave 2000 VA  Inverter combined with INVERTUFF Tall Tubular 260 Ah Battery that has a Heavy load handling capacity",
                 canonicalUrl: "",
                 schema: `
 
@@ -12281,8 +12282,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             ],
             type: ProductType.jodi,
             metadata: {
-                title: "",
-                description: "",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी हाई-पॉवर जोड़ी ऑनलाइन",
+                description: "लिवगार्ड हाई-पावर जोड़ी हैवी ड्यूटी साइन वेव 2000 VA इनवर्टर  के साथ आती है जिसमें INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी है। यह जोड़ी भारी लोड संभलने की क्षमता से युक्त है।",
                 canonicalUrl: "",
                 schema: `
 

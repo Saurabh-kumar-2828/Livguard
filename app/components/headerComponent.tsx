@@ -1037,9 +1037,6 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                 .filter((searchQuery) => searchQuery.keyword.toLowerCase().includes(queryLowerCase))
                 .sort((searchQuery1, searchQuery2) => searchQuery1.score - searchQuery2.score);
 
-            setSearchResults(results);
-            setSearchTerm(query);
-
             const formData = new FormData();
             formData.set("searchTerm", query);
 
