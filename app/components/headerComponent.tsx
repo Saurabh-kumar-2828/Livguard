@@ -1,6 +1,7 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
+import {Query} from "pg";
 import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
@@ -1017,6 +1018,7 @@ function SubMenuDialog({
 function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPreferences: UserPreferences; isSearchOpen: boolean; setIsSearchOpen: React.Dispatch<boolean>}) {
     const [query, setQuery] = useState<string>("");
     const [searchResults, setSearchResults] = useState<Array<SearchQuery> | null>(null);
+    const [searchTerm, setSearchTerm] = useState<string>("");
 
     function tryToCloseSearch() {
         setIsSearchOpen(false);
@@ -1034,8 +1036,12 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                 .sort((searchQuery1, searchQuery2) => searchQuery1.score - searchQuery2.score);
 
             setSearchResults(results);
+            setSearchTerm(query);
         }
     }, [query]);
+
+    console.log("Querry is:", query);
+    console.log("Search term is:", searchTerm);
 
     return (
         <Transition
@@ -1090,7 +1096,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                                         itemBuilder={(result, resultIndex) => (
                                             // TODO: Convert to link once we convert everything to new website
                                             <a
-                                                href={result.link}
+                                                href={`${result.link}?searchTerm=${searchTerm}`}
                                                 key={resultIndex}
                                                 className="lg-bg-secondary-700 tw-p-4 tw-flex tw-flex-row tw-justify-between tw-items-center tw-rounded-lg"
                                                 onClick={tryToCloseSearch}
