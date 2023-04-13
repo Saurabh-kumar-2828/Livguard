@@ -1,6 +1,6 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import {Form, Link, useNavigate, useSubmit} from "@remix-run/react";
+import {Form, Link, useFetcher, useNavigate, useSubmit} from "@remix-run/react";
 import {Query} from "pg";
 import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
@@ -1020,6 +1020,8 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
     const [searchResults, setSearchResults] = useState<Array<SearchQuery> | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>("");
 
+    const queryFetcher = useFetcher();
+
     function tryToCloseSearch() {
         setIsSearchOpen(false);
         setQuery("");
@@ -1037,11 +1039,14 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
 
             setSearchResults(results);
             setSearchTerm(query);
+
+            const formData = new FormData();
+            formData.set("searchTerm", query);
+
+            queryFetcher.submit(formData, {method: "post", action: "/insert-search-term-db"});
+
         }
     }, [query]);
-
-    console.log("Querry is:", query);
-    console.log("Search term is:", searchTerm);
 
     return (
         <Transition

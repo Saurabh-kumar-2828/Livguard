@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {getDealerForCity} from "~/backend/dealer.server";
+import {getDealerForCity, insertQueryLeads} from "~/backend/dealer.server";
 import {StickyBottomBar} from "~/components/bottomBar";
 import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -50,11 +50,20 @@ export const action: ActionFunction = async ({request, params}) => {
     const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
     const dealerList = await getDealerForCity(city);
     // TOOD: Handle dealerList error
-
     if (dealerList instanceof Error) {
         return {
             dealerList: null,
             error: dealerList.message,
+        };
+    }
+
+    console.log("city is", city);
+
+    const result = await insertQueryLeads(city);
+    if (result instanceof Error) {
+        return {
+            dealerList: null,
+            error: result.message,
         };
     }
 

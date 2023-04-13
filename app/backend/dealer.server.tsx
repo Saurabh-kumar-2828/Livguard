@@ -132,3 +132,58 @@ export async function insertSubscriptionLeads(formResponse: {
         return result;
     }
 }
+
+export async function insertQueryLeads(query: string): Promise<void | Error>{
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    console.log("query : ", query);
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            INSERT INTO
+                livguard.dealer_query_leads
+            VALUES(
+                $1,
+                $2,
+                $3,
+                $4,
+                $5
+            )
+        `,
+        [generateUuid(), getCurrentIsoTimestamp(), query, 1, null],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+}
+
+
+export async function insertSearchQuery(searchTerm: string): Promise<void | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            INSERT INTO
+                livguard.search_query_leads
+            VALUES(
+                $1,
+                $2,
+                $3,
+                $4,
+                $5
+            )
+        `,
+        [generateUuid(), getCurrentIsoTimestamp(), searchTerm, 1, null],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+}
