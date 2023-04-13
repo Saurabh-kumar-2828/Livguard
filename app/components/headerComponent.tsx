@@ -1099,7 +1099,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
                                         itemBuilder={(result, resultIndex) => (
                                             // TODO: Convert to link once we convert everything to new website
                                             <a
-                                                href={`http://localhost:3050${result.link}?q=${query}`}
+                                                href={`${result.link}?q=${query}`}
                                                 key={resultIndex}
                                                 className="lg-bg-secondary-700 tw-p-4 tw-flex tw-flex-row tw-justify-between tw-items-center tw-rounded-lg"
                                                 onClick={tryToCloseSearch}
