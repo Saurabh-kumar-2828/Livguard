@@ -28,11 +28,19 @@ import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Dealer Locator | Find Livguard inverter battery shop near me",
-        description: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
-    };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Dealer Locator | Find Livguard inverter battery shop near me",
+            description: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
+            description: "अपने आस-पास के डीलरों को आसानी से खोजें। खरीदें अपने घर के लिए लिवगार्ड इनवर्टर, इनवर्टर बैटरी हमारे अधिकृत डीलरों के माध्यम से।",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {
@@ -56,8 +64,6 @@ export const action: ActionFunction = async ({request, params}) => {
             error: dealerList.message,
         };
     }
-
-    console.log("city is", city);
 
     const result = await insertQueryLeads(city);
     if (result instanceof Error) {

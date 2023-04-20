@@ -6,7 +6,7 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {InverterType, UserPreferences} from "~/typeDefinitions";
+import {InverterType, Language, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator} from "~/routes";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
@@ -22,11 +22,19 @@ import {FAQSection} from "~/components/faqs";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Buy Best Inverter for Home at the Lowest Price in India",
-        description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
-    };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Buy Best Inverter for Home at the Lowest Price in India",
+            description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "भारत में सबसे कम कीमत पर घर के लिए सर्वश्रेष्ठ इनवर्टर खरीदें",
+            description: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {

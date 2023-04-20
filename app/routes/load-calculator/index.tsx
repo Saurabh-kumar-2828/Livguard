@@ -34,15 +34,23 @@ import {
     roomTypeLibrary
 } from "~/routes/load-calculator/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {enumFromStringValue, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Plan the power consumption requirements of your home",
-        description: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
-    };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Plan the power consumption requirements of your home",
+            description: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "अपने घर की बिजली खपत आवश्यकताओं की योजना बनाएं",
+            description: "हमारे आसानी से उपयोग में आने वाले पावर प्लानर के साथ अपने घर की ऊर्जा ज़रूरतों को निकालें और सुझाये गये इनवर्टर और बैटरी के साथ अपने घर को सशक्त बनाएँ।",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {

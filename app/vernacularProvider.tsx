@@ -2666,7 +2666,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "LBPL Notice dt 01/04/2023",
         [Language.Marathi]: "?????",
     },
-    "footerDisclosure7T8": {
+    footerDisclosure7T8: {
         [Language.English]: "LETPL Notice dt 01/04/2023",
         [Language.Hindi]: "LETPL Notice dt 01/04/2023",
         [Language.Marathi]: "?????",
@@ -2759,6 +2759,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     contactUsT8: {
         [Language.English]: "Till then, show some love to our\nsocial handles!",
         [Language.Hindi]: "तब तक हमारे सोशल मीडिया पर प्यार बरसाएँ",
+        [Language.Marathi]: "?????",
+    },
+
+    contactUsOTPT3: {
+        [Language.English]: "OTP",
+        [Language.Hindi]: "ओटीपी",
+        [Language.Marathi]: "?????",
+    },
+    contactUsOTPT3E: {
+        [Language.English]: "Please Enter Your OTP",
+        [Language.Hindi]: "कृपया अपना ओटीपी दर्ज करें",
+        [Language.Marathi]: "?????",
+    },
+    contactUsFAQT1: {
+        [Language.English]: "Please Verify <br/> Your Phone",
+        [Language.Hindi]: "कृपया अपना <br/>फ़ोन सत्यापित करें",
         [Language.Marathi]: "?????",
     },
 

@@ -18,6 +18,7 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FAQSection} from "~/components/faqs";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
+import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
@@ -32,15 +33,23 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
-        description: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
-    };
+export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
+            description: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड: इनवर्टर, बैटरी और सभी प्रकार के ऊर्जा संग्रहण समाधान खरीदें",
+            description: "लिवगार्ड के साथ अपने घर के लिए इनवर्टर, बैटरी और ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी की खरीदारी करें",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {
@@ -1023,6 +1032,7 @@ export function ContactUsDialog({
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
 
+    const [step, setStep] = useState(1);
     const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
     useEffect(() => {
@@ -1067,6 +1077,7 @@ export function ContactUsDialog({
                         pattern={phoneNumberValidationPattern}
                         required
                         className="lg-text-input"
+                        // onChange={(e) => setPhoneNumber(e.target.value)}
                     />
 
                     <VerticalSpacer className="tw-h-4" />
@@ -1121,6 +1132,14 @@ export function ContactUsDialog({
                     </button>
                 </fetcher.Form>
             </LivguardDialog>
+
+            {/* <OtpVerificationDialog
+                userPreferences={userPreferences}
+                isDialogOpen={isContactUsDialogOpen && step == 2}
+                setIsDialogOpen={tryToCloseContactUsDialog}
+                phoneNumber={phoneNumber}
+                fetcher={fetcher}
+            /> */}
 
             <FormSubmissionSuccessLivguardDialog
                 userPreferences={userPreferences}

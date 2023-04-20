@@ -18,15 +18,23 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Buy Inverter Battery Online at Best Prices In India",
-        description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
-    };
+export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Buy Inverter Battery Online at Best Prices In India",
+            description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
+            description: "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {

@@ -1,8 +1,7 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link, useActionData} from "@remix-run/react";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {Link} from "@remix-run/react";
 import {useLoaderData} from "react-router";
-import {getDealerForCity} from "~/backend/dealer.server";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
@@ -12,7 +11,6 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, TransformingLives} from "~/routes";
@@ -20,15 +18,23 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Dealer, UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Buy  livguard Smart & Strong Inverter and Battery Jodis",
-        description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
-    };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Buy livguard Smart & Strong Inverter and Battery Jodis",
+            description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी खरीदें",
+            description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {

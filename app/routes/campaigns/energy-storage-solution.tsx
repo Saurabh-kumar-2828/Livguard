@@ -24,15 +24,23 @@ import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = () => {
-    return {
-        title: "Take charge of your energy with livguard home inverters and inverter batteries",
-        description: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
-    };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Take charge of your energy with livguard home inverters and inverter batteries",
+            description: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड होम इनवर्टर और इनवर्टर बैटरी के साथ अपनी ऊर्जा का जिम्मेदारी लें",
+            description: "लिवगार्ड के इनवर्टर, इनवर्टर बैटरी और अन्य ऊर्जा संग्रहण समाधानों की विस्तृत श्रृंखला के माध्यम से असीमित ऊर्जा से सशक्त बनें।",
+        };
+    }
 };
 
 export const links: LinksFunction = () => {
