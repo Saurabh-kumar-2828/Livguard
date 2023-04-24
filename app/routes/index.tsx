@@ -284,11 +284,19 @@ function HeroSection({
             )}
             ref={ref}
         >
+            {/* <CoverImage
+                relativePath="/livguard/home/1/1.jpg"
+                className="tw-row-[1/span_12] tw-col-start-1"
+            /> */}
+
             {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                <video
+                    src={containerHeight > containerWidth ? "https://files.growthjockey.com/livguard/videos/home/1/1-mobile.mp4" : "https://files.growthjockey.com/livguard/videos/home/1/1-desktop.mp4"}
+                    className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-object-cover"
+                    autoPlay={true}
+                    muted={true}
+                    loop={true}
+                    controls={false}
                 />
             )}
 
@@ -1028,6 +1036,7 @@ export function ContactUsDialog({
     const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
     useEffect(() => {
+
         if (fetcher.data == null) {
             return;
         }
@@ -1037,8 +1046,13 @@ export function ContactUsDialog({
             return;
         }
 
-        setFormSubmittedSuccessfully(true);
-        setStep(2);
+        if(fetcher.data.type == "otp-verification"){
+            setStep(2);
+        }
+
+        if(fetcher.data.type == "form-submission"){
+            setStep(3);
+        }
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({event: "submit"});
@@ -1051,7 +1065,7 @@ export function ContactUsDialog({
     return (
         <>
             <LivguardDialog
-                isDialogOpen={isContactUsDialogOpen && !formSubmittedSuccessfully}
+                isDialogOpen={isContactUsDialogOpen && step == 1}
                 tryToCloseDialog={tryToCloseContactUsDialog}
                 title={getVernacularString("contactUsT1", userPreferences.language)}
             >
@@ -1070,7 +1084,11 @@ export function ContactUsDialog({
                         pattern={phoneNumberValidationPattern}
                         required
                         className="lg-text-input"
-                        // onChange={(e) => setPhoneNumber(e.target.value)}
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.phoneNumber = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-4" />
@@ -1084,6 +1102,11 @@ export function ContactUsDialog({
                         name="name"
                         required
                         className="lg-text-input"
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.name = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-4" />
@@ -1098,6 +1121,11 @@ export function ContactUsDialog({
                         className="lg-text-input"
                         pattern={emailIdValidationPattern}
                         required
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.emailId = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-8" />
@@ -1126,17 +1154,17 @@ export function ContactUsDialog({
                 </fetcher.Form>
             </LivguardDialog>
 
-            {/* <OtpVerificationDialog
+            <OtpVerificationDialog
                 userPreferences={userPreferences}
                 isDialogOpen={isContactUsDialogOpen && step == 2}
                 setIsDialogOpen={tryToCloseContactUsDialog}
-                phoneNumber={phoneNumber}
+                inputData={inputData}
                 fetcher={fetcher}
-            /> */}
+            />
 
             <FormSubmissionSuccessLivguardDialog
                 userPreferences={userPreferences}
-                isDialogOpen={isContactUsDialogOpen && formSubmittedSuccessfully}
+                isDialogOpen={isContactUsDialogOpen && step == 3}
                 tryToCloseDialog={tryToCloseContactUsDialog}
             />
         </>

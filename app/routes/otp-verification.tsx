@@ -1,12 +1,10 @@
 import {ActionFunction, json} from "@remix-run/node";
 import {sendOtp} from "~/backend/authentication.server";
-import {insertContactLeads} from "~/backend/dealer.server";
-import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {Dealer} from "~/typeDefinitions";
 
 export type GenericActionData = {
     error: string | null;
+    type: string;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -19,6 +17,7 @@ export const action: ActionFunction = async ({request, params}) => {
     if (phoneNumber == null || utmParameters == null || name == null) {
         const actionData: GenericActionData = {
             error: "Inputs cann't be null! Error code: bb551a66-7e7b-4c70-a21d-975dbe3872ca",
+            type: "otp-verification"
         };
         return json(actionData);
     }
@@ -27,6 +26,7 @@ export const action: ActionFunction = async ({request, params}) => {
     if (result instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error while sending otp! Error code: a73f9127-a627-4066-92cd-c7017056e0fe",
+            type: "otp-verification",
         };
         return json(actionData);
     }
@@ -44,6 +44,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const actionData: GenericActionData = {
         error: null,
+        type: "otp-verification",
     };
 
     return json(actionData);
