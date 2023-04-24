@@ -69,12 +69,12 @@ export async function sendOtp(phoneNumber: string, name: string) {
         }),
     });
 
-    // const result1 = await result.text();
+    const result1 = await result.text();
 
     if (!result.ok) {
         console.log("Error in sendOtp");
         console.log(result);
-        console.log(await result.json());
+        console.log(result1);
 
         throw "";
     }
