@@ -37,9 +37,9 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     }
 };
 
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
-};
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
+// };
 
 type LoaderData = {
     userPreferences: UserPreferences;

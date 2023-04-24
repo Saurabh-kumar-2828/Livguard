@@ -265,6 +265,13 @@ export default function () {
                         }}
                     />
                     {/* /FOUC hack */}
+
+                    {/* CRM tracking code Start*/}
+                    <script
+                        src="//in.fw-cdn.com/30708678/381117.js"
+                        chat="true"
+                    ></script>
+                    {/* CRM tracking code end*/}
                 </head>
 
                 <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">

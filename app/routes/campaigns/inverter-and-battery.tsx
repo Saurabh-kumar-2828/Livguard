@@ -42,9 +42,9 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     }
 };
 
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
-};
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
+// };
 
 type LoaderData = {
     userPreferences: UserPreferences;

@@ -43,9 +43,9 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     }
 };
 
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
-};
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
+// };
 
 type LoaderData = {
     userPreferences: UserPreferences;
