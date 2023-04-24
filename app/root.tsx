@@ -189,6 +189,11 @@ export default function () {
                         name="google-site-verification"
                         content="kBcFXIhI8Fo0WubHw2RPr_SmmpuizSmpkWqmJdsl3g0"
                     />
+
+                    <meta
+                        name="facebook-domain-verification"
+                        content="vvv1ovrlljfrtp4dnwttb9j964i14k"
+                    />
                     {/* Site Verification end*/}
 
                     {/* Google Tag Manager */}
