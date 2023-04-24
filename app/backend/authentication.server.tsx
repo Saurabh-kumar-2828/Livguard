@@ -48,15 +48,14 @@ export async function sendOtp(phoneNumber: string, name: string) {
                 {
                     "@UDH": "0",
                     "@CODING": "1",
-                    "@TEXT": `
-                                Dear ${name}
+                    "@TEXT":
+`Dear ${name}
 
-                                Thanks for your interest in Livguard. Your OTP for enquiry registration is ${otp}.
-                                Please submit the OTP to complete registration & expect a call soon.
+Thanks for your interest in Livguard. Your OTP for enquiry registration is ${otp}.
+Please submit the OTP to complete registration & expect a call soon.
 
-                                Regards
-                                Team Livguard
-                            `,
+Regards
+Team Livguard`,
                     "@PROPERTY": "0",
                     "@ID": generateUuid(),
                     ADDRESS: [
