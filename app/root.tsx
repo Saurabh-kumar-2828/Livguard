@@ -184,12 +184,17 @@ export default function () {
                         )}
                     />
 
-                    {/* Site Verification start*/}
+                    {/* Site Verification */}
                     <meta
                         name="google-site-verification"
                         content="kBcFXIhI8Fo0WubHw2RPr_SmmpuizSmpkWqmJdsl3g0"
                     />
-                    {/* Site Verification end*/}
+
+                    <meta
+                        name="facebook-domain-verification"
+                        content="vvv1ovrlljfrtp4dnwttb9j964i14k"
+                    />
+                    {/* End Site Verification */}
 
                     {/* Google Tag Manager */}
                     <script
