@@ -1031,7 +1031,7 @@ export function ContactUsDialog({
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
-
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""})
     const [step, setStep] = useState(1);
     const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
@@ -1046,6 +1046,7 @@ export function ContactUsDialog({
         }
 
         setFormSubmittedSuccessfully(true);
+        setStep(2);
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({event: "submit"});
@@ -1065,7 +1066,7 @@ export function ContactUsDialog({
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"
                     method="post"
-                    action="/contact-us-submission"
+                    action="/otp-verification"
                 >
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 

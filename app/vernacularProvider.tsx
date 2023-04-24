@@ -2773,8 +2773,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     contactUsFAQT1: {
-        [Language.English]: "Please Verify <br/> Your Phone",
-        [Language.Hindi]: "कृपया अपना <br/>फ़ोन सत्यापित करें",
+        [Language.English]: `<span class=\"lg-text-highlighted tw-text-secondary-900-dark\">Please Verify</span> <br/> Your Phone`,
+        [Language.Hindi]: `कृपया अपना <span class=\"lg-text-highlighted tw-text-secondary-900-dark\">फ़ोन सत्यापित</span> करें`,
         [Language.Marathi]: "?????",
     },
 
