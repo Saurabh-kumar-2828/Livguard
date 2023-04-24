@@ -32,12 +32,13 @@ export async function sendOtp(phoneNumber: string, name: string) {
         return authToken;
     }
 
+    console.log("Auth token is:", authToken);
 
     const result = await fetch(`${process.env.VALUE_FIRST_API_BASE_URI}/servlet/psms.JsonEservice`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${authToken}`,
+            Authorization: `Bearer ${authToken.token}`,
         },
         body: JSON.stringify({
             "@VER": "1.2",
