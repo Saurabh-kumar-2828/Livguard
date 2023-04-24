@@ -37,7 +37,7 @@ export async function sendOtp(phoneNumber: string, name: string) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${await getAuthToken()}`,
+            Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({
             "@VER": "1.2",
