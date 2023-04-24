@@ -1048,10 +1048,12 @@ export function ContactUsDialog({
 
         if(fetcher.data.type == "otp-verification"){
             setStep(2);
+            console.log("Form type is otp verification");
         }
 
         if(fetcher.data.type == "form-submission"){
             setStep(3);
+            console.log("Form type is form submission");
         }
 
         window.dataLayer = window.dataLayer || [];
