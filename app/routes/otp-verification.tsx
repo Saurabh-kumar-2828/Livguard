@@ -44,7 +44,7 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
     }else if(formType == FormType.applyForDealership){
-        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, city: city, otpVerified: true});
+        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, city: city, otpVerified: false});
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",

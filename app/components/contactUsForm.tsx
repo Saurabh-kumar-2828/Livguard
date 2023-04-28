@@ -4,9 +4,10 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {UserPreferences} from "~/typeDefinitions";
+import {FormType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function ContactForm({
@@ -14,6 +15,9 @@ export function ContactForm({
     fetcher,
     utmParameters,
     className,
+    inputData,
+    setInputData,
+    leadId,
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -21,6 +25,9 @@ export function ContactForm({
         [searchParameter: string]: string;
     };
     className?: string;
+    inputData: {name: string; phoneNumber: string; emailId: string};
+    setInputData: React.Dispatch<React.SetStateAction<{name: string; phoneNumber: string; emailId: string}>>;
+    leadId: Uuid;
 }) {
     return (
         <div
@@ -65,6 +72,11 @@ export function ContactForm({
                             pattern={phoneNumberValidationPattern}
                             required
                             placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
+                            onChange={(e) => {
+                                const newState = structuredClone(inputData);
+                                newState.phoneNumber = e.target.value;
+                                setInputData(newState);
+                            }}
                         />
                     </div>
 
@@ -79,6 +91,11 @@ export function ContactForm({
                             className="lg-text-input"
                             required
                             placeholder={getVernacularString("contactUsT3E", userPreferences.language)}
+                            onChange={(e) => {
+                                const newState = structuredClone(inputData);
+                                newState.name = e.target.value;
+                                setInputData(newState);
+                            }}
                         />
                     </div>
 
@@ -94,6 +111,11 @@ export function ContactForm({
                             pattern={emailIdValidationPattern}
                             required
                             placeholder={getVernacularString("contactUsT4E", userPreferences.language)}
+                            onChange={(e) => {
+                                const newState = structuredClone(inputData);
+                                newState.emailId = e.target.value;
+                                setInputData(newState);
+                            }}
                         />
                     </div>
 
@@ -102,6 +124,20 @@ export function ContactForm({
                         className="tw-hidden"
                         readOnly
                         value={JSON.stringify(utmParameters)}
+                    />
+
+                    <input
+                        name="leadId"
+                        className="tw-hidden"
+                        readOnly
+                        value={leadId}
+                    />
+
+                    <input
+                        name="formType"
+                        className="tw-hidden"
+                        readOnly
+                        value={FormType.contactUsSubmission}
                     />
 
                     <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">

@@ -103,7 +103,7 @@ export function OtpVerificationDialog({
                                 className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
                                 disabled={fetcher.state != "idle"}
                             >
-                                {getVernacularString("contactUsFormT4", userPreferences.language)}
+                                {getVernacularString("applyNowForDealerT6", userPreferences.language)}
                             </button>
                         </div>
                         <input

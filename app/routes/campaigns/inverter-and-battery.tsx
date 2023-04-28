@@ -11,19 +11,21 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {JodiCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {OtpVerificationForm} from "~/components/otpVerificationForm";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import {FormType, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -108,8 +110,9 @@ export default function () {
 
 function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
     const fetcher = useFetcher();
-
-    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
+    const [step, setStep] = useState(1);
+    const leadId = generateUuid();
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -121,7 +124,13 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
             return;
         }
 
-        setFormSubmittedSuccessfully(true);
+        if (fetcher.data.type == FormType.otpVerification) {
+            setStep(2);
+        }
+
+        if (fetcher.data.type == FormType.contactUsSubmission) {
+            setStep(3);
+        }
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({event: "submit"});
@@ -136,7 +145,10 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 fetcher={fetcher}
                 utmParameters={utmSearchParameters}
-                isContactUsSubmissionSuccess={formSubmittedSuccessfully}
+                inputData={inputData}
+                setInputData={setInputData}
+                step={step}
+                leadId={leadId}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -145,14 +157,26 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 id="contact-us-form-mobile"
             >
-                {formSubmittedSuccessfully ? (
-                    <ContactFormSuccess userPreferences={userPreferences} />
-                ) : (
+                {step == 1 ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
                         utmParameters={utmSearchParameters}
+                        inputData={inputData}
+                        setInputData={setInputData}
+                        leadId={leadId}
                     />
+                ) : step == 2 ? (
+                    <OtpVerificationForm
+                        userPreferences={userPreferences}
+                        inputData={inputData}
+                        fetcher={fetcher}
+                        utmParameters={utmSearchParameters}
+                        leadId={leadId}
+                        formType={FormType.contactUsSubmission}
+                    />
+                ) : (
+                    <ContactFormSuccess userPreferences={userPreferences} />
                 )}
             </div>
 
@@ -222,17 +246,23 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 function HeroSection({
     userPreferences,
     className,
-    isContactUsSubmissionSuccess,
     fetcher,
     utmParameters,
+    inputData,
+    setInputData,
+    step,
+    leadId,
 }: {
     userPreferences: UserPreferences;
     className: string;
-    isContactUsSubmissionSuccess: boolean;
     fetcher: FetcherWithComponents<any>;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    inputData: {name: string; phoneNumber: string; emailId: string};
+    setInputData: React.Dispatch<React.SetStateAction<{name: string; phoneNumber: string; emailId: string}>>;
+    step: number;
+    leadId: Uuid;
 }) {
     return (
         <div
@@ -270,28 +300,42 @@ function HeroSection({
             </DefaultElementAnimation>
 
             <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
-                <Link to="#contact-us-form-mobile" className="tw-block lg:tw-hidden">
+                <Link
+                    to="#contact-us-form-mobile"
+                    className="tw-block lg:tw-hidden"
+                >
                     <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
                 </Link>
 
-                <Link to="#energy-solutions" className="tw-hidden lg:tw-block">
+                <Link
+                    to="#energy-solutions"
+                    className="tw-hidden lg:tw-block"
+                >
                     <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
                 </Link>
             </div>
 
             <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
-                {isContactUsSubmissionSuccess ? (
-                    <ContactFormSuccess
-                        userPreferences={userPreferences}
-                        className="lg:tw-w-[30rem]"
-                    />
-                ) : (
+                {step == 1 ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
                         utmParameters={utmParameters}
-                        className="lg:tw-w-[30rem]"
+                        inputData={inputData}
+                        setInputData={setInputData}
+                        leadId={leadId}
                     />
+                ) : step == 2 ? (
+                    <OtpVerificationForm
+                        userPreferences={userPreferences}
+                        inputData={inputData}
+                        fetcher={fetcher}
+                        utmParameters={utmParameters}
+                        leadId={leadId}
+                        formType={FormType.contactUsSubmission}
+                    />
+                ) : (
+                    <ContactFormSuccess userPreferences={userPreferences} />
                 )}
             </div>
         </div>
