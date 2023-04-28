@@ -41,7 +41,7 @@ export function OtpVerificationForm({
                         className="tw-row-[1/span_10] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
                     />
 
-                    <div className="tw-row-start-2 tw-col-start-1 tw-text-center lg-text-headline tw-px-8">
+                    <div className="tw-row-start-2 tw-col-start-1 tw-text-center lg-text-headline tw-px-8 tw-z-10">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
                     </div>
 
