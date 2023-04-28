@@ -6,7 +6,7 @@ import {WebsiteConfigurationContext} from "~/contexts/websiteConfigurationContex
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {logFrontendError} from "~/global-common-typescript/logging";
-import {getRequiredEnvironmentVariable, getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
@@ -26,20 +26,11 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
-    const websiteBaseUrl = getRequiredEnvironmentVariable("WEBSITE_BASE_URL");
-    if (websiteBaseUrl instanceof Error) {
-        throw websiteBaseUrl;
-    }
+    const websiteBaseUrl = getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL");
 
-    const debugMode = getBooleanFromUnknown(getRequiredEnvironmentVariable("DEBUG_MODE"));
-    if (debugMode instanceof Error) {
-        throw websiteBaseUrl;
-    }
+    const debugMode = getBooleanFromUnknown(getRequiredEnvironmentVariableNew("DEBUG_MODE"));
 
-    const imageCdnProviderStr = getRequiredEnvironmentVariable("IMAGE_CDN_PROVIDER");
-    if (imageCdnProviderStr instanceof Error) {
-        throw imageCdnProviderStr;
-    }
+    const imageCdnProviderStr = getRequiredEnvironmentVariableNew("IMAGE_CDN_PROVIDER");
     // TODO: Do this properly
     const imageCdnProvider = imageCdnProviderStr == "imgix" ? ImageCdnProvider.Imgix : ImageCdnProvider.GrowthJockey;
 
