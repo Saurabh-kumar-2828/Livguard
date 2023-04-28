@@ -1162,6 +1162,7 @@ export function ContactUsDialog({
                 setIsDialogOpen={tryToCloseContactUsDialog}
                 inputData={inputData}
                 fetcher={fetcher}
+                utmParameters={utmParameters}
             />
 
             <FormSubmissionSuccessLivguardDialog

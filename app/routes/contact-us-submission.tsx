@@ -3,7 +3,6 @@ import {verifyOtp} from "~/backend/authentication.server";
 import {insertContactLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {Dealer} from "~/typeDefinitions";
 
 export type GenericActionData = {
     error: string | null;
