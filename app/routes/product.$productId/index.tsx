@@ -2,6 +2,7 @@ import {LoaderFunction, MetaFunction, Response} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
+import {DynamicLinksFunction} from "remix-utils";
 import {ProductCardComponent, SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -51,15 +52,17 @@ export const loader: LoaderFunction = async ({request, params}) => {
     return loaderData;
 };
 
-// export const handle: DynamicLinksFunction = ({data: loaderData}: {data: LoaderData}) => {
-//     if (loaderData == null) {
-//         return [];
-//     }
+export const dynamicLinks: DynamicLinksFunction = ({data: loaderData}: {data: LoaderData}) => {
+    if (loaderData == null) {
+        return [];
+    }
 
-//     return [
-//         {rel: "canonical", href: loaderData.productData.metadata.canonicalUrl},
-//     ];
-// };
+    return [{rel: "canonical", href: loaderData.productData.metadata.canonicalUrl}];
+};
+
+export const handle = {
+    dynamicLinks: dynamicLinks,
+};
 
 export const meta: MetaFunction = ({data: loaderData}: {data?: LoaderData}) => {
     if (loaderData == null) {

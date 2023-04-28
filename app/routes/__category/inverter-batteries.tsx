@@ -34,12 +34,14 @@ export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
             title: "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
             description: "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/inverter-batteries/"}];
-// };
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/inverter-batteries/"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

@@ -50,6 +50,8 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
             title: "अपने घर की बिजली खपत आवश्यकताओं की योजना बनाएं",
             description: "हमारे आसानी से उपयोग में आने वाले पावर प्लानर के साथ अपने घर की ऊर्जा ज़रूरतों को निकालें और सुझाये गये इनवर्टर और बैटरी के साथ अपने घर को सशक्त बनाएँ।",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 

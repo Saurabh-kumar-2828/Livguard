@@ -34,6 +34,8 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
             title: "भारत में सबसे कम कीमत पर घर के लिए सर्वश्रेष्ठ इनवर्टर खरीदें",
             description: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 

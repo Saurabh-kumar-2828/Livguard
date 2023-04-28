@@ -34,12 +34,14 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
             title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी खरीदें",
             description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
-// };
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

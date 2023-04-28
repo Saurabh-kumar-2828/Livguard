@@ -39,12 +39,14 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
             title: "श्रेणी में सर्वश्रेष्ठ लिवगर्ड होम इनवर्टर और बैटरी खरीदें",
             description: "लंबे समय तक चलने वाले लिवगार्ड स्मार्ट इनवर्टर और इनवर्टर बैटरी से अपने घर को ऊर्जा दें। ऊर्जा संग्रहण समाधानों की हमारी विस्तृत श्रृंखला का अन्वेषण करें",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
-// };
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -120,6 +122,9 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
         }
 
         setFormSubmittedSuccessfully(true);
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
     }, [fetcher.data]);
 
     const utmSearchParameters = useUtmSearchParameters();

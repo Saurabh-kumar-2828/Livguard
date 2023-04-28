@@ -40,12 +40,14 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
             title: "लिवगार्ड होम इनवर्टर और इनवर्टर बैटरी के साथ अपनी ऊर्जा का जिम्मेदारी लें",
             description: "लिवगार्ड के इनवर्टर, इनवर्टर बैटरी और अन्य ऊर्जा संग्रहण समाधानों की विस्तृत श्रृंखला के माध्यम से असीमित ऊर्जा से सशक्त बनें।",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
-// };
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -121,6 +123,9 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
         }
 
         setFormSubmittedSuccessfully(true);
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
     }, [fetcher.data]);
 
     const utmSearchParameters = useUtmSearchParameters();

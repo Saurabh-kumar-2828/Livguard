@@ -85,7 +85,7 @@ export function OtpVerificationDialog({
 
                         <VerticalSpacer className="tw-h-10" />
 
-                        <div className="tw-self-center tw-max-w-fit">
+                        <div className="tw-self-center tw-max-w-fit tw-justify-items-center">
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"

@@ -40,6 +40,8 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
             title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
             description: "अपने आस-पास के डीलरों को आसानी से खोजें। खरीदें अपने घर के लिए लिवगार्ड इनवर्टर, इनवर्टर बैटरी हमारे अधिकृत डीलरों के माध्यम से।",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 

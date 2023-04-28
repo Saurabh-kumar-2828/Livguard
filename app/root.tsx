@@ -49,7 +49,9 @@ export const loader: LoaderFunction = async ({request}) => {
     };
 
     const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL"));
-    const canonicalUrl = requestUrl.includes("?") ? requestUrl : requestUrl.endsWith("/") ? requestUrl : `${requestUrl}/`;
+    // TODO: This is probably incorrect, shift canonical url handling to each separate page
+    const canonicalUrlUnnormalized = requestUrl.split("?")[0];
+    const canonicalUrl = canonicalUrlUnnormalized.endsWith("/") ? canonicalUrlUnnormalized : `${canonicalUrlUnnormalized}/`;
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -77,23 +79,23 @@ export const links: LinksFunction = () => [
     {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/brueur-text.ttf", as: "font", crossOrigin: "anonymous"},
 ];
 
-const dynamicLinks: DynamicLinksFunction<LoaderData> = ({
-    id,
-    data,
-    params,
-    location,
-    parentsData,
-}) => {
-    if (!data) {
-        return []
-    };
+// const dynamicLinks: DynamicLinksFunction<LoaderData> = ({
+//     id,
+//     data,
+//     params,
+//     location,
+//     parentsData,
+// }) => {
+//     if (!data) {
+//         return []
+//     };
 
-    return [{rel: "canonical", href: data.canonicalUrl}];
-};
+//     return [{rel: "canonical", href: data.canonicalUrl}];
+// };
 
-export const handle = {
-    dynamicLinks: dynamicLinks,
-};
+// export const handle = {
+//     dynamicLinks: dynamicLinks,
+// };
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function () {
@@ -170,7 +172,7 @@ export default function () {
                     <link
                         rel="alternate"
                         href={canonicalUrl}
-                        hrefLang={Language.English}
+                        hrefLang="x-default"
                     />
                     <ItemBuilder
                         items={[Language.English, Language.Hindi]}
@@ -265,13 +267,6 @@ export default function () {
                         }}
                     />
                     {/* /FOUC hack */}
-
-                    {/* CRM tracking code Start*/}
-                    <script
-                        src="//in.fw-cdn.com/30708678/381117.js"
-                        chat="true"
-                    ></script>
-                    {/* CRM tracking code end*/}
                 </head>
 
                 <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">

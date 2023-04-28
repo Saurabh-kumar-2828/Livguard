@@ -49,6 +49,8 @@ export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
             title: "लिवगार्ड: इनवर्टर, बैटरी और सभी प्रकार के ऊर्जा संग्रहण समाधान खरीदें",
             description: "लिवगार्ड के साथ अपने घर के लिए इनवर्टर, बैटरी और ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी की खरीदारी करें",
         };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 
@@ -1033,7 +1035,6 @@ export function ContactUsDialog({
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""})
     const [step, setStep] = useState(1);
-    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
 
     useEffect(() => {
 
