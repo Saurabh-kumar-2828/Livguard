@@ -27,6 +27,10 @@ export const action: ActionFunction = async ({request, params}) => {
     //     return json(actionData);
     // }
 
+    console.log("utm parameters :", utmParameters);
+    console.log("inputData :", inputData);
+    console.log("otp submitted :", otpSubmitted);
+
     if (inputData == null || utmParameters == null || otpSubmitted == null) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: bb551a66-7e7b-4c70-a21d-975dbe3872ca",
