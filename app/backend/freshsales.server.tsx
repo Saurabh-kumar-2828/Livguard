@@ -3,7 +3,7 @@ import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeVali
 import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 
 export async function sendDataToFreshsales(
-    formResponse: {mobile_number?: string; first_name?: string; email: string; city?: string},
+    formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean},
     utmParameters: {[searchParameter: string]: string},
 ): Promise<void | Error> {
     const contactData = {
@@ -18,6 +18,7 @@ export async function sendDataToFreshsales(
             cf_lead_source: utmParameters["utm_source"] != null ? utmParameters["utm_source"] : "",
             cf_gclid: utmParameters["gclid"] != null ? utmParameters["gclid"] : "",
             cf_fclid: utmParameters["fbclid"] != null ? utmParameters["fbclid"] : "",
+            cf_otp_verified: formResponse.otpVerified
         },
         created_at: getCurrentIsoTimestamp(),
     };

@@ -71,34 +71,70 @@ export async function insertDealerLeads(formResponse: {phoneNumber: string; name
     }
 }
 
-export async function insertContactLeads(formResponse: {
+export async function insertOrUpdateContactLeads(leadId: string, formResponse: {
     phoneNumber: string;
     name: string;
     emailId: string;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    otpVerified: boolean;
 }): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
 
-    const result = await postgresDatabaseManager.execute(
-        `
-            INSERT INTO
-                livguard.contact_us_leads
-            VALUES(
-                $1,
-                $2,
-                $3
-            )
+    const lead = await postgresDatabaseManager.execute(
+        `SELECT
+            *
+        FROM
+            livguard.contact_us_leads
+        WHERE
+            id = $1
         `,
-        [generateUuid(), getCurrentIsoTimestamp(), formResponse],
+        [leadId]
     );
 
-    if (result instanceof Error) {
-        return result;
+    if(lead instanceof Error){
+        return lead;
+    }
+    if(lead.rowCount == 0){
+        const result = await postgresDatabaseManager.execute(
+            `
+                INSERT INTO
+                    livguard.contact_us_leads
+                VALUES(
+                    $1,
+                    $2,
+                    $3,
+                    $4
+                )
+            `,
+            [leadId, getCurrentIsoTimestamp(), getCurrentIsoTimestamp(), formResponse],
+        );
+
+        if (result instanceof Error) {
+            return result;
+        }
+    }
+    else{
+        const result = await postgresDatabaseManager.execute(
+            `
+                UPDATE
+                    livguard.contact_us_leads
+                SET
+                    form_response = $2,
+                    updated_timestamp = $3
+                WHERE
+                    id = $1
+            `,
+            [leadId, formResponse, getCurrentIsoTimestamp()],
+        );
+
+        if (result instanceof Error) {
+            return result;
+        }
     }
 }
 

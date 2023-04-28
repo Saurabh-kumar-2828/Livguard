@@ -26,7 +26,7 @@ import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeigh
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
@@ -1035,6 +1035,7 @@ export function ContactUsDialog({
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""})
     const [step, setStep] = useState(1);
+    const leadId = generateUuid();
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -1144,6 +1145,13 @@ export function ContactUsDialog({
                         className="tw-hidden"
                         readOnly
                         value={JSON.stringify(utmParameters)}
+                    />
+
+                    <input
+                        name="leadId"
+                        className="tw-hidden"
+                        readOnly
+                        value={leadId}
                     />
 
                     <button
