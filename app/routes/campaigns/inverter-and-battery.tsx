@@ -157,7 +157,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 id="contact-us-form-mobile"
             >
-                {step == 1 ? (
+                {step == 2 ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
@@ -166,7 +166,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                         setInputData={setInputData}
                         leadId={leadId}
                     />
-                ) : step == 2 ? (
+                ) : step == 1 ? (
                     <OtpVerificationForm
                         userPreferences={userPreferences}
                         inputData={inputData}
@@ -316,7 +316,7 @@ function HeroSection({
             </div>
 
             <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
-                {step == 1 ? (
+                {step == 2 ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
@@ -325,7 +325,7 @@ function HeroSection({
                         setInputData={setInputData}
                         leadId={leadId}
                     />
-                ) : step == 2 ? (
+                ) : step == 1 ? (
                     <OtpVerificationForm
                         userPreferences={userPreferences}
                         inputData={inputData}

@@ -32,7 +32,7 @@ export function OtpVerificationForm({
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
             <DefaultElementAnimation>
                 <fetcher.Form
-                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-max-w-[30rem] lg:tw-mx-auto tw-grid tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center tw-overflow-hidden"
+                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[30rem] lg:tw-max-w-[30rem] lg:tw-mx-auto tw-grid tw-grid-cols-1 tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center tw-overflow-hidden"
                     method="post"
                     action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
                 >
@@ -41,7 +41,7 @@ export function OtpVerificationForm({
                         className="tw-row-[1/span_10] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
                     />
 
-                    <div className="tw-row-start-2 tw-text-center lg-text-headline tw-px-8">
+                    <div className="tw-row-start-2 tw-col-start-1 tw-text-center lg-text-headline tw-px-8">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
                     </div>
 
@@ -82,11 +82,10 @@ export function OtpVerificationForm({
 
                     <VerticalSpacer className="tw-h-10 tw-row-start-7" />
 
-                    <div className="tw-self-center">
+                    <div className="tw-self-center tw-row-start-[8] tw-col-start-1">
                         <FixedHeightImage
                             relativePath="/livguard/header/akshay.png"
                             height="13.75rem"
-                            className="tw-row-start-[8]"
                         />
                     </div>
 

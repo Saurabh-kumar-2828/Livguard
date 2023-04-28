@@ -45,7 +45,7 @@ export function OtpVerificationDialog({
             >
                 <DefaultElementAnimation>
                     <fetcher.Form
-                        className="tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center"
+                        className="tw-grid tw-grid-cols-1 tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center"
                         method="post"
                         action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
                     >
