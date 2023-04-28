@@ -114,7 +114,7 @@ export async function insertOrUpdateContactLeads(
                     $4
                 )
             `,
-            [leadId, getCurrentIsoTimestamp(), getCurrentIsoTimestamp(), formResponse],
+            [leadId, getCurrentIsoTimestamp(), formResponse, getCurrentIsoTimestamp()],
         );
 
         if (result instanceof Error) {
