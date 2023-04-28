@@ -743,6 +743,13 @@ export function ApplyNowForDealerDialog({
                         value={leadId}
                     />
 
+                    <input
+                        name="formType"
+                        className="tw-hidden"
+                        readOnly
+                        value={FormType.applyForDealership}
+                    />
+
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
