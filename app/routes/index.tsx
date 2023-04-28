@@ -286,19 +286,11 @@ function HeroSection({
             )}
             ref={ref}
         >
-            {/* <CoverImage
-                relativePath="/livguard/home/1/1.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1"
-            /> */}
-
             {containerWidth == null || containerHeight == null ? null : (
-                <video
-                    src={containerHeight > containerWidth ? "https://files.growthjockey.com/livguard/videos/home/1/1-mobile.mp4" : "https://files.growthjockey.com/livguard/videos/home/1/1-desktop.mp4"}
-                    className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-object-cover"
-                    autoPlay={true}
-                    muted={true}
-                    loop={true}
-                    controls={false}
+                <CoverImage
+                    relativePath={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    key={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
                 />
             )}
 
