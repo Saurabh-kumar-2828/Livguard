@@ -51,7 +51,7 @@ export function ContactForm({
 
             <DefaultElementAnimation>
                 <fetcher.Form
-                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-max-w-[30rem] lg:tw-mx-auto tw-grid tw-grid-rows-[3rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_3rem] tw-justify-items-center tw-overflow-hidden"
+                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[30rem] lg:tw-max-w-[30rem] lg:tw-mx-auto tw-grid tw-grid-rows-[3rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_3rem] tw-justify-items-center tw-overflow-hidden"
                     method="post"
                     action="/otp-verification"
                 >
