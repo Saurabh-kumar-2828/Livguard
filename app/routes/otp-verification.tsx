@@ -48,7 +48,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const result = await sendOtp(phoneNumber, name);
     if (result instanceof Error) {
         const actionData: GenericActionData = {
-            error: "Error while sending otp! Error code: a73f9127-a627-4066-92cd-c7017056e0fe",
+            error: "Error while sending otp! Error code:c7547ab4-41ba-472c-b60a-11a9c97c652c",
             type: "otp-verification",
         };
         return json(actionData);

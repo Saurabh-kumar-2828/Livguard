@@ -1,6 +1,6 @@
 import {ActionFunction, json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
-import {insertContactLeads, insertOrUpdateContactLeads} from "~/backend/dealer.server";
+import {insertOrUpdateContactLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 

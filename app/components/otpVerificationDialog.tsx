@@ -3,6 +3,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import LivguardDialog from "~/components/livguardDialog";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {UserPreferences} from "~/typeDefinitions";
@@ -16,6 +17,7 @@ export function OtpVerificationDialog({
     utmParameters,
     className,
     inputData,
+    leadId,
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -25,7 +27,8 @@ export function OtpVerificationDialog({
         [searchParameter: string]: string;
     };
     className?: string;
-    inputData: {name: string; phoneNumber: string; emailId: string};
+    inputData: {name: string; phoneNumber: string; emailId: string;};
+    leadId: Uuid;
 }) {
     function tryToCloseDialog() {
         setIsDialogOpen(false);
@@ -113,6 +116,12 @@ export function OtpVerificationDialog({
                             className="tw-hidden"
                             readOnly
                             value={JSON.stringify(inputData)}
+                        />
+                        <input
+                            name="leadId"
+                            className="tw-hidden"
+                            readOnly
+                            value={leadId}
                         />
                     </fetcher.Form>
                 </DefaultElementAnimation>

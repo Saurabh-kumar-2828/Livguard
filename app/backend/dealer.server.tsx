@@ -71,15 +71,18 @@ export async function insertDealerLeads(formResponse: {phoneNumber: string; name
     }
 }
 
-export async function insertOrUpdateContactLeads(leadId: string, formResponse: {
-    phoneNumber: string;
-    name: string;
-    emailId: string;
-    utmParameters: {
-        [searchParameter: string]: string;
-    };
-    otpVerified: boolean;
-}): Promise<void | Error> {
+export async function insertOrUpdateContactLeads(
+    leadId: string,
+    formResponse: {
+        phoneNumber: string;
+        name: string;
+        emailId: string;
+        otpVerified: boolean;
+        utmParameters: {
+            [searchParameter: string]: string;
+        };
+    },
+): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
@@ -93,13 +96,13 @@ export async function insertOrUpdateContactLeads(leadId: string, formResponse: {
         WHERE
             id = $1
         `,
-        [leadId]
+        [leadId],
     );
 
-    if(lead instanceof Error){
+    if (lead instanceof Error) {
         return lead;
     }
-    if(lead.rowCount == 0){
+    if (lead.rowCount == 0) {
         const result = await postgresDatabaseManager.execute(
             `
                 INSERT INTO
@@ -117,8 +120,7 @@ export async function insertOrUpdateContactLeads(leadId: string, formResponse: {
         if (result instanceof Error) {
             return result;
         }
-    }
-    else{
+    } else {
         const result = await postgresDatabaseManager.execute(
             `
                 UPDATE
