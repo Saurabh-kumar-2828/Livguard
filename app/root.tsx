@@ -12,6 +12,7 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import tailwindStylesheet from "~/tailwind.css";
 import {DynamicLinks, DynamicLinksFunction} from "remix-utils";
+import {ToastContainer} from "react-toastify";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -271,6 +272,13 @@ export default function () {
 
                 <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
                     <Outlet />
+
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={false}
+                        theme="dark"
+                    />
+
                     <ScrollRestoration />
                     <Scripts />
                     <LiveReload />

@@ -1037,7 +1037,6 @@ export function ContactUsDialog({
     const [step, setStep] = useState(1);
 
     useEffect(() => {
-
         if (fetcher.data == null) {
             return;
         }

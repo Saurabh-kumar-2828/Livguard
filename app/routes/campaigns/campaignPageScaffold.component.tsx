@@ -1,4 +1,3 @@
-import {ToastContainer} from "react-toastify";
 import {FooterComponent} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {UserPreferences} from "~/typeDefinitions";
@@ -39,12 +38,6 @@ export function CampaignPageScaffold({
                     utmParameters={utmParameters}
                 />
             </div>
-
-            <ToastContainer
-                position="top-right"
-                autoClose={false}
-                theme="dark"
-            />
         </>
     );
 }
