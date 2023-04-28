@@ -38,16 +38,16 @@ export function OtpVerificationForm({
                 >
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
-                        className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
+                        className="tw-row-[1/span_10] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
                     />
 
-                    <div className="tw-row-start-1 tw-text-center lg-text-headline tw-px-8">
+                    <div className="tw-row-start-2 tw-text-center lg-text-headline tw-px-8">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
                     </div>
 
-                    <div className="tw-h-8" />
+                    <div className="tw-h-8 tw-row-start-3" />
 
-                    <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                         <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-1" />
@@ -64,9 +64,9 @@ export function OtpVerificationForm({
                         />
                     </div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-2 tw-row-start-5" />
 
-                    <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                         <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-1" />
@@ -80,16 +80,17 @@ export function OtpVerificationForm({
                         />
                     </div>
 
-                    <VerticalSpacer className="tw-h-10" />
+                    <VerticalSpacer className="tw-h-10 tw-row-start-7" />
 
                     <div className="tw-self-center">
                         <FixedHeightImage
                             relativePath="/livguard/header/akshay.png"
                             height="13.75rem"
+                            className="tw-row-start-[8]"
                         />
                     </div>
 
-                    <div className="tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10 tw-row-start-[9]">
                         <button
                             type="submit"
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
