@@ -13,7 +13,7 @@ import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthI
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {getUuidFromUnkown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
         throw userPreferences;
     }
 
-    const loadCalculatorInputsId = safeParse(getUuidFromUnkown, params.loadCalculatorInputsId);
+    const loadCalculatorInputsId = safeParse(getUuidFromUnknown, params.loadCalculatorInputsId);
     if (loadCalculatorInputsId == null) {
         throw loadCalculatorInputsId;
     }
