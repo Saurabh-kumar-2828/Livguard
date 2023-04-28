@@ -76,7 +76,7 @@ export function OtpVerificationDialog({
 
                             <input
                                 type="text"
-                                name="name"
+                                name="otpSubmitted"
                                 className="lg-text-input"
                                 required
                                 placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
