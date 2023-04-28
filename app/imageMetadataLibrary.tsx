@@ -729,12 +729,19 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
         placeholderColor: "#382828",
     },
-    "/livguard/home/1/1.jpg": {
-        width: 390,
-        height: 515,
+    "/livguard/home/1/1-desktop.jpg": {
+        width: 3841,
+        height: 3840,
         altText: "Dummy alt text",
-        blurHash: "LBAmk[?F-nx].TxZtR%fo#R-n%t7",
-        placeholderColor: "#787878",
+        blurHash: "LDA]dAjF-pgN~Wa1%Mxu.8Ioxu-p",
+        placeholderColor: "#181818",
+    },
+    "/livguard/home/1/1-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        altText: "Dummy alt text",
+        blurHash: "LJByHq%MtR%M~W%3-p%M~Wo}xu%2",
+        placeholderColor: "#281818",
     },
     "/livguard/home/10/1-dark.jpg": {
         width: 974,
