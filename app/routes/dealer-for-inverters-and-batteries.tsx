@@ -12,6 +12,7 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
 import LivguardDialog from "~/components/livguardDialog";
+import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
@@ -19,12 +20,12 @@ import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthI
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {ContactUsCta} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
+import {Dealer, FormType, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -604,8 +605,9 @@ export function ApplyNowForDealerDialog({
     };
 }) {
     const fetcher = useFetcher();
-
-    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string, city: string}>({name: "", phoneNumber: "", emailId: "", city:""});
+    const [step, setStep] = useState(1);
+    const leadId = generateUuid();
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -617,7 +619,13 @@ export function ApplyNowForDealerDialog({
             return;
         }
 
-        setFormSubmittedSuccessfully(true);
+        if (fetcher.data.type == FormType.otpVerification) {
+            setStep(2);
+        }
+
+        if (fetcher.data.type == FormType.applyForDealership) {
+            setStep(3);
+        }
     }, [fetcher.data]);
 
     function tryToCloseApplyNowDialog() {
@@ -627,14 +635,14 @@ export function ApplyNowForDealerDialog({
     return (
         <>
             <LivguardDialog
-                isDialogOpen={isApplyNowDialogOpen && !formSubmittedSuccessfully}
+                isDialogOpen={isApplyNowDialogOpen && step == 1}
                 tryToCloseDialog={tryToCloseApplyNowDialog}
                 title={getVernacularString("applyNowForDealerT1", userPreferences.language)}
             >
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"
                     method="post"
-                    action="/apply-for-dealership"
+                    action="/otp-verification"
                 >
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT2", userPreferences.language)}*`}</div>
 
@@ -647,6 +655,11 @@ export function ApplyNowForDealerDialog({
                         pattern={phoneNumberValidationPattern}
                         required
                         placeholder={getVernacularString("applyNowForDealerPH2", userPreferences.language)}
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.phoneNumber = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-4" />
@@ -661,6 +674,11 @@ export function ApplyNowForDealerDialog({
                         name="name"
                         required
                         placeholder={getVernacularString("applyNowForDealerPH3", userPreferences.language)}
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.name = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-4" />
@@ -676,6 +694,11 @@ export function ApplyNowForDealerDialog({
                         pattern={emailIdValidationPattern}
                         required
                         placeholder={getVernacularString("applyNowForDealerPH4", userPreferences.language)}
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.emailId = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-4" />
@@ -690,6 +713,11 @@ export function ApplyNowForDealerDialog({
                         name="city"
                         required
                         placeholder={getVernacularString("applyNowForDealerPH5", userPreferences.language)}
+                        onChange={(e) => {
+                            const newState = structuredClone(inputData);
+                            newState.city = e.target.value;
+                            setInputData(newState);
+                        }}
                     />
 
                     <VerticalSpacer className="tw-h-8" />
@@ -708,6 +736,13 @@ export function ApplyNowForDealerDialog({
                         value={JSON.stringify(utmParameters)}
                     />
 
+                    <input
+                        name="leadId"
+                        className="tw-hidden"
+                        readOnly
+                        value={leadId}
+                    />
+
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
@@ -718,9 +753,20 @@ export function ApplyNowForDealerDialog({
                 </fetcher.Form>
             </LivguardDialog>
 
+            <OtpVerificationDialog
+                userPreferences={userPreferences}
+                isDialogOpen={isApplyNowDialogOpen && step == 2}
+                setIsDialogOpen={tryToCloseApplyNowDialog}
+                inputData={inputData}
+                fetcher={fetcher}
+                utmParameters={utmParameters}
+                leadId={leadId}
+                formType={FormType.applyForDealership}
+            />
+
             <FormSubmissionSuccessLivguardDialog
                 userPreferences={userPreferences}
-                isDialogOpen={isApplyNowDialogOpen && formSubmittedSuccessfully}
+                isDialogOpen={isApplyNowDialogOpen && step == 3}
                 tryToCloseDialog={tryToCloseApplyNowDialog}
             />
         </>

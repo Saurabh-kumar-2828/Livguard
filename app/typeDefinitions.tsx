@@ -130,3 +130,9 @@ export type Dealer = {
     longitude: number;
     stateCode: string;
 }
+
+export enum FormType {
+    otpVerification = "otp-verification",
+    contactUsSubmission = "contact-us-submission",
+    applyForDealership = "apply-for-dealership"
+}

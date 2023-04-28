@@ -33,7 +33,7 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, Theme, UserPreferences} from "~/typeDefinitions";
+import {FormType, Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -1033,7 +1033,7 @@ export function ContactUsDialog({
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""})
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""});
     const [step, setStep] = useState(1);
     const leadId = generateUuid();
 
@@ -1047,14 +1047,12 @@ export function ContactUsDialog({
             return;
         }
 
-        if(fetcher.data.type == "otp-verification"){
+        if(fetcher.data.type == FormType.otpVerification){
             setStep(2);
-            console.log("Form type is otp verification");
         }
 
-        if(fetcher.data.type == "form-submission"){
+        if(fetcher.data.type == FormType.contactUsSubmission){
             setStep(3);
-            console.log("Form type is form submission");
         }
 
         window.dataLayer = window.dataLayer || [];
@@ -1172,6 +1170,7 @@ export function ContactUsDialog({
                 fetcher={fetcher}
                 utmParameters={utmParameters}
                 leadId={leadId}
+                formType={FormType.contactUsSubmission}
             />
 
             <FormSubmissionSuccessLivguardDialog

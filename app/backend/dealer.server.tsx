@@ -1,4 +1,5 @@
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
@@ -47,27 +48,61 @@ function rowToDealerInformation(row: any): Dealer {
     return dealer;
 }
 
-export async function insertDealerLeads(formResponse: {phoneNumber: string; name: string; emailId: string; city: string}): Promise<void | Error> {
+export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId: string; city: string; otpVerified: boolean}): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
 
-    const result = await postgresDatabaseManager.execute(
-        `
-            INSERT INTO
-                livguard.dealer_form_leads
-            VALUES(
-                $1,
-                $2,
-                $3
-            )
+    const lead = await postgresDatabaseManager.execute(
+        `SELECT
+            *
+        FROM
+            livguard.dealer_form_leads
+        WHERE
+            id = $1
         `,
-        [generateUuid(), getCurrentIsoTimestamp(), formResponse],
+        [leadId],
     );
 
-    if (result instanceof Error) {
-        return result;
+    if (lead instanceof Error) {
+        return lead;
+    }
+    if (lead.rowCount == 0) {
+        const result = await postgresDatabaseManager.execute(
+            `
+                INSERT INTO
+                    livguard.dealer_form_leads
+                VALUES(
+                    $1,
+                    $2,
+                    $3,
+                    $4
+                )
+            `,
+            [leadId, getCurrentIsoTimestamp(), formResponse, getCurrentIsoTimestamp()],
+        );
+
+        if (result instanceof Error) {
+            return result;
+        }
+    } else {
+        const result = await postgresDatabaseManager.execute(
+            `
+                UPDATE
+                    livguard.dealer_form_leads
+                SET
+                    form_response = $2,
+                    updated_timestamp = $3
+                WHERE
+                    id = $1
+            `,
+            [leadId, formResponse, getCurrentIsoTimestamp()],
+        );
+
+        if (result instanceof Error) {
+            return result;
+        }
     }
 }
 

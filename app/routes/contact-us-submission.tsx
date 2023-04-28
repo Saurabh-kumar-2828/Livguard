@@ -3,6 +3,7 @@ import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateContactLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {FormType} from "~/typeDefinitions";
 
 export type GenericActionData = {
     error: string | null;
@@ -20,7 +21,7 @@ export const action: ActionFunction = async ({request, params}) => {
     if (inputData == null || utmParameters == null || otpSubmitted == null || leadId == null) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: bb551a66-7e7b-4c70-a21d-975dbe3872ca",
-            type: "form-submission",
+            type: FormType.contactUsSubmission,
         };
         return json(actionData);
     }
@@ -29,7 +30,7 @@ export const action: ActionFunction = async ({request, params}) => {
     if (!otpVerificationResult.success) {
         const actionData: GenericActionData = {
             error: "Please enter valid otp! Error code: a73f9127-a627-4066-92cd-c7017056e0fe",
-            type: "form-submission",
+            type: FormType.contactUsSubmission,
         };
         return json(actionData);
     }
@@ -41,7 +42,7 @@ export const action: ActionFunction = async ({request, params}) => {
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: a73f9127-a627-4066-92cd-c7017056e0fe",
-            type: "form-submission"
+            type: FormType.contactUsSubmission,
         };
         return json(actionData);
     }
@@ -50,14 +51,14 @@ export const action: ActionFunction = async ({request, params}) => {
     if (freshsalesResult instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
-            type: "form-submission"
+            type: FormType.contactUsSubmission,
         };
         return json(actionData);
     }
 
     const actionData: GenericActionData = {
         error: null,
-        type: "form-submission"
+        type: FormType.contactUsSubmission,
     };
 
     return json(actionData);

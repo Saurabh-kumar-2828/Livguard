@@ -6,7 +6,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {UserPreferences} from "~/typeDefinitions";
+import {FormType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function OtpVerificationDialog({
@@ -18,6 +18,7 @@ export function OtpVerificationDialog({
     className,
     inputData,
     leadId,
+    formType,
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -27,8 +28,9 @@ export function OtpVerificationDialog({
         [searchParameter: string]: string;
     };
     className?: string;
-    inputData: {name: string; phoneNumber: string; emailId: string;};
+    inputData: {name: string; phoneNumber: string; emailId: string; city?: string};
     leadId: Uuid;
+    formType: string
 }) {
     function tryToCloseDialog() {
         setIsDialogOpen(false);
@@ -45,7 +47,7 @@ export function OtpVerificationDialog({
                     <fetcher.Form
                         className="tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center"
                         method="post"
-                        action="/contact-us-submission"
+                        action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
                     >
                         <div className="tw-row-start-1 tw-text-center lg-text-headline tw-px-8">
                             <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
@@ -88,11 +90,10 @@ export function OtpVerificationDialog({
 
                         <VerticalSpacer className="tw-h-10" />
 
-                        <div className="tw-self-center tw-max-w-fit tw-justify-items-center">
+                        <div className="tw-self-center">
                             <FixedHeightImage
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
-                                className="tw-place-self-center"
                             />
                         </div>
 
@@ -119,6 +120,12 @@ export function OtpVerificationDialog({
                         />
                         <input
                             name="leadId"
+                            className="tw-hidden"
+                            readOnly
+                            value={leadId}
+                        />
+                        <input
+                            name="formType"
                             className="tw-hidden"
                             readOnly
                             value={leadId}
