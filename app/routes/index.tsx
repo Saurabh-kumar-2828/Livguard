@@ -1026,7 +1026,7 @@ export function ContactUsDialog({
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""});
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(1);
     const leadId = generateUuid();
 
     useEffect(() => {
