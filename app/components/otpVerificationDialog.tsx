@@ -45,17 +45,17 @@ export function OtpVerificationDialog({
             >
                 <DefaultElementAnimation>
                     <fetcher.Form
-                        className="tw-grid tw-grid-cols-1 tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center"
+                        className="tw-grid tw-grid-cols-1 tw-justify-items-center"
                         method="post"
                         action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
                     >
-                        <div className="tw-row-start-1 tw-text-center lg-text-headline tw-px-8">
+                        <div className="tw-text-center lg-text-headline tw-px-8">
                             <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
                         </div>
 
                         <div className="tw-h-8" />
 
-                        <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                        <div className="tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                             <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-1" />
@@ -74,7 +74,7 @@ export function OtpVerificationDialog({
 
                         <VerticalSpacer className="tw-h-2" />
 
-                        <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                        <div className="tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                             <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-1" />
