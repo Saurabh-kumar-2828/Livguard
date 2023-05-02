@@ -126,14 +126,17 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
 
         if (fetcher.data.type == FormType.otpVerification) {
             setStep(2);
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event: "submit"});
+            return;
         }
 
         if (fetcher.data.type == FormType.contactUsSubmission) {
             setStep(3);
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({event: "otp_verified_lead"});
+            return;
         }
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({event: "submit"});
     }, [fetcher.data]);
 
     const utmSearchParameters = useUtmSearchParameters();

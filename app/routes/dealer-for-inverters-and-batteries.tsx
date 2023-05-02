@@ -139,20 +139,49 @@ export default function () {
 
             <StickyBottomBar userPreferences={userPreferences} />
 
-
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: `
                         {
                             "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Dealer Locator",
-                            "url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-                            "logo": "",
-                            "sameAs": ""
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "LivGuard",
+                                    "item": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Dealer Locator",
+                                    "item": "https://www.livguard.com/inverter-batteries",
+                                    "description": "Find the Livguard dealer near you"
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Livguard",
+                                    "url": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Dealer Locator",
+                                    "url": "https://www.livguard.com/inverter-batteries",
+                                    "description": "Find the Livguard dealer near you"
+                                }
+                            ]
                         }
-                    `
+                    `,
                 }}
             />
         </>
@@ -431,19 +460,19 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
             let sumLat = 0;
             let sumLng = 0;
             let sumDealer = 0;
-            for(const dealer of dealerList){
-                if(index >= 5){
+            for (const dealer of dealerList) {
+                if (index >= 5) {
                     break;
                 }
-                if(dealer.latitude != null && dealer.longitude != null){
+                if (dealer.latitude != null && dealer.longitude != null) {
                     sumLat = sumLat + Number(dealer.latitude);
                     sumLng = sumLng + Number(dealer.longitude);
                     index++;
                     sumDealer++;
                 }
             }
-            const latCenter = sumLat/sumDealer;
-            const lngCenter = sumLng/sumDealer;
+            const latCenter = sumLat / sumDealer;
+            const lngCenter = sumLng / sumDealer;
             setMapCenter({lat: latCenter, lng: lngCenter});
             setZoomLevel(10);
         }
@@ -459,7 +488,14 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
                 center={mapCenter}
                 zoom={zoomLevel}
             >
-                {dealerList == null || dealerList.length == 0 ? null : dealerList.slice(0, 5).map((dealer, dealerIndex) => <MarkerF position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}} key={dealerIndex} />)}
+                {dealerList == null || dealerList.length == 0
+                    ? null
+                    : dealerList.slice(0, 5).map((dealer, dealerIndex) => (
+                          <MarkerF
+                              position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
+                              key={dealerIndex}
+                          />
+                      ))}
 
                 {/* <Autocomplete
                     onLoad={()}
@@ -605,7 +641,7 @@ export function ApplyNowForDealerDialog({
     };
 }) {
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string, city: string}>({name: "", phoneNumber: "", emailId: "", city:""});
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string; city: string}>({name: "", phoneNumber: "", emailId: "", city: ""});
     const [step, setStep] = useState(1);
     const leadId = generateUuid();
 

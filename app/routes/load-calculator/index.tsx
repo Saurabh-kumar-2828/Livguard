@@ -140,15 +140,42 @@ export default function () {
                 dangerouslySetInnerHTML={{
                     __html: `
                         {
-                            "@context": "https://schema.org/",
-                            "@type": "WebSite",
-                            "name": "https://www.livguard.com",
-                            "url": "https://www.livguard.com/load-calculator",
-                            "potentialAction": {
-                                "@type": "SearchAction",
-                                "target": "https://www.livguard.com/load-calculator/{search_term_string}",
-                                "query-input": "required name=search_term_string"
-                            }
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "LivGuard",
+                                    "item": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Load Calculator",
+                                    "item": "https://www.livguard.com/load-calculator",
+                                    "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Livguard",
+                                    "url": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Load Calculator",
+                                    "url": "https://www.livguard.com/load-calculator",
+                                    "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
+                                }
+                            ]
                         }
                     `,
                 }}

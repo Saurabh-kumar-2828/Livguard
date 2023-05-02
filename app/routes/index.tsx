@@ -105,60 +105,93 @@ export default function () {
                     __html: `
                         {
                             "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Livfast Batteries Pvt Ltd",
-                            "url": "https://www.livguard.com/",
-                            "sameAs": [
-                                "https://www.facebook.com/LivguardEnergy/",
-                                "https://twitter.com/LivguardEnergy",
-                                "https://www.youtube.com/channel/UCKO6j1RdJP6_8mjtJrjWPbQ",
-                                "https://www.instagram.com/livguardenergy/?hl=en"
-                            ]
-                        },
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "url": "https://www.livguard.com/",
-                            "logo": "https://www.livguard.com/img/livguard-logo.jpg"
-                        },
-                        {
-                            "@context": "http://schema.org",
-                            "@type": "Organization",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "Gurgaon",
-                                "addressRegion": "Haryana",
-                                "postalCode": "122016",
-                                "streetAddress": "Plot No. 221, Phase-I, Udyog Vihar,"
-                            },
-                            "email": "marketing@livguard.com",
-                            "image": "hhttps://www.livguard.com/img/livguard-logo.jpg",
-                            "url": "https://www.livguard.com/",
-                            "name": "Livguard Energy Technologies Private Limited",
-                            "contactPoint": [
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+91-124-4987 400",
-                                    "contactType": "customer service",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "LivGuard",
+                                    "item": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
                                 },
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+1 1800-200-5551",
-                                    "contactType": "customer service",
-                                    "contactOption": "TollFree",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Inverters",
+                                    "item": "https://www.livguard.com/inverter-for-home",
+                                    "description": "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"
+                                    ]
                                 },
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+1 1860-200-5552",
-                                    "contactType": "customer service",
-                                    "contactOption": "TollFree",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Inverters Batteries",
+                                    "item": "https://www.livguard.com/inverter-batteries",
+                                    "description": " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Livguard",
+                                    "url": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Inverters",
+                                    "url": "https://www.livguard.com/inverter-for-home",
+                                    "description": "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Inverters Batteries",
+                                    "url": "https://www.livguard.com/inverter-batteries",
+                                    "description": "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
+                                    ]
+                                },
+                                {
+                                    "@type": "Organization",
+                                    "legalName": "Livguard Energy Technologies Private Limited",
+                                    "url": "https://www.livguard.com/",
+                                    "logo": "https://files.growthjockey.com/livguard/icons/logo-dark.svg",
+                                    "contactPoint": {
+                                        "@type": "ContactPoint",
+                                        "telephone": "+91-124-4987 400"
+                                    },
+                                    "address": {
+                                        "@type": "PostalAddress",
+                                        "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                                        "addressLocality": "Gurugram",
+                                        "addressRegion": "Haryana",
+                                        "postalCode": "122016",
+                                        "addressCountry": "India"
+                                    },
+                                    "sameAs": [
+                                        "https://www.facebook.com/LivguardEnergy/",
+                                        "https://twitter.com/LivguardEnergy",
+                                        "https://www.instagram.com/livguardenergy/",
+                                        "https://www.linkedin.com/company/livguard-energy/",
+                                        "https://www.youtube.com/@LivguardEnergy"
+                                    ]
                                 }
                             ]
                         }
-                    `
+                    `,
                 }}
             />
         </>

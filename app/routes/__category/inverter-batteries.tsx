@@ -22,7 +22,7 @@ import {Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
@@ -79,7 +79,10 @@ export default function () {
                     {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "#"},
                 ]}
             >
-                <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
+                <CategoryPage
+                    userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
+                />
             </PageScaffold>
 
             <DownloadCatalogueBottomBar userPreferences={userPreferences} />
@@ -90,60 +93,49 @@ export default function () {
                     __html: `
                         {
                             "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Livfast Batteries Pvt Ltd",
-                            "url": "https://www.livguard.com/",
-                            "sameAs": [
-                                "https://www.facebook.com/LivguardEnergy/",
-                                "https://twitter.com/LivguardEnergy",
-                                "https://www.youtube.com/channel/UCKO6j1RdJP6_8mjtJrjWPbQ",
-                                "https://www.instagram.com/livguardenergy/?hl=en"
-                            ]
-                        },
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "url": "https://www.livguard.com/",
-                            "logo": "https://www.livguard.com/img/livguard-logo.jpg"
-                        },
-                        {
-                            "@context": "http://schema.org",
-                            "@type": "Organization",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "Gurgaon",
-                                "addressRegion": "Haryana",
-                                "postalCode": "122016",
-                                "streetAddress": "Plot No. 221, Phase-I, Udyog Vihar,"
-                            },
-                            "email": "marketing@livguard.com",
-                            "image": "hhttps://www.livguard.com/img/livguard-logo.jpg",
-                            "url": "https://www.livguard.com/",
-                            "name": "Livguard Energy Technologies Private Limited",
-                            "contactPoint": [
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+91-124-4987 400",
-                                    "contactType": "customer service",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "LivGuard",
+                                    "item": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
                                 },
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+1 1800-200-5551",
-                                    "contactType": "customer service",
-                                    "contactOption": "TollFree",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Inverters Batteries",
+                                    "item": "https://www.livguard.com/inverter-batteries",
+                                    "description": " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
+                                    ]
                                 },
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+1 1860-200-5552",
-                                    "contactType": "customer service",
-                                    "contactOption": "TollFree",
-                                    "areaServed": "India"
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Livguard",
+                                    "url": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Inverters Batteries",
+                                    "url": "https://www.livguard.com/inverter-batteries",
+                                    "description": "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
+                                    ]
                                 }
                             ]
                         }
-                    `
+                    `,
                 }}
             />
         </>
@@ -385,14 +377,12 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-6" />
 
-            <OurBatteriesSectionInternal
-                userPreferences={userPreferences}
-            />
+            <OurBatteriesSectionInternal userPreferences={userPreferences} />
         </div>
     );
 }
 
-export function OurBatteriesSectionInternal({userPreferences}: {userPreferences: UserPreferences;}) {
+export function OurBatteriesSectionInternal({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div>
             <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem] tw-gap-x-2">
@@ -418,9 +408,7 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
 
                 <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
-                        <FullWidthImage
-                            relativePath="/livguard/category/batteries/4/2.png"
-                        />
+                        <FullWidthImage relativePath="/livguard/category/batteries/4/2.png" />
                     </div>
                     <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                         <FixedWidthImage
@@ -482,7 +470,9 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
                     {getVernacularString("categoryBatteriesS3R5C3", userPreferences.language)}
                 </div>
 
-                <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon tw-text-secondary-900">{getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}</div>
+                <div className="tw-row-start-7 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon tw-text-secondary-900">
+                    {getVernacularString("categoryBatteriesS3R6C1", userPreferences.language)}
+                </div>
 
                 {/* <div className="tw-row-start-7 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center">{getVernacularString("categoryBatteriesS3R6C2", userPreferences.language)}</div> */}
 
@@ -671,7 +661,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-col-start-1 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
                                         `${selectedBatteryTypeIndex == itemIndex ? "lg-bg-primary-500" : "lg-bg-secondary-100"} `,
-                                        `tw-col-start-${itemIndex + 1}`
+                                        `tw-col-start-${itemIndex + 1}`,
                                     )}
                                     onClick={() => setSelectedBatteryTypeIndex(itemIndex)}
                                     key={itemIndex}

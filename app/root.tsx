@@ -1,5 +1,7 @@
-import {ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, ShouldRevalidateFunction, useCatch, useLoaderData} from "@remix-run/react";
+import type {ErrorBoundaryComponent, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {json} from "@remix-run/node";
+import type {ShouldRevalidateFunction} from "@remix-run/react";
+import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
 import {useEffect} from "react";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {WebsiteConfigurationContext} from "~/contexts/websiteConfigurationContext";
@@ -7,11 +9,12 @@ import {ImageCdnProvider} from "~/global-common-typescript/components/growthJock
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {getBooleanFromUnknown, getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getBooleanFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, Theme, UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
+import type {UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
+import {Language, Theme} from "~/typeDefinitions";
 import tailwindStylesheet from "~/tailwind.css";
-import {DynamicLinks, DynamicLinksFunction} from "remix-utils";
+import {DynamicLinks} from "remix-utils";
 import {ToastContainer} from "react-toastify";
 
 type LoaderData = {
@@ -90,7 +93,7 @@ export const links: LinksFunction = () => [
 // };
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
-export default function () {
+export default function Root() {
     const {userPreferences, canonicalUrl, websiteConfiguration} = useLoaderData() as LoaderData;
 
     // // Google Tag Manager

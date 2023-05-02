@@ -39,9 +39,9 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     }
 };
 
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/inverter-for-home/"}];
-// };
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/inverter-for-home/"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -79,7 +79,10 @@ export default function () {
                     {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "#"},
                 ]}
             >
-                <CategoryPage userPreferences={userPreferences} utmParameters={utmSearchParameters} />
+                <CategoryPage
+                    userPreferences={userPreferences}
+                    utmParameters={utmSearchParameters}
+                />
             </PageScaffold>
 
             <DownloadCatalogueBottomBar userPreferences={userPreferences} />
@@ -90,60 +93,49 @@ export default function () {
                     __html: `
                         {
                             "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Livfast Batteries Pvt Ltd",
-                            "url": "https://www.livguard.com/",
-                            "sameAs": [
-                                "https://www.facebook.com/LivguardEnergy/",
-                                "https://twitter.com/LivguardEnergy",
-                                "https://www.youtube.com/channel/UCKO6j1RdJP6_8mjtJrjWPbQ",
-                                "https://www.instagram.com/livguardenergy/?hl=en"
-                            ]
-                        },
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "url": "https://www.livguard.com/",
-                            "logo": "https://www.livguard.com/img/livguard-logo.jpg"
-                        },
-                        {
-                            "@context": "http://schema.org",
-                            "@type": "Organization",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": "Gurgaon",
-                                "addressRegion": "Haryana",
-                                "postalCode": "122016",
-                                "streetAddress": "Plot No. 221, Phase-I, Udyog Vihar,"
-                            },
-                            "email": "marketing@livguard.com",
-                            "image": "hhttps://www.livguard.com/img/livguard-logo.jpg",
-                            "url": "https://www.livguard.com/",
-                            "name": "Livguard Energy Technologies Private Limited",
-                            "contactPoint": [
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+91-124-4987 400",
-                                    "contactType": "customer service",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "LivGuard",
+                                    "item": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
                                 },
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+1 1800-200-5551",
-                                    "contactType": "customer service",
-                                    "contactOption": "TollFree",
-                                    "areaServed": "India"
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Inverters",
+                                    "item": "https://www.livguard.com/inverter-for-home",
+                                    "description": "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"
+                                    ]
                                 },
                                 {
-                                    "@type": "ContactPoint",
-                                    "telephone": "+1 1860-200-5552",
-                                    "contactType": "customer service",
-                                    "contactOption": "TollFree",
-                                    "areaServed": "India"
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Livguard",
+                                    "url": "https://www.livguard.com/",
+                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                                    "image": [
+                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                    ]
+                                },
+                                {
+                                    "@type": "SiteNavigationElement",
+                                    "name": "Inverters",
+                                    "url": "https://www.livguard.com/inverter-for-home",
+                                    "description": "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                                    "image": [
+                                        "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"
+                                    ]
                                 }
                             ]
                         }
-                    `
+                    `,
                 }}
             />
         </>
@@ -223,7 +215,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
     );
 }
 
-function HeroSection({userPreferences}: {userPreferences: UserPreferences;}) {
+function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-4.75rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3.5rem] tw-justify-items-center tw-text-center">
             <CoverImage
@@ -273,63 +265,61 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
 
                 <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-bg-secondary-300 tw-rounded-lg" />
 
-                    <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
-                        <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
-                            <FullWidthImage
-                                relativePath="/livguard/category/inverters/4/1.png"
-                            />
-                        </div>
-                        <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
-                            <FixedWidthImage
-                                relativePath="/livguard/category/inverters/4/1.png"
-                                width="10rem"
-                            />
-                        </div>
+                <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
+                    <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                        <FullWidthImage relativePath="/livguard/category/inverters/4/1.png" />
                     </div>
-
-                    <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
-                        <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
-                            <FullWidthImage
-                                relativePath="/livguard/category/inverters/4/2.png"
-                            />
-                        </div>
-                        <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
-                            <FixedWidthImage
-                                relativePath="/livguard/category/inverters/4/2.png"
-                                width="10rem"
-                            />
-                        </div>
+                    <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                        <FixedWidthImage
+                            relativePath="/livguard/category/inverters/4/1.png"
+                            width="10rem"
+                        />
                     </div>
+                </div>
 
-                    <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C2", userPreferences.language)}</div>
-
-                    <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
-
-                    <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 lg-text-secondary">
-                        {getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}
+                <div className="tw-row-start-1 tw-col-start-3 tw-px-5">
+                    <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
+                        <FullWidthImage relativePath="/livguard/category/inverters/4/2.png" />
                     </div>
-
-                    <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                        {getVernacularString("categoryInvertersS3R2C2", userPreferences.language)}
+                    <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
+                        <FixedWidthImage
+                            relativePath="/livguard/category/inverters/4/2.png"
+                            width="10rem"
+                        />
                     </div>
+                </div>
 
-                    <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
-                        {getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}
-                    </div>
+                <div className="tw-row-start-2 tw-col-start-2 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C2", userPreferences.language)}</div>
 
-                    <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 text-secondary">
-                        {getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}
-                    </div>
+                <div className="tw-row-start-2 tw-col-start-3 tw-px-4 lg-text-title2 tw-pb-3 tw-text-center">{getVernacularString("categoryInvertersS3R1C3", userPreferences.language)}</div>
 
-                    <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
-                        {getVernacularString("categoryInvertersS3R3C2", userPreferences.language)}
-                    </div>
+                <div className="tw-row-start-3 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 lg-text-secondary">
+                    {getVernacularString("categoryInvertersS3R2C1", userPreferences.language)}
+                </div>
 
-                    <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
-                        {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
-                    </div>
+                <div className="tw-row-start-3 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
+                    {getVernacularString("categoryInvertersS3R2C2", userPreferences.language)}
+                </div>
 
-                <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon lg-text-secondary-900">{getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}</div>
+                <div className="tw-row-start-3 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
+                    {getVernacularString("categoryInvertersS3R2C3", userPreferences.language)}
+                </div>
+
+                <div className="tw-row-start-4 tw-col-start-1 tw-mx-2 tw-py-3 lg-text-icon tw-border-solid tw-border-b tw-border-secondary-900-dark tw-border-opacity-50 text-secondary">
+                    {getVernacularString("categoryInvertersS3R3C1", userPreferences.language)}
+                </div>
+
+                <div className="tw-row-start-4 tw-col-start-2 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-300-dark tw-border-opacity-50">
+                    {getVernacularString("categoryInvertersS3R3C2", userPreferences.language)}
+                </div>
+
+                <div className="tw-row-start-4 tw-col-start-3 tw-mx-4 tw-py-3 tw-text-center tw-border-solid tw-border-b tw-border-secondary-100-dark tw-border-opacity-50">
+                    {getVernacularString("categoryInvertersS3R3C3", userPreferences.language)}
+                </div>
+
+                <div className="tw-row-start-5 tw-col-start-1 tw-mx-2 tw-py-3 tw-pb-8 lg-text-icon lg-text-secondary-900">
+                    {getVernacularString("categoryInvertersS3R4C1", userPreferences.language)}
+                </div>
 
                 <div className="tw-row-start-5 tw-col-start-2 tw-mx-4 tw-py-3 tw-pb-8 tw-text-center">{getVernacularString("categoryInvertersS3R4C2", userPreferences.language)}</div>
 
@@ -500,9 +490,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                             onClick={() => setsecledtedInverterType(InverterType.sine)}
                         >
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
-                                <FullWidthImage
-                                    relativePath="/livguard/icons/sineWave.png"
-                                />
+                                <FullWidthImage relativePath="/livguard/icons/sineWave.png" />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.sine ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
                                 {getVernacularString("categoryInvertersS4BTFlat", userPreferences.language)}
@@ -519,9 +507,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                             onClick={() => setsecledtedInverterType(InverterType.square)}
                         >
                             <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
-                                <FullWidthImage
-                                    relativePath="/livguard/icons/squareWave.png"
-                                />
+                                <FullWidthImage relativePath="/livguard/icons/squareWave.png" />
                             </div>
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.square ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
                                 {getVernacularString("categoryInvertersS4BTTubular", userPreferences.language)}
@@ -542,7 +528,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
     );
 }
 
-export function SideBySideOverviewSection({userPreferences,className}: {userPreferences: UserPreferences; className: string}) {
+export function SideBySideOverviewSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const productOverview: Array<{
         heading: string;
         image: string;
