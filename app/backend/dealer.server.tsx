@@ -49,7 +49,7 @@ function rowToDealerInformation(row: any): Dealer {
     return dealer;
 }
 
-export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId: string; city: string; otpVerified: boolean}): Promise<void | Error> {
+export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId?: string; city: string; otpVerified: boolean}): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
