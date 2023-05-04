@@ -4,7 +4,7 @@ import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/u
 import {Dealer} from "~/typeDefinitions";
 
 export async function getDealerForCity(city: string): Promise<Array<Dealer> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047" as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -49,7 +49,7 @@ function rowToDealerInformation(row: any): Dealer {
 }
 
 export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId?: string; city: string; otpVerified: boolean}): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047" as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -118,7 +118,7 @@ export async function insertOrUpdateContactLeads(
         };
     },
 ): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047" as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -183,7 +183,7 @@ export async function insertSubscriptionLeads(formResponse: {
         [searchParameter: string]: string;
     };
 }): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047" as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -207,7 +207,7 @@ export async function insertSubscriptionLeads(formResponse: {
 }
 
 export async function insertQueryLeads(query: string): Promise<void | Error>{
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047" as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -234,7 +234,7 @@ export async function insertQueryLeads(query: string): Promise<void | Error>{
 
 
 export async function insertSearchQuery(searchTerm: string): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047" as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }

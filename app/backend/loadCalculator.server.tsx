@@ -6,7 +6,7 @@ import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();
 
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047");
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -37,7 +37,7 @@ export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): P
 }
 
 export async function getLoadCalculatorEntry(id: Uuid): Promise<LoadCalculatorInputs | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
+    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047");
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
