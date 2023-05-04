@@ -1,34 +1,37 @@
-import {Dialog, Transition} from "@headlessui/react";
-import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
-import {Link, useFetcher, useLoaderData} from "@remix-run/react";
-import React from "react";
-import {useEffect, useState} from "react";
-import {X} from "react-bootstrap-icons";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {useLoaderData} from "@remix-run/react";
+import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
-import {toast} from "react-toastify";
-import {StickyBottomBar} from "~/components/bottomBar";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import LivguardDialog from "~/components/livguardDialog";
-import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {ContactUsCta} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
-import {OfferContactUsCta, OfferContactUsDialog, StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
+import {OfferContactUsDialog, StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {FormType, UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
+import {Language, UserPreferences} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest} from "~/utilities";
+
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Buy Inverter & Inverter Battery Combo from Livguard and get Cashback",
+            description: "Experience an uninterrupted summer with Livguard Inverter and Battery combo and get cashback of up to Rs. 1500 with some easy steps. Limited Period Offer!!",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
+            description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और रुपये 1500 तक का कैशबैक प्राप्त करें कुछ आसान चरणों के साथ। सीमित अवधि का ऑफर!!",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-battery-combo-cashback"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

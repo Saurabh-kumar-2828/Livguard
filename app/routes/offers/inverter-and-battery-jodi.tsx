@@ -1,33 +1,49 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LoaderFunction} from "@remix-run/node";
-import {Link, useFetcher, useLoaderData} from "@remix-run/react";
+import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {useFetcher, useLoaderData} from "@remix-run/react";
 import React from "react";
 import {useEffect, useState} from "react";
 import {X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {toast} from "react-toastify";
-import {StickyBottomBar} from "~/components/bottomBar";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import LivguardDialog from "~/components/livguardDialog";
 import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {ContactUsCta} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {FormType, UserPreferences} from "~/typeDefinitions";
+import {FormType, Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Buy Livguard Inverter Battery Jodi and win cashback upto Rs. 1500",
+            description: "Experience an uninterrupted summer with Livguard Inverter and Battery Jodis and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड इन्वर्टर बैटरी जोड़ी खरीदें और रुपये 1500 तक कैशबैक जीतें। ",
+            description: "लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-and-battery-jodi"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;

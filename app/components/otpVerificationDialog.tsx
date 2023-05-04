@@ -123,7 +123,7 @@ export function OtpVerificationDialog({
                                     required
                                     placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
                                 />
-                                {invalidOtp && <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5">{getVernacularString("OfferInvalidOTP", userPreferences.language)}</div>}
+                                {invalidOtp && <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5 tw-top-0 tw-bottom-0 tw-pt-[18px]">{getVernacularString("OfferInvalidOTP", userPreferences.language)}</div>}
                             </div>
                         </div>
                         <VerticalSpacer className="tw-h-1" />

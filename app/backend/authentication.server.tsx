@@ -75,7 +75,7 @@ export async function verifyOtp(phoneNumber: string, otp: string): Promise<{succ
     const activeOtps = getActiveOtps();
 
     try {
-        if ((phoneNumber in activeOtps && activeOtps[phoneNumber].otp == otp) || debugForciblyLogin) {
+        if ((phoneNumber in activeOtps && activeOtps[phoneNumber].otp == otp)) {
             delete activeOtps[phoneNumber];
 
             // const normalizedPhoneNumber = `+91${phoneNumber}`;
