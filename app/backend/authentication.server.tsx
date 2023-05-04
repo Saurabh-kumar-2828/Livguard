@@ -73,7 +73,8 @@ export async function sendOtp(phoneNumber: string, name: string) {
 
 export async function verifyOtp(phoneNumber: string, otp: string): Promise<{success: boolean}> {
     const activeOtps = getActiveOtps();
-
+    console.log("Otp submitted",otp);
+    console.log("Active OTPs::::::", activeOtps);
     try {
         if ((phoneNumber in activeOtps && activeOtps[phoneNumber].otp == otp)) {
             delete activeOtps[phoneNumber];

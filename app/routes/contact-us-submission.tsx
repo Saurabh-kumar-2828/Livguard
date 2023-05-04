@@ -17,6 +17,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const otpSubmitted = safeParse(getNonEmptyStringFromUnknown, body.get("otpSubmitted"));
     const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
+    const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
 
     if (inputData == null || utmParameters == null || otpSubmitted == null || leadId == null) {
         const actionData: GenericActionData = {
@@ -35,25 +36,55 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    // TODO: Type validation
-    const utmParametersDecoded = JSON.parse(utmParameters);
+       const utmParametersDecoded = JSON.parse(utmParameters);
 
-    const insertResult = await insertOrUpdateContactLeads(leadId,{phoneNumber: inputData.phoneNumber, name: inputData.name, emailId: inputData.emailId, otpVerified: true, utmParameters: utmParametersDecoded});
-    if (insertResult instanceof Error) {
-        const actionData: GenericActionData = {
-            error: "Error in submitting form! Error code: d308273f-64dd-4a3c-9f9f-29e5d436a57b",
-            type: FormType.contactUsSubmission,
-        };
-        return json(actionData);
-    }
+    if (formType == FormType.offerContactUsSubmission){
+        const insertResult = await insertOrUpdateContactLeads(leadId, {
+            phoneNumber: inputData.phoneNumber,
+            name: inputData.name,
+            otpVerified: true,
+            utmParameters: utmParametersDecoded,
+        });
+        if (insertResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: d308273f-64dd-4a3c-9f9f-29e5d436a57b",
+                type: FormType.contactUsSubmission,
+            };
+            return json(actionData);
+        }
 
-    const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true}, utmParametersDecoded);
-    if (freshsalesResult instanceof Error) {
-        const actionData: GenericActionData = {
-            error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
-            type: FormType.contactUsSubmission,
-        };
-        return json(actionData);
+        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, otpVerified: true}, utmParametersDecoded);
+        if (freshsalesResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
+                type: FormType.contactUsSubmission,
+            };
+            return json(actionData);
+        }
+    }else{
+        const insertResult = await insertOrUpdateContactLeads(leadId, {
+            phoneNumber: inputData.phoneNumber,
+            name: inputData.name,
+            emailId: inputData.emailId,
+            otpVerified: true,
+            utmParameters: utmParametersDecoded,
+        });
+        if (insertResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: d308273f-64dd-4a3c-9f9f-29e5d436a57b",
+                type: FormType.contactUsSubmission,
+            };
+            return json(actionData);
+        }
+
+        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true}, utmParametersDecoded);
+        if (freshsalesResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
+                type: FormType.contactUsSubmission,
+            };
+            return json(actionData);
+        }
     }
 
     const actionData: GenericActionData = {

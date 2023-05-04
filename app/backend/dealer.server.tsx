@@ -111,7 +111,7 @@ export async function insertOrUpdateContactLeads(
     formResponse: {
         phoneNumber: string;
         name: string;
-        emailId: string;
+        emailId?: string;
         otpVerified: boolean;
         utmParameters: {
             [searchParameter: string]: string;

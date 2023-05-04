@@ -83,7 +83,7 @@ export function OtpVerificationDialog({
                     <fetcher.Form
                         className="tw-grid tw-grid-cols-1 tw-justify-items-center"
                         method="post"
-                        action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
+                        action={formType == FormType.contactUsSubmission || formType == FormType.offerContactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
                     >
                         <div className="tw-text-center lg-text-headline tw-px-8">
                             <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />
@@ -183,7 +183,7 @@ export function OtpVerificationDialog({
                             name="formType"
                             className="tw-hidden"
                             readOnly
-                            value={leadId}
+                            value={formType}
                         />
                     </fetcher.Form>
                 </DefaultElementAnimation>
