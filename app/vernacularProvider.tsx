@@ -3586,12 +3586,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     OfferFormGetOTP: {
         [Language.English]: "Get OTP",
-        [Language.Hindi]: "ओटीपी पुनः भेजें",
+        [Language.Hindi]: "ओटीपी प्राप्त करें",
         [Language.Marathi]: "?????",
     },
     OfferResendOTP: {
         [Language.English]: "Resend OTP",
-        [Language.Hindi]: "ओटीपी प्राप्त करें",
+        [Language.Hindi]: "ओटीपी पुनः भेजें",
         [Language.Marathi]: "?????",
     },
     OfferInvalidOTP: {
