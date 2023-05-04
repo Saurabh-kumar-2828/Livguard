@@ -50,10 +50,24 @@ export function OtpVerificationDialog({
         if (otpFetcher.data == null) {
             return;
         } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        toast.success("OTP resent successfully");
+        setResendTimeOut(60);
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        } else if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
             setInvalidOtp(true);
             return;
         }
-    }, [otpFetcher.data]);
+        toast.success("OTP resent successfully");
+        setResendTimeOut(60);
+    }, [fetcher.data]);
 
     function tryToCloseDialog() {
         setIsDialogOpen(false);
@@ -116,7 +130,7 @@ export function OtpVerificationDialog({
                         </div>
                         <VerticalSpacer className="tw-h-1" />
 
-                        <div className="tw-flex tw-justify-between tw-w-full">
+                        <div className="tw-flex tw-flex-row tw-justify-between tw-w-full lg-px-screen-edge tw-z-10">
                             <div
                                 className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
                                 onClick={() => {
@@ -126,7 +140,7 @@ export function OtpVerificationDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
                             </div>
                             <div className="lg-text-secondary-700 tw-text-[12px]">{`${resendTimeOut}:00`}</div>
                         </div>
