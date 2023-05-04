@@ -12,23 +12,18 @@ export async function sendOtp(phoneNumber: string, name: string) {
     const activeOtps = getActiveOtps();
     const currentTimestamp = getUnixTimeInSeconds();
 
-    let otp;
-    if (phoneNumber in activeOtps) {
-        otp = activeOtps[phoneNumber].otp;
-    } else {
-        otp = Math.floor(Math.random() * 10 ** 6)
-            .toString()
-            .padStart(6, "0");
-        activeOtps[phoneNumber] = {
-            otp: otp,
-            issuedAt: currentTimestamp,
-        };
-    }
+    const otp = Math.floor(Math.random() * 10 ** 6)
+        .toString()
+        .padStart(6, "0");
+    activeOtps[phoneNumber] = {
+        otp: otp,
+        issuedAt: currentTimestamp,
+    };
 
     const normalizedPhoneNumber = `+91${phoneNumber}`;
 
     const authToken = await getAuthToken();
-    if(authToken instanceof Error){
+    if (authToken instanceof Error) {
         return authToken;
     }
 
@@ -76,13 +71,10 @@ export async function sendOtp(phoneNumber: string, name: string) {
     }
 }
 
-export async function verifyOtp(
-    phoneNumber: string,
-    otp: string
-): Promise<{success: boolean}> {
+export async function verifyOtp(phoneNumber: string, otp: string): Promise<{success: boolean}> {
     const activeOtps = getActiveOtps();
 
-    try{
+    try {
         if ((phoneNumber in activeOtps && activeOtps[phoneNumber].otp == otp) || debugForciblyLogin) {
             delete activeOtps[phoneNumber];
 
@@ -98,17 +90,17 @@ export async function verifyOtp(
             // logSignIn(normalizedPhoneNumber, searchParameters);
 
             return {
-                success: true
+                success: true,
             };
-        }else{
+        } else {
             return {
-                success: false
-            }
+                success: false,
+            };
         }
-    }catch (error_: unknown) {
+    } catch (error_: unknown) {
         const error = getErrorFromUnknown(error_);
         logBackendError(error);
-        return {success: false}
+        return {success: false};
     }
 }
 
@@ -153,9 +145,8 @@ async function getAuthToken(): Promise<{token: string; expiryDate: string} | Err
     const unixEpochInSeconds = getUnixTimeInSeconds();
 
     if (global._authToken == null) {
-
         const authToken = await getFreshSalesAuthToken();
-        if(authToken instanceof Error){
+        if (authToken instanceof Error) {
             return authToken;
         }
         global._authToken = authToken;
@@ -164,7 +155,7 @@ async function getAuthToken(): Promise<{token: string; expiryDate: string} | Err
     const tokenExpiryDate = global._authToken.expiryDate;
     const expiryInEpochSeconds = getUnixTimeInSecondsFromDate(tokenExpiryDate);
 
-    if(expiryInEpochSeconds - unixEpochInSeconds <= 3600){
+    if (expiryInEpochSeconds - unixEpochInSeconds <= 3600) {
         const authToken = await getFreshSalesAuthToken();
         if (authToken instanceof Error) {
             return authToken;
@@ -173,27 +164,24 @@ async function getAuthToken(): Promise<{token: string; expiryDate: string} | Err
     }
 
     return global._authToken;
-
 }
 
-async function getFreshSalesAuthToken(): Promise<{token: string; expiryDate: string} | Error>{
-
+async function getFreshSalesAuthToken(): Promise<{token: string; expiryDate: string} | Error> {
     try {
         const response = await fetch(`${process.env.VALUE_FIRST_API_BASE_URI}/api/messages/token?action=generate`, {
             method: "POST",
             headers: {
                 Authorization: `Basic ${Buffer.from(`${process.env.FRESH_SALES_USERNAME}:${process.env.FRESH_SALES_PASSWORD}`, "utf-8").toString("base64")}`,
-            }
+            },
         });
 
-        const responseText = safeParse(getObjectFromUnknown, await response.text()); ;
+        const responseText = safeParse(getObjectFromUnknown, await response.text());
 
         if (!response.ok) {
             throw new Error(`Value First API call failed - status = ${response.status}, body = ${JSON.stringify(responseText)}`);
         }
 
         return responseText;
-
     } catch (error_: unknown) {
         const error = getErrorFromUnknown(error_);
         logBackendError(error);
