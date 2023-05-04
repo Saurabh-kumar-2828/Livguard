@@ -344,6 +344,7 @@ export function OfferContactUsDialog({
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
+    const contactFormFetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
     const leadId = generateUuid();
@@ -365,7 +366,7 @@ export function OfferContactUsDialog({
             return;
         }
 
-        if (fetcher.data.type == FormType.offerContactUsSubmission) {
+        if (fetcher.data.type == FormType.contactUsSubmission) {
             setStep(3);
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({event: "otp_verified_lead"});
@@ -470,7 +471,7 @@ export function OfferContactUsDialog({
                 isDialogOpen={isOfferContactUsDialogOpen && step == 2}
                 setIsDialogOpen={tryToCloseOfferContactUsDialog}
                 inputData={inputData}
-                fetcher={fetcher}
+                fetcher={contactFormFetcher}
                 utmParameters={utmParameters}
                 leadId={leadId}
                 formType={FormType.offerContactUsSubmission}
