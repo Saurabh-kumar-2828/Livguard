@@ -344,7 +344,6 @@ export function OfferContactUsDialog({
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
-    const contactFormFetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
     const leadId = generateUuid();
@@ -471,7 +470,7 @@ export function OfferContactUsDialog({
                 isDialogOpen={isOfferContactUsDialogOpen && step == 2}
                 setIsDialogOpen={tryToCloseOfferContactUsDialog}
                 inputData={inputData}
-                fetcher={contactFormFetcher}
+                fetcher={fetcher}
                 utmParameters={utmParameters}
                 leadId={leadId}
                 formType={FormType.offerContactUsSubmission}
