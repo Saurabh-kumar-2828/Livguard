@@ -133,7 +133,8 @@ export function OtpVerificationDialog({
                                 onClick={() => {
                                     const data = new FormData();
                                     data.append("phoneNumber", inputData.phoneNumber);
-                                    otpFetcher.submit(data, {method: "post", action: "/send-otp"});
+                                    data.append("name", inputData.name);
+                                    otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
                                 {getVernacularString("OfferFormGetOTP", userPreferences.language)}
