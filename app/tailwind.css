@@ -152,7 +152,7 @@
         font-weight: 600;
         /* TODO: Add letter spacing */
 
-        @apply tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[1.75rem];
+        @apply tw-text-[.875rem] md:tw-text-[1rem] tw-leading-[1rem] md:tw-leading-[1.02rem];
     }
 
     .lg-bg-primary-500 {
