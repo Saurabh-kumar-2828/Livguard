@@ -1,4 +1,5 @@
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
+import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {Integer, Uuid} from "~/global-common-typescript/typeDefinitions";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
@@ -6,7 +7,7 @@ import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();
 
-    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047");
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -37,7 +38,7 @@ export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): P
 }
 
 export async function getLoadCalculatorEntry(id: Uuid): Promise<LoadCalculatorInputs | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager("47a95dc3-a680-446a-890f-ac9f39742047");
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }

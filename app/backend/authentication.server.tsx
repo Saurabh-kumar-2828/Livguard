@@ -27,8 +27,6 @@ export async function sendOtp(phoneNumber: string, name: string) {
         return authToken;
     }
 
-    console.log("Auth token is:", authToken);
-
     const result = await fetch(`${process.env.VALUE_FIRST_API_BASE_URI}/servlet/psms.JsonEservice`, {
         method: "POST",
         headers: {
@@ -59,15 +57,8 @@ export async function sendOtp(phoneNumber: string, name: string) {
         }),
     });
 
-    const result1 = await result.text();
-    console.log("Result is:", result1);
-
     if (!result.ok) {
-        console.log("Error in sendOtp");
-        console.log(result);
-        console.log(result1);
-
-        throw "";
+        console.log(`Error in sendOtp: ${await result.text()}`);
     }
 }
 
