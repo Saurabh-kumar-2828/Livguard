@@ -47,17 +47,6 @@ export function OtpVerificationDialog({
     }, [resendTimeOut]);
 
     useEffect(() => {
-        if (fetcher.data == null) {
-            return;
-        } else if (fetcher.data.error != null) {
-            toast.error(fetcher.data.error);
-            return;
-        }
-        toast.success("OTP resent successfully");
-        setResendTimeOut(60);
-    }, [fetcher.data]);
-
-    useEffect(() => {
         if (otpFetcher.data == null) {
             return;
         } else if (otpFetcher.data.error != null) {
@@ -127,9 +116,9 @@ export function OtpVerificationDialog({
                         </div>
                         <VerticalSpacer className="tw-h-1" />
 
-                        <div className="tw-flex tw-justify-between">
+                        <div className="tw-flex tw-justify-between tw-w-full">
                             <div
-                                className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0} ? "undefined" : "hover:tw-cursor-pointer"`)}
+                                className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
                                 onClick={() => {
                                     const data = new FormData();
                                     data.append("phoneNumber", inputData.phoneNumber);
@@ -137,7 +126,7 @@ export function OtpVerificationDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                {getVernacularString("OfferResendOTP", userPreferences.language)}
                             </div>
                             <div className="lg-text-secondary-700 tw-text-[12px]">{`${resendTimeOut}:00`}</div>
                         </div>
