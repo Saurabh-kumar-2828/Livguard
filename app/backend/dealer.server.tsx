@@ -212,8 +212,6 @@ export async function insertQueryLeads(query: string): Promise<void | Error>{
         return postgresDatabaseManager;
     }
 
-    console.log("query : ", query);
-
     const result = await postgresDatabaseManager.execute(
         `
             INSERT INTO
