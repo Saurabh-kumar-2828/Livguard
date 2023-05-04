@@ -538,83 +538,83 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                             </div>
                             <VerticalSpacer className="tw-h-3" />
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent1", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent2", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent3", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent4", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent5", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent6", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent7", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent8", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent9", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent10", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent11", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent12", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent13", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent14", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent15", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent16", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent17", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent18", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent19", userPreferences.language)}</div>
                             </div>
                             <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-items-start tw-gap-3">
-                                <CircleFill className="tw-w-2 tw-h-2 tw-t-2" />
+                                <CircleFill className="tw-w-2 tw-h-2 tw-mt-2" />
                                 <div className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent20", userPreferences.language)}</div>
                             </div>
                             <VerticalSpacer className="tw-h-20" />
