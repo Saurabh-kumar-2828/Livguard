@@ -8,6 +8,7 @@ import {useResizeDetector} from "react-resize-detector";
 import {toast} from "react-toastify";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import LivguardDialog from "~/components/livguardDialog";
+import {OfferPageBottomBar} from "~/components/offerPageBottomBar";
 import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
@@ -85,7 +86,7 @@ export default function () {
                 />
             </CampaignPageScaffold>
 
-            {/* <StickyBottomBar userPreferences={userPreferences} /> */}
+            <OfferPageBottomBar userPreferences={userPreferences} />
 
             {/* <script
                 type="application/ld+json"
@@ -158,9 +159,9 @@ function HeroSection({
         >
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    relativePath={containerHeight > containerWidth ? "/livguard/offers/mobile.jpg" : "/livguard/offers/desktop.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    key={containerHeight > containerWidth ? "/livguard/offers/mobile.jpg" : "/livguard/offers/desktop.jpg"}
                 />
             )}
         </div>
@@ -176,27 +177,27 @@ export function StepsToAvailCashback({
 }){
     const steps = [
         {
-            iconRelativePath: "/livguard/home/3/2-icon.png",
+            iconRelativePath: "livguard/icons/offers/step-1.svg",
             stepVernacId: "OfferStep1",
         },
         {
-            iconRelativePath: "/livguard/home/3/2-icon.png",
+            iconRelativePath: "livguard/icons/offers/step-2.svg",
             stepVernacId: "OfferStep2",
         },
         {
-            iconRelativePath: "/livguard/home/3/2-icon.png",
+            iconRelativePath: "livguard/icons/offers/step-3.svg",
             stepVernacId: "OfferStep3",
         },
         {
-            iconRelativePath: "/livguard/home/3/2-icon.png",
+            iconRelativePath: "livguard/icons/offers/step-4.svg",
             stepVernacId: "OfferStep4",
         },
         {
-            iconRelativePath: "/livguard/home/3/2-icon.png",
+            iconRelativePath: "livguard/icons/offers/step-5.svg",
             stepVernacId: "OfferStep5",
         },
         {
-            iconRelativePath: "/livguard/home/3/2-icon.png",
+            iconRelativePath: "livguard/icons/offers/step-6.svg",
             stepVernacId: "OfferStep6",
         },
     ];
@@ -242,7 +243,7 @@ export function StepsToAvailCashback({
                             <div className="tw-col-start-1 tw-items-center">
                                 <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-justify-items-center tw-grid">
                                     <div className="tw-w-6 tw-h-6 tw-place-self-center">
-                                        <FullWidthImage relativePath={step.iconRelativePath} />
+                                        <img src={`https://files.growthjockey.com/${step.iconRelativePath}`} alt="step-icon" className="tw-w-full tw-h-full" />
                                     </div>
                                 </div>
                             </div>
@@ -514,12 +515,12 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                 <Dialog.Panel className="tw-fixed tw-bottom-0 lg:tw-right-0 lg:tw-top-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-place-items-center tw-justify-start tw-overflow-auto">
                     <Transition.Child
                         as="div"
-                        className="tw-w-full tw-h-[85vh] lg:tw-h-[100vh] lg:tw-w-[30rem] lg:tw-overflow-scroll tw-overflow-y-auto lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
+                        className="tw-w-full tw-h-[85vh] lg:tw-h-[100vh] lg:tw-w-[40rem] lg:tw-overflow-scroll tw-overflow-y-auto lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
                         enter="tw-ease-in tw-transition-all tw-duration-300"
                         enterFrom="tw-h-0 lg:tw-w-0"
-                        enterTo="tw-h-[85vh] lg:tw-w-[30rem]"
+                        enterTo="tw-h-[85vh] lg:tw-w-[40rem]"
                         leave="tw-ease-out tw-transition-all tw-duration-300"
-                        leaveFrom="tw-h-[85vh] lg:tw-w-[30rem]"
+                        leaveFrom="tw-h-[85vh] lg:tw-w-[40rem]"
                         leaveTo="tw-h-0 lg:tw-w-0"
                     >
                         <div className="tw-grid tw-grid-flow-row tw-gap-1 tw-p-6 tw-pt-0 tw-h-full">
@@ -533,7 +534,7 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                                     <X className="tw-w-8 tw-h-8" />
                                 </button>
                             </div>
-                            <VerticalSpacer className="tw-h-[4px]" />
+                            <VerticalSpacer className="tw-h-3" />
                             <li className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent1", userPreferences.language)}</li>
                             <li className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent2", userPreferences.language)}</li>
                             <li className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent3", userPreferences.language)}</li>
@@ -554,6 +555,7 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                             <li className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent18", userPreferences.language)}</li>
                             <li className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent19", userPreferences.language)}</li>
                             <li className="lg-text-body lg-text-secondary-700">{getVernacularString("OfferTnCContent20", userPreferences.language)}</li>
+                            <VerticalSpacer className="tw-h-20" />
                         </div>
                     </Transition.Child>
                 </Dialog.Panel>

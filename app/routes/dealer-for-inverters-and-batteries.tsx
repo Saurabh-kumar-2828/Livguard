@@ -907,7 +907,7 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
             isDialogOpen={isDialogOpen}
             tryToCloseDialog={tryToCloseDialog}
             title={null}
-            showCloseIcon={false}
+            showCloseIcon={true}
         >
             <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-text-center">
                 <FixedWidthImage

@@ -3543,4 +3543,22 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LeG+UM~qD%RjM{M{RjWB009F%Mof",
         placeholderColor: "#080808",
     },
+    "/livguard/offers/desktop.jpg": {
+        width: 3841,
+        height: 3840,
+        hash: "6b2d8326005938571298a1e113a1819950902e207ac16234e02f8aba41cc4879",
+        altText: "Dummy alt text",
+        blurHash: "L18f=lGH5=8w-:-AJB9t00MI,o_4",
+        placeholderColor: "#080808",
+        finalUrl: "/livguard/offers/desktop-cc4879.jpg",
+    },
+    "/livguard/offers/mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        hash: "e7cb6c15839811f13b1fdf523b62868276857f64a0156fe44cf87df880edf2ce",
+        altText: "Dummy alt text",
+        blurHash: "L59sPKs;01#7O?xZn+0y0e9Z?H}]",
+        placeholderColor: "#080808",
+        finalUrl: "/livguard/offers/mobile-edf2ce.jpg",
+    },
 };

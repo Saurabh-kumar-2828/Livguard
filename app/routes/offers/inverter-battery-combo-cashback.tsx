@@ -150,9 +150,9 @@ function HeroSection({
         >
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    relativePath={containerHeight > containerWidth ? "/livguard/offers/mobile.jpg" : "/livguard/offers/desktop.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    key={containerHeight > containerWidth ? "/livguard/offers/mobile.jpg" : "/livguard/offers/desktop.jpg"}
                 />
             )}
         </div>
