@@ -65,8 +65,6 @@ export function OtpVerificationDialog({
             setInvalidOtp(true);
             return;
         }
-        toast.success("OTP resent successfully");
-        setResendTimeOut(60);
     }, [fetcher.data]);
 
     function tryToCloseDialog() {
@@ -140,7 +138,7 @@ export function OtpVerificationDialog({
                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
                             >
-                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                {getVernacularString("OfferResendOTP", userPreferences.language)}
                             </div>
                             <div className="lg-text-secondary-700 tw-text-[12px]">{`${resendTimeOut}:00`}</div>
                         </div>
