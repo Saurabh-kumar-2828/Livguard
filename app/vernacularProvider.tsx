@@ -245,7 +245,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS1T3: {
         [Language.English]: "Get in Touch With Us",
-        [Language.Hindi]: "बदलते भारत के लिए",
+        [Language.Hindi]: "हमसे संपर्क करें",
         [Language.Marathi]: "?????",
     },
     homeS2T1: {
