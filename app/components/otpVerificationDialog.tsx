@@ -1,4 +1,6 @@
-import {FetcherWithComponents} from "@remix-run/react";
+import {FetcherWithComponents, useFetcher} from "@remix-run/react";
+import {useEffect, useState} from "react";
+import {toast} from "react-toastify";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import LivguardDialog from "~/components/livguardDialog";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
@@ -32,6 +34,38 @@ export function OtpVerificationDialog({
     leadId: Uuid;
     formType: string
 }) {
+    const [resendTimeOut, setResendTimeOut] = useState(60);
+    const otpFetcher = useFetcher();
+    const [invalidOtp, setInvalidOtp] = useState(false);
+
+    useEffect(() => {
+        if (resendTimeOut > 0) {
+            setTimeout(() => {
+                setResendTimeOut(resendTimeOut - 1);
+            }, 1000);
+        }
+    }, [resendTimeOut]);
+
+    useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        } else if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            return;
+        }
+        toast.success("OTP resent successfully");
+        setResendTimeOut(60);
+    }, [fetcher.data]);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            setInvalidOtp(true);
+            return;
+        }
+    }, [otpFetcher.data]);
+
     function tryToCloseDialog() {
         setIsDialogOpen(false);
     }
@@ -42,6 +76,7 @@ export function OtpVerificationDialog({
                 isDialogOpen={isDialogOpen}
                 tryToCloseDialog={tryToCloseDialog}
                 title={null}
+                showCloseIcon={true}
             >
                 <DefaultElementAnimation>
                     <fetcher.Form
@@ -79,13 +114,31 @@ export function OtpVerificationDialog({
 
                             <VerticalSpacer className="tw-h-1" />
 
-                            <input
-                                type="text"
-                                name="otpSubmitted"
-                                className="lg-text-input"
-                                required
-                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
-                            />
+                            <div className="tw-relative">
+                                <input
+                                    type="text"
+                                    name="otpSubmitted"
+                                    className="lg-text-input"
+                                    required
+                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                />
+                                {invalidOtp && <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5">{getVernacularString("OfferInvalidOTP", userPreferences.language)}</div>}
+                            </div>
+                        </div>
+                        <VerticalSpacer className="tw-h-1" />
+
+                        <div className="tw-flex tw-justify-between">
+                            <div
+                                className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0} ? "undefined" : "hover:tw-cursor-pointer"`)}
+                                onClick={() => {
+                                    const data = new FormData();
+                                    data.append("phoneNumber", inputData.phoneNumber);
+                                    otpFetcher.submit(data, {method: "post", action: "/send-otp"});
+                                }}
+                            >
+                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                            </div>
+                            <div className="lg-text-secondary-700 tw-text-[12px]">{`${resendTimeOut}:00`}</div>
                         </div>
 
                         <VerticalSpacer className="tw-h-10" />

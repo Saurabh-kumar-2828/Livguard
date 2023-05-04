@@ -9,6 +9,7 @@ import {HorizontalSpacer} from "~/global-common-typescript/components/horizontal
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
 import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -34,11 +35,15 @@ export function HeaderComponent({
     redirectTo,
     showMobileMenuIcon,
     breadcrumbs,
+    showSearchOption,
+    showContactCtaButton,
 }: {
     userPreferences: UserPreferences;
     redirectTo: string;
     showMobileMenuIcon: boolean;
     breadcrumbs?: Array<{contentId: string; link: string}>;
+    showSearchOption: boolean;
+    showContactCtaButton: boolean;
 }) {
     const submit = useSubmit();
 
@@ -368,15 +373,24 @@ export function HeaderComponent({
 
                 <div className="tw-flex-1" />
 
-                <button
-                    type="button"
-                    onClick={tryToOpenSearch}
-                    className="tw-flex tw-flex-row tw-items-center"
-                >
-                    <Search className="tw-w-6 tw-h-6" />
-                    <HorizontalSpacer className="tw-w-2" />
-                    <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
-                </button>
+                {showSearchOption && (
+                    <button
+                        type="button"
+                        onClick={tryToOpenSearch}
+                        className="tw-flex tw-flex-row tw-items-center"
+                    >
+                        <Search className="tw-w-6 tw-h-6" />
+                        <HorizontalSpacer className="tw-w-2" />
+                        <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
+                    </button>
+                )}
+                {showContactCtaButton && (
+                    <OfferContactUsCta
+                        userPreferences={userPreferences}
+                        textVernacId="homeS1T3"
+                        className="tw-z-10"
+                    />
+                )}
             </div>
 
             {breadcrumbs == null ? null : (

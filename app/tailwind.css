@@ -243,6 +243,10 @@
         @apply tw-border-[#eb2a2b];
     }
 
+    .lg-border-secondary-700 {
+        @apply tw-border-secondary-700-light dark:tw-border-secondary-700-dark;
+    }
+
     /* @keyframes animation-text-baseline {
         0% {
             transform: translateY(1em);

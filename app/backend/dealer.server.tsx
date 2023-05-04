@@ -48,7 +48,7 @@ function rowToDealerInformation(row: any): Dealer {
     return dealer;
 }
 
-export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId: string; city: string; otpVerified: boolean}): Promise<void | Error> {
+export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId?: string; city: string; otpVerified: boolean}): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(null, null);
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;

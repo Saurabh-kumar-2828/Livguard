@@ -674,6 +674,7 @@ export function ApplyNowForDealerDialog({
                 isDialogOpen={isApplyNowDialogOpen && step == 1}
                 tryToCloseDialog={tryToCloseApplyNowDialog}
                 title={getVernacularString("applyNowForDealerT1", userPreferences.language)}
+                showCloseIcon={false}
             >
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"
@@ -906,6 +907,7 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
             isDialogOpen={isDialogOpen}
             tryToCloseDialog={tryToCloseDialog}
             title={null}
+            showCloseIcon={false}
         >
             <div className="tw-w-full tw-flex tw-flex-col tw-items-center tw-text-center">
                 <FixedWidthImage

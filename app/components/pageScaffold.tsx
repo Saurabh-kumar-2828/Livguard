@@ -28,6 +28,8 @@ export function PageScaffold({
                     redirectTo={redirectTo}
                     showMobileMenuIcon={showMobileMenuIcon}
                     breadcrumbs={breadcrumbs}
+                    showSearchOption={true}
+                    showContactCtaButton={false}
                 />
 
                 {children}

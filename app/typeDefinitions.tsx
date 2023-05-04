@@ -134,5 +134,6 @@ export type Dealer = {
 export enum FormType {
     otpVerification = "otp-verification",
     contactUsSubmission = "contact-us-submission",
-    applyForDealership = "apply-for-dealership"
+    applyForDealership = "apply-for-dealership",
+    offerContactUsSubmission = "offer-contact-us-submission"
 }

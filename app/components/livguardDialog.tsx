@@ -3,7 +3,7 @@ import React from "react";
 import {X} from "react-bootstrap-icons";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 
-export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEnter, title, children}: {isDialogOpen: boolean, tryToCloseDialog: () => void, beforeEnter?: () => void, title: string | null, children}) {
+export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEnter, title, children, showCloseIcon}: {isDialogOpen: boolean, tryToCloseDialog: () => void, beforeEnter?: () => void, title: string | null, children, showCloseIcon: boolean}) {
     return (
         <Transition
             show={isDialogOpen}
@@ -38,14 +38,15 @@ export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEn
                         leaveTo="tw-opacity-0"
                         beforeEnter={beforeEnter}
                     >
-
-                        <button
-                            type="button"
-                            onClick={tryToCloseDialog}
-                            className="lg-bg-secondary-300 tw-rounded-full tw-absolute tw-top-2 tw-right-2"
-                        >
-                            <X className="tw-w-8 tw-h-8" />
-                        </button>
+                        {showCloseIcon &&
+                            <button
+                                type="button"
+                                onClick={tryToCloseDialog}
+                                className="lg-bg-secondary-300 tw-rounded-full tw-absolute tw-top-2 tw-right-2"
+                            >
+                                <X className="tw-w-8 tw-h-8" />
+                            </button>
+                        }
 
                         {title == null ? null : (
                             <>

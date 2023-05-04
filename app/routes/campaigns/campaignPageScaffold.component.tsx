@@ -1,5 +1,6 @@
-import {FooterComponent} from "~/components/footerComponent";
+import {FooterComponent, FooterSocialLogosAndCopyright} from "~/components/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";
 
 export function CampaignPageScaffold({
@@ -9,6 +10,8 @@ export function CampaignPageScaffold({
     showMobileMenuIcon,
     utmParameters,
     breadcrumbs,
+    showContactCtaButton,
+    showSearchOption,
 }: {
     userPreferences: UserPreferences;
     children: any;
@@ -18,6 +21,8 @@ export function CampaignPageScaffold({
         [searchParameter: string]: string;
     };
     breadcrumbs?: Array<{humanReadableString: string; link: string}>;
+    showContactCtaButton: boolean;
+    showSearchOption: boolean;
 }) {
     return (
         <>
@@ -28,15 +33,23 @@ export function CampaignPageScaffold({
                     redirectTo={redirectTo}
                     showMobileMenuIcon={showMobileMenuIcon}
                     breadcrumbs={breadcrumbs}
+                    showSearchOption={showSearchOption}
+                    showContactCtaButton={showContactCtaButton}
                 />
 
                 {children}
                 <div className="tw-flex-grow" />
 
-                <FooterComponent
+                <VerticalSpacer className="tw-h-[5rem] lg:tw-h-[10rem]" />
+
+                <FooterSocialLogosAndCopyright
+                    userPreferences={userPreferences}
+                    className="tw-w-full"
+                />
+                {/* <FooterComponent
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}
-                />
+                /> */}
             </div>
         </>
     );

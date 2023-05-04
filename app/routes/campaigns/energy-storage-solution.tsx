@@ -80,6 +80,8 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
                 utmParameters={utmSearchParameters}
+                showContactCtaButton={false}
+                showSearchOption={true}
             >
                 <LandingPage
                     userPreferences={userPreferences}

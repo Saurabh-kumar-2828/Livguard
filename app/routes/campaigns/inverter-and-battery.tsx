@@ -81,10 +81,9 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={false}
                 utmParameters={utmSearchParameters}
+                showContactCtaButton={false}
             >
-                <LandingPage
-                    userPreferences={userPreferences}
-                />
+                <LandingPage userPreferences={userPreferences} />
             </CampaignPageScaffold>
 
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
@@ -101,7 +100,7 @@ export default function () {
                             "logo": "",
                             "sameAs": ""
                         }
-                    `
+                    `,
                 }}
             />
         </>

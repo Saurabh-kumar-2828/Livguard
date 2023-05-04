@@ -16,12 +16,15 @@ export const action: ActionFunction = async ({request, params}) => {
     const phoneNumber = safeParse(getNonEmptyStringFromUnknown, body.get("phoneNumber"));
     const name = safeParse(getNonEmptyStringFromUnknown, body.get("name"));
     const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
-    const emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
     const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
     let city: string | null = "";
+    let emailId: string | null = "";
     if(formType == FormType.applyForDealership){
         city = safeParse(getNonEmptyStringFromUnknown, body.get("city"));
+    }
+    if(formType == FormType.applyForDealership || formType == FormType.contactUsSubmission){
+        emailId = safeParse(getNonEmptyStringFromUnknown, body.get("email"));
     }
 
     if (phoneNumber == null || utmParameters == null || name == null || leadId == null || emailId == null || formType == null || city == null) {
@@ -52,15 +55,35 @@ export const action: ActionFunction = async ({request, params}) => {
             };
             return json(actionData);
         }
+    }else if(formType == FormType.offerContactUsSubmission){
+        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, city: city, otpVerified: false});
+        if (insertResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",
+                type: FormType.applyForDealership,
+            };
+            return json(actionData);
+        }
     }
 
-    const freshsalesResult = await sendDataToFreshsales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city, otpVerified: false}, utmParametersDecoded);
-    if (freshsalesResult instanceof Error) {
-        const actionData: GenericActionData = {
-            error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
-            type: FormType.otpVerification,
-        };
-        return json(actionData);
+    if(formType == FormType.offerContactUsSubmission){
+        const freshsalesResult = await sendDataToFreshsales({mobile_number: phoneNumber, first_name: name, city: city, otpVerified: false}, utmParametersDecoded);
+        if (freshsalesResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
+                type: FormType.otpVerification,
+            };
+            return json(actionData);
+        }
+    }else if(formType == FormType.applyForDealership || formType == FormType.contactUsSubmission){
+        const freshsalesResult = await sendDataToFreshsales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city, otpVerified: false}, utmParametersDecoded);
+        if (freshsalesResult instanceof Error) {
+            const actionData: GenericActionData = {
+                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
+                type: FormType.otpVerification,
+            };
+            return json(actionData);
+        }
     }
 
     const result = await sendOtp(phoneNumber, name);

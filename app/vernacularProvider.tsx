@@ -3405,7 +3405,200 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "उत्पाद",
         [Language.Marathi]: "?????",
     },
-
+    OfferJodiHT1: {
+        [Language.English]: `Beat The Heat with Power-Packed <span class="lg-text-highlighted">Cashback</span>`,
+        [Language.Hindi]: `गर्मी को मात दें पावर-पैक्ड <span class="lg-text-highlighted">कैशबैक</span> के साथ`,
+        [Language.Marathi]: "?????",
+    },
+    OfferJodiHT2: {
+        [Language.English]: `For the first time ever, Livguard brings a striking cashback offer for you. Experience an uninterrupted summer with our Inverter and Battery Jodis and enjoy big savings with upto <b>₹1500 cashback!</b>`,
+        [Language.Hindi]: `पहली बार आपके लिए, हम लाएँ है एक बेहतरीन ऑफर। अपनी गर्मी के मौसम को परेशानी मुक्त बनाएँ हमारे इनवर्टर और बैटरी जोड़ी के साथ, और  <b>₹1500 तक के कैशबैक</b> के साथ बड़ी बचत का आनंद लें!`,
+        [Language.Marathi]: "?????",
+    },
+    OfferJodiHT3: {
+        [Language.English]: "Avail your cashback in 6 easy steps",
+        [Language.Hindi]: "6 आसान चरणों में अपना कैशबैक प्राप्त करें",
+        [Language.Marathi]: "?????",
+    },
+    OfferStep1: {
+        [Language.English]: `<b>Buy Inverter & Inverter Battery</b> Combo from Livguard`,
+        [Language.Hindi]: `<b>ख़रीदें लिवगार्ड इनवर्टर और बैटरी</b> कॉम्बो`,
+        [Language.Marathi]: "?????",
+    },
+    OfferStep2: {
+        [Language.English]: `<b>Send 'Hi'</b> to us on LivServ WhatsApp mobile number <b>(+91 7428191000)</b>`,
+        [Language.Hindi]: `LivServ whatsapp मोबाइल नंबर <b>(+91 7428191000) पर हमें ‘Hi’ भेजें</b>`,
+        [Language.Marathi]: "?????",
+    },
+    OfferStep3: {
+        [Language.English]: `<b>Select warranty registration from</b> the given options`,
+        [Language.Hindi]: `दिये गये विकल्पों में से अपना <b>वारंटी पंजीकरण चुनें</b>`,
+        [Language.Marathi]: "?????",
+    },
+    OfferStep4: {
+        [Language.English]: `Fill warranty registration form for the purchased combo along with your UPI id and <b>submit the form</b>`,
+        [Language.Hindi]: `खरीदी गई कॉम्बो के लिए वारंटी पंजीकरण फॉर्म अपनी यूपीआई आईडी के साथ भरें और <b>फॉर्म सबमिट करें</b>`,
+        [Language.Marathi]: "?????",
+    },
+    OfferStep5: {
+        [Language.English]: `You will get a <b>call from the Authorized LivServ</b> call center post registration`,
+        [Language.Hindi]: `पंजीकरण के बाद आपको अधिकृत <b>LivServ कॉल सेंटर से कॉल मिलेगी</b>`,
+        [Language.Marathi]: "?????",
+    },
+    OfferStep6: {
+        [Language.English]: `You will get <b>up to Rs. 1500 cashback</b> in your registered UPI id within 20 days post verification`,
+        [Language.Hindi]: `पुष्टि के 20 दिनों के भीतर आपको अपनी पंजीकृत यूपीआई <b>आईडी में रु. 1500 तक कैशबैक</b> जोड़ दिया जाएगा`,
+        [Language.Marathi]: "?????",
+    },
+    OfferStep: {
+        [Language.English]: "Step",
+        [Language.Hindi]: "चरण",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCApplied: {
+        [Language.English]: "T&Cs Applied",
+        [Language.Hindi]: "नियम और शर्तें लागू",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent1: {
+        [Language.English]: '"Cashback offer" is applicable from 5th May’23 to 31st May’23.',
+        [Language.Hindi]: "\"कैशबैक ऑफ़र\" 5 मई'23 से 31 मई'23 तक लागू होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent2: {
+        [Language.English]: "This offer is applicable on the combo purchase (a combo includes selected Livguard Inverter Batteries & any Livguard Inverter) from the company’s Authorized Dealer only.",
+        [Language.Hindi]: "यह ऑफ़र केवल कंपनी के अधिकृत डीलर से कॉम्बो खरीद (कॉम्बो में चयनित लिवगार्ड इनवर्टर बैटरी और किसी भी लिवगार्ड इनवर्टर शामिल होते हैं) पर लागू होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent3: {
+        [Language.English]: "The consumer can avail of the cashback only after registering the combo (under the offer) on LivServ WhatsApp mobile number (+91 7428191000).",
+        [Language.Hindi]: "उपभोक्ता केवल तब कैशबैक का लाभ उठा सकता है जब वह कॉम्बो (ऑफ़र के तहत) को LivServ whatsapp मोबाइल नंबर (+91 7428191000) पर पंजीकृत होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent4: {
+        [Language.English]: "To avail of the cashback offer say “Hi” to LivServ WhatsApp mobile number (+91 7428191000).",
+        [Language.Hindi]: 'कैशबैक ऑफ़र का लाभ उठाने के लिए LivServ whatsapp मोबाइल नंबर (+91 7428191000) पर "Hi" कहें।',
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent5: {
+        [Language.English]:
+            "If a consumer buys a combo and does the warranty registration for only one of those products from the purchased combo, he/she will not be eligible for the cashback offer.",
+        [Language.Hindi]: "यदि कोई उपभोगता कॉम्बो खरीदता है और खरीदे गए कॉम्बो में से किसी एक उत्पाद के लिए वॉरंटी पंजीकरण करता है, तो वह कैशबैक ऑफ़र के लिए पात्र नहीं होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent6: {
+        [Language.English]: "Warranty registration through LivServ is mandatory to be eligible for this cashback offer.",
+        [Language.Hindi]: "लिवसर्व के माध्यम से वारंटी पंजीकरण करना इस कैशबैक ऑफ़र के लिए पात्र होने के लिए अनिवार्य है।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent7: {
+        [Language.English]: "Only 1 cashback offer can be availed per registered mobile number and multiple combos will not be eligible for the cashback offer.",
+        [Language.Hindi]:
+            "केवल 1 कॉम्बो के इनवर्टरऔर बैटरी पर पंजीकृत मोबाइल नंबर पर कैशबैक दिया जाएगा। यानी, यदि किसी ग्राहक ने 1 इनवर्टरऔर कई बैटरियों को खरीदा तो वह केवल 1 कॉम्बो पर लागू होने वाले छूट के लिए पात्र होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent8: {
+        [Language.English]:
+            "Cashback will be given on only 1 combo of inverter & battery per registered mobile number. i.e. even if a customer buys 1 inverter & multiple batteries then he/she will be eligible for only 1 combo applicable discount as per models purchased.",
+        [Language.Hindi]:
+            "केवल 1 कॉम्बो के इनवर्टर और बैटरी पर पंजीकृत मोबाइल नंबर पर कैशबैक दिया जाएगा। यानी, यदि किसी ग्राहक ने 1 इनवर्टर और कई बैटरियों को खरीदा तो वह केवल 1 कॉम्बो पर लागू होने वाले छूट के लिए पात्र होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent9: {
+        [Language.English]:
+            "Customer needs to submit all relevant details of the purchased combo, that includes Product Details, Product Serial Nos., Date of Purchase, Dealer Name & Contact, Warranty card, Purchase Invoice/Bill, Product Image, UPI Id (for customer’s cashback) and Customer personal details.",
+        [Language.Hindi]:
+            "ग्राहकों को खरीदे गए कॉम्बो के सभी संबंधित विवरण देने की आवश्यकता है, जिसमें उत्पाद विवरण, उत्पाद सीरियल नंबर, खरीद की तारीख, विक्रेता का नाम और संपर्क, वारंटी कार्ड, खरीद चालान/बिल, उत्पाद छवि, UPI आईडी (ग्राहक के कैशबैक के लिए) और ग्राहक के व्यक्तिगत विवरण।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent10: {
+        [Language.English]: "Customer needs to register both products in the combo on the LivServ app in a single window, otherwise the same will not be considered for the “Cashback offer”.",
+        [Language.Hindi]: 'ग्राहक को कॉम्बो में दोनों उत्पादों को LivServ App पर एक ही विंडो में पंजीकृत करने की आवश्यकता होती है, अन्यथा इसे "कैशबैक ऑफ़र" के लिए मान्य नहीं किया जाएगा।',
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent11: {
+        [Language.English]:
+            "After the submission, the company will do a verification check through the LivServ call center, to validate the purchase and correctly record/verify all relevant details for processing the cashback.",
+        [Language.Hindi]:
+            "प्रस्तुति के बाद, कंपनी LivServ कॉल सेंटर के माध्यम से सत्यापन जांच करेगी, ताकि खरीद को सत्यापित किया जा सके और कैशबैक की प्रक्रिया के लिए सभी संबंधित विवरणों को सही ढंग से रिकॉर्ड/सत्यापित किया जा सके।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent12: {
+        [Language.English]:
+            "The cashback will be credited to the consumer’s linked UPI ID shared at the time of warranty registration on the LivServ page within 20 days of registration. (Selected Livguard Inverter battery + any Livguard Inverter).",
+        [Language.Hindi]:
+            "कैशबैक को ग्राहक के साथ-साथ LivServ पेज पर वारंटी पंजीकरण के समय साझा की गई UPI आईडी में पंजीकरण के 20 दिनों के भीतर क्रेडिट किया जाएगा। (चयनित लिवगार्ड इनवर्टरबैटरी + किसी भी लिवगार्ड इनवर्टर)",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent13: {
+        [Language.English]: "The purchase date needs to be within the scheme period, i.e. 5th May’23 to 31st May’23 only.",
+        [Language.Hindi]: "खरीद की तारीख को योजना की अवधि के भीतर होनी चाहिए, अर्थात् 5 मई'23 से 31 मई'23।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent14: {
+        [Language.English]: "Company may validate the serial numbers of the products for audit. In case of discrepancy, the company’s decision shall be final and binding.",
+        [Language.Hindi]: "कंपनी उत्पादों के सीरियल नंबरों की सत्यापन के लिए ऑडिट कर सकती है। विसंगति के मामले में, कंपनी का निर्णय अंतिम और बाध्यकारी होगा।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent15: {
+        [Language.English]:
+            "Company reserves the right to discontinue/extend/modify this scheme at any time without prior notice. The decision of the company will have final binding & all disputes are subject to area Jurisdiction.",
+        [Language.Hindi]:
+            "कंपनी को बिना पूर्व सूचना के इस योजना को किसी भी समय बंद करने / बढ़ाने / संशोधित करने का अधिकार सुरक्षित है। कंपनी के निर्णय का अंतिम बंधन होगा और सभी विवाद क्षेत्र न्यायाधिकरण के अधीन होंगे।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent16: {
+        [Language.English]:
+            "This scheme is applicable on All Livguard Inverters & Select Inverter Battery Combos. To know more about the select Inverter Batteries kindly refer to the scheme brochure, or poster or speak with your Authorised Livguard Dealer.",
+        [Language.Hindi]:
+            "इस योजना का लागू होना सभी लिवगार्ड इनवर्टरऔर चयनित इनवर्टरबैटरी कॉम्बो पर है। चयनित इनवर्टरबैटरियों के बारे में अधिक जानकारी के लिए कृपया योजना के ब्रोशर, पोस्टर या अपने अधिकृत लिवगार्ड विक्रेता से संपर्क करें।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent17: {
+        [Language.English]: "In case of any query related to this offer, you may contact us on LivServ toll-free number 18001025551.",
+        [Language.Hindi]: "इस ऑफ़र से संबंधित किसी भी प्रश्न के लिए, आप हमसे LivServ टोल फ्री नंबर 18001025551 पर संपर्क कर सकते हैं।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent18: {
+        [Language.English]: "This offer is applicable to all of India.",
+        [Language.Hindi]: "यह ऑफ़र पूरे भारत के लिए लागू है।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent19: {
+        [Language.English]: "This Offer is applicable to non-solar inverters only.",
+        [Language.Hindi]: "यह ऑफ़र केवल गैर-सोलर इनवर्टरों पर ही लागू है।",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCContent20: {
+        [Language.English]: "Ref: LG/CB/IB-INV/May/2023/00.",
+        [Language.Hindi]: "संदर्भ: LG/CB/IB-INV/May/2023/00.",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCReadMore: {
+        [Language.English]: "Read More",
+        [Language.Hindi]: "और पढ़ें",
+        [Language.Marathi]: "?????",
+    },
+    OfferTnCText: {
+        [Language.English]: "Terms & Conditions",
+        [Language.Hindi]: "नियम और शर्तें",
+        [Language.Marathi]: "?????",
+    },
+    OfferFormGetOTP: {
+        [Language.English]: "Get OTP",
+        [Language.Hindi]: "ओटीपी पुनः भेजें",
+        [Language.Marathi]: "?????",
+    },
+    OfferResendOTP: {
+        [Language.English]: "Resend OTP",
+        [Language.Hindi]: "ओटीपी प्राप्त करें",
+        [Language.Marathi]: "?????",
+    },
+    OfferInvalidOTP: {
+        [Language.English]: "Invalid OTP",
+        [Language.Hindi]: "अमान्य ओटीपी",
+        [Language.Marathi]: "?????",
+    },
     "?????": {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
