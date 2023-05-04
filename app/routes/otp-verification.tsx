@@ -24,7 +24,7 @@ export const action: ActionFunction = async ({request, params}) => {
         city = safeParse(getNonEmptyStringFromUnknown, body.get("city"));
     }
     if(formType == FormType.applyForDealership || formType == FormType.contactUsSubmission){
-        emailId = safeParse(getNonEmptyStringFromUnknown, body.get("email"));
+        emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
     }
 
     if (phoneNumber == null || utmParameters == null || name == null || leadId == null || emailId == null || formType == null || city == null) {
