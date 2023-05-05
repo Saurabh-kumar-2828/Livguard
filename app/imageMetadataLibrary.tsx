@@ -3543,23 +3543,14 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LeG+UM~qD%RjM{M{RjWB009F%Mof",
         placeholderColor: "#080808",
     },
-    "/livguard/offers/mobile.jpg": {
+    "/livguard/offers/top-banner-desktop-01.jpg": {
         width: 3840,
         height: 3840,
-        hash: "e7cb6c15839811f13b1fdf523b62868276857f64a0156fe44cf87df880edf2ce",
+        hash: "03954de958a191f3310e90cefd4cbe114b80a3b2a0fc95b8e7c80e86c4f1447a",
         altText: "Dummy alt text",
-        blurHash: "L59sPKs;01#7O?xZn+0y0e9Z?H}]",
+        blurHash: "L17mgE0gXn@[gh,?Nx9t00;{aJGZ",
         placeholderColor: "#080808",
-        finalUrl: "/livguard/offers/mobile-edf2ce.jpg",
-    },
-    "/livguard/offers/top-banner-desktop.jpg": {
-        width: 3840,
-        height: 3840,
-        hash: "0df286314dfb79715ae95a06f80be578b740b2a0a21570edf5211d42a1341a4d",
-        altText: "Dummy alt text",
-        blurHash: "L17w4;0#%N{fTJ$gJU9u00+tInB.",
-        placeholderColor: "#080808",
-        finalUrl: "/livguard/offers/top-banner-desktop-341a4d.jpg",
+        finalUrl: "/livguard/offers/top-banner-desktop-01-f1447a.jpg",
     },
     "/livguard/offers/top-banner-mobile.jpg": {
         width: 3841,

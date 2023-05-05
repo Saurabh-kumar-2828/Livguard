@@ -1,13 +1,10 @@
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
 import {useState} from "react";
-import {useResizeDetector} from "react-resize-detector";
-import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {OfferContactUsDialog, StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
+import {HeroSection, OfferContactUsDialog, StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
@@ -126,38 +123,6 @@ function LandingPage({
     );
 }
 
-function HeroSection({
-    userPreferences,
-    utmParameters,
-    className,
-}: {
-    userPreferences: UserPreferences;
-    utmParameters: {
-        [searchParameter: string]: string;
-    };
-    className?: string;
-}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-
-    return (
-        // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
-        <div
-            className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
-                className,
-            )}
-            ref={ref}
-        >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/offers/mobile.jpg" : "/livguard/offers/desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/offers/mobile.jpg" : "/livguard/offers/desktop.jpg"}
-                />
-            )}
-        </div>
-    );
-}
 
 
 

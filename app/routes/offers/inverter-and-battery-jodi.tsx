@@ -12,7 +12,6 @@ import {OfferPageBottomBar} from "~/components/offerPageBottomBar";
 import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
@@ -135,7 +134,7 @@ function LandingPage({
 }
 
 
-function HeroSection({
+export function HeroSection({
     userPreferences,
     utmParameters,
     className,
@@ -159,9 +158,9 @@ function HeroSection({
         >
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/offers/top-banner-mobile.jpg" : "/livguard/offers/top-banner-desktop.jpg"}
+                    relativePath={containerHeight > containerWidth ? "/livguard/offers/top-banner-mobile.jpg" : "/livguard/offers/top-banner-desktop-01.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/offers/top-banner-mobile.jpg" : "/livguard/offers/top-banner-desktop.jpg"}
+                    key={containerHeight > containerWidth ? "/livguard/offers/top-banner-mobile.jpg" : "/livguard/offers/top-banner-desktop-01.jpg"}
                 />
             )}
 
