@@ -82,6 +82,7 @@ export default function () {
                 showMobileMenuIcon={false}
                 utmParameters={utmSearchParameters}
                 showContactCtaButton={false}
+                showSearchOption={true}
             >
                 <LandingPage userPreferences={userPreferences} />
             </CampaignPageScaffold>

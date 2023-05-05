@@ -1097,7 +1097,7 @@ export function ContactUsDialog({
                 isDialogOpen={isContactUsDialogOpen && step == 1}
                 tryToCloseDialog={tryToCloseContactUsDialog}
                 title={getVernacularString("contactUsT1", userPreferences.language)}
-                showCloseIcon={false}
+                showCloseIcon={true}
             >
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"

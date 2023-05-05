@@ -1,6 +1,8 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
+import {useState} from "react";
+import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -13,7 +15,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {ContactUsCta, TransformingLives} from "~/routes";
+import {ContactUsCta, ContactUsDialog, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -188,20 +190,48 @@ function HeroSection({
     };
     className?: string;
 }) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 className,
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-isolate",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-isolate hover:tw-cursor-pointer",
             )}
+            ref={ref}
+            onClick={() => setIsContactUsDialogOpen(true)}
         >
-            <CoverImage
+            {containerWidth == null || containerHeight == null ? null : (
+                <CoverImage
+                    relativePath={
+                        containerHeight > containerWidth
+                            ? userPreferences.language == Language.English
+                                ? "/livguard/landingPages/3/top-banner-mobile-english.jpg"
+                                : "/livguard/landingPages/3/top-banner-mobile-hindi.jpg"
+                            : userPreferences.language == Language.English
+                            ? "/livguard/landingPages/3/top-banner-desktop-english.jpg"
+                            : "/livguard/landingPages/3/top-banner-desktop-hindi.jpg"
+                    }
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    key={
+                        containerHeight > containerWidth
+                            ? userPreferences.language == Language.English
+                                ? "/livguard/landingPages/3/top-banner-mobile-english.jpg"
+                                : "/livguard/landingPages/3/top-banner-mobile-hindi.jpg"
+                            : userPreferences.language == Language.English
+                            ? "/livguard/landingPages/3/top-banner-desktop-english.jpg"
+                            : "/livguard/landingPages/3/top-banner-desktop-hindi.jpg"
+                    }
+                />
+            )}
+
+            {/* <CoverImage
                 relativePath="/livguard/landingPages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 -tw-z-10"
-                // alt="Inverter And Battery Jodi"
-            />
+            /> */}
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+            {/* <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
                     className="lg-text-banner lg-px-screen-edge tw-text-white"
@@ -222,9 +252,16 @@ function HeroSection({
                     className="tw-z-10"
                     utmParameters={utmParameters}
                 />
-            </DefaultElementAnimation>
+            </DefaultElementAnimation> */}
 
             <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+
+            <ContactUsDialog
+                userPreferences={userPreferences}
+                isContactUsDialogOpen={isContactUsDialogOpen}
+                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                utmParameters={utmParameters}
+            />
         </div>
     );
 }
