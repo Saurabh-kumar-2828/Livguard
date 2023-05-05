@@ -1,11 +1,12 @@
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
 export async function getDealerForCity(city: string): Promise<Array<Dealer> | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -50,7 +51,7 @@ function rowToDealerInformation(row: any): Dealer {
 }
 
 export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId?: string; city: string; otpVerified: boolean}): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -121,7 +122,7 @@ export async function insertOrUpdateContactLeads(
         };
     },
 ): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -186,7 +187,7 @@ export async function insertSubscriptionLeads(formResponse: {
         [searchParameter: string]: string;
     };
 }): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -210,7 +211,7 @@ export async function insertSubscriptionLeads(formResponse: {
 }
 
 export async function insertQueryLeads(query: string): Promise<void | Error>{
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }
@@ -237,7 +238,7 @@ export async function insertQueryLeads(query: string): Promise<void | Error>{
 
 
 export async function insertSearchQuery(searchTerm: string): Promise<void | Error> {
-    const postgresDatabaseManager = await getPostgresDatabaseManager(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID") as Uuid);
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
     }

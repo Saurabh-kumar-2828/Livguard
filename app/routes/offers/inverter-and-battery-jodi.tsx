@@ -285,7 +285,7 @@ export function TermsAndConditions({userPreferences, className}: {userPreference
                 <VerticalSpacer className="tw-h-3" />
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-icon tw-underline-offset-2 tw-underline hover:tw-cursor-pointer" onClick={() => {setShowTnCDialog(true)}}>{getVernacularString("OfferTnCReadMore", userPreferences.language)}</div>
+                    <div className="lg-text-icon tw-underline-offset-2 tw-underline hover:tw-cursor-pointer tw-w-fit" onClick={() => {setShowTnCDialog(true)}}>{getVernacularString("OfferTnCReadMore", userPreferences.language)}</div>
                 </DefaultTextAnimation>
             </div>
 

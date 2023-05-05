@@ -215,7 +215,7 @@ export function HeaderComponent({
                             <ChevronDown className="tw-w-4 tw-h-4" />
                         </Listbox.Button>
 
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 -tw-left-8 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 -tw-left-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                             <ItemBuilder
                                 items={languageOptions}
                                 itemBuilder={(item, itemIndex) => (
