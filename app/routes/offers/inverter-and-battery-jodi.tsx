@@ -158,9 +158,25 @@ export function HeroSection({
         >
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/offers/top-banner-mobile.jpg" : "/livguard/offers/top-banner-desktop-01.jpg"}
+                    relativePath={
+                        containerHeight > containerWidth
+                            ? userPreferences.language == Language.English
+                                ? "/livguard/offers/top-banner-mobile-english.png"
+                                : "/livguard/offers/top-banner-mobile-hindi.png"
+                            : userPreferences.language == Language.English
+                            ? "/livguard/offers/top-banner-desktop-english.png"
+                            : "/livguard/offers/top-banner-desktop-hindi.png"
+                    }
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/offers/top-banner-mobile.jpg" : "/livguard/offers/top-banner-desktop-01.jpg"}
+                    key={
+                        containerHeight > containerWidth
+                            ? userPreferences.language == Language.English
+                                ? "/livguard/offers/top-banner-mobile-english.png"
+                                : "/livguard/offers/top-banner-mobile-hindi.png"
+                            : userPreferences.language == Language.English
+                            ? "/livguard/offers/top-banner-desktop-english.png"
+                            : "/livguard/offers/top-banner-desktop-hindi.png"
+                    }
                 />
             )}
 
@@ -284,7 +300,7 @@ export function TermsAndConditions({userPreferences, className}: {userPreference
                 <VerticalSpacer className="tw-h-3" />
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-icon tw-underline-offset-2 tw-underline hover:tw-cursor-pointer tw-w-fit" onClick={() => {setShowTnCDialog(true)}}>{getVernacularString("OfferTnCReadMore", userPreferences.language)}</div>
+                    <div className="lg-text-body tw-underline-offset-2 tw-underline hover:tw-cursor-pointer tw-w-fit" onClick={() => {setShowTnCDialog(true)}}>{getVernacularString("OfferTnCReadMore", userPreferences.language)}</div>
                 </DefaultTextAnimation>
             </div>
 
@@ -513,10 +529,10 @@ export function TermsAndConditionsDialog({showTnCDialog, setShowTnCDialog, userP
                     <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[70%] tw-backdrop-blur" />
                 </Transition.Child>
 
-                <Dialog.Panel className="tw-fixed tw-bottom-0 lg:tw-right-0 lg:tw-top-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-place-items-center tw-justify-start tw-overflow-auto">
+                <Dialog.Panel className="tw-fixed tw-bottom-0 lg:tw-right-0 lg:tw-top-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-place-items-center tw-justify-start">
                     <Transition.Child
                         as="div"
-                        className="tw-w-full tw-h-[85vh] lg:tw-h-[100vh] lg:tw-w-[40rem] lg:tw-overflow-scroll tw-overflow-y-auto lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
+                        className="tw-w-full tw-h-[85vh] lg:tw-h-[100vh] lg:tw-w-[40rem] tw-overflow-y-auto lg-bg-secondary-100 tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
                         enter="tw-ease-in tw-transition-all tw-duration-300"
                         enterFrom="tw-h-0 lg:tw-w-0"
                         enterTo="tw-h-[85vh] lg:tw-w-[40rem]"

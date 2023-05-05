@@ -388,7 +388,7 @@ export function HeaderComponent({
                     <OfferContactUsCta
                         userPreferences={userPreferences}
                         textVernacId="homeS1T3"
-                        className="tw-z-10"
+                        className="tw-z-10 tw-hidden lg:tw-block"
                     />
                 )}
             </div>

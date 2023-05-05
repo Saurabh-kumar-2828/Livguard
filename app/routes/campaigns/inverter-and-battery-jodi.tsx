@@ -254,7 +254,7 @@ function HeroSection({
                 />
             </DefaultElementAnimation> */}
 
-            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+            {/* <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" /> */}
 
             <ContactUsDialog
                 userPreferences={userPreferences}

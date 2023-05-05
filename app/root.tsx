@@ -269,7 +269,7 @@ export default function Root() {
 
                     <ToastContainer
                         position="top-right"
-                        autoClose={false}
+                        autoClose={8000}
                         theme="dark"
                     />
 

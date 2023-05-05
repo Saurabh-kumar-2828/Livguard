@@ -61,7 +61,6 @@ export function OtpVerificationDialog({
         if (fetcher.data == null) {
             return;
         } else if (fetcher.data.error != null) {
-            toast.error(fetcher.data.error);
             setInvalidOtp(true);
             return;
         }
