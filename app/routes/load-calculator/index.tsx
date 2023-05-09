@@ -1,6 +1,7 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, redirect} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
 import {Check2, PlusCircleFill, Search} from "react-bootstrap-icons";
@@ -20,21 +21,13 @@ import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, get
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FaqSection} from "~/routes";
-import {createInitialState, createInitialStateNewUi, LoadCalculatorInputsAction, LoadCalculatorInputsActionType, loadCalculatorInputsReducer} from "~/routes/load-calculator/index.state";
-import {
-    Device,
-    deviceTypeLibrary,
-    getDeviceTypeDetails,
-    getRoomTypeDetails,
-    LoadCalculatorInputs,
-    propertyTemplates,
-    propertyTemplatesNewUi,
-    PropertyType,
-    Room,
-    roomTypeLibrary
-} from "~/routes/load-calculator/index.types";
+import type {LoadCalculatorInputsAction} from "~/routes/load-calculator/index.state";
+import {createInitialState, createInitialStateNewUi, LoadCalculatorInputsActionType, loadCalculatorInputsReducer} from "~/routes/load-calculator/index.state";
+import type {Device, LoadCalculatorInputs, Room} from "~/routes/load-calculator/index.types";
+import {deviceTypeLibrary, getDeviceTypeDetails, getRoomTypeDetails, propertyTemplates, propertyTemplatesNewUi, PropertyType, roomTypeLibrary} from "~/routes/load-calculator/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {enumFromStringValue, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -186,7 +179,7 @@ export default function () {
 
 function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [searchParams, setSearchParams] = useSearchParams();
-    const propertyType = getSingletonValue(searchParams.getAll("property_type"));
+    const propertyType = searchParams.getAll("property_type").length == 0 ? null : getSingletonValue(searchParams.getAll("property_type"));
 
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
@@ -334,9 +327,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-w-full tw-row-start-[8] tw-col-start-1">
                 <div className="tw-w-3/5 tw-max-w-xl tw-mx-auto">
-                    <FullWidthImage
-                        relativePath="/livguard/home/5/1.png"
-                    />
+                    <FullWidthImage relativePath="/livguard/home/5/1.png" />
                 </div>
             </div>
 
@@ -542,9 +533,7 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
                         >
                             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-2">
                                 <div className="lg-bg-primary-500 tw-h-12 tw-w-12 tw-rounded-full tw-p-2 tw-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
-                                    <FullWidthImage
-                                        relativePath={item.icon}
-                                    />
+                                    <FullWidthImage relativePath={item.icon} />
                                 </div>
                             </div>
 
@@ -1394,7 +1383,10 @@ function EditRoomDialog({
                                 <ItemBuilder
                                     items={distinct(Object.values(deviceTypeLibrary).map((deviceDetails) => deviceDetails.category))}
                                     itemBuilder={(deviceCategory, deviceCategoryIndex) => (
-                                        <div className="tw-p-4" key={deviceCategoryIndex}>
+                                        <div
+                                            className="tw-p-4"
+                                            key={deviceCategoryIndex}
+                                        >
                                             <div className="lg-text-body">{deviceCategory}</div>
 
                                             <VerticalSpacer className="tw-h-2" />
