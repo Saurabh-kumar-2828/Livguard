@@ -4,7 +4,7 @@ import type {ShouldRevalidateFunction} from "@remix-run/react";
 import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
 import {useEffect} from "react";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
-import {WebsiteConfigurationContext} from "~/contexts/websiteConfigurationContext";
+import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {logFrontendError} from "~/global-common-typescript/logging";

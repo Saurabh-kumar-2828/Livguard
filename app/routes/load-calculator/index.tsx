@@ -179,7 +179,7 @@ export default function () {
 
 function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [searchParams, setSearchParams] = useSearchParams();
-    const propertyType = searchParams.getAll("property_type").length == 0 ? null : getSingletonValue(searchParams.getAll("property_type"));
+    const propertyType = searchParams.get("property_type");
 
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 

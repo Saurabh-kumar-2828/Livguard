@@ -147,7 +147,7 @@ export function HeaderComponent({
                             <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
                         </Listbox.Button>
 
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 tw-w-40 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                             <ItemBuilder
                                 items={themeOptions}
                                 itemBuilder={(item, itemIndex) => (
@@ -159,7 +159,7 @@ export function HeaderComponent({
                                         {({active, selected}) => (
                                             <li
                                                 className={concatenateNonNullStringsWithSpaces(
-                                                    "tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                    "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
                                                     active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
                                                 )}
                                             >
@@ -215,7 +215,7 @@ export function HeaderComponent({
                             <ChevronDown className="tw-w-4 tw-h-4" />
                         </Listbox.Button>
 
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 -tw-left-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                             <ItemBuilder
                                 items={languageOptions}
                                 itemBuilder={(item, itemIndex) => (
@@ -227,7 +227,7 @@ export function HeaderComponent({
                                         {({active, selected}) => (
                                             <li
                                                 className={concatenateNonNullStringsWithSpaces(
-                                                    "tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                    "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
                                                     active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
                                                 )}
                                             >
