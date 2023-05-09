@@ -1,7 +1,7 @@
-import {ActionFunction, json} from "@remix-run/node";
+import type {ActionFunction} from "@remix-run/node";
+import { json} from "@remix-run/node";
 import {sendOtp} from "~/backend/authentication.server";
 import {insertOrUpdateContactLeads, insertOrUpdateDealerLeads} from "~/backend/dealer.server";
-import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {FormType} from "~/typeDefinitions";
 
@@ -20,10 +20,11 @@ export const action: ActionFunction = async ({request, params}) => {
     const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
     let city: string | null = "";
     let emailId: string | null = "";
-    if(formType == FormType.applyForDealership){
+
+    if (formType == FormType.applyForDealership) {
         city = safeParse(getNonEmptyStringFromUnknown, body.get("city"));
     }
-    if(formType == FormType.applyForDealership || formType == FormType.contactUsSubmission){
+    if (formType == FormType.applyForDealership || formType == FormType.contactUsSubmission) {
         emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
     }
 
@@ -35,11 +36,9 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    console.log("Form type", formType);
-
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    if(formType == FormType.contactUsSubmission){
+    if (formType == FormType.contactUsSubmission) {
         const insertResult = await insertOrUpdateContactLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, otpVerified: false, utmParameters: utmParametersDecoded});
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
@@ -48,8 +47,8 @@ export const action: ActionFunction = async ({request, params}) => {
             };
             return json(actionData);
         }
-    }else if(formType == FormType.applyForDealership){
-        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, city: city, otpVerified: false});
+    } else if (formType == FormType.applyForDealership) {
+        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, city: city, otpVerified: false, utmParameters: utmParametersDecoded});
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",
@@ -57,8 +56,8 @@ export const action: ActionFunction = async ({request, params}) => {
             };
             return json(actionData);
         }
-    }else if(formType == FormType.offerContactUsSubmission){
-        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, city: city, otpVerified: false});
+    } else if (formType == FormType.offerContactUsSubmission) {
+        const insertResult = await insertOrUpdateContactLeads(leadId, {phoneNumber: phoneNumber, name: name, otpVerified: false, utmParameters: utmParametersDecoded});
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: c8c6f4cf-d06b-4d9a-981a-ec4afd7d860e",

@@ -1,8 +1,9 @@
-import {LoaderFunction, MetaFunction, Response} from "@remix-run/node";
+import type {LoaderFunction, MetaFunction} from "@remix-run/node";
+import { Response} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
-import {DynamicLinksFunction} from "remix-utils";
+import type {DynamicLinksFunction} from "remix-utils";
 import {ProductCardComponent, SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -14,13 +15,15 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {allProductDetails, ProductDetails, ProductType} from "~/productData";
+import type { ProductDetails} from "~/productData";
+import {allProductDetails, ProductType} from "~/productData";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import type { UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest} from "~/utilities";
 import {addVernacularString, getVernacularString} from "~/vernacularProvider";
 
@@ -83,7 +86,7 @@ export default function () {
     // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
     // TODO: This is a very ugly hack, see if there is some other way around this
     let breadcrumbLastContentId;
-    const modelNumber = getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value;
+    const modelNumber = getSingletonValue(productData.specifications.filter(specification => specification.title == "Model Number"))?.value;
     if (modelNumber == null) {
         breadcrumbLastContentId = "7f1b0663-3535-464c-86c9-78967d00dcc8";
     } else {

@@ -159,7 +159,7 @@ export function HeroSection({
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={
-                        containerHeight > containerWidth
+                        containerHeight > containerWidth || containerWidth < 640
                             ? userPreferences.language == Language.English
                                 ? "/livguard/offers/top-banner-mobile-english.png"
                                 : "/livguard/offers/top-banner-mobile-hindi.png"
@@ -169,7 +169,7 @@ export function HeroSection({
                     }
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                     key={
-                        containerHeight > containerWidth
+                        containerHeight > containerWidth || containerWidth < 640
                             ? userPreferences.language == Language.English
                                 ? "/livguard/offers/top-banner-mobile-english.png"
                                 : "/livguard/offers/top-banner-mobile-hindi.png"

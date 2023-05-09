@@ -16,7 +16,7 @@ import {FullWidthImage} from "~/global-common-typescript/components/fullWidthIma
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, getIntegerArrayOfLength, getSingletonValueOrNull} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, getIntegerArrayOfLength, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FaqSection} from "~/routes";
@@ -186,7 +186,7 @@ export default function () {
 
 function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [searchParams, setSearchParams] = useSearchParams();
-    const propertyType = getSingletonValueOrNull(searchParams.getAll("property_type"));
+    const propertyType = getSingletonValue(searchParams.getAll("property_type"));
 
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 

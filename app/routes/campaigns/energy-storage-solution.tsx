@@ -2,6 +2,7 @@ import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {FetcherWithComponents, Link, useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
+import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
@@ -265,22 +266,23 @@ function HeroSection({
     step: number;
     leadId: Uuid;
 }) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
                 className,
             )}
+            ref={ref}
         >
-            <CoverImage
-                relativePath="/livguard/hero-banners/lp-1-hero-mobile.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-hidden -tw-z-10"
-            />
-
-            <CoverImage
-                relativePath="/livguard/hero-banners/lp-1-hero-desktop.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full -tw-z-10"
-            />
+            {containerWidth == null || containerHeight == null ? null : (
+                <CoverImage
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/lp-1-hero-mobile.jpg" : "/livguard/hero-banners/lp-1-hero-desktop.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/lp-1-hero-mobile.jpg" : "/livguard/hero-banners/lp-1-hero-desktop.jpg"}
+                />
+            )}
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
                 <div
