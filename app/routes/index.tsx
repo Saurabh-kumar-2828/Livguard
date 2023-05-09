@@ -314,16 +314,16 @@ function HeroSection({
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-13.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
             ref={ref}
         >
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
                 />
             )}
 
