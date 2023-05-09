@@ -5,7 +5,7 @@ import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeigh
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -56,7 +56,7 @@ export function OtpVerificationForm({
                             type="text"
                             name="phoneNumber"
                             className="lg-text-input"
-                            pattern={phoneNumberValidationPattern}
+                            pattern={indianPhoneNumberValidationPattern}
                             required
                             defaultValue={inputData.phoneNumber}
                             readOnly

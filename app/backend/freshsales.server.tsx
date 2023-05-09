@@ -15,7 +15,7 @@ export async function sendDataToFreshsales(
         custom_field: {
             cf_utm_campaign: utmParameters["utm_campaign"] != null ? utmParameters["utm_campaign"] : "",
             cf_utm_medium: utmParameters["utm_medium"] != null ? utmParameters["utm_medium"] : "",
-            cf_lead_source: utmParameters["utm_source"] != null ? utmParameters["utm_source"] : "",
+            cf_lead_source: utmParameters["utm_source"] != null ? utmParameters["utm_source"] : "organic",
             cf_gclid: utmParameters["gclid"] != null ? utmParameters["gclid"] : "",
             cf_fclid: utmParameters["fbclid"] != null ? utmParameters["fbclid"] : "",
             cf_otp_verified: formResponse.otpVerified

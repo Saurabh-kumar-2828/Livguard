@@ -1,6 +1,5 @@
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
@@ -50,7 +49,19 @@ function rowToDealerInformation(row: any): Dealer {
     return dealer;
 }
 
-export async function insertOrUpdateDealerLeads(leadId: string, formResponse: {phoneNumber: string; name: string; emailId?: string; city: string; otpVerified: boolean}): Promise<void | Error> {
+export async function insertOrUpdateDealerLeads(
+    leadId: string,
+    formResponse: {
+        phoneNumber: string;
+        name: string;
+        emailId?: string;
+        city: string;
+        otpVerified: boolean;
+        utmParameters: {
+            [searchParameter: string]: string;
+        };
+    },
+): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;

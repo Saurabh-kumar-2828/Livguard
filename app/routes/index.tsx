@@ -28,7 +28,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
@@ -314,7 +314,7 @@ function HeroSection({
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-13.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
                 className,
             )}
             ref={ref}
@@ -1111,7 +1111,7 @@ export function ContactUsDialog({
                     <input
                         type="text"
                         name="phoneNumber"
-                        pattern={phoneNumberValidationPattern}
+                        pattern={indianPhoneNumberValidationPattern}
                         required
                         className="lg-text-input"
                         onChange={(e) => {

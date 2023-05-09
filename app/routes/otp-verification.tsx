@@ -68,26 +68,6 @@ export const action: ActionFunction = async ({request, params}) => {
         }
     }
 
-    if(formType == FormType.offerContactUsSubmission){
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: phoneNumber, first_name: name, city: city, otpVerified: false}, utmParametersDecoded);
-        if (freshsalesResult instanceof Error) {
-            const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
-                type: FormType.otpVerification,
-            };
-            return json(actionData);
-        }
-    }else if(formType == FormType.applyForDealership || formType == FormType.contactUsSubmission){
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: phoneNumber, first_name: name, email: emailId, city: city, otpVerified: false}, utmParametersDecoded);
-        if (freshsalesResult instanceof Error) {
-            const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: bd77b974-1877-4797-91fc-51b34daf124a",
-                type: FormType.otpVerification,
-            };
-            return json(actionData);
-        }
-    }
-
     const result = await sendOtp(phoneNumber, name);
     if (result instanceof Error) {
         const actionData: GenericActionData = {

@@ -22,7 +22,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {ContactUsCta} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Dealer, FormType, Language, UserPreferences} from "~/typeDefinitions";
@@ -689,7 +689,7 @@ export function ApplyNowForDealerDialog({
                         type="text"
                         className="lg-text-input"
                         name="phoneNumber"
-                        pattern={phoneNumberValidationPattern}
+                        pattern={indianPhoneNumberValidationPattern}
                         required
                         placeholder={getVernacularString("applyNowForDealerPH2", userPreferences.language)}
                         onChange={(e) => {

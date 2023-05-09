@@ -33,7 +33,14 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: inputData.phoneNumber, name: inputData.name, emailId: inputData.emailId, city: inputData.city, otpVerified: true});
+    const insertResult = await insertOrUpdateDealerLeads(leadId, {
+        phoneNumber: inputData.phoneNumber,
+        name: inputData.name,
+        emailId: inputData.emailId,
+        city: inputData.city,
+        otpVerified: true,
+        utmParameters: utmParametersDecoded,
+    });
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",

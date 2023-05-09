@@ -6,7 +6,7 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormType, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -69,7 +69,7 @@ export function ContactForm({
                             type="text"
                             name="phoneNumber"
                             className="lg-text-input"
-                            pattern={phoneNumberValidationPattern}
+                            pattern={indianPhoneNumberValidationPattern}
                             required
                             placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                             onChange={(e) => {
