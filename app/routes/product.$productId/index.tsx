@@ -24,13 +24,14 @@ import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries"
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type { UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {addVernacularString, getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     productData: ProductDetails;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -50,6 +51,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         productData: productData[userPreferences.language],
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
@@ -79,7 +81,7 @@ export const meta: MetaFunction = ({data: loaderData}: {data?: LoaderData}) => {
 };
 
 export default function () {
-    const {userPreferences, redirectTo, productData} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, productData, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -124,6 +126,7 @@ export default function () {
                     userPreferences={userPreferences}
                     productData={productData}
                     utmParameters={utmSearchParameters}
+                    pageUrl={pageUrl}
                 />
             </PageScaffold>
 
@@ -143,12 +146,14 @@ function ProductPage({
     userPreferences,
     productData,
     utmParameters,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     productData: ProductDetails;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     return (
         <>
@@ -159,6 +164,7 @@ function ProductPage({
                 productDetails={productData}
                 utmParameters={utmParameters}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                pageUrl={pageUrl}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -236,15 +242,21 @@ function ProductPage({
     );
 }
 
-function ProductInfo({userPreferences, productDetails, className, utmParameters}:
-    {
-        userPreferences: UserPreferences;
-        productDetails: ProductDetails;
-        className?: string;
-        utmParameters: {
-            [searchParameter: string]: string;
-        };
-    }) {
+function ProductInfo({
+    userPreferences,
+    productDetails,
+    className,
+    utmParameters,
+    pageUrl
+}: {
+    userPreferences: UserPreferences;
+    productDetails: ProductDetails;
+    className?: string;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+}) {
     const [mainImageIndex, setMainImageIndex] = useState(0);
 
     return (
@@ -321,6 +333,7 @@ function ProductInfo({userPreferences, productDetails, className, utmParameters}
                         textVernacId="landingPage1S1T3"
                         utmParameters={utmParameters}
                         className="tw-place-self-center lg:tw-place-self-start"
+                        pageUrl={pageUrl}
                     />
                 </div>
             </div>

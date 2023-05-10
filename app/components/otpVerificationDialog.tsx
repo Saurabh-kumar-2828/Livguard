@@ -1,14 +1,16 @@
-import {FetcherWithComponents, useFetcher} from "@remix-run/react";
+import type {FetcherWithComponents} from "@remix-run/react";
+import { useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import LivguardDialog from "~/components/livguardDialog";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormType, UserPreferences} from "~/typeDefinitions";
+import type { UserPreferences} from "~/typeDefinitions";
+import {FormType} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function OtpVerificationDialog({
@@ -21,6 +23,7 @@ export function OtpVerificationDialog({
     inputData,
     leadId,
     formType,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -33,6 +36,7 @@ export function OtpVerificationDialog({
     inputData: {name: string; phoneNumber: string; emailId: string; city?: string};
     leadId: Uuid;
     formType: string
+    pageUrl: string;
 }) {
     const [resendTimeOut, setResendTimeOut] = useState(60);
     const otpFetcher = useFetcher();
@@ -122,7 +126,11 @@ export function OtpVerificationDialog({
                                     required
                                     placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
                                 />
-                                {invalidOtp && <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5 tw-top-0 tw-bottom-0 tw-pt-[18px]">{getVernacularString("OfferInvalidOTP", userPreferences.language)}</div>}
+                                {invalidOtp && (
+                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-5 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <VerticalSpacer className="tw-h-1" />
@@ -183,6 +191,12 @@ export function OtpVerificationDialog({
                             className="tw-hidden"
                             readOnly
                             value={formType}
+                        />
+                        <input
+                            name="pageUrl"
+                            className="tw-hidden"
+                            readOnly
+                            value={pageUrl}
                         />
                     </fetcher.Form>
                 </DefaultElementAnimation>

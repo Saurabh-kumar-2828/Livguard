@@ -1,12 +1,13 @@
-import {FetcherWithComponents} from "@remix-run/react";
+import type {FetcherWithComponents} from "@remix-run/react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormType, UserPreferences} from "~/typeDefinitions";
+import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import type { UserPreferences} from "~/typeDefinitions";
+import {FormType} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function OtpVerificationForm({
@@ -17,6 +18,7 @@ export function OtpVerificationForm({
     inputData,
     leadId,
     formType,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -27,6 +29,7 @@ export function OtpVerificationForm({
     inputData: {name: string; phoneNumber: string; emailId: string; city?: string};
     leadId: Uuid;
     formType: string;
+    pageUrl: string;
 }) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
@@ -121,6 +124,12 @@ export function OtpVerificationForm({
                         className="tw-hidden"
                         readOnly
                         value={leadId}
+                    />
+                    <input
+                        name="pageUrl"
+                        className="tw-hidden"
+                        readOnly
+                        value={pageUrl}
                     />
                 </fetcher.Form>
             </DefaultElementAnimation>

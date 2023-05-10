@@ -1,4 +1,5 @@
-import {ActionFunction, json} from "@remix-run/node";
+import type {ActionFunction} from "@remix-run/node";
+import { json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateContactLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
@@ -18,8 +19,9 @@ export const action: ActionFunction = async ({request, params}) => {
     const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
     const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
+    const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
 
-    if (inputData == null || utmParameters == null || otpSubmitted == null || leadId == null) {
+    if (inputData == null || utmParameters == null || otpSubmitted == null || leadId == null || pageUrl == null) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 5873419b-b4e8-4980-9982-5af1740ca619",
             type: FormType.contactUsSubmission,
@@ -44,6 +46,7 @@ export const action: ActionFunction = async ({request, params}) => {
             name: inputData.name,
             otpVerified: true,
             utmParameters: utmParametersDecoded,
+            pageUrl: pageUrl,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
@@ -68,6 +71,7 @@ export const action: ActionFunction = async ({request, params}) => {
             emailId: inputData.emailId,
             otpVerified: true,
             utmParameters: utmParametersDecoded,
+            pageUrl: pageUrl,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {

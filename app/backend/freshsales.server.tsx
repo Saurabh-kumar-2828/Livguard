@@ -74,7 +74,7 @@ export async function sendDataToFreshsalesForOrmTracking(formResponse: {
         custom_field: {
             cf_product: formResponse.product,
             cf_sentiment: formResponse.sentiment,
-            cf_date_selected: formResponse.dateSelected,
+            cf_date_released: formResponse.dateSelected,
             cf_service_number: formResponse.serviceNumber,
             cf_district: formResponse.district,
             cf_query_details: formResponse.queryDetails,

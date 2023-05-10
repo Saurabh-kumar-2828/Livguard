@@ -60,6 +60,7 @@ export async function insertOrUpdateDealerLeads(
         utmParameters: {
             [searchParameter: string]: string;
         };
+        pageUrl: string;
     },
 ): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
@@ -131,6 +132,7 @@ export async function insertOrUpdateContactLeads(
         utmParameters: {
             [searchParameter: string]: string;
         };
+        pageUrl: string;
     },
 ): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));

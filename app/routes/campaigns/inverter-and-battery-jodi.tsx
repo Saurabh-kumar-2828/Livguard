@@ -1,10 +1,8 @@
-import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FAQSection} from "~/components/faqs";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
@@ -20,8 +18,9 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import type { UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
@@ -48,6 +47,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -59,13 +59,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -82,6 +83,7 @@ export default function () {
                 <LandingPage
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
+                    pageUrl={pageUrl}
                 />
             </CampaignPageScaffold>
 
@@ -109,11 +111,13 @@ export default function () {
 function LandingPage({
     userPreferences,
     utmParameters,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch">
@@ -121,6 +125,7 @@ function LandingPage({
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+                pageUrl={pageUrl}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -158,6 +163,7 @@ function LandingPage({
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
                 className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                pageUrl={pageUrl}
             />
 
             <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -183,12 +189,14 @@ function HeroSection({
     userPreferences,
     utmParameters,
     className,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     className?: string;
+    pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
@@ -261,6 +269,7 @@ function HeroSection({
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
         </div>
     );
@@ -270,12 +279,14 @@ export function TapIntoEfficiency({
     userPreferences,
     utmParameters,
     className,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     className?: string;
+    pageUrl: string;
 }) {
     const sectionData = [
         {
@@ -350,6 +361,7 @@ export function TapIntoEfficiency({
                 textVernacId="landingPage3S7BT"
                 className="tw-z-10"
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
         </div>
     );

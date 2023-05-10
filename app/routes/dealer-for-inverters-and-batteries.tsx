@@ -26,7 +26,7 @@ import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumbe
 import {ContactUsCta} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Dealer, FormType, Language, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
@@ -87,6 +87,7 @@ export const action: ActionFunction = async ({request, params}) => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -98,13 +99,14 @@ export const loader: LoaderFunction = async ({request, params}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
     // const initialDealerList: Array<Dealer> = [];
 
     const actionData = useActionData();
@@ -134,6 +136,7 @@ export default function () {
                     actionData={actionData}
                     utmParameters={utmSearchParameters}
                     className="lg:tw-px-[60px]"
+                    pageUrl={pageUrl}
                 />
             </PageScaffold>
 
@@ -193,6 +196,7 @@ export function DealerLocatorPage({
     actionData,
     utmParameters,
     className,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     actionData: DealerLocatorActionData;
@@ -200,6 +204,7 @@ export function DealerLocatorPage({
         [searchParameter: string]: string;
     };
     className: string;
+    pageUrl: string;
 }) {
     const transition = useTransition();
 
@@ -373,6 +378,7 @@ export function DealerLocatorPage({
                                                             textVernacId="landingPageBottomBarT2"
                                                             className="tw-z-10 lg:tw-place-self-end"
                                                             utmParameters={utmParameters}
+                                                            pageUrl={pageUrl}
                                                         />
 
                                                         {/* <button
@@ -407,6 +413,7 @@ export function DealerLocatorPage({
             <TroubleFindingDealers
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -421,6 +428,7 @@ export function DealerLocatorPage({
             <JoinLivguardNetwork
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -514,11 +522,13 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
 function TroubleFindingDealers({
     userPreferences,
     utmParameters,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
@@ -542,6 +552,7 @@ function TroubleFindingDealers({
                     textVernacId="dealerLocatorS2BT"
                     className="tw-z-10"
                     utmParameters={utmParameters}
+                    pageUrl={pageUrl}
                 />
             </DefaultElementAnimation>
 
@@ -553,11 +564,13 @@ function TroubleFindingDealers({
 function JoinLivguardNetwork({
     userPreferences,
     utmParameters,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
@@ -581,6 +594,7 @@ function JoinLivguardNetwork({
                     textVernacId="dealerLocatorS4BT"
                     className="tw-z-10"
                     utmParameters={utmParameters}
+                    pageUrl={pageUrl}
                 />
             </DefaultElementAnimation>
 
@@ -594,6 +608,7 @@ export function ApplyNowForDealerCta({
     textVernacId,
     className,
     utmParameters,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
@@ -601,6 +616,7 @@ export function ApplyNowForDealerCta({
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     const [isApplyNowDialogOpen, setApplyNowDialogOpen] = useState(false);
 
@@ -622,6 +638,7 @@ export function ApplyNowForDealerCta({
                 isApplyNowDialogOpen={isApplyNowDialogOpen}
                 setApplyNowDialogOpen={setApplyNowDialogOpen}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
         </div>
     );
@@ -632,6 +649,7 @@ export function ApplyNowForDealerDialog({
     isApplyNowDialogOpen,
     setApplyNowDialogOpen,
     utmParameters,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     isApplyNowDialogOpen: boolean;
@@ -639,6 +657,7 @@ export function ApplyNowForDealerDialog({
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string; city: string}>({name: "", phoneNumber: "", emailId: "", city: ""});
@@ -787,6 +806,13 @@ export function ApplyNowForDealerDialog({
                         value={FormType.applyForDealership}
                     />
 
+                    <input
+                        name="pageUrl"
+                        className="tw-hidden"
+                        readOnly
+                        value={pageUrl}
+                    />
+
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
@@ -806,6 +832,7 @@ export function ApplyNowForDealerDialog({
                 utmParameters={utmParameters}
                 leadId={leadId}
                 formType={FormType.applyForDealership}
+                pageUrl={pageUrl}
             />
 
             <FormSubmissionSuccessLivguardDialog

@@ -317,10 +317,12 @@ export function OfferContactUsCta({
     userPreferences,
     textVernacId,
     className,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     className?: string;
+    pageUrl: string;
 }) {
     const [isOfferContactUsDialogOpen, setIsOfferContactUsDialogOpen] = useState(false);
     const utmParameters = useUtmSearchParameters();
@@ -344,6 +346,7 @@ export function OfferContactUsCta({
                 isOfferContactUsDialogOpen={isOfferContactUsDialogOpen}
                 setIsOfferContactUsDialogOpen={setIsOfferContactUsDialogOpen}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
         </div>
     );
@@ -354,11 +357,13 @@ export function OfferContactUsDialog({
     isOfferContactUsDialogOpen,
     setIsOfferContactUsDialogOpen,
     utmParameters,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     isOfferContactUsDialogOpen: boolean;
     setIsOfferContactUsDialogOpen: React.Dispatch<boolean>;
     utmParameters: {[searchParameter: string]: string};
+    pageUrl: string;
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
@@ -473,6 +478,13 @@ export function OfferContactUsDialog({
                         value={FormType.offerContactUsSubmission}
                     />
 
+                    <input
+                        name="pageUrl"
+                        className="tw-hidden"
+                        readOnly
+                        value={pageUrl}
+                    />
+
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
@@ -492,6 +504,7 @@ export function OfferContactUsDialog({
                 utmParameters={utmParameters}
                 leadId={leadId}
                 formType={FormType.offerContactUsSubmission}
+                pageUrl={pageUrl}
             />
 
             <FormSubmissionSuccessLivguardDialog

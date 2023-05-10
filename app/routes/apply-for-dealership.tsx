@@ -1,9 +1,10 @@
-import {ActionFunction, json} from "@remix-run/node";
+import type {ActionFunction} from "@remix-run/node";
+import { json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateDealerLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {GenericActionData} from "~/routes/contact-us-submission";
+import type {GenericActionData} from "~/routes/contact-us-submission";
 import {FormType} from "~/typeDefinitions";
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -13,8 +14,9 @@ export const action: ActionFunction = async ({request, params}) => {
     const otpSubmitted = safeParse(getNonEmptyStringFromUnknown, body.get("otpSubmitted"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
     const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
+    const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
 
-    if (inputData == null || utmParameters == null || leadId == null || otpSubmitted == null) {
+    if (inputData == null || utmParameters == null || leadId == null || otpSubmitted == null || pageUrl == null) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 2a355407-ecbf-446d-9e00-96957d90592b",
             type: FormType.applyForDealership,
@@ -40,6 +42,7 @@ export const action: ActionFunction = async ({request, params}) => {
         city: inputData.city,
         otpVerified: true,
         utmParameters: utmParametersDecoded,
+        pageUrl: pageUrl,
     });
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {

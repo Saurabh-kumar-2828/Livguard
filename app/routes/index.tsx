@@ -1,4 +1,3 @@
-import {Dialog, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
@@ -28,13 +27,13 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {FormType, Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
@@ -61,6 +60,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -72,13 +72,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -94,6 +95,7 @@ export default function () {
                 <HomePage
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
+                    pageUrl={pageUrl}
                 />
             </PageScaffold>
 
@@ -201,17 +203,20 @@ export default function () {
 function HomePage({
     userPreferences,
     utmParameters,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
+    pageUrl: string;
 }) {
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch">
             <HeroSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
 
@@ -301,12 +306,14 @@ function HeroSection({
     userPreferences,
     utmParameters,
     className,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     className?: string;
+    pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
@@ -345,6 +352,7 @@ function HeroSection({
                     textVernacId="homeS1T3"
                     className="tw-z-10"
                     utmParameters={utmParameters}
+                    pageUrl={pageUrl}
                 />
             </DefaultElementAnimation>
 
@@ -1013,11 +1021,13 @@ export function ContactUsCta({
     textVernacId,
     utmParameters,
     className,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     utmParameters: {[searchParameter: string]: string};
     className?: string;
+    pageUrl: string;
 }) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
@@ -1040,6 +1050,7 @@ export function ContactUsCta({
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
                 utmParameters={utmParameters}
+                pageUrl={pageUrl}
             />
         </div>
     );
@@ -1050,15 +1061,17 @@ export function ContactUsDialog({
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
     utmParameters,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
     utmParameters: {[searchParameter: string]: string};
+    pageUrl: string;
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name:"", phoneNumber:"", emailId:""});
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
     const leadId = generateUuid();
 
@@ -1072,14 +1085,14 @@ export function ContactUsDialog({
             return;
         }
 
-        if(fetcher.data.type == FormType.otpVerification){
+        if (fetcher.data.type == FormType.otpVerification) {
             setStep(2);
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({event: "submit"});
             return;
         }
 
-        if(fetcher.data.type == FormType.contactUsSubmission){
+        if (fetcher.data.type == FormType.contactUsSubmission) {
             setStep(3);
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({event: "otp_verified_lead"});
@@ -1188,6 +1201,13 @@ export function ContactUsDialog({
                         value={FormType.contactUsSubmission}
                     />
 
+                    <input
+                        name="pageUrl"
+                        className="tw-hidden"
+                        readOnly
+                        value={pageUrl}
+                    />
+
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
@@ -1207,6 +1227,7 @@ export function ContactUsDialog({
                 utmParameters={utmParameters}
                 leadId={leadId}
                 formType={FormType.contactUsSubmission}
+                pageUrl={pageUrl}
             />
 
             <FormSubmissionSuccessLivguardDialog

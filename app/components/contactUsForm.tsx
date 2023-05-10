@@ -1,13 +1,13 @@
-import {json} from "@remix-run/node";
-import {FetcherWithComponents} from "@remix-run/react";
+import type {FetcherWithComponents} from "@remix-run/react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormType, UserPreferences} from "~/typeDefinitions";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import type { UserPreferences} from "~/typeDefinitions";
+import {FormType} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function ContactForm({
@@ -18,6 +18,7 @@ export function ContactForm({
     inputData,
     setInputData,
     leadId,
+    pageUrl
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -28,6 +29,7 @@ export function ContactForm({
     inputData: {name: string; phoneNumber: string; emailId: string};
     setInputData: React.Dispatch<React.SetStateAction<{name: string; phoneNumber: string; emailId: string}>>;
     leadId: Uuid;
+    pageUrl: string;
 }) {
     return (
         <div
@@ -138,6 +140,13 @@ export function ContactForm({
                         className="tw-hidden"
                         readOnly
                         value={FormType.contactUsSubmission}
+                    />
+
+                    <input
+                        name="pageUrl"
+                        className="tw-hidden"
+                        readOnly
+                        value={pageUrl}
                     />
 
                     <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">

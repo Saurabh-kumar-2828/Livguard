@@ -1,6 +1,7 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {FetcherWithComponents, Link, useFetcher} from "@remix-run/react";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {FetcherWithComponents} from "@remix-run/react";
+import { Link, useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -18,15 +19,16 @@ import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {FormType, Language, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import type { UserPreferences} from "~/typeDefinitions";
+import {FormType, Language} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
@@ -53,6 +55,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -64,13 +67,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo,pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -86,6 +90,7 @@ export default function () {
             >
                 <LandingPage
                     userPreferences={userPreferences}
+                    pageUrl={pageUrl}
                 />
             </CampaignPageScaffold>
 
@@ -110,7 +115,7 @@ export default function () {
     );
 }
 
-function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
+function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
@@ -154,6 +159,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                 setInputData={setInputData}
                 step={step}
                 leadId={leadId}
+                pageUrl={pageUrl}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -170,6 +176,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                         inputData={inputData}
                         setInputData={setInputData}
                         leadId={leadId}
+                        pageUrl={pageUrl}
                     />
                 ) : step == 2 ? (
                     <OtpVerificationForm
@@ -179,6 +186,7 @@ function LandingPage({userPreferences}: {userPreferences: UserPreferences}) {
                         utmParameters={utmSearchParameters}
                         leadId={leadId}
                         formType={FormType.contactUsSubmission}
+                        pageUrl={pageUrl}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />
@@ -254,6 +262,7 @@ function HeroSection({
     setInputData,
     step,
     leadId,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     className: string;
@@ -265,6 +274,7 @@ function HeroSection({
     setInputData: React.Dispatch<React.SetStateAction<{name: string; phoneNumber: string; emailId: string;}>>;
     step: number;
     leadId: Uuid;
+    pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
@@ -336,6 +346,7 @@ function HeroSection({
                             inputData={inputData}
                             setInputData={setInputData}
                             leadId={leadId}
+                            pageUrl={pageUrl}
                         />
                     ) : step == 2 ? (
                         <OtpVerificationForm
@@ -345,6 +356,7 @@ function HeroSection({
                             utmParameters={utmParameters}
                             leadId={leadId}
                             formType={FormType.contactUsSubmission}
+                            pageUrl={pageUrl}
                         />
                     ) : (
                         <ContactFormSuccess userPreferences={userPreferences} />

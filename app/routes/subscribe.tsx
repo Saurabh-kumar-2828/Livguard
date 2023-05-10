@@ -1,10 +1,11 @@
-import {ActionFunction, json} from "@remix-run/node";
-import {insertContactLeads} from "~/backend/dealer.server";
-import {sendDataToFreshsales} from "~/backend/freshsales.server";
+import type {ActionFunction} from "@remix-run/node";
+import { json} from "@remix-run/node";
 import {insertSubscriptionLeads} from "~/backend/subscribe.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {GenericActionData} from "~/routes/contact-us-submission";
-import {Dealer} from "~/typeDefinitions";
+
+type ActionData = {
+    error: string | null;
+}
 
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
@@ -13,7 +14,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
 
     if (emailId == null || utmParameters == null ) {
-        const actionData: GenericActionData = {
+        const actionData: ActionData = {
             error: "Invalid input: 0311dcb1-c676-4080-a615-65a88434e86d",
         };
         return json(actionData);
@@ -23,7 +24,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const insertResult = await insertSubscriptionLeads(emailId, utmParametersDecoded);
     if (insertResult instanceof Error) {
-        const actionData: GenericActionData = {
+        const actionData: ActionData = {
             error: "Error in submitting form! Error code: 4469037c-6de7-48c4-9c64-66e6eac83234",
         };
         return json(actionData);
@@ -37,7 +38,7 @@ export const action: ActionFunction = async ({request, params}) => {
     //     return json(actionData);
     // }
 
-    const actionData: GenericActionData = {
+    const actionData: ActionData = {
         error: null,
     };
 

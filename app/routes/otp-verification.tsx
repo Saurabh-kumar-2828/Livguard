@@ -18,6 +18,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
     const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
+    const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
     let city: string | null = "";
     let emailId: string | null = "";
 
@@ -28,7 +29,7 @@ export const action: ActionFunction = async ({request, params}) => {
         emailId = safeParse(getNonEmptyStringFromUnknown, body.get("emailId"));
     }
 
-    if (phoneNumber == null || utmParameters == null || name == null || leadId == null || emailId == null || formType == null || city == null) {
+    if (phoneNumber == null || utmParameters == null || name == null || leadId == null || emailId == null || formType == null || city == null || pageUrl == null) {
         const actionData: GenericActionData = {
             error: "Inputs cann't be null! Error code: bb551a66-7e7b-4c70-a21d-975dbe3872ca",
             type: FormType.otpVerification
@@ -39,7 +40,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const utmParametersDecoded = JSON.parse(utmParameters);
 
     if (formType == FormType.contactUsSubmission) {
-        const insertResult = await insertOrUpdateContactLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, otpVerified: false, utmParameters: utmParametersDecoded});
+        const insertResult = await insertOrUpdateContactLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, otpVerified: false, utmParameters: utmParametersDecoded, pageUrl: pageUrl});
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: e83105c0-ac29-4418-af9e-901b159401d7",
@@ -48,7 +49,15 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
     } else if (formType == FormType.applyForDealership) {
-        const insertResult = await insertOrUpdateDealerLeads(leadId, {phoneNumber: phoneNumber, name: name, emailId: emailId, city: city, otpVerified: false, utmParameters: utmParametersDecoded});
+        const insertResult = await insertOrUpdateDealerLeads(leadId, {
+            phoneNumber: phoneNumber,
+            name: name,
+            emailId: emailId,
+            city: city,
+            otpVerified: false,
+            utmParameters: utmParametersDecoded,
+            pageUrl: pageUrl,
+        });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: 22313ddd-12ae-4bbb-83e3-48e8f7fcaea9",
@@ -57,7 +66,7 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
     } else if (formType == FormType.offerContactUsSubmission) {
-        const insertResult = await insertOrUpdateContactLeads(leadId, {phoneNumber: phoneNumber, name: name, otpVerified: false, utmParameters: utmParametersDecoded});
+        const insertResult = await insertOrUpdateContactLeads(leadId, {phoneNumber: phoneNumber, name: name, otpVerified: false, utmParameters: utmParametersDecoded, pageUrl: pageUrl});
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: c8c6f4cf-d06b-4d9a-981a-ec4afd7d860e",
