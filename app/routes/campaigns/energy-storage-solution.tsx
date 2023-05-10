@@ -2,7 +2,7 @@ import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import { Link, useFetcher} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -119,7 +119,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
-    const leadId = generateUuid();
+    const leadId = useRef<Uuid>(generateUuid());
 
     useEffect(() => {
         if (fetcher.data == null) {

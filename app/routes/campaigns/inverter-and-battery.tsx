@@ -116,7 +116,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
-    const leadId = generateUuid();
+    const leadId = useRef<Uuid>(generateUuid());
 
     useEffect(() => {
         if (fetcher.data == null) {

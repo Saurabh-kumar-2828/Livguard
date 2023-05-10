@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useFetcher, useLoaderData} from "@remix-run/react";
-import React from "react";
+import React, {useRef} from "react";
 import {useEffect, useState} from "react";
 import {CircleFill, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
@@ -15,6 +15,7 @@ import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeigh
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
@@ -379,7 +380,7 @@ export function OfferContactUsDialog({
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
     const [step, setStep] = useState(1);
-    const leadId = generateUuid();
+    const leadId = useRef<Uuid>(generateUuid());
 
     useEffect(() => {
         if (fetcher.data == null) {

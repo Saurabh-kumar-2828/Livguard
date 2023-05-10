@@ -1,7 +1,7 @@
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Form, useActionData, useFetcher, useTransition} from "@remix-run/react";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -19,6 +19,7 @@ import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeigh
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -662,7 +663,7 @@ export function ApplyNowForDealerDialog({
     const fetcher = useFetcher();
     const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string; city: string}>({name: "", phoneNumber: "", emailId: "", city: ""});
     const [step, setStep] = useState(1);
-    const leadId = generateUuid();
+    const leadId = useRef<Uuid>(generateUuid());
 
     useEffect(() => {
         if (fetcher.data == null) {
