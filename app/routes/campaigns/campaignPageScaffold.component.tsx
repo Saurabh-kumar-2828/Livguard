@@ -12,6 +12,7 @@ export function CampaignPageScaffold({
     breadcrumbs,
     showContactCtaButton,
     showSearchOption,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     children: any;
@@ -23,6 +24,7 @@ export function CampaignPageScaffold({
     breadcrumbs?: Array<{humanReadableString: string; link: string}>;
     showContactCtaButton: boolean;
     showSearchOption: boolean;
+    pageUrl?: string;
 }) {
     return (
         <>
@@ -35,6 +37,7 @@ export function CampaignPageScaffold({
                     breadcrumbs={breadcrumbs}
                     showSearchOption={showSearchOption}
                     showContactCtaButton={showContactCtaButton}
+                    pageUrl={pageUrl}
                 />
 
                 {children}

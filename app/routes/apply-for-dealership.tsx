@@ -52,7 +52,11 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
-    const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, city: inputData.city, otpVerified: true}, utmParametersDecoded);
+    const freshsalesResult = await sendDataToFreshsales(
+        {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, city: inputData.city, otpVerified: true},
+        utmParametersDecoded,
+        pageUrl,
+    );
     if (freshsalesResult instanceof Error) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 221af103-e2ad-4fe1-86af-25ed6494da30",

@@ -3709,6 +3709,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सब्मिट",
         [Language.Marathi]: "?????",
     },
+    offerPageCta: {
+        [Language.English]: "Contact Now",
+        [Language.Hindi]: "अभी संपर्क करें",
+        [Language.Marathi]: "?????",
+    },
 
     "?????": {
         [Language.English]: "?????",

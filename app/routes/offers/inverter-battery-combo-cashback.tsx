@@ -7,7 +7,7 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {HeroSection, OfferContactUsDialog, StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest} from "~/utilities";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -33,6 +33,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -44,13 +45,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -63,6 +65,7 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 showContactCtaButton={false}
                 showSearchOption={false}
+                pageUrl={pageUrl}
             >
                 <LandingPage
                     userPreferences={userPreferences}

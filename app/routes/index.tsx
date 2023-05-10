@@ -316,52 +316,118 @@ function HeroSection({
     pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 10000);
 
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark",
+                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden",
                 className,
             )}
-            ref={ref}
+            ref={emblaRef}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
+            <div className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch">
+                <ItemBuilder
+                    items={[
+                        {
+                            mobileImageRelativePath: "/livguard/home/1/new-mobile.jpg",
+                            desktopImageRelativePath: "/livguard/home/1/new-desktop.jpg",
+                            titleVernacId: "homeS1T1",
+                            subTitleVernacId: "homeS1T2",
+                            contactButtonVernacId: "homeS1T3",
+                        },
+                        {
+                            englishMobileImageRelativePath: "/livguard/landingPages/3/top-banner-mobile-english.jpg",
+                            hindiMobileImageRelativePath: "/livguard/landingPages/3/top-banner-mobile-hindi.jpg",
+                            englishDesktopImageRelativePath: "/livguard/landingPages/3/top-banner-desktop-english.jpg",
+                            hindiDesktopImageRelativePath: "/livguard/landingPages/3/top-banner-desktop-hindi.jpg",
+                            titleVernacId: null,
+                            subTitleVernacId: null,
+                            contactButtonVernacId: null,
+                        },
+                    ]}
+                    itemBuilder={(item, itemIndex) => (
+                        <div
+                            // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
+                            className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate tw-relative"
+                            key={itemIndex}
+                            ref={ref}
+                        >
+                            {item.englishDesktopImageRelativePath &&
+                                item.englishMobileImageRelativePath &&
+                                (containerWidth == null || containerHeight == null ? null : (
+                                    <Link to="/offers/inverter-and-battery-jodi" className="tw-w-full tw-h-full tw-row-span-full tw-absolute">
+                                        <CoverImage
+                                            relativePath={
+                                                containerHeight > containerWidth || containerWidth < 640
+                                                    ? userPreferences.language == Language.English
+                                                        ? item.englishMobileImageRelativePath
+                                                        : item.hindiMobileImageRelativePath
+                                                    : userPreferences.language == Language.English
+                                                    ? item.englishDesktopImageRelativePath
+                                                    : item.hindiDesktopImageRelativePath
+                                            }
+                                            className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                                            key={
+                                                containerHeight > containerWidth || containerWidth < 640
+                                                    ? userPreferences.language == Language.English
+                                                        ? item.englishMobileImageRelativePath
+                                                        : item.hindiMobileImageRelativePath
+                                                    : userPreferences.language == Language.English
+                                                    ? item.englishDesktopImageRelativePath
+                                                    : item.hindiDesktopImageRelativePath
+                                            }
+                                        />
+                                    </Link>
+                                ))}
+
+                            {item.mobileImageRelativePath &&
+                                item.desktopImageRelativePath &&
+                                (containerWidth == null || containerHeight == null ? null : (
+                                    <CoverImage
+                                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                                        key={containerHeight > containerWidth || containerWidth < 640 ? item.mobileImageRelativePath : item.desktopImageRelativePath}
+                                    />
+                                ))}
+
+                            {item.titleVernacId && <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />}
+
+                            {item.titleVernacId && item.subTitleVernacId && (
+                                <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
+                                    <DefaultTextAnimation>
+                                        <div className="lg-text-banner">{appendSpaceToString(getVernacularString(item.titleVernacId, userPreferences.language))}</div>
+                                    </DefaultTextAnimation>
+
+                                    <DefaultTextAnimation>
+                                        <div className="lg-text-title1">{getVernacularString(item.subTitleVernacId, userPreferences.language)}</div>
+                                    </DefaultTextAnimation>
+                                </h2>
+                            )}
+
+                            {item.contactButtonVernacId && (
+                                <DefaultElementAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
+                                    <ContactUsCta
+                                        userPreferences={userPreferences}
+                                        textVernacId={item.contactButtonVernacId}
+                                        className="tw-z-10"
+                                        utmParameters={utmParameters}
+                                        pageUrl={pageUrl}
+                                    />
+                                </DefaultElementAnimation>
+                            )}
+
+                            <Link
+                                to="#energy-storage-solutions"
+                                className="tw-row-[9] tw-col-start-1"
+                            >
+                                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
+                            </Link>
+                        </div>
+                    )}
                 />
-            )}
-
-            <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
-
-            <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
-                <DefaultTextAnimation>
-                    <div className="lg-text-banner">{appendSpaceToString(getVernacularString("homeS1T1", userPreferences.language))}</div>
-                </DefaultTextAnimation>
-
-                <DefaultTextAnimation>
-                    <div className="lg-text-title1">{getVernacularString("homeS1T2", userPreferences.language)}</div>
-                </DefaultTextAnimation>
-            </h2>
-
-            <DefaultElementAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
-                <ContactUsCta
-                    userPreferences={userPreferences}
-                    textVernacId="homeS1T3"
-                    className="tw-z-10"
-                    utmParameters={utmParameters}
-                    pageUrl={pageUrl}
-                />
-            </DefaultElementAnimation>
-
-            <Link
-                to="#energy-storage-solutions"
-                className="tw-row-[9] tw-col-start-1"
-            >
-                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
-            </Link>
+            </div>
         </div>
     );
 }

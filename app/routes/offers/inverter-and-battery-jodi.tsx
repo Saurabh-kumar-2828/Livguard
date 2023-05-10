@@ -1,5 +1,5 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useFetcher, useLoaderData} from "@remix-run/react";
 import React from "react";
 import {useEffect, useState} from "react";
@@ -12,6 +12,7 @@ import {OfferPageBottomBar} from "~/components/offerPageBottomBar";
 import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
@@ -20,8 +21,9 @@ import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {FormType, Language, UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
+import type { UserPreferences} from "~/typeDefinitions";
+import {FormType, Language} from "~/typeDefinitions";
+import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
@@ -48,6 +50,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -59,13 +62,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -78,6 +82,7 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 showContactCtaButton={true}
                 showSearchOption={false}
+                pageUrl={pageUrl}
             >
                 <LandingPage
                     userPreferences={userPreferences}
@@ -85,7 +90,7 @@ export default function () {
                 />
             </CampaignPageScaffold>
 
-            <OfferPageBottomBar userPreferences={userPreferences} />
+            <OfferPageBottomBar userPreferences={userPreferences} pageUrl={pageUrl}/>
 
             {/* <script
                 type="application/ld+json"
@@ -335,9 +340,14 @@ export function OfferContactUsCta({
         <div className={className}>
             <button
                 type="button"
-                className="lg-cta-button !tw-px-6"
+                className="lg-cta-button !tw-px-6 tw-grid tw-grid-flow-col tw-gap-2 tw-items-center"
                 onClick={tryToOpenOfferContactUsDialog}
             >
+                <FixedWidthImage
+                    relativePath="/livguard/icons/enquire_now.png"
+                    width="1.25rem"
+                />
+
                 {getVernacularString(textVernacId, userPreferences.language)}
             </button>
 

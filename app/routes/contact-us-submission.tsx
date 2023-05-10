@@ -56,7 +56,7 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
 
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, otpVerified: true}, utmParametersDecoded);
+        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, otpVerified: true}, utmParametersDecoded, pageUrl);
         if (freshsalesResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
@@ -75,16 +75,20 @@ export const action: ActionFunction = async ({request, params}) => {
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: d308273f-64dd-4a3c-9f9f-29e5d436a57b",
+                error: "Error in submitting form! Error code: ec86ba5e-61f7-46ef-9fd8-02f5220e605a",
                 type: FormType.contactUsSubmission,
             };
             return json(actionData);
         }
 
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true}, utmParametersDecoded);
+        const freshsalesResult = await sendDataToFreshsales(
+            {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true},
+            utmParametersDecoded,
+            pageUrl,
+        );
         if (freshsalesResult instanceof Error) {
             const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
+                error: "Error in submitting form! Error code: 0177ace3-f07e-454a-a27f-f210d67702a9",
                 type: FormType.contactUsSubmission,
             };
             return json(actionData);

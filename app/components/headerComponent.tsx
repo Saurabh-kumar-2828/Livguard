@@ -37,6 +37,7 @@ export function HeaderComponent({
     breadcrumbs,
     showSearchOption,
     showContactCtaButton,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     redirectTo: string;
@@ -44,6 +45,7 @@ export function HeaderComponent({
     breadcrumbs?: Array<{contentId: string; link: string}>;
     showSearchOption: boolean;
     showContactCtaButton: boolean;
+    pageUrl?: string;
 }) {
     const submit = useSubmit();
 
@@ -387,8 +389,9 @@ export function HeaderComponent({
                 {showContactCtaButton && (
                     <OfferContactUsCta
                         userPreferences={userPreferences}
-                        textVernacId="homeS1T3"
+                        textVernacId="offerPageCta"
                         className="tw-z-10 tw-hidden lg:tw-block"
+                        pageUrl={pageUrl}
                     />
                 )}
             </div>

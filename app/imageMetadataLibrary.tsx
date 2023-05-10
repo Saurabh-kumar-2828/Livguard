@@ -3633,4 +3633,22 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         placeholderColor: "#080808",
         finalUrl: "/livguard/offers/top-banner-mobile-hindi-4d21ba.png",
     },
+    "/livguard/home/1/new-desktop.jpg": {
+        width: 3841,
+        height: 3840,
+        hash: "1b9aa069a0fe998b70e10cf6772c6d7d45b349df9e713cf11b5b49943ed091dc",
+        altText: "Dummy alt text",
+        blurHash: "L7ARYOxZ2sr?}FSfE}R*0}ni;hX8",
+        placeholderColor: "#280808",
+        finalUrl: "/livguard/home/1/new-desktop-d091dc.jpg",
+    },
+    "/livguard/home/1/new-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        hash: "ebf5600c3826badce1252aed5af027040c06bb93487390a20c5de3578e72612f",
+        altText: "Dummy alt text",
+        blurHash: "LKB1xYsoE}n%}FW;J,WV$%SMN]S2",
+        placeholderColor: "#281818",
+        finalUrl: "/livguard/home/1/new-mobile-72612f.jpg",
+    },
 };
