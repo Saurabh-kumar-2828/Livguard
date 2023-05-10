@@ -48,7 +48,8 @@ export function StickyBottomBar({userPreferences}: {userPreferences: UserPrefere
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
-                        src="https://growthjockey.imgix.net/livguard/bottom-bar/load-calculator.gif"
+                        // src="https://growthjockey.imgix.net/livguard/bottom-bar/load-calculator.gif"
+                        src="https://files.growthjockey.com/livguard/icons/load-calculator-icon.svg"
                         width={64}
                         height={64}
                         className="tw-w-14 tw-h-14 tw-rounded-full"
