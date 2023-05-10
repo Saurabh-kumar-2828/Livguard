@@ -36,7 +36,7 @@ import {FormType, Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}:{data: LoaderData}) => {
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
@@ -306,7 +306,7 @@ function HeroSection({
     userPreferences,
     utmParameters,
     className,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -327,7 +327,10 @@ function HeroSection({
             )}
             ref={emblaRef}
         >
-            <div className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch">
+            <div
+                className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch"
+                ref={ref}
+            >
                 <ItemBuilder
                     items={[
                         {
@@ -350,14 +353,16 @@ function HeroSection({
                     itemBuilder={(item, itemIndex) => (
                         <div
                             // tw-grid-rows-[3rem_minmax(0,1fr)_auto_minmax(0,1fr)_3rem]
-                            className="tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate tw-relative"
+                            className="tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate tw-relative"
                             key={itemIndex}
-                            ref={ref}
                         >
                             {item.englishDesktopImageRelativePath &&
                                 item.englishMobileImageRelativePath &&
                                 (containerWidth == null || containerHeight == null ? null : (
-                                    <Link to="/offers/inverter-and-battery-jodi" className="tw-w-full tw-h-full tw-row-span-full tw-absolute">
+                                    <Link
+                                        to="/offers/inverter-and-battery-jodi"
+                                        className="tw-w-full tw-h-full tw-row-span-full tw-absolute"
+                                    >
                                         <CoverImage
                                             relativePath={
                                                 containerHeight > containerWidth || containerWidth < 640
@@ -704,15 +709,11 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-6" />
 
                 <DefaultImageAnimation className="tw-block lg:tw-hidden tw-w-full">
-                    <FullWidthImage
-                        relativePath="/livguard/home/4/1-mobile.jpg"
-                    />
+                    <FullWidthImage relativePath="/livguard/home/4/1-mobile.jpg" />
                 </DefaultImageAnimation>
 
                 <DefaultImageAnimation className="tw-hidden lg:tw-block tw-w-full">
-                    <FullWidthImage
-                        relativePath="/livguard/home/4/1-desktop.jpg"
-                    />
+                    <FullWidthImage relativePath="/livguard/home/4/1-desktop.jpg" />
                 </DefaultImageAnimation>
             </div>
         </div>
@@ -904,8 +905,11 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     ];
 
     return (
-
-        <FAQSection faqs={faqs} userPreferences={userPreferences} className={className}/>
+        <FAQSection
+            faqs={faqs}
+            userPreferences={userPreferences}
+            className={className}
+        />
     );
 }
 
@@ -915,9 +919,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
-                        <CoverImage
-                            relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"}
-                        />
+                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
                     </div>
 
                     <div className="tw-z-10 lg-text-headline tw-text-center">
@@ -1087,7 +1089,7 @@ export function ContactUsCta({
     textVernacId,
     utmParameters,
     className,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
@@ -1127,7 +1129,7 @@ export function ContactUsDialog({
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
     utmParameters,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
