@@ -1260,7 +1260,7 @@ export function ContactUsDialog({
                         name="leadId"
                         className="tw-hidden"
                         readOnly
-                        value={leadId}
+                        value={leadId.current}
                     />
 
                     <input
@@ -1294,7 +1294,7 @@ export function ContactUsDialog({
                 inputData={inputData}
                 fetcher={fetcher}
                 utmParameters={utmParameters}
-                leadId={leadId}
+                leadId={leadId.current}
                 formType={FormType.contactUsSubmission}
                 pageUrl={pageUrl}
             />

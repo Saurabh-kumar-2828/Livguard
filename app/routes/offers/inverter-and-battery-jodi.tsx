@@ -479,7 +479,7 @@ export function OfferContactUsDialog({
                         name="leadId"
                         className="tw-hidden"
                         readOnly
-                        value={leadId}
+                        value={leadId.current}
                     />
 
                     <input
@@ -513,7 +513,7 @@ export function OfferContactUsDialog({
                 inputData={inputData}
                 fetcher={fetcher}
                 utmParameters={utmParameters}
-                leadId={leadId}
+                leadId={leadId.current}
                 formType={FormType.offerContactUsSubmission}
                 pageUrl={pageUrl}
             />

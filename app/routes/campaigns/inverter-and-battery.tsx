@@ -2,7 +2,7 @@ import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/re
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import { Link, useFetcher} from "@remix-run/react";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
@@ -155,7 +155,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 inputData={inputData}
                 setInputData={setInputData}
                 step={step}
-                leadId={leadId}
+                leadId={leadId.current}
                 pageUrl={pageUrl}
             />
 
@@ -172,7 +172,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                         utmParameters={utmSearchParameters}
                         inputData={inputData}
                         setInputData={setInputData}
-                        leadId={leadId}
+                        leadId={leadId.current}
                         pageUrl={pageUrl}
                     />
                 ) : step == 2 ? (
@@ -181,7 +181,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                         inputData={inputData}
                         fetcher={fetcher}
                         utmParameters={utmSearchParameters}
-                        leadId={leadId}
+                        leadId={leadId.current}
                         formType={FormType.contactUsSubmission}
                         pageUrl={pageUrl}
                     />

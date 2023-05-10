@@ -797,7 +797,7 @@ export function ApplyNowForDealerDialog({
                         name="leadId"
                         className="tw-hidden"
                         readOnly
-                        value={leadId}
+                        value={leadId.current}
                     />
 
                     <input
@@ -831,7 +831,7 @@ export function ApplyNowForDealerDialog({
                 inputData={inputData}
                 fetcher={fetcher}
                 utmParameters={utmParameters}
-                leadId={leadId}
+                leadId={leadId.current}
                 formType={FormType.applyForDealership}
                 pageUrl={pageUrl}
             />

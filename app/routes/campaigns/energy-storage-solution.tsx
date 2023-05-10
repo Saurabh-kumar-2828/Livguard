@@ -158,7 +158,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 inputData={inputData}
                 setInputData={setInputData}
                 step={step}
-                leadId={leadId}
+                leadId={leadId.current}
                 pageUrl={pageUrl}
             />
 
@@ -175,7 +175,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                         utmParameters={utmSearchParameters}
                         inputData={inputData}
                         setInputData={setInputData}
-                        leadId={leadId}
+                        leadId={leadId.current}
                         pageUrl={pageUrl}
                     />
                 ) : step == 2 ? (
@@ -184,7 +184,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                         inputData={inputData}
                         fetcher={fetcher}
                         utmParameters={utmSearchParameters}
-                        leadId={leadId}
+                        leadId={leadId.current}
                         formType={FormType.contactUsSubmission}
                         pageUrl={pageUrl}
                     />
