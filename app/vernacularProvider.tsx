@@ -3527,7 +3527,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "The cashback will be credited to the consumer’s linked UPI ID shared at the time of warranty registration on the LivServ page within 20 days of registration. (Selected Livguard Inverter battery + any Livguard Inverter).",
         [Language.Hindi]:
-            "कैशबैक को ग्राहक के साथ-साथ LivServ पेज पर वारंटी पंजीकरण के समय साझा की गई UPI आईडी में पंजीकरण के 20 दिनों के भीतर क्रेडिट किया जाएगा। (चयनित लिवगार्ड इनवर्टरबैटरी + किसी भी लिवगार्ड इनवर्टर)",
+            "कैशबैक को ग्राहक के साथ-साथ LivServ पेज पर वारंटी पंजीकरण के समय साझा की गई UPI आईडी में पंजीकरण के 20 दिनों के भीतर क्रेडिट किया जाएगा। (चयनित लिवगार्ड इनवर्टर बैटरी + किसी भी लिवगार्ड इनवर्टर)",
         [Language.Marathi]: "?????",
     },
     OfferTnCContent13: {
@@ -3551,7 +3551,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]:
             "This scheme is applicable on All Livguard Inverters & Select Inverter Battery Combos. To know more about the select Inverter Batteries kindly refer to the scheme brochure, or poster or speak with your Authorised Livguard Dealer.",
         [Language.Hindi]:
-            "इस योजना का लागू होना सभी लिवगार्ड इनवर्टरऔर चयनित इनवर्टरबैटरी कॉम्बो पर है। चयनित इनवर्टरबैटरियों के बारे में अधिक जानकारी के लिए कृपया योजना के ब्रोशर, पोस्टर या अपने अधिकृत लिवगार्ड विक्रेता से संपर्क करें।",
+            "इस योजना का लागू होना सभी लिवगार्ड इनवर्टर और चयनित इनवर्टरबैटरी कॉम्बो पर है। चयनित इनवर्टर बैटरियों के बारे में अधिक जानकारी के लिए कृपया योजना के ब्रोशर, पोस्टर या अपने अधिकृत लिवगार्ड विक्रेता से संपर्क करें।",
         [Language.Marathi]: "?????",
     },
     OfferTnCContent17: {
@@ -3599,6 +3599,117 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अमान्य ओटीपी",
         [Language.Marathi]: "?????",
     },
+    ormTrackingH1: {
+        [Language.English]: "ORM Tracking Form",
+        [Language.Hindi]: "ओआरएम ट्रैकिंग फॉर्म",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT1: {
+        [Language.English]: "Product",
+        [Language.Hindi]: "उत्पाद",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT2: {
+        [Language.English]: "Sentiment",
+        [Language.Hindi]: "भाव",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT3: {
+        [Language.English]: "Date released",
+        [Language.Hindi]: "तारीख जारी",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT4: {
+        [Language.English]: "Name",
+        [Language.Hindi]: "नाम",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT5: {
+        [Language.English]: "Phone Number",
+        [Language.Hindi]: "फ़ोन नंबर",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT6: {
+        [Language.English]: "Email",
+        [Language.Hindi]: "ईमेल",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT7: {
+        [Language.English]: "Service No.",
+        [Language.Hindi]: "सेवा संख्या",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT8: {
+        [Language.English]: "Location / City",
+        [Language.Hindi]: "स्थान / शहर",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT9: {
+        [Language.English]: "State",
+        [Language.Hindi]: "राज्य",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT10: {
+        [Language.English]: "District",
+        [Language.Hindi]: "ज़िला",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT11: {
+        [Language.English]: "Address",
+        [Language.Hindi]: "पता",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT12: {
+        [Language.English]: "Pin Code",
+        [Language.Hindi]: "पिन कोड",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormT13: {
+        [Language.English]: "Query Details",
+        [Language.Hindi]: "प्रश्न विवरण",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormProduct1: {
+        [Language.English]: "Inverter",
+        [Language.Hindi]: "इनवर्टर",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormProduct2: {
+        [Language.English]: "Battery",
+        [Language.Hindi]: "बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormProduct3: {
+        [Language.English]: "Inverter & Battery",
+        [Language.Hindi]: "इनवर्टर और बैटरी",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormProduct4: {
+        [Language.English]: "Solar",
+        [Language.Hindi]: "सोलर",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormSentiment1: {
+        [Language.English]: "Neutral",
+        [Language.Hindi]: "न्यूट्रल",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormSentiment2: {
+        [Language.English]: "Positive",
+        [Language.Hindi]: "सकारात्मक",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormSentiment3: {
+        [Language.English]: "Negative",
+        [Language.Hindi]: "नकारात्मक",
+        [Language.Marathi]: "?????",
+    },
+    ormTrackingFormSubmit: {
+        [Language.English]: "Submit",
+        [Language.Hindi]: "सब्मिट",
+        [Language.Marathi]: "?????",
+    },
+
     "?????": {
         [Language.English]: "?????",
         [Language.Hindi]: "?????",
@@ -3611,3 +3722,5 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 };
+
+

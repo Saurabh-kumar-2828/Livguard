@@ -46,3 +46,63 @@ export async function sendDataToFreshsales(
         return error;
     }
 }
+
+export async function sendDataToFreshsalesForOrmTracking(formResponse: {
+    product: string;
+    sentiment: string;
+    dateSelected: string;
+    name: string;
+    phoneNumber: string;
+    emailId: string;
+    serviceNumber: string;
+    location: string;
+    state: string;
+    district: string;
+    address: string;
+    pincode: string;
+    queryDetails: string;
+}): Promise<void | Error> {
+    const contactData = {
+        name: formResponse.name,
+        mobile_number: formResponse.phoneNumber,
+        email: formResponse.emailId,
+        city: formResponse.location,
+        state: formResponse.state,
+        address: formResponse.address,
+        zipcode: formResponse.pincode,
+        lead_source_id: "401000150596",
+        custom_field: {
+            cf_product: formResponse.product,
+            cf_sentiment: formResponse.sentiment,
+            cf_date_selected: formResponse.dateSelected,
+            cf_service_number: formResponse.serviceNumber,
+            cf_district: formResponse.district,
+            cf_query_details: formResponse.queryDetails,
+            cf_lead_source: "social",
+        },
+        created_at: getCurrentIsoTimestamp(),
+    };
+
+    const uniqueIdentifierData = {
+        mobile_number: formResponse.phoneNumber,
+    };
+
+    try {
+        const response = await fetch(`${process.env.FRESH_SALES_API_END_POINT}/contacts/upsert`, {
+            method: "POST",
+            headers: {
+                Authorization: `Token token=${process.env.FRESH_SALES_API_TOKEN}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({unique_identifier: uniqueIdentifierData, contact: contactData}),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Freshsales API call failed - status = ${response.status}, body = ${JSON.stringify(await response.text())}`);
+        }
+    } catch (error_: unknown) {
+        const error = getErrorFromUnknown(error_);
+        logBackendError(error);
+        return error;
+    }
+}
