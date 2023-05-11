@@ -115,7 +115,7 @@ export function getThemeFromUnknown(input: unknown): Theme {
         throw new Error(`${input} of type ${typeof(input)} is not a valid Theme!`);
     }
 
-    return (input == Theme.Light ? Theme.Light : Theme.Dark);
+    return (input == Theme.Dark ? Theme.Dark : Theme.Light);
 }
 
 export type Dealer = {

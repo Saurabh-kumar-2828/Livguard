@@ -670,7 +670,7 @@ function MenuDialog({
                         >
                             <a
                                 href="tel:18001025551"
-                                className="lg-cta-button tw-px-4"
+                                className="lg-cta-button tw-px-4 tw-z-10"
                             >
                                 <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
@@ -1017,7 +1017,7 @@ function SubMenuDialog({
                         >
                             <a
                                 href="tel:18001025551"
-                                className="lg-cta-button tw-px-4"
+                                className="lg-cta-button tw-px-4 tw-z-10"
                             >
                                 <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />

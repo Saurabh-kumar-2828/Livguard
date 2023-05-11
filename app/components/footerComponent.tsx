@@ -756,7 +756,7 @@ export function FooterComponent({
                 </div>
 
                 <div className="lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full tw-hidden lg:tw-block lg-text-body tw-py-4 tw-text-left lg:tw-px-[72px]">
-                    {getVernacularString("footerCopyWriteText", userPreferences.language)}
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyrightText", userPreferences.language)}} />
                 </div>
             </div>
         </div>
@@ -772,7 +772,9 @@ export function FooterSocialLogosAndCopyright({userPreferences, className}: {use
 
             <VerticalSpacer className="tw-h-6" />
 
-            <div className="lg-text-body tw-text-center">{getVernacularString("footerCopyWriteText", userPreferences.language)}</div>
+            <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyrightText", userPreferences.language)}} />
+            {/* <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyWriteText", userPreferences.language)}} /> */}
+            {/* <div>{getVernacularString("footerCopyWriteText", userPreferences.language)}</div> */}
 
             <VerticalSpacer className="tw-h-6" />
         </div>
