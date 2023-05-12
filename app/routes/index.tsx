@@ -1140,9 +1140,17 @@ export function ContactUsDialog({
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
-    const [step, setStep] = useState(1);
+    const otpFetcher = useFetcher();
+    const otpFieldRef = useRef(null);
+    const phoneNumberRef = useRef(null);
+
     const leadId = useRef<Uuid>(generateUuid());
+    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string; otpSubmitted: string}>({name: "", phoneNumber: "", emailId: "", otpSubmitted: ""});
+    const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] = useState(false);
+    const [showOtpButton, setShowOtpButton] = useState(false);
+    const [showOtpField, setShowOtpField] = useState(false);
+    const [resendTimeOut, setResendTimeOut] = useState(0);
+    const [invalidOtp, setInvalidOtp] = useState(false);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -1151,63 +1159,61 @@ export function ContactUsDialog({
 
         if (fetcher.data.error != null) {
             toast.error(fetcher.data.error);
+            setInvalidOtp(true);
             return;
         }
 
         if (fetcher.data.type == FormType.otpVerification) {
-            setStep(2);
+            setFormSubmittedSuccessfully(true);
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({event: "submit"});
             return;
         }
+    }, [fetcher.data]);
 
-        if (fetcher.data.type == FormType.contactUsSubmission) {
-            setStep(3);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "otp_verified_lead"});
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
             return;
         }
-    }, [fetcher.data]);
+        toast.success("OTP resent successfully");
+        setResendTimeOut(60);
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0) {
+            setTimeout(() => {
+                setResendTimeOut(resendTimeOut - 1);
+            }, 1000);
+        }
+    }, [resendTimeOut]);
 
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
+        setShowOtpButton(false);
+        setShowOtpField(false);
+        setResendTimeOut(0);
+        setInvalidOtp(false);
     }
 
     return (
         <>
             <LivguardDialog
-                isDialogOpen={isContactUsDialogOpen && step == 1}
+                isDialogOpen={isContactUsDialogOpen && !formSubmittedSuccessfully}
                 tryToCloseDialog={tryToCloseContactUsDialog}
                 title={getVernacularString("contactUsT1", userPreferences.language)}
-                showCloseIcon={true}
+                showCloseIcon={false}
             >
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"
                     method="post"
-                    action="/otp-verification"
+                    action="/contact-us-submission"
                 >
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
-
-                    <VerticalSpacer className="tw-h-2" />
-
-                    <input
-                        type="text"
-                        name="phoneNumber"
-                        pattern={indianPhoneNumberValidationPattern}
-                        required
-                        className="lg-text-input"
-                        onChange={(e) => {
-                            const newState = structuredClone(inputData);
-                            newState.phoneNumber = e.target.value;
-                            setInputData(newState);
-                        }}
-                    />
-
-                    <VerticalSpacer className="tw-h-4" />
-
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-1" />
 
                     <input
                         type="text"
@@ -1221,11 +1227,11 @@ export function ContactUsDialog({
                         }}
                     />
 
-                    <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-2" />
 
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT4", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-1" />
 
                     <input
                         type="text"
@@ -1240,14 +1246,141 @@ export function ContactUsDialog({
                         }}
                     />
 
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <div className="tw-relative tw-w-full tw-items-center tw-grid">
+                        <input
+                            type="text"
+                            name="phoneNumber"
+                            pattern={indianPhoneNumberValidationPattern}
+                            required
+                            className="lg-text-input tw-w-full"
+                            disabled={showOtpField}
+                            ref={phoneNumberRef}
+                            onChange={(e) => {
+                                const newState = structuredClone(inputData);
+                                newState.phoneNumber = e.target.value;
+                                setInputData(newState);
+                                if (newState.phoneNumber.length == 10) {
+                                    setShowOtpButton(true);
+                                } else {
+                                    setShowOtpButton(false);
+                                }
+                            }}
+                            onBlur={(e) => {
+                                if (inputData.phoneNumber.length == 10) {
+                                    setShowOtpButton(true);
+                                }
+                            }}
+                        />
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100 tw-duration-100",
+                            )}
+                            onClick={(e) => {
+                                if (inputData.name == "") {
+                                    toast.error("Name field is empty, please fill");
+                                    return;
+                                }
+                                setShowOtpField(true);
+                                setResendTimeOut(60);
+                                setShowOtpButton(false);
+                                if (otpFieldRef.current != null) {
+                                    otpFieldRef.current.focus();
+                                }
+                                const data = new FormData();
+                                data.append("phoneNumber", inputData.phoneNumber);
+                                data.append("name", inputData.name);
+                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                            }}
+                        >
+                            {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                        </div>
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute tw-right-2",
+                                showOtpField && !showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100 tw-duration-100",
+                            )}
+                            onClick={(e) => {
+                                setShowOtpField(false);
+                                console.log("phone number ref ::::", phoneNumberRef.current);
+                                if (phoneNumberRef.current != null) {
+                                    console.log("Inside phone ref logic");
+                                    phoneNumberRef.current.focus();
+                                }
+                            }}
+                        >
+                            <img
+                                src="https://files.growthjockey.com/livguard/icons/form/edit-phone-number.svg"
+                                alt="edit number"
+                                className="tw-w-6 tw-h-6"
+                            />
+                        </div>
+                    </div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-w-full", showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100")}>
+                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+
+                        <VerticalSpacer className="tw-h-1" />
+
+                        <div className="tw-relative">
+                            <input
+                                type="text"
+                                name="otpSubmitted"
+                                className="lg-text-input"
+                                required
+                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                ref={otpFieldRef}
+                                onChange={(e) => {
+                                    const newState = structuredClone(inputData);
+                                    newState.otpSubmitted = e.target.value;
+                                    setInputData(newState);
+                                }}
+                            />
+                            {invalidOtp && (
+                                <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <div
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-flex tw-flex-row tw-justify-between tw-w-full tw-px-3",
+                            showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
+                        )}
+                    >
+                        <div
+                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                            onClick={() => {
+                                const data = new FormData();
+                                data.append("phoneNumber", inputData.phoneNumber);
+                                data.append("name", inputData.name);
+                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                            }}
+                        >
+                            {getVernacularString("OfferResendOTP", userPreferences.language)}
+                        </div>
+                        <div className="lg-text-secondary-700 tw-text-[12px]">{`${resendTimeOut}:00`}</div>
+                    </div>
+
                     <VerticalSpacer className="tw-h-8" />
 
-                    <div className="tw-self-center">
+                    {/*<div className="tw-self-center">
                         <FixedHeightImage
                             relativePath="/livguard/header/akshay.png"
                             height="13.75rem"
                         />
-                    </div>
+                    </div> */}
 
                     <input
                         name="utmParameters"
@@ -1287,7 +1420,7 @@ export function ContactUsDialog({
                 </fetcher.Form>
             </LivguardDialog>
 
-            <OtpVerificationDialog
+            {/* <OtpVerificationDialog
                 userPreferences={userPreferences}
                 isDialogOpen={isContactUsDialogOpen && step == 2}
                 setIsDialogOpen={tryToCloseContactUsDialog}
@@ -1297,11 +1430,11 @@ export function ContactUsDialog({
                 leadId={leadId.current}
                 formType={FormType.contactUsSubmission}
                 pageUrl={pageUrl}
-            />
+            /> */}
 
             <FormSubmissionSuccessLivguardDialog
                 userPreferences={userPreferences}
-                isDialogOpen={isContactUsDialogOpen && step == 3}
+                isDialogOpen={isContactUsDialogOpen && formSubmittedSuccessfully}
                 tryToCloseDialog={tryToCloseContactUsDialog}
             />
         </>
