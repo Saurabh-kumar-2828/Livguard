@@ -1,7 +1,7 @@
 import {Dialog, Transition} from "@headlessui/react";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useFetcher, useLoaderData} from "@remix-run/react";
-import React, {useRef} from "react";
+import React, {useReducer, useRef} from "react";
 import {useEffect, useState} from "react";
 import {CircleFill, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
@@ -18,9 +18,10 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
+import {FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type { UserPreferences} from "~/typeDefinitions";
 import {FormType, Language} from "~/typeDefinitions";
@@ -378,9 +379,13 @@ export function OfferContactUsDialog({
 }) {
     // TODO: Understand why we cannot use action for this
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
-    const [step, setStep] = useState(1);
+    const otpFetcher = useFetcher();
+    const otpFieldRef = useRef(null);
+    const phoneNumberRef = useRef(null);
     const leadId = useRef<Uuid>(generateUuid());
+
+    const [FormStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
+    const [resendTimeOut, setResendTimeOut] = useState(0);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -389,32 +394,60 @@ export function OfferContactUsDialog({
 
         if (fetcher.data.error != null) {
             toast.error(fetcher.data.error);
+            const action: FormStateInputsAction = {
+                actionType: FormStateInputsActionType.SetInvalidOtp,
+                payload: true,
+            };
+            dispatch(action);
             return;
         }
 
-        if (fetcher.data.type == FormType.otpVerification) {
-            setStep(2);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "submit"});
-            return;
-        }
-
-        if (fetcher.data.type == FormType.contactUsSubmission) {
-            setStep(3);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "otp_verified_lead"});
-            return;
-        }
+        const action: FormStateInputsAction = {
+            actionType: FormStateInputsActionType.SetFormSuccessfullySubmited,
+            payload: true,
+        };
+        dispatch(action);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
     }, [fetcher.data]);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (FormStateInputs.isOtpresent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+        setResendTimeOut(60);
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0) {
+            setTimeout(() => {
+                setResendTimeOut(resendTimeOut - 1);
+            }, 1000);
+        }
+    }, [resendTimeOut]);
 
     function tryToCloseOfferContactUsDialog() {
         setIsOfferContactUsDialogOpen(false);
+        setResendTimeOut(0);
+        const action: FormStateInputsAction = {
+            actionType: FormStateInputsActionType.TryToCloseDialog,
+            payload: true,
+        };
+        dispatch(action);
     }
 
     return (
         <>
             <LivguardDialog
-                isDialogOpen={isOfferContactUsDialogOpen && step == 1}
+                isDialogOpen={isOfferContactUsDialogOpen && !FormStateInputs.formSuccessfullySubmitted}
                 tryToCloseDialog={tryToCloseOfferContactUsDialog}
                 title={getVernacularString("headerMenuS2T1", userPreferences.language)}
                 showCloseIcon={false}
@@ -426,7 +459,7 @@ export function OfferContactUsDialog({
                 >
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-1" />
 
                     <input
                         type="text"
@@ -434,39 +467,176 @@ export function OfferContactUsDialog({
                         required
                         className="lg-text-input"
                         onChange={(e) => {
-                            const newState = structuredClone(inputData);
-                            newState.name = e.target.value;
-                            setInputData(newState);
+                            const action: FormStateInputsAction = {
+                                actionType: FormStateInputsActionType.SetName,
+                                payload: e.target.value,
+                            };
+                            dispatch(action);
                         }}
                     />
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                     <VerticalSpacer className="tw-h-2" />
 
-                    <input
-                        type="text"
-                        name="phoneNumber"
-                        pattern={phoneNumberValidationPattern}
-                        required
-                        className="lg-text-input"
-                        onChange={(e) => {
-                            const newState = structuredClone(inputData);
-                            newState.phoneNumber = e.target.value;
-                            setInputData(newState);
-                        }}
-                    />
+                    <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <div className="tw-relative tw-w-full tw-items-center tw-grid">
+                        <input
+                            type="text"
+                            name="phoneNumber"
+                            pattern={indianPhoneNumberValidationPattern}
+                            required
+                            className="lg-text-input tw-w-full"
+                            disabled={FormStateInputs.showOtpField}
+                            ref={phoneNumberRef}
+                            onChange={(e) => {
+                                const phoneNumber = e.target.value;
+                                const action: FormStateInputsAction = {
+                                    actionType: FormStateInputsActionType.SetPhoneNumber,
+                                    payload: phoneNumber,
+                                };
+                                dispatch(action);
+                                if (FormStateInputs.inputData.phoneNumber.length == 10) {
+                                    const action: FormStateInputsAction = {
+                                        actionType: FormStateInputsActionType.SetShowOtpButton,
+                                        payload: true,
+                                    };
+                                    dispatch(action);
+                                } else {
+                                    const action: FormStateInputsAction = {
+                                        actionType: FormStateInputsActionType.SetShowOtpButton,
+                                        payload: false,
+                                    };
+                                    dispatch(action);
+                                }
+                            }}
+                            onBlur={(e) => {
+                                if (FormStateInputs.inputData.phoneNumber.length == 10) {
+                                    const action: FormStateInputsAction = {
+                                        actionType: FormStateInputsActionType.SetShowOtpButton,
+                                        payload: true,
+                                    };
+                                    dispatch(action);
+                                }
+                            }}
+                        />
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                FormStateInputs.showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100 tw-duration-100",
+                            )}
+                            onClick={(e) => {
+                                if (FormStateInputs.inputData.name == "") {
+                                    toast.error("Name field is empty, please fill");
+                                    return;
+                                }
+                                const action: FormStateInputsAction = {
+                                    actionType: FormStateInputsActionType.SendOtp,
+                                    payload: true,
+                                };
+                                dispatch(action);
+                                setResendTimeOut(60);
+                                if (otpFieldRef.current != null) {
+                                    otpFieldRef.current.focus();
+                                }
+                                const data = new FormData();
+                                data.append("phoneNumber", FormStateInputs.inputData.phoneNumber);
+                                data.append("name", FormStateInputs.inputData.name);
+                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                            }}
+                        >
+                            {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                        </div>
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute tw-right-2",
+                                FormStateInputs.showOtpField && !FormStateInputs.showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100 tw-duration-100",
+                            )}
+                            onClick={(e) => {
+                                const action: FormStateInputsAction = {
+                                    actionType: FormStateInputsActionType.SetIsOtpResent,
+                                    payload: true,
+                                };
+                                dispatch(action);
+                                console.log("phone number ref ::::", phoneNumberRef.current);
+                                if (phoneNumberRef.current != null) {
+                                    console.log("Inside phone ref logic");
+                                    phoneNumberRef.current.focus();
+                                }
+                            }}
+                        >
+                            <img
+                                src="https://files.growthjockey.com/livguard/icons/form/edit-phone-number.svg"
+                                alt="edit number"
+                                className="tw-w-6 tw-h-6"
+                            />
+                        </div>
+                    </div>
+
+                    <VerticalSpacer className="tw-h-2" />
+
+                    <div
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-flex tw-flex-col tw-w-full",
+                            FormStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
+                        )}
+                    >
+                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+
+                        <VerticalSpacer className="tw-h-1" />
+
+                        <div className="tw-relative">
+                            <input
+                                type="text"
+                                name="otpSubmitted"
+                                className="lg-text-input"
+                                required
+                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                ref={otpFieldRef}
+                                onChange={(e) => {
+                                    const action: FormStateInputsAction = {
+                                        actionType: FormStateInputsActionType.SetPhoneNumber,
+                                        payload: e.target.value,
+                                    };
+                                    dispatch(action);
+                                }}
+                            />
+                            {FormStateInputs.invalidOtp && (
+                                <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    <VerticalSpacer className="tw-h-1" />
+
+                    <div
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-flex tw-flex-row tw-justify-between tw-w-full tw-px-3",
+                            FormStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
+                        )}
+                    >
+                        <div
+                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                            onClick={() => {
+                                const action: FormStateInputsAction = {
+                                    actionType: FormStateInputsActionType.SetIsOtpResent,
+                                    payload: true,
+                                };
+                                dispatch(action);
+                                const data = new FormData();
+                                data.append("phoneNumber", FormStateInputs.inputData.phoneNumber);
+                                data.append("name", FormStateInputs.inputData.name);
+                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                            }}
+                        >
+                            {getVernacularString("OfferResendOTP", userPreferences.language)}
+                        </div>
+                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                    </div>
 
                     <VerticalSpacer className="tw-h-8" />
-
-                    <div className="tw-self-center">
-                        <FixedHeightImage
-                            relativePath="/livguard/header/akshay.png"
-                            height="13.75rem"
-                        />
-                    </div>
 
                     <input
                         name="utmParameters"
@@ -480,6 +650,13 @@ export function OfferContactUsDialog({
                         className="tw-hidden"
                         readOnly
                         value={leadId.current}
+                    />
+
+                    <input
+                        name="inputData"
+                        className="tw-hidden"
+                        readOnly
+                        value={JSON.stringify(FormStateInputs.inputData)}
                     />
 
                     <input
@@ -499,28 +676,23 @@ export function OfferContactUsDialog({
                     <button
                         type="submit"
                         className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
-                        disabled={fetcher.state != "idle" || inputData.name == "" || inputData.phoneNumber == ""}
+                        disabled={
+                            fetcher.state != "idle" ||
+                            FormStateInputs.inputData.name == "" ||
+                            FormStateInputs.inputData.phoneNumber == "" ||
+                            FormStateInputs.inputData.phoneNumber.length != 10 ||
+                            FormStateInputs.inputData.otpSubmitted == "" ||
+                            FormStateInputs.inputData.otpSubmitted.length != 6
+                        }
                     >
                         {getVernacularString("OfferFormGetOTP", userPreferences.language)}
                     </button>
                 </fetcher.Form>
             </LivguardDialog>
 
-            <OtpVerificationDialog
-                userPreferences={userPreferences}
-                isDialogOpen={isOfferContactUsDialogOpen && step == 2}
-                setIsDialogOpen={tryToCloseOfferContactUsDialog}
-                inputData={inputData}
-                fetcher={fetcher}
-                utmParameters={utmParameters}
-                leadId={leadId.current}
-                formType={FormType.offerContactUsSubmission}
-                pageUrl={pageUrl}
-            />
-
             <FormSubmissionSuccessLivguardDialog
                 userPreferences={userPreferences}
-                isDialogOpen={isOfferContactUsDialogOpen && step == 3}
+                isDialogOpen={isOfferContactUsDialogOpen && FormStateInputs.formSuccessfullySubmitted}
                 tryToCloseDialog={tryToCloseOfferContactUsDialog}
             />
         </>

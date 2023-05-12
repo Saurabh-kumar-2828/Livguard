@@ -1,8 +1,8 @@
 import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
-import { Link, useFetcher} from "@remix-run/react";
-import {useEffect, useRef, useState} from "react";
+import {Link, useFetcher} from "@remix-run/react";
+import {useEffect, useReducer, useRef, useState} from "react";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
@@ -12,7 +12,6 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {JodiCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {OtpVerificationForm} from "~/components/otpVerificationForm";
 import {CoverImage} from "~/global-common-typescript/components/coverImage";
 import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
 import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
@@ -24,10 +23,12 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
+import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
+import { FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type { UserPreferences} from "~/typeDefinitions";
-import {FormType, Language} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -114,9 +115,11 @@ export default function () {
 
 function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
-    const [step, setStep] = useState(1);
+    const otpFetcher = useFetcher();
     const leadId = useRef<Uuid>(generateUuid());
+
+    const [FormStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
+    const [resendTimeOut, setResendTimeOut] = useState(0);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -125,23 +128,46 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
 
         if (fetcher.data.error != null) {
             toast.error(fetcher.data.error);
+            const action: FormStateInputsAction = {
+                actionType: FormStateInputsActionType.SetInvalidOtp,
+                payload: true,
+            };
+            dispatch(action);
             return;
         }
 
-        if (fetcher.data.type == FormType.otpVerification) {
-            setStep(2);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "submit"});
-            return;
-        }
-
-        if (fetcher.data.type == FormType.contactUsSubmission) {
-            setStep(3);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "otp_verified_lead"});
-            return;
-        }
+        const action: FormStateInputsAction = {
+            actionType: FormStateInputsActionType.SetFormSuccessfullySubmited,
+            payload: true,
+        };
+        dispatch(action);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
+        return;
     }, [fetcher.data]);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (FormStateInputs.isOtpresent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+        setResendTimeOut(60);
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0) {
+            setTimeout(() => {
+                setResendTimeOut(resendTimeOut - 1);
+            }, 1000);
+        }
+    }, [resendTimeOut]);
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -151,12 +177,14 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 userPreferences={userPreferences}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 fetcher={fetcher}
+                otpFetcher={otpFetcher}
                 utmParameters={utmSearchParameters}
-                inputData={inputData}
-                setInputData={setInputData}
-                step={step}
+                formStateInputs={FormStateInputs}
+                dispatch={dispatch}
                 leadId={leadId.current}
                 pageUrl={pageUrl}
+                resendTimeOut={resendTimeOut}
+                setResendTimeOut={setResendTimeOut}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -165,25 +193,18 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 id="contact-us-form-mobile"
             >
-                {step == 1 ? (
+                {!FormStateInputs.formSuccessfullySubmitted ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
+                        otpFetcher={otpFetcher}
                         utmParameters={utmSearchParameters}
-                        inputData={inputData}
-                        setInputData={setInputData}
+                        formStateInputs={FormStateInputs}
+                        dispatch={dispatch}
                         leadId={leadId.current}
                         pageUrl={pageUrl}
-                    />
-                ) : step == 2 ? (
-                    <OtpVerificationForm
-                        userPreferences={userPreferences}
-                        inputData={inputData}
-                        fetcher={fetcher}
-                        utmParameters={utmSearchParameters}
-                        leadId={leadId.current}
-                        formType={FormType.contactUsSubmission}
-                        pageUrl={pageUrl}
+                        resendTimeOut={resendTimeOut}
+                        setResendTimeOut={setResendTimeOut}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />
@@ -257,24 +278,28 @@ function HeroSection({
     userPreferences,
     className,
     fetcher,
+    otpFetcher,
     utmParameters,
-    inputData,
-    setInputData,
-    step,
+    formStateInputs,
+    dispatch,
     leadId,
     pageUrl,
+    resendTimeOut,
+    setResendTimeOut,
 }: {
     userPreferences: UserPreferences;
-    className: string;
+    className?: string;
     fetcher: FetcherWithComponents<any>;
+    otpFetcher: FetcherWithComponents<any>;
     utmParameters: {
         [searchParameter: string]: string;
     };
-    inputData: {name: string; phoneNumber: string; emailId: string};
-    setInputData: React.Dispatch<React.SetStateAction<{name: string; phoneNumber: string; emailId: string}>>;
-    step: number;
+    formStateInputs: FormStateInputs;
+    dispatch: React.Dispatch<FormStateInputsAction>;
     leadId: Uuid;
     pageUrl: string;
+    resendTimeOut: number;
+    setResendTimeOut: React.Dispatch<number>;
 }) {
     return (
         <div
@@ -328,25 +353,18 @@ function HeroSection({
             </div>
 
             <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
-                {step == 1 ? (
+                {!formStateInputs.formSuccessfullySubmitted ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
+                        otpFetcher={otpFetcher}
                         utmParameters={utmParameters}
-                        inputData={inputData}
-                        setInputData={setInputData}
+                        formStateInputs={formStateInputs}
+                        dispatch={dispatch}
                         leadId={leadId}
                         pageUrl={pageUrl}
-                    />
-                ) : step == 2 ? (
-                    <OtpVerificationForm
-                        userPreferences={userPreferences}
-                        inputData={inputData}
-                        fetcher={fetcher}
-                        utmParameters={utmParameters}
-                        leadId={leadId}
-                        formType={FormType.contactUsSubmission}
-                        pageUrl={pageUrl}
+                        resendTimeOut={resendTimeOut}
+                        setResendTimeOut={setResendTimeOut}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />

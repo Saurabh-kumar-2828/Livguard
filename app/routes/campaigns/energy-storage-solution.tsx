@@ -2,7 +2,7 @@ import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import { Link, useFetcher} from "@remix-run/react";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useReducer, useRef, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -24,6 +24,7 @@ import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
+import {FormStateInputs, FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type { UserPreferences} from "~/typeDefinitions";
@@ -117,9 +118,11 @@ export default function () {
 
 function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
     const fetcher = useFetcher();
-    const [inputData, setInputData] = useState<{name: string; phoneNumber: string; emailId: string}>({name: "", phoneNumber: "", emailId: ""});
-    const [step, setStep] = useState(1);
+    const otpFetcher = useFetcher();
     const leadId = useRef<Uuid>(generateUuid());
+
+    const [FormStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
+    const [resendTimeOut, setResendTimeOut] = useState(0);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -128,23 +131,46 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
 
         if (fetcher.data.error != null) {
             toast.error(fetcher.data.error);
+            const action: FormStateInputsAction = {
+                actionType: FormStateInputsActionType.SetInvalidOtp,
+                payload: true,
+            };
+            dispatch(action);
             return;
         }
 
-        if (fetcher.data.type == FormType.otpVerification) {
-            setStep(2);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "submit"});
-            return;
-        }
-
-        if (fetcher.data.type == FormType.contactUsSubmission) {
-            setStep(3);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({event: "otp_verified_lead"});
-            return;
-        }
+        const action: FormStateInputsAction = {
+            actionType: FormStateInputsActionType.SetFormSuccessfullySubmited,
+            payload: true,
+        };
+        dispatch(action);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
+        return;
     }, [fetcher.data]);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (FormStateInputs.isOtpresent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+        setResendTimeOut(60);
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0) {
+            setTimeout(() => {
+                setResendTimeOut(resendTimeOut - 1);
+            }, 1000);
+        }
+    }, [resendTimeOut]);
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -154,12 +180,14 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 userPreferences={userPreferences}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 fetcher={fetcher}
+                otpFetcher={otpFetcher}
                 utmParameters={utmSearchParameters}
-                inputData={inputData}
-                setInputData={setInputData}
-                step={step}
+                formStateInputs={FormStateInputs}
+                dispatch={dispatch}
                 leadId={leadId.current}
                 pageUrl={pageUrl}
+                resendTimeOut={resendTimeOut}
+                setResendTimeOut={setResendTimeOut}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -168,42 +196,22 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 id="contact-us-form-mobile"
             >
-                {step == 0 ? (
+                {!FormStateInputs.formSuccessfullySubmitted ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
+                        otpFetcher={otpFetcher}
                         utmParameters={utmSearchParameters}
-                        inputData={inputData}
-                        setInputData={setInputData}
+                        formStateInputs={FormStateInputs}
+                        dispatch={dispatch}
                         leadId={leadId.current}
                         pageUrl={pageUrl}
-                    />
-                ) : step == 2 ? (
-                    <OtpVerificationForm
-                        userPreferences={userPreferences}
-                        inputData={inputData}
-                        fetcher={fetcher}
-                        utmParameters={utmSearchParameters}
-                        leadId={leadId.current}
-                        formType={FormType.contactUsSubmission}
-                        pageUrl={pageUrl}
+                        resendTimeOut={resendTimeOut}
+                        setResendTimeOut={setResendTimeOut}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />
                 )}
-
-                {/* {formSubmittedSuccessfully ? (
-                    <ContactFormSuccess userPreferences={userPreferences} />
-                ) : (
-                    <ContactForm
-                        userPreferences={userPreferences}
-                        fetcher={fetcher}
-                        utmParameters={utmSearchParameters}
-                        inputData={inputData}
-                        setInputData={setInputData}
-                        leadId={leadId}
-                    />
-                )} */}
             </div>
 
             <VerticalSpacer className="tw-row-start-4 tw-col-start-1 tw-h-10 lg:tw-hidden" />
@@ -257,24 +265,28 @@ function HeroSection({
     userPreferences,
     className,
     fetcher,
+    otpFetcher,
     utmParameters,
-    inputData,
-    setInputData,
-    step,
+    formStateInputs,
+    dispatch,
     leadId,
     pageUrl,
+    resendTimeOut,
+    setResendTimeOut,
 }: {
     userPreferences: UserPreferences;
-    className: string;
+    className?: string;
     fetcher: FetcherWithComponents<any>;
+    otpFetcher: FetcherWithComponents<any>;
     utmParameters: {
         [searchParameter: string]: string;
     };
-    inputData: {name: string; phoneNumber: string; emailId: string};
-    setInputData: React.Dispatch<React.SetStateAction<{name: string; phoneNumber: string; emailId: string;}>>;
-    step: number;
+    formStateInputs: FormStateInputs;
+    dispatch: React.Dispatch<FormStateInputsAction>;
     leadId: Uuid;
     pageUrl: string;
+    resendTimeOut: number;
+    setResendTimeOut: React.Dispatch<number>;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
@@ -338,25 +350,18 @@ function HeroSection({
                     className="lg:tw-w-[30rem]"
                     id="contact-us-form-desktop"
                 >
-                    {step == 1 ? (
+                    {!formStateInputs.formSuccessfullySubmitted ? (
                         <ContactForm
                             userPreferences={userPreferences}
                             fetcher={fetcher}
+                            otpFetcher={otpFetcher}
                             utmParameters={utmParameters}
-                            inputData={inputData}
-                            setInputData={setInputData}
+                            formStateInputs={formStateInputs}
+                            dispatch={dispatch}
                             leadId={leadId}
                             pageUrl={pageUrl}
-                        />
-                    ) : step == 2 ? (
-                        <OtpVerificationForm
-                            userPreferences={userPreferences}
-                            inputData={inputData}
-                            fetcher={fetcher}
-                            utmParameters={utmParameters}
-                            leadId={leadId}
-                            formType={FormType.contactUsSubmission}
-                            pageUrl={pageUrl}
+                            resendTimeOut={resendTimeOut}
+                            setResendTimeOut={setResendTimeOut}
                         />
                     ) : (
                         <ContactFormSuccess userPreferences={userPreferences} />

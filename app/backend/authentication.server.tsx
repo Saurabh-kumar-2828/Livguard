@@ -20,6 +20,8 @@ export async function sendOtp(phoneNumber: string, name: string) {
         issuedAt: currentTimestamp,
     };
 
+    console.log("Otp is: ",otp);
+
     const normalizedPhoneNumber = `+91${phoneNumber}`;
 
     const authToken = await getAuthToken();
@@ -64,6 +66,7 @@ export async function sendOtp(phoneNumber: string, name: string) {
 
 export async function verifyOtp(phoneNumber: string, otp: string): Promise<{success: boolean}> {
     const activeOtps = getActiveOtps();
+
     try {
         if ((phoneNumber in activeOtps && activeOtps[phoneNumber].otp == otp)) {
             delete activeOtps[phoneNumber];
