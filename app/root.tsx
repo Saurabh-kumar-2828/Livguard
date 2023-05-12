@@ -331,17 +331,17 @@ export default function Root() {
                                     }
 
                                     iframe.xdk-iframe {
-                                        bottom: 25px !important;
+                                        bottom: 20px !important;
                                     }
                                 }
 
                                 @media (max-width: 640px) {
                                     iframe#haptik-xdk-main-view {
-                                    bottom: 65px !important;
+                                    bottom: 115px !important;
                                     }
 
                                     iframe.xdk-iframe {
-                                        bottom: 25px !important;
+                                        bottom: 75px !important;
                                     }
                                 }
                             `,
