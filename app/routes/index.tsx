@@ -1404,6 +1404,13 @@ export function ContactUsDialog({
                     />
 
                     <input
+                        name="inputData"
+                        className="tw-hidden"
+                        readOnly
+                        value={JSON.stringify(inputData)}
+                    />
+
+                    <input
                         name="pageUrl"
                         className="tw-hidden"
                         readOnly

@@ -19,7 +19,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
     const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
 
-    if (inputData == null || utmParameters == null || leadId == null || pageUrl == null) {
+    if (inputData == null || utmParameters == null || leadId == null || pageUrl == null || formType == null) {
         const actionData: GenericActionData = {
             error: "Error in submitting form! Error code: 5873419b-b4e8-4980-9982-5af1740ca619",
         };
