@@ -21,6 +21,11 @@ type LoaderData = {
     userPreferences: UserPreferences;
     canonicalUrl: string;
     websiteConfiguration: WebsiteConfiguration;
+    haptikInitSettings: {
+        businessId: string;
+        clientId: string;
+        baseUrl: string;
+    }
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -43,6 +48,12 @@ export const loader: LoaderFunction = async ({request}) => {
         imageCdnProvider: imageCdnProvider,
     };
 
+    const haptikInitSettings = {
+        businessId: getRequiredEnvironmentVariableNew("HAPTIK_BUSINESS_ID"),
+        clientId: getRequiredEnvironmentVariableNew("HAPTIK_CLIENT_ID"),
+        baseUrl: getRequiredEnvironmentVariableNew("HAPTIK_BASE_URL"),
+    };
+
     const requestUrl = request.url.replace(/^http:\/\/localhost:\d+/, getRequiredEnvironmentVariableNew("WEBSITE_BASE_URL"));
     // TODO: This is probably incorrect, shift canonical url handling to each separate page
     const canonicalUrlUnnormalized = requestUrl.split("?")[0];
@@ -52,6 +63,7 @@ export const loader: LoaderFunction = async ({request}) => {
         userPreferences: userPreferences,
         canonicalUrl: canonicalUrl,
         websiteConfiguration: websiteConfiguration,
+        haptikInitSettings: haptikInitSettings
     };
 
     return json(loaderData);
@@ -94,7 +106,7 @@ export const links: LinksFunction = () => [
 
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function Root() {
-    const {userPreferences, canonicalUrl, websiteConfiguration} = useLoaderData() as LoaderData;
+    const {userPreferences, canonicalUrl, websiteConfiguration, haptikInitSettings} = useLoaderData() as LoaderData;
 
     // // Google Tag Manager
     // useEffect(() => {
@@ -149,6 +161,27 @@ export default function Root() {
             return () => window.removeEventListener("load", onDocumentLoad);
         }
     }, []);
+
+    // Haptik
+    useEffect(() => {
+        const onDocumentLoad = () => {
+            setTimeout(() => {
+                const scriptTag = document.createElement("script");
+                scriptTag.src = "https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js";
+                scriptTag.setAttribute("charset", "UTF-8");
+                scriptTag.setAttribute("type", "text/javascript");
+                document.body.appendChild(scriptTag);
+            }, 5000);
+        };
+
+        if (document.readyState == "complete") {
+            onDocumentLoad();
+        } else {
+            window.addEventListener("load", onDocumentLoad);
+            return () => window.removeEventListener("load", onDocumentLoad);
+        }
+    }, []);
+
 
     return (
         // <UserPreferencesContext.Provider value={userPreferences}>
@@ -276,6 +309,45 @@ export default function Root() {
                     <ScrollRestoration />
                     <Scripts />
                     <LiveReload />
+                    {/* Start Haptik Integeration */}
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                window.haptikInitSettings = {
+                                    "business-id": "${haptikInitSettings.businessId}",
+                                    "client-id": "${haptikInitSettings.clientId}",
+                                    "base-url": "${haptikInitSettings.baseUrl}",
+                                };
+                            `,
+                        }}
+                    />
+
+                    <style
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                @media (min-width: 640px) {
+                                    iframe#haptik-xdk-main-view {
+                                        bottom: 65px !important;
+                                    }
+
+                                    iframe.xdk-iframe {
+                                        bottom: 25px !important;
+                                    }
+                                }
+
+                                @media (max-width: 640px) {
+                                    iframe#haptik-xdk-main-view {
+                                    bottom: 65px !important;
+                                    }
+
+                                    iframe.xdk-iframe {
+                                        bottom: 25px !important;
+                                    }
+                                }
+                            `,
+                        }}
+                    />
+                    {/* End Haptik Integeration */}
                 </body>
             </html>
         </WebsiteConfigurationContext.Provider>

@@ -301,6 +301,6 @@
     }
 
     #fc_frame {
-        z-index: 51 !important;
+        display: none;
     }
 }
