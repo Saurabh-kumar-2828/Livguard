@@ -856,7 +856,7 @@ export function ApplyNowForDealerDialog({
                         </div>
                         <div
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute tw-right-2",
+                                "tw-absolute tw-right-2 hover:tw-cursor-pointer",
                                 FormStateInputs.showOtpField && !FormStateInputs.showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100 tw-duration-100",
                             )}
                             onClick={(e) => {
