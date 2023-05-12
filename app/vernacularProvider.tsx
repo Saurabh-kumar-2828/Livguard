@@ -2431,7 +2431,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     footerCopyrightText: {
-        [Language.English]: `© Livguard 2023. All Rights Reserved | Technology Partner - <a href="https://growthjockey.com">GrowthJockey</a>`,
+        [Language.English]: `© Livguard 2023. All Rights Reserved | Technology Partner - <a href="https://growthjockey.com" target="_blank" class="tw-underline hover:tw-text-[#00a2ed]">GrowthJockey</a>`,
         [Language.Hindi]: `© लिवगार्ड 2023। सभी अधिकार सुरक्षित | प्रौद्योगिकी भागीदार - <a href="https://growthjockey.com">GrowthJockey</a>`,
         [Language.Marathi]: "INVALID STRING REQUESTED",
     },

@@ -738,7 +738,7 @@ export function ApplyNowForDealerDialog({
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"
                     method="post"
-                    action="/otp-verification"
+                    action="/apply-for-dealership"
                 >
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{`${getVernacularString("applyNowForDealerT3", userPreferences.language)}*`}</div>
 
