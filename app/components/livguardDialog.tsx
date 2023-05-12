@@ -29,7 +29,7 @@ export default function LivguardDialog({isDialogOpen, tryToCloseDialog, beforeEn
                 <Dialog.Panel className="lg-px-screen-edge tw-py-[var(--lg-px-screen-edge)] tw-fixed tw-inset-0 tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-place-items-center">
                     <Transition.Child
                         as="div"
-                        className="tw-w-full tw-max-w-[30rem] tw-max-h-full tw-overflow-y-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
+                        className="tw-w-full tw-max-w-[23rem] tw-max-h-full tw-overflow-y-auto tw-bg-gradient-to-b tw-from-secondary-500-light tw-to-secondary-100-light dark:tw-from-secondary-500-dark dark:tw-to-secondary-100-dark lg-bg-secondary-100 tw-px-6 tw-py-6 tw-rounded-lg tw-flex tw-flex-col lg-secondary-700-scrollbar tw-relative"
                         enter="tw-ease-out tw-transition-all tw-duration-200"
                         enterFrom="tw-opacity-0"
                         enterTo="tw-opacity-full"

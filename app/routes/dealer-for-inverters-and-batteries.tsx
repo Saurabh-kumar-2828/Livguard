@@ -834,7 +834,7 @@ export function ApplyNowForDealerDialog({
                             )}
                             onClick={(e) => {
                                 if (FormStateInputs.inputData.name == "") {
-                                    toast.error("Name field is empty, please fill");
+                                    toast.error("Name field can't be empty");
                                     return;
                                 }
                                 const action: FormStateInputsAction = {
@@ -861,13 +861,11 @@ export function ApplyNowForDealerDialog({
                             )}
                             onClick={(e) => {
                                 const action: FormStateInputsAction = {
-                                    actionType: FormStateInputsActionType.SetIsOtpResent,
+                                    actionType: FormStateInputsActionType.EditPhoneNumber,
                                     payload: true,
                                 };
                                 dispatch(action);
-                                console.log("phone number ref ::::", phoneNumberRef.current);
                                 if (phoneNumberRef.current != null) {
-                                    console.log("Inside phone ref logic");
                                     phoneNumberRef.current.focus();
                                 }
                             }}
@@ -894,7 +892,7 @@ export function ApplyNowForDealerDialog({
                         placeholder={getVernacularString("applyNowForDealerPH5", userPreferences.language)}
                         onChange={(e) => {
                             const action: FormStateInputsAction = {
-                                actionType: FormStateInputsActionType.SetPhoneNumber,
+                                actionType: FormStateInputsActionType.SetCity,
                                 payload: e.target.value,
                             };
                             dispatch(action);
@@ -1119,14 +1117,14 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
                     width="10rem"
                 />
 
-                <VerticalSpacer className="tw-h-2" />
+                <VerticalSpacer className="tw-h-4" />
 
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("successT1", userPreferences.language)}}
                     className="lg-text-banner"
                 />
 
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-8" />
 
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("successT2", userPreferences.language)}}
@@ -1168,7 +1166,7 @@ export function FormSubmissionSuccessLivguardDialog({userPreferences, isDialogOp
                     </a>
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-8" />
 
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}

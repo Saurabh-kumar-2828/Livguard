@@ -555,13 +555,11 @@ export function OfferContactUsDialog({
                             )}
                             onClick={(e) => {
                                 const action: FormStateInputsAction = {
-                                    actionType: FormStateInputsActionType.SetIsOtpResent,
+                                    actionType: FormStateInputsActionType.EditPhoneNumber,
                                     payload: true,
                                 };
                                 dispatch(action);
-                                console.log("phone number ref ::::", phoneNumberRef.current);
                                 if (phoneNumberRef.current != null) {
-                                    console.log("Inside phone ref logic");
                                     phoneNumberRef.current.focus();
                                 }
                             }}
@@ -596,7 +594,7 @@ export function OfferContactUsDialog({
                                 ref={otpFieldRef}
                                 onChange={(e) => {
                                     const action: FormStateInputsAction = {
-                                        actionType: FormStateInputsActionType.SetPhoneNumber,
+                                        actionType: FormStateInputsActionType.SetOtpSubmitted,
                                         payload: e.target.value,
                                     };
                                     dispatch(action);
@@ -685,7 +683,7 @@ export function OfferContactUsDialog({
                             FormStateInputs.inputData.otpSubmitted.length != 6
                         }
                     >
-                        {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                        {getVernacularString("contactUsT5", userPreferences.language)}
                     </button>
                 </fetcher.Form>
             </LivguardDialog>

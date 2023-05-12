@@ -2763,8 +2763,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     contactUsOTPT3: {
-        [Language.English]: "OTP",
-        [Language.Hindi]: "ओटीपी",
+        [Language.English]: "OTP Verification",
+        [Language.Hindi]: "ओटीपी पुष्टि",
         [Language.Marathi]: "?????",
     },
     contactUsOTPT3E: {

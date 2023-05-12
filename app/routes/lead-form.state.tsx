@@ -11,6 +11,7 @@ export enum FormStateInputsActionType {
     SetIsOtpResent,
     TryToCloseDialog,
     SendOtp,
+    EditPhoneNumber,
 }
 
 export type FormStateInputs = {
@@ -147,11 +148,18 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
         }
         case FormStateInputsActionType.SendOtp: {
             // TODO: Validate that these exist?
-
             const newState: FormStateInputs = structuredClone(state);
 
             newState.showOtpButton = false;
             newState.showOtpField = true;
+
+            return newState;
+        }
+        case FormStateInputsActionType.EditPhoneNumber: {
+            // TODO: Validate that these exist?
+            const newState: FormStateInputs = structuredClone(state);
+
+            newState.showOtpField = false;
 
             return newState;
         }

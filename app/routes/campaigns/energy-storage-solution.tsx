@@ -347,7 +347,7 @@ function HeroSection({
 
             <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
                 <div
-                    className="lg:tw-w-[30rem]"
+                    className="lg:tw-w-[25rem]"
                     id="contact-us-form-desktop"
                 >
                     {!formStateInputs.formSuccessfullySubmitted ? (

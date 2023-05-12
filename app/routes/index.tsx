@@ -1312,7 +1312,7 @@ export function ContactUsDialog({
                             )}
                             onClick={(e) => {
                                 if (FormStateInputs.inputData.name == "") {
-                                    toast.error("Name field is empty, please fill");
+                                    toast.error("Name field can't be empty");
                                     return;
                                 }
                                 const action: FormStateInputsAction = {
@@ -1339,7 +1339,7 @@ export function ContactUsDialog({
                             )}
                             onClick={(e) => {
                                 const action: FormStateInputsAction = {
-                                    actionType: FormStateInputsActionType.SetIsOtpResent,
+                                    actionType: FormStateInputsActionType.EditPhoneNumber,
                                     payload: true,
                                 };
                                 dispatch(action);

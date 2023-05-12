@@ -66,17 +66,17 @@ export function ContactForm({
 
             <DefaultElementAnimation>
                 <fetcher.Form
-                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[30rem] lg:tw-max-w-[30rem] lg:tw-mx-auto tw-grid tw-grid-rows-[3rem_auto_0.25rem_auto_0.25rem_auto_0.25rem_auto_0.25rem_auto_3rem] tw-justify-items-center tw-overflow-hidden"
+                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[25rem] lg:tw-max-w-[25rem] lg:tw-mx-auto tw-grid tw-grid-rows-[3rem_auto_0.25rem_auto_0.25rem_auto_0.25rem_auto_2.25rem_auto_3rem] tw-overflow-hidden tw-relative"
                     method="post"
                     action="/contact-us-submission"
                 >
                     <CoverImage
                         relativePath="/livguard/contact form/contact_form_background.jpg"
-                        className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
+                        className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-gidden tw-opacity-70 tw-z-8"
                     />
 
-                    <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT3", userPreferences.language)}</div>
+                    <div className="tw-row-start-2 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -96,8 +96,8 @@ export function ContactForm({
                         />
                     </div>
 
-                    <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT4", userPreferences.language)}</div>
+                    <div className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT4", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -118,8 +118,8 @@ export function ContactForm({
                         />
                     </div>
 
-                    <div className="tw-row-start-2 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                        <div className="lg-text-title2 tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
+                    <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                        <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT2", userPreferences.language)}</div>
 
                         <VerticalSpacer className="tw-h-1" />
 
@@ -132,6 +132,7 @@ export function ContactForm({
                                 className="lg-text-input tw-w-full"
                                 disabled={formStateInputs.showOtpField}
                                 ref={phoneNumberRef}
+                                placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                                 onChange={(e) => {
                                     const phoneNumber = e.target.value;
                                     const action: FormStateInputsAction = {
@@ -170,7 +171,7 @@ export function ContactForm({
                                 )}
                                 onClick={(e) => {
                                     if (formStateInputs.inputData.name == "") {
-                                        toast.error("Name field is empty, please fill");
+                                        toast.error("Name field can't be empty");
                                         return;
                                     }
                                     const action: FormStateInputsAction = {
@@ -192,12 +193,12 @@ export function ContactForm({
                             </div>
                             <div
                                 className={concatenateNonNullStringsWithSpaces(
-                                    "tw-absolute tw-right-2",
+                                    "tw-absolute tw-right-2 hover:tw-cursor-pointer",
                                     formStateInputs.showOtpField && !formStateInputs.showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100 tw-duration-100",
                                 )}
                                 onClick={(e) => {
                                     const action: FormStateInputsAction = {
-                                        actionType: FormStateInputsActionType.SetIsOtpResent,
+                                        actionType: FormStateInputsActionType.EditPhoneNumber,
                                         payload: true,
                                     };
                                     dispatch(action);
@@ -215,69 +216,71 @@ export function ContactForm({
                         </div>
                     </div>
 
-                    <VerticalSpacer className="tw-h-2" />
+                    <VerticalSpacer className="tw-h-2 tw-row-start-7" />
 
-                    <div
-                        className={concatenateNonNullStringsWithSpaces(
-                            "tw-flex tw-flex-col tw-w-full",
-                            formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
-                        )}
-                    >
-                        <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
+                    <div className="tw-row-start-[8] tw-flex tw-flex-col tw-w-full lg-px-screen-edge">
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-flex tw-flex-col tw-w-full",
+                                formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
+                            )}
+                        >
+                            <div className="lg-text-body-bold tw-pl-3 tw-text-secondary-100-light">{getVernacularString("contactUsOTPT3", userPreferences.language)}</div>
 
+                            <VerticalSpacer className="tw-h-1" />
+
+                            <div className="tw-relative">
+                                <input
+                                    type="text"
+                                    name="otpSubmitted"
+                                    className="lg-text-input"
+                                    required
+                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                    ref={otpFieldRef}
+                                    onChange={(e) => {
+                                        const action: FormStateInputsAction = {
+                                            actionType: FormStateInputsActionType.SetOtpSubmitted,
+                                            payload: e.target.value,
+                                        };
+                                        dispatch(action);
+                                    }}
+                                />
+                                {formStateInputs.invalidOtp && (
+                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
                         <VerticalSpacer className="tw-h-1" />
 
-                        <div className="tw-relative">
-                            <input
-                                type="text"
-                                name="otpSubmitted"
-                                className="lg-text-input"
-                                required
-                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
-                                ref={otpFieldRef}
-                                onChange={(e) => {
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-flex tw-flex-row tw-justify-between tw-w-full tw-px-3",
+                                formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
+                            )}
+                        >
+                            <div
+                                className={concatenateNonNullStringsWithSpaces("tw-text-secondary-100-light tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                                onClick={() => {
                                     const action: FormStateInputsAction = {
-                                        actionType: FormStateInputsActionType.SetOtpSubmitted,
-                                        payload: e.target.value,
+                                        actionType: FormStateInputsActionType.SetIsOtpResent,
+                                        payload: true,
                                     };
                                     dispatch(action);
+                                    const data = new FormData();
+                                    data.append("phoneNumber", formStateInputs.inputData.phoneNumber);
+                                    data.append("name", formStateInputs.inputData.name);
+                                    otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                 }}
-                            />
-                            {formStateInputs.invalidOtp && (
-                                <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
-                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
-                                </div>
-                            )}
+                            >
+                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                            </div>
+                            <div className="tw-text-secondary-100-light tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                         </div>
                     </div>
-                    <VerticalSpacer className="tw-h-1" />
 
-                    <div
-                        className={concatenateNonNullStringsWithSpaces(
-                            "tw-flex tw-flex-row tw-justify-between tw-w-full tw-px-3",
-                            formStateInputs.showOtpField ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-100",
-                        )}
-                    >
-                        <div
-                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
-                            onClick={() => {
-                                const action: FormStateInputsAction = {
-                                    actionType: FormStateInputsActionType.SetIsOtpResent,
-                                    payload: true,
-                                };
-                                dispatch(action);
-                                const data = new FormData();
-                                data.append("phoneNumber", formStateInputs.inputData.phoneNumber);
-                                data.append("name", formStateInputs.inputData.name);
-                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
-                            }}
-                        >
-                            {getVernacularString("OfferResendOTP", userPreferences.language)}
-                        </div>
-                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs}`}</div>
-                    </div>
-
-                    <VerticalSpacer className="tw-h-8" />
+                    <VerticalSpacer className="tw-h-8 tw-row-start-[9]" />
 
                     <input
                         name="utmParameters"
@@ -314,7 +317,7 @@ export function ContactForm({
                         value={pageUrl}
                     />
 
-                    <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                    <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                         <button
                             type="submit"
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60"
