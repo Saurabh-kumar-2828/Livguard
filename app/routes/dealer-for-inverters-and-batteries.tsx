@@ -733,7 +733,7 @@ export function ApplyNowForDealerDialog({
                 isDialogOpen={isApplyNowDialogOpen && !FormStateInputs.formSuccessfullySubmitted}
                 tryToCloseDialog={tryToCloseApplyNowDialog}
                 title={getVernacularString("applyNowForDealerT1", userPreferences.language)}
-                showCloseIcon={false}
+                showCloseIcon={true}
             >
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"

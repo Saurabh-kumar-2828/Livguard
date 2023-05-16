@@ -529,7 +529,7 @@ function MenuDialog({
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[20.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
+                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[minmax(0,20.75re)_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"
@@ -749,7 +749,7 @@ function SubMenuDialog({
 
                     <VerticalSpacer className="tw-h-6" />
 
-                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[20.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
+                    <div className="tw-w-full tw-max-h-[calc(100vh-5.5rem)] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[minmax(0,20.75rem)_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center tw-relative">
                         <Transition.Child
                             as={React.Fragment}
                             enter="tw-ease-out tw-transition-all tw-duration-200"

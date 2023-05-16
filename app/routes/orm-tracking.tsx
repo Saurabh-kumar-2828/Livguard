@@ -24,32 +24,16 @@ export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
     const product = safeParse(getStringFromUnknown, body.get("product"));
-    const sentiment = safeParse(getStringFromUnknown, body.get("sentiment"));
-    const dateSelected = safeParse(getStringFromUnknown, body.get("dateReleased"));
     const name = safeParse(getStringFromUnknown, body.get("name"));
     const phoneNumber = safeParse(getStringFromUnknown, body.get("phoneNumber"));
     const emailId = safeParse(getStringFromUnknown, body.get("emailId"));
-    const serviceNumber = safeParse(getStringFromUnknown, body.get("serviceNumber"));
-    const location = safeParse(getStringFromUnknown, body.get("location"));
-    const state = safeParse(getStringFromUnknown, body.get("state"));
-    const district = safeParse(getStringFromUnknown, body.get("district"));
-    const address = safeParse(getStringFromUnknown, body.get("address"));
-    const pincode = safeParse(getStringFromUnknown, body.get("pincode"));
     const queryDetails = safeParse(getStringFromUnknown, body.get("queryDetails"));
 
     if (
         product == null ||
-        sentiment == null ||
-        dateSelected == null ||
         name == null ||
         phoneNumber == null ||
         emailId == null ||
-        serviceNumber == null ||
-        location == null ||
-        state == null ||
-        district == null ||
-        address == null ||
-        pincode == null ||
         queryDetails == null
     ) {
         const actionData: OrmActionData = {
@@ -60,17 +44,9 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const contactData = {
         product: product,
-        sentiment: sentiment,
-        dateSelected: dateSelected,
         name: name,
         phoneNumber: phoneNumber,
         emailId: emailId,
-        serviceNumber: serviceNumber,
-        location: location,
-        state: state,
-        district: district,
-        address: address,
-        pincode: pincode,
         queryDetails: queryDetails,
     };
 
@@ -182,40 +158,6 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                             </select>
                         </div>
                         <div className="">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT2", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <select
-                                className="lg-text-input"
-                                name="sentiment"
-                            >
-                                <option
-                                    value="neutral"
-                                    selected
-                                >
-                                    {getVernacularString("ormTrackingFormSentiment1", userPreferences.language)}
-                                </option>
-                                <option value="positive">{getVernacularString("ormTrackingFormSentiment2", userPreferences.language)}</option>
-                                <option value="negative">{getVernacularString("ormTrackingFormSentiment3", userPreferences.language)}</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col tw-gap-6">
-                        <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT3", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="dateReleased"
-                                className="lg-text-input"
-                                required
-                            />
-                        </div>
-                        <div className="">
                             <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT4", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-1" />
@@ -253,87 +195,6 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                                 name="emailId"
                                 className="lg-text-input"
                                 pattern={emailIdValidationPattern}
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col tw-gap-6">
-                        <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT7", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="serviceNumber"
-                                className="lg-text-input"
-                                required
-                            />
-                        </div>
-                        <div className="">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT8", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="location"
-                                className="lg-text-input"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col tw-gap-6">
-                        <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT9", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="state"
-                                className="lg-text-input"
-                                required
-                            />
-                        </div>
-                        <div className="">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT10", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="district"
-                                className="lg-text-input"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div className="tw-w-full tw-grid tw-grid-flow-row lg:tw-grid-flow-col tw-gap-6">
-                        <div className="tw-w-full tw-flex tw-flex-col">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT11", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="address"
-                                className="lg-text-input"
-                                required
-                            />
-                        </div>
-                        <div className="">
-                            <div className="lg-text-body-bold tw-pl-3">{getVernacularString("ormTrackingFormT12", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="pincode"
-                                className="lg-text-input"
                                 required
                             />
                         </div>

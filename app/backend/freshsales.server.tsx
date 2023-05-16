@@ -51,34 +51,17 @@ export async function sendDataToFreshsales(
 
 export async function sendDataToFreshsalesForOrmTracking(formResponse: {
     product: string;
-    sentiment: string;
-    dateSelected: string;
     name: string;
     phoneNumber: string;
     emailId: string;
-    serviceNumber: string;
-    location: string;
-    state: string;
-    district: string;
-    address: string;
-    pincode: string;
     queryDetails: string;
 }): Promise<void | Error> {
     const contactData = {
         name: formResponse.name,
         mobile_number: formResponse.phoneNumber,
         email: formResponse.emailId,
-        city: formResponse.location,
-        state: formResponse.state,
-        address: formResponse.address,
-        zipcode: formResponse.pincode,
         lead_source_id: "401000150596",
         custom_field: {
-            cf_product: formResponse.product,
-            cf_sentiment: formResponse.sentiment,
-            cf_date_released: formResponse.dateSelected,
-            cf_service_number: formResponse.serviceNumber,
-            cf_district: formResponse.district,
             cf_query_details: formResponse.queryDetails,
             cf_lead_source: "social",
         },
