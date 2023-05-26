@@ -132,7 +132,7 @@ export function OurSuggestionsComponent({
 
                     <div className="tw-rounded-lg tw-w-full tw-flex tw-justify-center">
                         <FixedWidthImage
-                            relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading}.png`}
+                            relativePath={`${vernacularContent.imagesRelativePath}${vernacularContent.heading.toLowerCase()}/thumbnail.png`}
                             width="250px"
                             className="tw-mx-auto"
                         />
