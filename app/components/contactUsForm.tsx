@@ -71,7 +71,7 @@ export function ContactForm({
                     action="/contact-us-submission"
                 >
                     <CoverImage
-                        relativePath="/livguard/contact form/contact_form_background.jpg"
+                        relativePath="/livguard/contact-form/background.jpg"
                         className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-gidden tw-opacity-70 tw-z-8"
                     />
 

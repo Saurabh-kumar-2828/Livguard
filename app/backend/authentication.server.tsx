@@ -164,7 +164,7 @@ async function getFreshSalesAuthToken(): Promise<{token: string; expiryDate: str
         const response = await fetch(`${process.env.VALUE_FIRST_API_BASE_URI}/api/messages/token?action=generate`, {
             method: "POST",
             headers: {
-                Authorization: `Basic ${Buffer.from(`${process.env.FRESH_SALES_USERNAME}:${process.env.FRESH_SALES_PASSWORD}`, "utf-8").toString("base64")}`,
+                Authorization: `Basic ${Buffer.from(`${process.env.VALUE_FIRST_USERNAME}:${process.env.VALUE_FIRST_PASSWORD}`, "utf-8").toString("base64")}`,
             },
         });
 

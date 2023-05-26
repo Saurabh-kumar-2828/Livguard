@@ -14,6 +14,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {UserPreferences} from "~/typeDefinitions";
+import {convertProductInternalNameToPublicName} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferences: UserPreferences; item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}}) {
@@ -150,14 +151,15 @@ export function OurSuggestionsComponent({
 
                     {vernacularContent.relatedProducts.length > 3 ? (
                         <CarouselStyle4
-                            items={vernacularContent.relatedProducts.map((relatedProduct) => (
+                            items={vernacularContent.relatedProducts.map((relatedProduct, relatedProductIndex) => (
                                 <Link
                                     to={`/product/${relatedProduct}`}
                                     className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                                    key={relatedProductIndex}
                                 >
-                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{relatedProduct}</div>
+                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(relatedProduct)}</div>
                                     <FullWidthImage
-                                        relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}.png`}
+                                        relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}/thumbnail.png`}
                                     />
                                 </Link>
                             ))}
@@ -173,9 +175,9 @@ export function OurSuggestionsComponent({
                                         className="lg-bg-secondary-300 tw-rounded-lg tw-flex tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center tw-w-[200px] tw-w-max-[200px] lg:tw-items-center"
                                         key={itemIndex}
                                     >
-                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{item}</div>
+                                        <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(item)}</div>
                                         <FullWidthImage
-                                            relativePath={`${vernacularContent.imagesRelativePath}${item}.png`}
+                                            relativePath={`${vernacularContent.imagesRelativePath}${item}/thumbnail.png`}
                                         />
                                     </Link>
                                 )}
@@ -489,7 +491,7 @@ export function DownloadCta({userPreferences, textVernacId, utmParameters, class
 //                                         action="/contact-us-submission"
 //                                     >
 //                                         <CoverImage
-//                                             relativePath="/livguard/contact form/contact_form_background.jpg"
+//                                             relativePath="/livguard/contact-form/background.jpg"
 //                                             className="tw-row-[1/span_11] tw-col-start-1 tw-rounded-lg tw-opacity-70"
 //                                         />
 

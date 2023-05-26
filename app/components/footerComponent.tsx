@@ -291,7 +291,7 @@ export function FooterComponent({
                                     id="signup_email"
                                     pattern={emailIdValidationPattern}
                                     placeholder={getVernacularString("footerSubscribeT2", userPreferences.language)}
-                                    className="lg-bg-secondary-300 lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
+                                    className="tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark tw-outline dark:tw-outline-none tw-outline-1 tw-outline-secondary-500-light lg-text-secondary-900 tw-w-full tw-p-4 tw-rounded-full"
                                 />
 
                                 <input
@@ -302,7 +302,7 @@ export function FooterComponent({
                                 />
                                 <button
                                     type="submit"
-                                    className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border"
+                                    className="tw-absolute tw-top-2.5 tw-right-2.5 tw-bottom-0 tw-w-8 tw-h-8 tw-rounded-full lg-bg-secondary-100 tw-border tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
                                 >
                                     <ChevronRightIcon className="tw-w-8 tw-h-8" />
                                 </button>

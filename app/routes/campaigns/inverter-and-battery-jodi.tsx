@@ -215,27 +215,27 @@ function HeroSection({
                     relativePath={
                         containerHeight > containerWidth || containerWidth < 640
                             ? userPreferences.language == Language.English
-                                ? "/livguard/landingPages/3/top-banner-mobile-english.jpg"
-                                : "/livguard/landingPages/3/top-banner-mobile-hindi.jpg"
+                                ? "/livguard/landing-pages/3/top-banner-mobile-english.jpg"
+                                : "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg"
                             : userPreferences.language == Language.English
-                            ? "/livguard/landingPages/3/top-banner-desktop-english.jpg"
-                            : "/livguard/landingPages/3/top-banner-desktop-hindi.jpg"
+                            ? "/livguard/landing-pages/3/top-banner-desktop-english.jpg"
+                            : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
                     }
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
                     key={
                         containerHeight > containerWidth || containerWidth < 640
                             ? userPreferences.language == Language.English
-                                ? "/livguard/landingPages/3/top-banner-mobile-english.jpg"
-                                : "/livguard/landingPages/3/top-banner-mobile-hindi.jpg"
+                                ? "/livguard/landing-pages/3/top-banner-mobile-english.jpg"
+                                : "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg"
                             : userPreferences.language == Language.English
-                            ? "/livguard/landingPages/3/top-banner-desktop-english.jpg"
-                            : "/livguard/landingPages/3/top-banner-desktop-hindi.jpg"
+                            ? "/livguard/landing-pages/3/top-banner-desktop-english.jpg"
+                            : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
                     }
                 />
             )}
 
             {/* <CoverImage
-                relativePath="/livguard/landingPages/3/hero_image.jpg"
+                relativePath="/livguard/landing-pages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 -tw-z-10"
             /> */}
 
@@ -290,17 +290,17 @@ export function TapIntoEfficiency({
 }) {
     const sectionData = [
         {
-            imageRelativePath: "/livguard/landingPages/3/1.jpg",
+            imageRelativePath: "/livguard/landing-pages/3/1.jpg",
             titleTextContentPiece: "landingPage3S7Slide1Heading",
             bodyTextContentPiece: "landingPage3S7Slide1Content",
         },
         {
-            imageRelativePath: "/livguard/landingPages/3/2.jpg",
+            imageRelativePath: "/livguard/landing-pages/3/2.jpg",
             titleTextContentPiece: "landingPage3S7Slide2Heading",
             bodyTextContentPiece: "landingPage3S7Slide2Content",
         },
         {
-            imageRelativePath: "/livguard/landingPages/3/3.jpg",
+            imageRelativePath: "/livguard/landing-pages/3/3.jpg",
             titleTextContentPiece: "landingPage3S7Slide3Heading",
             bodyTextContentPiece: "landingPage3S7Slide3Content",
         },

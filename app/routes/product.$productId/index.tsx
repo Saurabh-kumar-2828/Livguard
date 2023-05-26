@@ -268,6 +268,7 @@ function ProductInfo({
                             <FullWidthImage
                                 relativePath={productDetails.images[mainImageIndex].image}
                                 className="tw-rounded-lg"
+                                key={productDetails.images[mainImageIndex].image}
                             />
                         </DefaultElementAnimation>
                     </div>
@@ -277,8 +278,8 @@ function ProductInfo({
                             itemBuilder={(image, imageIndex) => (
                                 <div
                                     className="tw-rounded-lg tw-h-[80px] tw-max-h-[80px] tw-max-w-[80px] tw-w-[80px] hover:tw-cursor-pointer"
-                                    key={imageIndex}
                                     onClick={() => setMainImageIndex(imageIndex)}
+                                    key={imageIndex}
                                 >
                                     <FullWidthImage
                                         relativePath={image.image}
@@ -289,6 +290,7 @@ function ProductInfo({
                         />
                     </div>
                 </div>
+
                 <div className="tw-flex tw-flex-col tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
                     <VerticalSpacer className="tw-h-4" />
 
@@ -306,10 +308,11 @@ function ProductInfo({
                         <ItemBuilder
                             items={productDetails.productIcons}
                             itemBuilder={(icon, iconIndex) => (
-                                <>
+                                <React.Fragment
+                                    key={iconIndex}
+                                >
                                     <div
                                         className="tw-flex tw-flex-col tw-gap-2 tw-justify-start tw-items-center tw-h-full"
-                                        key={iconIndex}
                                     >
                                         <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
                                             <FixedWidthImage
@@ -321,7 +324,7 @@ function ProductInfo({
                                     </div>
 
                                     {iconIndex < productDetails.productIcons.length - 1 && <div className="tw-w-full tw-border lg-border-secondary-900"></div>}
-                                </>
+                                </React.Fragment>
                             )}
                         />
                     </div>
@@ -376,17 +379,18 @@ function ProductSpecifications({userPreferences, ProductDetails,className}: {use
                             },
                         ]}
                         itemBuilder={(item, itemIndex) => (
-                            <>
+                            <React.Fragment
+                                key={itemIndex}
+                            >
                                 <div
                                     className="tw-flex tw-flex-col tw-gap-1 tw-justify-center tw-items-center"
-                                    key={itemIndex}
                                     onClick={() => setSelectedTab(item.value)}
                                 >
                                     <div className={`tw-cursor-pointer ${item.value == selectedTab ? "tw-underline tw-underline-offset-4" : "lg-text-secondary-700"}`}>{item.title}</div>
                                 </div>
 
                                 {itemIndex < 3 - 1 && <div className="tw-w-full tw-border"></div>}
-                            </>
+                            </React.Fragment>
                         )}
                     />
                 </div>

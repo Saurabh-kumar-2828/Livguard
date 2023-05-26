@@ -40,7 +40,7 @@ export function OtpVerificationForm({
                     action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
                 >
                     <CoverImage
-                        relativePath="/livguard/contact form/contact_form_background.jpg"
+                        relativePath="/livguard/contact-form/background.jpg"
                         className="tw-row-[1/span_10] tw-col-start-1 tw-rounded-lg tw-overflow-gidden tw-opacity-70"
                     />
 

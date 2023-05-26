@@ -299,8 +299,4 @@
         @apply tw-bg-secondary-700-light dark:tw-bg-secondary-700-dark;
         border-radius: 25px;
     }
-
-    #fc_frame {
-        display: none;
-    }
 }

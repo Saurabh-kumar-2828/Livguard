@@ -30,7 +30,7 @@ export function ContactFormSuccess({userPreferences, className}: {userPreference
             <DefaultElementAnimation>
                 <div className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[3rem_minmax(0,fit-content)_.5rem_minmax(0,fit-content_.5rem_minmax(0,fit-content_.5rem_minmax(0,fit-content_2rem] tw-overflow-hidden">
                     <CoverImage
-                        relativePath="/livguard/contact form/contact_form_background.jpg"
+                        relativePath="/livguard/contact-form/background.jpg"
                         className="tw-row-[1/span_9] tw-col-start-1 tw-rounded-lg tw-opacity-70"
                     />
 

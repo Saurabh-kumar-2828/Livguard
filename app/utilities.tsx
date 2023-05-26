@@ -36,7 +36,7 @@ export function getMetadataForImage(relativePath: string) {
         return imageMetadata;
     }
 
-    // throw new Error(`Image metadata not updated for image ${relativePath}`);
+    throw new Error(`Image metadata not updated for image ${relativePath}`);
     console.error(`Image metadata not updated for image ${relativePath}`);
 
     const imageMetadata_: ImageMetadata = {
@@ -46,4 +46,15 @@ export function getMetadataForImage(relativePath: string) {
     };
 
     return imageMetadata_;
+}
+
+export function convertProductInternalNameToPublicName(internalName: string): string {
+    // TOOD: Ensure this logic is correct
+    // TODO: Handle jodis
+    const capitalizedName = internalName.toUpperCase();
+    if (capitalizedName.endsWith("I")) {
+        return `${capitalizedName.slice(0, -1)}i`;
+    } else {
+        return capitalizedName;
+    }
 }

@@ -344,10 +344,10 @@ function HeroSection({
                             contactButtonVernacId: "homeS1T3",
                         },
                         {
-                            englishMobileImageRelativePath: "/livguard/landingPages/3/top-banner-mobile-english.jpg",
-                            hindiMobileImageRelativePath: "/livguard/landingPages/3/top-banner-mobile-hindi.jpg",
-                            englishDesktopImageRelativePath: "/livguard/landingPages/3/top-banner-desktop-english.jpg",
-                            hindiDesktopImageRelativePath: "/livguard/landingPages/3/top-banner-desktop-hindi.jpg",
+                            englishMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-english.jpg",
+                            hindiMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg",
+                            englishDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-english.jpg",
+                            hindiDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg",
                             titleVernacId: null,
                             subTitleVernacId: null,
                             contactButtonVernacId: null,
@@ -751,7 +751,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
                         message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                        productImage: "/livguard/category/jodi/rural_jodi.png",
+                        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
                         productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
@@ -765,7 +765,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review2State", userPreferences.language)}`,
                         message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "/livguard/category/jodi/urban_jodi.png",
+                        productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
                         productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
@@ -773,7 +773,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review3State", userPreferences.language)}`,
                         message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                        productImage: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                         productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                     },
                     {
@@ -781,7 +781,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 4,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,
                         message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                        productImage: "/livguard/category/jodi/urban_jodi.png",
+                        productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
                         productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
                     },
                 ]}

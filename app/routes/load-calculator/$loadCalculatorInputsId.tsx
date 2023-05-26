@@ -23,7 +23,7 @@ import {OurBatteriesSectionInternal} from "~/routes/__category/inverter-batterie
 import {OurInvertersSectionInternal} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
@@ -464,11 +464,11 @@ function HorizontalInverterRecommendationCard({
 }) {
     return (
         <a
-            href={`/product/${recommendation.model}`.replace(" ", "")}
+            href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
         {/* <Link
-            to={`/product/${recommendation.model}`.replace(" ", "")}
+            to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
             <VerticalSpacer className="tw-h-3" />
@@ -480,7 +480,7 @@ function HorizontalInverterRecommendationCard({
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-gap-x-4">
                     <FixedWidthImage
-                        relativePath={`/livguard/inverter images/${recommendation.model}.png`}
+                        relativePath={`/livguard/products/inverters/${recommendation.model}/thumbnail.png`}
                         width="6rem"
                     />
 
@@ -511,7 +511,7 @@ function HorizontalInverterRecommendationCard({
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-between tw-gap-x-4">
-                    <div className="lg-text-secondary-900 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}</div>
+                    <div className="lg-text-secondary-900 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
 
                     <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
                 </div>
@@ -541,11 +541,11 @@ function HorizontalBatteryRecommendationCard({
 }) {
     return (
         <a
-            href={`/product/${recommendation.model}`.replace(" ", "")}
+            href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
         {/* <Link
-            to={`/product/${recommendation.model}`.replace(" ", "")}
+            to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
             <VerticalSpacer className="tw-h-3" />
@@ -557,7 +557,7 @@ function HorizontalBatteryRecommendationCard({
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-gap-x-4">
                     <FixedWidthImage
-                        relativePath={`/livguard/battery-images/${recommendation.model}.png`}
+                        relativePath={`/livguard/products/batteries/${recommendation.model}/thumbnail.png`}
                         width="6rem"
                     />
 
@@ -588,7 +588,7 @@ function HorizontalBatteryRecommendationCard({
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-between tw-gap-x-4">
-                    <div className="lg-text-secondary-900 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}</div>
+                    <div className="lg-text-secondary-900 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
 
                     <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
                 </div>
@@ -619,11 +619,11 @@ function VerticalInverterRecommendationCard({
 }) {
     return (
         <a
-            href={`/product/${recommendation.model}`.replace(" ", "")}
+            href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
         {/* <Link
-            to={`/product/${recommendation.model}`.replace(" ", "")}
+            to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
             <VerticalSpacer className="tw-h-3" />
@@ -637,7 +637,7 @@ function VerticalInverterRecommendationCard({
 
                 {/* TODO: Temp hack */}
                 {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
-                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}</div>
+                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -669,13 +669,13 @@ function VerticalInverterRecommendationCard({
                 <VerticalSpacer className="tw-h-4" />
 
                 {/* TODO: Temp hack, remove once we fix product image! */}
-                <FullWidthImage relativePath={`/livguard/inverter images/${recommendation.model}.png`} />
+                <FullWidthImage relativePath={`/livguard/products/inverters/${recommendation.model}/thumbnail.png`} />
 
                 {/* <div className="tw-w-full tw-aspect-[5/3]">
-                                                <CoverImage
-                                                    relativePath={`/livguard/inverter images/${recommendation.model}.png`}
-                                                />
-                                            </div> */}
+                    <CoverImage
+                        relativePath={`/livguard/products/inverters/${recommendation.model}/thumbnail.png`}
+                    />
+                </div> */}
 
                 <EmptyFlexFiller />
 
@@ -709,11 +709,11 @@ function VerticalBatteryRecommendationCard({
 }) {
     return (
         <a
-            href={`/product/${recommendation.model.replace(" ", "")}`}
+            href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
         {/* <Link
-            to={`/product/${recommendation.model.replace(" ", "")}`}
+            to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
             <VerticalSpacer className="tw-h-3" />
@@ -727,7 +727,7 @@ function VerticalBatteryRecommendationCard({
 
                 {/* TODO: Temp hack */}
                 {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
-                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : recommendation.model}</div>
+                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -758,7 +758,7 @@ function VerticalBatteryRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <FullWidthImage relativePath={`/livguard/battery-images/${recommendation.model}.png`} />
+                <FullWidthImage relativePath={`/livguard/products/batteries/${recommendation.model}/thumbnail.png`} />
 
                 <EmptyFlexFiller />
 

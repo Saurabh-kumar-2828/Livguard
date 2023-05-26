@@ -1,4 +1,11 @@
+import type {LoaderFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
+
+export const loader: LoaderFunction = async () => {
+    return new Response("Not Found", {
+        status: 404,
+    });
+};
 
 export default function () {
     return (

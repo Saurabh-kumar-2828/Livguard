@@ -4,7 +4,7 @@ export const enum ProductType {
     inverter = 0,
     battery = 1,
     jodi = 2,
-};
+}
 
 export type ProductDetails = {
     images: Array<{image: string}>;
@@ -27,21 +27,21 @@ export type ProductDetails = {
     };
 };
 
-export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; [key: string]: ProductDetails}} = {
-    LG700E: {
+export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}} = {
+    lg700e: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i2-verter pro Square Wave inverter 600 VA with 3-Year Warranty(LG700E Square Wave 600VA)",
@@ -122,16 +122,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "With our Inverter at your home, say goodbye to the problem of frequent power cuts and enjoy a smooth, steady flow of energy to power your day-to-day routine.",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -142,31 +142,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS900i",
-                    imageRelativePath: "/livguard/inverter images/LGS900i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs900i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS900i",
+                    link: "/product/lgs900i",
                 },
                 {
                     title: "LG900",
-                    imageRelativePath: "/livguard/inverter images/LG900.png",
+                    imageRelativePath: "/livguard/products/inverters/lg900/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG900",
+                    link: "/product/lg900",
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/LLGS1000i.png",
+                    imageRelativePath: "/livguard/products/inverters/llgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
             ],
             type: ProductType.inverter,
@@ -179,8 +179,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LG700E",
-                    "url": "https://www.livguard.com/product/LG700E",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG750i/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lg700e",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lg750i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -194,16 +194,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG750i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg750i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 600 VA 3 वर्ष की वारंटी के साथ",
@@ -286,16 +286,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "अपने घर पर हमारे इन्वर्टर के साथ, बार-बार बिजली कटौती की समस्या को अलविदा कहें और अपनी रोज़ाना दिनचर्या को बिना रुकावट चलाने के लिए ऊर्जा के एक सहज, स्थिर प्रवाह का आनंद लें।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG750i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg750i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -306,31 +306,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS900i",
-                    imageRelativePath: "/livguard/inverter images/LGS900i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs900i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS900i",
+                    link: "/product/lgs900i",
                 },
                 {
                     title: "LG900",
-                    imageRelativePath: "/livguard/inverter images/LG900.png",
+                    imageRelativePath: "/livguard/products/inverters/lg900/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG900",
+                    link: "/product/lg900",
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/LLGS1000i.png",
+                    imageRelativePath: "/livguard/products/inverters/llgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
             ],
             type: ProductType.inverter,
@@ -344,20 +344,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LG900: {
+    lg900: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i2-verter pro Square Wave inverter 800 VA with 3-Year Warranty",
@@ -438,16 +438,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "With our Inverter at your home, say goodbye to the problem of frequent power cuts and enjoy a smooth, steady flow of energy to power your day-to-day routine.",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -458,32 +458,32 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/LGS1000i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
 
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -496,8 +496,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LG900",
-                    "url": "https://www.livguard.com/product/LG900",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG950i/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lg900",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lg950i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -511,16 +511,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG950i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg950i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 800 VA 3 वर्ष की वारंटी के साथ",
@@ -603,16 +603,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "अपने घर पर हमारे इन्वर्टर के साथ, बार-बार बिजली कटौती की समस्या को अलविदा कहें और अपनी रोज़ाना दिनचर्या को बिना रुकावट चलाने के लिए ऊर्जा के एक सहज, स्थिर प्रवाह का आनंद लें।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -623,32 +623,32 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/LGS1000i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
 
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -662,20 +662,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LG1100: {
+    lg1100: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i2-verter pro Square Wave inverter 900 VA with 3-Year Warranty",
@@ -756,16 +756,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "With our Inverter at your home, say goodbye to the problem of frequent power cuts and enjoy a smooth, steady flow of energy to power your day-to-day routine.",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -776,31 +776,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
             ],
             type: ProductType.inverter,
@@ -813,8 +813,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LG1100",
-                    "url": "https://www.livguard.com/product/LG1100",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1150i/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lg1100",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lg1150i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -828,16 +828,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1150i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1150i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 900 VA 3 वर्ष की वारंटी के साथ",
@@ -920,16 +920,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "अपने घर पर हमारे इन्वर्टर के साथ, बार-बार बिजली कटौती की समस्या को अलविदा कहें और अपनी रोज़ाना दिनचर्या को बिना रुकावट चलाने के लिए ऊर्जा के एक सहज, स्थिर प्रवाह का आनंद लें।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1150i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1150i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -940,31 +940,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
             ],
             type: ProductType.inverter,
@@ -978,20 +978,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LG1450i: {
+    lg1450i: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i2-verter pro Square Wave inverter 1100 VA with 3-Year Warranty",
@@ -1072,16 +1072,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "With our Inverter at your home, say goodbye to the problem of frequent power cuts and enjoy a smooth, steady flow of energy to power your day-to-day routine.",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -1092,31 +1092,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
             ],
             type: ProductType.inverter,
@@ -1129,8 +1129,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LG1450i",
-                    "url": "https://www.livguard.com/product/LG1450i",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1450ii/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lg1450i",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lg1450ii/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -1144,16 +1144,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1450i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1450i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 1100 VA 3 वर्ष की वारंटी के साथ",
@@ -1236,16 +1236,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "अपने घर पर हमारे इन्वर्टर के साथ, बार-बार बिजली कटौती की समस्या को अलविदा कहें और अपनी रोज़ाना दिनचर्या को बिना रुकावट चलाने के लिए ऊर्जा के एक सहज, स्थिर प्रवाह का आनंद लें।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1450i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1450i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -1256,31 +1256,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
             ],
             type: ProductType.inverter,
@@ -1294,20 +1294,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LG1550i: {
+    lg1550i: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i2-verter pro Square Wave inverter 1100 VA with 3-Year Warranty",
@@ -1388,16 +1388,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "With our Inverter at your home, say goodbye to the problem of frequent power cuts and enjoy a smooth, steady flow of energy to power your day-to-day routine.",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -1408,45 +1408,46 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
             metadata: {
                 title: "Livguard i2-verter pro-Square Wave Inverter online",
-                description: "Get Livguard Square Wave Inverter 1100VA  with a 3-year warranty. Bring home the power of unlimited energy with our inverter. Suitable for small offices, homes, and small shops.",
+                description:
+                    "Get Livguard Square Wave Inverter 1100VA  with a 3-year warranty. Bring home the power of unlimited energy with our inverter. Suitable for small offices, homes, and small shops.",
                 canonicalUrl: `/product/lg1550i`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LG1550i",
-                    "url": "https://www.livguard.com/product/LG1550i",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1550ii/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lg1550i",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lg1550ii/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -1460,16 +1461,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1550i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1550i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 1250 VA 3 वर्ष की वारंटी के साथ",
@@ -1552,16 +1553,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "अपने घर पर हमारे इन्वर्टर के साथ, बार-बार बिजली कटौती की समस्या को अलविदा कहें और अपनी रोज़ाना दिनचर्या को बिना रुकावट चलाने के लिए ऊर्जा के एक सहज, स्थिर प्रवाह का आनंद लें।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1550i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1550i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -1572,31 +1573,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -1610,20 +1611,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LG1950i: {
+    lg1950i: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i2-verter pro Square Wave inverter 1650 VA with 3-Year Warranty",
@@ -1704,16 +1705,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "With our Inverter at your home, say goodbye to the problem of frequent power cuts and enjoy a smooth, steady flow of energy to power your day-to-day routine.",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -1724,31 +1725,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -1761,8 +1762,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LG1950I",
-                    "url": "https://www.livguard.com/product/LG1950I",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LG1950Ii/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lg1950i",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lg1950i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -1776,16 +1777,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LG1950i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lg1950i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 1650 VA 3 वर्ष की वारंटी के साथ",
@@ -1868,16 +1869,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "अपने घर पर हमारे इन्वर्टर के साथ, बार-बार बिजली कटौती की समस्या को अलविदा कहें और अपनी रोज़ाना दिनचर्या को बिना रुकावट चलाने के लिए ऊर्जा के एक सहज, स्थिर प्रवाह का आनंद लें।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG1950i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg1950i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -1888,31 +1889,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -1926,20 +1927,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LGS900i: {
+    lgs900i: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i-verter pro Pure Sine Wave inverter 700 VA with 3-Year Warranty",
@@ -2021,16 +2022,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "Looking for an inverter that looks good and works even better? Your search ends here! With Livguard inverter at your home, enjoy unlimited energy backed with amazing features to power your home",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2041,31 +2042,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG900",
-                    imageRelativePath: "/livguard/inverter images/LG900.png",
+                    imageRelativePath: "/livguard/products/inverters/lg900/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG900",
+                    link: "/product/lg900",
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/LGS1000i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/LGS1100i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
             ],
             type: ProductType.inverter,
@@ -2078,8 +2079,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LGS900i",
-                    "url": "https://www.livguard.com/product/LGS900i",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS900i/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lgs900i",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lgs900i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -2093,16 +2094,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i-वर्टर प्रो स्क्वायर वेव इन्वर्टर 700 VA 3 वर्ष की वारंटी के साथ",
@@ -2184,16 +2185,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "क्या आप अच्छा दिखने वाला और उससे भी बेहतर काम करने वाला इन्वर्टर ढूंढ रहे हैं? आपकी खोज यहाँ समाप्त होती है! अपने घर पर लिवगार्ड इन्वर्टर के साथ, अपने घर को सशक्त बनाने के लिए अद्भुत सुविधाओं के साथ असीमित ऊर्जा का आनंद लें।।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LG950i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lg950i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2204,31 +2205,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG900",
-                    imageRelativePath: "/livguard/inverter images/LG900.png",
+                    imageRelativePath: "/livguard/products/inverters/lg900/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG900",
+                    link: "/product/lg900",
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/LGS1000i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/LGS1100i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
             ],
             type: ProductType.inverter,
@@ -2242,20 +2243,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LGS1000i: {
+    lgs1000i: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i-verter pro Pure Sine Wave inverter 800 VA with 3-Year Warranty",
@@ -2337,16 +2338,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "Looking for an inverter that looks good and works even better? Your search ends here! With Livguard inverter at your home, enjoy unlimited energy backed with amazing features to power your home",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2357,31 +2358,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG900",
-                    imageRelativePath: "/livguard/inverter images/LG900.png",
+                    imageRelativePath: "/livguard/products/inverters/lg900/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG900",
+                    link: "/product/lg900",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/LGS1100i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -2394,8 +2395,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LGS1000i",
-                    "url": "https://www.livguard.com/product/LGS1000i",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1000i/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lgs1000i",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lgs1000i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -2409,16 +2410,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1000i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1000i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i2-वर्टर प्रो स्क्वायर वेव इन्वर्टर 800 VA 3 वर्ष की वारंटी के साथ",
@@ -2500,16 +2501,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "क्या आप अच्छा दिखने वाला और उससे भी बेहतर काम करने वाला इन्वर्टर ढूंढ रहे हैं? आपकी खोज यहाँ समाप्त होती है! अपने घर पर लिवगार्ड इन्वर्टर के साथ, अपने घर को सशक्त बनाने के लिए अद्भुत सुविधाओं के साथ असीमित ऊर्जा का आनंद लें।।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1000i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs1000i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2520,31 +2521,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG900",
-                    imageRelativePath: "/livguard/inverter images/LG900.png",
+                    imageRelativePath: "/livguard/products/inverters/lg900/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG900",
+                    link: "/product/lg900",
                 },
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/LGS1100i.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -2558,20 +2559,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LGS1100i: {
+    lgs1100i: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/4.jpg",
                 },
             ],
             title: "Livguard i-verter pro Pure Sine Wave inverter 900 VA with 3-Year Warranty",
@@ -2653,16 +2654,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "Looking for an inverter that looks good and works even better? Your search ends here! With Livguard inverter at your home, enjoy unlimited energy backed with amazing features to power your home",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2673,31 +2674,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
             ],
             type: ProductType.inverter,
@@ -2710,8 +2711,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LGS1100i",
-                    "url": "https://www.livguard.com/product/LGS1100i",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1100i/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lgs1100i",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lgs1100i/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -2725,16 +2726,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1100i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1100i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i-वर्टर प्रो स्क्वायर वेव इन्वर्टर 900 VA 3 वर्ष की वारंटी के साथ",
@@ -2816,16 +2817,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "क्या आप अच्छा दिखने वाला और उससे भी बेहतर काम करने वाला इन्वर्टर ढूंढ रहे हैं? आपकी खोज यहाँ समाप्त होती है! अपने घर पर लिवगार्ड इन्वर्टर के साथ, अपने घर को सशक्त बनाने के लिए अद्भुत सुविधाओं के साथ असीमित ऊर्जा का आनंद लें।।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1100i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs1100i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2836,31 +2837,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1100",
-                    imageRelativePath: "/livguard/inverter images/LG1100.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1100/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1100",
+                    link: "/product/lg1100",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
             ],
             type: ProductType.inverter,
@@ -2874,20 +2875,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LGS1700: {
+    lgs1700: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/4.jpg",
                 },
             ],
             title: "Livguard i-verter pro Pure Sine Wave inverter 1500 VA with 3-Year Warranty",
@@ -2969,16 +2970,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "Looking for an inverter that looks good and works even better? Your search ends here! With Livguard inverter at your home, enjoy unlimited energy backed with amazing features to power your home",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/4.jpg",
                     },
                 ],
             },
@@ -2989,31 +2990,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -3026,8 +3027,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LGS1700",
-                    "url": "https://www.livguard.com/product/LGS1700",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1700/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lgs1700",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lgs1700/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -3041,16 +3042,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1700/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1700/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i-वर्टर प्रो स्क्वायर वेव इन्वर्टर 1500 VA 3 वर्ष की वारंटी के साथ",
@@ -3132,16 +3133,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "क्या आप अच्छा दिखने वाला और उससे भी बेहतर काम करने वाला इन्वर्टर ढूंढ रहे हैं? आपकी खोज यहाँ समाप्त होती है! अपने घर पर लिवगार्ड इन्वर्टर के साथ, अपने घर को सशक्त बनाने के लिए अद्भुत सुविधाओं के साथ असीमित ऊर्जा का आनंद लें।।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS1700/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs1700/a-plus/4.jpg",
                     },
                 ],
             },
@@ -3152,31 +3153,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
                 {
                     title: "LGS1600",
-                    imageRelativePath: "/livguard/inverter images/LGS1600.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1600/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1600",
+                    link: "/product/lgs1600",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -3190,20 +3191,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    LGS1600: {
+    lgs1600: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS1600/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs1600/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1600/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs1600/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1600/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs1600/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS1600/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs1600/infographics/4.jpg",
                 },
             ],
             title: "Livguard i-verter pro Pure Sine Wave inverter 1500 VA with 3-Year Warranty",
@@ -3285,16 +3286,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "Looking for an inverter that looks good and works even better? Your search ends here! With Livguard inverter at your home, enjoy unlimited energy backed with amazing features to power your home",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -3305,31 +3306,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -3342,8 +3343,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "LGS1600",
-                    "url": "https://www.livguard.com/product/LGS1600",
-                    "image": "https://growthjockey.imgix.net/livguard/product/inverter/LGS1600/infographic/1.jpg?w=508",
+                    "url": "https://www.livguard.com/product/lgs1600",
+                    "image": "https://growthjockey.imgix.net/livguard/products/inverters/lgs1600/infographics/1.jpg?w=508",
                     "description": "",
                     "brand": {
                             "@type": "Brand",
@@ -3358,16 +3359,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/1.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/2.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/3.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/3.jpg",
                 },
                 {
-                    image: "/livguard/product/inverter/LGS900i/infographic/4.jpg",
+                    image: "/livguard/products/inverters/lgs900i/infographics/4.jpg",
                 },
             ],
             title: "लिवगार्ड i-वर्टर प्रो स्क्वायर वेव इन्वर्टर 1500 VA 3 वर्ष की वारंटी के साथ",
@@ -3449,16 +3450,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "क्या आप अच्छा दिखने वाला और उससे भी बेहतर काम करने वाला इन्वर्टर ढूंढ रहे हैं? आपकी खोज यहाँ समाप्त होती है! अपने घर पर लिवगार्ड इन्वर्टर के साथ, अपने घर को सशक्त बनाने के लिए अद्भुत सुविधाओं के साथ असीमित ऊर्जा का आनंद लें।।",
                 images: [
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/1.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/2.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/3.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/3.jpg",
                     },
                     {
-                        image: "/livguard/product/inverter/LGS900i/A+/4.jpg",
+                        image: "/livguard/products/inverters/lgs900i/a-plus/4.jpg",
                     },
                 ],
             },
@@ -3469,31 +3470,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LGS1700",
-                    imageRelativePath: "/livguard/inverter images/LGS1700.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1700",
+                    link: "/product/lgs1700",
                 },
                 {
                     title: "LG1950i",
-                    imageRelativePath: "/livguard/inverter images/LG1950i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1950i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1950i",
+                    link: "/product/lg1950i",
                 },
                 {
                     title: "LG1550i",
-                    imageRelativePath: "/livguard/inverter images/LG1550i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1550i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1550i",
+                    link: "/product/lg1550i",
                 },
                 {
                     title: "LG1450i",
-                    imageRelativePath: "/livguard/inverter images/LG1450i.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1450i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG1450i",
+                    link: "/product/lg1450i",
                 },
             ],
             type: ProductType.inverter,
@@ -3507,20 +3508,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT9048ST: {
+    it9048st: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -9048ST/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it9048st/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -9048ST/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it9048st/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -9048ST/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it9048st/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Tubular 90 Ah Battery with 24+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |90Ah | Max. Warranty | Long Life Battery | Short Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -3600,13 +3601,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -9048ST/A+/1.jpg",
+                        image: "/livguard/products/batteries/it9048st/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -9048ST/A+/2.jpg",
+                        image: "/livguard/products/batteries/it9048st/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -9048ST/A+/3.jpg",
+                        image: "/livguard/products/batteries/it9048st/a-plus/3.jpg",
                     },
                 ],
             },
@@ -3617,31 +3618,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1048ST",
-                    imageRelativePath: "/livguard/battery images/IT 1048ST.png",
+                    imageRelativePath: "/livguard/products/batteries/it1048st/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1048ST",
+                    link: "/product/it1048st",
                 },
                 {
                     title: "IT1584TT",
-                    imageRelativePath: "/livguard/battery images/IT 1584TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1584TT",
+                    link: "/product/it1584tt",
                 },
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
             ],
             type: ProductType.battery,
@@ -3654,7 +3655,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT9048ST",
-                    "url": "https://www.livguard.com/product/IT9048ST",
+                    "url": "https://www.livguard.com/product/it9048st",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%209048ST.png?w=508",
                     "description": "",
                     "brand": {
@@ -3669,16 +3670,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery  9048ST/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it9048st/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  9048ST/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it9048st/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery  9048ST/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it9048st/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |90Ah | Max. Warranty | Long Life Battery | Short Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -3757,13 +3758,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery  9048ST/A+/1.jpg",
+                        image: "/livguard/products/batteries/it9048st/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  9048ST/A+/2.jpg",
+                        image: "/livguard/products/batteries/it9048st/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  9048ST/A+/3.jpg",
+                        image: "/livguard/products/batteries/it9048st/a-plus/3.jpg",
                     },
                 ],
             },
@@ -3774,31 +3775,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1048ST",
-                    imageRelativePath: "/livguard/battery images/IT 1048ST.png",
+                    imageRelativePath: "/livguard/products/batteries/it1048st/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1048ST",
+                    link: "/product/it1048st",
                 },
                 {
                     title: "IT1584TT",
-                    imageRelativePath: "/livguard/battery images/IT 1584TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1584TT",
+                    link: "/product/it1584tt",
                 },
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
             ],
             type: ProductType.battery,
@@ -3812,20 +3813,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1048ST: {
+    it1048st: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1048st/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1048st/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1048st/infographics/3.jpg",
                 },
             ],
-            title: "Livguard INVERTUFF Short Tubular 100 Ah Battery with 24+24* Months Warranty",
+            title: "Livguard |  Inverter Battery for Small Office, Home and Small Shops | Invertuff |100Ah | Max. Warranty |  Long Life Battery | Short Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -3905,13 +3906,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1048ST/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1048st/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1048ST/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1048st/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1048ST/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1048st/a-plus/3.jpg",
                     },
                 ],
             },
@@ -3922,31 +3923,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1584TT",
-                    imageRelativePath: "/livguard/battery images/IT 1584TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1584TT",
+                    link: "/product/it1584tt",
                 },
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
             ],
             type: ProductType.battery,
@@ -3960,7 +3961,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
     "@context": "http://schema.org",
     "@type": "Product",
     "name": "IT1048ST",
-    "url": "https://www.livguard.com/product/IT1048ST",
+    "url": "https://www.livguard.com/product/it1048st",
     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201048ST.png?w=508",
     "description": "",
     "brand": {
@@ -3977,16 +3978,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1048st/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1048st/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1048ST/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1048st/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 100 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+            title: "Livguard |  Inverter Battery for Small Office, Home and Small Shops | Invertuff |100Ah | Max. Warranty |  Long Life Battery | Short Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -4065,13 +4066,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1048ST/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1048st/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1048ST/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1048st/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1048ST/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1048st/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4082,31 +4083,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1584TT",
-                    imageRelativePath: "/livguard/battery images/IT 1584TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1584TT",
+                    link: "/product/it1584tt",
                 },
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
             ],
             type: ProductType.battery,
@@ -4120,27 +4121,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1160STT: {
+    it1172stt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1160STT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1172stt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1160STT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1172stt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1160STT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1172stt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Tall Tubular 110 Ah Battery with 42+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |110Ah | Max. Warranty | Ultra Long Life Battery | Short Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 18* Months Warranty",
+                    text: "42 + 30* Months Warranty",
                 },
                 {
                     icon: "livguard/icons/battery_capacity.png",
@@ -4162,7 +4163,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "42 + 18* Months",
+                    value: "42 + 30* Months",
                 },
                 {
                     title: "Package Contents",
@@ -4213,13 +4214,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1160STT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1172stt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1160STT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1172stt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1160STT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1172stt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4230,44 +4231,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1150i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG1150i",
+                    link: "/product/lg1150i",
                 },
                 {
                     title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG950i",
+                    link: "/product/lg950i",
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+                    imageRelativePath: "/livguard/products/inverters/fds_lgs3000/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "Livguard INVERTUFF with 60-month warranty - Check Now",
-                description: "Get an INVERTUFF Short Tall Tubular 110 Ah Battery from Livguard with a 42+18* month warranty. Enjoy a constant electricity supply for long periods of time.",
-                canonicalUrl: `/product/it1160stt`,
+                title: "Livguard INVERTUFF with 72-month warranty - Check Now",
+                description: "Get an INVERTUFF Short Tall Tubular 110 Ah Battery from Livguard with a 42+30* month warranty. Enjoy a constant electricity supply for long periods of time.",
+                canonicalUrl: `/product/it1172stt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1160STT",
-                    "url": "https://www.livguard.com/product/IT1160STT",
+                    "url": "https://www.livguard.com/product/it1172stt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201160ST.png?w=508",
                     "description": "",
                     "brand": {
@@ -4283,23 +4284,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1160STT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1172stt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1160STT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1172stt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1160STT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1172stt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 110 Ah बैटरी 42+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |110Ah | Max. Warranty | Ultra Long Life Battery | Short Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 18* महीने वारंटी",
+                    text: "42 + 30* महीने वारंटी",
                 },
                 {
                     icon: "livguard/icons/battery_capacity.png",
@@ -4321,7 +4322,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "48 + 18* महीने",
+                    value: "42 + 30* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -4371,13 +4372,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1160STT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1172stt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1160STT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1172stt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1160STT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1172stt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4388,37 +4389,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "LG1150i",
-                    imageRelativePath: "/livguard/inverter images/Inverter-power-verter-SQ_R.png",
+                    imageRelativePath: "/livguard/products/inverters/lg1150i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LG1150i",
+                    link: "/product/lg1150i",
                 },
                 {
                     title: "LG950i",
-                    imageRelativePath: "/livguard/inverter images/LGS1700PV-SW_.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LG950i",
+                    link: "/product/lg950i",
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/inverter images/FDS_LGS3000.png",
+                    imageRelativePath: "/livguard/products/inverters/fds_lgs3000/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/LGS1000i",
+                    link: "/product/lgs1000i",
                 },
                 {
                     title: "LGS1100i",
-                    imageRelativePath: "/livguard/inverter images/Livguard-LGS1100iPV_power-verter-Inverter-Front.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/LGS1100i",
+                    link: "/product/lgs1100i",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "लिवगार्ड INVERTUFF 60 महीने की वारंटी के साथ - अभी देखें",
-                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 110 Ah  बैटरी 42+18* महीने की वारंटी के साथ। लंबे समय तक निरंतर ऊर्जा का आनंद लें।",
+                title: "लिवगार्ड INVERTUFF 72 महीने की वारंटी के साथ - अभी देखें",
+                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 110 Ah  बैटरी 42+30* महीने की वारंटी के साथ। लंबे समय तक निरंतर ऊर्जा का आनंद लें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -4426,20 +4427,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1584TT: {
+    it1584tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1584tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1584tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1584tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 60+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -4519,13 +4520,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1584TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1584tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1584TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1584tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1584TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1584tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4536,31 +4537,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery images/IT 1560STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
             ],
             type: ProductType.battery,
@@ -4573,7 +4574,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1584TT",
-                    "url": "https://www.livguard.com/product/IT1584TT",
+                    "url": "https://www.livguard.com/product/it1584tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201584ST.png?w=508",
                     "description": "",
                     "brand": {
@@ -4588,16 +4589,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1584tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1584tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1584TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1584tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 60+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -4676,13 +4677,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1584TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1584tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1584TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1584tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1584TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1584tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4693,31 +4694,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery images/IT 1560STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
             ],
             type: ProductType.battery,
@@ -4731,24 +4732,24 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1554STJ: {
+    it1560stj: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1560stj/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1560stj/infographics/2.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Jumbo Tubular 150 Ah Battery with 36+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Xtra Long Life Battery | Short Jumbo Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "36 + 18* Months Warranty",
+                    text: "36 + 24* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -4770,7 +4771,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "36 + 18* Months",
+                    value: "36 + 24* Months",
                 },
                 {
                     title: "Package Contents",
@@ -4821,13 +4822,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1560stj/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1560stj/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1560stj/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4838,44 +4839,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery images/IT 1560STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery images/IT 1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "Buy Short Tubular Jumbo 150 Ah Battery- Livguard",
-                description: "Get Livguard INVERTUFF Short Tubular Jumbo150 Ah Battery with 36+18* Months warranty to benefit from a constant supply of electricity for long periods of time.",
-                canonicalUrl: `/product/it1554stj`,
+                description: "Get Livguard INVERTUFF Short Tubular Jumbo150 Ah Battery with 36+24* Months warranty to benefit from a constant supply of electricity for long periods of time.",
+                canonicalUrl: `/product/it1560stj`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1554STJ",
-                    "url": "https://www.livguard.com/product/IT1554STJ",
+                    "url": "https://www.livguard.com/product/it1560stj",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201554STJ.png?w=508",
                     "description": "",
                     "brand": {
@@ -4890,23 +4891,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1560stj/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1560stj/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554STJ/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1560stj/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF  शोर्ट जंबो ट्यूबुलर  150 Ah बैटरी 36+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Xtra Long Life Battery | Short Jumbo Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 18* महीने वारंटी",
+                    text: "42 + 24* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -4928,7 +4929,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "48 + 18* महीने",
+                    value: "42 + 24* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -4936,7 +4937,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "रेटिंग",
-                    value: "110 Ah",
+                    value: "150 Ah",
                 },
                 {
                     title: "आयाम",
@@ -4978,13 +4979,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1560stj/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1560stj/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554STJ/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1560stj/a-plus/3.jpg",
                     },
                 ],
             },
@@ -4995,37 +4996,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1542STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1542STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1542STJ",
+                    link: "/product/it1548stj",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery images/IT 1560STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery images/IT 1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "ख़रीदें शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी- लिवगार्ड",
-                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी 36+18* महीने की वारंटी के साथ, असीमित ऊर्जा के अनुभव के लिए।",
+                description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी 36+24* महीने की वारंटी के साथ, असीमित ऊर्जा के अनुभव के लिए।",
                 canonicalUrl: "",
                 schema: `
 
@@ -5033,27 +5034,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1542STJ: {
+    it1548stj: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1548stj/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1548stj/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1548stj/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Jumbo Tubular 150 Ah Battery with 24+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Long Life Battery | Short Jumbo Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "24 + 18* Months Warranty",
+                    text: "24 + 24* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -5075,7 +5076,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "24 + 18* Months",
+                    value: "24 + 24* Months",
                 },
                 {
                     title: "Package Contents",
@@ -5126,13 +5127,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1548stj/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1548stj/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1548stj/a-plus/3.jpg",
                     },
                 ],
             },
@@ -5143,44 +5144,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery images/IT 1560STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery images/IT 1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "Livguard INVERTUFF Short Tubular 150 Ah Online",
-                description: "Buy Livguard INVERTUFF Short Tubular Jumbo 150 Ah Battery at the best price with 24+18* Months warranty; best for homes, small offices, and small shops.",
-                canonicalUrl: `/product/it1542stj`,
+                description: "Buy Livguard INVERTUFF Short Tubular Jumbo 150 Ah Battery at the best price with 24+24* Months warranty; best for homes, small offices, and small shops.",
+                canonicalUrl: `/product/it1548stj`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1542STJ",
-                    "url": "https://www.livguard.com/product/IT1542STJ",
+                    "url": "https://www.livguard.com/product/it1548stj",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201542STJ.png?w=508",
                     "description": "",
                     "brand": {
@@ -5195,23 +5196,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1548stj/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1548stj/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1542STJ/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1548stj/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF  शोर्ट जंबो ट्यूबुलर  150 Ah बैटरी 24+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Long Life Battery | Short Jumbo Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "24 + 18* महीने वारंटी",
+                    text: "24 + 24* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -5233,7 +5234,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "24 + 18* महीने",
+                    value: "24 + 24* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -5283,13 +5284,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1548stj/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1548stj/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1542STJ/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1548stj/a-plus/3.jpg",
                     },
                 ],
             },
@@ -5300,37 +5301,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery images/IT 1560STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery images/IT 1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 150 Ah ऑनलाइन ",
-                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी सबसे एक दामों में, 24+18* महीने की वारंटी के साथ; छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
+                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी सबसे एक दामों में, 24+24* महीने की वारंटी के साथ; छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -5338,20 +5339,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1548STT: {
+    it1548stt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1548STT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1548stt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548STT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1548stt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548STT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1548stt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 24+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |110Ah | Max. Warranty | Long Life Battery | Short Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -5431,13 +5432,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1548STT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1548stt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548STT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1548stt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548STT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1548stt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -5448,31 +5449,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/Battery-images/IT1548STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery-images/IT1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery-images/IT1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery-images/IT1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -5485,7 +5486,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1548STT",
-                    "url": "https://www.livguard.com/product/IT1548STT",
+                    "url": "https://www.livguard.com/product/it1548stt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201548STT.png?w=508",
                     "description": "",
                     "brand": {
@@ -5500,16 +5501,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1548STT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1548stt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548STT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1548stt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548STT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1548stt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबलर  150 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |110Ah | Max. Warranty | Long Life Battery | Short Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -5588,13 +5589,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1548STT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1548stt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548STT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1548stt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548STT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1548stt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -5605,31 +5606,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/battery-images/IT1548STT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560STT",
+                    link: "/product/it1560stt",
                 },
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery-images/IT1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery-images/IT1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery-images/IT1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -5643,20 +5644,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1560STT: {
+    it1560stt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1560stt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1560stt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1560stt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 36+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |110Ah | Max. Warranty |Xtra Long Life Battery | Short Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -5736,13 +5737,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1560STT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1560stt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560STT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1560stt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560STT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1560stt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -5753,31 +5754,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery images/IT 1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -5790,7 +5791,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1560STT",
-                    "url": "https://www.livguard.com/product/IT1560STT",
+                    "url": "https://www.livguard.com/product/it1560stt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201560STT.png?w=508",
                     "description": "",
                     "brand": {
@@ -5805,16 +5806,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1560stt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1560stt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560STT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1560stt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबलर  150 Ah बैटरी 36+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |110Ah | Max. Warranty |Xtra Long Life Battery | Short Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -5893,13 +5894,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1560STT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1560stt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560STT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1560stt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560STT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1560stt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -5910,31 +5911,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1550TT",
-                    imageRelativePath: "/livguard/battery images/IT 1550TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1550tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1550TT",
+                    link: "/product/it1550tt",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -5948,20 +5949,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1550TT: {
+    it1550tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/1.jpg",
+                    image: "/livguard/products/batteries/it1550tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/2.jpg",
+                    image: "/livguard/products/batteries/it1550tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/3.jpg",
+                    image: "/livguard/products/batteries/it1550tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 36+14* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -6041,13 +6042,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1550TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1550tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1550TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1550tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1550TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1550tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6058,31 +6059,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
             ],
             type: ProductType.battery,
@@ -6095,7 +6096,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT 1550TT",
-                    "url": "https://www.livguard.com/product/IT 1550TT",
+                    "url": "https://www.livguard.com/product/it 1550tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201550TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -6110,16 +6111,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/1.jpg",
+                    image: "/livguard/products/batteries/it1550tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/2.jpg",
+                    image: "/livguard/products/batteries/it1550tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1550TT/inforgraphic/3.jpg",
+                    image: "/livguard/products/batteries/it1550tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 36+14* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -6198,13 +6199,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1550TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1550tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1550TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1550tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1550TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1550tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6215,31 +6216,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
             ],
             type: ProductType.battery,
@@ -6253,27 +6254,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1554TT: {
+    it1572tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1554TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1572tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1572tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1572tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 42+12* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 12* Months Warranty",
+                    text: "42 + 30* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -6295,7 +6296,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "42 + 12* Months",
+                    value: "42 + 30* Months",
                 },
                 {
                     title: "Package Contents",
@@ -6346,13 +6347,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1554TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1572tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1572tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1572tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6363,44 +6364,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "Buy 150 Ah Tall Tubular Battery Online - Livguard",
                 description: "Get Livguard INVERTUFF Tall Tubular 150 Ah Battery with a 54-month warranty, and enjoy a constant supply of electric power for long hours without any trouble.",
-                canonicalUrl: `/product/it1554tt`,
+                canonicalUrl: `/product/it1572tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1554TT",
-                    "url": "https://www.livguard.com/product/IT1554TT",
+                    "url": "https://www.livguard.com/product/it1572tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201554TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -6415,23 +6416,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1554TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1572tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1572tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1554TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1572tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 42+12* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 12* महीने वारंटी",
+                    text: "42 + 30* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -6453,7 +6454,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "42 + 12* महीने",
+                    value: "42 + 30* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -6503,13 +6504,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1554TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1572tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1572tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1554TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1572tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6520,31 +6521,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
             ],
             type: ProductType.battery,
@@ -6558,27 +6559,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1560TT: {
+    it1578tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1560TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1578tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1578tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1578tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Tall Tubular 150 Ah Battery with 36+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "36 + 24* Months Warranty",
+                    text: "48 + 30* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -6600,7 +6601,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "36 + 24* Months",
+                    value: "48 + 30* Months",
                 },
                 {
                     title: "Package Contents",
@@ -6651,13 +6652,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1560TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1578tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1578tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1578tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6668,44 +6669,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
                 {
                     title: "IT1666TT",
-                    imageRelativePath: "/livguard/battery images/IT 1666TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1666TT",
+                    link: "/product/it1672tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "INVERTUFF Short Tall Tubular 150 Ah Battery online- Livguard",
-                description: "Buy INVERTUFF short tall tabular 150 Ah battery online from Livguard, with a 50-month warranty and High Charge Acceptance For Higher Backup.",
-                canonicalUrl: `/product/it1560tt`,
+                description: "Buy INVERTUFF short tall tabular 150 Ah battery online from Livguard, with a 78-month warranty and High Charge Acceptance For Higher Backup.",
+                canonicalUrl: `/product/it1578tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1560TT",
-                    "url": "https://www.livguard.com/product/IT1560TT",
+                    "url": "https://www.livguard.com/product/it1578tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201560TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -6720,23 +6721,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1560TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1578tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1578tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1560TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1578tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 48+12* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "36 + 24* महीने वारंटी",
+                    text: "48 + 30* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -6758,7 +6759,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "36 + 24* महीने",
+                    value: "48 + 30* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -6808,13 +6809,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1560TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1578tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1578tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1560TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1578tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6825,37 +6826,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1536TT",
-                    imageRelativePath: "/livguard/battery images/IT 1536TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
                 {
                     title: "IT1666TT",
-                    imageRelativePath: "/livguard/battery images/IT 1666TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1666TT",
+                    link: "/product/it1672tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी ऑनलाइन- लिवगार्ड",
-                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी ऑनलाइन, 50 महीने की वारंटी और उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के साथ।",
+                description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट टॉल ट्यूबुलर 150 Ah बैटरी ऑनलाइन, 78 महीने की वारंटी और उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के साथ।",
                 canonicalUrl: "",
                 schema: `
 
@@ -6863,20 +6864,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1536TT: {
+    it1536tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1536TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1536tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1536TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1536tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1536TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1536tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 18+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -6956,13 +6957,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1536TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1536tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1536TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1536tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1536TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1536tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -6973,31 +6974,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
                 {
                     title: "IT1666TT",
-                    imageRelativePath: "/livguard/battery images/IT 1666TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1666TT",
+                    link: "/product/it1672tt",
                 },
                 {
                     title: "IT1639TT",
-                    imageRelativePath: "/livguard/battery images/IT 1639TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1639TT",
+                    link: "/product/it1642tt",
                 },
             ],
             type: ProductType.battery,
@@ -7010,7 +7011,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1536TT",
-                    "url": "https://www.livguard.com/product/IT1536TT",
+                    "url": "https://www.livguard.com/product/it1536tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201536TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -7025,16 +7026,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1536TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1536tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1536TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1536tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1536TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1536tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 18+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -7113,13 +7114,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1536TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1536tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1536TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1536tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1536TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1536tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -7130,31 +7131,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1548TT",
-                    imageRelativePath: "/livguard/battery images/IT 1548TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1548TT",
+                    link: "/product/it1548tt",
                 },
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
                 {
                     title: "IT1666TT",
-                    imageRelativePath: "/livguard/battery images/IT 1666TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1666TT",
+                    link: "/product/it1672tt",
                 },
                 {
                     title: "IT1639TT",
-                    imageRelativePath: "/livguard/battery images/IT 1639TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1639TT",
+                    link: "/product/it1642tt",
                 },
             ],
             type: ProductType.battery,
@@ -7168,20 +7169,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1548TT: {
+    it1548tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1548TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1548tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1548tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1548tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 150 Ah Battery with 30+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -7261,13 +7262,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1548TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1548tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1548tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1548tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -7278,31 +7279,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
                 {
                     title: "IT1666TT",
-                    imageRelativePath: "/livguard/battery images/IT 1666TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1666TT",
+                    link: "/product/it1672tt",
                 },
                 {
                     title: "IT1639TT",
-                    imageRelativePath: "/livguard/battery images/IT 1639TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1639TT",
+                    link: "/product/it1642tt",
                 },
                 {
                     title: "IT1645TT",
-                    imageRelativePath: "/livguard/battery images/IT 1645TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1645TT",
+                    link: "/product/it1648tt",
                 },
             ],
             type: ProductType.battery,
@@ -7315,7 +7316,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1548TT",
-                    "url": "https://www.livguard.com/product/IT1548TT",
+                    "url": "https://www.livguard.com/product/it1548tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201548TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -7330,16 +7331,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1548TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1548tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1548tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1548TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1548tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी 30+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |150Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -7418,13 +7419,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1548TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1548tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1548tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1548TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1548tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -7435,31 +7436,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1636STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1636STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1636stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1636STJ",
+                    link: "/product/it1636stj",
                 },
                 {
                     title: "IT1666TT",
-                    imageRelativePath: "/livguard/battery images/IT 1666TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1666TT",
+                    link: "/product/it1672tt",
                 },
                 {
                     title: "IT1639TT",
-                    imageRelativePath: "/livguard/battery images/IT 1639TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1639TT",
+                    link: "/product/it1642tt",
                 },
                 {
                     title: "IT1645TT",
-                    imageRelativePath: "/livguard/battery images/IT 1645TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1645TT",
+                    link: "/product/it1648tt",
                 },
             ],
             type: ProductType.battery,
@@ -7473,27 +7474,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1666TT: {
+    it1672tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1672tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1672tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1672tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 160 Ah Battery with 42+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty |Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* Months Warranty",
+                    text: "42 + 20* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -7515,7 +7516,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "42 + 24* Months",
+                    value: "42 + 20* Months",
                 },
                 {
                     title: "Package Contents",
@@ -7566,13 +7567,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1666TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1672tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1666TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1672tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1666TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1672tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -7583,44 +7584,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1639TT",
-                    imageRelativePath: "/livguard/battery images/IT 1639TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1639TT",
+                    link: "/product/it1642tt",
                 },
                 {
                     title: "IT1645TT",
-                    imageRelativePath: "/livguard/battery images/IT 1645TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1645TT",
+                    link: "/product/it1648tt",
                 },
                 {
                     title: "IT1860TT",
-                    imageRelativePath: "/livguard/battery images/IT 1860TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1860tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1860TT",
+                    link: "/product/it1860tt",
                 },
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "Livguard INVERTUFF Tall Tubular battery 160 Ah online",
-                description: "Buy Livguard INVERTUFF Tall Tubular Jumbo 160 Ah Battery with 42+24* Months warranty, which is a suitable inverter battery for small offices, homes, and small shops.",
-                canonicalUrl: `/product/it1666tt`,
+                description: "Buy Livguard INVERTUFF Tall Tubular Jumbo 160 Ah Battery with 42+20* Months warranty, which is a suitable inverter battery for small offices, homes, and small shops.",
+                canonicalUrl: `/product/it1672tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1666TT",
-                    "url": "https://www.livguard.com/product/IT1666TT",
+                    "url": "https://www.livguard.com/product/it1672tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201666TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -7635,23 +7636,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1672tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1672tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1666TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1672tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 160 Ah बैटरी 42+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty |Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* महीने वारंटी",
+                    text: "42 + 20* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -7673,7 +7674,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "42 + 24* महीने",
+                    value: "42 + 20* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -7723,13 +7724,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1666TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1672tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1666TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1672tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1666TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1672tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -7740,37 +7741,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1639TT",
-                    imageRelativePath: "/livguard/battery images/IT 1639TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1639TT",
+                    link: "/product/it1642tt",
                 },
                 {
                     title: "IT1645TT",
-                    imageRelativePath: "/livguard/battery images/IT 1645TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1645TT",
+                    link: "/product/it1648tt",
                 },
                 {
                     title: "IT1860TT",
-                    imageRelativePath: "/livguard/battery images/IT 1860TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1860tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1860TT",
+                    link: "/product/it1860tt",
                 },
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "लिवगार्ड INVERTUFF टॉल ट्यूबुलर बैटरी 160 Ah ऑनलाइन",
-                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबुलर 160 Ah बैटरी, 42+24* महीने की वारंटी के साथ, जो छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त बैटरी है।",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबुलर 160 Ah बैटरी, 42+20* महीने की वारंटी के साथ, जो छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त बैटरी है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -7778,27 +7779,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1639TT: {
+    it1642tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1639TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1642tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1639TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1642tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1639TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1642tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 160 Ah Battery with 21+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "21 + 18* Months Warranty",
+                    text: "24 + 18* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -7820,7 +7821,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "21 + 18* Months",
+                    value: "24 + 18* Months",
                 },
                 {
                     title: "Package Contents",
@@ -7871,13 +7872,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1639TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1642tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1639TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1642tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1639TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1642tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -7888,44 +7889,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1645TT",
-                    imageRelativePath: "/livguard/battery images/IT 1645TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1645TT",
+                    link: "/product/it1648tt",
                 },
                 {
                     title: "IT1860TT",
-                    imageRelativePath: "/livguard/battery images/IT 1860TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1860tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1860TT",
+                    link: "/product/it1860tt",
                 },
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "Livguard 160 Ah Tall Tubular with 39 months warranty",
-                description: "Get an INVERTUFF Tall Tubular 160 Ah Battery with a 21+18* Months warranty from Livguard online and enjoy a constant supply of electrical power.",
-                canonicalUrl: `/product/it1639tt`,
+                title: "Livguard 160 Ah Tall Tubular with 42 months warranty",
+                description: "Get an INVERTUFF Tall Tubular 160 Ah Battery with a 24+18* Months warranty from Livguard online and enjoy a constant supply of electrical power.",
+                canonicalUrl: `/product/it1642tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1639TT",
-                    "url": "https://www.livguard.com/product/IT1639TT",
+                    "url": "https://www.livguard.com/product/it1642tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201639TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -7940,23 +7941,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1639TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1642tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1639TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1642tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1639TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1642tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर  160 Ah बैटरी 21+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "21 + 18* महीने वारंटी",
+                    text: "24 + 18* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -7978,7 +7979,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "21 + 18* महीने",
+                    value: "24 + 18* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -8028,13 +8029,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1639TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1642tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1639TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1642tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1639TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1642tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8045,37 +8046,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1645TT",
-                    imageRelativePath: "/livguard/battery images/IT 1645TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1645TT",
+                    link: "/product/it1648tt",
                 },
                 {
                     title: "IT1860TT",
-                    imageRelativePath: "/livguard/battery images/IT 1860TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1860tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1860TT",
+                    link: "/product/it1860tt",
                 },
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "लिवगार्ड  160 Ah टॉल ट्यूबुलर 39 महीने की वारंटी के साथ",
-                description: "पाइए लिवगार्ड INVERTUFF टॉल ट्यूबुलर 160 Ah बैटरी, 21+18* महीने की वारंटी के साथ ऑनलाइन, और निरंतर ऊर्जा  का आनंद लें।",
+                title: "लिवगार्ड  160 Ah टॉल ट्यूबुलर 42 महीने की वारंटी के साथ",
+                description: "पाइए लिवगार्ड INVERTUFF टॉल ट्यूबुलर 160 Ah बैटरी, 24+18* महीने की वारंटी के साथ ऑनलाइन, और निरंतर ऊर्जा  का आनंद लें।",
                 canonicalUrl: "",
                 schema: `
 
@@ -8083,27 +8084,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1645TT: {
+    it1648tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1645TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1648tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1645TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1648tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1645TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1648tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 160 Ah Battery with 27+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "27 + 18* Months Warranty",
+                    text: "27 + 21* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -8125,7 +8126,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "27 + 18* Months",
+                    value: "27 + 21* Months",
                 },
                 {
                     title: "Package Contents",
@@ -8176,13 +8177,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1645TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1648tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1645TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1648tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1645TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1648tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8193,44 +8194,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1860TT",
-                    imageRelativePath: "/livguard/battery images/IT 1860TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1860tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1860TT",
+                    link: "/product/it1860tt",
                 },
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "Livguard Tall Tubular 160 Ah battery with 45 months warranty",
-                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 27+18* month warranty is built with a 3D grid design and high storage capacity. ",
-                canonicalUrl: `/product/it1645tt`,
+                title: "Livguard Tall Tubular 160 Ah battery with 48 months warranty",
+                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 27+21* month warranty is built with a 3D grid design and high storage capacity. ",
+                canonicalUrl: `/product/it1648tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1645TT",
-                    "url": "https://www.livguard.com/product/IT1645TT",
+                    "url": "https://www.livguard.com/product/it1648tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201645TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -8245,23 +8246,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1645TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1648tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1645TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1648tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1645TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1648tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 160 Ah बैटरी 27+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "27 + 18* महीने वारंटी",
+                    text: "27 + 21* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -8283,7 +8284,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी",
-                    value: "21 + 18* महीने",
+                    value: "27 + 21* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -8333,13 +8334,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1645TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1648tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1645TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1648tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1645TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1648tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8350,37 +8351,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1860TT",
-                    imageRelativePath: "/livguard/battery images/IT 1860TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1860tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1860TT",
+                    link: "/product/it1860tt",
                 },
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "लिवगार्ड टॉल ट्यूबुलर 160 Ah बैटरी 45 महीने की वारंटी के साथ",
-                description: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 160 Ah बैटरी 27+18* महीने की वारंटी के साथ 3डी ग्रिड तकनीक और उच्च भंडारण क्षमता के साथ बनाई गई है।",
+                title: "लिवगार्ड टॉल ट्यूबुलर 160 Ah बैटरी 48 महीने की वारंटी के साथ",
+                description: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 160 Ah बैटरी 27+21* महीने की वारंटी के साथ 3डी ग्रिड तकनीक और उच्च भंडारण क्षमता के साथ बनाई गई है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -8388,20 +8389,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1860TT: {
+    it1860tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1860TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1860tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1860TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1860tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1860TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1860tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 180 Ah Battery with 36+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |180Ah | Max. Warranty |Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops),",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -8481,13 +8482,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1860TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1860tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1860TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1860tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1860TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1860tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8498,31 +8499,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
             ],
             type: ProductType.battery,
@@ -8535,7 +8536,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1860TT",
-                    "url": "https://www.livguard.com/product/IT1860TT",
+                    "url": "https://www.livguard.com/product/it1860tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201860TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -8550,16 +8551,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1860TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1860tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1860TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1860tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1860TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1860tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 180 Ah बैटरी 36+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |180Ah | Max. Warranty |Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -8638,13 +8639,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1860TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1860tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1860TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1860tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1860TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1860tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8655,31 +8656,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1866TT",
-                    imageRelativePath: "/livguard/battery images/IT 1866TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1866TT",
+                    link: "/product/it1872tt",
                 },
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
             ],
             type: ProductType.battery,
@@ -8693,20 +8694,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT2048TT: {
+    it2048tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2048TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2048tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2048TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2048tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2048TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2048tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 200 Ah Battery with 24+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |200Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -8786,13 +8787,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2048TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2048tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2048TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2048tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2048TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2048tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8803,31 +8804,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
@@ -8840,7 +8841,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT2048TT",
-                    "url": "https://www.livguard.com/product/IT2048TT",
+                    "url": "https://www.livguard.com/product/it2048tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202048TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -8855,16 +8856,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2048TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2048tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2048TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2048tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2048TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2048tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 24+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |200Ah | Max. Warranty | Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -8943,13 +8944,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2048TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2048tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2048TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2048tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2048TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2048tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -8960,31 +8961,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
@@ -8998,27 +8999,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1866TT: {
+    it1872tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1866TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1872tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1866TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1872tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1866TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1872tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 180 Ah Battery with 42+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |180Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* Months Warranty",
+                    text: "48 + 24* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -9040,7 +9041,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "42 + 24* Months",
+                    value: "48 + 24* Months",
                 },
                 {
                     title: "Package Contents",
@@ -9091,13 +9092,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1866TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1872tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1866TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1872tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1866TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1872tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -9108,44 +9109,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "Tall Tubular 180 Ah battery with 66 months warranty- Livguard",
+                title: "Tall Tubular 180 Ah battery with 72 months warranty- Livguard",
                 description: "Buy Livguard INVERTUFF Tall Tubular 180 Ah Battery with 42+24* Months warranty, which is a suitable Inverter for small offices, homes, and small shops",
-                canonicalUrl: `/product/it1866tt`,
+                canonicalUrl: `/product/it1872tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1866TT",
-                    "url": "https://www.livguard.com/product/IT1866TT",
+                    "url": "https://www.livguard.com/product/it1872tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201866TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -9160,23 +9161,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1866TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1872tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1866TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1872tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1866TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1872tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 180 Ah बैटरी 42+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |180Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* महीने वारंटी",
+                    text: "48 + 24* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -9198,7 +9199,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "42 + 24* महीने",
+                    value: "48 + 24* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -9248,13 +9249,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1866TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1872tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1866TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1872tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1866TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1872tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -9265,37 +9266,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2060TT",
-                    imageRelativePath: "/livguard/battery images/IT 2060TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2060tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2060TT",
+                    link: "/product/it2060tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "टॉल ट्यूबुलर 180 Ah बैटरी 66 महीने की वारंटी के साथ- लिवगार्ड",
-                description: "ख़रीदें लिवगार्ड INVERTUFF  टॉल ट्यूबलर 180 Ah बैटरी  42+24* महीने की वारंटी के साथ , छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
+                title: "टॉल ट्यूबुलर 180 Ah बैटरी 72 महीने की वारंटी के साथ- लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF  टॉल ट्यूबलर 180 Ah बैटरी  48+24* महीने की वारंटी के साथ , छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -9303,20 +9304,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT1636STJ: {
+    it1636stj: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1636STJ/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1636stj/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1636STJ/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1636stj/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1636STJ/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1636stj/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Short Jumbo Tubular 160 Ah Battery with 18+18* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Short Jumbo Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -9396,13 +9397,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -1636STJ/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1636stj/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1636STJ/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1636stj/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -1636STJ/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1636stj/a-plus/3.jpg",
                     },
                 ],
             },
@@ -9413,31 +9414,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -9450,7 +9451,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT1636STJ",
-                    "url": "https://www.livguard.com/product/IT1636STJ",
+                    "url": "https://www.livguard.com/product/it1636stj",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%201636STJ.png?w=508",
                     "description": "",
                     "brand": {
@@ -9466,16 +9467,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -1636STJ/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it1636stj/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1636STJ/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it1636stj/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -1636STJ/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it1636stj/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF शोर्ट जंबो ट्यूबुलर 160 Ah बैटरी 18+18* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |160Ah | Max. Warranty | Long Life Battery | Short Jumbo Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -9554,13 +9555,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery  1636STJ/A+/1.jpg",
+                        image: "/livguard/products/batteries/it1636stj/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1636STJ/A+/2.jpg",
+                        image: "/livguard/products/batteries/it1636stj/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery  1636STJ/A+/3.jpg",
+                        image: "/livguard/products/batteries/it1636stj/a-plus/3.jpg",
                     },
                 ],
             },
@@ -9571,31 +9572,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -9609,20 +9610,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT2060TT: {
+    it2060tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2060TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2060tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2060TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2060tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2060TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2060tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 200 Ah Battery with 36+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |200Ah | Max. Warranty | Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -9702,13 +9703,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2060TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2060tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2060TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2060tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2060TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2060tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -9719,31 +9720,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
             ],
             type: ProductType.battery,
@@ -9756,7 +9757,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT2060TT",
-                    "url": "https://www.livguard.com/product/IT2060TT",
+                    "url": "https://www.livguard.com/product/it2060tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202060TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -9771,16 +9772,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2060TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2060tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2060TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2060tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2060TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2060tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 36+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |200Ah | Max. Warranty | Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -9859,13 +9860,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2060TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2060tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2060TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2060tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2060TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2060tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -9876,31 +9877,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
             ],
             type: ProductType.battery,
@@ -9914,27 +9915,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT2066TT: {
+    it2072tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2066TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2072tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2066TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2072tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2066TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2072tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 200 Ah Battery with 42+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |200Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* Months Warranty",
+                    text: "48 + 24* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -9956,7 +9957,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "42 + 24* Months",
+                    value: "48 + 24* Months",
                 },
                 {
                     title: "Package Contents",
@@ -10007,13 +10008,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2066TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2072tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2066TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2072tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2066TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2072tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10024,44 +10025,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "Buy INVERTUFF Tall Tubular 200 Ah Battery - Livguard",
-                description: "Get Livguard INVERTUFF tall tubular 200 Ah battery with 36 +24* months warranty, a suitable inverter for small offices, homes, and small shops. ",
-                canonicalUrl: `/product/it2066tt`,
+                description: "Get Livguard INVERTUFF tall tubular 200 Ah battery with 48+24* months warranty, a suitable inverter for small offices, homes, and small shops. ",
+                canonicalUrl: `/product/it2072tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT2066TT",
-                    "url": "https://www.livguard.com/product/IT2066TT",
+                    "url": "https://www.livguard.com/product/it2072tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202066TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -10076,23 +10077,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2066TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2072tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2066TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2072tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2066TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2072tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 42+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |200Ah | Max. Warranty | Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* महीने वारंटी",
+                    text: "48 + 24* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -10114,7 +10115,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "42 + 24* महीने",
+                    value: "48 + 24* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -10164,13 +10165,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2066TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2072tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2066TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2072tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2066TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2072tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10181,37 +10182,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
                 title: "ख़रीदें INVERTUFF टॉल ट्यूबुलर 200 Ah बैटरी - लिवगार्ड",
-                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 36 +24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी 48+24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -10219,27 +10220,27 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT2266TT: {
+    it2272tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2266TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2272tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2266TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2272tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2266TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2272tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 220 Ah Battery with 42+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |220Ah | Max. Warranty |Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* Months Warranty",
+                    text: "48 + 24* Months Warranty",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -10261,7 +10262,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "Warranty",
-                    value: "42 + 24* Months",
+                    value: "48 + 24* Months",
                 },
                 {
                     title: "Package Contents",
@@ -10312,13 +10313,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2266TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2272tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2266TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2272tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2266TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2272tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10329,44 +10330,44 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "Tall Tubular 220 Ah with 3-year warranty - Livguard",
-                description: "Buy Livguard INVERTUFF Tall Tubular 220 Ah battery with 42+24* months warranty. Suitable inverter is for small offices, homes, and small shops?",
-                canonicalUrl: `/product/it2266tt`,
+                title: "Tall Tubular 220 Ah with 6-year warranty - Livguard",
+                description: "Buy Livguard INVERTUFF Tall Tubular 220 Ah battery with 48+24* months warranty. Suitable inverter is for small offices, homes, and small shops?",
+                canonicalUrl: `/product/it2272tt`,
                 schema: `
                 {
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT2266TT",
-                    "url": "https://www.livguard.com/product/IT2266TT",
+                    "url": "https://www.livguard.com/product/it2272tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202266TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -10381,23 +10382,23 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2266TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2272tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2266TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2272tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2266TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2272tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 220 Ah बैटरी 42+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |220Ah | Max. Warranty |Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
-                    text: "42 + 24* महीने वारंटी",
+                    text: "48 + 24* महीने वारंटी",
                 },
                 {
                     icon: "/livguard/icons/battery_capacity.png",
@@ -10419,7 +10420,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 },
                 {
                     title: "वारंटी ",
-                    value: "42 + 24* महीने",
+                    value: "48 + 24* महीने",
                 },
                 {
                     title: "पैकेज सामग्री",
@@ -10469,13 +10470,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2266TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2272tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2266TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2272tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2266TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2272tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10486,37 +10487,37 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
             metadata: {
-                title: "टॉल ट्यूबुलर 220 Ah 3 वर्ष की वारंटी के साथ - लिवगार्ड",
-                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 220 Ah बैटरी  42+24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
+                title: "टॉल ट्यूबुलर 220 Ah 6 वर्ष की वारंटी के साथ - लिवगार्ड",
+                description: "ख़रीदें लिवगार्ड INVERTUFF टॉल ट्यूबलर 220 Ah बैटरी  48+24*  महीने की वारंटी के साथ, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
 
@@ -10524,20 +10525,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT2360TT: {
+    it2360tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2360TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2360tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2360TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2360tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2360TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2360tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 230 Ah Battery with 36+24* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |230Ah | Max. Warranty | Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -10617,13 +10618,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2360TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2360tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2360TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2360tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2360TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2360tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10634,31 +10635,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
@@ -10671,7 +10672,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT2360TT",
-                    "url": "https://www.livguard.com/product/IT2360TT",
+                    "url": "https://www.livguard.com/product/it2360tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202360TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -10686,16 +10687,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2360TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2360tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2360TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2360tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2360TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2360tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 230 Ah बैटरी 36+24* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |230Ah | Max. Warranty | Xtra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -10774,13 +10775,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2360TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2360tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2360TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2360tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2360TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2360tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10791,31 +10792,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2672TT",
-                    imageRelativePath: "/livguard/battery images/IT 2672TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2672TT",
+                    link: "/product/it2672tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
@@ -10829,20 +10830,20 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             },
         },
     },
-    IT2672TT: {
+    it2672tt: {
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2672TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2672tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2672TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2672tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2672TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2672tt/infographics/3.jpg",
                 },
             ],
-            title: " Livguard INVERTUFF Tall Tubular 260 Ah Battery with 42+30* Months Warranty",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |260Ah | Max. Warranty |Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description:
                 "Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.",
@@ -10922,13 +10923,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "With our Livguard battery at your home, experience what limitless energy feels like. Built with a 3D grid design and high storage capacity, Livguard inverter batteries deliver satisfactory performance every time, with long and durable battery life",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2672TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2672tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2672TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2672tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2672TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2672tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -10939,31 +10940,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT2360TT",
-                    imageRelativePath: "/livguard/battery images/IT 2360TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2360tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2360TT",
+                    link: "/product/it2360tt",
                 },
                 {
                     title: "IT2266TT",
-                    imageRelativePath: "/livguard/battery images/IT 2266TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2266TT",
+                    link: "/product/it2272tt",
                 },
                 {
                     title: "IT2048TT",
-                    imageRelativePath: "/livguard/battery images/IT 2048TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2048tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2048TT",
+                    link: "/product/it2048tt",
                 },
                 {
                     title: "IT2066TT",
-                    imageRelativePath: "/livguard/battery images/IT 2066TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT2066TT",
+                    link: "/product/it2072tt",
                 },
             ],
             type: ProductType.battery,
@@ -10976,7 +10977,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                     "@context": "http://schema.org",
                     "@type": "Product",
                     "name": "IT2672TT",
-                    "url": "https://www.livguard.com/product/IT2672TT",
+                    "url": "https://www.livguard.com/product/it2672tt",
                     "image": "https://growthjockey.imgix.net/livguard/battery%20images/IT%202672TT.png?w=508",
                     "description": "",
                     "brand": {
@@ -10991,16 +10992,16 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/Batteries/Battery -2672TT/infographic/1.jpg",
+                    image: "/livguard/products/batteries/it2672tt/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2672TT/infographic/2.jpg",
+                    image: "/livguard/products/batteries/it2672tt/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/Batteries/Battery -2672TT/infographic/3.jpg",
+                    image: "/livguard/products/batteries/it2672tt/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी 42+30* महीने की वारंटी के साथ",
+            title: "Livguard | Inverter Battery for Small Office, Home and Small Shops | Invertuff |260Ah | Max. Warranty |Ultra Long Life Battery | Tall Tubular Battery",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
             description:
                 "बिना किसी परेशानी के लंबे समय तक बिजली के बिना रुकावट प्रवाह का आनंद लें। बेहतर प्रदर्शन के लिए हमारी बैटरी उद्योग की सबसे पहली 3डी ग्रिड तकनीक से बनाई गई है, जो बैटरी की लाँभी अवधि निश्चित करती है।",
@@ -11079,13 +11080,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "हमारी लिवगार्ड बैटरी अपने घर लायें और अनुभव करें असीमित ऊर्जा। 3डी ग्रिड तकनीक और बड़ी संग्रहण क्षमता के साथ बनी हमारी बैटरियाँ आपको लंबे समय तक संतुष्टि देंगी।",
                 images: [
                     {
-                        image: "/livguard/product/Batteries/Battery -2672TT/A+/1.jpg",
+                        image: "/livguard/products/batteries/it2672tt/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2672TT/A+/2.jpg",
+                        image: "/livguard/products/batteries/it2672tt/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/Batteries/Battery -2672TT/A+/3.jpg",
+                        image: "/livguard/products/batteries/it2672tt/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11096,31 +11097,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.battery,
@@ -11138,13 +11139,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the urban jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/urban-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the urban jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/urban-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the urban jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/urban-jodi/infographics/3.jpg",
                 },
             ],
             title: "Livguard Inverter / Inverter Battery Jodi i-verter pro / INVERTUFF Sinewave / Short Tall Tubular 900 VA / 150 Ah with 3 year / 36+24 Month Warranty.",
@@ -11225,13 +11226,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the urban jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/urban-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the urban jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/urban-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the urban jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/urban-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11242,31 +11243,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
@@ -11282,13 +11283,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the urban jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/urban-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the urban jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/urban-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the urban jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/urban-jodi/infographics/3.jpg",
                 },
             ],
             title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी i-वर्टर प्रो / INVERTUFF साइनवेव / शोर्ट ट्यूबुलर  900 VA / 150 Ah 3 वर्ष / 36+24* महीने की वारंटी के साथ",
@@ -11365,13 +11366,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the urban jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/urban-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the urban jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/urban-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the urban jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/urban-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11382,31 +11383,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
@@ -11424,13 +11425,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the rural jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the rural jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the rural jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/3.jpg",
                 },
             ],
             title: "Livguard Inverter / Inverter Battery Jodi i2-verter pro / INVERTUFF Square wave / Tall Tubular 1250 VA / 200 Ah with 3 year / 36+24 Month Warranty",
@@ -11511,13 +11512,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the rural jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the rural jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the rural jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11528,31 +11529,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
@@ -11568,13 +11569,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the rural jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the rural jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the rural jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/3.jpg",
                 },
             ],
             title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी i2-वर्टर प्रो / INVERTUFF स्क्वायर वेव / टॉल ट्यूबलर 1250 VA / 200 Ah 3 वर्ष / 36+24* महीने की वारंटी के साथ",
@@ -11655,13 +11656,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the rural jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the rural jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the rural jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11672,31 +11673,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
@@ -11714,13 +11715,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the super life jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/super-life-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the super life jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/super-life-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the super life jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/super-life-jodi/infographics/3.jpg",
                 },
             ],
             title: " Livguard Inverter / Inverter Battery Jodi i-verter pro / INVERTUFF Sinewave / Tall Tubular 1500 VA / 150 Ah with 3 year / 60+24 Month Warranty.",
@@ -11801,13 +11802,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the super life jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/super-life-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the super life jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/super-life-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the super life jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/super-life-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11818,31 +11819,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
@@ -11858,13 +11859,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the super life jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/super-life-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the super life jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/super-life-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the super life jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/super-life-jodi/infographics/3.jpg",
                 },
             ],
             title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी i-वर्टर प्रो / INVERTUFF साइनवेव / टॉल ट्यूबुलर  1500 VA / 150 Ah 3 वर्ष / 60+24* महीने की वारंटी के साथ",
@@ -11945,13 +11946,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the super life jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/super-life-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the super life jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/super-life-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the super life jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/super-life-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -11962,37 +11963,38 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
             metadata: {
                 title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी सुपर लाइफ जोड़ी ऑनलाइन",
-                description: "लिवगार्ड सुपर लाइफ जोड़ी, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह जोड़ी उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के योग्य है।",
+                description:
+                    "लिवगार्ड सुपर लाइफ जोड़ी, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह जोड़ी उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के योग्य है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -12004,13 +12006,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.English]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the hi-power jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/hi-power-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the hi-power jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/hi-power-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the hi-power jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/hi-power-jodi/infographics/3.jpg",
                 },
             ],
             title: "Livguard Inverter / Inverter Battery Jodi Heavy Duty / INVERTUFF Sinewave / Tall Tubular 2000 VA / 260 Ah with 3 year / 42+30 Month Warranty.",
@@ -12091,13 +12093,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the hi-power jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the hi-power jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/hi-power-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the hi-power jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/hi-power-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -12108,31 +12110,31 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
@@ -12148,13 +12150,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
         [Language.Hindi]: {
             images: [
                 {
-                    image: "/livguard/product/jodis/the hi-power jodi/infographic/1.jpg",
+                    image: "/livguard/products/jodis/hi-power-jodi/infographics/1.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the hi-power jodi/infographic/2.jpg",
+                    image: "/livguard/products/jodis/hi-power-jodi/infographics/2.jpg",
                 },
                 {
-                    image: "/livguard/product/jodis/the hi-power jodi/infographic/3.jpg",
+                    image: "/livguard/products/jodis/hi-power-jodi/infographics/3.jpg",
                 },
             ],
             title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी हेवी ड्यूटी / INVERTUFF साइनवेव / टॉल ट्यूबलर  2000 VA / 260 Ah 3 वर्ष / 42+30* महीने की वारंटी के साथ",
@@ -12235,13 +12237,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
                 description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
-                        image: "/livguard/product/jodis/the hi-power jodi/A+/1.jpg",
+                        image: "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the hi-power jodi/A+/2.jpg",
+                        image: "/livguard/products/jodis/hi-power-jodi/a-plus/2.jpg",
                     },
                     {
-                        image: "/livguard/product/jodis/the hi-power jodi/A+/3.jpg",
+                        image: "/livguard/products/jodis/hi-power-jodi/a-plus/3.jpg",
                     },
                 ],
             },
@@ -12252,37 +12254,38 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails; 
             recommendedProducts: [
                 {
                     title: "IT1554STJ",
-                    imageRelativePath: "/livguard/battery images/IT 1554STJ.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1554STJ",
+                    link: "/product/it1560stj",
                 },
                 {
                     title: "IT1554TT",
-                    imageRelativePath: "/livguard/battery images/IT 1554TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1554TT",
+                    link: "/product/it1572tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
                 {
                     title: "IT1560TT",
-                    imageRelativePath: "/livguard/battery images/IT 1560TT.png",
+                    imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/IT1560TT",
+                    link: "/product/it1578tt",
                 },
             ],
             type: ProductType.jodi,
             metadata: {
                 title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी हाई-पॉवर जोड़ी ऑनलाइन",
-                description: "लिवगार्ड हाई-पावर जोड़ी हैवी ड्यूटी साइन वेव 2000 VA इनवर्टर  के साथ आती है जिसमें INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी है। यह जोड़ी भारी लोड संभलने की क्षमता से युक्त है।",
+                description:
+                    "लिवगार्ड हाई-पावर जोड़ी हैवी ड्यूटी साइन वेव 2000 VA इनवर्टर  के साथ आती है जिसमें INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी है। यह जोड़ी भारी लोड संभलने की क्षमता से युक्त है।",
                 canonicalUrl: "",
                 schema: `
 

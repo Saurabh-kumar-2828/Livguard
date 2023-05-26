@@ -375,17 +375,17 @@ function HeroSection({
 export function LimitlessEnergy({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const sectionData = [
         {
-            imageRelativePath: "/livguard/landingPages/1/section3/1.jpg",
+            imageRelativePath: "/livguard/landing-pages/1/section3/1.jpg",
             titleTextContentPiece: "landingPage1S3Slide1Title",
             bodyTextContentPiece: "landingPage1S3Slide1Body",
         },
         {
-            imageRelativePath: "/livguard/landingPages/1/section3/2.jpg",
+            imageRelativePath: "/livguard/landing-pages/1/section3/2.jpg",
             titleTextContentPiece: "landingPage1S3Slide2Title",
             bodyTextContentPiece: "landingPage1S3Slide2Body",
         },
         {
-            imageRelativePath: "/livguard/landingPages/1/section3/3.jpg",
+            imageRelativePath: "/livguard/landing-pages/1/section3/3.jpg",
             titleTextContentPiece: "landingPage1S3Slide3Title",
             bodyTextContentPiece: "landingPage1S3Slide3Body",
         },

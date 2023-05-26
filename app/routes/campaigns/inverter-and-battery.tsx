@@ -310,7 +310,7 @@ function HeroSection({
             )}
         >
             <CoverImage
-                relativePath="/livguard/landingPages/2/hero_image.jpg"
+                relativePath="/livguard/landing-pages/2/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 lg:tw-col-span-full -tw-z-10"
             />
 
@@ -403,7 +403,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/category/jodi/urban_jodi.png",
+            jodiImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J2Title", userPreferences.language)}`,
@@ -426,7 +426,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/category/jodi/rural_jodi.png",
+            jodiImageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J3Title", userPreferences.language)}`,
@@ -449,7 +449,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/category/jodi/super_life_jodi.png",
+            jodiImageRelativePath: "/livguard/products/jodis/super-life-jodi/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
@@ -472,7 +472,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/category/jodi/urban_jodi.png",
+            jodiImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
         },
     ];
 
@@ -502,7 +502,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
 export function WhyLivguardJodi({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData = [
         {
-            image: "/livguard/category/jodi/urban_jodi.png",
+            image: "/livguard/products/jodis/urban-jodi/thumbnail.png",
             title: `${getVernacularString("landingPage2S5LivH", userPreferences.language)}`,
             content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
             content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
@@ -511,7 +511,7 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
             highlighted: true,
         },
         {
-            image: "/livguard/landingPages/2/other_brands.png",
+            image: "/livguard/landing-pages/2/other_brands.png",
             title: `${getVernacularString("landingPage2S5OBH", userPreferences.language)}`,
             content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
             content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
@@ -613,22 +613,22 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
     const sectionData = [
         {
             title: "LG700E",
-            image: "/livguard/inverter images/LG700E.png",
+            image: "/livguard/products/inverters/lg700e/thumbnail.png",
             bestSeller: true,
         },
         {
             title: "LGS1100i",
-            image: "/livguard/inverter images/LGS1100i.png",
+            image: "/livguard/products/inverters/lgs1100i/thumbnail.png",
             bestSeller: false,
         },
         {
             title: "IT1550TT",
-            image: "/livguard/battery images/IT 1550TT.png",
+            image: "/livguard/products/batteries/it1550tt/thumbnail.png",
             bestSeller: false,
         },
         {
             title: "IT2060TT",
-            image: "/livguard/battery images/IT 2060TT.png",
+            image: "/livguard/products/batteries/it2060tt/thumbnail.png",
             bestSeller: true,
         },
     ];

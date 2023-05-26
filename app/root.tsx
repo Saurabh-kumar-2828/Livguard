@@ -144,22 +144,23 @@ export default function Root() {
     // }, []);
 
     // Freshchat
-    useEffect(() => {
-        const onDocumentLoad = () => {
-            setTimeout(() => {
-                const scriptTag = document.createElement("script");
-                scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
-                document.body.appendChild(scriptTag);
-            }, 5000);
-        };
+    // useEffect(() => {
+    //     const onDocumentLoad = () => {
+    //         setTimeout(() => {
+    //             const scriptTag = document.createElement("script");
+    //             scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
+    //             scriptTag.setAttribute("chat", "true");
+    //             document.body.appendChild(scriptTag);
+    //         }, 5000);
+    //     };
 
-        if (document.readyState == "complete") {
-            onDocumentLoad();
-        } else {
-            window.addEventListener("load", onDocumentLoad);
-            return () => window.removeEventListener("load", onDocumentLoad);
-        }
-    }, []);
+    //     if (document.readyState == "complete") {
+    //         onDocumentLoad();
+    //     } else {
+    //         window.addEventListener("load", onDocumentLoad);
+    //         return () => window.removeEventListener("load", onDocumentLoad);
+    //     }
+    // }, []);
 
     // Haptik
     useEffect(() => {
@@ -181,6 +182,8 @@ export default function Root() {
         }
     }, []);
 
+    // const suppressHydrationWarning = websiteConfiguration.websiteBaseUrl.endsWith("livguard.com") ? true : false;
+    // const suppressHydrationWarning = true;
 
     return (
         // <UserPreferencesContext.Provider value={userPreferences}>
@@ -308,6 +311,7 @@ export default function Root() {
                     <ScrollRestoration />
                     <Scripts />
                     <LiveReload />
+
                     {/* Start Haptik Integeration */}
                     <script
                         dangerouslySetInnerHTML={{
@@ -347,6 +351,18 @@ export default function Root() {
                         }}
                     />
                     {/* End Haptik Integeration */}
+
+                    {/* Freshsales Chat Suppression */}
+                    <style
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                freshchat-widget {
+                                    display: none;
+                                }
+                            `,
+                        }}
+                    />
+                    {/* End Freshsales Chat Suppression */}
                 </body>
             </html>
         </WebsiteConfigurationContext.Provider>
