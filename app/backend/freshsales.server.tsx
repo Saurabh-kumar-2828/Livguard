@@ -5,7 +5,7 @@ import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utili
 export async function sendDataToFreshsales(
     formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean},
     utmParameters: {[searchParameter: string]: string},
-    pageUrl: string
+    pageUrl: string,
 ): Promise<void | Error> {
     const contactData = {
         first_name: formResponse.first_name,
@@ -20,13 +20,13 @@ export async function sendDataToFreshsales(
             cf_gclid: utmParameters["gclid"] != null ? utmParameters["gclid"] : "",
             cf_fclid: utmParameters["fbclid"] != null ? utmParameters["fbclid"] : "",
             cf_otp_verified: formResponse.otpVerified,
-            cf_page_url: pageUrl
+            cf_page_url: pageUrl,
         },
         created_at: getCurrentIsoTimestamp(),
     };
 
     const uniqueIdentifierData = {
-        "mobile_number": formResponse.mobile_number,
+        mobile_number: formResponse.mobile_number,
     };
 
     try {
@@ -49,21 +49,16 @@ export async function sendDataToFreshsales(
     }
 }
 
-export async function sendDataToFreshsalesForOrmTracking(formResponse: {
-    product: string;
-    name: string;
-    phoneNumber: string;
-    emailId: string;
-    queryDetails: string;
-}): Promise<void | Error> {
+export async function sendDataToFreshsalesForOrmTracking(formResponse: {product: string; name: string; phoneNumber: string; emailId: string; queryDetails: string}): Promise<void | Error> {
     const contactData = {
         name: formResponse.name,
         mobile_number: formResponse.phoneNumber,
-        email: formResponse.emailId,
-        lead_source_id: "401000150596",
+        emails: formResponse.emailId,
+        lead_source_id: "401000150606",
         custom_field: {
-            cf_query_details: formResponse.queryDetails,
-            cf_lead_source: "social",
+            cf_recent_note: formResponse.queryDetails,
+            cf_lead_source: "social media",
+            cf_product_type: formResponse.product,
         },
         created_at: getCurrentIsoTimestamp(),
     };

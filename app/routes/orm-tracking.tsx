@@ -1,5 +1,5 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
-import { json} from "@remix-run/node";
+import {json} from "@remix-run/node";
 import {Form, useActionData, useLoaderData} from "@remix-run/react";
 import {useEffect} from "react";
 import {toast} from "react-toastify";
@@ -29,13 +29,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const emailId = safeParse(getStringFromUnknown, body.get("emailId"));
     const queryDetails = safeParse(getStringFromUnknown, body.get("queryDetails"));
 
-    if (
-        product == null ||
-        name == null ||
-        phoneNumber == null ||
-        emailId == null ||
-        queryDetails == null
-    ) {
+    if (product == null || name == null || phoneNumber == null || emailId == null || queryDetails == null) {
         const actionData: OrmActionData = {
             error: "Error in submitting form! Error code: e4f2d4a9-5d01-43b9-8ba7-6b0c6fae739c",
         };
@@ -147,14 +141,14 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                                 name="product"
                             >
                                 <option
-                                    value="inverter"
+                                    value="Inverter"
                                     selected
                                 >
                                     {getVernacularString("ormTrackingFormProduct1", userPreferences.language)}
                                 </option>
-                                <option value="battery">{getVernacularString("ormTrackingFormProduct2", userPreferences.language)}</option>
-                                <option value="inverter & battery">{getVernacularString("ormTrackingFormProduct3", userPreferences.language)}</option>
-                                <option value="solar">{getVernacularString("ormTrackingFormProduct4", userPreferences.language)}</option>
+                                <option value="Battery">{getVernacularString("ormTrackingFormProduct2", userPreferences.language)}</option>
+                                <option value="Inverter & Battery">{getVernacularString("ormTrackingFormProduct3", userPreferences.language)}</option>
+                                <option value="Solar">{getVernacularString("ormTrackingFormProduct4", userPreferences.language)}</option>
                             </select>
                         </div>
                         <div className="">
