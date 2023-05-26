@@ -1,5 +1,5 @@
 import {DocumentIcon} from "@heroicons/react/20/solid";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {Spacer} from "~/global-common-typescript/components/spacer";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {UserPreferences} from "~/typeDefinitions";

@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import {Facebook, Google, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";

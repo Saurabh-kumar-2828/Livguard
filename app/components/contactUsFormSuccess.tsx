@@ -1,9 +1,9 @@
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/global-common-typescript/components/coverImage";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {CoverImage} from "~/components/images/coverImage";
+import {FixedHeightImage} from "~/components/images/fixedHeightImage";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {UserPreferences} from "~/typeDefinitions";

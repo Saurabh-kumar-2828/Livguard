@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import LivguardDialog from "~/components/livguardDialog";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
+import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";

@@ -20,9 +20,9 @@ import LivguardDialog from "~/components/livguardDialog";
 import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {CoverImage} from "~/global-common-typescript/components/coverImage";
-import {FixedHeightImage} from "~/global-common-typescript/components/fixedHeightImage";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {CoverImage} from "~/components/images/coverImage";
+import {FixedHeightImage} from "~/components/images/fixedHeightImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
@@ -34,7 +34,8 @@ import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters
 import {FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {FormType, Language, Theme, UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
+import {FormType, Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 

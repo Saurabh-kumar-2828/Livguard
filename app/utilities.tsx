@@ -1,4 +1,5 @@
-import {Theme, UserPreferences} from "~/typeDefinitions";
+import type {ImageMetadata} from "~/global-common-typescript/typeDefinitions";
+import {imageMetadataLibrary} from "~/imageMetadataLibrary";
 
 //TODO: replace this with production url correctly
 export function getUrlFromRequest(request: Request) {
@@ -27,3 +28,22 @@ export function enumFromStringValue<T>(enum_: {[s: string]: T}, input: string): 
 //     }
 //     return JSON.parse(JSON.stringify(obj));
 // }
+
+export function getMetadataForImage(relativePath: string) {
+    const imageMetadata = imageMetadataLibrary[relativePath];
+
+    if (imageMetadata != null) {
+        return imageMetadata;
+    }
+
+    // throw new Error(`Image metadata not updated for image ${relativePath}`);
+    console.error(`Image metadata not updated for image ${relativePath}`);
+
+    const imageMetadata_: ImageMetadata = {
+        width: 4,
+        height: 3,
+        finalUrl: relativePath,
+    };
+
+    return imageMetadata_;
+}

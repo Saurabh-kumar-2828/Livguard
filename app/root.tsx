@@ -5,7 +5,6 @@ import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCa
 import {useEffect} from "react";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
-import {ImageCdnProvider} from "~/global-common-typescript/components/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {logFrontendError} from "~/global-common-typescript/logging";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
@@ -16,6 +15,7 @@ import {Language, Theme} from "~/typeDefinitions";
 import tailwindStylesheet from "~/tailwind.css";
 import {DynamicLinks} from "remix-utils";
 import {ToastContainer} from "react-toastify";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -40,7 +40,7 @@ export const loader: LoaderFunction = async ({request}) => {
 
     const imageCdnProviderStr = getRequiredEnvironmentVariableNew("IMAGE_CDN_PROVIDER");
     // TODO: Do this properly
-    const imageCdnProvider = imageCdnProviderStr == "imgix" ? ImageCdnProvider.Imgix : ImageCdnProvider.GrowthJockey;
+    const imageCdnProvider = imageCdnProviderStr == "imgix" ? ImageCdnProvider.Imgix : imageCdnProviderStr == "bunny" ? ImageCdnProvider.Bunny : ImageCdnProvider.GrowthJockey;
 
     const websiteConfiguration: WebsiteConfiguration = {
         websiteBaseUrl: websiteBaseUrl,
@@ -149,7 +149,6 @@ export default function Root() {
             setTimeout(() => {
                 const scriptTag = document.createElement("script");
                 scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
-                scriptTag.setAttribute("chat", "true");
                 document.body.appendChild(scriptTag);
             }, 5000);
         };

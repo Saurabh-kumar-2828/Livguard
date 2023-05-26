@@ -11,15 +11,15 @@ import {getVernacularString} from "~/vernacularProvider";
 import {DealerLocator} from "~/routes";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
-import {CoverImage} from "~/global-common-typescript/components/coverImage";
+import {CoverImage} from "~/components/images/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {FullWidthImage} from "~/global-common-typescript/components/fullWidthImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {FAQSection} from "~/components/faqs";
-import {FixedWidthImage} from "~/global-common-typescript/components/fixedWidthImage";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {

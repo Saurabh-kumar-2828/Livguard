@@ -1,4 +1,4 @@
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {ImageCdnProvider, Uuid} from "~/global-common-typescript/typeDefinitions";
 
 export type UserDetails = {
     id: Uuid;
