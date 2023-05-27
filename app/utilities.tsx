@@ -38,7 +38,7 @@ export function getMetadataForImage(relativePath: string) {
 
     // throw new Error(`Image metadata not updated for image ${relativePath}`);
     console.error(`Image metadata not updated for image ${relativePath}`);
-    console.trace();
+    // console.trace();
 
     const imageMetadata_: ImageMetadata = {
         width: 4,

@@ -3624,6 +3624,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1048st",
                 },
                 {
+                    title: "IT1172STT",
+                    imageRelativePath: "/livguard/products/batteries/it1172stt/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/it1172stt",
+                },
+                {
                     title: "IT1584TT",
                     imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
@@ -3631,18 +3638,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1584tt",
                 },
                 {
-                    title: "IT1554STJ",
+                    title: "IT1560STJ",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stj",
-                },
-                {
-                    title: "IT1542STJ",
-                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/it1548stj",
                 },
             ],
             type: ProductType.battery,
@@ -3781,6 +3781,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1048st",
                 },
                 {
+                    title: "IT1172STT",
+                    imageRelativePath: "/livguard/products/batteries/it1172stt/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/it1172stt",
+                },
+                {
                     title: "IT1584TT",
                     imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
@@ -3788,18 +3795,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1584tt",
                 },
                 {
-                    title: "IT1554STJ",
+                    title: "IT1560STJ",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stj",
-                },
-                {
-                    title: "IT1542STJ",
-                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/it1548stj",
                 },
             ],
             type: ProductType.battery,
@@ -3922,6 +3922,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
+                    title: "IT1172STT",
+                    imageRelativePath: "/livguard/products/batteries/it1172stt/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/it1172stt",
+                },
+                {
                     title: "IT1584TT",
                     imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
@@ -3929,25 +3936,18 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1584tt",
                 },
                 {
-                    title: "IT1554STJ",
+                    title: "IT1560STJ",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stj",
                 },
                 {
-                    title: "IT1542STJ",
+                    title: "IT1548STJ",
                     imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1548stj",
-                },
-                {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/it1548tt",
                 },
             ],
             type: ProductType.battery,
@@ -4082,6 +4082,13 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
+                    title: "IT1172STT",
+                    imageRelativePath: "/livguard/products/batteries/it1172stt/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/it1172stt",
+                },
+                {
                     title: "IT1584TT",
                     imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
@@ -4089,25 +4096,18 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1584tt",
                 },
                 {
-                    title: "IT1554STJ",
+                    title: "IT1560STJ",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stj",
                 },
                 {
-                    title: "IT1542STJ",
+                    title: "IT1548STJ",
                     imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1548stj",
-                },
-                {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
-                    buttonText: "categoryViewProductButtontext",
-                    bestseller: false,
-                    link: "/product/it1548tt",
                 },
             ],
             type: ProductType.battery,
@@ -4230,32 +4230,32 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/products/inverters/lg1150i/thumbnail.png",
+                    title: "IT1584TT",
+                    imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/lg1150i",
+                    link: "/product/it1584tt",
                 },
                 {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
+                    title: "IT1560STJ",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/lg950i",
+                    link: "/product/it1560stj",
                 },
                 {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/products/inverters/fds_lgs3000/thumbnail.png",
+                    title: "IT1548STJ",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/lgs1000i",
+                    link: "/product/it1548stj",
                 },
                 {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/lgs1100i",
+                    link: "/product/it1548stt",
                 },
             ],
             type: ProductType.battery,
@@ -4388,32 +4388,32 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "LG1150i",
-                    imageRelativePath: "/livguard/products/inverters/lg1150i/thumbnail.png",
+                    title: "IT1584TT",
+                    imageRelativePath: "/livguard/products/batteries/it1584tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/lg1150i",
+                    link: "/product/it1584tt",
                 },
                 {
-                    title: "LG950i",
-                    imageRelativePath: "/livguard/products/inverters/lgs1700/thumbnail.png",
+                    title: "IT1560STJ",
+                    imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/lg950i",
+                    link: "/product/it1560stj",
                 },
                 {
-                    title: "LGS1000i",
-                    imageRelativePath: "/livguard/products/inverters/fds_lgs3000/thumbnail.png",
+                    title: "IT1548STJ",
+                    imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/lgs1000i",
+                    link: "/product/it1548stj",
                 },
                 {
-                    title: "LGS1100i",
-                    imageRelativePath: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/lgs1100i",
+                    link: "/product/it1548stt",
                 },
             ],
             type: ProductType.battery,
@@ -4536,25 +4536,25 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1554STJ",
+                    title: "IT1560STJ",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stj",
                 },
                 {
-                    title: "IT1542STJ",
+                    title: "IT1548STJ",
                     imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1548stj",
                 },
                 {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1548tt",
+                    link: "/product/it1548stt",
                 },
                 {
                     title: "IT1560STT",
@@ -4693,25 +4693,25 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1554STJ",
+                    title: "IT1560STJ",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stj",
                 },
                 {
-                    title: "IT1542STJ",
+                    title: "IT1548STJ",
                     imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1548stj",
                 },
                 {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1548tt",
+                    link: "/product/it1548stt",
                 },
                 {
                     title: "IT1560STT",
@@ -4838,18 +4838,18 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1542STJ",
+                    title: "IT1548STJ",
                     imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1548stj",
                 },
                 {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1548tt",
+                    link: "/product/it1548stt",
                 },
                 {
                     title: "IT1560STT",
@@ -4995,18 +4995,18 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1542STJ",
+                    title: "IT1548STJ",
                     imageRelativePath: "/livguard/products/batteries/it1548stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1548stj",
                 },
                 {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1548tt",
+                    link: "/product/it1548stt",
                 },
                 {
                     title: "IT1560STT",
@@ -5143,11 +5143,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1548tt",
+                    link: "/product/it1548stt",
                 },
                 {
                     title: "IT1560STT",
@@ -5164,7 +5164,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1550tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -5300,11 +5300,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1548TT",
-                    imageRelativePath: "/livguard/products/batteries/it1548tt/thumbnail.png",
+                    title: "IT1548STT",
+                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1548tt",
+                    link: "/product/it1548stt",
                 },
                 {
                     title: "IT1560STT",
@@ -5321,7 +5321,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1550tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -5449,7 +5449,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             recommendedProducts: [
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stt",
@@ -5462,14 +5462,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1550tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1572tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -5606,7 +5606,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             recommendedProducts: [
                 {
                     title: "IT1560STT",
-                    imageRelativePath: "/livguard/products/batteries/it1548stt/thumbnail.png",
+                    imageRelativePath: "/livguard/products/batteries/it1560stt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1560stt",
@@ -5619,14 +5619,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1550tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1572tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -5760,14 +5760,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1550tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1572tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -5778,7 +5778,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
             ],
             type: ProductType.battery,
@@ -5917,14 +5917,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1550tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1572tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -5935,7 +5935,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
             ],
             type: ProductType.battery,
@@ -6058,14 +6058,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1572tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -6076,7 +6076,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
                 {
                     title: "IT1548TT",
@@ -6215,14 +6215,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1554TT",
+                    title: "IT1572TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1572tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -6233,7 +6233,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
                 {
                     title: "IT1548TT",
@@ -6363,7 +6363,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -6374,7 +6374,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
                 {
                     title: "IT1548TT",
@@ -6520,7 +6520,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1560TT",
+                    title: "IT1578TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -6531,7 +6531,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
                 {
                     title: "IT1548TT",
@@ -6672,7 +6672,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
                 {
                     title: "IT1548TT",
@@ -6689,7 +6689,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1636stj",
                 },
                 {
-                    title: "IT1666TT",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -6829,7 +6829,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     imageRelativePath: "/livguard/products/batteries/it1536tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1536tt",
                 },
                 {
                     title: "IT1548TT",
@@ -6846,7 +6846,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1636stj",
                 },
                 {
-                    title: "IT1666TT",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -6987,14 +6987,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1636stj",
                 },
                 {
-                    title: "IT1666TT",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1672tt",
                 },
                 {
-                    title: "IT1639TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7144,14 +7144,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1636stj",
                 },
                 {
-                    title: "IT1666TT",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1672tt",
                 },
                 {
-                    title: "IT1639TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7285,21 +7285,21 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1636stj",
                 },
                 {
-                    title: "IT1666TT",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1672tt",
                 },
                 {
-                    title: "IT1639TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1642tt",
                 },
                 {
-                    title: "IT1645TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7442,21 +7442,21 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1636stj",
                 },
                 {
-                    title: "IT1666TT",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1672tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1672tt",
                 },
                 {
-                    title: "IT1639TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1642tt",
                 },
                 {
-                    title: "IT1645TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7583,14 +7583,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1639TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1642tt",
                 },
                 {
-                    title: "IT1645TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7604,7 +7604,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1860tt",
                 },
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7740,14 +7740,14 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1639TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1642tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/it1642tt",
                 },
                 {
-                    title: "IT1645TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7761,7 +7761,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1860tt",
                 },
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7888,7 +7888,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1645TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -7902,7 +7902,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1860tt",
                 },
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8045,7 +8045,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1645TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1648tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8059,7 +8059,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1860tt",
                 },
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8200,7 +8200,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1860tt",
                 },
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8214,7 +8214,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2060tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8357,7 +8357,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1860tt",
                 },
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8371,7 +8371,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2060tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8498,7 +8498,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8512,7 +8512,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2060tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8655,7 +8655,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1866TT",
+                    title: "IT1872TT",
                     imageRelativePath: "/livguard/products/batteries/it1872tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8669,7 +8669,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2060tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8803,7 +8803,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8824,7 +8824,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2672tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8960,7 +8960,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -8981,7 +8981,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2672tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9115,7 +9115,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2060tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9129,7 +9129,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9272,7 +9272,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2060tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9286,7 +9286,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9413,32 +9413,32 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1554STJ",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1560stj",
+                    link: "/product/it1672tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/it1572tt",
+                    link: "/product/it1642tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/it1578tt",
+                    link: "/product/it1648tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1860TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1860tt",
                 },
             ],
             type: ProductType.battery,
@@ -9571,32 +9571,32 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT1554STJ",
+                    title: "IT1672TT",
                     imageRelativePath: "/livguard/products/batteries/it1560stj/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1560stj",
+                    link: "/product/it1672tt",
                 },
                 {
-                    title: "IT1554TT",
+                    title: "IT1642TT",
                     imageRelativePath: "/livguard/products/batteries/it1572tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/it1572tt",
+                    link: "/product/it1642tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1648TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: true,
-                    link: "/product/it1578tt",
+                    link: "/product/it1648tt",
                 },
                 {
-                    title: "IT1560TT",
+                    title: "IT1860TT",
                     imageRelativePath: "/livguard/products/batteries/it1578tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
-                    link: "/product/it1578tt",
+                    link: "/product/it1860tt",
                 },
             ],
             type: ProductType.battery,
@@ -9719,7 +9719,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9733,7 +9733,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9876,7 +9876,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
             recommendedProducts: [
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -9890,7 +9890,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10031,7 +10031,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10188,7 +10188,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10350,7 +10350,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10507,7 +10507,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10641,7 +10641,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2672tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10655,7 +10655,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10798,7 +10798,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2672tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10812,7 +10812,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10946,7 +10946,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2360tt",
                 },
                 {
-                    title: "IT2266TT",
+                    title: "IT2272TT",
                     imageRelativePath: "/livguard/products/batteries/it2272tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
@@ -10960,7 +10960,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it2048tt",
                 },
                 {
-                    title: "IT2066TT",
+                    title: "IT2072TT",
                     imageRelativePath: "/livguard/products/batteries/it2072tt/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
