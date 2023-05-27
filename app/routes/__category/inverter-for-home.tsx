@@ -149,7 +149,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <InvertersAreMentToLast
+            <InvertersAreMeantToLast
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
@@ -335,7 +335,7 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
     );
 }
 
-export function InvertersAreMentToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+export function InvertersAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
             titleTextContentPiece: "categoryInvertersS2Slide1Heading",

@@ -302,8 +302,8 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
     "/livguard/category/batteries/1/1.jpg": {
         "width": 3840,
         "height": 3840,
-        "blurHash": "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
-        "finalUrl": "/livguard/category/batteries/1/1-6619f1.jpg"
+        "blurHash": "L27TkHOZ00{01J=|]m01;fRPXn%M",
+        "finalUrl": "/livguard/category/batteries/1/1-58a25f.jpg"
     },
     "/livguard/category/batteries/2/1.jpg": {
         "width": 3840,
@@ -362,8 +362,8 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
     "/livguard/category/inverters/1/1.jpg": {
         "width": 3840,
         "height": 3840,
-        "blurHash": "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
-        "finalUrl": "/livguard/category/inverters/1/1-2b584f.jpg"
+        "blurHash": "L37^ADO?0y{y67^*-B0LcDI:Nwwf",
+        "finalUrl": "/livguard/category/inverters/1/1-4f0c3b.jpg"
     },
     "/livguard/category/inverters/2/ai_charging.jpg": {
         "width": 3841,
@@ -528,8 +528,8 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
     "/livguard/home/1/new-desktop.jpg": {
         "width": 3841,
         "height": 3840,
-        "blurHash": "L7ARYOxZ2sr?}FSfE}R*0}ni;hX8",
-        "finalUrl": "/livguard/home/1/new-desktop-d091dc.jpg"
+        "blurHash": "L383O:}[oyR5b]XSS2NG0LM{njo}",
+        "finalUrl": "/livguard/home/1/new-desktop-ffc115.jpg"
     },
     "/livguard/home/1/new-mobile.jpg": {
         "width": 3840,
