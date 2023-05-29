@@ -172,7 +172,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.inverter,
             metadata: {
                 title: "Livguard i2-verter pro inverter Online 600VA with 3-Year warranty",
-                description: "Buy Square Wave Inverter 600 VA, with a 3-year Warranty, Suitable inverter for small offices, homes, and small shops ",
+                description: "Buy Square Wave Inverter 600 VA, with a 3-year Warranty, Suitable inverter for small offices, homes, and small shops",
                 canonicalUrl: `/product/lg700e`,
                 schema: `
                 {
@@ -230,7 +230,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i2-वर्टर प्रो",
                 },
                 {
@@ -489,7 +489,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.inverter,
             metadata: {
                 title: "Livguard Square Wave Inverter Online 800VA",
-                description: "Buy a Livguard i2 - verter pro Square Wave Inverter 800 VA  with a 3-year warranty. Suitable inverter for small offices, homes, and Small shops ",
+                description: "Buy a Livguard i2 - verter pro Square Wave Inverter 800 VA  with a 3-year warranty. Suitable inverter for small offices, homes, and Small shops",
                 canonicalUrl: `/product/lg900`,
                 schema: `
                 {
@@ -547,7 +547,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i2-वर्टर प्रो",
                 },
                 {
@@ -692,7 +692,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/square wave white.png",
-                    text: "Square Wave Inverter ",
+                    text: "Square Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -864,7 +864,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i2-वर्टर प्रो",
                 },
                 {
@@ -1008,7 +1008,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/square wave white.png",
-                    text: "Square Wave Inverter ",
+                    text: "Square Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -1180,7 +1180,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i2-वर्टर प्रो",
                 },
                 {
@@ -1324,7 +1324,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/square wave white.png",
-                    text: "Square Wave Inverter ",
+                    text: "Square Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -1497,7 +1497,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i2-वर्टर प्रो",
                 },
                 {
@@ -1602,7 +1602,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "लिवगार्ड i2 - वर्टर प्रो- स्क्वायर वेव इनवर्टर ऑनलाइन ",
+                title: "लिवगार्ड i2 - वर्टर प्रो- स्क्वायर वेव इनवर्टर ऑनलाइन",
                 description: "पाइए लिवगार्ड स्क्वायर वेव इनवर्टर 1100VA,  3 वर्ष की वारंटी के साथ। घर लाएं असीमित ऊर्जा की शक्ति। छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
@@ -1641,7 +1641,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/square wave white.png",
-                    text: "Square Wave Inverter ",
+                    text: "Square Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -1755,7 +1755,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.inverter,
             metadata: {
                 title: "Buy Square Wave Inverter 1650va - Livgaurd",
-                description: "Buy Livguard i2 - verter pro Square Wave Inverter 1100VA  with a 3-year warranty & Smart AI charging. Suitable inverter for small offices, homes, and small shops. ",
+                description: "Buy Livguard i2 - verter pro Square Wave Inverter 1100VA  with a 3-year warranty & Smart AI charging. Suitable inverter for small offices, homes, and small shops.",
                 canonicalUrl: `/product/lg1950i`,
                 schema: `
                 {
@@ -1813,7 +1813,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i2-वर्टर प्रो",
                 },
                 {
@@ -1957,7 +1957,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/sine wave white.png",
-                    text: "Pure Sine Wave Inverter ",
+                    text: "Pure Sine Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -2072,7 +2072,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.inverter,
             metadata: {
                 title: "Pure Sine Wave Inverter 700VA Online - Livguard",
-                description: "Get Livguard i2 - verter pro Pure Sine Wave inverter 700 VA  With a 3-year warranty and pure sine wave output. Experience energy unlimited  ",
+                description: "Get Livguard i2 - verter pro Pure Sine Wave inverter 700 VA  With a 3-year warranty and pure sine wave output. Experience energy unlimited",
                 canonicalUrl: `/product/lgs900i`,
                 schema: `
                 {
@@ -2129,7 +2129,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i-वर्टर प्रो",
                 },
                 {
@@ -2154,7 +2154,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "मन की शांति 3 वर्ष की वारंटी के साथ",
                 },
                 {
-                    value: "प्योर साइन वेव ",
+                    value: "प्योर साइन वेव",
                 },
                 {
                     value: "स्मार्ट ए आई चार्जिंग से युक्त इनवर्टर",
@@ -2273,7 +2273,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/sine wave white.png",
-                    text: "Pure Sine Wave Inverter ",
+                    text: "Pure Sine Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -2445,7 +2445,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i-वर्टर प्रो",
                 },
                 {
@@ -2470,7 +2470,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "मन की शांति 3 वर्ष की वारंटी के साथ",
                 },
                 {
-                    value: "प्योर साइन वेव ",
+                    value: "प्योर साइन वेव",
                 },
                 {
                     value: "स्मार्ट ए आई चार्जिंग से युक्त इनवर्टर",
@@ -2589,7 +2589,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/sine wave white.png",
-                    text: "Pure Sine Wave Inverter ",
+                    text: "Pure Sine Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -2704,7 +2704,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.inverter,
             metadata: {
                 title: "Livguard Pure Sine Wave inverter 900 VA Online",
-                description: " Get Livguard Sine Wave inverter 900 VA, suitable for small offices, homes, and small shops. Comes with extra load handling capacity and supports all battery types",
+                description: "Get Livguard Sine Wave inverter 900 VA, suitable for small offices, homes, and small shops. Comes with extra load handling capacity and supports all battery types",
                 canonicalUrl: `/product/lgs1100i`,
                 schema: `
                 {
@@ -2761,7 +2761,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i-वर्टर प्रो",
                 },
                 {
@@ -2786,7 +2786,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "मन की शांति 3 वर्ष की वारंटी के साथ",
                 },
                 {
-                    value: "प्योर साइन वेव ",
+                    value: "प्योर साइन वेव",
                 },
                 {
                     value: "स्मार्ट ए आई चार्जिंग से युक्त इनवर्टर",
@@ -2866,7 +2866,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "लिवगार्ड प्योर साइन वेव इनवर्टर 900 VA ऑनलाइन ",
+                title: "लिवगार्ड प्योर साइन वेव इनवर्टर 900 VA ऑनलाइन",
                 description: "पाइए लिवगार्ड साइन वेव इनवर्टर 900 VA, छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त, जो अतिरिक्त लोड संभालने की क्षमता और सभी प्रकार की बैटरी का समर्थन करता है।",
                 canonicalUrl: "",
                 schema: `
@@ -2905,7 +2905,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/sine wave white.png",
-                    text: "Pure Sine Wave Inverter ",
+                    text: "Pure Sine Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -3077,7 +3077,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i-वर्टर प्रो",
                 },
                 {
@@ -3102,7 +3102,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "मन की शांति 3 वर्ष की वारंटी के साथ",
                 },
                 {
-                    value: "प्योर साइन वेव ",
+                    value: "प्योर साइन वेव",
                 },
                 {
                     value: "स्मार्ट ए आई चार्जिंग से युक्त इनवर्टर",
@@ -3182,7 +3182,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.inverter,
             metadata: {
-                title: "प्योर साइन वेव इनवर्टर 1500 VA - लिवगार्ड ऑनलाइन ",
+                title: "प्योर साइन वेव इनवर्टर 1500 VA - लिवगार्ड ऑनलाइन",
                 description: "ख़रीदें लिवगार्ड i-वर्टर प्रो, सुनिश्चित वारंटी और प्योर साइन वेव आउटपुट के साथ। स्मार्ट एआई चार्जिंग से युक्त इनवर्टर।",
                 canonicalUrl: "",
                 schema: `
@@ -3221,7 +3221,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/sine wave white.png",
-                    text: "Pure Sine Wave Inverter ",
+                    text: "Pure Sine Wave Inverter",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -3336,7 +3336,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.inverter,
             metadata: {
                 title: "Livguard i-verter pro Pure Sine Wave inverter with 3-Year warranty",
-                description: "Get Livguard i-verter pro pure sine wave inverter 1500 VA with a 3-year warranty.   Suitable inverter for small offices, homes, and small shops. ",
+                description: "Get Livguard i-verter pro pure sine wave inverter 1500 VA with a 3-year warranty.   Suitable inverter for small offices, homes, and small shops.",
                 canonicalUrl: `/product/lgs1600`,
                 schema: `
                 {
@@ -3394,7 +3394,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             specifications: [
                 {
-                    title: "मॉडल संख्या ",
+                    title: "मॉडल संख्या",
                     value: "i-वर्टर प्रो",
                 },
                 {
@@ -3419,7 +3419,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "मन की शांति 3 वर्ष की वारंटी के साथ",
                 },
                 {
-                    value: "प्योर साइन वेव ",
+                    value: "प्योर साइन वेव",
                 },
                 {
                     value: "स्मार्ट ए आई चार्जिंग से युक्त इनवर्टर",
@@ -3570,7 +3570,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -3694,7 +3694,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/sine wave white.png",
-                    text: "शोर्ट ट्यूबलर ",
+                    text: "शोर्ट ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -3707,7 +3707,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "24 + 24* महीने",
                 },
                 {
@@ -3742,7 +3742,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -3750,7 +3750,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "29.3 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -3804,7 +3804,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.battery,
             metadata: {
-                title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah ऑनलाइन ",
+                title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah ऑनलाइन",
                 description: "पाइए लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 90 Ah इनवर्टर बैटरी ऑनलाइन 24+24* महीने की वारंटी के साथ; छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
@@ -3875,7 +3875,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -4002,7 +4002,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "शोर्ट ट्यूबलर ",
+                    text: "शोर्ट ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -4015,7 +4015,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "24 + 24* महीने",
                 },
                 {
@@ -4050,7 +4050,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -4058,7 +4058,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "39.6 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -4183,7 +4183,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -4308,7 +4308,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
+                    text: "शोर्ट टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -4321,7 +4321,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "42 + 30* महीने",
                 },
                 {
@@ -4364,7 +4364,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "46.9 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -4489,7 +4489,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -4613,7 +4613,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबलर  ",
+                    text: "टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -4626,7 +4626,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "60 + 24* महीने",
                 },
                 {
@@ -4661,7 +4661,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -4669,7 +4669,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "54.2 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -4791,7 +4791,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -4915,7 +4915,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
+                    text: "शोर्ट टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -4928,7 +4928,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "42 + 24* महीने",
                 },
                 {
@@ -4971,7 +4971,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "46.9 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -5096,7 +5096,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -5220,7 +5220,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
+                    text: "शोर्ट टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -5233,7 +5233,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "24 + 24* महीने",
                 },
                 {
@@ -5268,7 +5268,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -5276,7 +5276,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "51.3 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -5330,7 +5330,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.battery,
             metadata: {
-                title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 150 Ah ऑनलाइन ",
+                title: "लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर 150 Ah ऑनलाइन",
                 description: "ख़रीदें लिवगार्ड INVERTUFF शोर्ट ट्यूबुलर जंबो 150 Ah बैटरी सबसे एक दामों में, 24+24* महीने की वारंटी के साथ; छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
@@ -5401,7 +5401,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -5525,7 +5525,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
+                    text: "शोर्ट टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -5538,7 +5538,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "24 + 24* महीने",
                 },
                 {
@@ -5581,7 +5581,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "47.6 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -5706,7 +5706,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -5830,7 +5830,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "शोर्ट टॉल ट्यूबलर  ",
+                    text: "शोर्ट टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -5843,7 +5843,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "36 + 24* महीने",
                 },
                 {
@@ -5878,7 +5878,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -5886,7 +5886,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "52.2 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -6011,7 +6011,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -6148,7 +6148,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "36 + 14* महीने",
                 },
                 {
@@ -6183,7 +6183,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -6191,7 +6191,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "53.2 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -6245,7 +6245,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.battery,
             metadata: {
-                title: "लिवगार्ड INVERTUFF टॉल ट्यूबुलर150 Ah बैटरी ऑनलाइन ",
+                title: "लिवगार्ड INVERTUFF टॉल ट्यूबुलर150 Ah बैटरी ऑनलाइन",
                 description: "36+14* महीने की वारंटी वाली लिवगार्ड INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ असीमित ऊर्जा  का आनंद लें; छोटे कार्यालयों और घरों के लिए उपयुक्त।",
                 canonicalUrl: "",
                 schema: `
@@ -6316,7 +6316,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -6440,7 +6440,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबलर  ",
+                    text: "टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -6453,7 +6453,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "42 + 30* महीने",
                 },
                 {
@@ -6488,7 +6488,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -6496,7 +6496,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "54.2 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -6621,7 +6621,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -6745,7 +6745,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबलर  ",
+                    text: "टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -6758,7 +6758,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "48 + 30* महीने",
                 },
                 {
@@ -6793,7 +6793,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -6801,7 +6801,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "54.2 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -6926,7 +6926,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -7050,7 +7050,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबलर  ",
+                    text: "टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -7063,7 +7063,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "18 + 18* महीने",
                 },
                 {
@@ -7106,7 +7106,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "52.8 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -7231,7 +7231,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -7355,7 +7355,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबलर  ",
+                    text: "टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -7368,7 +7368,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "30 + 18* महीने",
                 },
                 {
@@ -7403,7 +7403,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -7411,7 +7411,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "54.9 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -7536,7 +7536,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -7673,7 +7673,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "42 + 20* महीने",
                 },
                 {
@@ -7708,7 +7708,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -7716,7 +7716,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "54.2 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -7841,7 +7841,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -7965,7 +7965,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -7978,7 +7978,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "24 + 18* महीने",
                 },
                 {
@@ -8013,7 +8013,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -8021,7 +8021,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "52.8 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -8146,7 +8146,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -8224,7 +8224,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.battery,
             metadata: {
                 title: "Livguard Tall Tubular 160 Ah battery with 48 months warranty",
-                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 27+21* month warranty is built with a 3D grid design and high storage capacity. ",
+                description: "The Livguard INVERTUFF Tall Tubular 160 Ah Battery with a 27+21* month warranty is built with a 3D grid design and high storage capacity.",
                 canonicalUrl: `/product/it1648tt`,
                 schema: `
                 {
@@ -8270,7 +8270,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -8326,7 +8326,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "54.9 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -8451,7 +8451,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -8529,7 +8529,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.battery,
             metadata: {
                 title: "Buy INVERTUFF Tall Tubular 180 Ah - Livguard Online",
-                description: "Livguard INVERTUFF Tall Tubular 180 Ah Battery delivers satisfactory performance every time, with long and durable battery life and a 36+24* Months warranty. ",
+                description: "Livguard INVERTUFF Tall Tubular 180 Ah Battery delivers satisfactory performance every time, with long and durable battery life and a 36+24* Months warranty.",
                 canonicalUrl: `/product/it1860tt`,
                 schema: `
                 {
@@ -8575,7 +8575,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -8588,7 +8588,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "36 + 24* महीने",
                 },
                 {
@@ -8623,7 +8623,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -8631,7 +8631,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "55.0 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -8756,7 +8756,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -8834,7 +8834,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.battery,
             metadata: {
                 title: "Livguard INVERTUFF Tall Tubular 200 Ah Battery online",
-                description: "Buy Livguard INVERTUFF Tall tubular 200 Ah battery with 24+24* months warranty, suitable for small offices, homes, and small shops. ",
+                description: "Buy Livguard INVERTUFF Tall tubular 200 Ah battery with 24+24* months warranty, suitable for small offices, homes, and small shops.",
                 canonicalUrl: `/product/it2048tt`,
                 schema: `
                 {
@@ -8880,7 +8880,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -8893,7 +8893,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "24 + 24* महीने",
                 },
                 {
@@ -8928,7 +8928,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -8936,7 +8936,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "51.3 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -9061,7 +9061,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -9185,7 +9185,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: " टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -9198,7 +9198,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "48 + 24* महीने",
                 },
                 {
@@ -9233,7 +9233,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -9241,7 +9241,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "55.0 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -9366,7 +9366,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -9491,7 +9491,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: " शोर्ट जंबो ट्यूबुलर ",
+                    text: "शोर्ट जंबो ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -9504,7 +9504,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "42 + 24* महीने",
                 },
                 {
@@ -9539,7 +9539,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -9547,7 +9547,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "51.3 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -9672,7 +9672,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -9796,7 +9796,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -9809,7 +9809,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "36 + 24* महीने",
                 },
                 {
@@ -9852,7 +9852,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "51.3 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -9977,7 +9977,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -10055,7 +10055,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.battery,
             metadata: {
                 title: "Buy INVERTUFF Tall Tubular 200 Ah Battery - Livguard",
-                description: "Get Livguard INVERTUFF tall tubular 200 Ah battery with 48+24* months warranty, a suitable inverter for small offices, homes, and small shops. ",
+                description: "Get Livguard INVERTUFF tall tubular 200 Ah battery with 48+24* months warranty, a suitable inverter for small offices, homes, and small shops.",
                 canonicalUrl: `/product/it2072tt`,
                 schema: `
                 {
@@ -10101,7 +10101,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -10114,7 +10114,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "48 + 24* महीने",
                 },
                 {
@@ -10157,7 +10157,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "58.9 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -10282,7 +10282,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -10406,7 +10406,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -10419,7 +10419,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "48 + 24* महीने",
                 },
                 {
@@ -10462,7 +10462,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "63.3 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -10587,7 +10587,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -10664,8 +10664,8 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             type: ProductType.battery,
             metadata: {
-                title: "Tall Tubular 230 battery with 60 months warranty- Livguard ",
-                description: "Get Livguard INVERTUFF tall tubular 230 Ah battery with 36 +24* months warranty, suitable inverter for small offices, homes, and small shops. ",
+                title: "Tall Tubular 230 battery with 60 months warranty- Livguard",
+                description: "Get Livguard INVERTUFF tall tubular 230 Ah battery with 36 +24* months warranty, suitable inverter for small offices, homes, and small shops.",
                 canonicalUrl: `/product/it2360tt`,
                 schema: `
                 {
@@ -10711,7 +10711,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -10724,7 +10724,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "36 + 24* महीने",
                 },
                 {
@@ -10767,7 +10767,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "57.5 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -10892,7 +10892,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "Peace of mind with Best-In-Class Warranty",
                 },
                 {
-                    value: "Long Lasting Battery Life for an unlimited flow of energy ",
+                    value: "Long Lasting Battery Life for an unlimited flow of energy",
                 },
                 {
                     value: "Tuff Futuristic Design to complement the aesthetics of your home",
@@ -11016,7 +11016,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/tall tubular white.png",
-                    text: "टॉल ट्यूबुलर ",
+                    text: "टॉल ट्यूबुलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -11029,7 +11029,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "INVERTUFF",
                 },
                 {
-                    title: "वारंटी ",
+                    title: "वारंटी",
                     value: "42 + 30* महीने",
                 },
                 {
@@ -11072,7 +11072,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     value: "70.0 ± 3%",
                 },
                 {
-                    title: "मूल का देश ",
+                    title: "मूल का देश",
                     value: "भारत",
                 },
             ],
@@ -11273,7 +11273,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             type: ProductType.jodi,
             metadata: {
                 title: "Buy Livguard Inverter and Battery Urban Jodi Online",
-                description: "Livguard Urban Jodi comes with i-verter pro Sinewave 1500 VA Inverter and INVERTUFF Tall Tubular 150 Ah Battery Backed with Smart Artificial Intelligent Charging ",
+                description: "Livguard Urban Jodi comes with i-verter pro Sinewave 1500 VA Inverter and INVERTUFF Tall Tubular 150 Ah Battery Backed with Smart Artificial Intelligent Charging",
                 canonicalUrl: "",
                 schema: `
 
@@ -11306,7 +11306,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/technology.png",
-                    text: "साइन वेव + शोर्ट टॉल ट्यूबलर ",
+                    text: "साइन वेव + शोर्ट टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -11350,7 +11350,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -11592,7 +11592,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/technology.png",
-                    text: "चौकोर तरंग + टॉल ट्यूबलर ",
+                    text: "चौकोर तरंग + टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -11640,7 +11640,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -11724,7 +11724,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/super-life-jodi/infographics/3.jpg",
                 },
             ],
-            title: " Livguard Inverter / Inverter Battery Jodi i-verter pro / INVERTUFF Sinewave / Tall Tubular 1500 VA / 150 Ah with 3 year / 60+24 Month Warranty.",
+            title: "Livguard Inverter / Inverter Battery Jodi i-verter pro / INVERTUFF Sinewave / Tall Tubular 1500 VA / 150 Ah with 3 year / 60+24 Month Warranty.",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
             description: "Bring home the power of limitless energy with our amazingly curated Jodi combos. Made to perfectly match your needs efficiently.",
             productIcons: [
@@ -11882,7 +11882,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/technology.png",
-                    text: "साइन वेव + टॉल ट्यूबलर ",
+                    text: "साइन वेव + टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -11930,7 +11930,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
@@ -12173,7 +12173,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     icon: "/livguard/icons/technology.png",
-                    text: "साइन वेव + टॉल ट्यूबलर ",
+                    text: "साइन वेव + टॉल ट्यूबलर",
                 },
                 {
                     icon: "/livguard/icons/dimensions.png",
@@ -12221,7 +12221,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             ],
             additionalInfo: [
                 {
-                    title: " उत्पादक",
+                    title: "उत्पादक",
                     value: "लिवगार्ड",
                 },
                 {
