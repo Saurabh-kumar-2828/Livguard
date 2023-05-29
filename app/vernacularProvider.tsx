@@ -524,9 +524,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "नतीजा निकालें",
         [Language.Marathi]: "?????",
     },
+    "c4c839c0-582d-4f53-be91-6730977f87aa": {
+        [Language.English]: `Take Charge of Your Energy`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "aab3e140-baaf-46ce-a405-be90c45ef157": {
+        [Language.English]: `With Our <span class="lg-text-highlighted">Power Planner</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "5591c0ca-fe8b-42ae-8154-d7bab6ce721e": {
+        [Language.English]: `Get tailored power solutions, use our Power Planner to find the right inverter and inverter battery options for your home.`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
     homeS6H1T1: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Transforming Lives</span> With`,
-        [Language.Hindi]: `ग्राहकों के <span class=\"lg-text-highlighted\">बदलते जीवन</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Transforming Lives</span> With`,
+        [Language.Hindi]: `ग्राहकों के <span class="lg-text-highlighted">बदलते जीवन</span>`,
         [Language.Marathi]: "?????",
     },
     homeS6H1T2: {

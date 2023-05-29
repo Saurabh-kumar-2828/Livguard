@@ -634,7 +634,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT1", userPreferences.language)}} />
@@ -647,10 +647,11 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(product, productIndex) => (
-                            <DefaultElementAnimation>
+                            <DefaultElementAnimation
+                                key={productIndex}
+                            >
                                 <div
                                     className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}
-                                    key={productIndex}
                                 >
                                     <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3">
                                         {product.bestSeller && <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 tw-pt-[2px]"> Best Seller </div>}

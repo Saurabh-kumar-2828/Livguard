@@ -5,7 +5,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function FAQSection({
+export function FaqSectionInternal({
     userPreferences,
     className,
     faqs,
@@ -18,8 +18,8 @@ export function FAQSection({
     }>;
 }) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,(minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-y-4">
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
+            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,(minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4">
                 <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-flex tw-flex-col">
                     <div className="lg-text-headline tw-text-center lg:tw-text-left">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />

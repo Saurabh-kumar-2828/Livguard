@@ -80,6 +80,7 @@ export function JodiCarousel({
                                                             className={`tw-row-start-${keySpecificationIndex <= 1 ? "1" : "2"} tw-col-start-${
                                                                 (keySpecificationIndex % 2) + 1
                                                             } tw-flex tw-flex-row tw-items-start tw-justify-start tw-gap-3 tw-mx-auto tw-w-[120px]`}
+                                                            key={keySpecificationIndex}
                                                         >
                                                             <div className="tw-flex tw-min-w-[2.5rem] tw-h-10 tw-rounded-full lg-bg-primary-500 tw-items-center tw-justify-center">
                                                                 <FixedWidthImage

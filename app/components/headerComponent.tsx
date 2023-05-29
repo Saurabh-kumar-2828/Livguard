@@ -112,288 +112,320 @@ export function HeaderComponent({
     }, [selectedTheme]);
 
     return (
-        <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
-            <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
-                <button
-                    onClick={tryToOpenContactUsDialog}
-                    className="tw-underline tw-underline-offset-4 lg:tw-hidden"
-                >
-                    {getVernacularString("headerS1T1", userPreferences.language)}
-                </button>
+        <>
+                <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
+                <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
+                    <button
+                        onClick={tryToOpenContactUsDialog}
+                        className="tw-underline tw-underline-offset-4 lg:tw-hidden"
+                    >
+                        {getVernacularString("headerS1T1", userPreferences.language)}
+                    </button>
 
-                <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                    {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
-                    <HorizontalSpacer className="tw-w-1" />
-                    <a href="tel:18001025551">1800-1025-551</a>
+                    <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+                        {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
+                        <HorizontalSpacer className="tw-w-1" />
+                        <a href="tel:18001025551">1800-1025-551</a>
+                        <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+                        <HorizontalSpacer className="tw-w-4" />
+                        {getVernacularString("headerContactUsDialogT3", userPreferences.language)}:
+                        <HorizontalSpacer className="tw-w-1" />
+                        <a href="tel:+919205667999">+91 92056-67999</a>
+                    </div>
+
+                    <div className="tw-flex-1" />
+
+                    <Form
+                        method="post"
+                        action="/set-theme"
+                        ref={themeFormRef}
+                        className="tw-relative tw-h-6"
+                    >
+                        <Listbox
+                            value={selectedTheme}
+                            onChange={setSelectedTheme}
+                        >
+                            <Listbox.Button className="lg-text-secondary-900">
+                                <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
+                                <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
+                            </Listbox.Button>
+
+                            <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                                <ItemBuilder
+                                    items={themeOptions}
+                                    itemBuilder={(item, itemIndex) => (
+                                        <Listbox.Option
+                                            value={item}
+                                            key={itemIndex}
+                                            as={React.Fragment}
+                                        >
+                                            {({active, selected}) => (
+                                                <li
+                                                    className={concatenateNonNullStringsWithSpaces(
+                                                        "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                        active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                    )}
+                                                >
+                                                    <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
+                                                    {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
+                                                </li>
+                                            )}
+                                        </Listbox.Option>
+                                    )}
+                                    spaceBuilder={(spaceIndex) => (
+                                        <div
+                                            className="tw-h-px lg-bg-secondary-700"
+                                            key={spaceIndex}
+                                        />
+                                    )}
+                                />
+                            </Listbox.Options>
+                        </Listbox>
+
+                        <input
+                            type="text"
+                            name="theme"
+                            value={selectedTheme ?? ""}
+                            readOnly
+                            className="tw-hidden"
+                        />
+
+                        <input
+                            type="text"
+                            name="redirectTo"
+                            value={redirectTo}
+                            readOnly
+                            className="tw-hidden"
+                        />
+                    </Form>
+
                     <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+
                     <HorizontalSpacer className="tw-w-4" />
-                    {getVernacularString("headerContactUsDialogT3", userPreferences.language)}:
-                    <HorizontalSpacer className="tw-w-1" />
-                    <a href="tel:+919205667999">+91 92056-67999</a>
+
+                    <Form
+                        method="post"
+                        action="/set-language"
+                        ref={languageFormRef}
+                        className="tw-relative"
+                    >
+                        <Listbox
+                            value={selectedLanguage}
+                            onChange={setSelectedLanguage}
+                        >
+                            <Listbox.Button className="lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+                                {languageToShortHumanFriendlyFormat(selectedLanguage)}
+                                <ChevronDown className="tw-w-4 tw-h-4" />
+                            </Listbox.Button>
+
+                            <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                                <ItemBuilder
+                                    items={languageOptions}
+                                    itemBuilder={(item, itemIndex) => (
+                                        <Listbox.Option
+                                            value={item}
+                                            key={itemIndex}
+                                            as={React.Fragment}
+                                        >
+                                            {({active, selected}) => (
+                                                <li
+                                                    className={concatenateNonNullStringsWithSpaces(
+                                                        "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                        active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                                    )}
+                                                >
+                                                    <div>{languageToHumanFriendlyString(item)}</div>
+                                                    {selected ? (
+                                                        <Check2 className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+                                                    ) : (
+                                                        <div className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+                                                    )}
+                                                </li>
+                                            )}
+                                        </Listbox.Option>
+                                    )}
+                                    spaceBuilder={(spaceIndex) => (
+                                        <div
+                                            className="tw-h-px lg-bg-secondary-700"
+                                            key={spaceIndex}
+                                        />
+                                    )}
+                                />
+                            </Listbox.Options>
+                        </Listbox>
+
+                        <input
+                            type="text"
+                            name="language"
+                            value={selectedLanguage}
+                            readOnly
+                            className="tw-hidden"
+                        />
+
+                        <input
+                            type="text"
+                            name="redirectTo"
+                            value={redirectTo}
+                            readOnly
+                            className="tw-hidden"
+                        />
+                    </Form>
                 </div>
 
-                <div className="tw-flex-1" />
+                <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
+                    {showMobileMenuIcon && (
+                        <div className="tw-flex tw-flex-row lg:tw-hidden">
+                            <button
+                                type="button"
+                                onClick={tryToOpenMenu}
+                            >
+                                <Bars3Icon className="tw-w-6 tw-h-6" />
+                            </button>
 
-                <Form
-                    method="post"
-                    action="/set-theme"
-                    ref={themeFormRef}
-                    className="tw-relative tw-h-6"
-                >
-                    <Listbox
-                        value={selectedTheme}
-                        onChange={setSelectedTheme}
-                    >
-                        <Listbox.Button className="lg-text-secondary-900">
-                            <BrightnessHighFill className="tw-w-6 tw-h-6 tw-block dark:tw-hidden" />
-                            <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
-                        </Listbox.Button>
+                            <HorizontalSpacer className="tw-w-2" />
+                        </div>
+                    )}
 
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
-                            <ItemBuilder
-                                items={themeOptions}
-                                itemBuilder={(item, itemIndex) => (
-                                    <Listbox.Option
-                                        value={item}
-                                        key={itemIndex}
-                                        as={React.Fragment}
-                                    >
-                                        {({active, selected}) => (
-                                            <li
-                                                className={concatenateNonNullStringsWithSpaces(
-                                                    "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                    active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
-                                                )}
-                                            >
-                                                <div>{themeToHumanFriendlyString(userPreferences, item)}</div>
-                                                {selected ? <Check2 className="tw-w-5 tw-h-5" /> : <div className="tw-w-5 tw-h-5" />}
-                                            </li>
-                                        )}
-                                    </Listbox.Option>
-                                )}
-                                spaceBuilder={(spaceIndex) => (
-                                    <div
-                                        className="tw-h-px lg-bg-secondary-700"
-                                        key={spaceIndex}
-                                    />
-                                )}
+                    <Link to="/">
+                        <div className="tw-block dark:tw-hidden">
+                            <img
+                                src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                                width={385}
+                                height={96}
+                                className="tw-w-auto tw-h-6"
                             />
-                        </Listbox.Options>
-                    </Listbox>
+                        </div>
 
-                    <input
-                        type="text"
-                        name="theme"
-                        value={selectedTheme ?? ""}
-                        readOnly
-                        className="tw-hidden"
-                    />
-
-                    <input
-                        type="text"
-                        name="redirectTo"
-                        value={redirectTo}
-                        readOnly
-                        className="tw-hidden"
-                    />
-                </Form>
-
-                <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
-
-                <HorizontalSpacer className="tw-w-4" />
-
-                <Form
-                    method="post"
-                    action="/set-language"
-                    ref={languageFormRef}
-                    className="tw-relative"
-                >
-                    <Listbox
-                        value={selectedLanguage}
-                        onChange={setSelectedLanguage}
-                    >
-                        <Listbox.Button className="lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                            {languageToShortHumanFriendlyFormat(selectedLanguage)}
-                            <ChevronDown className="tw-w-4 tw-h-4" />
-                        </Listbox.Button>
-
-                        <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
-                            <ItemBuilder
-                                items={languageOptions}
-                                itemBuilder={(item, itemIndex) => (
-                                    <Listbox.Option
-                                        value={item}
-                                        key={itemIndex}
-                                        as={React.Fragment}
-                                    >
-                                        {({active, selected}) => (
-                                            <li
-                                                className={concatenateNonNullStringsWithSpaces(
-                                                    "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
-                                                    active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
-                                                )}
-                                            >
-                                                <div>{languageToHumanFriendlyString(item)}</div>
-                                                {selected ? (
-                                                    <Check2 className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
-                                                ) : (
-                                                    <div className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
-                                                )}
-                                            </li>
-                                        )}
-                                    </Listbox.Option>
-                                )}
-                                spaceBuilder={(spaceIndex) => (
-                                    <div
-                                        className="tw-h-px lg-bg-secondary-700"
-                                        key={spaceIndex}
-                                    />
-                                )}
+                        <div className="dark:tw-block tw-hidden">
+                            <img
+                                src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                width={385}
+                                height={96}
+                                className="tw-w-auto tw-h-6"
                             />
-                        </Listbox.Options>
-                    </Listbox>
+                        </div>
+                    </Link>
 
-                    <input
-                        type="text"
-                        name="language"
-                        value={selectedLanguage}
-                        readOnly
-                        className="tw-hidden"
-                    />
+                    <div className="tw-w-8 tw-hidden lg:tw-flex" />
 
-                    <input
-                        type="text"
-                        name="redirectTo"
-                        value={redirectTo}
-                        readOnly
-                        className="tw-hidden"
-                    />
-                </Form>
-            </div>
+                    {showMobileMenuIcon && (
+                        <div className="tw-hidden [@media(min-width:1075px)]:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    tryToOpenSubMenu(SubMenu.Inverters);
+                                }}
+                            >
+                                {getVernacularString("headerMenuS1T1", userPreferences.language)}
+                            </button>
 
-            <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-                {showMobileMenuIcon && (
-                    <div className="tw-flex tw-flex-row lg:tw-hidden">
+                            <Link to="/inverter-batteries">{getVernacularString("headerMenuS1T2", userPreferences.language)}</Link>
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
+                                }}
+                            >
+                                {getVernacularString("headerMenuS1T3", userPreferences.language)}
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    tryToOpenSubMenu(SubMenu.Solar);
+                                }}
+                            >
+                                {getVernacularString("headerMenuS1T4", userPreferences.language)}
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    tryToOpenSubMenu(SubMenu.AccessoriesAndotherBatteries);
+                                }}
+                            >
+                                {getVernacularString("headerMenuS1T5", userPreferences.language)}
+                            </button>
+
+                            <Link to="/dealer-for-inverters-and-batteries">{getVernacularString("headerMenuS1T6", userPreferences.language)}</Link>
+
+                            {/* <a
+                            href="/register-and-warranty-for-inverters.php"
+                        >
+                            {getVernacularString("headerMenuS1T7", userPreferences.language)}
+                        </a> */}
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    tryToOpenSubMenu(SubMenu.More);
+                                }}
+                            >
+                                {getVernacularString("headerMenuS1T8", userPreferences.language)}
+                            </button>
+
+                            <Link
+                                to={"/load-calculator"}
+                                className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
+                            >
+                                {getVernacularString("headerLoadCalculator", userPreferences.language)}
+                            </Link>
+                        </div>
+                    )}
+
+                    <div className="tw-flex-1" />
+
+                    {showSearchOption && (
                         <button
                             type="button"
-                            onClick={tryToOpenMenu}
+                            onClick={tryToOpenSearch}
+                            className="tw-flex tw-flex-row tw-items-center"
                         >
-                            <Bars3Icon className="tw-w-6 tw-h-6" />
+                            <Search className="tw-w-6 tw-h-6" />
+                            <HorizontalSpacer className="tw-w-2" />
+                            <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
                         </button>
-
-                        <HorizontalSpacer className="tw-w-2" />
-                    </div>
-                )}
-
-                <Link to="/">
-                    <div className="tw-block dark:tw-hidden">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6"
+                    )}
+                    {showContactCtaButton && (
+                        <OfferContactUsCta
+                            userPreferences={userPreferences}
+                            textVernacId="offerPageCta"
+                            className="tw-z-10 tw-hidden lg:tw-block"
+                            pageUrl={pageUrl}
                         />
-                    </div>
+                    )}
+                </div>
 
-                    <div className="dark:tw-block tw-hidden">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6"
-                        />
-                    </div>
-                </Link>
+                <ContactUsDialog
+                    userPreferences={userPreferences}
+                    isContactUsDialogOpen={isContactUsDialogOpen}
+                    setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                />
 
-                <div className="tw-w-8 tw-hidden lg:tw-flex" />
+                <MenuDialog
+                    userPreferences={userPreferences}
+                    isMenuOpen={isMenuOpen}
+                    setIsMenuOpen={setIsMenuOpen}
+                    menuState={menuState}
+                    currentlyOpenSubMenu={currentlyOpenSubMenu}
+                    setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+                    subMenuState={subMenuState}
+                    tryToOpenSubMenu={tryToOpenSubMenu}
+                />
 
-                {showMobileMenuIcon && (
-                    <div className="tw-hidden [@media(min-width:1075px)]:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.Inverters);
-                            }}
-                        >
-                            {getVernacularString("headerMenuS1T1", userPreferences.language)}
-                        </button>
+                <SubMenuDialog
+                    userPreferences={userPreferences}
+                    currentlyOpenSubMenu={currentlyOpenSubMenu}
+                    setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+                    subMenuState={subMenuState}
+                />
 
-                        <Link to="/inverter-batteries">{getVernacularString("headerMenuS1T2", userPreferences.language)}</Link>
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
-                            }}
-                        >
-                            {getVernacularString("headerMenuS1T3", userPreferences.language)}
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.Solar);
-                            }}
-                        >
-                            {getVernacularString("headerMenuS1T4", userPreferences.language)}
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.AccessoriesAndotherBatteries);
-                            }}
-                        >
-                            {getVernacularString("headerMenuS1T5", userPreferences.language)}
-                        </button>
-
-                        <Link to="/dealer-for-inverters-and-batteries">{getVernacularString("headerMenuS1T6", userPreferences.language)}</Link>
-
-                        {/* <a
-                        href="/register-and-warranty-for-inverters.php"
-                    >
-                        {getVernacularString("headerMenuS1T7", userPreferences.language)}
-                    </a> */}
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.More);
-                            }}
-                        >
-                            {getVernacularString("headerMenuS1T8", userPreferences.language)}
-                        </button>
-
-                        <Link
-                            to={"/load-calculator"}
-                            className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
-                        >
-                            {getVernacularString("headerLoadCalculator", userPreferences.language)}
-                        </Link>
-                    </div>
-                )}
-
-                <div className="tw-flex-1" />
-
-                {showSearchOption && (
-                    <button
-                        type="button"
-                        onClick={tryToOpenSearch}
-                        className="tw-flex tw-flex-row tw-items-center"
-                    >
-                        <Search className="tw-w-6 tw-h-6" />
-                        <HorizontalSpacer className="tw-w-2" />
-                        <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
-                    </button>
-                )}
-                {showContactCtaButton && (
-                    <OfferContactUsCta
-                        userPreferences={userPreferences}
-                        textVernacId="offerPageCta"
-                        className="tw-z-10 tw-hidden lg:tw-block"
-                        pageUrl={pageUrl}
-                    />
-                )}
+                <SearchDialog
+                    userPreferences={userPreferences}
+                    isSearchOpen={isSearchOpen}
+                    setIsSearchOpen={setIsSearchOpen}
+                />
             </div>
 
             {breadcrumbs == null ? null : (
@@ -420,37 +452,7 @@ export function HeaderComponent({
                     />
                 </div>
             )}
-
-            <ContactUsDialog
-                userPreferences={userPreferences}
-                isContactUsDialogOpen={isContactUsDialogOpen}
-                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-            />
-
-            <MenuDialog
-                userPreferences={userPreferences}
-                isMenuOpen={isMenuOpen}
-                setIsMenuOpen={setIsMenuOpen}
-                menuState={menuState}
-                currentlyOpenSubMenu={currentlyOpenSubMenu}
-                setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
-                subMenuState={subMenuState}
-                tryToOpenSubMenu={tryToOpenSubMenu}
-            />
-
-            <SubMenuDialog
-                userPreferences={userPreferences}
-                currentlyOpenSubMenu={currentlyOpenSubMenu}
-                setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
-                subMenuState={subMenuState}
-            />
-
-            <SearchDialog
-                userPreferences={userPreferences}
-                isSearchOpen={isSearchOpen}
-                setIsSearchOpen={setIsSearchOpen}
-            />
-        </div>
+        </>
     );
 }
 

@@ -4,7 +4,7 @@ import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FAQSection} from "~/components/faqs";
+import {FaqSectionInternal} from "~/components/faqs";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/components/images/coverImage";
@@ -22,6 +22,7 @@ import type { UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import {StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -120,7 +121,7 @@ function LandingPage({
     pageUrl: string;
 }) {
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">
             <HeroSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -128,59 +129,53 @@ function LandingPage({
                 pageUrl={pageUrl}
             />
 
-            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
-
             <JodiSection
                 userPreferences={userPreferences}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px] tw-h-full"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px] tw-h-full"
             />
-
-            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-[6] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <PowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-[5] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-row-start-[8] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <ExploreStarProducts
                 userPreferences={userPreferences}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[7] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <TapIntoEfficiency
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
-                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
                 pageUrl={pageUrl}
             />
 
-            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
+            <StepsToAvailCashback
+                userPreferences={userPreferences}
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
+
+            <TermsAndConditions
+                userPreferences={userPreferences}
+                className="tw-row-start-8 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]"
+            />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 lg:tw-row-start-[12] tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-9 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
         </div>
     );
 }
@@ -392,7 +387,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     ];
 
     return (
-        <FAQSection
+        <FaqSectionInternal
             faqs={faqs}
             userPreferences={userPreferences}
             className={className}

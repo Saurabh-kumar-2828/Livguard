@@ -10,7 +10,7 @@ import {StickyBottomBar} from "~/components/bottomBar";
 import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FAQSection} from "~/components/faqs";
+import {FaqSectionInternal} from "~/components/faqs";
 import LivguardDialog from "~/components/livguardDialog";
 import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -240,7 +240,7 @@ export function DealerLocatorPage({
             <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-                <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-4 lg:tw-items-center">
+                <div className="tw-flex tw-flex-col lg:tw-grid lg:tw-grid-cols-[minmax(0,2fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-gap-x-4 lg:tw-items-center tw-w-full tw-max-w-7xl tw-mx-auto">
                     <div className="tw-col-start-1 tw-row-start-1">
                         <GoogleMapView dealerList={dealerList} />
                     </div>
@@ -459,7 +459,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
 
     const containerStyle = {
         width: "100%",
-        height: "400px",
+        height: "100%",
         borderRadius: "8px",
         class: "tw-rounded-lg",
     };
@@ -489,35 +489,38 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
     }, [dealerList]);
 
     return (
-        <LoadScript
-            googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY"
-            // preventGoogleFontsLoading={true}
-        >
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={mapCenter}
-                zoom={zoomLevel}
+        // LoadScript/GoogleMap produces an empty div before the actual useful div, so provide a dummy 0 height row for it
+        <div className="tw-w-full tw-h-[400px] tw-grid tw-grid-rows-[0_auto] tw-grid-cols-1 tw-place-items-center">
+            <LoadScript
+                googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY"
+                // preventGoogleFontsLoading={true}
             >
-                {dealerList == null || dealerList.length == 0
-                    ? null
-                    : dealerList.slice(0, 5).map((dealer, dealerIndex) => (
-                          <MarkerF
-                              position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
-                              key={dealerIndex}
-                          />
-                      ))}
-
-                {/* <Autocomplete
-                    onLoad={()}
+                <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={mapCenter}
+                    zoom={zoomLevel}
                 >
-                    <input
-                        type="text"
-                        name="dealerLocation"
-                        placeholder="dealerLocation"
-                    ></input>
-                </Autocomplete> */}
-            </GoogleMap>
-        </LoadScript>
+                    {dealerList == null || dealerList.length == 0
+                        ? null
+                        : dealerList.slice(0, 5).map((dealer, dealerIndex) => (
+                            <MarkerF
+                                position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
+                                key={dealerIndex}
+                            />
+                        ))}
+
+                    {/* <Autocomplete
+                        onLoad={()}
+                    >
+                        <input
+                            type="text"
+                            name="dealerLocation"
+                            placeholder="dealerLocation"
+                        ></input>
+                    </Autocomplete> */}
+                </GoogleMap>
+            </LoadScript>
+        </div>
     );
 }
 
@@ -1211,7 +1214,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     ];
 
     return (
-        <FAQSection
+        <FaqSectionInternal
             faqs={faqs}
             userPreferences={userPreferences}
             className={className}

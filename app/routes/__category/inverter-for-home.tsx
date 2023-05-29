@@ -7,7 +7,7 @@ import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
-import {FAQSection} from "~/components/faqs";
+import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
@@ -797,7 +797,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     ];
 
     return (
-        <FAQSection
+        <FaqSectionInternal
             faqs={faqs}
             userPreferences={userPreferences}
             className={className}

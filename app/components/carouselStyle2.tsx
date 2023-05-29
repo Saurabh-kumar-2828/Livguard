@@ -16,7 +16,7 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", className)}
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[30rem] tw-text-secondary-900-dark">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[calc(100%-4rem)] tw-text-secondary-900-dark">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
@@ -25,7 +25,7 @@ export function CarouselStyle2({userPreferences, items, className}: {userPrefere
                             key={itemIndex}
                         >
                             <div
-                                className="tw-w-full tw-h-full lg:tw-max-w-[30rem] tw-grid tw-grid-rows-[1.5rem_auto_1fr_auto_0_auto_1fr_1.5rem] tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]"
+                                className="tw-w-full tw-h-full tw-grid tw-grid-rows-[1.5rem_auto_1fr_auto_0_auto_1fr_1.5rem] tw-grid-cols-[1.5rem_minmax(0,1fr)_1.5rem]"
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full -tw-z-10">

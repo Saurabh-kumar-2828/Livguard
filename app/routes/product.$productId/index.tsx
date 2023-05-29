@@ -88,7 +88,7 @@ export default function () {
     // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
     // TODO: This is a very ugly hack, see if there is some other way around this
     let breadcrumbLastContentId;
-    const modelNumber = getSingletonValue(productData.specifications.filter(specification => specification.title == "Model Number"))?.value;
+    const modelNumber = getSingletonValue(productData.specifications.filter(specification => specification.title == (userPreferences.language == Language.Hindi ? "मॉडल संख्या" : "Model Number")))?.value;
     if (modelNumber == null) {
         breadcrumbLastContentId = "7f1b0663-3535-464c-86c9-78967d00dcc8";
     } else {

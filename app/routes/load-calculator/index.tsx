@@ -341,7 +341,7 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
     const [loadCalculatorInputs, dispatch] = useReducer(loadCalculatorInputsReducer, {propertyType: PropertyType.ThreeBhk}, createInitialState);
 
     return (
-        <div className={className}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
             <div
                 className={`tw-grid tw-grid-rows-[repeat(4,auto)] tw-grid-cols-1 lg:tw-grid-rows-[repeat(5,auto)] lg:tw-grid-cols-2 tw-justify-items-center
                     lg:tw-rounded-lg lg:tw-pb-[50px] lg:tw-pt-[25px] lg:tw-bg-gradient-to-br lg:tw-from-[#ffffff] lg:tw-to-[#b1b1b1] dark:lg:tw-bg-gradient-to-br dark:lg:tw-from-[#1e1e1e] dark:lg:tw-to-[#3a3a3a]`}
@@ -372,6 +372,44 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
                 <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-2 lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
                     <Link
                         to={`/load-calculator?property_type=${loadCalculatorInputs.property.propertyType}`}
+                        className=" lg-cta-button"
+                    >
+                        {getVernacularString("homeS5T6", userPreferences.language)}
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// TODO: Rename to something sensible
+export function MiniPowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    return (
+        <div className={className}>
+            <div className="tw-h-full lg:lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-6 tw-rounded-lg">
+                <h2 className="tw-flex tw-flex-col [@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2 tw-text-center tw-whitespace-nowrap">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("c4c839c0-582d-4f53-be91-6730977f87aa", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("aab3e140-baaf-46ce-a405-be90c45ef157", userPreferences.language)}} />
+                </h2>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div>{getVernacularString("5591c0ca-fe8b-42ae-8154-d7bab6ce721e", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <DefaultImageAnimation className="">
+                    <FixedWidthImage
+                        relativePath="/livguard/home/5/1.png"
+                        width="10rem"
+                    />
+                </DefaultImageAnimation>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-2 lg-px-screen-edge tw-flex tw-flex-col tw-items-center">
+                    <Link
+                        to="/load-calculator"
                         className=" lg-cta-button"
                     >
                         {getVernacularString("homeS5T6", userPreferences.language)}

@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -14,25 +14,24 @@ import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {FAQSection} from "~/components/faqs";
+import {FaqSectionInternal} from "~/components/faqs";
+import {CoverImage} from "~/components/images/coverImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
-import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {CoverImage} from "~/components/images/coverImage";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
-import {FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
-import {PowerPlannerTeaser} from "~/routes/load-calculator";
+import type {FormStateInputsAction} from "~/routes/lead-form.state";
+import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
+import {MiniPowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {FormType, Language, Theme} from "~/typeDefinitions";
@@ -215,7 +214,7 @@ function HomePage({
     pageUrl: string;
 }) {
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">
             <HeroSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -223,83 +222,51 @@ function HomePage({
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
-
             <EnergyStorageSolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <EnergySolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
-
-            <PowerPlannerTeaser
+            <MiniPowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-5 lg:tw-row-start-4 lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
             />
-
-            <VerticalSpacer className="tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
+                className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
             />
-
-            <VerticalSpacer className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-[12] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <WeAreOneOfAKind
                 userPreferences={userPreferences}
-                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-12 tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px] lg:tw-pr-0"
+                className="tw-row-start-8 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-20" />
-
-            <SolarSolutions
-                userPreferences={userPreferences}
-                className="tw-row-start-15 tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
-
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
-
-            <MeetOurLeadership
-                userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px]"
-            />
-
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[15] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-9 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:tw-hidden tw-h-10 lg:tw-h-20" />
 
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
+                className="tw-row-start-7 lg:tw-row-start-4 lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
             />
-
-            <VerticalSpacer className="tw-row-start-14 tw-col-start-1 lg:col-start-[18] tw-h-10 lg:tw-h-20" />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-13 tw-col-start-1 lg:tw-row-start-[17] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
         </div>
     );
@@ -444,7 +411,7 @@ function EnergyStorageSolutions({userPreferences, className}: {userPreferences: 
     return (
         <div
             id="energy-storage-solutions"
-            className={className}
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-7xl tw-mx-auto", className)}
         >
             <h1 className="tw-flex tw-flex-col tw-items-center lg-text-headline">
                 <DefaultTextAnimation>
@@ -712,11 +679,11 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
                 <VerticalSpacer className="tw-h-6" />
 
                 <DefaultImageAnimation className="tw-block lg:tw-hidden tw-w-full">
-                    <FullWidthImage relativePath="/livguard/home/4/1-mobile.jpg" />
+                    <FullWidthImage relativePath="/livguard/home/4/1-mobile.jpg" className="tw-rounded-lg" />
                 </DefaultImageAnimation>
 
                 <DefaultImageAnimation className="tw-hidden lg:tw-block tw-w-full">
-                    <FullWidthImage relativePath="/livguard/home/4/1-desktop.jpg" />
+                    <FullWidthImage relativePath="/livguard/home/4/1-desktop.jpg" className="tw-rounded-lg" />
                 </DefaultImageAnimation>
             </div>
         </div>
@@ -726,7 +693,7 @@ export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: 
 export function TransformingLives({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={className}>
-            <div className="lg-px-screen-edge lg-text-headline tw-text-center lg:tw-pr-[72px] xl:tw-pr-[120px]">
+            <div className="lg-px-screen-edge lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS6H1T1", userPreferences.language)}} />
                 </DefaultTextAnimation>
@@ -792,7 +759,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
 
 export function SolarSolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4 lg:tw-gap-y-8 lg-bg-secondary-100 tw-rounded-lg tw-justify-center tw-text-center tw-py-6">
                 <h2 className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 tw-px-6 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("homeS7H1T1", userPreferences.language))}} />
@@ -805,27 +772,28 @@ export function SolarSolutions({userPreferences, className}: {userPreferences: U
 
                 <div className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 tw-px-6 lg-text-title2">{getVernacularString("homeS7T3", userPreferences.language)}</div>
 
-                <CarouselStyle2
-                    userPreferences={userPreferences}
-                    className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full lg:tw-px-8"
-                    items={[
-                        {
-                            imageRelativePath: "/livguard/home/7/1.jpg",
-                            titleTextContentPiece: "homeS7S1T1",
-                            bodyTextContentPiece: "homeS7S1T2",
-                        },
-                        {
-                            imageRelativePath: "/livguard/home/7/2.jpg",
-                            titleTextContentPiece: "homeS7S2T1",
-                            bodyTextContentPiece: "homeS7S2T2",
-                        },
-                        {
-                            imageRelativePath: "/livguard/home/7/3.jpg",
-                            titleTextContentPiece: "homeS7S3T1",
-                            bodyTextContentPiece: "homeS7S3T2",
-                        },
-                    ]}
-                />
+                <div className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full lg:tw-pr-8">
+                    <CarouselStyle2
+                        userPreferences={userPreferences}
+                        items={[
+                            {
+                                imageRelativePath: "/livguard/home/7/1.jpg",
+                                titleTextContentPiece: "homeS7S1T1",
+                                bodyTextContentPiece: "homeS7S1T2",
+                            },
+                            {
+                                imageRelativePath: "/livguard/home/7/2.jpg",
+                                titleTextContentPiece: "homeS7S2T1",
+                                bodyTextContentPiece: "homeS7S2T2",
+                            },
+                            {
+                                imageRelativePath: "/livguard/home/7/3.jpg",
+                                titleTextContentPiece: "homeS7S3T1",
+                                bodyTextContentPiece: "homeS7S3T2",
+                            },
+                        ]}
+                    />
+                </div>
 
                 <div className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 tw-justify-self-center tw-px-6">
                     <a
@@ -908,7 +876,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     ];
 
     return (
-        <FAQSection
+        <FaqSectionInternal
             faqs={faqs}
             userPreferences={userPreferences}
             className={className}
@@ -1034,7 +1002,7 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
 
 export function PowerfulPurposePowerfulImpact({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-bg-secondary-100 tw-px-4 lg:tw-pl-8 tw-py-4 tw-rounded-lg">
                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />

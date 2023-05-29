@@ -328,6 +328,10 @@ export default function Root() {
                     <style
                         dangerouslySetInnerHTML={{
                             __html: `
+                                #haptik-xdk-wrapper {
+                                    z-index: 49;
+                                }
+
                                 @media (min-width: 640px) {
                                     iframe#haptik-xdk-main-view {
                                         bottom: 65px !important;

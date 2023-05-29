@@ -665,7 +665,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
@@ -737,7 +737,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
                         items={embeddedVideos}
                         itemBuilder={(video, videoIndex) => (
                             <div
-                                className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-py-4"
+                                className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-pb-4 tw-overflow-hidden"
                                 key={videoIndex}
                             >
                                 {video}
