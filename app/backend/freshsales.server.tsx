@@ -56,7 +56,7 @@ export async function sendDataToFreshsalesForOrmTracking(formResponse: {product:
         emails: formResponse.emailId,
         lead_source_id: "401000150606",
         custom_field: {
-            cf_recent_note: formResponse.queryDetails,
+            cf_query: formResponse.queryDetails,
             cf_lead_source: "social media",
             cf_product_type: formResponse.product,
         },
