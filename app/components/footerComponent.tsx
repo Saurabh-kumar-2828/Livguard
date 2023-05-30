@@ -763,7 +763,7 @@ export function FooterComponent({
     );
 }
 
-export function FooterSocialLogosAndCopyright({userPreferences, className}: {userPreferences: UserPreferences, className?: string}) {
+export function FooterSocialLogosAndCopyright({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge lg-bg-secondary-100", className)}>
             <VerticalSpacer className="tw-h-3" />
@@ -772,7 +772,10 @@ export function FooterSocialLogosAndCopyright({userPreferences, className}: {use
 
             <VerticalSpacer className="tw-h-6" />
 
-            <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyrightText", userPreferences.language)}} />
+            <div
+                className="tw-text-center tw-w-full"
+                dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyrightText", userPreferences.language)}}
+            />
             {/* <div dangerouslySetInnerHTML={{__html: getVernacularString("footerCopyWriteText", userPreferences.language)}} /> */}
             {/* <div>{getVernacularString("footerCopyWriteText", userPreferences.language)}</div> */}
 

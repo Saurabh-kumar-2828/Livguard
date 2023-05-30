@@ -25,7 +25,7 @@ type LoaderData = {
         businessId: string;
         clientId: string;
         baseUrl: string;
-    }
+    };
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -63,7 +63,7 @@ export const loader: LoaderFunction = async ({request}) => {
         userPreferences: userPreferences,
         canonicalUrl: canonicalUrl,
         websiteConfiguration: websiteConfiguration,
-        haptikInitSettings: haptikInitSettings
+        haptikInitSettings: haptikInitSettings,
     };
 
     return json(loaderData);
@@ -363,6 +363,10 @@ export default function Root() {
                                 freshchat-widget {
                                     display: none;
                                 }
+
+                                #fc_frame {
+                                    display: none;
+                                }
                             `,
                         }}
                     />
@@ -379,8 +383,8 @@ export function CatchBoundary() {
 
     return (
         <html
-            // TODO: Re-enable this
-            // lang="en"
+        // TODO: Re-enable this
+        // lang="en"
         >
             <head>
                 <Meta />
@@ -438,8 +442,8 @@ export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
 
     return (
         <html
-            // TODO: Re-enable this
-            // lang="en"
+        // TODO: Re-enable this
+        // lang="en"
         >
             <head>
                 <Meta />
