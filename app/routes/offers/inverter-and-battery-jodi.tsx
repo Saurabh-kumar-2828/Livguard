@@ -9,21 +9,20 @@ import {toast} from "react-toastify";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import LivguardDialog from "~/components/livguardDialog";
 import {OfferPageBottomBar} from "~/components/offerPageBottomBar";
-import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {CoverImage} from "~/components/images/coverImage";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
-import {FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
+import type {FormStateInputsAction} from "~/routes/lead-form.state";
+import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type { UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {FormType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -92,7 +91,10 @@ export default function () {
                 />
             </CampaignPageScaffold>
 
-            <OfferPageBottomBar userPreferences={userPreferences} pageUrl={pageUrl}/>
+            <OfferPageBottomBar
+                userPreferences={userPreferences}
+                pageUrl={pageUrl}
+            />
 
             {/* <script
                 type="application/ld+json"
@@ -139,7 +141,6 @@ function LandingPage({
         </div>
     );
 }
-
 
 export function HeroSection({
     userPreferences,
@@ -192,13 +193,7 @@ export function HeroSection({
     );
 }
 
-export function StepsToAvailCashback({
-    userPreferences,
-    className,
-}:{
-    userPreferences: UserPreferences;
-    className?: string;
-}){
+export function StepsToAvailCashback({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const steps = [
         {
             iconRelativePath: "livguard/icons/offers/step-1.svg",
@@ -247,7 +242,7 @@ export function StepsToAvailCashback({
                 <VerticalSpacer className="tw-h-3 lg:tw-h-6" />
 
                 <DefaultTextAnimation>
-                    <h1 className="lg-text-title1">{getVernacularString("OfferJodiHT3", userPreferences.language)}</h1>
+                    <div className="lg-text-title1">{getVernacularString("OfferJodiHT3", userPreferences.language)}</div>
                 </DefaultTextAnimation>
             </div>
 
@@ -262,12 +257,18 @@ export function StepsToAvailCashback({
                             key={stepIndex}
                         >
                             <div className="tw-absolute tw-inset-0 tw-grid tw-items-end">
-                                <div className="-tw-z-10 tw-text-[12rem] tw-leading-[10rem] lg:tw-text-[14rem] lg:tw-leading-[11rem] tw-place-self-end lg:tw-place-self-start tw-font-bold tw-opacity-20 tw-pr-5 tw-place-items-end lg-text-secondary-300">{`${stepIndex + 1}`}</div>
+                                <div className="-tw-z-10 tw-text-[12rem] tw-leading-[10rem] lg:tw-text-[14rem] lg:tw-leading-[11rem] tw-place-self-end lg:tw-place-self-start tw-font-bold tw-opacity-20 tw-pr-5 tw-place-items-end lg-text-secondary-300">{`${
+                                    stepIndex + 1
+                                }`}</div>
                             </div>
                             <div className="tw-col-start-1 tw-items-center">
                                 <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-justify-items-center tw-grid">
                                     <div className="tw-w-6 tw-h-6 tw-place-self-center">
-                                        <img src={`https://files.growthjockey.com/${step.iconRelativePath}`} alt="step-icon" className="tw-w-full tw-h-full" />
+                                        <img
+                                            src={`https://files.growthjockey.com/${step.iconRelativePath}`}
+                                            alt="step-icon"
+                                            className="tw-w-full tw-h-full"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -307,7 +308,14 @@ export function TermsAndConditions({userPreferences, className}: {userPreference
                 <VerticalSpacer className="tw-h-3" />
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-body tw-underline-offset-2 tw-underline hover:tw-cursor-pointer tw-w-fit" onClick={() => {setShowTnCDialog(true)}}>{getVernacularString("OfferTnCReadMore", userPreferences.language)}</div>
+                    <div
+                        className="lg-text-body tw-underline-offset-2 tw-underline hover:tw-cursor-pointer tw-w-fit"
+                        onClick={() => {
+                            setShowTnCDialog(true);
+                        }}
+                    >
+                        {getVernacularString("OfferTnCReadMore", userPreferences.language)}
+                    </div>
                 </DefaultTextAnimation>
             </div>
 
@@ -320,17 +328,7 @@ export function TermsAndConditions({userPreferences, className}: {userPreference
     );
 }
 
-export function OfferContactUsCta({
-    userPreferences,
-    textVernacId,
-    className,
-    pageUrl,
-}: {
-    userPreferences: UserPreferences;
-    textVernacId: string;
-    className?: string;
-    pageUrl: string;
-}) {
+export function OfferContactUsCta({userPreferences, textVernacId, className, pageUrl}: {userPreferences: UserPreferences; textVernacId: string; className?: string; pageUrl: string}) {
     const [isOfferContactUsDialogOpen, setIsOfferContactUsDialogOpen] = useState(false);
     const utmParameters = useUtmSearchParameters();
 

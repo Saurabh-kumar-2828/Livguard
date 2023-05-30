@@ -1,5 +1,5 @@
 import type {LoaderFunction, MetaFunction} from "@remix-run/node";
-import { Response} from "@remix-run/node";
+import {Response} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
@@ -17,12 +17,12 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import type { ProductDetails} from "~/productData";
+import type {ProductDetails} from "~/productData";
 import {allProductDetails, ProductType} from "~/productData";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type { UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {addVernacularString, getVernacularString} from "~/vernacularProvider";
@@ -88,7 +88,9 @@ export default function () {
     // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
     // TODO: This is a very ugly hack, see if there is some other way around this
     let breadcrumbLastContentId;
-    const modelNumber = getSingletonValue(productData.specifications.filter(specification => specification.title == (userPreferences.language == Language.Hindi ? "मॉडल संख्या" : "Model Number")))?.value;
+    const modelNumber = getSingletonValue(
+        productData.specifications.filter((specification) => specification.title == (userPreferences.language == Language.Hindi ? "मॉडल संख्या" : "Model Number")),
+    )?.value;
     if (modelNumber == null) {
         breadcrumbLastContentId = "7f1b0663-3535-464c-86c9-78967d00dcc8";
     } else {
@@ -110,13 +112,13 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    productData.type == ProductType.inverter ? (
-                        {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
-                    ) : productData.type == ProductType.battery ? (
-                        {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "/inverter-batteries"}
-                    ) : productData.type == ProductType.jodi ? (
-                        {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
-                    ) : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"},
+                    productData.type == ProductType.inverter
+                        ? {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
+                        : productData.type == ProductType.battery
+                        ? {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "/inverter-batteries"}
+                        : productData.type == ProductType.jodi
+                        ? {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
+                        : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"},
                     // TODO: Somehow get this to work
                     // {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
                     {contentId: breadcrumbLastContentId, link: "#"},
@@ -146,7 +148,7 @@ function ProductPage({
     userPreferences,
     productData,
     utmParameters,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     productData: ProductDetails;
@@ -247,7 +249,7 @@ function ProductInfo({
     productDetails,
     className,
     utmParameters,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     productDetails: ProductDetails;
@@ -294,9 +296,9 @@ function ProductInfo({
                 <div className="tw-flex tw-flex-col tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1">
                     <VerticalSpacer className="tw-h-4" />
 
-                    <div className="lg-text-title1 tw-text-left">
+                    <h1 className="lg-text-title1 tw-text-left">
                         {productDetails.title} <span className="tw-italic">{productDetails.subTitle} </span>
-                    </div>
+                    </h1>
 
                     <VerticalSpacer className="tw-h-4" />
 
@@ -308,12 +310,8 @@ function ProductInfo({
                         <ItemBuilder
                             items={productDetails.productIcons}
                             itemBuilder={(icon, iconIndex) => (
-                                <React.Fragment
-                                    key={iconIndex}
-                                >
-                                    <div
-                                        className="tw-flex tw-flex-col tw-gap-2 tw-justify-start tw-items-center tw-h-full"
-                                    >
+                                <React.Fragment key={iconIndex}>
+                                    <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-start tw-items-center tw-h-full">
                                         <div className="tw-w-10 tw-h-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-items-center tw-justify-center">
                                             <FixedWidthImage
                                                 relativePath={icon.icon}
@@ -344,7 +342,7 @@ function ProductInfo({
     );
 }
 
-function ProductSpecifications({userPreferences, ProductDetails,className}: {userPreferences: UserPreferences; ProductDetails: ProductDetails; className: string}) {
+function ProductSpecifications({userPreferences, ProductDetails, className}: {userPreferences: UserPreferences; ProductDetails: ProductDetails; className: string}) {
     const [selectedTab, setSelectedTab] = useState("specifications");
 
     const getDataFromProductDetails = (tab: string) => {
@@ -379,9 +377,7 @@ function ProductSpecifications({userPreferences, ProductDetails,className}: {use
                             },
                         ]}
                         itemBuilder={(item, itemIndex) => (
-                            <React.Fragment
-                                key={itemIndex}
-                            >
+                            <React.Fragment key={itemIndex}>
                                 <div
                                     className="tw-flex tw-flex-col tw-gap-1 tw-justify-center tw-items-center"
                                     onClick={() => setSelectedTab(item.value)}
@@ -423,7 +419,15 @@ function ProductSpecifications({userPreferences, ProductDetails,className}: {use
     );
 }
 
-function ProductDescription({userPreferences, productDescription,className}: {userPreferences: UserPreferences; productDescription: {description: string; images: Array<{image: string}>}; className: string}) {
+function ProductDescription({
+    userPreferences,
+    productDescription,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    productDescription: {description: string; images: Array<{image: string}>};
+    className: string;
+}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex-tw-flex-col", className)}>
             <div className="lg-text-headline tw-text-center">{getVernacularString("productPageProductDescription", userPreferences.language)}</div>
@@ -452,14 +456,11 @@ function ProductDescription({userPreferences, productDescription,className}: {us
                 />
             </div>
             <div className="tw-hidden lg:tw-block">
-                <ProductInfoCarousel
-                    items={productDescription.images}
-                />
+                <ProductInfoCarousel items={productDescription.images} />
             </div>
         </div>
     );
 }
-
 
 function ProductRating({userPreferences, reviews, className}: {userPreferences: UserPreferences; reviews: {rating: number; numberOfReviews: number}; className: string}) {
     return (
@@ -533,7 +534,7 @@ function ProductRating({userPreferences, reviews, className}: {userPreferences: 
 function SuggestedProducts({
     userPreferences,
     recommendedProducts,
-    className
+    className,
 }: {
     userPreferences: UserPreferences;
     recommendedProducts: Array<{
@@ -543,7 +544,7 @@ function SuggestedProducts({
         bestseller: boolean;
         link: string;
     }>;
-    className: string
+    className: string;
 }) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
@@ -583,4 +584,3 @@ function SuggestedProducts({
         </div>
     );
 }
-
