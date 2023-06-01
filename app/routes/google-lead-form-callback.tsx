@@ -13,7 +13,9 @@ type ActionData = {
 export const loader: LoaderFunction = async ({request, params}) => {
     const authorizationPasscode = getRequiredEnvironmentVariableNew("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
 
-    const authorization = safeParse(getStringFromUnknown, request.headers.get("Authorization"));
+    const body = await request.formData();
+
+    const authorization = safeParse(getStringFromUnknown, body.get("google_key"));
 
     if (authorization == null || authorization != `Basic ${authorizationPasscode}`) {
         const actionData: ActionData = {
@@ -24,8 +26,6 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
         return new Response(JSON.stringify(actionData), {status: 401});
     }
-
-    const body = await request.formData();
 
     const leadId = safeParse(getStringFromUnknown, body.get("lead_id"));
     const userData = safeParse(getObjectFromUnknown, body.get("user_column_data"));
