@@ -21,7 +21,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const authorization = requestBody.google_key;
 
-    if (authorization == null || authorization != `Basic ${authorizationPasscode}`) {
+    if (authorization == null || authorization != authorizationPasscode) {
         const actionData: ResponseData = {
             message: "Invalid Authorization",
         };
