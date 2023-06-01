@@ -20,11 +20,14 @@ export function getVernacularString(textContentPiece: string, language: Language
 }
 
 // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
-export function addVernacularString(id: string, value: {
-    [Language.English]: string;
-    [Language.Hindi]: string;
-    [Language.Marathi]: string;
-}) {
+export function addVernacularString(
+    id: string,
+    value: {
+        [Language.English]: string;
+        [Language.Hindi]: string;
+        [Language.Marathi]: string;
+    },
+) {
     vernacularStrings[id] = value;
 }
 // /Hack
@@ -2258,7 +2261,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "आप के नज़दीकी डीलर",
         [Language.Marathi]: "OOOOO",
     },
-
     applyNowForDealerT1: {
         [Language.English]: "Become A Dealer Now",
         [Language.Hindi]: "लिवगार्ड डीलर बनें",
@@ -3741,6 +3743,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "INVALID STRING REQUESTED",
         [Language.Marathi]: "INVALID STRING REQUESTED",
     },
+    dealerLocatorBottomBarT1: {
+        [Language.English]: "Cashback Offer",
+        [Language.Hindi]: "कैशबैक ऑफर",
+        [Language.Marathi]: "?????",
+    },
+    dealerLocatorBottomBarT2: {
+        [Language.English]: "Become A Dealer",
+        [Language.Hindi]: "डीलर बनें",
+        [Language.Marathi]: "?????",
+    },
 };
-
-

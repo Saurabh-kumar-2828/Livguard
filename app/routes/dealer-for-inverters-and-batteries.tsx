@@ -6,16 +6,13 @@ import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstra
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {getDealerForCity, insertQueryLeads} from "~/backend/dealer.server";
-import {StickyBottomBar} from "~/components/bottomBar";
 import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FaqSectionInternal} from "~/components/faqs";
 import LivguardDialog from "~/components/livguardDialog";
-import {OtpVerificationDialog} from "~/components/otpVerificationDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -23,13 +20,14 @@ import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {ContactUsCta} from "~/routes";
 import {FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Dealer, FormType, Language, UserPreferences} from "~/typeDefinitions";
+import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import {DealerLocatorPageBottomBar} from "~/components/DealerLocatorPageBottomBar";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -109,7 +107,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
 
 export default function () {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
-    // const initialDealerList: Array<Dealer> = [];
+    const [isApplyNowDialogOpen, setIsApplyNowDialogOpen] = useState(false);
 
     const actionData = useActionData();
 
@@ -122,7 +120,7 @@ export default function () {
     }, [actionData]);
 
     return (
-        <>
+        <div className="tw-flex tw-flex-col tw-relative">
             <PageScaffold
                 userPreferences={userPreferences}
                 redirectTo={redirectTo}
@@ -139,10 +137,46 @@ export default function () {
                     utmParameters={utmSearchParameters}
                     className="lg:tw-px-[60px]"
                     pageUrl={pageUrl}
+                    setIsApplyNowDialogOpen={setIsApplyNowDialogOpen}
                 />
             </PageScaffold>
 
-            <StickyBottomBar userPreferences={userPreferences} />
+            <DealerLocatorPageBottomBar
+                userPreferences={userPreferences}
+                setApplyNowDialogOpen={setIsApplyNowDialogOpen}
+            />
+
+            <ApplyNowForDealerDialog
+                userPreferences={userPreferences}
+                isApplyNowDialogOpen={isApplyNowDialogOpen}
+                setApplyNowDialogOpen={setIsApplyNowDialogOpen}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+            />
+
+            <div className="tw-sticky tw-left-[1rem] tw-bottom-[1.75rem] tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-py-2 tw-px-4 tw-max-w-fit">
+                <a
+                    href="/offers/inverter-and-battery-jodi"
+                    className="tw-grid tw-grid-cols-[auto_.5rem_auto] tw-items-center"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="tw-col-start-1"
+                    >
+                        <path
+                            d="M20.5373 11.285C20.4488 11.1039 20.4488 10.8962 20.5373 10.7151L21.3579 9.03657C21.8147 8.10196 21.4527 6.988 20.5338 6.50044L18.8834 5.62474C18.7053 5.5303 18.5833 5.36221 18.5484 5.16373L18.2256 3.32344C18.0459 2.29881 17.0981 1.61028 16.0683 1.75599L14.2183 2.01767C14.0187 2.04585 13.8212 1.98166 13.6764 1.84154L12.3336 0.542515C11.5859 -0.180817 10.4146 -0.18086 9.66691 0.542515L8.32406 1.84167C8.17917 1.98183 7.98173 2.0459 7.7821 2.0178L5.93218 1.75612C4.90201 1.61033 3.95455 2.29894 3.77481 3.32357L3.45203 5.16378C3.41719 5.36229 3.29511 5.53034 3.11709 5.62483L1.46667 6.50053C0.54775 6.98805 0.185783 8.10209 0.642624 9.0367L1.46311 10.7152C1.55162 10.8963 1.55162 11.104 1.46311 11.2851L0.642581 12.9636C0.18574 13.8982 0.547707 15.0122 1.46663 15.4998L3.11705 16.3755C3.29511 16.4699 3.41719 16.638 3.45203 16.8365L3.77481 18.6768C3.93844 19.6095 4.73825 20.2637 5.65748 20.2636C5.74801 20.2636 5.83988 20.2572 5.93222 20.2442L7.78214 19.9825C7.98164 19.9542 8.17921 20.0185 8.3241 20.1586L9.66691 21.4576C10.0408 21.8194 10.5204 22.0002 11.0002 22.0001C11.4799 22.0001 11.9598 21.8193 12.3335 21.4576L13.6764 20.1586C13.8213 20.0185 14.0188 19.9545 14.2183 19.9825L16.0683 20.2442C17.0986 20.3899 18.0459 19.7014 18.2256 18.6767L18.5485 16.8365C18.5833 16.638 18.7054 16.4699 18.8834 16.3755L20.5338 15.4998C21.4527 15.0122 21.8147 13.8982 21.3579 12.9636L20.5373 11.285ZM8.46246 5.29019C9.74516 5.29019 10.7887 6.33377 10.7887 7.61646C10.7887 8.89916 9.74516 9.94273 8.46246 9.94273C7.17977 9.94273 6.13619 8.89916 6.13619 7.61646C6.13619 6.33377 7.17977 5.29019 8.46246 5.29019ZM7.26175 15.6357C7.13787 15.7596 6.97549 15.8216 6.81316 15.8216C6.65082 15.8216 6.4884 15.7596 6.36457 15.6357C6.11681 15.388 6.11681 14.9862 6.36457 14.7385L14.7387 6.3644C14.9864 6.11665 15.3881 6.11665 15.6359 6.3644C15.8836 6.61216 15.8836 7.01387 15.6359 7.26163L7.26175 15.6357ZM13.5379 16.71C12.2552 16.71 11.2116 15.6664 11.2116 14.3837C11.2116 13.101 12.2552 12.0575 13.5379 12.0575C14.8206 12.0575 15.8642 13.101 15.8642 14.3837C15.8642 15.6664 14.8206 16.71 13.5379 16.71Z"
+                            fill="#FCFCFC"
+                        />
+                    </svg>
+                    <div className="tw-col-start-3 tw-text-white">{getVernacularString("dealerLocatorBottomBarT1", userPreferences.language)}</div>
+                </a>
+            </div>
+
+            {/* <StickyBottomBar userPreferences={userPreferences} /> */}
 
             <script
                 type="application/ld+json"
@@ -189,7 +223,7 @@ export default function () {
                     `,
                 }}
             />
-        </>
+        </div>
     );
 }
 
@@ -198,7 +232,8 @@ export function DealerLocatorPage({
     actionData,
     utmParameters,
     className,
-    pageUrl
+    pageUrl,
+    setIsApplyNowDialogOpen,
 }: {
     userPreferences: UserPreferences;
     actionData: DealerLocatorActionData;
@@ -207,6 +242,7 @@ export function DealerLocatorPage({
     };
     className: string;
     pageUrl: string;
+    setIsApplyNowDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const transition = useTransition();
 
@@ -431,6 +467,7 @@ export function DealerLocatorPage({
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
+                setIsApplyNowDialogOpen={setIsApplyNowDialogOpen}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -503,11 +540,11 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
                     {dealerList == null || dealerList.length == 0
                         ? null
                         : dealerList.slice(0, 5).map((dealer, dealerIndex) => (
-                            <MarkerF
-                                position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
-                                key={dealerIndex}
-                            />
-                        ))}
+                              <MarkerF
+                                  position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
+                                  key={dealerIndex}
+                              />
+                          ))}
 
                     {/* <Autocomplete
                         onLoad={()}
@@ -527,7 +564,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
 function TroubleFindingDealers({
     userPreferences,
     utmParameters,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -566,17 +603,7 @@ function TroubleFindingDealers({
     );
 }
 
-function JoinLivguardNetwork({
-    userPreferences,
-    utmParameters,
-    pageUrl,
-}: {
-    userPreferences: UserPreferences;
-    utmParameters: {
-        [searchParameter: string]: string;
-    };
-    pageUrl: string;
-}) {
+function JoinLivguardNetwork({userPreferences, setIsApplyNowDialogOpen}: {userPreferences: UserPreferences; setIsApplyNowDialogOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
     return (
         <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center">
             <VerticalSpacer className="tw-h-10" />
@@ -598,8 +625,7 @@ function JoinLivguardNetwork({
                     userPreferences={userPreferences}
                     textVernacId="dealerLocatorS4BT"
                     className="tw-z-10"
-                    utmParameters={utmParameters}
-                    pageUrl={pageUrl}
+                    setIsApplyNowDialogOpen={setIsApplyNowDialogOpen}
                 />
             </DefaultElementAnimation>
 
@@ -612,21 +638,15 @@ export function ApplyNowForDealerCta({
     userPreferences,
     textVernacId,
     className,
-    utmParameters,
-    pageUrl
+    setIsApplyNowDialogOpen,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     className?: string;
-    utmParameters: {
-        [searchParameter: string]: string;
-    };
-    pageUrl: string;
+    setIsApplyNowDialogOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-    const [isApplyNowDialogOpen, setApplyNowDialogOpen] = useState(false);
-
     function tryToOpenpplyNowDialog() {
-        setApplyNowDialogOpen(true);
+        setIsApplyNowDialogOpen(true);
     }
 
     return (
@@ -637,14 +657,6 @@ export function ApplyNowForDealerCta({
             >
                 {getVernacularString(textVernacId, userPreferences.language)}
             </button>
-
-            <ApplyNowForDealerDialog
-                userPreferences={userPreferences}
-                isApplyNowDialogOpen={isApplyNowDialogOpen}
-                setApplyNowDialogOpen={setApplyNowDialogOpen}
-                utmParameters={utmParameters}
-                pageUrl={pageUrl}
-            />
         </div>
     );
 }
@@ -654,7 +666,7 @@ export function ApplyNowForDealerDialog({
     isApplyNowDialogOpen,
     setApplyNowDialogOpen,
     utmParameters,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     isApplyNowDialogOpen: boolean;

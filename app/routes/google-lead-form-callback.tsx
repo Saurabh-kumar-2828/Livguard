@@ -1,4 +1,5 @@
 import type {ActionFunction} from "@remix-run/node";
+import {sendGoogleLeadDataToFreshsales} from "~/backend/freshsales.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getSingletonValue, safeExecute} from "~/global-common-typescript/utilities/utilities";
 
@@ -7,39 +8,18 @@ type ResponseData = {
 };
 
 export const action: ActionFunction = async ({request, params}) => {
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log("Action Function Called");
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
     const authorizationPasscode = getRequiredEnvironmentVariableNew("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
-
-    // const body = safeParse(getObjectFromUnknown, await request.text());
     const requestBody = await request.json();
-
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log("Request body", requestBody);
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
     const authorization = requestBody.google_key;
 
     if (authorization == null || authorization != authorizationPasscode) {
         const actionData: ResponseData = {
             message: "Invalid Authorization",
         };
-
         return new Response(JSON.stringify(actionData), {status: 401});
     }
 
     const userData: Array<{column_name: string; string_value: string; column_id: string}> = requestBody.user_column_data;
-
-    const leadId = requestBody.lead_id;
-    const formId = requestBody.form_id;
-    const campaignId = requestBody.campaign_id;
-    const isTest = requestBody.is_test;
-    const gclId = requestBody.gcl_id;
-    const adgroupId = requestBody.adgroup_id;
-    const creativeId = requestBody.creative_id;
-
     const fullName =
         safeExecute(
             getSingletonValue,
@@ -67,13 +47,13 @@ export const action: ActionFunction = async ({request, params}) => {
         )?.string_value ?? "";
 
     const googleSheetData = {
-        leadId: leadId,
-        formId: formId,
-        campaignId: campaignId,
-        isTest: isTest,
-        gclId: gclId,
-        adgroupId: adgroupId,
-        creativeId: creativeId,
+        leadId: requestBody.lead_id,
+        formId: requestBody.form_id,
+        campaignId: requestBody.campaign_id,
+        isTest: requestBody.is_test,
+        gclId: requestBody.gcl_id,
+        adgroupId: requestBody.adgroup_id,
+        creativeId: requestBody.creative_id,
         fullName: fullName,
         phoneNumber: phoneNumber,
         email: email,
@@ -81,9 +61,13 @@ export const action: ActionFunction = async ({request, params}) => {
         city: city,
     };
 
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log("Google sheet data", googleSheetData);
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    const response = await sendGoogleLeadDataToFreshsales(googleSheetData);
+    if (response instanceof Error) {
+        const actionData: ResponseData = {
+            message: response.message,
+        };
+        return new Response(JSON.stringify(actionData), {status: 500});
+    }
 
     return new Response(JSON.stringify({}), {status: 200});
 };
