@@ -231,8 +231,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     headerContactUsDialogT3: {
-        [Language.English]: "Connect with Livguard Inverter Expert",
-        [Language.Hindi]: "लिवगार्ड इन्वर्टर एक्सपर्ट से जुड़ें",
+        [Language.English]: "Sales Enquiry",
+        [Language.Hindi]: "बिक्री पूछताछ",
         [Language.Marathi]: "?????",
     },
 

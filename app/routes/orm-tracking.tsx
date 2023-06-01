@@ -1,7 +1,7 @@
 import type {ActionFunction, LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import {Form, useActionData, useLoaderData} from "@remix-run/react";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {sendDataToFreshsalesForOrmTracking} from "~/backend/freshsales.server";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -80,6 +80,7 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
     const actionData = useActionData() as OrmActionData;
+    const [refreshForm, setRefreshForm] = useState(false);
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -90,6 +91,7 @@ export default function () {
                 return;
             }
             toast.success("Data sent to fresh sales successfully");
+            setRefreshForm(true);
         }
     }, [actionData]);
 
@@ -103,13 +105,38 @@ export default function () {
                 showContactCtaButton={false}
                 showSearchOption={false}
             >
-                <ContactForm userPreferences={userPreferences} />
+                <ContactForm
+                    userPreferences={userPreferences}
+                    refreshForm={refreshForm}
+                />
             </CampaignPageScaffold>
         </>
     );
 }
 
-export function ContactForm({userPreferences}: {userPreferences: UserPreferences}) {
+export function ContactForm({userPreferences, refreshForm}: {userPreferences: UserPreferences; refreshForm: boolean}) {
+    type FormInputs = {
+        product: string;
+        name: string;
+        phoneNumber: string;
+        email: string;
+        queryDetails: string;
+    };
+
+    const [formInputs, setFormInputs] = useState<FormInputs>({
+        product: "",
+        name: "",
+        phoneNumber: "",
+        email: "",
+        queryDetails: "",
+    });
+
+    useEffect(() => {
+        if (refreshForm) {
+            setFormInputs({product: "", name: "", phoneNumber: "", email: "", queryDetails: ""});
+        }
+    }, [refreshForm]);
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-w-full")}
@@ -139,6 +166,12 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                             <select
                                 className="lg-text-input"
                                 name="product"
+                                onChange={(e) => {
+                                    const newState: FormInputs = structuredClone(formInputs);
+                                    newState.product = e.target.value;
+                                    setFormInputs(newState);
+                                }}
+                                value={formInputs.product}
                             >
                                 <option
                                     value="Inverter"
@@ -160,7 +193,12 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                                 type="text"
                                 name="name"
                                 className="lg-text-input"
-                                required
+                                onChange={(e) => {
+                                    const newState: FormInputs = structuredClone(formInputs);
+                                    newState.name = e.target.value;
+                                    setFormInputs(newState);
+                                }}
+                                value={formInputs.name}
                             />
                         </div>
                     </div>
@@ -176,7 +214,12 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                                 name="phoneNumber"
                                 className="lg-text-input"
                                 pattern={phoneNumberValidationPattern}
-                                required
+                                onChange={(e) => {
+                                    const newState: FormInputs = structuredClone(formInputs);
+                                    newState.phoneNumber = e.target.value;
+                                    setFormInputs(newState);
+                                }}
+                                value={formInputs.phoneNumber}
                             />
                         </div>
                         <div className="">
@@ -189,7 +232,12 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                                 name="emailId"
                                 className="lg-text-input"
                                 pattern={emailIdValidationPattern}
-                                required
+                                onChange={(e) => {
+                                    const newState: FormInputs = structuredClone(formInputs);
+                                    newState.email = e.target.value;
+                                    setFormInputs(newState);
+                                }}
+                                value={formInputs.email}
                             />
                         </div>
                     </div>
@@ -204,7 +252,12 @@ export function ContactForm({userPreferences}: {userPreferences: UserPreferences
                                 name="queryDetails"
                                 className="lg-text-input !tw-rounded-lg"
                                 rows={3}
-                                required
+                                onChange={(e) => {
+                                    const newState: FormInputs = structuredClone(formInputs);
+                                    newState.queryDetails = e.target.value;
+                                    setFormInputs(newState);
+                                }}
+                                value={formInputs.queryDetails}
                             />
                         </div>
                     </div>
