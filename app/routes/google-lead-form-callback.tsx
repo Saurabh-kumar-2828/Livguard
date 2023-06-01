@@ -13,7 +13,7 @@ type ActionData = {
 export const loader: LoaderFunction = async ({request, params}) => {
     const authorizationPasscode = getRequiredEnvironmentVariableNew("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
 
-    const body = await request.formData();
+    const body = await request.json();
 
     const authorization = safeParse(getStringFromUnknown, body.get("google_key"));
 
