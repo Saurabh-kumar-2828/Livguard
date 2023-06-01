@@ -88,6 +88,7 @@ export default function () {
         if (actionData != null) {
             if (actionData.error != null) {
                 toast.error(actionData.error);
+                setRefreshForm(false);
                 return;
             }
             toast.success("Data sent to fresh sales successfully");
