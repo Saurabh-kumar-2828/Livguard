@@ -13,13 +13,20 @@ type ActionData = {
 export const loader: LoaderFunction = async ({request, params}) => {
     const authorizationPasscode = getRequiredEnvironmentVariableNew("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
 
-    const body = safeParse(getObjectFromUnknown, await request.text());
+    // const body = safeParse(getObjectFromUnknown, await request.text());
+    const body = await request.text();
 
     console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     console.log("Request text", body);
     console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-    const authorization = safeParse(getStringFromUnknown, body.get("google_key"));
+    const jsonBody = JSON.parse(body);
+
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log("Request text", jsonBody);
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    const authorization = safeParse(getStringFromUnknown, jsonBody.get("google_key"));
 
     if (authorization == null || authorization != `Basic ${authorizationPasscode}`) {
         const actionData: ActionData = {
@@ -31,14 +38,14 @@ export const loader: LoaderFunction = async ({request, params}) => {
         return new Response(JSON.stringify(actionData), {status: 401});
     }
 
-    const leadId = safeParse(getStringFromUnknown, body.get("lead_id"));
-    const userData = safeParse(getObjectFromUnknown, body.get("user_column_data"));
-    const formId = safeParse(getStringFromUnknown, body.get("form_id"));
-    const campaignId = safeParse(getStringFromUnknown, body.get("campaign_id"));
-    const isTest = safeParse(getObjectFromUnknown, body.get("is_test"));
-    const gclId = safeParse(getObjectFromUnknown, body.get("is_test"));
-    const adgroupId = safeParse(getObjectFromUnknown, body.get("is_test"));
-    const creativeId = safeParse(getObjectFromUnknown, body.get("is_test"));
+    const leadId = safeParse(getStringFromUnknown, jsonBody.get("lead_id"));
+    const userData = safeParse(getObjectFromUnknown, jsonBody.get("user_column_data"));
+    const formId = safeParse(getStringFromUnknown, jsonBody.get("form_id"));
+    const campaignId = safeParse(getStringFromUnknown, jsonBody.get("campaign_id"));
+    const isTest = safeParse(getObjectFromUnknown, jsonBody.get("is_test"));
+    const gclId = safeParse(getObjectFromUnknown, jsonBody.get("is_test"));
+    const adgroupId = safeParse(getObjectFromUnknown, jsonBody.get("is_test"));
+    const creativeId = safeParse(getObjectFromUnknown, jsonBody.get("is_test"));
 
     const googleSheetData = {
         leadId: leadId,
