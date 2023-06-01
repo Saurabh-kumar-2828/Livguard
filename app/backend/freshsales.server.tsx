@@ -86,3 +86,61 @@ export async function sendDataToFreshsalesForOrmTracking(formResponse: {product:
         return error;
     }
 }
+
+export async function sendGoogleLeadDataToFreshsales(googleLeadData: {
+    leadId: any;
+    formId: any;
+    campaignId: any;
+    isTest: any;
+    gclId: any;
+    adgroupId: any;
+    creativeId: any;
+    fullName: string;
+    phoneNumber: string;
+    email: string;
+    postalCode: string;
+    city: string;
+}): Promise<void | Error> {
+    const uniqueIdentifierData = {
+        mobile_number: googleLeadData.phoneNumber,
+    };
+
+    const contactData = {
+        first_name: googleLeadData.fullName,
+        mobile_number: googleLeadData.phoneNumber,
+        email: googleLeadData.email,
+        city: googleLeadData.city,
+        zip_code: googleLeadData.postalCode,
+        lead_source_id: "",
+        custom_field: {
+            cf_utm_campaign: googleLeadData.campaignId,
+            cf_lead_source: "google lead form",
+            cf_gclid: googleLeadData.gclId,
+            cf_adgroup_id: googleLeadData.adgroupId,
+            cf_creative_id: googleLeadData.creativeId,
+            cf_lead_id: googleLeadData.leadId,
+            cf_form_id: googleLeadData.formId,
+            cf_is_test: googleLeadData.isTest,
+        },
+        created_at: getCurrentIsoTimestamp(),
+    };
+
+    try {
+        const response = await fetch(`${process.env.FRESH_SALES_API_END_POINT}/contacts/upsert`, {
+            method: "POST",
+            headers: {
+                Authorization: `Token token=${process.env.FRESH_SALES_API_TOKEN}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({unique_identifier: uniqueIdentifierData, contact: contactData}),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Freshsales API call failed - status = ${response.status}, body = ${JSON.stringify(await response.text())}`);
+        }
+    } catch (error_: unknown) {
+        const error = getErrorFromUnknown(error_);
+        logBackendError(error);
+        return error;
+    }
+}
