@@ -13,7 +13,11 @@ type ActionData = {
 export const loader: LoaderFunction = async ({request, params}) => {
     const authorizationPasscode = getRequiredEnvironmentVariableNew("GOOGLE_WEBHOOK_AUTHORIZATION_CODE");
 
-    const body = await request.json();
+    const body = safeParse(getObjectFromUnknown, await request.text());
+
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log("Request text", body);
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     const authorization = safeParse(getStringFromUnknown, body.get("google_key"));
 
@@ -47,7 +51,9 @@ export const loader: LoaderFunction = async ({request, params}) => {
         creativeId: creativeId,
     };
 
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     console.log("Google sheet data", googleSheetData);
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     const actionData = {
         error: false,
