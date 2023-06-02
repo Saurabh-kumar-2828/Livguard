@@ -21,6 +21,7 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import {useResizeDetector} from "react-resize-detector";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -216,6 +217,8 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -223,11 +226,43 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 className,
             )}
         >
-            <CoverImage
+            {/* <CoverImage
                 relativePath="/livguard/category/batteries/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-                // alt="Inverter battery"
-            />
+                alt="Inverter battery"
+            /> */}
+
+            {/* {containerWidth == null || containerHeight == null ? null : (
+                <CoverImage
+                    relativePath={
+                        containerHeight > containerWidth || containerWidth < 640
+                            ? userPreferences.language == Language.English
+                                ? "/livguard/category/batteries/1/desktop_hero.jpg"
+                                : "/livguard/category/batteries/1/.jpg"
+                            : userPreferences.language == Language.English
+                            ? "/livguard/category/batteries/1/.jpg"
+                            : "/livguard/category/batteries/1/.jpg"
+                    }
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    key={
+                        containerHeight > containerWidth || containerWidth < 640
+                            ? userPreferences.language == Language.English
+                                ? "/livguard/category/batteries/1/.jpg"
+                                : "/livguard/category/batteries/1/.jpg"
+                            : userPreferences.language == Language.English
+                            ? "/livguard/category/batteries/1/.jpg"
+                            : "/livguard/category/batteries/1/.jpg"
+                    }
+                />
+            )} */}
+
+            {containerWidth == null || containerHeight == null ? null : (
+                <CoverImage
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktop_hero.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktop_hero.jpg"}
+                />
+            )}
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T1", userPreferences.language)}</div>

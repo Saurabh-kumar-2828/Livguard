@@ -1,6 +1,7 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useState} from "react";
+import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
@@ -217,12 +218,22 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 }
 
 function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
     return (
         <div className="tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-4.75rem)] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3.5rem] tw-justify-items-center tw-text-center">
-            <CoverImage
+            {/* <CoverImage
                 relativePath="/livguard/category/inverters/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
-            />
+            /> */}
+
+            {containerWidth == null || containerHeight == null ? null : (
+                <CoverImage
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/inverters/1/mobile_hero.jpg" : "/livguard/category/inverters/1/desktop_hero.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/inverters/1/mobile_hero.jpg" : "/livguard/category/inverters/1/desktop_hero.jpg"}
+                />
+            )}
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryInvertersS1T1", userPreferences.language)}</div>
