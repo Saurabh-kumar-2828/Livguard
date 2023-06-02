@@ -111,7 +111,7 @@ export async function sendGoogleLeadDataToFreshsales(googleLeadData: {
         email: googleLeadData.email,
         city: googleLeadData.city,
         zip_code: googleLeadData.postalCode,
-        lead_source_id: "",
+        lead_source_id: "401000274587",
         custom_field: {
             cf_utm_campaign: googleLeadData.campaignId,
             cf_lead_source: "google lead form",
