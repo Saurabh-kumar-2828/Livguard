@@ -225,6 +225,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-4.5rem] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center",
                 className,
             )}
+            ref={ref}
         >
             {/* <CoverImage
                 relativePath="/livguard/category/batteries/1/1.jpg"
@@ -258,9 +259,9 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktop_hero.jpg"}
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktp_hero.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktop_hero.jpg"}
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktp_hero.jpg"}
                 />
             )}
 
