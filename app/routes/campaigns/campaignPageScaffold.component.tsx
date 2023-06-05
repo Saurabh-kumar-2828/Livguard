@@ -43,7 +43,7 @@ export function CampaignPageScaffold({
                 {children}
                 <div className="tw-flex-grow" />
 
-                <VerticalSpacer className="tw-h-[5rem] lg:tw-h-[10rem]" />
+                {/* <VerticalSpacer className="tw-h-[5rem] lg:tw-h-[10rem]" /> */}
 
                 <FooterSocialLogosAndCopyright
                     userPreferences={userPreferences}

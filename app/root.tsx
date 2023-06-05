@@ -108,59 +108,30 @@ export const links: LinksFunction = () => [
 export default function Root() {
     const {userPreferences, canonicalUrl, websiteConfiguration, haptikInitSettings} = useLoaderData() as LoaderData;
 
-    // // Google Tag Manager
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         const scriptTag = document.createElement("script");
-    //         scriptTag.innerHTML = `
-    //             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    //             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    //             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    //             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    //             })(window,document,'script','dataLayer','GTM-5HRQL29');
-    //         `;
-    //         document.body.appendChild(scriptTag);
-    //     }, 5000);
-    // }, []);
+    function addScript(scriptContent: string) {
+        const scriptTag = document.createElement("script");
+        scriptTag.innerHTML = scriptContent;
+        document.body.appendChild(scriptTag);
+    }
 
-    // // Meta Pixel
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         const scriptTag = document.createElement("script");
-    //         scriptTag.innerHTML = `
-    //             !function(f,b,e,v,n,t,s)
-    //             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    //             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    //             if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    //             n.queue=[];t=b.createElement(e);t.async=!0;
-    //             t.src=v;s=b.getElementsByTagName(e)[0];
-    //             s.parentNode.insertBefore(t,s)}(window, document,'script',
-    //             'https://connect.facebook.net/en_US/fbevents.js');
-    //             fbq('init', '635911646858607');
-    //             fbq('track', 'PageView');
-    //         `;
-    //         document.body.appendChild(scriptTag);
-    //     }, 5000);
-    // }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            // Google Tag Manager
+            addScript(
+                `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`
+            );
 
-    // Freshchat
-    // useEffect(() => {
-    //     const onDocumentLoad = () => {
-    //         setTimeout(() => {
-    //             const scriptTag = document.createElement("script");
-    //             scriptTag.src = "//in.fw-cdn.com/30708678/381117.js";
-    //             scriptTag.setAttribute("chat", "true");
-    //             document.body.appendChild(scriptTag);
-    //         }, 5000);
-    //     };
+            // Meta Pixel
+            addScript(
+                `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`
+            );
 
-    //     if (document.readyState == "complete") {
-    //         onDocumentLoad();
-    //     } else {
-    //         window.addEventListener("load", onDocumentLoad);
-    //         return () => window.removeEventListener("load", onDocumentLoad);
-    //     }
-    // }, []);
+            // Microsoft Clarity
+            addScript(
+                `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`
+            );
+        }, 5000);
+    }, []);
 
     // Haptik
     useEffect(() => {
@@ -228,53 +199,6 @@ export default function Root() {
                     />
                     {/* End Site Verification */}
 
-                    {/* Google Tag Manager */}
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                                })(window,document,'script','dataLayer','GTM-5HRQL29');
-                            `,
-                        }}
-                    />
-                    {/* End Google Tag Manager */}
-
-                    {/* Meta Pixel Code */}
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                                !function(f,b,e,v,n,t,s)
-                                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                                n.queue=[];t=b.createElement(e);t.async=!0;
-                                t.src=v;s=b.getElementsByTagName(e)[0];
-                                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                                'https://connect.facebook.net/en_US/fbevents.js');
-                                fbq('init', '635911646858607');
-                                fbq('track', 'PageView');
-                            `,
-                        }}
-                    />
-                    {/* End Meta Pixel Code */}
-
-                    {/* Microsoft Clarity Code */}
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                                (function(c,l,a,r,i,t,y){
-                                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                                })(window, document, "clarity", "script", "ganufjw8cz");
-                            `,
-                        }}
-                    />
-                    {/* End Microsoft Clarity Code */}
-
                     {/* TODO: Can we remove this now? */}
                     {/* FOUC hack */}
                     <style
@@ -329,7 +253,7 @@ export default function Root() {
                         dangerouslySetInnerHTML={{
                             __html: `
                                 #haptik-xdk-wrapper {
-                                    z-index: 49;
+                                    z-index: 51 !important;
                                 }
 
                                 @media (min-width: 640px) {
