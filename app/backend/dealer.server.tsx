@@ -61,6 +61,7 @@ export async function insertOrUpdateDealerLeads(
             [searchParameter: string]: string;
         };
         pageUrl: string;
+        termsAndConditionsChecked: boolean;
     },
 ): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
@@ -133,6 +134,7 @@ export async function insertOrUpdateContactLeads(
             [searchParameter: string]: string;
         };
         pageUrl: string;
+        termsAndConditionsChecked: boolean;
     },
 ): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
@@ -223,7 +225,7 @@ export async function insertSubscriptionLeads(formResponse: {
     }
 }
 
-export async function insertQueryLeads(query: string): Promise<void | Error>{
+export async function insertQueryLeads(query: string): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
@@ -248,7 +250,6 @@ export async function insertQueryLeads(query: string): Promise<void | Error>{
         return result;
     }
 }
-
 
 export async function insertSearchQuery(searchTerm: string): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
