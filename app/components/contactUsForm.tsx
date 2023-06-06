@@ -62,7 +62,7 @@ export function ContactForm({
 
             <DefaultElementAnimation>
                 <fetcher.Form
-                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[25rem] lg:tw-max-w-[25rem] lg:tw-mx-auto tw-grid tw-grid-rows-[5rem_auto_0.5rem_auto_0.5rem_auto_2.25rem_auto_0.15rem_auto_3rem] tw-overflow-hidden tw-relative"
+                    className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[25rem] lg:tw-max-w-[25rem] lg:tw-mx-auto tw-grid tw-grid-rows-[5.5rem_auto_0.5rem_auto_0.5rem_auto_2.25rem_auto_0.15rem_auto_3rem] tw-overflow-hidden tw-relative"
                     method="post"
                     action="/contact-us-submission"
                 >
