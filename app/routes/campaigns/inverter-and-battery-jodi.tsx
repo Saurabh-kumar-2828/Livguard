@@ -158,12 +158,12 @@ function LandingPage({
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-9 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-8 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
         </div>
     );
