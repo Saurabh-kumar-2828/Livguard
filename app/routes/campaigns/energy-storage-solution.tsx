@@ -1,7 +1,7 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
-import { Link, useFetcher} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
 import {useEffect, useReducer, useRef, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -27,7 +27,7 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {FormStateInputs, FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type { UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {FormType, Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
@@ -75,7 +75,7 @@ export const loader: LoaderFunction = async ({request}) => {
 };
 
 export default function () {
-    const {userPreferences, redirectTo,pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -109,7 +109,7 @@ export default function () {
                             "logo": "",
                             "sameAs": ""
                         }
-                    `
+                    `,
                 }}
             />
         </>
@@ -121,8 +121,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
     const otpFetcher = useFetcher();
     const leadId = useRef<Uuid>(generateUuid());
 
-    const [FormStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
-    const [resendTimeOut, setResendTimeOut] = useState(0);
+    const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -156,21 +155,24 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
             toast.error(otpFetcher.data.error);
             return;
         }
-        if (FormStateInputs.isOtpresent) {
+        if (formStateInputs.isOtpresent) {
             toast.success("OTP resent successfully");
         } else {
             toast.success("OTP sent successfully");
         }
-        setResendTimeOut(60);
     }, [otpFetcher.data]);
 
     useEffect(() => {
-        if (resendTimeOut > 0) {
+        if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
             setTimeout(() => {
-                setResendTimeOut(resendTimeOut - 1);
+                const action: FormStateInputsAction = {
+                    actionType: FormStateInputsActionType.SetResendTimeOut,
+                    payload: formStateInputs.resendTimeOut - 1,
+                };
+                dispatch(action);
             }, 1000);
         }
-    }, [resendTimeOut]);
+    }, [formStateInputs.resendTimeOut]);
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -182,12 +184,10 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 fetcher={fetcher}
                 otpFetcher={otpFetcher}
                 utmParameters={utmSearchParameters}
-                formStateInputs={FormStateInputs}
+                formStateInputs={formStateInputs}
                 dispatch={dispatch}
                 leadId={leadId.current}
                 pageUrl={pageUrl}
-                resendTimeOut={resendTimeOut}
-                setResendTimeOut={setResendTimeOut}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -196,18 +196,16 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 id="contact-us-form-mobile"
             >
-                {!FormStateInputs.formSuccessfullySubmitted ? (
+                {!formStateInputs.formSuccessfullySubmitted ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
                         otpFetcher={otpFetcher}
                         utmParameters={utmSearchParameters}
-                        formStateInputs={FormStateInputs}
+                        formStateInputs={formStateInputs}
                         dispatch={dispatch}
                         leadId={leadId.current}
                         pageUrl={pageUrl}
-                        resendTimeOut={resendTimeOut}
-                        setResendTimeOut={setResendTimeOut}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />
@@ -271,8 +269,6 @@ function HeroSection({
     dispatch,
     leadId,
     pageUrl,
-    resendTimeOut,
-    setResendTimeOut,
 }: {
     userPreferences: UserPreferences;
     className?: string;
@@ -285,8 +281,6 @@ function HeroSection({
     dispatch: React.Dispatch<FormStateInputsAction>;
     leadId: Uuid;
     pageUrl: string;
-    resendTimeOut: number;
-    setResendTimeOut: React.Dispatch<number>;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
@@ -360,8 +354,6 @@ function HeroSection({
                             dispatch={dispatch}
                             leadId={leadId}
                             pageUrl={pageUrl}
-                            resendTimeOut={resendTimeOut}
-                            setResendTimeOut={setResendTimeOut}
                         />
                     ) : (
                         <ContactFormSuccess userPreferences={userPreferences} />
@@ -392,7 +384,10 @@ export function LimitlessEnergy({userPreferences, className}: {userPreferences: 
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-6", className)} id="limitless-energy">
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-6", className)}
+            id="limitless-energy"
+        >
             <div className="tw-px-6 lg-text-headline">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage1S3HT1", userPreferences.language)}} />

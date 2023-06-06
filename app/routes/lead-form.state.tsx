@@ -13,6 +13,7 @@ export enum FormStateInputsActionType {
     SendOtp,
     EditPhoneNumber,
     TermsAndConditionsCheckboxClicked,
+    SetResendTimeOut,
 }
 
 export type FormStateInputs = {
@@ -29,6 +30,7 @@ export type FormStateInputs = {
     showOtpField: boolean;
     invalidOtp: boolean;
     isOtpresent: boolean;
+    resendTimeOut: number;
 };
 
 export type FormStateInputsAction = {
@@ -115,6 +117,7 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
             const newState: FormStateInputs = structuredClone(state);
 
             newState.isOtpresent = isOtpResent;
+            newState.resendTimeOut = 60;
 
             return newState;
         }
@@ -145,6 +148,7 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
             newState.showOtpButton = false;
             newState.showOtpField = false;
             newState.invalidOtp = false;
+            newState.resendTimeOut = 0;
 
             return newState;
         }
@@ -154,6 +158,7 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
 
             newState.showOtpButton = false;
             newState.showOtpField = true;
+            newState.resendTimeOut = 60;
 
             return newState;
         }
@@ -162,6 +167,7 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
             const newState: FormStateInputs = structuredClone(state);
 
             newState.showOtpField = false;
+            newState.resendTimeOut = 0;
 
             return newState;
         }
@@ -172,6 +178,16 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
             const newState: FormStateInputs = structuredClone(state);
 
             newState.inputData.termsAndConditionsChecked = termsAndConditionsChecked;
+
+            return newState;
+        }
+        case FormStateInputsActionType.SetResendTimeOut: {
+            // TODO: Validate that these exist?
+            const resendTimeOut = action.payload;
+
+            const newState: FormStateInputs = structuredClone(state);
+
+            newState.resendTimeOut = resendTimeOut;
 
             return newState;
         }

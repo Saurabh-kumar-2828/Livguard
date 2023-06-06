@@ -24,8 +24,6 @@ export function ContactForm({
     className,
     leadId,
     pageUrl,
-    resendTimeOut,
-    setResendTimeOut,
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -38,8 +36,6 @@ export function ContactForm({
     className?: string;
     leadId: Uuid;
     pageUrl: string;
-    resendTimeOut: number;
-    setResendTimeOut: React.Dispatch<number>;
 }) {
     const otpFieldRef = useRef(null);
     const phoneNumberRef = useRef(null);
@@ -231,7 +227,6 @@ export function ContactForm({
                                             payload: true,
                                         };
                                         dispatch(action);
-                                        setResendTimeOut(60);
                                         if (otpFieldRef.current != null) {
                                             otpFieldRef.current.focus();
                                         }
@@ -289,7 +284,7 @@ export function ContactForm({
                             )}
                         >
                             <div
-                                className={concatenateNonNullStringsWithSpaces("tw-text-white tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                                className={concatenateNonNullStringsWithSpaces("tw-text-white tw-text-[12px]", `${formStateInputs.resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
                                 onClick={() => {
                                     const action: FormStateInputsAction = {
                                         actionType: FormStateInputsActionType.SetIsOtpResent,
@@ -304,7 +299,7 @@ export function ContactForm({
                             >
                                 {getVernacularString("OfferResendOTP", userPreferences.language)}
                             </div>
-                            <div className="tw-text-white tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                            <div className="tw-text-white tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
                         </div>
                     </div>
 
