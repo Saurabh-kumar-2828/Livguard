@@ -19,9 +19,10 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {useResizeDetector} from "react-resize-detector";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -47,6 +48,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -58,13 +60,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -86,7 +89,11 @@ export default function () {
                 />
             </PageScaffold>
 
-            <DownloadCatalogueBottomBar userPreferences={userPreferences} />
+            <ProductAndCategoryBottomBar
+                userPreferences={userPreferences}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+            />
 
             <script
                 type="application/ld+json"

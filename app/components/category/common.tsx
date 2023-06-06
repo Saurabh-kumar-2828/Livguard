@@ -281,11 +281,12 @@ export function WhatsBestForYouComponent({
                                         key={downloadButtonIndex}
                                         download
                                         target={"_blank"}
+                                        className="tw-h-full"
                                     >
                                         <div
                                             className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg ${
                                                 downloadButtonIndex == 1 ? "tw-p-2 lg:tw-p-4" : "tw-p-4"
-                                            } tw-justify-start tw-items-center tw-gap-3`}
+                                            } tw-justify-start tw-items-center tw-gap-3 tw-h-full`}
                                         >
                                             <div className="tw-h-8 tw-min-w-[32px]">
                                                 <FullWidthImage

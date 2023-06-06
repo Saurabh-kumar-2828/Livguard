@@ -76,7 +76,7 @@ export const action: ActionFunction = async ({request}) => {
         return actionData;
     }
 
-    return redirect(`/load-calculator/${id}`);
+    return redirect(`/load-calculator/recommendations/${id}`);
 };
 
 type LoaderData = {

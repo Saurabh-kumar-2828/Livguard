@@ -3768,4 +3768,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "चेंज",
         [Language.Marathi]: "?????",
     },
+    "f2e43648-a6bb-4144-a594-280b68479566": {
+        [Language.English]: `Product<br/>Catalog`,
+        [Language.Hindi]: `प्रोडक्ट<br/>कैटलॉग`,
+        [Language.Marathi]: "?????",
+    },
+    "e9eefbbc-302b-4d0e-8736-8b124a4c9baf": {
+        [Language.English]: `Dealer<br/>Locator`,
+        [Language.Hindi]: `डीलर<br/>ढूँढें`,
+        [Language.Marathi]: "?????",
+    },
+    "089e932e-69bf-479d-8c0b-21257fc4a8dc": {
+        [Language.English]: `Contact<br/>Us`,
+        [Language.Hindi]: `संपर्क<br/>करें`,
+        [Language.Marathi]: "?????",
+    },
+    "10ac51a9-2893-40c1-ad80-5017883e890f": {
+        [Language.English]: `Enquire<br/>Now`,
+        [Language.Hindi]: `संपर्क<br/>करें`,
+        [Language.Marathi]: "?????",
+    },
 };

@@ -26,6 +26,7 @@ import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {addVernacularString, getVernacularString} from "~/vernacularProvider";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -132,7 +133,11 @@ export default function () {
                 />
             </PageScaffold>
 
-            <StickyLandingPageBottomBar userPreferences={userPreferences} />
+            <ProductAndCategoryBottomBar
+                userPreferences={userPreferences}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+            />
 
             <script
                 type="application/ld+json"
