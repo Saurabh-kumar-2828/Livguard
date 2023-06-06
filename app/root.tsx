@@ -82,8 +82,6 @@ export const meta: MetaFunction = () => ({
 export const links: LinksFunction = () => [
     {rel: "stylesheet", href: tailwindStylesheet},
     {rel: "stylesheet", href: reactToastifyStylesheet},
-    {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/source-sans-3.ttf", as: "font", crossOrigin: "anonymous"},
-    {rel: "preload", href: "https://files.growthjockey.com/livguard/fonts/brueur-text.ttf", as: "font", crossOrigin: "anonymous"},
 ];
 
 // const dynamicLinks: DynamicLinksFunction<LoaderData> = ({
