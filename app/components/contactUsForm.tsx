@@ -359,7 +359,7 @@ export function ContactForm({
                             }}
                         />
 
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("termsAndConditionsCheckboxtext", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("termsAndConditionsCheckboxtext2", userPreferences.language)}} />
                     </div>
 
                     <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
