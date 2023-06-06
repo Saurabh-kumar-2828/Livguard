@@ -25,7 +25,7 @@ export default function LivguardDialog({
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-[50] tw-isolate"
+                className="tw-relative tw-z-[70] tw-isolate"
                 onClose={tryToCloseDialog}
             >
                 <Transition.Child

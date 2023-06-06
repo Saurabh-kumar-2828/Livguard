@@ -46,7 +46,7 @@ export function ContactForm({
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col tw-z-[70] tw-isolate", className)}
             id="contactUs"
         >
             <div className="lg-text-headline tw-text-center lg:tw-hidden">
