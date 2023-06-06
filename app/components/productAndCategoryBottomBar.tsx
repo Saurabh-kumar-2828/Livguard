@@ -71,7 +71,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
 
             <div className="tw-flex tw-flex-col tw-items-center tw-gap-y-2">
                 <a
-                    href="tel:18001025551"
+                    href="tel:+919205667999"
                     className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-y-2"
                 >
                     <img
