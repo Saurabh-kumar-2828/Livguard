@@ -18,10 +18,11 @@ import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.comp
 import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type { UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -101,7 +102,7 @@ export default function () {
                             "logo": "",
                             "sameAs": ""
                         }
-                    `
+                    `,
                 }}
             />
         </>
@@ -111,7 +112,7 @@ export default function () {
 function LandingPage({
     userPreferences,
     utmParameters,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -173,7 +174,7 @@ function HeroSection({
     userPreferences,
     utmParameters,
     className,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -182,19 +183,19 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 className,
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-isolate hover:tw-cursor-pointer",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-isolate",
             )}
-            ref={ref}
-            onClick={() => setIsContactUsDialogOpen(true)}
+            // ref={ref}
+            // onClick={() => setIsContactUsDialogOpen(true)}
         >
-            {containerWidth == null || containerHeight == null ? null : (
+            {/* {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={
                         containerHeight > containerWidth || containerWidth < 640
@@ -216,14 +217,14 @@ function HeroSection({
                             : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
                     }
                 />
-            )}
+            )} */}
 
-            {/* <CoverImage
+            <CoverImage
                 relativePath="/livguard/landing-pages/3/hero_image.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1 -tw-z-10"
-            /> */}
+            />
 
-            {/* <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
                     className="lg-text-banner lg-px-screen-edge tw-text-white"
@@ -243,8 +244,9 @@ function HeroSection({
                     textVernacId="landingPage3S1T3"
                     className="tw-z-10"
                     utmParameters={utmParameters}
+                    pageUrl={pageUrl}
                 />
-            </DefaultElementAnimation> */}
+            </DefaultElementAnimation>
 
             {/* <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" /> */}
 
@@ -263,7 +265,7 @@ export function TapIntoEfficiency({
     userPreferences,
     utmParameters,
     className,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {

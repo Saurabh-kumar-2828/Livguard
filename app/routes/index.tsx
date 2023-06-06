@@ -286,16 +286,16 @@ function HeroSection({
     pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 10000);
+    // const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 10000);
 
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7.5/16)] tw-overflow-hidden",
+                "tw-h-[calc(100vh-16.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] lg:tw-min-h-[calc(100vw*7.5/16)] tw-overflow-hidden",
                 className,
             )}
-            ref={emblaRef}
+            // ref={emblaRef}
         >
             <div
                 className="tw-w-full tw-h-full tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch"
@@ -310,15 +310,15 @@ function HeroSection({
                             subTitleVernacId: "homeS1T2",
                             contactButtonVernacId: "homeS1T3",
                         },
-                        {
-                            englishMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-english.jpg",
-                            hindiMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg",
-                            englishDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-english.jpg",
-                            hindiDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg",
-                            titleVernacId: null,
-                            subTitleVernacId: null,
-                            contactButtonVernacId: null,
-                        },
+                        // {
+                        //     englishMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-english.jpg",
+                        //     hindiMobileImageRelativePath: "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg",
+                        //     englishDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-english.jpg",
+                        //     hindiDesktopImageRelativePath: "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg",
+                        //     titleVernacId: null,
+                        //     subTitleVernacId: null,
+                        //     contactButtonVernacId: null,
+                        // },
                     ]}
                     itemBuilder={(item, itemIndex) => (
                         <div
@@ -326,7 +326,7 @@ function HeroSection({
                             className="tw-h-full tw-overflow-hidden tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_1rem_auto_1rem_minmax(0,1fr)_auto_3rem] tw-justify-items-center tw-text-secondary-900-dark tw-grid-cols-1 tw-isolate tw-relative"
                             key={itemIndex}
                         >
-                            {item.englishDesktopImageRelativePath &&
+                            {/* {item.englishDesktopImageRelativePath &&
                                 item.englishMobileImageRelativePath &&
                                 (containerWidth == null || containerHeight == null ? null : (
                                     <Link
@@ -355,7 +355,7 @@ function HeroSection({
                                             }
                                         />
                                     </Link>
-                                ))}
+                                ))} */}
 
                             {item.mobileImageRelativePath &&
                                 item.desktopImageRelativePath &&
