@@ -327,7 +327,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-w-full tw-row-start-[8] tw-col-start-1">
                 <div className="tw-w-3/5 tw-max-w-xl tw-mx-auto">
-                    <FullWidthImage relativePath="/livguard/home/5/1.png" />
+                    <FullWidthImage relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png" />
                 </div>
             </div>
 
@@ -353,7 +353,7 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
 
                 <DefaultImageAnimation className="tw-hidden lg:tw-block">
                     <FixedWidthImage
-                        relativePath="/livguard/home/5/1.png"
+                        relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png"
                         width="20rem"
                     />
                 </DefaultImageAnimation>
@@ -400,7 +400,7 @@ export function MiniPowerPlannerTeaser({userPreferences, className}: {userPrefer
 
                 <DefaultImageAnimation className="">
                     <FixedWidthImage
-                        relativePath="/livguard/home/5/1.png"
+                        relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png"
                         width="10rem"
                     />
                 </DefaultImageAnimation>
@@ -534,7 +534,7 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
 
             <DefaultImageAnimation className="tw-block lg:tw-hidden">
                 <FixedWidthImage
-                    relativePath="/livguard/home/5/1.png"
+                    relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png"
                     width="10rem"
                 />
             </DefaultImageAnimation>

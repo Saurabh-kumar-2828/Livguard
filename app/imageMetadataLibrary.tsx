@@ -164,126 +164,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 32,
         finalUrl: "/livguard/bottom-bar/other-products-437ac3.png",
     },
-    "/livguard/category/batteries/1/1.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L27TkHOZ00{01J=|]m01;fRPXn%M",
-        finalUrl: "/livguard/category/batteries/1/1-58a25f.jpg",
-    },
-    "/livguard/category/batteries/2/1.jpg": {
-        width: 3840,
-        height: 2248,
-        blurHash: "L26Q^{#8KjEKK%9Z-pRj0|E1}]w|",
-        finalUrl: "/livguard/category/batteries/2/1-840206.jpg",
-    },
-    "/livguard/category/batteries/2/2.jpg": {
-        width: 3841,
-        height: 2248,
-        blurHash: "LBBpU[waMys:?d%K%NRjNKxtM|Rj",
-        finalUrl: "/livguard/category/batteries/2/2-a20e55.jpg",
-    },
-    "/livguard/category/batteries/2/3.jpg": {
-        width: 3840,
-        height: 2248,
-        blurHash: "L267o_:6~CiIpd4.^+MdcE56XmI:",
-        finalUrl: "/livguard/category/batteries/2/3-9358f8.jpg",
-    },
-    "/livguard/category/batteries/2/4.jpg": {
-        width: 3841,
-        height: 2248,
-        blurHash: "LFBM=9~q9F00-;ozNGIV4nD%t7%M",
-        finalUrl: "/livguard/category/batteries/2/4-4ae2da.jpg",
-    },
-    "/livguard/category/batteries/4/1.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/batteries/4/1-ebc3b9.png",
-    },
-    "/livguard/category/batteries/4/2.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/batteries/4/2-4544ba.png",
-    },
-    "/livguard/category/batteries/6/hi-power-jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/batteries/6/hi-power-jodi-a5fa40.png",
-    },
-    "/livguard/category/batteries/6/rural-jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/batteries/6/rural-jodi-55ed71.png",
-    },
-    "/livguard/category/batteries/6/super-life-jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/batteries/6/super-life-jodi-c920c0.png",
-    },
-    "/livguard/category/batteries/6/urban-jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/batteries/6/urban-jodi-1d3b1b.png",
-    },
-    "/livguard/category/inverters/1/1.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L37^ADO?0y{y67^*-B0LcDI:Nwwf",
-        finalUrl: "/livguard/category/inverters/1/1-4f0c3b.jpg",
-    },
-    "/livguard/category/inverters/2/ai_charging.jpg": {
-        width: 3841,
-        height: 2249,
-        blurHash: "L03bRB00=|^R_30K%ge:0e$*-;0K",
-        finalUrl: "/livguard/category/inverters/2/ai_charging-9a972f.jpg",
-    },
-    "/livguard/category/inverters/2/dual_sensor_thermal.jpg": {
-        width: 3841,
-        height: 2248,
-        blurHash: "LDIX:Piv4U-p~qI:kWbH4:WWodR*",
-        finalUrl: "/livguard/category/inverters/2/dual_sensor_thermal-85d19a.jpg",
-    },
-    "/livguard/category/inverters/2/new_age_design.jpg": {
-        width: 3840,
-        height: 2248,
-        blurHash: "L03[uM8w8wR5_N00?vNHD$4n~qWE",
-        finalUrl: "/livguard/category/inverters/2/new_age_design-4a8a59.jpg",
-    },
-    "/livguard/category/inverters/2/three_years_warranty.jpg": {
-        width: 3840,
-        height: 2248,
-        blurHash: "L15hGTIEIB#O~p0Lbw-n014n^+?b",
-        finalUrl: "/livguard/category/inverters/2/three_years_warranty-d07980.jpg",
-    },
-    "/livguard/category/inverters/4/1.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/category/inverters/4/1-20ef47.png",
-    },
-    "/livguard/category/inverters/4/2.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/category/inverters/4/2-f4c9db.png",
-    },
-    "/livguard/category/jodi/hi_power_jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/jodi/hi_power_jodi-a5fa40.png",
-    },
-    "/livguard/category/jodi/rural_jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/jodi/rural_jodi-55ed71.png",
-    },
-    "/livguard/category/jodi/super_life_jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/jodi/super_life_jodi-c920c0.png",
-    },
-    "/livguard/category/jodi/urban_jodi.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/category/jodi/urban_jodi-1d3b1b.png",
-    },
     "/livguard/contact-form/background.jpg": {
         width: 686,
         height: 768,
@@ -478,10 +358,10 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/home/3/3-icon-a0c85c.png",
     },
     "/livguard/home/3/3.jpg": {
-        width: 3841,
-        height: 2113,
-        blurHash: "LXF}vH9aIUo0~pM{IUWXcYnhIUW=",
-        finalUrl: "/livguard/home/3/3-bd3c84.jpg",
+        "width": 3840,
+        "height": 2112,
+        "blurHash": "LVGH#e9aIUsT~pIUIUWXpdn#IUW=",
+        "finalUrl": "/livguard/home/3/3-c887de.jpg"
     },
     "/livguard/home/3/4-icon.png": {
         width: 76,
@@ -531,16 +411,16 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/home/3/energy solution icons/5-9b3738.png",
     },
     "/livguard/home/4/1-desktop.jpg": {
-        width: 3841,
-        height: 2509,
-        blurHash: "L48Mm#^Q000#ROV@ENJQ1HJ-}t}Y",
-        finalUrl: "/livguard/home/4/1-desktop-bcde04.jpg",
+        "width": 3840,
+        "height": 2509,
+        "blurHash": "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
+        "finalUrl": "/livguard/home/4/1-desktop-8b942a.jpg"
     },
     "/livguard/home/4/1-mobile.jpg": {
-        width: 1712,
-        height: 1116,
-        blurHash: "L796RL0}xt}s0f,?WB9]5*ofa$X9",
-        finalUrl: "/livguard/home/4/1-mobile-a674d9.jpg",
+        "width": 3840,
+        "height": 2509,
+        "blurHash": "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
+        "finalUrl": "/livguard/home/4/1-mobile-8b942a.jpg"
     },
     "/livguard/home/5/1-bhk.png": {
         width: 48,
@@ -2664,191 +2544,311 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/products/inverters/ps4000/thumbnail-932bb7.png",
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L9B1#ekC0|$g}Zof9[en5:oJ+]NH",
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/a-plus/1-965be4.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L9B1#ekC0|$g}Zof9[en5:oJ+]NH",
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/a-plus/1-965be4.jpg"
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/2.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "LJOpfFIA?v?b~qE1DiaeNxNFr?oL",
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/a-plus/2-fc1e98.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "LJOpfFIA?v?b~qE1DiaeNxNFr?oL",
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/a-plus/2-fc1e98.jpg"
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/3.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L36jtRo2E1-VG@s:NGS2^Qn%R*oe",
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/a-plus/3-91665e.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L36jtRo2E1-VG@s:NGS2^Qn%R*oe",
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/a-plus/3-91665e.jpg"
     },
     "/livguard/products/jodis/hi-power-jodi/infographics/1.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "L7D7HvFK1H}Y}ZX8ELr@0#w]rrEg",
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/infographics/1-f8356b.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "L7D7HvFK1H}Y}ZX8ELr@0#w]rrEg",
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/infographics/1-f8356b.jpg"
     },
     "/livguard/products/jodis/hi-power-jodi/infographics/2.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "L36@NNxGNG=z7|ofayWo|_n%WBnj",
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/infographics/2-e0e5a9.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "L36@NNxGNG=z7|ofayWo|_n%WBnj",
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/infographics/2-e0e5a9.jpg"
     },
     "/livguard/products/jodis/hi-power-jodi/infographics/3.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "LEOplVMx.R~W_39Z8{RjXnNF$kjY",
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/infographics/3-1bd67d.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "LEOplVMx.R~W_39Z8{RjXnNF$kjY",
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/infographics/3-1bd67d.jpg"
     },
     "/livguard/products/jodis/hi-power-jodi/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/jodis/hi-power-jodi/thumbnail-a5fa40.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/jodis/hi-power-jodi/thumbnail-4ccf86.png"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1-33e6ef.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1-33e6ef.jpg"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "LKOpfFIA?v?b~qE1DiaeNeNGr@oL",
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2-915a87.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "LKOpfFIA?v?b~qE1DiaeNeNGr@oL",
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2-915a87.jpg"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3.jpg": {
-        width: 1920,
-        height: 1218,
-        blurHash: "L36tE[azE1=yCQxZRjJ7}tf6R%s:",
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3-ba2996.jpg",
+        "width": 1920,
+        "height": 1218,
+        "blurHash": "L36tE[azE1=yCQxZRjJ7}tf6R%s:",
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3-ba2996.jpg"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/infographics/1.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "L7D7HwF11H}Y}Zof9[r@0#wvrrEg",
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/infographics/1-7a7c51.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "L7D7HwF11H}Y}Zof9[r@0#wvrrEg",
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/infographics/1-7a7c51.jpg"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/infographics/2.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "LDO:qtMy%z~q.89FDjV@yENFrrae",
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/infographics/2-fc3b3c.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "LDO:qtMy%z~q.89FDjV@yENFrrae",
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/infographics/2-fc3b3c.jpg"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/infographics/3.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "L37APdoLNF^Q3pxan%Na|_aeR*wd",
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/infographics/3-703946.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "L37APdoLNF^Q3pxan%Na|_aeR*wd",
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/infographics/3-703946.jpg"
     },
     "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail-55ed71.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/thumbnail-1a321a.png"
     },
     "/livguard/products/jodis/super-life-jodi/a-plus/1.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L9B1#ekC0|$g}Zof9[i_5:oJ+]NH",
-        finalUrl: "/livguard/products/jodis/super-life-jodi/a-plus/1-076598.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L9B1#ekC0|$g}Zof9[i_5:oJ+]NH",
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/a-plus/1-076598.jpg"
     },
     "/livguard/products/jodis/super-life-jodi/a-plus/2.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "LKOpfFIA?v?b~qE1DiWBNxNGr@oL",
-        finalUrl: "/livguard/products/jodis/super-life-jodi/a-plus/2-0605ae.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "LKOpfFIA?v?b~qE1DiWBNxNGr@oL",
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/a-plus/2-0605ae.jpg"
     },
     "/livguard/products/jodis/super-life-jodi/a-plus/3.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L36tE[n+E1-VCQt6RjNa}tn%R*oL",
-        finalUrl: "/livguard/products/jodis/super-life-jodi/a-plus/3-df0a5a.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L36tE[n+E1-VCQt6RjNa}tn%R*oL",
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/a-plus/3-df0a5a.jpg"
     },
     "/livguard/products/jodis/super-life-jodi/infographics/1.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "L7D7HvF11H}F}Zbb9[sA0#wvrrEg",
-        finalUrl: "/livguard/products/jodis/super-life-jodi/infographics/1-3bfa9f.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "L7D7HvF11H}F}Zbb9[sA0#wvrrEg",
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/infographics/1-3bfa9f.jpg"
     },
     "/livguard/products/jodis/super-life-jodi/infographics/2.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "LDO:qtMy%z~q.89FDiV@yENFrrae",
-        finalUrl: "/livguard/products/jodis/super-life-jodi/infographics/2-4410b4.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "LDO:qtMy%z~q.89FDiV@yENFrrae",
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/infographics/2-4410b4.jpg"
     },
     "/livguard/products/jodis/super-life-jodi/infographics/3.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "L370*?soNG^Q7|t7f6R*|_jFWBsA",
-        finalUrl: "/livguard/products/jodis/super-life-jodi/infographics/3-96a121.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "L370*?soNG^Q7|t7f6R*|_jFWBsA",
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/infographics/3-96a121.jpg"
     },
     "/livguard/products/jodis/super-life-jodi/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/jodis/super-life-jodi/thumbnail-c920c0.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/jodis/super-life-jodi/thumbnail-11d238.png"
     },
     "/livguard/products/jodis/urban-jodi/a-plus/1.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
-        finalUrl: "/livguard/products/jodis/urban-jodi/a-plus/1-17d05b.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
+        "finalUrl": "/livguard/products/jodis/urban-jodi/a-plus/1-17d05b.jpg"
     },
     "/livguard/products/jodis/urban-jodi/a-plus/2.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "LJOpfFD%?]?b~qE1DiV[NxNFr@oL",
-        finalUrl: "/livguard/products/jodis/urban-jodi/a-plus/2-63801b.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "LJOpfFD%?]?b~qE1DiV[NxNFr@oL",
+        "finalUrl": "/livguard/products/jodis/urban-jodi/a-plus/2-63801b.jpg"
     },
     "/livguard/products/jodis/urban-jodi/a-plus/3.jpg": {
-        width: 1920,
-        height: 1228,
-        blurHash: "L36%vfayE1=yCQxaRjJ7}tjZR*s:",
-        finalUrl: "/livguard/products/jodis/urban-jodi/a-plus/3-4eac12.jpg",
+        "width": 1920,
+        "height": 1228,
+        "blurHash": "L36%vfayE1=yCQxaRjJ7}tjZR*s:",
+        "finalUrl": "/livguard/products/jodis/urban-jodi/a-plus/3-4eac12.jpg"
     },
     "/livguard/products/jodis/urban-jodi/infographics/1.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "L7D7HwF11H}Y}ZkC9[r@0#wvrrEg",
-        finalUrl: "/livguard/products/jodis/urban-jodi/infographics/1-9cdff2.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "L7D7HwF11H}Y}ZkC9[r@0#wvrrEg",
+        "finalUrl": "/livguard/products/jodis/urban-jodi/infographics/1-9cdff2.jpg"
     },
     "/livguard/products/jodis/urban-jodi/infographics/2.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "LEO:t#My%g~W-;9GIARjyENFrsae",
-        finalUrl: "/livguard/products/jodis/urban-jodi/infographics/2-01d317.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "LEO:t#My%g~W-;9GIARjyENFrsae",
+        "finalUrl": "/livguard/products/jodis/urban-jodi/infographics/2-01d317.jpg"
     },
     "/livguard/products/jodis/urban-jodi/infographics/3.jpg": {
-        width: 3841,
-        height: 3841,
-        blurHash: "L370*?n*NG^Q3pxan%Na|_aeR*sA",
-        finalUrl: "/livguard/products/jodis/urban-jodi/infographics/3-670e83.jpg",
+        "width": 3841,
+        "height": 3841,
+        "blurHash": "L370*?n*NG^Q3pxan%Na|_aeR*sA",
+        "finalUrl": "/livguard/products/jodis/urban-jodi/infographics/3-670e83.jpg"
     },
     "/livguard/products/jodis/urban-jodi/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/jodis/urban-jodi/thumbnail-1d3b1b.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/jodis/urban-jodi/thumbnail-8717f8.png"
+    },
+    "/livguard/category/batteries/1/1.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L27TkHOZ00{01J=|]m01;fRPXn%M",
+        "finalUrl": "/livguard/category/batteries/1/1-58a25f.jpg"
     },
     "/livguard/category/batteries/1/desktp_hero.jpg": {
-        width: 3840,
-        height: 2161,
-        blurHash: "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
-        finalUrl: "/livguard/category/batteries/1/desktp_hero-9b3261.jpg",
+        "width": 3840,
+        "height": 2161,
+        "blurHash": "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
+        "finalUrl": "/livguard/category/batteries/1/desktp_hero-9b3261.jpg"
     },
     "/livguard/category/batteries/1/mobile_hero.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
-        finalUrl: "/livguard/category/batteries/1/mobile_hero-6619f1.jpg",
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
+        "finalUrl": "/livguard/category/batteries/1/mobile_hero-6619f1.jpg"
+    },
+    "/livguard/category/batteries/2/1.jpg": {
+        "width": 4096,
+        "height": 2389,
+        "blurHash": "L37Aub#R1dI:O?E1%2NG0yE1}[xG",
+        "finalUrl": "/livguard/category/batteries/2/1-b0bce6.jpg"
+    },
+    "/livguard/category/batteries/2/2.jpg": {
+        "width": 3841,
+        "height": 2248,
+        "blurHash": "LBBpU[waMys:?d%K%NRjNKxtM|Rj",
+        "finalUrl": "/livguard/category/batteries/2/2-a20e55.jpg"
+    },
+    "/livguard/category/batteries/2/3.jpg": {
+        "width": 3840,
+        "height": 2248,
+        "blurHash": "L267s3*y^QicPU4.^+IApJ56XmI:",
+        "finalUrl": "/livguard/category/batteries/2/3-9008af.jpg"
+    },
+    "/livguard/category/batteries/2/4.jpg": {
+        "width": 3841,
+        "height": 2248,
+        "blurHash": "LFBM=9~q9F00-;ozNGIV4nD%t7%M",
+        "finalUrl": "/livguard/category/batteries/2/4-4ae2da.jpg"
+    },
+    "/livguard/category/batteries/4/1.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/batteries/4/1-ebc3b9.png"
+    },
+    "/livguard/category/batteries/4/2.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/batteries/4/2-4544ba.png"
+    },
+    "/livguard/category/batteries/6/hi-power-jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/batteries/6/hi-power-jodi-a5fa40.png"
+    },
+    "/livguard/category/batteries/6/rural-jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/batteries/6/rural-jodi-55ed71.png"
+    },
+    "/livguard/category/batteries/6/super-life-jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/batteries/6/super-life-jodi-c920c0.png"
+    },
+    "/livguard/category/batteries/6/urban-jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/batteries/6/urban-jodi-1d3b1b.png"
+    },
+    "/livguard/category/inverters/1/1.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L37^ADO?0y{y67^*-B0LcDI:Nwwf",
+        "finalUrl": "/livguard/category/inverters/1/1-4f0c3b.jpg"
     },
     "/livguard/category/inverters/1/desktp_hero.jpg": {
-        width: 3840,
-        height: 2160,
-        blurHash: "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
-        finalUrl: "/livguard/category/inverters/1/desktp_hero-8d65e2.jpg",
+        "width": 3840,
+        "height": 2160,
+        "blurHash": "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
+        "finalUrl": "/livguard/category/inverters/1/desktp_hero-8d65e2.jpg"
     },
     "/livguard/category/inverters/1/mobile_hero.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
-        finalUrl: "/livguard/category/inverters/1/mobile_hero-2b584f.jpg",
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
+        "finalUrl": "/livguard/category/inverters/1/mobile_hero-2b584f.jpg"
+    },
+    "/livguard/category/inverters/2/ai_charging.jpg": {
+        "width": 3841,
+        "height": 2249,
+        "blurHash": "L14nuo00%2}[%M9ZtRWB0K}[xu0K",
+        "finalUrl": "/livguard/category/inverters/2/ai_charging-c7345c.jpg"
+    },
+    "/livguard/category/inverters/2/dual_sensor_thermal.jpg": {
+        "width": 3841,
+        "height": 2248,
+        "blurHash": "LDIX:Piv4U-p~qI:kWbH4:WWodR*",
+        "finalUrl": "/livguard/category/inverters/2/dual_sensor_thermal-85d19a.jpg"
+    },
+    "/livguard/category/inverters/2/new_age_design.jpg": {
+        "width": 3840,
+        "height": 2248,
+        "blurHash": "L14_kLd=#R#n_N0eXRI:n*D%?bbI",
+        "finalUrl": "/livguard/category/inverters/2/new_age_design-4bafb3.jpg"
+    },
+    "/livguard/category/inverters/2/three_years_warranty.jpg": {
+        "width": 3840,
+        "height": 2248,
+        "blurHash": "L15hGTIEIB#O~p0Lbw-n014n^+?b",
+        "finalUrl": "/livguard/category/inverters/2/three_years_warranty-d07980.jpg"
+    },
+    "/livguard/category/inverters/4/1.png": {
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/category/inverters/4/1-20ef47.png"
+    },
+    "/livguard/category/inverters/4/2.png": {
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/category/inverters/4/2-f4c9db.png"
+    },
+    "/livguard/category/jodi/hi_power_jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/jodi/hi_power_jodi-a5fa40.png"
+    },
+    "/livguard/category/jodi/rural_jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/jodi/rural_jodi-55ed71.png"
+    },
+    "/livguard/category/jodi/super_life_jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/jodi/super_life_jodi-c920c0.png"
+    },
+    "/livguard/category/jodi/urban_jodi.png": {
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/category/jodi/urban_jodi-1d3b1b.png"
     },
 };

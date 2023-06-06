@@ -113,7 +113,7 @@ export function HeaderComponent({
 
     return (
         <>
-                <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-50">
+                <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
                 <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                     <button
                         onClick={tryToOpenContactUsDialog}
@@ -150,7 +150,7 @@ export function HeaderComponent({
                                 <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
                             </Listbox.Button>
 
-                            <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                            <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                                 <ItemBuilder
                                     items={themeOptions}
                                     itemBuilder={(item, itemIndex) => (
@@ -218,7 +218,7 @@ export function HeaderComponent({
                                 <ChevronDown className="tw-w-4 tw-h-4" />
                             </Listbox.Button>
 
-                            <Listbox.Options className="tw-absolute tw-z-50 tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                            <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
                                 <ItemBuilder
                                     items={languageOptions}
                                     itemBuilder={(item, itemIndex) => (
@@ -495,7 +495,7 @@ function MenuDialog({
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-50"
+                className="tw-relative tw-z-[60]"
                 onClose={tryToCloseMenu}
             >
                 <Transition.Child
@@ -674,7 +674,7 @@ function MenuDialog({
                                 href="tel:18001025551"
                                 className="lg-cta-button tw-px-4 tw-z-10"
                             >
-                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
+                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem] tw-items-center">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
                                     <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
                                 </div>
@@ -715,7 +715,7 @@ function SubMenuDialog({
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-50"
+                className="tw-relative tw-z-[60]"
                 onClose={tryToCloseSubMenu}
             >
                 <Transition.Child
@@ -1021,7 +1021,7 @@ function SubMenuDialog({
                                 href="tel:18001025551"
                                 className="lg-cta-button tw-px-4 tw-z-10"
                             >
-                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem]">
+                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem] tw-items-center">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
                                     <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
                                 </div>
@@ -1072,7 +1072,7 @@ function SearchDialog({userPreferences, isSearchOpen, setIsSearchOpen}: {userPre
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-50"
+                className="tw-relative tw-z-[60]"
                 onClose={tryToCloseSearch}
             >
                 <Dialog.Panel className="tw-fixed tw-inset-0 tw-grid tw-grid-rows-[5.25rem_minmax(0,1fr)]">
@@ -1179,7 +1179,7 @@ function ContactUsDialog({
         >
             <Dialog
                 as="div"
-                className="tw-relative tw-z-50"
+                className="tw-relative tw-z-[60]"
                 onClose={tryToCloseContactUsDialog}
             >
                 <Transition.Child

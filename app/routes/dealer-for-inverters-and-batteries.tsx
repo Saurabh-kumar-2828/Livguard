@@ -529,7 +529,7 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
         // LoadScript/GoogleMap produces an empty div before the actual useful div, so provide a dummy 0 height row for it
         <div className="tw-w-full tw-h-[400px] tw-grid tw-grid-rows-[0_auto] tw-grid-cols-1 tw-place-items-center">
             <LoadScript
-                googleMapsApiKey="AIzaSyCek99jdIoNgCDfHdIblTJdEo5dOa4gRLY"
+                googleMapsApiKey="AIzaSyA0DUwYgpbnSjeUpjDxjUVcNEFTEvur4i4"
                 // preventGoogleFontsLoading={true}
             >
                 <GoogleMap

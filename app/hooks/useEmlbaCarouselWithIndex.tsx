@@ -37,7 +37,7 @@ export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
         }
 
         if (autoplayDelay != null) {
-            setTimeout(autoplay, Math.floor(Math.random() * autoplayDelay), emblaApi);
+            setTimeout(autoplay, autoplayDelay, emblaApi);
         }
     }, [emblaApi, onSlideChange]);
 
