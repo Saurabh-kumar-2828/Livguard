@@ -444,11 +444,11 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
 
                 <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
-                        <FullWidthImage relativePath="/livguard/category/batteries/4/2.png" />
+                        <FullWidthImage relativePath="/livguard/products/batteries/it1584tt/thumbnail.png" />
                     </div>
                     <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                         <FixedWidthImage
-                            relativePath="/livguard/category/batteries/4/2.png"
+                            relativePath="/livguard/products/batteries/it1584tt/thumbnail.png"
                             width="10rem"
                         />
                     </div>

@@ -22,7 +22,6 @@ import type { UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -155,16 +154,6 @@ function LandingPage({
                 utmParameters={utmParameters}
                 className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
                 pageUrl={pageUrl}
-            />
-
-            <StepsToAvailCashback
-                userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
-
-            <TermsAndConditions
-                userPreferences={userPreferences}
-                className="tw-row-start-8 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <TransformingLives

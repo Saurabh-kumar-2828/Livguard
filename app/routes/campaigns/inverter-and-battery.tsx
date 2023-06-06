@@ -669,7 +669,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
                                         <VerticalSpacer className="tw-h-4" />
 
                                         <div className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center">
-                                            <Link to={`/product/${product.title}`}>{getVernacularString("landingPage2S7CTABT", userPreferences.language)}</Link>
+                                            <Link to={`/product/${product.title.toLowerCase()}`}>{getVernacularString("landingPage2S7CTABT", userPreferences.language)}</Link>
                                         </div>
                                     </div>
                                 </div>

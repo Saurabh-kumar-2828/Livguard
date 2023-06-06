@@ -253,109 +253,109 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/hero-banners/lp-3-mobile-12ee65.jpg",
     },
     "/livguard/home/1/1-desktop.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "LDA]dAjF-pgN~Wa1%Mxu.8Ioxu-p",
-        finalUrl: "/livguard/home/1/1-desktop-50b939.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "LDA]dAjF-pgN~Wa1%Mxu.8Ioxu-p",
+        "finalUrl": "/livguard/home/1/1-desktop-50b939.jpg"
     },
     "/livguard/home/1/1-mobile.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "LJByHq%MtR%M~W%3-p%M~Wo}xu%2",
-        finalUrl: "/livguard/home/1/1-mobile-3013e8.jpg",
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "LJByHq%MtR%M~W%3-p%M~Wo}xu%2",
+        "finalUrl": "/livguard/home/1/1-mobile-3013e8.jpg"
     },
     "/livguard/home/1/new-desktop.jpg": {
-        width: 3841,
-        height: 3840,
-        blurHash: "L383O:}[oyR5b]XSS2NG0LM{njo}",
-        finalUrl: "/livguard/home/1/new-desktop-ffc115.jpg",
+        "width": 3841,
+        "height": 3840,
+        "blurHash": "L383O:}[oyR5b]XSS2NG0LM{njo}",
+        "finalUrl": "/livguard/home/1/new-desktop-ffc115.jpg"
     },
     "/livguard/home/1/new-mobile.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "LKB1xYsoE}n%}FW;J,WV$%SMN]S2",
-        finalUrl: "/livguard/home/1/new-mobile-72612f.jpg",
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "LKB1xYsoE}n%}FW;J,WV$%SMN]S2",
+        "finalUrl": "/livguard/home/1/new-mobile-72612f.jpg"
     },
     "/livguard/home/1/test-mobile.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "LKAuEroLFcn%}EbHE}WB-BWoN]S2",
-        finalUrl: "/livguard/home/1/test-mobile-28ff92.jpg",
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "LKAuEroLFcn%}EbHE}WB-BWoN]S2",
+        "finalUrl": "/livguard/home/1/test-mobile-28ff92.jpg"
     },
     "/livguard/home/10/1-dark.jpg": {
-        width: 974,
-        height: 1080,
-        blurHash: "L02=o*=|ELEf%2oLWVWV9tNa$*xG",
-        finalUrl: "/livguard/home/10/1-dark-aa13e6.jpg",
+        "width": 974,
+        "height": 1080,
+        "blurHash": "L02=o*=|ELEf%2oLWVWV9tNa$*xG",
+        "finalUrl": "/livguard/home/10/1-dark-aa13e6.jpg"
     },
     "/livguard/home/10/1-light.jpg": {
-        width: 974,
-        height: 1080,
-        blurHash: "LQS$ov?bxu~q?bofj[of%Mt7RjWB",
-        finalUrl: "/livguard/home/10/1-light-89ebea.jpg",
+        "width": 974,
+        "height": 1080,
+        "blurHash": "LQS$ov?bxu~q?bofj[of%Mt7RjWB",
+        "finalUrl": "/livguard/home/10/1-light-89ebea.jpg"
     },
     "/livguard/home/11/1.jpg": {
-        width: 3841,
-        height: 2736,
-        blurHash: "LZGH@?%Lxtt7~oxtxaWU^%t6oeR*",
-        finalUrl: "/livguard/home/11/1-17170e.jpg",
+        "width": 3841,
+        "height": 2736,
+        "blurHash": "LZGH@?%Lxtt7~oxtxaWU^%t6oeR*",
+        "finalUrl": "/livguard/home/11/1-17170e.jpg"
     },
     "/livguard/home/11/2.jpg": {
-        width: 3841,
-        height: 2736,
-        blurHash: "L6G*Z,UbQ8ry4=pH%#R5HUTfRQIm",
-        finalUrl: "/livguard/home/11/2-112c48.jpg",
+        "width": 3841,
+        "height": 2736,
+        "blurHash": "L6G*Z,UbQ8ry4=pH%#R5HUTfRQIm",
+        "finalUrl": "/livguard/home/11/2-112c48.jpg"
     },
     "/livguard/home/11/3.jpg": {
-        width: 3841,
-        height: 2736,
-        blurHash: "LFHeF6~p?Z?^0KotM_%2.Q%KNG-n",
-        finalUrl: "/livguard/home/11/3-f00896.jpg",
+        "width": 3841,
+        "height": 2736,
+        "blurHash": "LFHeF6~p?Z?^0KotM_%2.Q%KNG-n",
+        "finalUrl": "/livguard/home/11/3-f00896.jpg"
     },
     "/livguard/home/2/1.jpg": {
-        width: 652,
-        height: 442,
-        blurHash: "LURC;}S~D%s;~qt7ofof_Nsoj[tR",
-        finalUrl: "/livguard/home/2/1-52e8b4.jpg",
+        "width": 652,
+        "height": 442,
+        "blurHash": "LURC;}S~D%s;~qt7ofof_Nsoj[tR",
+        "finalUrl": "/livguard/home/2/1-52e8b4.jpg"
     },
     "/livguard/home/2/1.mp4": {
-        finalUrl: "/livguard/home/2/1-eed685.mp4",
+        "finalUrl": "/livguard/home/2/1-eed685.mp4"
     },
     "/livguard/home/2/2.jpg": {
-        width: 652,
-        height: 442,
-        blurHash: "LYNwct~q9GxuInM{%Lt700oMayIU",
-        finalUrl: "/livguard/home/2/2-94e13e.jpg",
+        "width": 652,
+        "height": 442,
+        "blurHash": "LYNwct~q9GxuInM{%Lt700oMayIU",
+        "finalUrl": "/livguard/home/2/2-94e13e.jpg"
     },
     "/livguard/home/2/2.mp4": {
-        finalUrl: "/livguard/home/2/2-0b6d91.mp4",
+        "finalUrl": "/livguard/home/2/2-0b6d91.mp4"
     },
     "/livguard/home/3/1-icon.png": {
-        width: 76,
-        height: 76,
-        finalUrl: "/livguard/home/3/1-icon-29e774.png",
+        "width": 76,
+        "height": 76,
+        "finalUrl": "/livguard/home/3/1-icon-29e774.png"
     },
     "/livguard/home/3/1.jpg": {
-        width: 3841,
-        height: 2113,
-        blurHash: "LuH1;]aMD%Rj~pRkIUWA%zWXM{WB",
-        finalUrl: "/livguard/home/3/1-61f1da.jpg",
+        "width": 3841,
+        "height": 2113,
+        "blurHash": "LuH1;]aMD%Rj~pRkIUWA%zWXM{WB",
+        "finalUrl": "/livguard/home/3/1-61f1da.jpg"
     },
     "/livguard/home/3/2-icon.png": {
-        width: 76,
-        height: 76,
-        finalUrl: "/livguard/home/3/2-icon-5da3bd.png",
+        "width": 76,
+        "height": 76,
+        "finalUrl": "/livguard/home/3/2-icon-5da3bd.png"
     },
     "/livguard/home/3/2.jpg": {
-        width: 3841,
-        height: 2113,
-        blurHash: "LoH-}iD%D%Rj~qM{M{RjtRayR*WV",
-        finalUrl: "/livguard/home/3/2-981482.jpg",
+        "width": 3840,
+        "height": 2112,
+        "blurHash": "LoH-}iD%D%Rj~qM{M{RjtRayR*WV",
+        "finalUrl": "/livguard/home/3/2-fb8723.jpg"
     },
     "/livguard/home/3/3-icon.png": {
-        width: 76,
-        height: 76,
-        finalUrl: "/livguard/home/3/3-icon-a0c85c.png",
+        "width": 76,
+        "height": 76,
+        "finalUrl": "/livguard/home/3/3-icon-a0c85c.png"
     },
     "/livguard/home/3/3.jpg": {
         "width": 3840,
@@ -364,51 +364,51 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "finalUrl": "/livguard/home/3/3-c887de.jpg"
     },
     "/livguard/home/3/4-icon.png": {
-        width: 76,
-        height: 76,
-        finalUrl: "/livguard/home/3/4-icon-14a78f.png",
+        "width": 76,
+        "height": 76,
+        "finalUrl": "/livguard/home/3/4-icon-14a78f.png"
     },
     "/livguard/home/3/4.jpg": {
-        width: 3841,
-        height: 2113,
-        blurHash: "LuHd]dE1NExb~BIoNGWB$_j^NKR%",
-        finalUrl: "/livguard/home/3/4-b8bb7f.jpg",
+        "width": 3841,
+        "height": 2113,
+        "blurHash": "LuHd]dE1NExb~BIoNGWB$_j^NKR%",
+        "finalUrl": "/livguard/home/3/4-b8bb7f.jpg"
     },
     "/livguard/home/3/5-icon.png": {
-        width: 76,
-        height: 76,
-        finalUrl: "/livguard/home/3/5-icon-42a265.png",
+        "width": 76,
+        "height": 76,
+        "finalUrl": "/livguard/home/3/5-icon-42a265.png"
     },
     "/livguard/home/3/5.jpg": {
-        width: 3841,
-        height: 2113,
-        blurHash: "LmHBxiIAIUkC~pIUM{of%LWXR*Rj",
-        finalUrl: "/livguard/home/3/5-3e914a.jpg",
+        "width": 3841,
+        "height": 2113,
+        "blurHash": "LmHBxiIAIUkC~pIUM{of%LWXR*Rj",
+        "finalUrl": "/livguard/home/3/5-3e914a.jpg"
     },
     "/livguard/home/3/energy solution icons/1.png": {
-        width: 56,
-        height: 56,
-        finalUrl: "/livguard/home/3/energy solution icons/1-82e7ef.png",
+        "width": 56,
+        "height": 56,
+        "finalUrl": "/livguard/home/3/energy solution icons/1-82e7ef.png"
     },
     "/livguard/home/3/energy solution icons/2.png": {
-        width: 56,
-        height: 56,
-        finalUrl: "/livguard/home/3/energy solution icons/2-c5e0aa.png",
+        "width": 56,
+        "height": 56,
+        "finalUrl": "/livguard/home/3/energy solution icons/2-c5e0aa.png"
     },
     "/livguard/home/3/energy solution icons/3.png": {
-        width: 56,
-        height: 56,
-        finalUrl: "/livguard/home/3/energy solution icons/3-a18c36.png",
+        "width": 56,
+        "height": 56,
+        "finalUrl": "/livguard/home/3/energy solution icons/3-a18c36.png"
     },
     "/livguard/home/3/energy solution icons/4.png": {
-        width: 56,
-        height: 56,
-        finalUrl: "/livguard/home/3/energy solution icons/4-0d4c98.png",
+        "width": 56,
+        "height": 56,
+        "finalUrl": "/livguard/home/3/energy solution icons/4-0d4c98.png"
     },
     "/livguard/home/3/energy solution icons/5.png": {
-        width: 56,
-        height: 56,
-        finalUrl: "/livguard/home/3/energy solution icons/5-9b3738.png",
+        "width": 56,
+        "height": 56,
+        "finalUrl": "/livguard/home/3/energy solution icons/5-9b3738.png"
     },
     "/livguard/home/4/1-desktop.jpg": {
         "width": 3840,
@@ -423,125 +423,125 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "finalUrl": "/livguard/home/4/1-mobile-8b942a.jpg"
     },
     "/livguard/home/5/1-bhk.png": {
-        width: 48,
-        height: 49,
-        finalUrl: "/livguard/home/5/1-bhk-8e47a8.png",
+        "width": 48,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/1-bhk-8e47a8.png"
     },
     "/livguard/home/5/1.png": {
-        width: 370,
-        height: 268,
-        finalUrl: "/livguard/home/5/1-f41356.png",
+        "width": 370,
+        "height": 268,
+        "finalUrl": "/livguard/home/5/1-f41356.png"
     },
     "/livguard/home/5/2-bhk.png": {
-        width: 49,
-        height: 49,
-        finalUrl: "/livguard/home/5/2-bhk-26a504.png",
+        "width": 49,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/2-bhk-26a504.png"
     },
     "/livguard/home/5/3-bhk.png": {
-        width: 49,
-        height: 49,
-        finalUrl: "/livguard/home/5/3-bhk-e27390.png",
+        "width": 49,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/3-bhk-e27390.png"
     },
     "/livguard/home/5/4-bhk.png": {
-        width: 49,
-        height: 49,
-        finalUrl: "/livguard/home/5/4-bhk-2594fc.png",
+        "width": 49,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/4-bhk-2594fc.png"
     },
     "/livguard/home/5/4.png": {
-        width: 49,
-        height: 49,
-        finalUrl: "/livguard/home/5/4-2594fc.png",
+        "width": 49,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/4-2594fc.png"
     },
     "/livguard/home/5/custom.png": {
-        width: 49,
-        height: 49,
-        finalUrl: "/livguard/home/5/custom-db25bf.png",
+        "width": 49,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/custom-db25bf.png"
     },
     "/livguard/home/5/step-1.png": {
-        width: 48,
-        height: 48,
-        finalUrl: "/livguard/home/5/step-1-d28bcd.png",
+        "width": 48,
+        "height": 48,
+        "finalUrl": "/livguard/home/5/step-1-d28bcd.png"
     },
     "/livguard/home/5/step-2.png": {
-        width: 48,
-        height: 48,
-        finalUrl: "/livguard/home/5/step-2-61a5b6.png",
+        "width": 48,
+        "height": 48,
+        "finalUrl": "/livguard/home/5/step-2-61a5b6.png"
     },
     "/livguard/home/5/step-3.png": {
-        width: 48,
-        height: 48,
-        finalUrl: "/livguard/home/5/step-3-d52536.png",
+        "width": 48,
+        "height": 48,
+        "finalUrl": "/livguard/home/5/step-3-d52536.png"
     },
     "/livguard/home/5/villa.png": {
-        width: 49,
-        height: 49,
-        finalUrl: "/livguard/home/5/villa-3de485.png",
+        "width": 49,
+        "height": 49,
+        "finalUrl": "/livguard/home/5/villa-3de485.png"
     },
     "/livguard/home/6/1.jpg": {
-        width: 1080,
-        height: 1080,
-        blurHash: "LyPsL$xu?w-pt7aet7t7o~oLaKWC",
-        finalUrl: "/livguard/home/6/1-f721b1.jpg",
+        "width": 1080,
+        "height": 1080,
+        "blurHash": "LyPsL$xu?w-pt7aet7t7o~oLaKWC",
+        "finalUrl": "/livguard/home/6/1-f721b1.jpg"
     },
     "/livguard/home/6/2.jpg": {
-        width: 1080,
-        height: 1080,
-        blurHash: "LuM%yC%M?]%g~UoIxZt6E2S5RPoL",
-        finalUrl: "/livguard/home/6/2-5327da.jpg",
+        "width": 1080,
+        "height": 1080,
+        "blurHash": "LuM%yC%M?]%g~UoIxZt6E2S5RPoL",
+        "finalUrl": "/livguard/home/6/2-5327da.jpg"
     },
     "/livguard/home/6/3.jpg": {
-        width: 1080,
-        height: 1080,
-        blurHash: "LFEL?8NfUG~VDOaIMxROC9Rlp0El",
-        finalUrl: "/livguard/home/6/3-296b47.jpg",
+        "width": 1080,
+        "height": 1080,
+        "blurHash": "LFEL?8NfUG~VDOaIMxROC9Rlp0El",
+        "finalUrl": "/livguard/home/6/3-296b47.jpg"
     },
     "/livguard/home/6/4.jpg": {
-        width: 1080,
-        height: 1080,
-        blurHash: "LCHA|R}r0i1$~U?G$$n~%}yC$j-7",
-        finalUrl: "/livguard/home/6/4-6d981a.jpg",
+        "width": 1080,
+        "height": 1080,
+        "blurHash": "LCHA|R}r0i1$~U?G$$n~%}yC$j-7",
+        "finalUrl": "/livguard/home/6/4-6d981a.jpg"
     },
     "/livguard/home/7/1.jpg": {
-        width: 3215,
-        height: 3840,
-        blurHash: "LA7wQyKQ%3xapf-WtRoz%NXTkDof",
-        finalUrl: "/livguard/home/7/1-ae3f85.jpg",
+        "width": 3215,
+        "height": 3840,
+        "blurHash": "LA7wQyKQ%3xapf-WtRoz%NXTkDof",
+        "finalUrl": "/livguard/home/7/1-ae3f85.jpg"
     },
     "/livguard/home/7/2.jpg": {
-        width: 3216,
-        height: 3840,
-        blurHash: "LB6t,xtmxtt8%%-qt6t8-=tSt6t7",
-        finalUrl: "/livguard/home/7/2-cd924f.jpg",
+        "width": 3216,
+        "height": 3840,
+        "blurHash": "LB6t,xtmxtt8%%-qt6t8-=tSt6t7",
+        "finalUrl": "/livguard/home/7/2-cd924f.jpg"
     },
     "/livguard/home/7/3.jpg": {
-        width: 3215,
-        height: 3840,
-        blurHash: "L97,[IEmt7t7~TWaozs:^iSiozs:",
-        finalUrl: "/livguard/home/7/3-c14977.jpg",
+        "width": 3215,
+        "height": 3840,
+        "blurHash": "L97,[IEmt7t7~TWaozs:^iSiozs:",
+        "finalUrl": "/livguard/home/7/3-c14977.jpg"
     },
     "/livguard/home/8/1.jpg": {
-        width: 400,
-        height: 400,
-        blurHash: "L5BMV.E100^+}OoLGcRj1*-o+s4.",
-        finalUrl: "/livguard/home/8/1-bb892f.jpg",
+        "width": 400,
+        "height": 400,
+        "blurHash": "L5BMV.E100^+}OoLGcRj1*-o+s4.",
+        "finalUrl": "/livguard/home/8/1-bb892f.jpg"
     },
     "/livguard/home/8/2.jpg": {
-        width: 400,
-        height: 400,
-        blurHash: "LCEnI*#m00-V3UOWMxEf{N$%-on5",
-        finalUrl: "/livguard/home/8/2-4e2305.jpg",
+        "width": 400,
+        "height": 400,
+        "blurHash": "LCEnI*#m00-V3UOWMxEf{N$%-on5",
+        "finalUrl": "/livguard/home/8/2-4e2305.jpg"
     },
     "/livguard/home/8/3.jpg": {
-        width: 400,
-        height: 400,
-        blurHash: "LeI4Rnxa-:%K~9afxtxaI;azM|WC",
-        finalUrl: "/livguard/home/8/3-c85b06.jpg",
+        "width": 400,
+        "height": 400,
+        "blurHash": "LeI4Rnxa-:%K~9afxtxaI;azM|WC",
+        "finalUrl": "/livguard/home/8/3-c85b06.jpg"
     },
     "/livguard/home/8/4.jpg": {
-        width: 400,
-        height: 400,
-        blurHash: "L9EA4nv~0f}Z39kC:,6M$%E}I:#-",
-        finalUrl: "/livguard/home/8/4-d6a214.jpg",
+        "width": 400,
+        "height": 400,
+        "blurHash": "L9EA4nv~0f}Z39kC:,6M$%E}I:#-",
+        "finalUrl": "/livguard/home/8/4-d6a214.jpg"
     },
     "/livguard/icons/3dGrid.png": {
         width: 32,
@@ -1848,700 +1848,700 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/products/batteries/it9048st/thumbnail-739376.png",
     },
     "/livguard/products/inverters/lg1100/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lg1100/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lg1100/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lg1150i/a-plus/1.jpg": {
-        width: 16001,
-        height: 10234,
-        blurHash: "LEBU]}E}M{r?|xABNG-BxuJ6NGxG",
-        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/1-5f633d.jpg",
+        "width": 16001,
+        "height": 10234,
+        "blurHash": "LEBU]}E}M{r?|xABNG-BxuJ6NGxG",
+        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/1-5f633d.jpg"
     },
     "/livguard/products/inverters/lg1150i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg1150i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg1150i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg1150i/infographics/1.jpg": {
-        width: 4268,
-        height: 4268,
-        blurHash: "LAC5J7Kii_,F{z5QM{-VO?I:NGkW",
-        finalUrl: "/livguard/products/inverters/lg1150i/infographics/1-4461df.jpg",
+        "width": 4268,
+        "height": 4268,
+        "blurHash": "LAC5J7Kii_,F{z5QM{-VO?I:NGkW",
+        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/1-4461df.jpg"
     },
     "/livguard/products/inverters/lg1150i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg1150i/infographics/2-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/2-778553.jpg"
     },
     "/livguard/products/inverters/lg1150i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg1150i/infographics/3-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/3-60e90a.jpg"
     },
     "/livguard/products/inverters/lg1150i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
-        finalUrl: "/livguard/products/inverters/lg1150i/infographics/4-e5e62b.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
+        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/4-e5e62b.jpg"
     },
     "/livguard/products/inverters/lg1150i/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg1150i/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg1150i/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lg1450i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
-        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/1-c8d86d.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
+        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/1-c8d86d.jpg"
     },
     "/livguard/products/inverters/lg1450i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg1450i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg1450i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg1450i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
-        finalUrl: "/livguard/products/inverters/lg1450i/infographics/1-2620f2.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
+        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/1-2620f2.jpg"
     },
     "/livguard/products/inverters/lg1450i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg1450i/infographics/2-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/2-60e90a.jpg"
     },
     "/livguard/products/inverters/lg1450i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg1450i/infographics/3-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/3-778553.jpg"
     },
     "/livguard/products/inverters/lg1450i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        finalUrl: "/livguard/products/inverters/lg1450i/infographics/4-0d4012.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/4-0d4012.jpg"
     },
     "/livguard/products/inverters/lg1450i/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lg1450i/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lg1450i/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lg1550i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFBLM0EzM{wd|_ACNG$kx]J7Rjw{",
-        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/1-8295ec.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFBLM0EzM{wd|_ACNG$kx]J7Rjw{",
+        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/1-8295ec.jpg"
     },
     "/livguard/products/inverters/lg1550i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg1550i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg1550i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg1550i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
-        finalUrl: "/livguard/products/inverters/lg1550i/infographics/1-c49132.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
+        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/1-c49132.jpg"
     },
     "/livguard/products/inverters/lg1550i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg1550i/infographics/2-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/2-60e90a.jpg"
     },
     "/livguard/products/inverters/lg1550i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg1550i/infographics/3-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/3-778553.jpg"
     },
     "/livguard/products/inverters/lg1550i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        finalUrl: "/livguard/products/inverters/lg1550i/infographics/4-0d4012.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/4-0d4012.jpg"
     },
     "/livguard/products/inverters/lg1550i/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lg1550i/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lg1550i/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lg1950i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
-        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/1-db79ff.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
+        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/1-db79ff.jpg"
     },
     "/livguard/products/inverters/lg1950i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg1950i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg1950i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg1950i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
-        finalUrl: "/livguard/products/inverters/lg1950i/infographics/1-6c8d85.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
+        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/1-6c8d85.jpg"
     },
     "/livguard/products/inverters/lg1950i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg1950i/infographics/2-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/2-60e90a.jpg"
     },
     "/livguard/products/inverters/lg1950i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg1950i/infographics/3-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/3-778553.jpg"
     },
     "/livguard/products/inverters/lg1950i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        finalUrl: "/livguard/products/inverters/lg1950i/infographics/4-0d4012.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/4-0d4012.jpg"
     },
     "/livguard/products/inverters/lg1950i/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lg1950i/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lg1950i/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lg2300/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg2300/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg2300/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lg3500/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg3500/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg3500/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lg5000/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg5000/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg5000/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lg700e/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lg700e/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lg700e/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lg750i/a-plus/1.jpg": {
-        width: 1692,
-        height: 1083,
-        blurHash: "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
-        finalUrl: "/livguard/products/inverters/lg750i/a-plus/1-8f1164.jpg",
+        "width": 1692,
+        "height": 1083,
+        "blurHash": "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
+        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/1-8f1164.jpg"
     },
     "/livguard/products/inverters/lg750i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg750i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg750i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg750i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg750i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg750i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg750i/infographics/1.jpg": {
-        width: 2050,
-        height: 2050,
-        blurHash: "L9C5F~K%r?+w{L0|M{=yKiI:NGoz",
-        finalUrl: "/livguard/products/inverters/lg750i/infographics/1-687f5a.jpg",
+        "width": 2050,
+        "height": 2050,
+        "blurHash": "L9C5F~K%r?+w{L0|M{=yKiI:NGoz",
+        "finalUrl": "/livguard/products/inverters/lg750i/infographics/1-687f5a.jpg"
     },
     "/livguard/products/inverters/lg750i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg750i/infographics/2-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg750i/infographics/2-60e90a.jpg"
     },
     "/livguard/products/inverters/lg750i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg750i/infographics/3-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg750i/infographics/3-778553.jpg"
     },
     "/livguard/products/inverters/lg750i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        finalUrl: "/livguard/products/inverters/lg750i/infographics/4-0d4012.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        "finalUrl": "/livguard/products/inverters/lg750i/infographics/4-0d4012.jpg"
     },
     "/livguard/products/inverters/lg750i/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg750i/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg750i/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lg850i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFBLM0AWM{wd|_ACNG$kx]J7Rjw{",
-        finalUrl: "/livguard/products/inverters/lg850i/a-plus/1-944ec1.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFBLM0AWM{wd|_ACNG$kx]J7Rjw{",
+        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/1-944ec1.jpg"
     },
     "/livguard/products/inverters/lg850i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg850i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg850i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg850i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg850i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg850i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg850i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "L9CE%*K%rr+^{f0{NF=yO?I:NGog",
-        finalUrl: "/livguard/products/inverters/lg850i/infographics/1-ca13d4.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "L9CE%*K%rr+^{f0{NF=yO?I:NGog",
+        "finalUrl": "/livguard/products/inverters/lg850i/infographics/1-ca13d4.jpg"
     },
     "/livguard/products/inverters/lg850i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg850i/infographics/2-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg850i/infographics/2-60e90a.jpg"
     },
     "/livguard/products/inverters/lg850i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg850i/infographics/3-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg850i/infographics/3-778553.jpg"
     },
     "/livguard/products/inverters/lg850i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        finalUrl: "/livguard/products/inverters/lg850i/infographics/4-0d4012.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        "finalUrl": "/livguard/products/inverters/lg850i/infographics/4-0d4012.jpg"
     },
     "/livguard/products/inverters/lg850i/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg850i/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg850i/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lg900/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lg900/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lg900/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lg950i/a-plus/1.jpg": {
-        width: 1692,
-        height: 1083,
-        blurHash: "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
-        finalUrl: "/livguard/products/inverters/lg950i/a-plus/1-f9ba84.jpg",
+        "width": 1692,
+        "height": 1083,
+        "blurHash": "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
+        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/1-f9ba84.jpg"
     },
     "/livguard/products/inverters/lg950i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        finalUrl: "/livguard/products/inverters/lg950i/a-plus/2-917f60.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/2-917f60.jpg"
     },
     "/livguard/products/inverters/lg950i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        finalUrl: "/livguard/products/inverters/lg950i/a-plus/3-55c1a4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/3-55c1a4.jpg"
     },
     "/livguard/products/inverters/lg950i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lg950i/a-plus/4-50c0e9.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/4-50c0e9.jpg"
     },
     "/livguard/products/inverters/lg950i/infographics/1.jpg": {
-        width: 2050,
-        height: 2050,
-        blurHash: "L9C5G0K%rs+w{L0|M{=yKiI:NGoz",
-        finalUrl: "/livguard/products/inverters/lg950i/infographics/1-606a21.jpg",
+        "width": 2050,
+        "height": 2050,
+        "blurHash": "L9C5G0K%rs+w{L0|M{=yKiI:NGoz",
+        "finalUrl": "/livguard/products/inverters/lg950i/infographics/1-606a21.jpg"
     },
     "/livguard/products/inverters/lg950i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        finalUrl: "/livguard/products/inverters/lg950i/infographics/2-60e90a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        "finalUrl": "/livguard/products/inverters/lg950i/infographics/2-60e90a.jpg"
     },
     "/livguard/products/inverters/lg950i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        finalUrl: "/livguard/products/inverters/lg950i/infographics/3-778553.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        "finalUrl": "/livguard/products/inverters/lg950i/infographics/3-778553.jpg"
     },
     "/livguard/products/inverters/lg950i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        finalUrl: "/livguard/products/inverters/lg950i/infographics/4-0d4012.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        "finalUrl": "/livguard/products/inverters/lg950i/infographics/4-0d4012.jpg"
     },
     "/livguard/products/inverters/lg950i/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lg950i/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lg950i/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lgs1000i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "L$Kdxp-p%Moz~qn%axozkBRjRPni",
-        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/1-d1da25.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "L$Kdxp-p%Moz~qn%axozkBRjRPni",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/1-d1da25.jpg"
     },
     "/livguard/products/inverters/lgs1000i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
-        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/2-a41edb.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/2-a41edb.jpg"
     },
     "/livguard/products/inverters/lgs1000i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
-        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/3-ab6702.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/3-ab6702.jpg"
     },
     "/livguard/products/inverters/lgs1000i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/4-26fedc.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/4-26fedc.jpg"
     },
     "/livguard/products/inverters/lgs1000i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
-        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/1-38fc1a.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/1-38fc1a.jpg"
     },
     "/livguard/products/inverters/lgs1000i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
-        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/2-ceed88.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/2-ceed88.jpg"
     },
     "/livguard/products/inverters/lgs1000i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
-        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/3-1438fd.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/3-1438fd.jpg"
     },
     "/livguard/products/inverters/lgs1000i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
-        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/4-f37d18.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
+        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/4-f37d18.jpg"
     },
     "/livguard/products/inverters/lgs1000i/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lgs1000i/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lgs1000i/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lgs1100i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "L$Kd#w-p%Moz~qo0axozkBRjRPni",
-        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/1-caa45a.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "L$Kd#w-p%Moz~qo0axozkBRjRPni",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/1-caa45a.jpg"
     },
     "/livguard/products/inverters/lgs1100i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
-        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/2-a41edb.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/2-a41edb.jpg"
     },
     "/livguard/products/inverters/lgs1100i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
-        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/3-ab6702.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/3-ab6702.jpg"
     },
     "/livguard/products/inverters/lgs1100i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/4-26fedc.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/4-26fedc.jpg"
     },
     "/livguard/products/inverters/lgs1100i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
-        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/1-6bdfeb.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/1-6bdfeb.jpg"
     },
     "/livguard/products/inverters/lgs1100i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
-        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/2-ceed88.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/2-ceed88.jpg"
     },
     "/livguard/products/inverters/lgs1100i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
-        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/3-1438fd.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/3-1438fd.jpg"
     },
     "/livguard/products/inverters/lgs1100i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
-        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/4-f37d18.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
+        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/4-f37d18.jpg"
     },
     "/livguard/products/inverters/lgs1100i/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs1100i/thumbnail-9b3868.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lgs1100i/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/lgs1600/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "L%Kd#x-p%2oz~qn%ayozkBRjRPjF",
-        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/1-b5fd5d.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "L%Kd#x-p%2oz~qn%ayozkBRjRPjF",
+        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/1-b5fd5d.jpg"
     },
     "/livguard/products/inverters/lgs1600/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
-        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/2-89d0ba.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
+        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/2-89d0ba.jpg"
     },
     "/livguard/products/inverters/lgs1600/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
-        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/3-55d6a1.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
+        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/3-55d6a1.jpg"
     },
     "/livguard/products/inverters/lgs1600/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
-        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/4-20cd4c.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
+        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/4-20cd4c.jpg"
     },
     "/livguard/products/inverters/lgs1600/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
-        finalUrl: "/livguard/products/inverters/lgs1600/infographics/1-3a6d9c.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
+        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/1-3a6d9c.jpg"
     },
     "/livguard/products/inverters/lgs1600/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
-        finalUrl: "/livguard/products/inverters/lgs1600/infographics/2-771b09.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
+        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/2-771b09.jpg"
     },
     "/livguard/products/inverters/lgs1600/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
-        finalUrl: "/livguard/products/inverters/lgs1600/infographics/3-eb43a3.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
+        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/3-eb43a3.jpg"
     },
     "/livguard/products/inverters/lgs1600/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
-        finalUrl: "/livguard/products/inverters/lgs1600/infographics/4-e19ac0.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
+        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/4-e19ac0.jpg"
     },
     "/livguard/products/inverters/lgs1600/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs1600/thumbnail-d7c861.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lgs1600/thumbnail-d7c861.png"
     },
     "/livguard/products/inverters/lgs1700/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "L$Kd#w-p%2oz~qn%ayozj[RjRPjF",
-        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/1-135ef4.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "L$Kd#w-p%2oz~qn%ayozj[RjRPjF",
+        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/1-135ef4.jpg"
     },
     "/livguard/products/inverters/lgs1700/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
-        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/2-89d0ba.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
+        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/2-89d0ba.jpg"
     },
     "/livguard/products/inverters/lgs1700/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
-        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/3-55d6a1.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
+        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/3-55d6a1.jpg"
     },
     "/livguard/products/inverters/lgs1700/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
-        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/4-20cd4c.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
+        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/4-20cd4c.jpg"
     },
     "/livguard/products/inverters/lgs1700/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
-        finalUrl: "/livguard/products/inverters/lgs1700/infographics/1-af2ebe.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
+        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/1-af2ebe.jpg"
     },
     "/livguard/products/inverters/lgs1700/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
-        finalUrl: "/livguard/products/inverters/lgs1700/infographics/2-771b09.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
+        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/2-771b09.jpg"
     },
     "/livguard/products/inverters/lgs1700/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
-        finalUrl: "/livguard/products/inverters/lgs1700/infographics/3-eb43a3.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
+        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/3-eb43a3.jpg"
     },
     "/livguard/products/inverters/lgs1700/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
-        finalUrl: "/livguard/products/inverters/lgs1700/infographics/4-e19ac0.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
+        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/4-e19ac0.jpg"
     },
     "/livguard/products/inverters/lgs1700/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs1700/thumbnail-a178bf.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lgs1700/thumbnail-a178bf.png"
     },
     "/livguard/products/inverters/lgs2500/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs2500/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lgs2500/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lgs3000/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs3000/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lgs3000/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lgs4000/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs4000/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lgs4000/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lgs5000/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/lgs5000/thumbnail-9b3868.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/lgs5000/thumbnail-9b3868.png"
     },
     "/livguard/products/inverters/lgs900i/a-plus/1.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "L$Kd#w-p%Moz~qo0axozkBRjRPn$",
-        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/1-086ebd.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "L$Kd#w-p%Moz~qo0axozkBRjRPn$",
+        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/1-086ebd.jpg"
     },
     "/livguard/products/inverters/lgs900i/a-plus/2.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
-        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/2-a41edb.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
+        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/2-a41edb.jpg"
     },
     "/livguard/products/inverters/lgs900i/a-plus/3.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
-        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/3-ab6702.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
+        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/3-ab6702.jpg"
     },
     "/livguard/products/inverters/lgs900i/a-plus/4.jpg": {
-        width: 344,
-        height: 220,
-        blurHash: "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
-        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/4-26fedc.jpg",
+        "width": 344,
+        "height": 220,
+        "blurHash": "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
+        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/4-26fedc.jpg"
     },
     "/livguard/products/inverters/lgs900i/infographics/1.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
-        finalUrl: "/livguard/products/inverters/lgs900i/infographics/1-f37d18.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
+        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/1-f37d18.jpg"
     },
     "/livguard/products/inverters/lgs900i/infographics/2.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
-        finalUrl: "/livguard/products/inverters/lgs900i/infographics/2-1438fd.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
+        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/2-1438fd.jpg"
     },
     "/livguard/products/inverters/lgs900i/infographics/3.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
-        finalUrl: "/livguard/products/inverters/lgs900i/infographics/3-ceed88.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
+        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/3-ceed88.jpg"
     },
     "/livguard/products/inverters/lgs900i/infographics/4.jpg": {
-        width: 492,
-        height: 492,
-        blurHash: "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
-        finalUrl: "/livguard/products/inverters/lgs900i/infographics/4-359103.jpg",
+        "width": 492,
+        "height": 492,
+        "blurHash": "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
+        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/4-359103.jpg"
     },
     "/livguard/products/inverters/lgs900i/thumbnail.png": {
-        width: 263,
-        height: 263,
-        finalUrl: "/livguard/products/inverters/lgs900i/thumbnail-20ef47.png",
+        "width": 263,
+        "height": 263,
+        "finalUrl": "/livguard/products/inverters/lgs900i/thumbnail-20ef47.png"
     },
     "/livguard/products/inverters/ps2500/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/ps2500/thumbnail-c9046d.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/ps2500/thumbnail-c9046d.png"
     },
     "/livguard/products/inverters/ps4000/thumbnail.png": {
-        width: 1100,
-        height: 1100,
-        finalUrl: "/livguard/products/inverters/ps4000/thumbnail-932bb7.png",
+        "width": 1100,
+        "height": 1100,
+        "finalUrl": "/livguard/products/inverters/ps4000/thumbnail-932bb7.png"
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg": {
         "width": 1920,
@@ -2819,7 +2819,7 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "width": 3840,
         "height": 2248,
         "blurHash": "L15hGTIEIB#O~p0Lbw-n014n^+?b",
-        "finalUrl": "/livguard/category/inverters/2/three_years_warranty-d07980.jpg"
+        "finalUrl": "/livguard/category/inverters/2/three_years_warranty-ed973e.jpg"
     },
     "/livguard/category/inverters/4/1.png": {
         "width": 263,
