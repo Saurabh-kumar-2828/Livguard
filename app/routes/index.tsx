@@ -1404,7 +1404,7 @@ export function ContactUsDialog({
                         <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
                     </div>
 
-                    <VerticalSpacer className="tw-h-8" />
+                    <VerticalSpacer className="tw-h-4" />
 
                     <input
                         name="utmParameters"
@@ -1440,6 +1440,25 @@ export function ContactUsDialog({
                         readOnly
                         value={pageUrl}
                     />
+
+                    <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-2 tw-justify-center tw-items-center">
+                        <input
+                            type="checkbox"
+                            name="termsAndConditionsChecked"
+                            style={{accentColor: `${formStateInputs.inputData.termsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
+                            defaultChecked={formStateInputs.inputData.termsAndConditionsChecked}
+                            required
+                            onChange={(e) => {
+                                const action: FormStateInputsAction = {
+                                    actionType: FormStateInputsActionType.TermsAndConditionsCheckboxClicked,
+                                    payload: e.target.value,
+                                };
+                                dispatch(action);
+                            }}
+                        />
+
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("termsAndConditionsCheckboxtext", userPreferences.language)}} />
+                    </div>
 
                     <button
                         type="submit"

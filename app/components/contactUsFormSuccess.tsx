@@ -2,11 +2,10 @@ import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-i
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function ContactFormSuccess({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {

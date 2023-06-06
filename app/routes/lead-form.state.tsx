@@ -12,22 +12,24 @@ export enum FormStateInputsActionType {
     TryToCloseDialog,
     SendOtp,
     EditPhoneNumber,
+    TermsAndConditionsCheckboxClicked,
 }
 
 export type FormStateInputs = {
-    inputData : {
+    inputData: {
         name: string;
         email: string;
         phoneNumber: string;
         city: string;
         otpSubmitted: string;
-    }
+        termsAndConditionsChecked: boolean;
+    };
     formSuccessfullySubmitted: boolean;
     showOtpButton: boolean;
     showOtpField: boolean;
     invalidOtp: boolean;
     isOtpresent: boolean;
-}
+};
 
 export type FormStateInputsAction = {
     actionType: FormStateInputsActionType;
@@ -163,6 +165,16 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
 
             return newState;
         }
+        case FormStateInputsActionType.TermsAndConditionsCheckboxClicked: {
+            // TODO: Validate that these exist?
+            const termsAndConditionsChecked = action.payload;
+
+            const newState: FormStateInputs = structuredClone(state);
+
+            newState.inputData.termsAndConditionsChecked = termsAndConditionsChecked;
+
+            return newState;
+        }
         default: {
             const exhaustiveCheck: never = action.actionType;
             throw new Error(`Encountered unexpected FormStateInputsActionType: ${action.actionType}`);
@@ -172,18 +184,19 @@ export function FormStateInputsReducer(state: FormStateInputs, action: FormState
 
 export function createInitialFormState() {
     const state: FormStateInputs = {
-       inputData: {
-        name: "",
-        email: "",
-        phoneNumber: "",
-        city: "",
-        otpSubmitted: ""
-       },
-    formSuccessfullySubmitted: false,
-    showOtpButton: false,
-    showOtpField: false,
-    invalidOtp: false,
-    isOtpresent: false,
+        inputData: {
+            name: "",
+            email: "",
+            phoneNumber: "",
+            city: "",
+            otpSubmitted: "",
+            termsAndConditionsChecked: true,
+        },
+        formSuccessfullySubmitted: false,
+        showOtpButton: false,
+        showOtpField: false,
+        invalidOtp: false,
+        isOtpresent: false,
     };
 
     return state;

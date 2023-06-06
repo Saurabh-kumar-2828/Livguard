@@ -299,4 +299,8 @@
         @apply tw-bg-secondary-700-light dark:tw-bg-secondary-700-dark;
         border-radius: 25px;
     }
+
+    .lg-lead-form-top-gradient {
+        background: radial-gradient(136.96% 3728.32% at 114.88% 111.75%, #f25f60 3.53%, #eb2a2b 100%);
+    }
 }

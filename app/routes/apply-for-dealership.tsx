@@ -32,6 +32,7 @@ export const action: ActionFunction = async ({request, params}) => {
         otpVerified: false,
         utmParameters: utmParametersDecoded,
         pageUrl: pageUrl,
+        termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
     });
     if (insertResult1 instanceof Error) {
         const actionData: GenericActionData = {
@@ -56,6 +57,7 @@ export const action: ActionFunction = async ({request, params}) => {
         otpVerified: true,
         utmParameters: utmParametersDecoded,
         pageUrl: pageUrl,
+        termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
     });
     if (insertResult instanceof Error) {
         const actionData: GenericActionData = {

@@ -1,5 +1,5 @@
 import type {ActionFunction} from "@remix-run/node";
-import { json} from "@remix-run/node";
+import {json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateContactLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
@@ -35,6 +35,7 @@ export const action: ActionFunction = async ({request, params}) => {
             otpVerified: false,
             utmParameters: utmParametersDecoded,
             pageUrl: pageUrl,
+            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
@@ -50,6 +51,7 @@ export const action: ActionFunction = async ({request, params}) => {
             otpVerified: false,
             utmParameters: utmParametersDecoded,
             pageUrl: pageUrl,
+            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
@@ -73,7 +75,8 @@ export const action: ActionFunction = async ({request, params}) => {
             name: inputData.name,
             otpVerified: true,
             utmParameters: utmParametersDecoded,
-            pageUrl: pageUrl
+            pageUrl: pageUrl,
+            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
@@ -96,7 +99,8 @@ export const action: ActionFunction = async ({request, params}) => {
             emailId: inputData.emailId,
             otpVerified: true,
             utmParameters: utmParametersDecoded,
-            pageUrl: pageUrl
+            pageUrl: pageUrl,
+            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
@@ -105,7 +109,11 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
 
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true}, utmParametersDecoded, pageUrl);
+        const freshsalesResult = await sendDataToFreshsales(
+            {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true},
+            utmParametersDecoded,
+            pageUrl,
+        );
         if (freshsalesResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: 0177ace3-f07e-454a-a27f-f210d67702a9",
