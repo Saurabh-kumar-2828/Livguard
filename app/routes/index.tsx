@@ -1251,6 +1251,7 @@ export function ContactUsDialog({
                                     if (phoneNumberRef.current != null) {
                                         phoneNumberRef.current.focus();
                                     }
+                                    setResendTimeOut(0);
                                 }}
                             >
                                 change

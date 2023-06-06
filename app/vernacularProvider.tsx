@@ -3758,5 +3758,9 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<div class="tw-text-[12px] lg-text-secondary-700">मैं <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="lg-text-secondary-900 tw-font-semibold">नियम और शर्तें</a> और <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="lg-text-secondary-900 tw-font-semibold">गोपनीयता नीति</a> को स्वीकार करता/करती हूँ।</div>`,
         [Language.Marathi]: "?????",
     },
-    abcd123: {},
+    phoneNumberChnage: {
+        [Language.English]: "Chnage",
+        [Language.Hindi]: "चेंज",
+        [Language.Marathi]: "?????",
+    },
 };
