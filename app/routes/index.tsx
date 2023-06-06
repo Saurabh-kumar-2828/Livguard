@@ -1122,7 +1122,6 @@ export function ContactUsDialog({
     const leadId = useRef<Uuid>(generateUuid());
 
     const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
-    const [resendTimeOut, setResendTimeOut] = useState(0);
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -1161,20 +1160,22 @@ export function ContactUsDialog({
         } else {
             toast.success("OTP sent successfully");
         }
-        setResendTimeOut(60);
     }, [otpFetcher.data]);
 
     useEffect(() => {
-        if (resendTimeOut > 0) {
+        if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
             setTimeout(() => {
-                setResendTimeOut(resendTimeOut - 1);
+                const action: FormStateInputsAction = {
+                    actionType: FormStateInputsActionType.SetResendTimeOut,
+                    payload: formStateInputs.resendTimeOut - 1,
+                };
+                dispatch(action);
             }, 1000);
         }
-    }, [resendTimeOut]);
+    }, [formStateInputs.resendTimeOut]);
 
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
-        setResendTimeOut(0);
         const action: FormStateInputsAction = {
             actionType: FormStateInputsActionType.TryToCloseDialog,
             payload: true,
@@ -1251,7 +1252,6 @@ export function ContactUsDialog({
                                     if (phoneNumberRef.current != null) {
                                         phoneNumberRef.current.focus();
                                     }
-                                    setResendTimeOut(0);
                                 }}
                             >
                                 {getVernacularString("phoneNumberChnage", userPreferences.language)}
@@ -1329,7 +1329,7 @@ export function ContactUsDialog({
                                         payload: true,
                                     };
                                     dispatch(action);
-                                    setResendTimeOut(60);
+                                    // setResendTimeOut(60);
                                     if (otpFieldRef.current != null) {
                                         otpFieldRef.current.focus();
                                     }
@@ -1387,7 +1387,7 @@ export function ContactUsDialog({
                         )}
                     >
                         <div
-                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                            className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${formStateInputs.resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
                             onClick={() => {
                                 const action: FormStateInputsAction = {
                                     actionType: FormStateInputsActionType.SetIsOtpResent,
@@ -1402,7 +1402,7 @@ export function ContactUsDialog({
                         >
                             {getVernacularString("OfferResendOTP", userPreferences.language)}
                         </div>
-                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${formStateInputs.resendTimeOut}`}</div>
                     </div>
 
                     <VerticalSpacer className="tw-h-4" />

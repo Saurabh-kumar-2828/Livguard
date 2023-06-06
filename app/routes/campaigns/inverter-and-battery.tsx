@@ -25,7 +25,7 @@ import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
-import { FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
+import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -90,7 +90,10 @@ export default function () {
                 showContactCtaButton={false}
                 showSearchOption={true}
             >
-                <LandingPage userPreferences={userPreferences} pageUrl={pageUrl}/>
+                <LandingPage
+                    userPreferences={userPreferences}
+                    pageUrl={pageUrl}
+                />
             </CampaignPageScaffold>
 
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
@@ -119,8 +122,7 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
     const otpFetcher = useFetcher();
     const leadId = useRef<Uuid>(generateUuid());
 
-    const [FormStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
-    const [resendTimeOut, setResendTimeOut] = useState(0);
+    const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
 
     useEffect(() => {
         if (fetcher.data == null) {
@@ -154,21 +156,24 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
             toast.error(otpFetcher.data.error);
             return;
         }
-        if (FormStateInputs.isOtpresent) {
+        if (formStateInputs.isOtpresent) {
             toast.success("OTP resent successfully");
         } else {
             toast.success("OTP sent successfully");
         }
-        setResendTimeOut(60);
     }, [otpFetcher.data]);
 
     useEffect(() => {
-        if (resendTimeOut > 0) {
+        if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
             setTimeout(() => {
-                setResendTimeOut(resendTimeOut - 1);
+                const action: FormStateInputsAction = {
+                    actionType: FormStateInputsActionType.SetResendTimeOut,
+                    payload: formStateInputs.resendTimeOut - 1,
+                };
+                dispatch(action);
             }, 1000);
         }
-    }, [resendTimeOut]);
+    }, [formStateInputs.resendTimeOut]);
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -180,12 +185,10 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 fetcher={fetcher}
                 otpFetcher={otpFetcher}
                 utmParameters={utmSearchParameters}
-                formStateInputs={FormStateInputs}
+                formStateInputs={formStateInputs}
                 dispatch={dispatch}
                 leadId={leadId.current}
                 pageUrl={pageUrl}
-                resendTimeOut={resendTimeOut}
-                setResendTimeOut={setResendTimeOut}
             />
 
             <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
@@ -194,18 +197,16 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                 id="contact-us-form-mobile"
             >
-                {!FormStateInputs.formSuccessfullySubmitted ? (
+                {!formStateInputs.formSuccessfullySubmitted ? (
                     <ContactForm
                         userPreferences={userPreferences}
                         fetcher={fetcher}
                         otpFetcher={otpFetcher}
                         utmParameters={utmSearchParameters}
-                        formStateInputs={FormStateInputs}
+                        formStateInputs={formStateInputs}
                         dispatch={dispatch}
                         leadId={leadId.current}
                         pageUrl={pageUrl}
-                        resendTimeOut={resendTimeOut}
-                        setResendTimeOut={setResendTimeOut}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />
@@ -285,8 +286,6 @@ function HeroSection({
     dispatch,
     leadId,
     pageUrl,
-    resendTimeOut,
-    setResendTimeOut,
 }: {
     userPreferences: UserPreferences;
     className?: string;
@@ -299,8 +298,6 @@ function HeroSection({
     dispatch: React.Dispatch<FormStateInputsAction>;
     leadId: Uuid;
     pageUrl: string;
-    resendTimeOut: number;
-    setResendTimeOut: React.Dispatch<number>;
 }) {
     return (
         <div
@@ -364,8 +361,6 @@ function HeroSection({
                         dispatch={dispatch}
                         leadId={leadId}
                         pageUrl={pageUrl}
-                        resendTimeOut={resendTimeOut}
-                        setResendTimeOut={setResendTimeOut}
                     />
                 ) : (
                     <ContactFormSuccess userPreferences={userPreferences} />
@@ -647,12 +642,8 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
                     <ItemBuilder
                         items={sectionData}
                         itemBuilder={(product, productIndex) => (
-                            <DefaultElementAnimation
-                                key={productIndex}
-                            >
-                                <div
-                                    className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}
-                                >
+                            <DefaultElementAnimation key={productIndex}>
+                                <div className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}>
                                     <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3">
                                         {product.bestSeller && <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 tw-pt-[2px]"> Best Seller </div>}
 
@@ -662,9 +653,7 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
 
                                         <VerticalSpacer className="tw-h-4" />
 
-                                        <FullWidthImage
-                                            relativePath={product.image}
-                                        />
+                                        <FullWidthImage relativePath={product.image} />
 
                                         <VerticalSpacer className="tw-h-4" />
 

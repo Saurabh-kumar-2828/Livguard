@@ -3758,8 +3758,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<div class="tw-text-[12px] lg-text-secondary-700">मैं <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="lg-text-secondary-900 tw-font-semibold">नियम और शर्तें</a> और <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="lg-text-secondary-900 tw-font-semibold">गोपनीयता नीति</a> को स्वीकार करता/करती हूँ।</div>`,
         [Language.Marathi]: "?????",
     },
+    termsAndConditionsCheckboxtext2: {
+        [Language.English]: `<div class="tw-text-[12px] tw-text-secondary-700-dark">I accept the <a href="https://www.livguard.com/terms-and-conditions.php" class="tw-text-secondary-900-dark tw-font-semibold">term of use</a> & <a href="https://www.livguard.com/privacy-policy.php" class="tw-text-secondary-900-dark tw-font-semibold">Privacy policy</a></div>`,
+        [Language.Hindi]: `<div class="tw-text-[12px] tw-text-secondary-700-dark">मैं <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="tw-text-secondary-900-dark tw-font-semibold">नियम और शर्तें</a> और <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-text-secondary-900-dark tw-font-semibold">गोपनीयता नीति</a> को स्वीकार करता/करती हूँ।</div>`,
+        [Language.Marathi]: "?????",
+    },
     phoneNumberChnage: {
-        [Language.English]: "Chnage",
+        [Language.English]: "Change",
         [Language.Hindi]: "चेंज",
         [Language.Marathi]: "?????",
     },
