@@ -1254,7 +1254,7 @@ export function ContactUsDialog({
                                     setResendTimeOut(0);
                                 }}
                             >
-                                change
+                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
                             </div>
                             <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{formStateInputs.inputData.phoneNumber}</div>
                         </div>
