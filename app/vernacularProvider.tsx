@@ -3764,7 +3764,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     phoneNumberChnage: {
-        [Language.English]: "Chnage",
+        [Language.English]: "Change",
         [Language.Hindi]: "चेंज",
         [Language.Marathi]: "?????",
     },

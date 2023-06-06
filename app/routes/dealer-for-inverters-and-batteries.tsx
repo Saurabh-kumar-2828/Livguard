@@ -154,7 +154,7 @@ export default function () {
                 pageUrl={pageUrl}
             />
 
-            <div className="tw-sticky tw-left-[1rem] tw-bottom-[1.75rem] tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-py-2 tw-px-4 tw-max-w-fit">
+            <div className="tw-hidden lg:tw-block tw-sticky tw-left-[1rem] tw-bottom-[1.75rem] tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-py-2 tw-px-4 tw-max-w-fit">
                 <a
                     href="/offers/inverter-and-battery-jodi"
                     className="tw-grid tw-grid-cols-[auto_.5rem_auto] tw-items-center"
