@@ -8,12 +8,12 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
-export function CategoryCarousel1({userPreferences, items}: {userPreferences: UserPreferences; items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>}) {
+export function CategoryCarousel1({userPreferences, items, className}: {userPreferences: UserPreferences; items: Array<{imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}>; className?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div
-            className="tw-overflow-hidden"
+            className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", className)}
             ref={emblaRef}
         >
             <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">

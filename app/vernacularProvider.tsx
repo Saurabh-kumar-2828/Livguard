@@ -3788,4 +3788,34 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `संपर्क<br/>करें`,
         [Language.Marathi]: "?????",
     },
+    "8f342209-314d-41f9-ac39-3370d9d96fcb": {
+        [Language.English]: `Tubular`,
+        [Language.Hindi]: `ट्यूबुलर`,
+        [Language.Marathi]: "?????",
+    },
+    "dd873e80-f5f5-48a6-8429-04efadff2720": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Ad excepturi laboriosam qui magnam dignissimos eum unde blanditiis.Lorem ipsum dolor sit amet. Ad excepturi laboriosam qui magnam dignissimos eum unde blanditiis.`,
+        [Language.Hindi]: `???`,
+        [Language.Marathi]: "?????",
+    },
+    "0593d2e0-e3ec-41c2-9ea8-5bf5fe8e1940": {
+        [Language.English]: `Assures a longer cycle life that empowers your home for the long run.`,
+        [Language.Hindi]: `???`,
+        [Language.Marathi]: "?????",
+    },
+    "59681e39-779a-4a64-be41-6272b33277e4": {
+        [Language.English]: `Suitable for high-power cut applications.`,
+        [Language.Hindi]: `???`,
+        [Language.Marathi]: "?????",
+    },
+    "5b9b5e8e-558b-46b5-aed4-8694bdcf47ab": {
+        [Language.English]: `Highly Economical, with various options to choose from.`,
+        [Language.Hindi]: `???`,
+        [Language.Marathi]: "?????",
+    },
+    "c04c64d1-8625-41c1-b2a1-aea0ec578adb": {
+        [Language.English]: `Hassle-free usage with low maintenance requirements.`,
+        [Language.Hindi]: `???`,
+        [Language.Marathi]: "?????",
+    },
 };

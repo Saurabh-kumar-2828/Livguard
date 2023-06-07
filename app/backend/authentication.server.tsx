@@ -20,8 +20,6 @@ export async function sendOtp(phoneNumber: string, name: string) {
         issuedAt: currentTimestamp,
     };
 
-    console.log("Otp is: ",otp);
-
     const normalizedPhoneNumber = `+91${phoneNumber}`;
 
     const authToken = await getAuthToken();

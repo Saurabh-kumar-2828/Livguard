@@ -69,8 +69,6 @@ export async function insertOrUpdateDealerLeads(
         return postgresDatabaseManager;
     }
 
-    console.log("ABC");
-
     const lead = await postgresDatabaseManager.execute(
         `SELECT
             *

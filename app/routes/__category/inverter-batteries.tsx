@@ -1,28 +1,30 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useState} from "react";
+import {Clock, HandThumbsUpFill, Lightning, Wallet} from "react-bootstrap-icons";
+import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {CarouselStyle4} from "~/components/carouselStyle4";
 import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {DownloadCatalogueBottomBar} from "~/components/downloadCatalogueBottomBar";
 import {FaqSectionInternal} from "~/components/faqs";
-import {PageScaffold} from "~/components/pageScaffold";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {useResizeDetector} from "react-resize-detector";
-import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -329,6 +331,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
             <CategoryCarousel1
                 userPreferences={userPreferences}
                 items={sectionData}
+                className="tw-max-w-7xl tw-mx-auto"
             />
         </div>
     );
@@ -412,7 +415,7 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 
 export function OurBatteriesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-center", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-items-center lg-px-screen-edge", className)}>
             <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS3T1", userPreferences.language))}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T2", userPreferences.language)}} />
@@ -420,7 +423,73 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-6" />
 
-            <OurBatteriesSectionInternal userPreferences={userPreferences} />
+            <div className="lg-text-title1">{getVernacularString("8f342209-314d-41f9-ac39-3370d9d96fcb", userPreferences.language)}</div>
+
+            {/* 31ca68bd-891d-47f3-b0ef-32b21bd9017f: Temporary hack until we can get a proper cropped-thumbnail image for each product */}
+            <div className="tw-w-full tw-aspect-[4/3] tw-max-w-[15rem]">
+                <CoverImage relativePath="/livguard/products/batteries/it1560stt/thumbnail.png" />
+            </div>
+            {/* /31ca68bd-891d-47f3-b0ef-32b21bd9017f */}
+
+            <div>{getVernacularString("dd873e80-f5f5-48a6-8429-04efadff2720", userPreferences.language)}</div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <div className="tw-grid tw-grid-cols-1 tw-gap-y-4">
+                <ItemBuilder
+                    items={[
+                        {
+                            contentId: "0593d2e0-e3ec-41c2-9ea8-5bf5fe8e1940",
+                            iconComponent: Clock,
+                        },
+                        {
+                            contentId: "59681e39-779a-4a64-be41-6272b33277e4",
+                            iconComponent: Lightning,
+                        },
+                        {
+                            contentId: "5b9b5e8e-558b-46b5-aed4-8694bdcf47ab",
+                            iconComponent: Wallet,
+                        },
+                        {
+                            contentId: "c04c64d1-8625-41c1-b2a1-aea0ec578adb",
+                            iconComponent: HandThumbsUpFill,
+                        },
+                    ]}
+                    itemBuilder={(item, itemIndex) => (
+                        <div
+                            className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 tw-items-center"
+                            key={itemIndex}
+                        >
+                            <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-p-3">
+                                <item.iconComponent className="tw-w-6 tw-h-6" />
+                            </div>
+                            <div>{getVernacularString(item.contentId, userPreferences.language)}</div>
+                        </div>
+                    )}
+                />
+            </div>
+
+            <VerticalSpacer className="tw-h-6" />
+
+            <CarouselStyle4
+                items={[
+                    {name: "Tall Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
+                    {name: "Short Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
+                    {name: "Short Tall Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
+                    {name: "Short Tubular Jumbo", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
+                ].map((item, itemIndex) => (
+                    <div
+                        className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                        key={itemIndex}
+                    >
+                        <div className="tw-w-full lg-text-body-bold tw-text-center">{item.name}</div>
+                        <FullWidthImage relativePath={item.image} />
+                    </div>
+                ))}
+                className="lg:tw-max-w-[440px]"
+            />
+
+            {/* <OurBatteriesSectionInternal userPreferences={userPreferences} /> */}
         </div>
     );
 }
