@@ -135,6 +135,7 @@ export default function Root() {
     useEffect(() => {
         const onDocumentLoad = () => {
             setTimeout(() => {
+                // TODO: Shift this to use addScript as well
                 const scriptTag = document.createElement("script");
                 scriptTag.src = "https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js";
                 scriptTag.setAttribute("charset", "UTF-8");
@@ -266,7 +267,7 @@ export default function Root() {
 
                                 @media (max-width: 640px) {
                                     iframe#haptik-xdk-main-view {
-                                    bottom: 115px !important;
+                                        bottom: 115px !important;
                                     }
 
                                     iframe.xdk-iframe {

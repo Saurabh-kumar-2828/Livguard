@@ -1,7 +1,6 @@
 import {Dialog, Listbox, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import {Form, Link, useFetcher, useNavigate, useSubmit} from "@remix-run/react";
-import {Query} from "pg";
 import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/components/images/fixedHeightImage";
@@ -10,7 +9,8 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
-import {Language, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, Theme, themeToHumanFriendlyString, UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 enum MenuState {
@@ -34,7 +34,6 @@ export function HeaderComponent({
     userPreferences,
     redirectTo,
     showMobileMenuIcon,
-    breadcrumbs,
     showSearchOption,
     showContactCtaButton,
     pageUrl,
@@ -42,7 +41,6 @@ export function HeaderComponent({
     userPreferences: UserPreferences;
     redirectTo: string;
     showMobileMenuIcon: boolean;
-    breadcrumbs?: Array<{contentId: string; link: string}>;
     showSearchOption: boolean;
     showContactCtaButton: boolean;
     pageUrl?: string;
@@ -113,7 +111,7 @@ export function HeaderComponent({
 
     return (
         <>
-                <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
+            <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
                 <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                     <button
                         onClick={tryToOpenContactUsDialog}
@@ -150,7 +148,7 @@ export function HeaderComponent({
                                 <MoonStarsFill className="tw-w-6 tw-h-6 dark:tw-block tw-hidden" />
                             </Listbox.Button>
 
-                            <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                            <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
                                 <ItemBuilder
                                     items={themeOptions}
                                     itemBuilder={(item, itemIndex) => (
@@ -218,7 +216,7 @@ export function HeaderComponent({
                                 <ChevronDown className="tw-w-4 tw-h-4" />
                             </Listbox.Button>
 
-                            <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden">
+                            <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
                                 <ItemBuilder
                                     items={languageOptions}
                                     itemBuilder={(item, itemIndex) => (
@@ -427,31 +425,6 @@ export function HeaderComponent({
                     setIsSearchOpen={setIsSearchOpen}
                 />
             </div>
-
-            {breadcrumbs == null ? null : (
-                <div className="lg-px-screen-edge lg-bg-secondary-100 tw-flex tw-flex-row tw-items-center tw-py-1">
-                    <ItemBuilder
-                        items={breadcrumbs}
-                        itemBuilder={(item, itemIndex) => (
-                            <Link
-                                to={item.link}
-                                key={itemIndex}
-                            >
-                                {getVernacularString(item.contentId, userPreferences.language)}
-                            </Link>
-                        )}
-                        spaceBuilder={(spaceIndex) => (
-                            // <CaretRight className="tw-w-8 tw-h-4 tw-px-2" key={spaceIndex} />
-                            <div
-                                className="tw-px-2"
-                                key={spaceIndex}
-                            >
-                                {">"}
-                            </div>
-                        )}
-                    />
-                </div>
-            )}
         </>
     );
 }

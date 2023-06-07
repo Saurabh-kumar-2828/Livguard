@@ -875,7 +875,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage1S3HT2: {
-        [Language.English]: `With <span class="lg-text-highlighted"> Limitless Energy</span>`,
+        [Language.English]: `With <span class="lg-text-highlighted">Limitless Energy</span>`,
         [Language.Hindi]: `<span class="lg-text-highlighted">असीमित ऊर्जा</span> के अनुभव का`,
         [Language.Marathi]: "?????",
     },
@@ -1152,12 +1152,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     landingPage2S5HT1: {
         [Language.English]: "Why",
-        [Language.Hindi]: `<span class="lg-text-highlighted"> लिवगार्ड जोड़ी </span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">लिवगार्ड जोड़ी</span>`,
         [Language.Marathi]: "?????",
     },
     landingPage2S5HT2: {
         [Language.English]: `<span class="lg-text-highlighted">Livguard Jodi?</span>`,
-        [Language.Hindi]: "बेहतर क्यों  है",
+        [Language.Hindi]: "बेहतर क्यों है",
         [Language.Marathi]: "?????",
     },
     landingPage2S5LivH: {
@@ -1244,7 +1244,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage3S7HT2: {
         [Language.English]: "With Livguard Jodis",
-        [Language.Hindi]: `<span class="lg-text-highlighted"> क्षमता </span> में निवेश करें`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">क्षमता</span> में निवेश करें`,
         [Language.Marathi]: "?????",
     },
 
@@ -1306,8 +1306,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS2HT2: {
-        [Language.English]: `<span class="lg-text-highlighted"> Meant To Last </span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted">स्जो सालों साल चलें </span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Meant To Last</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">स्जो सालों साल चलें</span>`,
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS2Slide1Heading: {
@@ -1390,7 +1390,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryBatteriesS3R3C2: {
         [Language.English]: "Suitable for high power cut applications",
-        [Language.Hindi]: "उच्च पावर कट अनुप्रयोगों के लिए उपयुक्त",
+        [Language.Hindi]: "लंबे समय के बिजली कट के लिए उपयुक्त।",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS3R3C3: {
@@ -1464,23 +1464,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4TT: {
-        [Language.English]: "Tall Tubular",
-        [Language.Hindi]: "फ्लैट प्लेट बैटरी",
+        [Language.English]: "Long Lasting",
+        [Language.Hindi]: "लाँग लास्टिंग",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4ST: {
-        [Language.English]: "Short Tubular",
-        [Language.Hindi]: "ट्यूबुलर",
+        [Language.English]: "Extra Long Lasting",
+        [Language.Hindi]: "एक्स्ट्रा लाँग लास्टिंग",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4STT: {
-        [Language.English]: "Short Tall Tubular",
-        [Language.Hindi]: "ट्यूबुलर बैटरी",
-        [Language.Marathi]: "?????",
-    },
-    categoryBatteriesS4STJ: {
-        [Language.English]: "Short Tubular Jumbo",
-        [Language.Hindi]: "ट्यूबुलर बैटरी",
+        [Language.English]: "Ultra Long Lasting",
+        [Language.Hindi]: "अल्ट्रा लाँग लास्टिंग",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4SpecificationHeading: {
@@ -1514,8 +1509,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide1Heading: {
-        [Language.English]: "IT1584TT",
-        [Language.Hindi]: "IT1584TT",
+        [Language.English]: "IT1048ST",
+        [Language.Hindi]: "IT1048ST",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide1Description: {
@@ -1526,13 +1521,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS1Description: {
-        [Language.English]: "60 + 24* Months",
-        [Language.Hindi]: "60 + 24* महीने",
+        [Language.English]: "24 + 24* Months",
+        [Language.Hindi]: "24 + 24* महीने",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS2Description: {
-        [Language.English]: "150 Ah",
-        [Language.Hindi]: "150 Ah",
+        [Language.English]: "100 Ah",
+        [Language.Hindi]: "100 Ah",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS3Description: {
@@ -1541,13 +1536,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide1KS4Description: {
-        [Language.English]: "505 (L) X  188 (W) X 410 (H)",
-        [Language.Hindi]: "505 (L) X  188 (W) X 410 (H)",
+        [Language.English]: "520(L) x 218(W) x 290(H)",
+        [Language.Hindi]: "520(L) x 218(W) x 290(H)",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide2Heading: {
-        [Language.English]: "IT1048ST",
-        [Language.Hindi]: "IT1048ST",
+        [Language.English]: "IT1560STT",
+        [Language.Hindi]: "IT1560STT",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide2Description: {
@@ -1558,13 +1553,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide2KS1Description: {
-        [Language.English]: "24 + 24* Months",
-        [Language.Hindi]: "24 + 24* महीने",
+        [Language.English]: "36 + 24* Months",
+        [Language.Hindi]: "36 + 24* महीने",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide2KS2Description: {
-        [Language.English]: "100 Ah",
-        [Language.Hindi]: "100 Ah",
+        [Language.English]: "150 Ah",
+        [Language.Hindi]: "150 Ah",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide2KS3Description: {
@@ -1573,8 +1568,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide2KS4Description: {
-        [Language.English]: "520 (L) X 218 (W) X 290 (H)",
-        [Language.Hindi]: "520 (L) X 218 (W) X 290 (H)",
+        [Language.English]: "505(L) x 188(W) x 367(H)",
+        [Language.Hindi]: "505(L) x 188(W) x 367(H)",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide3Heading: {
@@ -1590,8 +1585,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide3KS1Description: {
-        [Language.English]: "36 + 24* Months",
-        [Language.Hindi]: "36 + 24* महीने",
+        [Language.English]: "60 + 24* Months",
+        [Language.Hindi]: "60 + 24* महीने",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide3KS2Description: {
@@ -1605,23 +1600,23 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesSlide3KS4Description: {
-        [Language.English]: "505 (L) X 188 (W) X 367 (H)",
-        [Language.Hindi]: "505 (L) X 188 (W) X 367 (H)",
+        [Language.English]: "505(L) x 188(W) x 410(H)",
+        [Language.Hindi]: "505(L) x 188(W) x 410(H)",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide1TypeDescription: {
-        [Language.English]: "The best-in-class choice for your backup requirements.",
-        [Language.Hindi]: "आपकी बैकअप आवश्यकताओं के लिए श्रेणी में सर्वश्रेष्ठ विकल्प।",
+        [Language.English]: "Batteries with an assured 4-year warranty to power up your home",
+        [Language.Hindi]: "आपके घर को बिना किसी रुकावट के ऊर्जा देने के लिए 4 साल की सुनिश्चित वारंटी के साथ बनी बैटरी",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide2TypeDescription: {
-        [Language.English]: "The space-friendly choice for your home with high performance.",
-        [Language.Hindi]: "उच्च प्रदर्शन के साथ आपके घर के लिए जगह के अनुकूल पसंद।",
+        [Language.English]: "Experience unlimited energy with these 5-Year warranty batteries ",
+        [Language.Hindi]: "इन 5 साल की वारंटी वाली बैटरी के साथ असीमित ऊर्जा का अनुभव करें",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide3TypeDescription: {
-        [Language.English]: " Another great choice to empower your home with high backup.",
-        [Language.Hindi]: "उच्च बैकअप के साथ अपने घर को सशक्त बनाने का एक और बढ़िया विकल्प।",
+        [Language.English]: "Batteries with 7-year warranty to charge up your home for long-run",
+        [Language.Hindi]: "आपके घर को लंबे समय तक प्रकाशित रखने के लिए 7 साल की वारंटी के साथ बैटरी",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS4Slide4TypeDescription: {
@@ -1717,8 +1712,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS6HT1: {
-        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis </span>`,
-        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted"> जोड़ियाँ </span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis</span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">जोड़ियाँ</span>`,
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS6Jodi1Title: {
@@ -1757,8 +1752,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS8HT2: {
-        [Language.English]: `<span class="lg-text-highlighted"> Inverter Battery </span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted"> इनवर्टर बैटरी </span> से`,
+        [Language.English]: `<span class="lg-text-highlighted">Inverter Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर बैटरी</span> से`,
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS8Description: {
@@ -1805,8 +1800,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS2HT2: {
-        [Language.English]: `With <span class="lg-text-highlighted"> Livguard Inverters </span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted"> लिवगार्ड इनवर्टर </span> के साथ`,
+        [Language.English]: `With <span class="lg-text-highlighted">Livguard Inverters</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">लिवगार्ड इनवर्टर</span> के साथ`,
         [Language.Marathi]: "?????",
     },
     categoryInvertersS2Slide1Heading: {
@@ -1936,8 +1931,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS4HT1: {
-        [Language.English]: `<span class="lg-text-highlighted"> Our Suggestions </span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted"> हमारे सुझाव </span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">हमारे सुझाव</span>`,
         [Language.Marathi]: "?????",
     },
     categoryInvertersS4HT2: {
@@ -2130,8 +2125,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6HT1: {
-        [Language.English]: `Suggested <span class="lg-text-highlighted"> Jodis </span>`,
-        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted"> जोड़ियाँ </span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis</span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">जोड़ियाँ</span>`,
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi1Title: {
@@ -2170,8 +2165,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8HT2: {
-        [Language.English]: `<span class="lg-text-highlighted"> Inverter </span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted"> इनवर्टर बैटरी </span> से`,
+        [Language.English]: `<span class="lg-text-highlighted">Inverter</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर बैटरी</span> से`,
         [Language.Marathi]: "?????",
     },
     categoryInvertersS8Description: {
@@ -2202,8 +2197,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     dealerLocatorInputText: {
-        [Language.English]: "Enter Location, City, or Zip Code",
-        [Language.Hindi]: "स्थान, शहर या ज़िप कोड भरे",
+        [Language.English]: "Enter Location, City, State or Zip Code",
+        [Language.Hindi]: "स्थान, शहर, राज्य या ज़िप कोड भरें",
         [Language.Marathi]: "?????",
     },
     dealerLocatorButtonText: {
@@ -2248,12 +2243,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     dealerLocatorSocialHT1: {
         [Language.English]: "Catch Dealers",
-        [Language.Hindi]: `जानिये <span class="lg-text-highlighted"> लिवगार्ड </span>`,
+        [Language.Hindi]: `जानिये <span class="lg-text-highlighted">लिवगार्ड</span>`,
         [Language.Marathi]: "?????",
     },
     dealerLocatorSocialHT2: {
-        [Language.English]: `<span class="lg-text-highlighted"> Talking About Livguard </span>`,
-        [Language.Hindi]: `<span class="lg-text-highlighted"> डीलर नेटवर्क </span> को`,
+        [Language.English]: `<span class="lg-text-highlighted">Talking About Livguard</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">डीलर नेटवर्क</span> को`,
         [Language.Marathi]: "?????",
     },
     dealerLocatorHighlightedText: {
@@ -2869,7 +2864,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     loadCalculatorS1T1: {
         [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
-        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">पावर प्लानर </span> के साथ',
+        [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">पावर प्लानर</span> के साथ',
         [Language.Marathi]: "?????",
     },
     loadCalculatorS1T2: {
@@ -3794,28 +3789,28 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     "dd873e80-f5f5-48a6-8429-04efadff2720": {
-        [Language.English]: `Lorem ipsum dolor sit amet. Ad excepturi laboriosam qui magnam dignissimos eum unde blanditiis.Lorem ipsum dolor sit amet. Ad excepturi laboriosam qui magnam dignissimos eum unde blanditiis.`,
-        [Language.Hindi]: `???`,
+        [Language.English]: `Step into the future with Livguard's Tubular Inverter Batteries. Enjoy the freedom to choose your warranty, and experience hassle-free, low-maintenance power solutions designed to meet the unique needs of your home.`,
+        [Language.Hindi]: `लिवगार्ड ट्यूबुलर बैटरी के साथ ऊर्जा के भविष्य का हिस्सा बनें। अपनी ज़रूरत अनुसार वारंटी चुनने की आज़ादी के साथ सरल और कम मेंटेनेंस वाले ऊर्जा समाधानों का अनुभव करें।`,
         [Language.Marathi]: "?????",
     },
     "0593d2e0-e3ec-41c2-9ea8-5bf5fe8e1940": {
         [Language.English]: `Assures a longer cycle life that empowers your home for the long run.`,
-        [Language.Hindi]: `???`,
+        [Language.Hindi]: "लंबी साइकिल जीवन का वादा जो आपके घर को लंबे समय तक के लिए सशक्त करे।",
         [Language.Marathi]: "?????",
     },
     "59681e39-779a-4a64-be41-6272b33277e4": {
         [Language.English]: `Suitable for high-power cut applications.`,
-        [Language.Hindi]: `???`,
+        [Language.Hindi]: "लंबे समय के बिजली कट के लिए उपयुक्त।",
         [Language.Marathi]: "?????",
     },
     "5b9b5e8e-558b-46b5-aed4-8694bdcf47ab": {
         [Language.English]: `Highly Economical, with various options to choose from.`,
-        [Language.Hindi]: `???`,
+        [Language.Hindi]: "अत्यधिक किफायती, विभिन्न विकल्पों के साथ।",
         [Language.Marathi]: "?????",
     },
     "c04c64d1-8625-41c1-b2a1-aea0ec578adb": {
         [Language.English]: `Hassle-free usage with low maintenance requirements.`,
-        [Language.Hindi]: `???`,
+        [Language.Hindi]: "परेशानी मुक्त उपयोग कम देख-रेख की आवश्यकता के साथ।",
         [Language.Marathi]: "?????",
     },
 };

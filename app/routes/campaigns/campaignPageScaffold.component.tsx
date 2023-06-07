@@ -34,7 +34,6 @@ export function CampaignPageScaffold({
                     userPreferences={userPreferences}
                     redirectTo={redirectTo}
                     showMobileMenuIcon={showMobileMenuIcon}
-                    breadcrumbs={breadcrumbs}
                     showSearchOption={showSearchOption}
                     showContactCtaButton={showContactCtaButton}
                     pageUrl={pageUrl}
@@ -49,6 +48,7 @@ export function CampaignPageScaffold({
                     userPreferences={userPreferences}
                     className="tw-w-full"
                 />
+
                 {/* <FooterComponent
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}

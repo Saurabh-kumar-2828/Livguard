@@ -1,21 +1,19 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
-import {UserPreferences} from "~/typeDefinitions";
 
 export function CarouselStyle4({items, className}: {items: Array<any>; className?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"}, 8000);
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full",className)}
+            className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full", className)}
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[50%]">
+            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[50%]")}>
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (

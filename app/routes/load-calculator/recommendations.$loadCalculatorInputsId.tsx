@@ -488,6 +488,7 @@ function HorizontalInverterRecommendationCard({
                         <FixedWidthImage
                             relativePath="/livguard/icons/capacity.png"
                             width="1.5rem"
+                            className="tw-invert dark:tw-invert-0"
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
@@ -500,6 +501,7 @@ function HorizontalInverterRecommendationCard({
                         <FixedWidthImage
                             relativePath="/livguard/icons/waranty.png"
                             width="1.5rem"
+                            className="tw-invert dark:tw-invert-0"
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
@@ -565,6 +567,7 @@ function HorizontalBatteryRecommendationCard({
                         <FixedWidthImage
                             relativePath="/livguard/icons/battery_capacity.png"
                             width="1.25rem"
+                            className="tw-invert dark:tw-invert-0"
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
@@ -577,6 +580,7 @@ function HorizontalBatteryRecommendationCard({
                         <FixedWidthImage
                             relativePath="/livguard/icons/waranty.png"
                             width="1.5rem"
+                            className="tw-invert dark:tw-invert-0"
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
@@ -645,6 +649,7 @@ function VerticalInverterRecommendationCard({
                     <FixedWidthImage
                         relativePath="/livguard/icons/capacity.png"
                         width="1.5rem"
+                        className="tw-invert dark:tw-invert-0"
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">
@@ -659,6 +664,7 @@ function VerticalInverterRecommendationCard({
                     <FixedWidthImage
                         relativePath="/livguard/icons/waranty.png"
                         width="1.5rem"
+                        className="tw-invert dark:tw-invert-0"
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">
@@ -735,6 +741,7 @@ function VerticalBatteryRecommendationCard({
                     <FixedWidthImage
                         relativePath="/livguard/icons/battery_capacity.png"
                         width="1.25rem"
+                        className="tw-invert dark:tw-invert-0"
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">
@@ -749,6 +756,7 @@ function VerticalBatteryRecommendationCard({
                     <FixedWidthImage
                         relativePath="/livguard/icons/waranty.png"
                         width="1.5rem"
+                        className="tw-invert dark:tw-invert-0"
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">

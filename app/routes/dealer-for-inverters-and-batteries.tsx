@@ -1,5 +1,5 @@
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Form, useActionData, useFetcher, useTransition} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -16,18 +16,19 @@ import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFi
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {ContactUsCta} from "~/routes";
-import {FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
+import type {FormStateInputsAction} from "~/routes/lead-form.state";
+import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Dealer, Language, UserPreferences} from "~/typeDefinitions";
+import type {Dealer, UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {DealerLocatorPageBottomBar} from "~/components/DealerLocatorPageBottomBar";
 import {StickyBottomBar} from "~/components/bottomBar";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
@@ -59,8 +60,8 @@ type DealerLocatorActionData = {
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
-    const city = getNonEmptyStringFromUnknown(body.get("dealerLocation")) as string;
-    const dealerList = await getDealerForCity(city);
+    const query = getNonEmptyStringFromUnknown(body.get("query")) as string;
+    const dealerList = await getDealerForCity(query);
     // TOOD: Handle dealerList error
     if (dealerList instanceof Error) {
         return {
@@ -69,7 +70,7 @@ export const action: ActionFunction = async ({request, params}) => {
         };
     }
 
-    const result = await insertQueryLeads(city);
+    const result = await insertQueryLeads(query);
     if (result instanceof Error) {
         return {
             dealerList: null,
@@ -291,7 +292,7 @@ export function DealerLocatorPage({
                         >
                             <input
                                 type="text"
-                                name="dealerLocation"
+                                name="query"
                                 required
                                 className="lg-text-input tw-w-full tw-text-center lg:tw-max-w-[22rem]"
                                 placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
@@ -321,7 +322,7 @@ export function DealerLocatorPage({
                             <VerticalSpacer className="tw-h-4" />
                             <input
                                 type="text"
-                                name="dealerLocation"
+                                name="query"
                                 className="tw-hidden"
                                 readOnly
                             />
@@ -330,7 +331,7 @@ export function DealerLocatorPage({
                                 type="submit"
                                 className="lg-cta-button"
                                 disabled={transition.state != "idle"}
-                                onClick={() => {
+                                onSubmit={() => {
                                     setDealerList(null);
                                     setShowMore(false);
                                 }}
@@ -378,7 +379,7 @@ export function DealerLocatorPage({
                             <div className="tw-flex tw-flex-col tw-gap-1">
                                 <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
                                 <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
-                                <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div>
+                                {/* <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div> */}
                             </div>
 
                             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 lg:tw-gap-x-2 tw-gap-y-3">
@@ -552,8 +553,8 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
                     >
                         <input
                             type="text"
-                            name="dealerLocation"
-                            placeholder="dealerLocation"
+                            name="query"
+                            placeholder="query"
                         ></input>
                     </Autocomplete> */}
                 </GoogleMap>

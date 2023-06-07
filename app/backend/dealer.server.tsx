@@ -4,7 +4,7 @@ import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValid
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {Dealer} from "~/typeDefinitions";
 
-export async function getDealerForCity(city: string): Promise<Array<Dealer> | Error> {
+export async function getDealerForCity(query: string): Promise<Array<Dealer> | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
@@ -18,11 +18,12 @@ export async function getDealerForCity(city: string): Promise<Array<Dealer> | Er
                 livguard.dealer
             WHERE
                 city ILIKE $1 OR
-                pin_code ILIKE $1
+                pin_code ILIKE $1 OR
+                state ILIKE $1
             ORDER BY
                 dealer_name DESC
         `,
-        [`%${city}%`],
+        [`%${query}%`],
     );
 
     if (result instanceof Error) {

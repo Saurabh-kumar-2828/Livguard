@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {useState} from "react";
 import {Clock, HandThumbsUpFill, Lightning, Wallet} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
@@ -15,6 +15,7 @@ import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
@@ -414,80 +415,109 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 // }
 
 export function OurBatteriesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const highlightedBatteries = [
+        {name: "Tall Tubular", image: "/livguard/products/batteries/it1584tt/thumbnail.png"},
+        {name: "Short Tubular", image: "/livguard/products/batteries/it1048st/thumbnail.png"},
+        {name: "Short Tall Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
+        {name: "Short Tubular Jumbo", image: "/livguard/products/batteries/it1636stj/thumbnail.png"},
+    ];
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-items-center lg-px-screen-edge", className)}>
-            <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-cols-1 tw-justify-items-center lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
+            <h2 className="lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS3T1", userPreferences.language))}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T2", userPreferences.language)}} />
             </h2>
 
             <VerticalSpacer className="tw-h-6" />
 
-            <div className="lg-text-title1">{getVernacularString("8f342209-314d-41f9-ac39-3370d9d96fcb", userPreferences.language)}</div>
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_auto_auto] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-items-center tw-justify-items-center lg:tw-justify-items-start lg:lg-bg-secondary-100 lg:tw-p-4 lg:tw-rounded-lg">
+                <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 lg-text-title1 tw-text-center">
+                    {getVernacularString("8f342209-314d-41f9-ac39-3370d9d96fcb", userPreferences.language)}
+                </div>
 
-            {/* 31ca68bd-891d-47f3-b0ef-32b21bd9017f: Temporary hack until we can get a proper cropped-thumbnail image for each product */}
-            <div className="tw-w-full tw-aspect-[4/3] tw-max-w-[15rem]">
-                <CoverImage relativePath="/livguard/products/batteries/it1560stt/thumbnail.png" />
-            </div>
-            {/* /31ca68bd-891d-47f3-b0ef-32b21bd9017f */}
+                <VerticalSpacer className="tw-h-6 tw-hidden lg:tw-block" />
 
-            <div>{getVernacularString("dd873e80-f5f5-48a6-8429-04efadff2720", userPreferences.language)}</div>
+                {/* 31ca68bd-891d-47f3-b0ef-32b21bd9017f: Temporary hack until we can get a proper cropped-thumbnail image for each product */}
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-row-span-2 tw-w-full tw-aspect-[4/3] tw-justify-self-center tw-self-start tw-max-w-[30rem]">
+                    <CoverImage relativePath="/livguard/products/batteries/it1560stt/thumbnail.png" />
+                </div>
+                {/* /31ca68bd-891d-47f3-b0ef-32b21bd9017f */}
 
-            <VerticalSpacer className="tw-h-6" />
+                <div className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2 tw-flex tw-flex-col">
+                    <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-gap-y-4">
-                <ItemBuilder
-                    items={[
-                        {
-                            contentId: "0593d2e0-e3ec-41c2-9ea8-5bf5fe8e1940",
-                            iconComponent: Clock,
-                        },
-                        {
-                            contentId: "59681e39-779a-4a64-be41-6272b33277e4",
-                            iconComponent: Lightning,
-                        },
-                        {
-                            contentId: "5b9b5e8e-558b-46b5-aed4-8694bdcf47ab",
-                            iconComponent: Wallet,
-                        },
-                        {
-                            contentId: "c04c64d1-8625-41c1-b2a1-aea0ec578adb",
-                            iconComponent: HandThumbsUpFill,
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
+                    <div>{getVernacularString("dd873e80-f5f5-48a6-8429-04efadff2720", userPreferences.language)}</div>
+
+                    <VerticalSpacer className="tw-h-6" />
+
+                    <div className="tw-grid tw-grid-cols-1 tw-gap-y-4">
+                        <ItemBuilder
+                            items={[
+                                {
+                                    contentId: "0593d2e0-e3ec-41c2-9ea8-5bf5fe8e1940",
+                                    iconComponent: Clock,
+                                },
+                                {
+                                    contentId: "59681e39-779a-4a64-be41-6272b33277e4",
+                                    iconComponent: Lightning,
+                                },
+                                {
+                                    contentId: "5b9b5e8e-558b-46b5-aed4-8694bdcf47ab",
+                                    iconComponent: Wallet,
+                                },
+                                {
+                                    contentId: "c04c64d1-8625-41c1-b2a1-aea0ec578adb",
+                                    iconComponent: HandThumbsUpFill,
+                                },
+                            ]}
+                            itemBuilder={(item, itemIndex) => (
+                                <div
+                                    className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 tw-items-center"
+                                    key={itemIndex}
+                                >
+                                    <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-p-3">
+                                        <item.iconComponent className="tw-w-6 tw-h-6" />
+                                    </div>
+                                    <div>{getVernacularString(item.contentId, userPreferences.language)}</div>
+                                </div>
+                            )}
+                        />
+                    </div>
+                </div>
+
+                <VerticalSpacer className="tw-row-start-4 tw-col-start-1 tw-h-6 lg:tw-hidden" />
+
+                <CarouselStyle4
+                    items={highlightedBatteries.map((item, itemIndex) => (
                         <div
-                            className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 tw-items-center"
+                            className="tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                             key={itemIndex}
                         >
-                            <div className="tw-w-12 tw-h-12 lg-bg-secondary-300 tw-rounded-full tw-p-3">
-                                <item.iconComponent className="tw-w-6 tw-h-6" />
-                            </div>
-                            <div>{getVernacularString(item.contentId, userPreferences.language)}</div>
+                            <div className="tw-w-full lg-text-body-bold tw-text-center">{item.name}</div>
+                            <EmptyFlexFiller />
+                            <FullWidthImage relativePath={item.image} />
                         </div>
-                    )}
+                    ))}
+                    className="tw-row-start-5 tw-col-start-1 tw-max-w-[27.5rem] lg:tw-hidden"
                 />
+
+                <div className="tw-col-span-2 tw-justify-self-center tw-hidden lg:tw-grid tw-w-full tw-grid-cols-[repeat(4,200px)] tw-gap-x-4 tw-justify-center tw-justify-items-center">
+                    <ItemBuilder
+                        items={highlightedBatteries}
+                        itemBuilder={(item, itemIndex) => (
+                            <div
+                                className="tw-w-full tw-h-full lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
+                                key={itemIndex}
+                            >
+                                <div className="tw-w-full lg-text-body-bold tw-text-center">{item.name}</div>
+                                <EmptyFlexFiller />
+                                <FullWidthImage relativePath={item.image} />
+                            </div>
+                        )}
+                    />
+                </div>
             </div>
-
-            <VerticalSpacer className="tw-h-6" />
-
-            <CarouselStyle4
-                items={[
-                    {name: "Tall Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
-                    {name: "Short Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
-                    {name: "Short Tall Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
-                    {name: "Short Tubular Jumbo", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
-                ].map((item, itemIndex) => (
-                    <div
-                        className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
-                        key={itemIndex}
-                    >
-                        <div className="tw-w-full lg-text-body-bold tw-text-center">{item.name}</div>
-                        <FullWidthImage relativePath={item.image} />
-                    </div>
-                ))}
-                className="lg:tw-max-w-[440px]"
-            />
 
             {/* <OurBatteriesSectionInternal userPreferences={userPreferences} /> */}
         </div>
@@ -708,39 +738,6 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
             relatedProducts: ["it1172stt", "it1548stt"],
         },
-        {
-            typeDescription: `${getVernacularString("categoryBatteriesS4Slide4TypeDescription", userPreferences.language)}`,
-            heading: `${getVernacularString("categoryBatteriesS4Slide4Heading", userPreferences.language)}`,
-            description: `${getVernacularString("categoryBatteriesS4Slide4Description", userPreferences.language)}`,
-            specificationHeading: `${getVernacularString("categoryBatteriesS4SpecificationHeading", userPreferences.language)}`,
-            keySpecifications: [
-                {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS1Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
-                },
-                {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
-                },
-                {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS3Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
-                },
-                {
-                    keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
-                    keySpecificationContent: getVernacularString("categoryBatteriesSlide4KS4Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
-                },
-            ],
-            imagesRelativePath: "/livguard/products/batteries/",
-            link: "/product/it1636stj",
-            exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
-            relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
-            relatedProducts: ["it1560stj", "it1548stj"],
-        },
     ];
 
     return (
@@ -764,9 +761,9 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 <VerticalSpacer className="tw-h-4" /> */}
 
                 <DefaultElementAnimation>
-                    <div className="tw-w-full tw-grid tw-grid-cols-4 tw-gap-4 tw-items-center">
+                    <div className="tw-w-full tw-grid tw-grid-cols-3 tw-gap-4 tw-items-center">
                         <ItemBuilder
-                            items={["categoryBatteriesS4TT", "categoryBatteriesS4ST", "categoryBatteriesS4STT", "categoryBatteriesS4STJ"]}
+                            items={["categoryBatteriesS4TT", "categoryBatteriesS4ST", "categoryBatteriesS4STT"]}
                             itemBuilder={(item, itemIndex) => (
                                 <button
                                     type="button"
