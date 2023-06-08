@@ -2,7 +2,7 @@ import {getPostgresDatabaseManager} from "~/global-common-typescript/server/post
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
-import type {ContactUsLead, Dealer} from "~/typeDefinitions";
+import type {ContactUsLead, Dealer, TermFrequency} from "~/typeDefinitions";
 
 export async function getDealerForCity(query: string): Promise<Array<Dealer> | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
@@ -195,7 +195,7 @@ export async function insertOrUpdateContactLeads(
     }
 }
 
-export async function getContactUsLeads(limit: number, offset: number): Promise<Array<ContactUsLead> | Error> {
+export async function getContactUsLeads(startDate: string, endDate: string, limit: number, offset: number): Promise<Array<ContactUsLead> | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
@@ -207,14 +207,17 @@ export async function getContactUsLeads(limit: number, offset: number): Promise<
                 *
             FROM
                 livguard.contact_us_leads
+            WHERE
+                timestamp >= $1 AND
+                timestamp <= $2
             ORDER BY
                 timestamp ASC
             LIMIT
-                $1
+                $3
             OFFSET
-                $2
+                $4
         `,
-        [limit, offset],
+        [startDate, endDate, limit, offset],
     );
 
     if (result instanceof Error) {
@@ -224,7 +227,7 @@ export async function getContactUsLeads(limit: number, offset: number): Promise<
     return result.rows.map((row) => rowToContactUsLead(row));
 }
 
-export async function getContactUsLeadsCount(): Promise<number | Error> {
+export async function getContactUsLeadsCount(startDate: string, endDate: string): Promise<number | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
@@ -236,7 +239,11 @@ export async function getContactUsLeadsCount(): Promise<number | Error> {
                 COUNT(*) AS count
             FROM
                 livguard.contact_us_leads
+            WHERE
+                timestamp >= $1 AND
+                timestamp <= $2
         `,
+        [startDate, endDate],
     );
 
     if (result instanceof Error) {
@@ -257,6 +264,78 @@ function rowToContactUsLead(row: unknown): ContactUsLead {
     };
 
     return contactUsLead;
+}
+
+export async function getSearchTermFrequencies(startDate: string, endDate: string, limit: number, offset: number): Promise<Array<TermFrequency> | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                search_term AS term,
+                SUM(frequency) AS frequency
+            FROM
+                livguard.search_query_leads
+            WHERE
+                timestamp >= $1 AND
+                timestamp <= $2
+            GROUP BY
+                search_term
+            ORDER BY
+                2 DESC
+            LIMIT
+                $3
+            OFFSET
+                $4
+        `,
+        [startDate, endDate, limit, offset],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return result.rows.map((row) => rowToTermFrequency(row));
+}
+
+export async function getSearchTermFrequenciesCount(startDate: string, endDate: string): Promise<number | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                COUNT(DISTINCT search_term) AS count
+            FROM
+                livguard.search_query_leads
+            WHERE
+                timestamp >= $1 AND
+                timestamp <= $2
+        `,
+        [startDate, endDate],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    // TODO: Type validation
+
+    return result.rows.map((row) => row.count);
+}
+
+function rowToTermFrequency(row: unknown): TermFrequency {
+    const termFrequency: TermFrequency = {
+        term: row.term,
+        frequency: row.frequency,
+    };
+
+    return termFrequency;
 }
 
 export async function insertSubscriptionLeads(formResponse: {

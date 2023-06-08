@@ -138,6 +138,11 @@ export type ContactUsLead = {
     formResponse: any,
 }
 
+export type TermFrequency = {
+    term: string,
+    frequency: number,
+}
+
 export enum FormType {
     otpVerification = "otp-verification",
     contactUsSubmission = "contact-us-submission",

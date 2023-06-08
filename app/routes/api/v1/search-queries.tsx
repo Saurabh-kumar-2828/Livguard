@@ -1,13 +1,13 @@
 import type {LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
-import {getContactUsLeads, getContactUsLeadsCount} from "~/backend/dealer.server";
+import {getSearchTermFrequencies, getSearchTermFrequenciesCount} from "~/backend/dealer.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getIntegerFromUnknown, getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import type {ContactUsLead} from "~/typeDefinitions";
+import type {TermFrequency} from "~/typeDefinitions";
 
 type LoaderData = {
     nRows: number;
-    rows: Array<ContactUsLead>;
+    rows: Array<TermFrequency>;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -31,23 +31,23 @@ export const loader: LoaderFunction = async ({request, params}) => {
         });
     }
 
-    const contactUsLeadsCount = await getContactUsLeadsCount(startDate, endDate);
-    if (contactUsLeadsCount instanceof Error) {
-        return new Response(contactUsLeadsCount.message, {
+    const searchTermFrequenciesCount = await getSearchTermFrequenciesCount(startDate, endDate);
+    if (searchTermFrequenciesCount instanceof Error) {
+        return new Response(searchTermFrequenciesCount.message, {
             status: 400,
         });
     }
 
-    const contactUsLeads = await getContactUsLeads(startDate, endDate, limit, offset);
-    if (contactUsLeads instanceof Error) {
-        return new Response(contactUsLeads.message, {
+    const searchTermFrequencies = await getSearchTermFrequencies(startDate, endDate, limit, offset);
+    if (searchTermFrequencies instanceof Error) {
+        return new Response(searchTermFrequencies.message, {
             status: 400,
         });
     }
 
     const loaderData: LoaderData = {
-        nRows: contactUsLeadsCount,
-        rows: contactUsLeads,
+        nRows: searchTermFrequenciesCount,
+        rows: searchTermFrequencies,
     };
 
     return json(loaderData);
