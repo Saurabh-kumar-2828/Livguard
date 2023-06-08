@@ -131,6 +131,13 @@ export type Dealer = {
     stateCode: string;
 }
 
+export type ContactUsLead = {
+    id: Uuid,
+    createdAt: Uuid,
+    updatedAt: Uuid,
+    formResponse: any,
+}
+
 export enum FormType {
     otpVerification = "otp-verification",
     contactUsSubmission = "contact-us-submission",

@@ -2,7 +2,7 @@ import {getPostgresDatabaseManager} from "~/global-common-typescript/server/post
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
-import {Dealer} from "~/typeDefinitions";
+import type {ContactUsLead, Dealer} from "~/typeDefinitions";
 
 export async function getDealerForCity(query: string): Promise<Array<Dealer> | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
@@ -84,6 +84,7 @@ export async function insertOrUpdateDealerLeads(
     if (lead instanceof Error) {
         return lead;
     }
+    // TODO: Replace with a proper upsert query
     if (lead.rowCount == 0) {
         const result = await postgresDatabaseManager.execute(
             `
@@ -155,6 +156,7 @@ export async function insertOrUpdateContactLeads(
     if (lead instanceof Error) {
         return lead;
     }
+    // TODO: Replace with a proper upsert query
     if (lead.rowCount == 0) {
         const result = await postgresDatabaseManager.execute(
             `
@@ -191,6 +193,70 @@ export async function insertOrUpdateContactLeads(
             return result;
         }
     }
+}
+
+export async function getContactUsLeads(limit: number, offset: number): Promise<Array<ContactUsLead> | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                *
+            FROM
+                livguard.contact_us_leads
+            ORDER BY
+                timestamp ASC
+            LIMIT
+                $1
+            OFFSET
+                $2
+        `,
+        [limit, offset],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return result.rows.map((row) => rowToContactUsLead(row));
+}
+
+export async function getContactUsLeadsCount(): Promise<number | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                COUNT(*) AS count
+            FROM
+                livguard.contact_us_leads
+        `,
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    // TODO: Type validation
+
+    return result.rows.map((row) => row.count);
+}
+
+function rowToContactUsLead(row: unknown): ContactUsLead {
+    const contactUsLead: ContactUsLead = {
+        id: row.id,
+        createdAt: row.timestamp,
+        updatedAt: row.updated_timestamp,
+        formResponse: row.form_response,
+    };
+
+    return contactUsLead;
 }
 
 export async function insertSubscriptionLeads(formResponse: {
