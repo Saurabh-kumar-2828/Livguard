@@ -156,7 +156,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/products/inverters/llgs1000i/thumbnail.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/lgs1000i",
@@ -320,7 +320,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
                 {
                     title: "LGS1000i",
-                    imageRelativePath: "/livguard/products/inverters/llgs1000i/thumbnail.png",
+                    imageRelativePath: "/livguard/products/inverters/lgs1000i/thumbnail.png",
                     buttonText: "categoryViewProductButtontext",
                     bestseller: false,
                     link: "/product/lgs1000i",

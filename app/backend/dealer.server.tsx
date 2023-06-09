@@ -275,7 +275,7 @@ export async function getSearchTermFrequencies(startDate: string, endDate: strin
     const result = await postgresDatabaseManager.execute(
         `
             SELECT
-                search_term AS term,
+                LOWER(search_term) AS term,
                 SUM(frequency) AS frequency
             FROM
                 livguard.search_query_leads
