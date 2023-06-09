@@ -283,7 +283,7 @@ export async function getSearchTermFrequencies(startDate: string, endDate: strin
                 timestamp >= $1 AND
                 timestamp <= $2
             GROUP BY
-                search_term
+                LOWER(search_term)
             ORDER BY
                 2 DESC
             LIMIT
