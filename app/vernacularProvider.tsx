@@ -3813,4 +3813,204 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "परेशानी मुक्त उपयोग कम देख-रेख की आवश्यकता के साथ।",
         [Language.Marathi]: "?????",
     },
+    contactFormS1T1: {
+        [Language.English]: "Get In Touch With Us",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactFormS1T2: {
+        [Language.English]: "Find answers to your queries, without any hassle",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3H: {
+        [Language.English]: `We Are <span class="lg-text-highlighted">Listening</span>`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3Feedback: {
+        [Language.English]: "Feedback",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3Complaint: {
+        [Language.English]: "Complaint",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FeedbackFormT1: {
+        [Language.English]: "Rate Our Product",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormEmailText: {
+        [Language.English]: "Your Email",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormNameText: {
+        [Language.English]: "Your Name",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormEmailPlaceholder: {
+        [Language.English]: "Enter Email",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormNamePlaceholder: {
+        [Language.English]: "Enter Full Name",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormProductText: {
+        [Language.English]: "Choose Product (Optional)",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FeedbackFormDetailText: {
+        [Language.English]: "Please provide us any detail",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FeedbackFormDetailPlaceholder: {
+        [Language.English]: "Start writing, we are hearing..",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsTermsAndConditionsCheckboxtext: {
+        [Language.English]: `<div class="lg-text-secondary-900 lg-text-icon">
+                                I acknowledge that I have read, understood, and agree to abide by the 
+                                <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">terms and conditions</a> 
+                                and 
+                                <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">privacy policy</a> 
+                                outlined by the website.`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormButtonText: {
+        [Language.English]: "Submit info",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3ComplaintFormRadioText: {
+        [Language.English]: "What’s the complaint about",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3ComplaintFormRadioOption1: {
+        [Language.English]: "Product",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3ComplaintFormRadioOption2: {
+        [Language.English]: "Delivery Service",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3ComplaintFormDetailText: {
+        [Language.English]: "What's troubling you? Please let us know.",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3ComplaintFormDetailPlaceholder: {
+        [Language.English]: "Describe your concern here...",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormNumberText: {
+        [Language.English]: "Contact Number",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS3FormNumberPlaceholder: {
+        [Language.English]: "Enter Contact Number",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2H: {
+        [Language.English]: `Click, <span class="lg-text-highlighted">Connect,</span> Power Up`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2HText: {
+        [Language.English]: "Customer care is our main concern. Connect with us at your ease. We are available Monday to Friday, from 8:00 am to 8:30 pm",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2Option1Text: {
+        [Language.English]: "Talk to us through our toll free number",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2Option1ButtonText: {
+        [Language.English]: "Call Us",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2Option2Text: {
+        [Language.English]: "Effortless Interactions, Anytime",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2Option2ButtonText: {
+        [Language.English]: "Chat With Us",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2Option3Text: {
+        [Language.English]: "Drop us an Email with your concern",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS2Option3ButtonText: {
+        [Language.English]: "Email Us",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS4H: {
+        [Language.English]: `Our <span class="lg-text-highlighted">Presence</span>`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS4Option1Heading: {
+        [Language.English]: "India Operations",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS4Option1Text: {
+        [Language.English]: "Livguard, with its widespread network of dealers, distributors, and service providers, aims to deliver limitless energy experiences to all.",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS4Option2Heading: {
+        [Language.English]: "International Operations",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS4Option2Text: {
+        [Language.English]: "Livguard has established connections in many countries, which enable them to seize opportunities in the Global Energy Storage Solutions Sector.",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS4ButtonText: {
+        [Language.English]: "Know More",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS5H: {
+        [Language.English]: `<span class="lg-text-highlighted">Explore Careers</span> <br/> At Livguard`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS5Text: {
+        [Language.English]: "Be a part of Livguard's energy-packed team. Drop us a mail with your field of interest and we will get back to you!",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
+    contactUsS5ButtonText: {
+        [Language.English]: "Apply Now",
+        [Language.Hindi]: "",
+        [Language.Marathi]: "?????",
+    },
 };
