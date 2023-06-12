@@ -33,11 +33,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         return {
             title: "Buy Inverter Battery Online at Best Prices In India",
             description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
+            "og:title": "Buy Inverter Battery Online at Best Prices In India",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/inverter-batteries/",
+            "og:description": "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
+            "og:type": "product",
+            "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
             title: "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
             description: "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
+            "og:title": "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/inverter-batteries/",
+            "og:description": "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
+            "og:type": "product",
+            "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);

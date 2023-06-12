@@ -3851,6 +3851,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "5ac20616-07fb-44f4-bf6f-c5e16b272eb8": {
         [Language.English]: `Our Featured <span class="lg-text-highlighted">Products</span>`,
         [Language.Hindi]: `?????`,
+    },
     contactFormS1T1: {
         [Language.English]: "Get In Touch With Us",
         [Language.Hindi]: "?????",

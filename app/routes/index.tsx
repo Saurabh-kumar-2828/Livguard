@@ -44,11 +44,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         return {
             title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
             description: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
+            "og:title": "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/",
+            "og:description": "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
+            "og:type": "website",
+            "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
             title: "लिवगार्ड: इनवर्टर, बैटरी और सभी प्रकार के ऊर्जा संग्रहण समाधान खरीदें",
             description: "लिवगार्ड के साथ अपने घर के लिए इनवर्टर, बैटरी और ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी की खरीदारी करें",
+            "og:title": "लिवगार्ड: इनवर्टर, बैटरी और सभी प्रकार के ऊर्जा संग्रहण समाधान खरीदें",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/",
+            "og:description": "लिवगार्ड के साथ अपने घर के लिए इनवर्टर, बैटरी और ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी की खरीदारी करें",
+            "og:type": "website",
+            "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);

@@ -4,6 +4,7 @@ import {Link} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {StickyBottomBar} from "~/components/bottomBar";
+import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -16,11 +17,12 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {ProductType} from "~/productData";
 import {ContactUsCta, DealerLocator} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
@@ -368,40 +370,63 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
 function FeaturedProducts({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const featuredProducts = [
         {
-            type: "battery",
-            slug: "it1560stt",
+            type: ProductType.battery,
+            slug: "it1584tt",
         },
         {
-            type: "inverter",
+            type: ProductType.inverter,
             slug: "lgs1600",
         },
         {
-            type: "battery",
-            slug: "it1560stt",
+            type: ProductType.battery,
+            slug: "it1584tt",
         },
         {
-            type: "inverter",
+            type: ProductType.inverter,
             slug: "lgs1600",
         },
         {
-            type: "battery",
-            slug: "it1560stt",
+            type: ProductType.battery,
+            slug: "it1584tt",
         },
         {
-            type: "inverter",
+            type: ProductType.inverter,
             slug: "lgs1600",
         },
     ];
 
     return (
         <div className={className}>
-            <div className="tw-grid tw-auto-cols-[minmax(100%,35rem)]">
+            <div className="tw-grid tw-grid-cols-1">
                 <h2 className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("5ac20616-07fb-44f4-bf6f-c5e16b272eb8", userPreferences.language)}} />
                 </h2>
 
-                <div className="tw-bg-yellow-300 tw-h-40" />
+                <CarouselStyle4
+                    items={featuredProducts.map((featuredProduct) => (
+                        <RecommendationCard
+                            slug={featuredProduct.slug}
+                            productType={featuredProduct.type}
+                        />
+                    ))}
+                    slidesContainerClassName="tw-auto-cols-[min(100%,15rem)]"
+                />
             </div>
         </div>
+    );
+}
+
+function RecommendationCard({slug, productType}: {slug: string, productType: ProductType}) {
+    return (
+        <Link
+            to={`/product/${slug}`}
+            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1"
+        >
+            <div className="">
+                {convertProductInternalNameToPublicName(slug)}
+            </div>
+
+            <FullWidthImage relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`} />
+        </Link>
     );
 }

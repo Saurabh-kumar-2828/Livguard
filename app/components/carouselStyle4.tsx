@@ -5,7 +5,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 
-export function CarouselStyle4({items, className}: {items: Array<any>; className?: string}) {
+export function CarouselStyle4({items, className, slidesContainerClassName}: {items: Array<any>; className?: string, slidesContainerClassName?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"}, 8000);
 
     return (
@@ -13,7 +13,7 @@ export function CarouselStyle4({items, className}: {items: Array<any>; className
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full", className)}
             ref={emblaRef}
         >
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[50%]")}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[50%]", slidesContainerClassName)}>
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
