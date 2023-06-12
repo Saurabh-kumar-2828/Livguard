@@ -290,8 +290,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS3H1T2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Energy Solutions</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">ऊर्जा संग्रहण समाधान</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Energy Solutions</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">ऊर्जा संग्रहण समाधान</span>`,
         [Language.Marathi]: "?????",
     },
     homeS3Tab1H: {
@@ -429,8 +429,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS4H1T2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">One of A Kind</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सबसे अलग हैं</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">One of A Kind</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सबसे अलग हैं</span>`,
         [Language.Marathi]: "?????",
     },
     homeS4T2: {
@@ -451,8 +451,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS5H1T2: {
-        [Language.English]: `With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
-        [Language.Hindi]: `हमारे <span class=\"lg-text-highlighted\">पावर प्लानर</span> के साथ`,
+        [Language.English]: `With Livguard <span class="lg-text-highlighted">Power Planner</span>`,
+        [Language.Hindi]: `हमारे <span class="lg-text-highlighted">पावर प्लानर</span> के साथ`,
         [Language.Marathi]: "?????",
     },
     homeS5T2: {
@@ -558,8 +558,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS7H1T2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Solar Solutions</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">रूफटॉप सोलर सलूशन</span> में`,
+        [Language.English]: `<span class="lg-text-highlighted">Solar Solutions</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">रूफटॉप सोलर सलूशन</span> में`,
         [Language.Marathi]: "?????",
     },
     homeS7T2: {
@@ -613,8 +613,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS8H1T2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Leadership</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">मार्गदर्शकों</span> से`,
+        [Language.English]: `<span class="lg-text-highlighted">Leadership</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">मार्गदर्शकों</span> से`,
         [Language.Marathi]: "?????",
     },
     homeS8Slide1T1: {
@@ -691,8 +691,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS9H1T2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Questions</span>`,
-        [Language.Hindi]: `वाले <span class=\"lg-text-highlighted\"> सवाल</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Questions</span>`,
+        [Language.Hindi]: `वाले <span class="lg-text-highlighted"> सवाल</span>`,
         [Language.Marathi]: "?????",
     },
     homeS9Q1Q: {
@@ -781,8 +781,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS10H1T2: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Everywhere!</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">जगह हैं!</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Everywhere!</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">जगह हैं!</span>`,
         [Language.Marathi]: "?????",
     },
     homeS10T2: {
@@ -801,8 +801,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS11H1T2: {
-        [Language.English]: `On Our <span class=\"lg-text-highlighted\">Social Handles</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सोशल हैंडल</span> पर!`,
+        [Language.English]: `On Our <span class="lg-text-highlighted">Social Handles</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सोशल हैंडल</span> पर!`,
         [Language.Marathi]: "?????",
     },
     homeS11T2: {
@@ -811,8 +811,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     homeS12H1T1: {
-        [Language.English]: `Powerful <span class=\"lg-text-highlighted\">Purpose</span>`,
-        [Language.Hindi]: `शक्तिशाली <span class=\"lg-text-highlighted\">उद्देश्य</span>`,
+        [Language.English]: `Powerful <span class="lg-text-highlighted">Purpose</span>`,
+        [Language.Hindi]: `शक्तिशाली <span class="lg-text-highlighted">उद्देश्य</span>`,
         [Language.Marathi]: "?????",
     },
     homeS12H1T2: {
@@ -2372,8 +2372,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review1Message: {
-        [Language.English]: `\"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard jodi a 10/10!\"`,
-        [Language.Hindi]: `\"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड जोड़ी को 10/10 दूंगा!\"`,
+        [Language.English]: `"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard jodi a 10/10!"`,
+        [Language.Hindi]: `"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड जोड़ी को 10/10 दूंगा!"`,
         [Language.Marathi]: "?????",
     },
     review1ProductName: {
@@ -2392,8 +2392,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review2Message: {
-        [Language.English]: `\"I have been using Livguard inverter and batteries from the past 3 years now, and they are still performing so well!\"`,
-        [Language.Hindi]: `\"मैं पिछले 3 साल से लिवगार्ड इनवर्टर और बैटरी का इस्तेमाल कर रहा हूँ, घर पर भी और अपने शो रूम में भी, और यह आज भी पहले जैसे ही काम कर रहे हैं!\"`,
+        [Language.English]: `"I have been using Livguard inverter and batteries from the past 3 years now, and they are still performing so well!"`,
+        [Language.Hindi]: `"मैं पिछले 3 साल से लिवगार्ड इनवर्टर और बैटरी का इस्तेमाल कर रहा हूँ, घर पर भी और अपने शो रूम में भी, और यह आज भी पहले जैसे ही काम कर रहे हैं!"`,
         [Language.Marathi]: "?????",
     },
     review2ProductName: {
@@ -2412,8 +2412,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review3Message: {
-        [Language.English]: `\"Great product. Great product. Go for it without a doubt.\"`,
-        [Language.Hindi]: `\"अच्छा उत्पाद। अच्छा उत्पाद। इसके लिए बिना किसी संदेह के जाएं।\"`,
+        [Language.English]: `"Great product. Great product. Go for it without a doubt."`,
+        [Language.Hindi]: `"अच्छा उत्पाद। अच्छा उत्पाद। इसके लिए बिना किसी संदेह के जाएं।"`,
         [Language.Marathi]: "?????",
     },
     review3ProductName: {
@@ -2432,8 +2432,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review4Message: {
-        [Language.English]: `\"Deliver on time & battery backup is very good. Installation services was very good.\"`,
-        [Language.Hindi]: `\"समय पर डिलीवरी और बैटरी बैकअप बहुत अच्छा है। स्थापना सर्विसएं बहुत अच्छी थीं।\"`,
+        [Language.English]: `"Deliver on time & battery backup is very good. Installation services was very good."`,
+        [Language.Hindi]: `"समय पर डिलीवरी और बैटरी बैकअप बहुत अच्छा है। स्थापना सर्विसएं बहुत अच्छी थीं।"`,
         [Language.Marathi]: "?????",
     },
     review4ProductName: {
@@ -2785,14 +2785,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     contactUsFAQT1: {
-        [Language.English]: `<span class=\"lg-text-highlighted tw-text-secondary-900-dark\">Please Verify</span> <br/> Your Phone`,
-        [Language.Hindi]: `कृपया अपना <span class=\"lg-text-highlighted tw-text-secondary-900-dark\">फ़ोन सत्यापित</span> करें`,
+        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Please Verify</span> <br/> Your Phone`,
+        [Language.Hindi]: `कृपया अपना <span class="lg-text-highlighted tw-text-secondary-900-dark">फ़ोन सत्यापित</span> करें`,
         [Language.Marathi]: "?????",
     },
 
     contactUsFormHT1: {
-        [Language.English]: `Get <span class=\"lg-text-highlighted tw-text-secondary-900-dark\">Reliable Power</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted tw-text-secondary-900-dark\">विश्वसनीय शक्ति</span>`,
+        [Language.English]: `Get <span class="lg-text-highlighted tw-text-secondary-900-dark">Reliable Power</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">विश्वसनीय शक्ति</span>`,
         [Language.Marathi]: "?????",
     },
     contactUsFormHT2: {
@@ -2816,7 +2816,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     downloadFormHT2: {
-        [Language.English]: `<span class=\"lg-text-highlighted tw-text-secondary-900-dark\">Download Catalog</span>`,
+        [Language.English]: `<span class="lg-text-highlighted tw-text-secondary-900-dark">Download Catalog</span>`,
         [Language.Hindi]: "सबमिट करें",
         [Language.Marathi]: "?????",
     },
@@ -2857,13 +2857,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     productPageSuggestedProduct: {
-        [Language.English]: `Suggested <span class=\"lg-text-highlighted\">Products</span>`,
-        [Language.Hindi]: `सुझाए गए <span class=\"lg-text-highlighted\">उत्पाद</span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Products</span>`,
+        [Language.Hindi]: `सुझाए गए <span class="lg-text-highlighted">उत्पाद</span>`,
         [Language.Marathi]: "?????",
     },
 
     loadCalculatorS1T1: {
-        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class=\"lg-text-highlighted\">Power Planner</span>`,
+        [Language.English]: `Plan Your Power Needs <br/>With Livguard <span class="lg-text-highlighted">Power Planner</span>`,
         [Language.Hindi]: 'अपनी ऊर्जा ज़रूरतों को जानें <br/>हमारे <span class="lg-text-highlighted">पावर प्लानर</span> के साथ',
         [Language.Marathi]: "?????",
     },
@@ -2890,8 +2890,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2H1: {
-        [Language.English]: `<span class=\"lg-text-highlighted\">Top Choices</span> For You`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">शीर्ष सुझाव</span> आपके लिए`,
+        [Language.English]: `<span class="lg-text-highlighted">Top Choices</span> For You`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">शीर्ष सुझाव</span> आपके लिए`,
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2H2: {
@@ -2950,8 +2950,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS3H2: {
-        [Language.English]: `Choosing the <span class=\"lg-text-highlighted\">Right Product</span>`,
-        [Language.Hindi]: `<span class=\"lg-text-highlighted\">सही उत्पाद</span> चुनने के लिए`,
+        [Language.English]: `Choosing the <span class="lg-text-highlighted">Right Product</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सही उत्पाद</span> चुनने के लिए`,
         [Language.Marathi]: "?????",
     },
     loadCalculatorRecommendationsS2CTA1: {
@@ -3417,6 +3417,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "उत्पाद",
         [Language.Marathi]: "?????",
     },
+    "af3ba663-53b9-4e18-b3ca-9ea9f80d5134": {
+        [Language.English]: "Offers",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
     OfferJodiHT1: {
         [Language.English]: `Beat The Heat with Power-Packed <span class="lg-text-highlighted">Cashback</span>`,
         [Language.Hindi]: `गर्मी को मात दें पावर-पैक्ड <span class="lg-text-highlighted">कैशबैक</span> के साथ`,
@@ -3473,8 +3478,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     OfferTnCContent1: {
-        [Language.English]: '"Cashback offer" is applicable from 5th May’23 to 31st May’23.',
-        [Language.Hindi]: "\"कैशबैक ऑफ़र\" 5 मई'23 से 31 मई'23 तक लागू होगा।",
+        [Language.English]: `"Cashback offer" is applicable from 5th May’23 to 31st May’23.`,
+        [Language.Hindi]: `"कैशबैक ऑफ़र" 5 मई'23 से 31 मई'23 तक लागू होगा।`,
         [Language.Marathi]: "?????",
     },
     OfferTnCContent2: {
@@ -3488,8 +3493,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     OfferTnCContent4: {
-        [Language.English]: "To avail of the cashback offer say “Hi” to LivServ WhatsApp mobile number (+91 7428191000).",
-        [Language.Hindi]: 'कैशबैक ऑफ़र का लाभ उठाने के लिए LivServ whatsapp मोबाइल नंबर (+91 7428191000) पर "Hi" कहें।',
+        [Language.English]: `To avail of the cashback offer say “Hi” to LivServ WhatsApp mobile number (+91 7428191000).`,
+        [Language.Hindi]: `कैशबैक ऑफ़र का लाभ उठाने के लिए LivServ whatsapp मोबाइल नंबर (+91 7428191000) पर "Hi" कहें।`,
         [Language.Marathi]: "?????",
     },
     OfferTnCContent5: {
@@ -3525,7 +3530,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     OfferTnCContent10: {
         [Language.English]: "Customer needs to register both products in the combo on the LivServ app in a single window, otherwise the same will not be considered for the “Cashback offer”.",
-        [Language.Hindi]: 'ग्राहक को कॉम्बो में दोनों उत्पादों को LivServ App पर एक ही विंडो में पंजीकृत करने की आवश्यकता होती है, अन्यथा इसे "कैशबैक ऑफ़र" के लिए मान्य नहीं किया जाएगा।',
+        [Language.Hindi]: `ग्राहक को कॉम्बो में दोनों उत्पादों को LivServ App पर एक ही विंडो में पंजीकृत करने की आवश्यकता होती है, अन्यथा इसे "कैशबैक ऑफ़र" के लिए मान्य नहीं किया जाएगा।`,
         [Language.Marathi]: "?????",
     },
     OfferTnCContent11: {
@@ -3813,204 +3818,237 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "परेशानी मुक्त उपयोग कम देख-रेख की आवश्यकता के साथ।",
         [Language.Marathi]: "?????",
     },
+    "28d2dcd2-f0a8-4314-b3d0-981ddf2444b9": {
+        [Language.English]: `Best <span class="lg-text-highlighted">Offers</span>`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "5b7f29b4-216f-4c13-ac5d-811cc4cb1733": {
+        [Language.English]: `Power-Packed and Ready`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "7b226d84-b7f2-4f94-8626-67627cb47c28": {
+        [Language.English]: `Inverter & Battery Offers`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "e3f844b6-79ab-47fd-a25c-67fadebeae73": {
+        [Language.English]: `Automotive Offers`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "ddf400a4-3900-4561-85fb-1447c8693412": {
+        [Language.English]: `Solar Offers`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "46c68fad-1e6e-442c-ab3c-fc09234693d2": {
+        [Language.English]: `Accessories Offers`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "5ac20616-07fb-44f4-bf6f-c5e16b272eb8": {
+        [Language.English]: `Our Featured <span class="lg-text-highlighted">Products</span>`,
+        [Language.Hindi]: `?????`,
     contactFormS1T1: {
         [Language.English]: "Get In Touch With Us",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactFormS1T2: {
         [Language.English]: "Find answers to your queries, without any hassle",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3H: {
         [Language.English]: `We Are <span class="lg-text-highlighted">Listening</span>`,
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3Feedback: {
         [Language.English]: "Feedback",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3Complaint: {
         [Language.English]: "Complaint",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FeedbackFormT1: {
         [Language.English]: "Rate Our Product",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormEmailText: {
         [Language.English]: "Your Email",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormNameText: {
         [Language.English]: "Your Name",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormEmailPlaceholder: {
         [Language.English]: "Enter Email",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormNamePlaceholder: {
         [Language.English]: "Enter Full Name",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormProductText: {
         [Language.English]: "Choose Product (Optional)",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FeedbackFormDetailText: {
         [Language.English]: "Please provide us any detail",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FeedbackFormDetailPlaceholder: {
         [Language.English]: "Start writing, we are hearing..",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsTermsAndConditionsCheckboxtext: {
         [Language.English]: `<div class="lg-text-secondary-900 lg-text-icon">
-                                I acknowledge that I have read, understood, and agree to abide by the 
-                                <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">terms and conditions</a> 
-                                and 
-                                <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">privacy policy</a> 
+                                I acknowledge that I have read, understood, and agree to abide by the
+                                <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">terms and conditions</a>
+                                and
+                                <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">privacy policy</a>
                                 outlined by the website.`,
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormButtonText: {
         [Language.English]: "Submit info",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3ComplaintFormRadioText: {
         [Language.English]: "What’s the complaint about",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3ComplaintFormRadioOption1: {
         [Language.English]: "Product",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3ComplaintFormRadioOption2: {
         [Language.English]: "Delivery Service",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3ComplaintFormDetailText: {
         [Language.English]: "What's troubling you? Please let us know.",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3ComplaintFormDetailPlaceholder: {
         [Language.English]: "Describe your concern here...",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormNumberText: {
         [Language.English]: "Contact Number",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS3FormNumberPlaceholder: {
         [Language.English]: "Enter Contact Number",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2H: {
         [Language.English]: `Click, <span class="lg-text-highlighted">Connect,</span> Power Up`,
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2HText: {
         [Language.English]: "Customer care is our main concern. Connect with us at your ease. We are available Monday to Friday, from 8:00 am to 8:30 pm",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option1Text: {
         [Language.English]: "Talk to us through our toll free number",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option1ButtonText: {
         [Language.English]: "Call Us",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option2Text: {
         [Language.English]: "Effortless Interactions, Anytime",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option2ButtonText: {
         [Language.English]: "Chat With Us",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option3Text: {
         [Language.English]: "Drop us an Email with your concern",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option3ButtonText: {
         [Language.English]: "Email Us",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS4H: {
         [Language.English]: `Our <span class="lg-text-highlighted">Presence</span>`,
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS4Option1Heading: {
         [Language.English]: "India Operations",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS4Option1Text: {
         [Language.English]: "Livguard, with its widespread network of dealers, distributors, and service providers, aims to deliver limitless energy experiences to all.",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS4Option2Heading: {
         [Language.English]: "International Operations",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS4Option2Text: {
         [Language.English]: "Livguard has established connections in many countries, which enable them to seize opportunities in the Global Energy Storage Solutions Sector.",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS4ButtonText: {
         [Language.English]: "Know More",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS5H: {
         [Language.English]: `<span class="lg-text-highlighted">Explore Careers</span> <br/> At Livguard`,
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS5Text: {
         [Language.English]: "Be a part of Livguard's energy-packed team. Drop us a mail with your field of interest and we will get back to you!",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     contactUsS5ButtonText: {
         [Language.English]: "Apply Now",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
 };
