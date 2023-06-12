@@ -4058,4 +4058,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "अप्लाई करें",
         [Language.Marathi]: "?????",
     },
+    contactPageFeedbackSuccessLowRatingMessage: {
+        [Language.English]: "Stay tuned, our team will connect with you soon to know more about your experience",
+        [Language.Hindi]: "हमारे साथ बने रहें, आपके अनुभव के बारे में अधिक जानने के लिए हमारी टीम जल्द ही आपसे संपर्क करेगी।",
+        [Language.Marathi]: "?????",
+    },
+    contactPageFeedbackSuccessHighRatingMessage: {
+        [Language.English]: "Your feedback is valuable for us, and motivates us to get better",
+        [Language.Hindi]: "आपके विचार हमारे लिए महत्वपूर्ण हैं, और हमें बेहतर बनने के लिए प्रेरित करते हैं।",
+        [Language.Marathi]: "?????",
+    },
+    contactPageComplaintSuccessMessage: {
+        [Language.English]: "Stay rest assured, our team will connect with you soon.",
+        [Language.Hindi]: "निश्चिंत रहें। हम आपसे जल्द ही संपर्क करेंगे।",
+        [Language.Marathi]: "?????",
+    },
+    contactPagesuccessT1: {
+        [Language.English]: `Thank You!`,
+        [Language.Hindi]: "धन्यवाद!",
+        [Language.Marathi]: "?????",
+    },
 };

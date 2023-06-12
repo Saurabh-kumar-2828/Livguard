@@ -3,14 +3,16 @@ import {ActionFunction, LinksFunction, LoaderFunction, json} from "@remix-run/no
 import {Form, Link, useActionData} from "@remix-run/react";
 import React, {useEffect} from "react";
 import {useState} from "react";
-import {Envelope, File, StarFill, Telephone, Whatsapp, X} from "react-bootstrap-icons";
+import {Envelope, StarFill, Telephone, Whatsapp, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {insertContactFormLeads} from "~/backend/dealer.server";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {SocialMediaIcons} from "~/components/footerComponent";
 import {CoverImage} from "~/components/images/coverImage";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -57,7 +59,7 @@ export const action: ActionFunction = async ({request, params}) => {
     console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~ inside action data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     const name = safeParse(getStringFromUnknown, body.get("name"));
-    const emailId = safeParse(getStringFromUnknown, body.get("email"));
+    const emailId = safeParse(getStringFromUnknown, body.get("emailId"));
     const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
     const formType = safeParse(getStringFromUnknown, body.get("formType"));
     const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
@@ -89,6 +91,7 @@ export const action: ActionFunction = async ({request, params}) => {
         details == null ||
         complaintType == null
     ) {
+        console.log("ABCDDDDDDDDD");
         const actionData: ActionData = {
             error: "Inputs cann't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
             formType: null,
@@ -369,11 +372,11 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
     const utmSearchParameters = useUtmSearchParameters();
 
     const [isFeedbackFormSubmitted, setIsFeedbackFormSubmitted] = useState(false);
-    const [isFeedbackFormTermsAndConditionsChecked, setIsFeedbackFormTermsAndConditionsChecked] = useState(false);
+    const [isFeedbackFormTermsAndConditionsChecked, setIsFeedbackFormTermsAndConditionsChecked] = useState(true);
     const [feedbackFormSelectedProduct, setFeedbackFormSelectedProduct] = useState(getVernacularString("ormTrackingFormProduct1", userPreferences.language));
 
     const [isComplaintFormSubmitted, setIsComplaintFormSubmitted] = useState(false);
-    const [isComplaintFormTermsAndConditionsChecked, setIsComplaintFormTermsAndConditionsChecked] = useState(false);
+    const [isComplaintFormTermsAndConditionsChecked, setIsComplaintFormTermsAndConditionsChecked] = useState(true);
     const [complaintFormOption, setComplaintFormOption] = useState(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language));
 
     const [rating, setRating] = useState(0);
@@ -574,12 +577,38 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     <button
                                         type="submit"
                                         className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
+                                        disabled={rating == 0 || feedbackFormSelectedProduct == ""}
                                     >
                                         {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
                                     </button>
                                 </Form>
                             ) : (
-                                <ContactFormSuccess userPreferences={userPreferences} />
+                                // <ContactFormSuccess userPreferences={userPreferences} />
+                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
+                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
+                                        <FixedWidthImage
+                                            relativePath="/livguard/icons/confirmation.png"
+                                            width="10rem"
+                                        />
+                                    </div>
+
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                        className="lg-text-banner tw-row-start-4 tw-text-center"
+                                    />
+
+                                    {rating < 3 ? (
+                                        <div
+                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
+                                            className="lg-text-body tw-row-start-6 tw-text-center"
+                                        />
+                                    ) : (
+                                        <div
+                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language)}}
+                                            className="lg-text-body tw-row-start-6 tw-text-center"
+                                        />
+                                    )}
+                                </div>
                             )}
                         </div>
 
@@ -723,7 +752,32 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     </button>
                                 </Form>
                             ) : (
-                                <ContactFormSuccess userPreferences={userPreferences} />
+                                // <ContactFormSuccess userPreferences={userPreferences} />
+                                <div className="tw-grid tw-grid-rows-[3.5rem_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
+                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
+                                        <FixedWidthImage
+                                            relativePath="/livguard/icons/confirmation.png"
+                                            width="10rem"
+                                        />
+                                    </div>
+
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                        className="lg-text-banner tw-row-start-4 tw-text-center"
+                                    />
+
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
+                                        className="lg-text-body tw-row-start-6 tw-text-center"
+                                    />
+
+                                    <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
+
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                                        className="lg-text-icon tw-row-start-[10] tw-text-center"
+                                    />
+                                </div>
                             )}
                         </div>
                     </div>
@@ -760,7 +814,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option1Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-button tw-max-w-fit"
+                        className="lg-cta-button tw-w-[11.875rem]"
                         onClick={() => {
                             setDialougOptions({dialougType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -782,7 +836,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-max-w-fit"
+                        className="lg-cta-outline-button tw-w-[11.875rem]"
                         onClick={() => {
                             setDialougOptions({dialougType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -804,7 +858,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-max-w-fit"
+                        className="lg-cta-outline-button tw-w-[11.875rem]"
                         onClick={() => {
                             setDialougOptions({dialougType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -1003,7 +1057,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 function ExploreCareers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
-            <div className="tw-p-6 lg-contact-gradient tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
+            <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
                 <div className="tw-w-[7.75rem] tw-h-[7.75rem] tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-full tw-grid tw-justify-center tw-items-center tw-place-self-center lg:tw-place-self-start">
                     <img
                         src="https://files.growthjockey.com/livguard/icons/contact-us/hiring.svg"

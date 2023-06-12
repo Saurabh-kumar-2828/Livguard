@@ -430,7 +430,7 @@ export async function insertContactFormLeads(leadId: string, formResponse: any):
     const result = await postgresDatabaseManager.execute(
         `
                 INSERT INTO
-                    livguard.contact_us_leads
+                    livguard.contact_page_leads
                 VALUES(
                     $1,
                     $2,
