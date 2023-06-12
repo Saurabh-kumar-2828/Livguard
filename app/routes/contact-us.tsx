@@ -1,17 +1,21 @@
 import {Dialog, Transition} from "@headlessui/react";
-import type {LinksFunction, LoaderFunction} from "@remix-run/node";
-import {Form, Link} from "@remix-run/react";
-import React from "react";
+import {ActionFunction, LinksFunction, LoaderFunction, json} from "@remix-run/node";
+import {Form, Link, useActionData} from "@remix-run/react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import {Envelope, File, StarFill, Telephone, Whatsapp, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {toast} from "react-toastify";
+import {insertContactFormLeads} from "~/backend/dealer.server";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {CoverImage} from "~/components/images/coverImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
@@ -42,6 +46,104 @@ export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.livguard.com/contact-us/"}];
 };
 
+export type ActionData = {
+    error: string | null;
+    formType: string | null;
+};
+
+export const action: ActionFunction = async ({request, params}) => {
+    const body = await request.formData();
+
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~ inside action data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    const name = safeParse(getStringFromUnknown, body.get("name"));
+    const emailId = safeParse(getStringFromUnknown, body.get("email"));
+    const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
+    const formType = safeParse(getStringFromUnknown, body.get("formType"));
+    const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
+    const details = safeParse(getStringFromUnknown, body.get("queryDetails"));
+    let phoneNumber: string | null = "";
+    let product: string | null = "";
+    let rating: string | null = "";
+    let complaintType: string | null = "";
+
+    if (formType == "complaintForm") {
+        phoneNumber = safeParse(getStringFromUnknown, body.get("phoneNumber"));
+        complaintType = safeParse(getStringFromUnknown, body.get("complaintOption"));
+    }
+
+    if (formType == "feedbackForm") {
+        product = safeParse(getStringFromUnknown, body.get("product"));
+        rating = safeParse(getStringFromUnknown, body.get("rating"));
+    }
+
+    if (
+        utmParameters == null ||
+        name == null ||
+        emailId == null ||
+        phoneNumber == null ||
+        formType == null ||
+        rating == null ||
+        product == null ||
+        termsAndConditionsChecked == null ||
+        details == null ||
+        complaintType == null
+    ) {
+        const actionData: ActionData = {
+            error: "Inputs cann't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
+            formType: null,
+        };
+        return json(actionData);
+    }
+
+    const utmParametersDecoded = JSON.parse(utmParameters);
+
+    if (formType == "feedbackForm") {
+        const insertResult = await insertContactFormLeads(generateUuid(), {
+            name: name,
+            emailId: emailId,
+            product: product,
+            rating: rating,
+            detials: details,
+            formType: formType,
+            utmParameters: utmParametersDecoded,
+            termsAndConditionsChecked: termsAndConditionsChecked,
+        });
+        if (insertResult instanceof Error) {
+            const actionData: ActionData = {
+                error: "Error in submitting form! Error code: 48584397-7140-40fa-93e2-4804fc63ca40",
+                formType: formType,
+            };
+            return json(actionData);
+        }
+    } else {
+        const insertResult = await insertContactFormLeads(generateUuid(), {
+            name: name,
+            emailId: emailId,
+            phoneNumber: phoneNumber,
+            complaintType: complaintType,
+            detials: details,
+            formType: formType,
+            utmParameters: utmParametersDecoded,
+            termsAndConditionsChecked: termsAndConditionsChecked,
+        });
+        if (insertResult instanceof Error) {
+            const actionData: ActionData = {
+                error: "Error in submitting form! Error code: a6f5b2c8-c0a9-41e2-a093-268158313671",
+                formType: formType,
+            };
+            return json(actionData);
+        }
+    }
+
+    const actionData: ActionData = {
+        error: null,
+        formType: formType,
+    };
+
+    return json(actionData);
+};
+
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
@@ -66,6 +168,8 @@ export const loader: LoaderFunction = async ({request}) => {
 export default function () {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
+    const actionData = useActionData() as ActionData;
+
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
@@ -83,6 +187,7 @@ export default function () {
                 <ContactPage
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
+                    actionData={actionData}
                 />
             </PageScaffold>
 
@@ -147,19 +252,28 @@ export default function () {
     );
 }
 
-function ContactPage({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
+function ContactPage({
+    userPreferences,
+    utmParameters,
+    actionData,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {[searchParameter: string]: string};
+    actionData: {error: string | null; formType: string};
+}) {
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
-            {/* <HeroSection
+            <HeroSection
                 userPreferences={userPreferences}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
-            /> */}
+            />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
             <WeAreListening
                 userPreferences={userPreferences}
                 className="tw-row-start-5 lg:tw-row-start-3 lg:tw-col-start-1"
+                actionData={actionData}
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -194,7 +308,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-9.5rem] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-4.5rem] tw-min-h-[calc(100vw*6/16)] tw-grid tw-grid-rows-[1.5rem_3rem_auto_minmax(0,1fr)] tw-justify-items-center tw-text-center",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-9.5rem] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
             ref={ref}
@@ -229,27 +343,30 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 />
             )} */}
 
-            {/* {containerWidth == null || containerHeight == null ? null : (
+            {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contactUs/mobile_hero.jpg" : "/livguard/contactUs/desktp_hero.jpg"}
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contact-us/1/mobile_hero.jpg" : "/livguard/contact-us/1/desktop_hero.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contactUs/mobile_hero.jpg" : "/livguard/contactUs/desktp_hero.jpg"}
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contact-us/1/mobile_hero.jpg" : "/livguard/contact-us/1/desktop_hero.jpg"}
                 />
-            )} */}
+            )}
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("contactFormS1T1", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
+                <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
+                    {getVernacularString("contactFormS1T1", userPreferences.language)}
+                </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("contactFormS1T2", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{getVernacularString("contactFormS1T2", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
 
-function WeAreListening({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function WeAreListening({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: {error: string | null; formType: string}}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: false});
+    const utmSearchParameters = useUtmSearchParameters();
 
     const [isFeedbackFormSubmitted, setIsFeedbackFormSubmitted] = useState(false);
     const [isFeedbackFormTermsAndConditionsChecked, setIsFeedbackFormTermsAndConditionsChecked] = useState(false);
@@ -260,6 +377,23 @@ function WeAreListening({userPreferences, className}: {userPreferences: UserPref
     const [complaintFormOption, setComplaintFormOption] = useState(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language));
 
     const [rating, setRating] = useState(0);
+
+    useEffect(() => {
+        if (actionData != null) {
+            if (actionData.error != null) {
+                toast.error("ERROR in submitting form");
+                return;
+            }
+
+            if (actionData.formType != null) {
+                if (actionData.formType == "feedbackForm") {
+                    setIsFeedbackFormSubmitted(true);
+                } else if (actionData.formType == "complaintForm") {
+                    setIsComplaintFormSubmitted(true);
+                }
+            }
+        }
+    }, [actionData]);
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left lg:lg-pl-screen-edge-2", className)}>
@@ -302,7 +436,6 @@ function WeAreListening({userPreferences, className}: {userPreferences: UserPref
                         <div className="tw-grid tw-grid-glow-rows">
                             {!isFeedbackFormSubmitted ? (
                                 <Form
-                                    action="/"
                                     method="post"
                                     className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
                                 >
@@ -408,9 +541,34 @@ function WeAreListening({userPreferences, className}: {userPreferences: UserPref
                                     </div>
 
                                     <input
+                                        name="utmParameters"
+                                        className="tw-hidden"
                                         readOnly
+                                        value={JSON.stringify(utmSearchParameters)}
+                                    />
+                                    <input
+                                        readOnly
+                                        name="formType"
                                         className="tw-hidden"
                                         value="feedbackForm"
+                                    />
+                                    <input
+                                        readOnly
+                                        name="rating"
+                                        className="tw-hidden"
+                                        value={rating}
+                                    />
+                                    <input
+                                        readOnly
+                                        name="termsAndConditionsChecked"
+                                        className="tw-hidden"
+                                        value={isFeedbackFormTermsAndConditionsChecked ? "True" : "False"}
+                                    />
+                                    <input
+                                        readOnly
+                                        name="product"
+                                        className="tw-hidden"
+                                        value={feedbackFormSelectedProduct}
                                     />
 
                                     <button
@@ -428,7 +586,6 @@ function WeAreListening({userPreferences, className}: {userPreferences: UserPref
                         <div className="tw-grid tw-grid-glow-rows">
                             {!isComplaintFormSubmitted ? (
                                 <Form
-                                    action="/"
                                     method="post"
                                     className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
                                 >
@@ -527,7 +684,7 @@ function WeAreListening({userPreferences, className}: {userPreferences: UserPref
                                     <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
                                         <input
                                             type="checkbox"
-                                            name="termsAndConditionsChecked"
+                                            name="termsAndConditionsCheckedCheckbox"
                                             style={{accentColor: `${isComplaintFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
                                             defaultChecked={isComplaintFormTermsAndConditionsChecked}
                                             required
@@ -540,9 +697,22 @@ function WeAreListening({userPreferences, className}: {userPreferences: UserPref
                                     </div>
 
                                     <input
+                                        name="utmParameters"
+                                        className="tw-hidden"
+                                        readOnly
+                                        value={JSON.stringify(utmSearchParameters)}
+                                    />
+                                    <input
                                         readOnly
                                         className="tw-hidden"
                                         value="complaintForm"
+                                        name="formType"
+                                    />
+                                    <input
+                                        readOnly
+                                        name="termsAndConditionsChecked"
+                                        className="tw-hidden"
+                                        value={isComplaintFormTermsAndConditionsChecked ? "True" : "False"}
                                     />
 
                                     <button
@@ -783,7 +953,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                 <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
                     <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
                         <img
-                            src=""
+                            src="https://files.growthjockey.com/livguard/icons/contact-us/india.svg"
                             alt="india-operations"
                             className="tw-w-[3.5rem] tw-h-[3.5rem]"
                         />
@@ -806,7 +976,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                 <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
                     <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
                         <img
-                            src=""
+                            src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
                             alt="international-operations"
                             className="tw-w-[3.5rem] tw-h-[3.5rem]"
                         />
@@ -833,10 +1003,10 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 function ExploreCareers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
-            <div className="tw-p-6 lg-contact-gradient tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_1rem_15rem_1rem_minmax(0,1fr)_1rem_auto] tw-items-center">
+            <div className="tw-p-6 lg-contact-gradient tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
                 <div className="tw-w-[7.75rem] tw-h-[7.75rem] tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-full tw-grid tw-justify-center tw-items-center tw-place-self-center lg:tw-place-self-start">
                     <img
-                        src=""
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/hiring.svg"
                         alt="hiring"
                         className="tw-w-[4rem] tw-h-[4rem]"
                     />
@@ -847,7 +1017,7 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
                     dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS5H", userPreferences.language))}}
                 />
 
-                <div className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-5 tw-text-center lg:tw-text-left">
+                <div className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-5 tw-text-center lg:tw-text-left lg:tw-max-w-[20rem] lg:tw-place-self-center">
                     {getVernacularString("contactUsS5Text", userPreferences.language)}
                 </div>
 

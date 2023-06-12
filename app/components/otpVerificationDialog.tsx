@@ -1,5 +1,5 @@
 import type {FetcherWithComponents} from "@remix-run/react";
-import { useFetcher} from "@remix-run/react";
+import {useFetcher} from "@remix-run/react";
 import {useEffect, useState} from "react";
 import {toast} from "react-toastify";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -9,7 +9,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import type { UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {FormType} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -23,7 +23,7 @@ export function OtpVerificationDialog({
     inputData,
     leadId,
     formType,
-    pageUrl
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     fetcher: FetcherWithComponents<any>;
@@ -35,7 +35,7 @@ export function OtpVerificationDialog({
     className?: string;
     inputData: {name: string; phoneNumber: string; emailId: string; city?: string};
     leadId: Uuid;
-    formType: string
+    formType: string;
     pageUrl: string;
 }) {
     const [resendTimeOut, setResendTimeOut] = useState(60);
@@ -86,7 +86,7 @@ export function OtpVerificationDialog({
                     <fetcher.Form
                         className="tw-grid tw-grid-cols-1 tw-justify-items-center"
                         method="post"
-                        action={formType == FormType.contactUsSubmission || formType == FormType.offerContactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
+                        action={formType == FormType.leadFormSubmission || formType == FormType.offerContactUsSubmission ? "/lead-form-submission" : "/apply-for-dealership"}
                     >
                         <div className="tw-text-center lg-text-headline tw-px-8">
                             <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsFAQT1", userPreferences.language)}} />

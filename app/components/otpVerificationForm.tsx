@@ -6,7 +6,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import type { UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {FormType} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
@@ -37,7 +37,7 @@ export function OtpVerificationForm({
                 <fetcher.Form
                     className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[30rem] lg:tw-max-w-[30rem] lg:tw-mx-auto tw-grid tw-grid-cols-1 tw-grid-rows-[4rem_auto_0.5rem_auto_0.5rem_auto_0.5rem_auto_auto_4rem] tw-justify-items-center tw-overflow-hidden"
                     method="post"
-                    action={formType == FormType.contactUsSubmission ? "/contact-us-submission" : "/apply-for-dealership"}
+                    action={formType == FormType.leadFormSubmission ? "/lead-form-submission" : "/apply-for-dealership"}
                 >
                     <CoverImage
                         relativePath="/livguard/contact-form/background.jpg"

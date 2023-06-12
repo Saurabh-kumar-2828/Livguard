@@ -4,7 +4,7 @@ import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateDealerLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import type {GenericActionData} from "~/routes/contact-us-submission";
+import type {GenericActionData} from "~/routes/lead-form-submission";
 
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();

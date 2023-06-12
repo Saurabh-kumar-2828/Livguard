@@ -64,7 +64,7 @@ export function ContactForm({
                 <fetcher.Form
                     className="tw-w-full tw-rounded-[0.8rem] lg:tw-min-w-[25rem] lg:tw-max-w-[25rem] lg:tw-mx-auto tw-grid tw-grid-rows-[5.5rem_auto_0.5rem_auto_0.5rem_auto_2.25rem_auto_0.15rem_auto_3rem] tw-overflow-hidden tw-relative"
                     method="post"
-                    action="/contact-us-submission"
+                    action="/lead-form-submission"
                 >
                     <div
                         className="tw-absolute -tw-top-4 tw-left-0 tw-right-0 lg-lead-form-top-gradient tw-h-[4rem] tw-z-10"
@@ -321,7 +321,7 @@ export function ContactForm({
                         name="formType"
                         className="tw-hidden"
                         readOnly
-                        value={FormType.contactUsSubmission}
+                        value={FormType.leadFormSubmission}
                     />
 
                     <input

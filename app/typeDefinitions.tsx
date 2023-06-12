@@ -64,7 +64,7 @@ export enum BatteryType {
 
 export enum InverterType {
     sine = "Sine Wave",
-    square = "Square Wave"
+    square = "Square Wave",
 }
 
 // TODO: Not done properly
@@ -102,20 +102,20 @@ export function themeToHumanFriendlyString(userPreferences: UserPreferences, the
 
 export function getLanguageFromUnknown(input: unknown): Language {
     // TODO: Replace with zod
-    if (typeof(input) != "string") {
-        throw new Error(`${input} of type ${typeof(input)} is not a valid Language!`);
+    if (typeof input != "string") {
+        throw new Error(`${input} of type ${typeof input} is not a valid Language!`);
     }
 
-    return (input == Language.Hindi ? Language.Hindi : input == Language.Marathi ? Language.Marathi : Language.English);
+    return input == Language.Hindi ? Language.Hindi : input == Language.Marathi ? Language.Marathi : Language.English;
 }
 
 export function getThemeFromUnknown(input: unknown): Theme {
     // TODO: Replace with zod
-    if (typeof(input) != "string") {
-        throw new Error(`${input} of type ${typeof(input)} is not a valid Theme!`);
+    if (typeof input != "string") {
+        throw new Error(`${input} of type ${typeof input} is not a valid Theme!`);
     }
 
-    return (input == Theme.Dark ? Theme.Dark : Theme.Light);
+    return input == Theme.Dark ? Theme.Dark : Theme.Light;
 }
 
 export type Dealer = {
@@ -129,23 +129,23 @@ export type Dealer = {
     latitude: number;
     longitude: number;
     stateCode: string;
-}
+};
 
 export type ContactUsLead = {
-    id: Uuid,
-    createdAt: Uuid,
-    updatedAt: Uuid,
-    formResponse: any,
-}
+    id: Uuid;
+    createdAt: Uuid;
+    updatedAt: Uuid;
+    formResponse: any;
+};
 
 export type TermFrequency = {
-    term: string,
-    frequency: number,
-}
+    term: string;
+    frequency: number;
+};
 
 export enum FormType {
     otpVerification = "otp-verification",
-    contactUsSubmission = "contact-us-submission",
+    leadFormSubmission = "lead-form-submission",
     applyForDealership = "apply-for-dealership",
-    offerContactUsSubmission = "offer-contact-us-submission"
+    offerContactUsSubmission = "offer-contact-us-submission",
 }

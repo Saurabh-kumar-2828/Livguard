@@ -253,295 +253,295 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/hero-banners/lp-3-mobile-12ee65.jpg",
     },
     "/livguard/home/1/1-desktop.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "LDA]dAjF-pgN~Wa1%Mxu.8Ioxu-p",
-        "finalUrl": "/livguard/home/1/1-desktop-50b939.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "LDA]dAjF-pgN~Wa1%Mxu.8Ioxu-p",
+        finalUrl: "/livguard/home/1/1-desktop-50b939.jpg",
     },
     "/livguard/home/1/1-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "LJByHq%MtR%M~W%3-p%M~Wo}xu%2",
-        "finalUrl": "/livguard/home/1/1-mobile-3013e8.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "LJByHq%MtR%M~W%3-p%M~Wo}xu%2",
+        finalUrl: "/livguard/home/1/1-mobile-3013e8.jpg",
     },
     "/livguard/home/1/new-desktop.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "L383O:}[oyR5b]XSS2NG0LM{njo}",
-        "finalUrl": "/livguard/home/1/new-desktop-ffc115.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "L383O:}[oyR5b]XSS2NG0LM{njo}",
+        finalUrl: "/livguard/home/1/new-desktop-ffc115.jpg",
     },
     "/livguard/home/1/new-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "LKB1xYsoE}n%}FW;J,WV$%SMN]S2",
-        "finalUrl": "/livguard/home/1/new-mobile-72612f.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "LKB1xYsoE}n%}FW;J,WV$%SMN]S2",
+        finalUrl: "/livguard/home/1/new-mobile-72612f.jpg",
     },
     "/livguard/home/1/test-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "LKAuEroLFcn%}EbHE}WB-BWoN]S2",
-        "finalUrl": "/livguard/home/1/test-mobile-28ff92.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "LKAuEroLFcn%}EbHE}WB-BWoN]S2",
+        finalUrl: "/livguard/home/1/test-mobile-28ff92.jpg",
     },
     "/livguard/home/10/1-dark.jpg": {
-        "width": 974,
-        "height": 1080,
-        "blurHash": "L02=o*=|ELEf%2oLWVWV9tNa$*xG",
-        "finalUrl": "/livguard/home/10/1-dark-aa13e6.jpg"
+        width: 974,
+        height: 1080,
+        blurHash: "L02=o*=|ELEf%2oLWVWV9tNa$*xG",
+        finalUrl: "/livguard/home/10/1-dark-aa13e6.jpg",
     },
     "/livguard/home/10/1-light.jpg": {
-        "width": 974,
-        "height": 1080,
-        "blurHash": "LQS$ov?bxu~q?bofj[of%Mt7RjWB",
-        "finalUrl": "/livguard/home/10/1-light-89ebea.jpg"
+        width: 974,
+        height: 1080,
+        blurHash: "LQS$ov?bxu~q?bofj[of%Mt7RjWB",
+        finalUrl: "/livguard/home/10/1-light-89ebea.jpg",
     },
     "/livguard/home/11/1.jpg": {
-        "width": 3841,
-        "height": 2736,
-        "blurHash": "LZGH@?%Lxtt7~oxtxaWU^%t6oeR*",
-        "finalUrl": "/livguard/home/11/1-17170e.jpg"
+        width: 3841,
+        height: 2736,
+        blurHash: "LZGH@?%Lxtt7~oxtxaWU^%t6oeR*",
+        finalUrl: "/livguard/home/11/1-17170e.jpg",
     },
     "/livguard/home/11/2.jpg": {
-        "width": 3841,
-        "height": 2736,
-        "blurHash": "L6G*Z,UbQ8ry4=pH%#R5HUTfRQIm",
-        "finalUrl": "/livguard/home/11/2-112c48.jpg"
+        width: 3841,
+        height: 2736,
+        blurHash: "L6G*Z,UbQ8ry4=pH%#R5HUTfRQIm",
+        finalUrl: "/livguard/home/11/2-112c48.jpg",
     },
     "/livguard/home/11/3.jpg": {
-        "width": 3841,
-        "height": 2736,
-        "blurHash": "LFHeF6~p?Z?^0KotM_%2.Q%KNG-n",
-        "finalUrl": "/livguard/home/11/3-f00896.jpg"
+        width: 3841,
+        height: 2736,
+        blurHash: "LFHeF6~p?Z?^0KotM_%2.Q%KNG-n",
+        finalUrl: "/livguard/home/11/3-f00896.jpg",
     },
     "/livguard/home/2/1.jpg": {
-        "width": 652,
-        "height": 442,
-        "blurHash": "LURC;}S~D%s;~qt7ofof_Nsoj[tR",
-        "finalUrl": "/livguard/home/2/1-52e8b4.jpg"
+        width: 652,
+        height: 442,
+        blurHash: "LURC;}S~D%s;~qt7ofof_Nsoj[tR",
+        finalUrl: "/livguard/home/2/1-52e8b4.jpg",
     },
     "/livguard/home/2/1.mp4": {
-        "finalUrl": "/livguard/home/2/1-eed685.mp4"
+        finalUrl: "/livguard/home/2/1-eed685.mp4",
     },
     "/livguard/home/2/2.jpg": {
-        "width": 652,
-        "height": 442,
-        "blurHash": "LYNwct~q9GxuInM{%Lt700oMayIU",
-        "finalUrl": "/livguard/home/2/2-94e13e.jpg"
+        width: 652,
+        height: 442,
+        blurHash: "LYNwct~q9GxuInM{%Lt700oMayIU",
+        finalUrl: "/livguard/home/2/2-94e13e.jpg",
     },
     "/livguard/home/2/2.mp4": {
-        "finalUrl": "/livguard/home/2/2-0b6d91.mp4"
+        finalUrl: "/livguard/home/2/2-0b6d91.mp4",
     },
     "/livguard/home/3/1-icon.png": {
-        "width": 76,
-        "height": 76,
-        "finalUrl": "/livguard/home/3/1-icon-29e774.png"
+        width: 76,
+        height: 76,
+        finalUrl: "/livguard/home/3/1-icon-29e774.png",
     },
     "/livguard/home/3/1.jpg": {
-        "width": 3841,
-        "height": 2113,
-        "blurHash": "LuH1;]aMD%Rj~pRkIUWA%zWXM{WB",
-        "finalUrl": "/livguard/home/3/1-61f1da.jpg"
+        width: 3841,
+        height: 2113,
+        blurHash: "LuH1;]aMD%Rj~pRkIUWA%zWXM{WB",
+        finalUrl: "/livguard/home/3/1-61f1da.jpg",
     },
     "/livguard/home/3/2-icon.png": {
-        "width": 76,
-        "height": 76,
-        "finalUrl": "/livguard/home/3/2-icon-5da3bd.png"
+        width: 76,
+        height: 76,
+        finalUrl: "/livguard/home/3/2-icon-5da3bd.png",
     },
     "/livguard/home/3/2.jpg": {
-        "width": 3840,
-        "height": 2112,
-        "blurHash": "LoH-}iD%D%Rj~qM{M{RjtRayR*WV",
-        "finalUrl": "/livguard/home/3/2-fb8723.jpg"
+        width: 3840,
+        height: 2112,
+        blurHash: "LoH-}iD%D%Rj~qM{M{RjtRayR*WV",
+        finalUrl: "/livguard/home/3/2-fb8723.jpg",
     },
     "/livguard/home/3/3-icon.png": {
-        "width": 76,
-        "height": 76,
-        "finalUrl": "/livguard/home/3/3-icon-a0c85c.png"
+        width: 76,
+        height: 76,
+        finalUrl: "/livguard/home/3/3-icon-a0c85c.png",
     },
     "/livguard/home/3/3.jpg": {
-        "width": 3840,
-        "height": 2112,
-        "blurHash": "LVGH#e9aIUsT~pIUIUWXpdn#IUW=",
-        "finalUrl": "/livguard/home/3/3-c887de.jpg"
+        width: 3840,
+        height: 2112,
+        blurHash: "LVGH#e9aIUsT~pIUIUWXpdn#IUW=",
+        finalUrl: "/livguard/home/3/3-c887de.jpg",
     },
     "/livguard/home/3/4-icon.png": {
-        "width": 76,
-        "height": 76,
-        "finalUrl": "/livguard/home/3/4-icon-14a78f.png"
+        width: 76,
+        height: 76,
+        finalUrl: "/livguard/home/3/4-icon-14a78f.png",
     },
     "/livguard/home/3/4.jpg": {
-        "width": 3841,
-        "height": 2113,
-        "blurHash": "LuHd]dE1NExb~BIoNGWB$_j^NKR%",
-        "finalUrl": "/livguard/home/3/4-b8bb7f.jpg"
+        width: 3841,
+        height: 2113,
+        blurHash: "LuHd]dE1NExb~BIoNGWB$_j^NKR%",
+        finalUrl: "/livguard/home/3/4-b8bb7f.jpg",
     },
     "/livguard/home/3/5-icon.png": {
-        "width": 76,
-        "height": 76,
-        "finalUrl": "/livguard/home/3/5-icon-42a265.png"
+        width: 76,
+        height: 76,
+        finalUrl: "/livguard/home/3/5-icon-42a265.png",
     },
     "/livguard/home/3/5.jpg": {
-        "width": 3841,
-        "height": 2113,
-        "blurHash": "LmHBxiIAIUkC~pIUM{of%LWXR*Rj",
-        "finalUrl": "/livguard/home/3/5-3e914a.jpg"
+        width: 3841,
+        height: 2113,
+        blurHash: "LmHBxiIAIUkC~pIUM{of%LWXR*Rj",
+        finalUrl: "/livguard/home/3/5-3e914a.jpg",
     },
     "/livguard/home/3/energy solution icons/1.png": {
-        "width": 56,
-        "height": 56,
-        "finalUrl": "/livguard/home/3/energy solution icons/1-82e7ef.png"
+        width: 56,
+        height: 56,
+        finalUrl: "/livguard/home/3/energy solution icons/1-82e7ef.png",
     },
     "/livguard/home/3/energy solution icons/2.png": {
-        "width": 56,
-        "height": 56,
-        "finalUrl": "/livguard/home/3/energy solution icons/2-c5e0aa.png"
+        width: 56,
+        height: 56,
+        finalUrl: "/livguard/home/3/energy solution icons/2-c5e0aa.png",
     },
     "/livguard/home/3/energy solution icons/3.png": {
-        "width": 56,
-        "height": 56,
-        "finalUrl": "/livguard/home/3/energy solution icons/3-a18c36.png"
+        width: 56,
+        height: 56,
+        finalUrl: "/livguard/home/3/energy solution icons/3-a18c36.png",
     },
     "/livguard/home/3/energy solution icons/4.png": {
-        "width": 56,
-        "height": 56,
-        "finalUrl": "/livguard/home/3/energy solution icons/4-0d4c98.png"
+        width: 56,
+        height: 56,
+        finalUrl: "/livguard/home/3/energy solution icons/4-0d4c98.png",
     },
     "/livguard/home/3/energy solution icons/5.png": {
-        "width": 56,
-        "height": 56,
-        "finalUrl": "/livguard/home/3/energy solution icons/5-9b3738.png"
+        width: 56,
+        height: 56,
+        finalUrl: "/livguard/home/3/energy solution icons/5-9b3738.png",
     },
     "/livguard/home/4/1-desktop.jpg": {
-        "width": 3840,
-        "height": 2509,
-        "blurHash": "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
-        "finalUrl": "/livguard/home/4/1-desktop-8b942a.jpg"
+        width: 3840,
+        height: 2509,
+        blurHash: "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
+        finalUrl: "/livguard/home/4/1-desktop-8b942a.jpg",
     },
     "/livguard/home/4/1-mobile.jpg": {
-        "width": 3840,
-        "height": 2509,
-        "blurHash": "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
-        "finalUrl": "/livguard/home/4/1-mobile-8b942a.jpg"
+        width: 3840,
+        height: 2509,
+        blurHash: "L48fyI^Q000#ITRQI=N@1bJ-}[}Y",
+        finalUrl: "/livguard/home/4/1-mobile-8b942a.jpg",
     },
     "/livguard/home/5/1-bhk.png": {
-        "width": 48,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/1-bhk-8e47a8.png"
+        width: 48,
+        height: 49,
+        finalUrl: "/livguard/home/5/1-bhk-8e47a8.png",
     },
     "/livguard/home/5/1.png": {
-        "width": 370,
-        "height": 268,
-        "finalUrl": "/livguard/home/5/1-f41356.png"
+        width: 370,
+        height: 268,
+        finalUrl: "/livguard/home/5/1-f41356.png",
     },
     "/livguard/home/5/2-bhk.png": {
-        "width": 49,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/2-bhk-26a504.png"
+        width: 49,
+        height: 49,
+        finalUrl: "/livguard/home/5/2-bhk-26a504.png",
     },
     "/livguard/home/5/3-bhk.png": {
-        "width": 49,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/3-bhk-e27390.png"
+        width: 49,
+        height: 49,
+        finalUrl: "/livguard/home/5/3-bhk-e27390.png",
     },
     "/livguard/home/5/4-bhk.png": {
-        "width": 49,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/4-bhk-2594fc.png"
+        width: 49,
+        height: 49,
+        finalUrl: "/livguard/home/5/4-bhk-2594fc.png",
     },
     "/livguard/home/5/4.png": {
-        "width": 49,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/4-2594fc.png"
+        width: 49,
+        height: 49,
+        finalUrl: "/livguard/home/5/4-2594fc.png",
     },
     "/livguard/home/5/custom.png": {
-        "width": 49,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/custom-db25bf.png"
+        width: 49,
+        height: 49,
+        finalUrl: "/livguard/home/5/custom-db25bf.png",
     },
     "/livguard/home/5/step-1.png": {
-        "width": 48,
-        "height": 48,
-        "finalUrl": "/livguard/home/5/step-1-d28bcd.png"
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/home/5/step-1-d28bcd.png",
     },
     "/livguard/home/5/step-2.png": {
-        "width": 48,
-        "height": 48,
-        "finalUrl": "/livguard/home/5/step-2-61a5b6.png"
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/home/5/step-2-61a5b6.png",
     },
     "/livguard/home/5/step-3.png": {
-        "width": 48,
-        "height": 48,
-        "finalUrl": "/livguard/home/5/step-3-d52536.png"
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/home/5/step-3-d52536.png",
     },
     "/livguard/home/5/villa.png": {
-        "width": 49,
-        "height": 49,
-        "finalUrl": "/livguard/home/5/villa-3de485.png"
+        width: 49,
+        height: 49,
+        finalUrl: "/livguard/home/5/villa-3de485.png",
     },
     "/livguard/home/6/1.jpg": {
-        "width": 1080,
-        "height": 1080,
-        "blurHash": "LyPsL$xu?w-pt7aet7t7o~oLaKWC",
-        "finalUrl": "/livguard/home/6/1-f721b1.jpg"
+        width: 1080,
+        height: 1080,
+        blurHash: "LyPsL$xu?w-pt7aet7t7o~oLaKWC",
+        finalUrl: "/livguard/home/6/1-f721b1.jpg",
     },
     "/livguard/home/6/2.jpg": {
-        "width": 1080,
-        "height": 1080,
-        "blurHash": "LuM%yC%M?]%g~UoIxZt6E2S5RPoL",
-        "finalUrl": "/livguard/home/6/2-5327da.jpg"
+        width: 1080,
+        height: 1080,
+        blurHash: "LuM%yC%M?]%g~UoIxZt6E2S5RPoL",
+        finalUrl: "/livguard/home/6/2-5327da.jpg",
     },
     "/livguard/home/6/3.jpg": {
-        "width": 1080,
-        "height": 1080,
-        "blurHash": "LFEL?8NfUG~VDOaIMxROC9Rlp0El",
-        "finalUrl": "/livguard/home/6/3-296b47.jpg"
+        width: 1080,
+        height: 1080,
+        blurHash: "LFEL?8NfUG~VDOaIMxROC9Rlp0El",
+        finalUrl: "/livguard/home/6/3-296b47.jpg",
     },
     "/livguard/home/6/4.jpg": {
-        "width": 1080,
-        "height": 1080,
-        "blurHash": "LCHA|R}r0i1$~U?G$$n~%}yC$j-7",
-        "finalUrl": "/livguard/home/6/4-6d981a.jpg"
+        width: 1080,
+        height: 1080,
+        blurHash: "LCHA|R}r0i1$~U?G$$n~%}yC$j-7",
+        finalUrl: "/livguard/home/6/4-6d981a.jpg",
     },
     "/livguard/home/7/1.jpg": {
-        "width": 3215,
-        "height": 3840,
-        "blurHash": "LA7wQyKQ%3xapf-WtRoz%NXTkDof",
-        "finalUrl": "/livguard/home/7/1-ae3f85.jpg"
+        width: 3215,
+        height: 3840,
+        blurHash: "LA7wQyKQ%3xapf-WtRoz%NXTkDof",
+        finalUrl: "/livguard/home/7/1-ae3f85.jpg",
     },
     "/livguard/home/7/2.jpg": {
-        "width": 3216,
-        "height": 3840,
-        "blurHash": "LB6t,xtmxtt8%%-qt6t8-=tSt6t7",
-        "finalUrl": "/livguard/home/7/2-cd924f.jpg"
+        width: 3216,
+        height: 3840,
+        blurHash: "LB6t,xtmxtt8%%-qt6t8-=tSt6t7",
+        finalUrl: "/livguard/home/7/2-cd924f.jpg",
     },
     "/livguard/home/7/3.jpg": {
-        "width": 3215,
-        "height": 3840,
-        "blurHash": "L97,[IEmt7t7~TWaozs:^iSiozs:",
-        "finalUrl": "/livguard/home/7/3-c14977.jpg"
+        width: 3215,
+        height: 3840,
+        blurHash: "L97,[IEmt7t7~TWaozs:^iSiozs:",
+        finalUrl: "/livguard/home/7/3-c14977.jpg",
     },
     "/livguard/home/8/1.jpg": {
-        "width": 400,
-        "height": 400,
-        "blurHash": "L5BMV.E100^+}OoLGcRj1*-o+s4.",
-        "finalUrl": "/livguard/home/8/1-bb892f.jpg"
+        width: 400,
+        height: 400,
+        blurHash: "L5BMV.E100^+}OoLGcRj1*-o+s4.",
+        finalUrl: "/livguard/home/8/1-bb892f.jpg",
     },
     "/livguard/home/8/2.jpg": {
-        "width": 400,
-        "height": 400,
-        "blurHash": "LCEnI*#m00-V3UOWMxEf{N$%-on5",
-        "finalUrl": "/livguard/home/8/2-4e2305.jpg"
+        width: 400,
+        height: 400,
+        blurHash: "LCEnI*#m00-V3UOWMxEf{N$%-on5",
+        finalUrl: "/livguard/home/8/2-4e2305.jpg",
     },
     "/livguard/home/8/3.jpg": {
-        "width": 400,
-        "height": 400,
-        "blurHash": "LeI4Rnxa-:%K~9afxtxaI;azM|WC",
-        "finalUrl": "/livguard/home/8/3-c85b06.jpg"
+        width: 400,
+        height: 400,
+        blurHash: "LeI4Rnxa-:%K~9afxtxaI;azM|WC",
+        finalUrl: "/livguard/home/8/3-c85b06.jpg",
     },
     "/livguard/home/8/4.jpg": {
-        "width": 400,
-        "height": 400,
-        "blurHash": "L9EA4nv~0f}Z39kC:,6M$%E}I:#-",
-        "finalUrl": "/livguard/home/8/4-d6a214.jpg"
+        width: 400,
+        height: 400,
+        blurHash: "L9EA4nv~0f}Z39kC:,6M$%E}I:#-",
+        finalUrl: "/livguard/home/8/4-d6a214.jpg",
     },
     "/livguard/icons/3dGrid.png": {
         width: 32,
@@ -805,2050 +805,2062 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/offers/top-banner-mobile-075e70.jpg",
     },
     "/livguard/products/batteries/it1048st/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LJH*?nR*}F}F#SW;sVay0|NuayEf",
-        "finalUrl": "/livguard/products/batteries/it1048st/a-plus/1-eb6c3e.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LJH*?nR*}F}F#SW;sVay0|NuayEf",
+        finalUrl: "/livguard/products/batteries/it1048st/a-plus/1-eb6c3e.jpg",
     },
     "/livguard/products/batteries/it1048st/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LQMaIq~WRj%N^,-;RjM{R+InRQWB",
-        "finalUrl": "/livguard/products/batteries/it1048st/a-plus/2-1ee3c0.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LQMaIq~WRj%N^,-;RjM{R+InRQWB",
+        finalUrl: "/livguard/products/batteries/it1048st/a-plus/2-1ee3c0.jpg",
     },
     "/livguard/products/batteries/it1048st/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L36Zd~Ef1I^6,sR*t7wJEL,sS~5k",
-        "finalUrl": "/livguard/products/batteries/it1048st/a-plus/3-c1b2d2.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L36Zd~Ef1I^6,sR*t7wJEL,sS~5k",
+        finalUrl: "/livguard/products/batteries/it1048st/a-plus/3-c1b2d2.jpg",
     },
     "/livguard/products/batteries/it1048st/infographics/1.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LuHukejZ}Z$PjFa|jZj[ACWpI:S2",
-        "finalUrl": "/livguard/products/batteries/it1048st/infographics/1-3b25a8.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LuHukejZ}Z$PjFa|jZj[ACWpI:S2",
+        finalUrl: "/livguard/products/batteries/it1048st/infographics/1-3b25a8.jpg",
     },
     "/livguard/products/batteries/it1048st/infographics/2.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LUMHAL~WWUof-;-;j[M{WWIUM{V@",
-        "finalUrl": "/livguard/products/batteries/it1048st/infographics/2-00a1a5.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LUMHAL~WWUof-;-;j[M{WWIUM{V@",
+        finalUrl: "/livguard/products/batteries/it1048st/infographics/2-00a1a5.jpg",
     },
     "/livguard/products/batteries/it1048st/infographics/3.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "L266_I1H1b}twyWB$*r?0|]m-V5k",
-        "finalUrl": "/livguard/products/batteries/it1048st/infographics/3-d7db9c.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "L266_I1H1b}twyWB$*r?0|]m-V5k",
+        finalUrl: "/livguard/products/batteries/it1048st/infographics/3-d7db9c.jpg",
     },
     "/livguard/products/batteries/it1048st/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1048st/thumbnail-3fc060.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1048st/thumbnail-3fc060.png",
     },
     "/livguard/products/batteries/it1172stt/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LJH*]vR*}E}F#SW;soay0|NabGEz",
-        "finalUrl": "/livguard/products/batteries/it1172stt/a-plus/1-bc56cf.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LJH*]vR*}E}F#SW;soay0|NabGEz",
+        finalUrl: "/livguard/products/batteries/it1172stt/a-plus/1-bc56cf.jpg",
     },
     "/livguard/products/batteries/it1172stt/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LLL}1?~WM{?b~q?bRjIUW=M{RQWB",
-        "finalUrl": "/livguard/products/batteries/it1172stt/a-plus/2-ac773e.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LLL}1?~WM{?b~q?bRjIUW=M{RQWB",
+        finalUrl: "/livguard/products/batteries/it1172stt/a-plus/2-ac773e.jpg",
     },
     "/livguard/products/batteries/it1172stt/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L26Q9*EL0y}[=0R*xawJD%-Bk=0y",
-        "finalUrl": "/livguard/products/batteries/it1172stt/a-plus/3-a41eac.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L26Q9*EL0y}[=0R*xawJD%-Bk=0y",
+        finalUrl: "/livguard/products/batteries/it1172stt/a-plus/3-a41eac.jpg",
     },
     "/livguard/products/batteries/it1172stt/infographics/1.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LuHuqujZ}Z$Pnia|jZj[ACWVJ7S2",
-        "finalUrl": "/livguard/products/batteries/it1172stt/infographics/1-a8967a.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LuHuqujZ}Z$Pnia|jZj[ACWVJ7S2",
+        finalUrl: "/livguard/products/batteries/it1172stt/infographics/1-a8967a.jpg",
     },
     "/livguard/products/batteries/it1172stt/infographics/2.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LQL;gO~WR%t7?b?aoLM{kCInM{V@",
-        "finalUrl": "/livguard/products/batteries/it1172stt/infographics/2-e9f2a7.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LQL;gO~WR%t7?b?aoLM{kCInM{V@",
+        finalUrl: "/livguard/products/batteries/it1172stt/infographics/2-e9f2a7.jpg",
     },
     "/livguard/products/batteries/it1172stt/infographics/3.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "L25;5Z9t0|}[$PWB$*r?0e=e^Q56",
-        "finalUrl": "/livguard/products/batteries/it1172stt/infographics/3-e9650b.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "L25;5Z9t0|}[$PWB$*r?0e=e^Q56",
+        finalUrl: "/livguard/products/batteries/it1172stt/infographics/3-e9650b.jpg",
     },
     "/livguard/products/batteries/it1172stt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1172stt/thumbnail-7e494a.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1172stt/thumbnail-7e494a.png",
     },
     "/livguard/products/batteries/it1536tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LKI2NzoL{}}F#SS2s:of0zJ7g3J7",
-        "finalUrl": "/livguard/products/batteries/it1536tt/a-plus/1-3fec60.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LKI2NzoL{}}F#SS2s:of0zJ7g3J7",
+        finalUrl: "/livguard/products/batteries/it1536tt/a-plus/1-3fec60.jpg",
     },
     "/livguard/products/batteries/it1536tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LOLg*3^ltQ_3~q?HIUIA.8baIUIT",
-        "finalUrl": "/livguard/products/batteries/it1536tt/a-plus/2-7b529a.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LOLg*3^ltQ_3~q?HIUIA.8baIUIT",
+        finalUrl: "/livguard/products/batteries/it1536tt/a-plus/2-7b529a.jpg",
     },
     "/livguard/products/batteries/it1536tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36@E0E10J~C#SR*x]wJ4.xG?b9t",
-        "finalUrl": "/livguard/products/batteries/it1536tt/a-plus/3-1b402b.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36@E0E10J~C#SR*x]wJ4.xG?b9t",
+        finalUrl: "/livguard/products/batteries/it1536tt/a-plus/3-1b402b.jpg",
     },
     "/livguard/products/batteries/it1536tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrI2X2WV}F,@aeayjtoL9[fPJ7Sg",
-        "finalUrl": "/livguard/products/batteries/it1536tt/infographics/1-2eb68e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrI2X2WV}F,@aeayjtoL9[fPJ7Sg",
+        finalUrl: "/livguard/products/batteries/it1536tt/infographics/1-2eb68e.jpg",
     },
     "/livguard/products/batteries/it1536tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL|}+~WIU?b~q?bM{IU.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1536tt/infographics/2-8b60d2.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL|}+~WIU?b~q?bM{IU.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1536tt/infographics/2-8b60d2.jpg",
     },
     "/livguard/products/batteries/it1536tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36%pQ9Z0e~C,?Rjxuw{0K$j~C9t",
-        "finalUrl": "/livguard/products/batteries/it1536tt/infographics/3-d1e9be.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36%pQ9Z0e~C,?Rjxuw{0K$j~C9t",
+        finalUrl: "/livguard/products/batteries/it1536tt/infographics/3-d1e9be.jpg",
     },
     "/livguard/products/batteries/it1536tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1536tt/thumbnail-02508b.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1536tt/thumbnail-02508b.png",
     },
     "/livguard/products/batteries/it1548stj/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LKHuY8R*}F}F#SW;soay0|S2WVEf",
-        "finalUrl": "/livguard/products/batteries/it1548stj/a-plus/1-1ed4b7.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LKHuY8R*}F}F#SW;soay0|S2WVEf",
+        finalUrl: "/livguard/products/batteries/it1548stj/a-plus/1-1ed4b7.jpg",
     },
     "/livguard/products/batteries/it1548stj/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LOMQt_~XNF%M_3?HRjM{RkIUM{WA",
-        "finalUrl": "/livguard/products/batteries/it1548stj/a-plus/2-1a1c5d.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LOMQt_~XNF%M_3?HRjM{RkIUM{WA",
+        finalUrl: "/livguard/products/batteries/it1548stj/a-plus/2-1a1c5d.jpg",
     },
     "/livguard/products/batteries/it1548stj/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L26Zh79]1H}t#mR*%2wJEL=KKO0|",
-        "finalUrl": "/livguard/products/batteries/it1548stj/a-plus/3-c41fdc.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L26Zh79]1H}t#mR*%2wJEL=KKO0|",
+        finalUrl: "/livguard/products/batteries/it1548stj/a-plus/3-c41fdc.jpg",
     },
     "/livguard/products/batteries/it1548stj/infographics/1.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LwHl6~jZ}Z$PjFa{jZj[ACWpI:S2",
-        "finalUrl": "/livguard/products/batteries/it1548stj/infographics/1-5174b2.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LwHl6~jZ}Z$PjFa{jZj[ACWpI:S2",
+        finalUrl: "/livguard/products/batteries/it1548stj/infographics/1-5174b2.jpg",
     },
     "/livguard/products/batteries/it1548stj/infographics/2.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LTM7ot~qWVog-;-;jaM{ofM{RPRj",
-        "finalUrl": "/livguard/products/batteries/it1548stj/infographics/2-932cc9.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LTM7ot~qWVog-;-;jaM{ofM{RPRj",
+        finalUrl: "/livguard/products/batteries/it1548stj/infographics/2-932cc9.jpg",
     },
     "/livguard/products/batteries/it1548stj/infographics/3.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "L25:{B5k1H^QwdWB%2r?0|]n-V9u",
-        "finalUrl": "/livguard/products/batteries/it1548stj/infographics/3-bff08a.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "L25:{B5k1H^QwdWB%2r?0|]n-V9u",
+        finalUrl: "/livguard/products/batteries/it1548stj/infographics/3-bff08a.jpg",
     },
     "/livguard/products/batteries/it1548stj/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1548stj/thumbnail-be1e59.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1548stj/thumbnail-be1e59.png",
     },
     "/livguard/products/batteries/it1548stt/a-plus/1.jpg": {
-        "width": 3841,
-        "height": 2456,
-        "blurHash": "LNL;a8^,WU_3~q?bM{IUtRNGM{M_",
-        "finalUrl": "/livguard/products/batteries/it1548stt/a-plus/1-3c7864.jpg"
+        width: 3841,
+        height: 2456,
+        blurHash: "LNL;a8^,WU_3~q?bM{IUtRNGM{M_",
+        finalUrl: "/livguard/products/batteries/it1548stt/a-plus/1-3c7864.jpg",
     },
     "/livguard/products/batteries/it1548stt/a-plus/2.jpg": {
-        "width": 3840,
-        "height": 2457,
-        "blurHash": "L25zUTNG1b=y]nNaS~,Ea0$jK45k",
-        "finalUrl": "/livguard/products/batteries/it1548stt/a-plus/2-ca5e95.jpg"
+        width: 3840,
+        height: 2457,
+        blurHash: "L25zUTNG1b=y]nNaS~,Ea0$jK45k",
+        finalUrl: "/livguard/products/batteries/it1548stt/a-plus/2-ca5e95.jpg",
     },
     "/livguard/products/batteries/it1548stt/a-plus/3.jpg": {
-        "width": 3841,
-        "height": 2457,
-        "blurHash": "LKHuV0R*}F].#SW;sUay0|NuWVI:",
-        "finalUrl": "/livguard/products/batteries/it1548stt/a-plus/3-7684c0.jpg"
+        width: 3841,
+        height: 2457,
+        blurHash: "LKHuV0R*}F].#SW;sUay0|NuWVI:",
+        finalUrl: "/livguard/products/batteries/it1548stt/a-plus/3-7684c0.jpg",
     },
     "/livguard/products/batteries/it1548stt/infographics/1.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "LvHbfHjZ}Z$jnia|f6j[ACWpI:S2",
-        "finalUrl": "/livguard/products/batteries/it1548stt/infographics/1-b621e6.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "LvHbfHjZ}Z$jnia|f6j[ACWpI:S2",
+        finalUrl: "/livguard/products/batteries/it1548stt/infographics/1-b621e6.jpg",
     },
     "/livguard/products/batteries/it1548stt/infographics/2.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "LLLg-B~WM{t8_3_3s;Mx%NRjMyM_",
-        "finalUrl": "/livguard/products/batteries/it1548stt/infographics/2-93dd85.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "LLLg-B~WM{t8_3_3s;Mx%NRjMyM_",
+        finalUrl: "/livguard/products/batteries/it1548stt/infographics/2-93dd85.jpg",
     },
     "/livguard/products/batteries/it1548stt/infographics/3.jpg": {
-        "width": 3840,
-        "height": 3841,
-        "blurHash": "L154HpEL1]=|].NGoz#-0|;~=e9[",
-        "finalUrl": "/livguard/products/batteries/it1548stt/infographics/3-d29573.jpg"
+        width: 3840,
+        height: 3841,
+        blurHash: "L154HpEL1]=|].NGoz#-0|;~=e9[",
+        finalUrl: "/livguard/products/batteries/it1548stt/infographics/3-d29573.jpg",
     },
     "/livguard/products/batteries/it1548stt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1548stt/thumbnail-a68b7f.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1548stt/thumbnail-a68b7f.png",
     },
     "/livguard/products/batteries/it1548tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LKI2NyoL{}}F#SS2s:of0zJ7g3J7",
-        "finalUrl": "/livguard/products/batteries/it1548tt/a-plus/1-8591ec.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LKI2NyoL{}}F#SS2s:of0zJ7g3J7",
+        finalUrl: "/livguard/products/batteries/it1548tt/a-plus/1-8591ec.jpg",
     },
     "/livguard/products/batteries/it1548tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LOLg*3^ltQ_3~q?HIUIA.8baIUIT",
-        "finalUrl": "/livguard/products/batteries/it1548tt/a-plus/2-ec0c9c.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LOLg*3^ltQ_3~q?HIUIA.8baIUIT",
+        finalUrl: "/livguard/products/batteries/it1548tt/a-plus/2-ec0c9c.jpg",
     },
     "/livguard/products/batteries/it1548tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36@A[E10K}]#SR*x]wJ4.xG?b9t",
-        "finalUrl": "/livguard/products/batteries/it1548tt/a-plus/3-e14183.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36@A[E10K}]#SR*x]wJ4.xG?b9t",
+        finalUrl: "/livguard/products/batteries/it1548tt/a-plus/3-e14183.jpg",
     },
     "/livguard/products/batteries/it1548tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrH[:SR+}F,@jFayjtoL9[ayJ7Sg",
-        "finalUrl": "/livguard/products/batteries/it1548tt/infographics/1-c089d2.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrH[:SR+}F,@jFayjtoL9[ayJ7Sg",
+        finalUrl: "/livguard/products/batteries/it1548tt/infographics/1-c089d2.jpg",
     },
     "/livguard/products/batteries/it1548tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL|}+~WIU?b~q?bM{IT.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1548tt/infographics/2-093c8e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL|}+~WIU?b~q?bM{IT.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1548tt/infographics/2-093c8e.jpg",
     },
     "/livguard/products/batteries/it1548tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36%pP9Z0e~C,@RjtRw{0K$j~C9t",
-        "finalUrl": "/livguard/products/batteries/it1548tt/infographics/3-a145d6.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36%pP9Z0e~C,@RjtRw{0K$j~C9t",
+        finalUrl: "/livguard/products/batteries/it1548tt/infographics/3-a145d6.jpg",
     },
     "/livguard/products/batteries/it1548tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1548tt/thumbnail-a68b7f.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1548tt/thumbnail-a68b7f.png",
     },
     "/livguard/products/batteries/it1550tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LMHuhXjF|^}Z#mSLn%f60|NaShI:",
-        "finalUrl": "/livguard/products/batteries/it1550tt/a-plus/1-3763b5.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LMHuhXjF|^}Z#mSLn%f60|NaShI:",
+        finalUrl: "/livguard/products/batteries/it1550tt/a-plus/1-3763b5.jpg",
     },
     "/livguard/products/batteries/it1550tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LPLg-A?bt7_3~q?HIUD%%gW.IUIU",
-        "finalUrl": "/livguard/products/batteries/it1550tt/a-plus/2-ea67f7.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LPLg-A?bt7_3~q?HIUD%%gW.IUIU",
+        finalUrl: "/livguard/products/batteries/it1550tt/a-plus/2-ea67f7.jpg",
     },
     "/livguard/products/batteries/it1550tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L25|$hIA0e^+}FNGOr,sMcxGt,9s",
-        "finalUrl": "/livguard/products/batteries/it1550tt/a-plus/3-724e58.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L25|$hIA0e^+}FNGOr,sMcxGt,9s",
+        finalUrl: "/livguard/products/batteries/it1550tt/a-plus/3-724e58.jpg",
     },
     "/livguard/products/batteries/it1550tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LvHut*R*}Y,@nifQayj[ACj[J7S2",
-        "finalUrl": "/livguard/products/batteries/it1550tt/infographics/1-1ea4e3.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LvHut*R*}Y,@nifQayj[ACj[J7S2",
+        finalUrl: "/livguard/products/batteries/it1550tt/infographics/1-1ea4e3.jpg",
     },
     "/livguard/products/batteries/it1550tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL;dG~WIU?b~q^+M{IA.8W;MxMy",
-        "finalUrl": "/livguard/products/batteries/it1550tt/infographics/2-1633b5.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL;dG~WIU?b~q^+M{IA.8W;MxMy",
+        finalUrl: "/livguard/products/batteries/it1550tt/infographics/2-1633b5.jpg",
     },
     "/livguard/products/batteries/it1550tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L25;K^D%0{?b}tIoS~-B0xxG=}IU",
-        "finalUrl": "/livguard/products/batteries/it1550tt/infographics/3-899b84.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L25;K^D%0{?b}tIoS~-B0xxG=}IU",
+        finalUrl: "/livguard/products/batteries/it1550tt/infographics/3-899b84.jpg",
     },
     "/livguard/products/batteries/it1550tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1550tt/thumbnail-077d8a.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1550tt/thumbnail-077d8a.png",
     },
     "/livguard/products/batteries/it1560stj/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNG=,|n%|_].+^S2o2oL9[J7SgNa",
-        "finalUrl": "/livguard/products/batteries/it1560stj/a-plus/1-809c3b.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNG=,|n%|_].+^S2o2oL9[J7SgNa",
+        finalUrl: "/livguard/products/batteries/it1560stj/a-plus/1-809c3b.jpg",
     },
     "/livguard/products/batteries/it1560stj/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LOL;a8^+WB?b~q?aIUITx^SeRQRP",
-        "finalUrl": "/livguard/products/batteries/it1560stj/a-plus/2-b92e9f.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LOL;a8^+WB?b~q?aIUITx^SeRQRP",
+        finalUrl: "/livguard/products/batteries/it1560stj/a-plus/2-b92e9f.jpg",
     },
     "/livguard/products/batteries/it1560stj/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36svsEL0|}t-BNGt7$P5R,q%25k",
-        "finalUrl": "/livguard/products/batteries/it1560stj/a-plus/3-64fc87.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36svsEL0|}t-BNGt7$P5R,q%25k",
+        finalUrl: "/livguard/products/batteries/it1560stj/a-plus/3-64fc87.jpg",
     },
     "/livguard/products/batteries/it1560stj/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LuHSB0WB}Z$jnia{jZoLEfa|J7WW",
-        "finalUrl": "/livguard/products/batteries/it1560stj/infographics/1-861807.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LuHSB0WB}Z$jnia{jZoLEfa|J7WW",
+        finalUrl: "/livguard/products/batteries/it1560stj/infographics/1-861807.jpg",
     },
     "/livguard/products/batteries/it1560stj/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKM7id~WIU-;~q?bM{IU%gR*M{V@",
-        "finalUrl": "/livguard/products/batteries/it1560stj/infographics/2-13b8cd.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKM7id~WIU-;~q?bM{IU%gR*M{V@",
+        finalUrl: "/livguard/products/batteries/it1560stj/infographics/2-13b8cd.jpg",
     },
     "/livguard/products/batteries/it1560stj/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Ztd5Q1H}[^6M{xa$j0};3^69[",
-        "finalUrl": "/livguard/products/batteries/it1560stj/infographics/3-9c1dd7.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Ztd5Q1H}[^6M{xa$j0};3^69[",
+        finalUrl: "/livguard/products/batteries/it1560stj/infographics/3-9c1dd7.jpg",
     },
     "/livguard/products/batteries/it1560stj/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1560stj/thumbnail-6959dc.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1560stj/thumbnail-6959dc.png",
     },
     "/livguard/products/batteries/it1560stt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LKHl6~sA|w].#SS2soo20|J7X8Na",
-        "finalUrl": "/livguard/products/batteries/it1560stt/a-plus/1-f16200.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LKHl6~sA|w].#SS2soo20|J7X8Na",
+        finalUrl: "/livguard/products/batteries/it1560stt/a-plus/1-f16200.jpg",
     },
     "/livguard/products/batteries/it1560stt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LOLg*2^lt7_3~q?HIBD%.8ozM{Mx",
-        "finalUrl": "/livguard/products/batteries/it1560stt/a-plus/2-eac3c0.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LOLg*2^lt7_3~q?HIBD%.8ozM{Mx",
+        finalUrl: "/livguard/products/batteries/it1560stt/a-plus/2-eac3c0.jpg",
     },
     "/livguard/products/batteries/it1560stt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L26jOTIo0e}[,FNG%M#m56wJ^+5Q",
-        "finalUrl": "/livguard/products/batteries/it1560stt/a-plus/3-2e10fc.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L26jOTIo0e}[,FNG%M#m56wJ^+5Q",
+        finalUrl: "/livguard/products/batteries/it1560stt/a-plus/3-2e10fc.jpg",
     },
     "/livguard/products/batteries/it1560stt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LsH[%CWB}Y,@jFa{f6oL9]a{J7SM",
-        "finalUrl": "/livguard/products/batteries/it1560stt/infographics/1-093f9b.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LsH[%CWB}Y,@jFa{f6oL9]a{J7SM",
+        finalUrl: "/livguard/products/batteries/it1560stt/infographics/1-093f9b.jpg",
     },
     "/livguard/products/batteries/it1560stt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LLM7ie~WIo?b_3?bM{IA%gWVMxRP",
-        "finalUrl": "/livguard/products/batteries/it1560stt/infographics/2-7448f1.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LLM7ie~WIo?b_3?bM{IA%gWVMxRP",
+        finalUrl: "/livguard/products/batteries/it1560stt/infographics/2-7448f1.jpg",
     },
     "/livguard/products/batteries/it1560stt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36Z,;E20y^k-BNGxaw{0|wJ}[EL",
-        "finalUrl": "/livguard/products/batteries/it1560stt/infographics/3-75bcb6.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36Z,;E20y^k-BNGxaw{0|wJ}[EL",
+        finalUrl: "/livguard/products/batteries/it1560stt/infographics/3-75bcb6.jpg",
     },
     "/livguard/products/batteries/it1560stt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1560stt/thumbnail-f2a6ba.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1560stt/thumbnail-f2a6ba.png",
     },
     "/livguard/products/batteries/it1572tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LMH[p$jZ|w}Z#TS2sUaz0|NaX8J7",
-        "finalUrl": "/livguard/products/batteries/it1572tt/a-plus/1-ca8cc1.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LMH[p$jZ|w}Z#TS2sUaz0|NaX8J7",
+        finalUrl: "/livguard/products/batteries/it1572tt/a-plus/1-ca8cc1.jpg",
     },
     "/livguard/products/batteries/it1572tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LQLXJT?Ht7_3~q?HIUIA%gX6MxIU",
-        "finalUrl": "/livguard/products/batteries/it1572tt/a-plus/2-deeb3c.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LQLXJT?Ht7_3~q?HIUIA%gX6MxIU",
+        finalUrl: "/livguard/products/batteries/it1572tt/a-plus/2-deeb3c.jpg",
     },
     "/livguard/products/batteries/it1572tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36Z^CE10e}[=KR*bvwK9YxG-;9t",
-        "finalUrl": "/livguard/products/batteries/it1572tt/a-plus/3-2d06ec.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36Z^CE10e}[=KR*bvwK9YxG-;9t",
+        finalUrl: "/livguard/products/batteries/it1572tt/a-plus/3-2d06ec.jpg",
     },
     "/livguard/products/batteries/it1572tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LsH[,KR*}Y,@jFayjZj[ACj@J7S2",
-        "finalUrl": "/livguard/products/batteries/it1572tt/infographics/1-2962c6.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LsH[,KR*}Y,@jFayjZj[ACj@J7S2",
+        finalUrl: "/livguard/products/batteries/it1572tt/infographics/1-2962c6.jpg",
     },
     "/livguard/products/batteries/it1572tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL;dG~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1572tt/infographics/2-f146b1.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL;dG~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1572tt/infographics/2-f146b1.jpg",
     },
     "/livguard/products/batteries/it1572tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C9F0y~C^6M{bv$j0K$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it1572tt/infographics/3-145358.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C9F0y~C^6M{bv$j0K$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it1572tt/infographics/3-145358.jpg",
     },
     "/livguard/products/batteries/it1572tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1572tt/thumbnail-c77ad5.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1572tt/thumbnail-c77ad5.png",
     },
     "/livguard/products/batteries/it1578tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LMH+9EjZ|v}Y#mS2sUaz0|J7X8J7",
-        "finalUrl": "/livguard/products/batteries/it1578tt/a-plus/1-e43014.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LMH+9EjZ|v}Y#mS2sUaz0|J7X8J7",
+        finalUrl: "/livguard/products/batteries/it1578tt/a-plus/1-e43014.jpg",
     },
     "/livguard/products/batteries/it1578tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LQLXJT?Ht7_3~q?HIUIA%gX6MxIU",
-        "finalUrl": "/livguard/products/batteries/it1578tt/a-plus/2-3b567e.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LQLXJT?Ht7_3~q?HIUIA%gX6MxIU",
+        finalUrl: "/livguard/products/batteries/it1578tt/a-plus/2-3b567e.jpg",
     },
     "/livguard/products/batteries/it1578tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36Z^DE10e^k=KR*bv#n9YxG-;9t",
-        "finalUrl": "/livguard/products/batteries/it1578tt/a-plus/3-3f7353.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36Z^DE10e^k=KR*bv#n9YxG-;9t",
+        finalUrl: "/livguard/products/batteries/it1578tt/a-plus/3-3f7353.jpg",
     },
     "/livguard/products/batteries/it1578tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LsH[,KR*}Y,@e.ayjZj[ACj[J7S2",
-        "finalUrl": "/livguard/products/batteries/it1578tt/infographics/1-d9d9c4.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LsH[,KR*}Y,@e.ayjZj[ACj[J7S2",
+        finalUrl: "/livguard/products/batteries/it1578tt/infographics/1-d9d9c4.jpg",
     },
     "/livguard/products/batteries/it1578tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL;dG~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1578tt/infographics/2-829586.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL;dG~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1578tt/infographics/2-829586.jpg",
     },
     "/livguard/products/batteries/it1578tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C9F0y~C^6M{bv$j0K$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it1578tt/infographics/3-afcd05.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C9F0y~C^6M{bv$j0K$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it1578tt/infographics/3-afcd05.jpg",
     },
     "/livguard/products/batteries/it1578tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1578tt/thumbnail-6638cd.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1578tt/thumbnail-6638cd.png",
     },
     "/livguard/products/batteries/it1584tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LLH+9Eni|w}Z#SS2sojt0|J7bbI:",
-        "finalUrl": "/livguard/products/batteries/it1584tt/a-plus/1-7636bf.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LLH+9Eni|w}Z#SS2sojt0|J7bbI:",
+        finalUrl: "/livguard/products/batteries/it1584tt/a-plus/1-7636bf.jpg",
     },
     "/livguard/products/batteries/it1584tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LPLg-B^+oz_3~q?HIUIA%gW.MxIU",
-        "finalUrl": "/livguard/products/batteries/it1584tt/a-plus/2-0e5d6b.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LPLg-B^+oz_3~q?HIUIA%gW.MxIU",
+        finalUrl: "/livguard/products/batteries/it1584tt/a-plus/2-0e5d6b.jpg",
     },
     "/livguard/products/batteries/it1584tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L370lP9Z0e~C].NGOr,s9Fxa-;9t",
-        "finalUrl": "/livguard/products/batteries/it1584tt/a-plus/3-f5d995.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L370lP9Z0e~C].NGOr,s9Fxa-;9t",
+        finalUrl: "/livguard/products/batteries/it1584tt/a-plus/3-f5d995.jpg",
     },
     "/livguard/products/batteries/it1584tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LtH+IcR*}Y,@jFfQjZj[ACj@J7S2",
-        "finalUrl": "/livguard/products/batteries/it1584tt/infographics/1-700fe9.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LtH+IcR*}Y,@jFfQjZj[ACj@J7S2",
+        finalUrl: "/livguard/products/batteries/it1584tt/infographics/1-700fe9.jpg",
     },
     "/livguard/products/batteries/it1584tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL;dH~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1584tt/infographics/2-8a57f2.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL;dH~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1584tt/infographics/2-8a57f2.jpg",
     },
     "/livguard/products/batteries/it1584tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36s{R9Z0|}[=yM{kC$j0e$j^Q9t",
-        "finalUrl": "/livguard/products/batteries/it1584tt/infographics/3-ba767f.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36s{R9Z0|}[=yM{kC$j0e$j^Q9t",
+        finalUrl: "/livguard/products/batteries/it1584tt/infographics/3-ba767f.jpg",
     },
     "/livguard/products/batteries/it1584tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1584tt/thumbnail-6e2464.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1584tt/thumbnail-6e2464.png",
     },
     "/livguard/products/batteries/it1636stj/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNG$VloL|_]n+^S2oLoL9uJ7S#Nu",
-        "finalUrl": "/livguard/products/batteries/it1636stj/a-plus/1-14d44d.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNG$VloL|_]n+^S2oLoL9uJ7S#Nu",
+        finalUrl: "/livguard/products/batteries/it1636stj/a-plus/1-14d44d.jpg",
     },
     "/livguard/products/batteries/it1636stj/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LOL;a8^+WB?b~q?aIUITx^SeRQRP",
-        "finalUrl": "/livguard/products/batteries/it1636stj/a-plus/2-deeb0f.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LOL;a8^+WB?b~q?aIUITx^SeRQRP",
+        finalUrl: "/livguard/products/batteries/it1636stj/a-plus/2-deeb0f.jpg",
     },
     "/livguard/products/batteries/it1636stj/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36s$:EL0|}t,@NGt7$59t,r%M5k",
-        "finalUrl": "/livguard/products/batteries/it1636stj/a-plus/3-067540.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36s$:EL0|}t,@NGt7$59t,r%M5k",
+        finalUrl: "/livguard/products/batteries/it1636stj/a-plus/3-067540.jpg",
     },
     "/livguard/products/batteries/it1636stj/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LuHSE9WC}Y$jniayjZoLEfayJ7W;",
-        "finalUrl": "/livguard/products/batteries/it1636stj/infographics/1-f57390.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LuHSE9WC}Y$jniayjZoLEfayJ7W;",
+        finalUrl: "/livguard/products/batteries/it1636stj/infographics/1-f57390.jpg",
     },
     "/livguard/products/batteries/it1636stj/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKM7id~WIU-;~q?bM{IU%gR*M{V@",
-        "finalUrl": "/livguard/products/batteries/it1636stj/infographics/2-2f1346.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKM7id~WIU-;~q?bM{IU%gR*M{V@",
+        finalUrl: "/livguard/products/batteries/it1636stj/infographics/2-2f1346.jpg",
     },
     "/livguard/products/batteries/it1636stj/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26QF}5Q0|}[^6M{xu$j0|;3^Q9[",
-        "finalUrl": "/livguard/products/batteries/it1636stj/infographics/3-1279a3.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26QF}5Q0|}[^6M{xu$j0|;3^Q9[",
+        finalUrl: "/livguard/products/batteries/it1636stj/infographics/3-1279a3.jpg",
     },
     "/livguard/products/batteries/it1636stj/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1636stj/thumbnail-1c63de.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1636stj/thumbnail-1c63de.png",
     },
     "/livguard/products/batteries/it1642tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LJH[%CoL{z}F#SS2s:of0yJ7bvJ7",
-        "finalUrl": "/livguard/products/batteries/it1642tt/a-plus/1-fec70d.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LJH[%CoL{z}F#SS2s:of0yJ7bvJ7",
+        finalUrl: "/livguard/products/batteries/it1642tt/a-plus/1-fec70d.jpg",
     },
     "/livguard/products/batteries/it1642tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNLqRy^+oz_3~q?HIUIA-=X6IUIT",
-        "finalUrl": "/livguard/products/batteries/it1642tt/a-plus/2-10d019.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNLqRy^+oz_3~q?HIUIA-=X6IUIT",
+        finalUrl: "/livguard/products/batteries/it1642tt/a-plus/2-10d019.jpg",
     },
     "/livguard/products/batteries/it1642tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36%sXE10K~C+vR*x]wJ4.xG?b9t",
-        "finalUrl": "/livguard/products/batteries/it1642tt/a-plus/3-696853.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36%sXE10K~C+vR*x]wJ4.xG?b9t",
+        finalUrl: "/livguard/products/batteries/it1642tt/a-plus/3-696853.jpg",
     },
     "/livguard/products/batteries/it1642tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrI2X2WV}F,sjFayjaoM9[ayJ7Sg",
-        "finalUrl": "/livguard/products/batteries/it1642tt/infographics/1-219db0.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrI2X2WV}F,sjFayjaoM9[ayJ7Sg",
+        finalUrl: "/livguard/products/batteries/it1642tt/infographics/1-219db0.jpg",
     },
     "/livguard/products/batteries/it1642tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL}1?~WIU?b~W?bM{IU.8W;MxMy",
-        "finalUrl": "/livguard/products/batteries/it1642tt/infographics/2-78964c.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL}1?~WIU?b~W?bM{IU.8W;MxMy",
+        finalUrl: "/livguard/products/batteries/it1642tt/infographics/2-78964c.jpg",
     },
     "/livguard/products/batteries/it1642tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36%pQ9Z0e~C,@RjtRw{0K$j~C9t",
-        "finalUrl": "/livguard/products/batteries/it1642tt/infographics/3-928c55.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36%pQ9Z0e~C,@RjtRw{0K$j~C9t",
+        finalUrl: "/livguard/products/batteries/it1642tt/infographics/3-928c55.jpg",
     },
     "/livguard/products/batteries/it1642tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1642tt/thumbnail-b23cc9.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1642tt/thumbnail-b23cc9.png",
     },
     "/livguard/products/batteries/it1648tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LJH[%CoL{|}F#SS2s:of0yJ7bvJ7",
-        "finalUrl": "/livguard/products/batteries/it1648tt/a-plus/1-640278.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LJH[%CoL{|}F#SS2s:of0yJ7bvJ7",
+        finalUrl: "/livguard/products/batteries/it1648tt/a-plus/1-640278.jpg",
     },
     "/livguard/products/batteries/it1648tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNLqRy^+oz_3~q?HIUIA-=X5IUIT",
-        "finalUrl": "/livguard/products/batteries/it1648tt/a-plus/2-3c5328.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNLqRy^+oz_3~q?HIUIA-=X5IUIT",
+        finalUrl: "/livguard/products/batteries/it1648tt/a-plus/2-3c5328.jpg",
     },
     "/livguard/products/batteries/it1648tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36@E0E10J~C#SR*x]wJ4.xG?b9t",
-        "finalUrl": "/livguard/products/batteries/it1648tt/a-plus/3-66b31e.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36@E0E10J~C#SR*x]wJ4.xG?b9t",
+        finalUrl: "/livguard/products/batteries/it1648tt/a-plus/3-66b31e.jpg",
     },
     "/livguard/products/batteries/it1648tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrI2X2WV}F,sjFayjaoM9[ayJ7Sg",
-        "finalUrl": "/livguard/products/batteries/it1648tt/infographics/1-4d6113.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrI2X2WV}F,sjFayjaoM9[ayJ7Sg",
+        finalUrl: "/livguard/products/batteries/it1648tt/infographics/1-4d6113.jpg",
     },
     "/livguard/products/batteries/it1648tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL}1?~WIU?b~W?bM{IU.8W;MxMx",
-        "finalUrl": "/livguard/products/batteries/it1648tt/infographics/2-45c89e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL}1?~WIU?b~W?bM{IU.8W;MxMx",
+        finalUrl: "/livguard/products/batteries/it1648tt/infographics/2-45c89e.jpg",
     },
     "/livguard/products/batteries/it1648tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36%sX9Z0e~C,sRjtRw{0K$j~C9t",
-        "finalUrl": "/livguard/products/batteries/it1648tt/infographics/3-b5c865.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36%sX9Z0e~C,sRjtRw{0K$j~C9t",
+        finalUrl: "/livguard/products/batteries/it1648tt/infographics/3-b5c865.jpg",
     },
     "/livguard/products/batteries/it1648tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1648tt/thumbnail-85d777.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1648tt/thumbnail-85d777.png",
     },
     "/livguard/products/batteries/it1672tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LMH[p$jZ]T}Z#mWVsUaz0|NaX8J7",
-        "finalUrl": "/livguard/products/batteries/it1672tt/a-plus/1-37dd7e.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LMH[p$jZ]T}Z#mWVsUaz0|NaX8J7",
+        finalUrl: "/livguard/products/batteries/it1672tt/a-plus/1-37dd7e.jpg",
     },
     "/livguard/products/batteries/it1672tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LPLg-B?boz_3~q?HIUIA%gW.MxIU",
-        "finalUrl": "/livguard/products/batteries/it1672tt/a-plus/2-056b0d.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LPLg-B?boz_3~q?HIUIA%gW.MxIU",
+        finalUrl: "/livguard/products/batteries/it1672tt/a-plus/2-056b0d.jpg",
     },
     "/livguard/products/batteries/it1672tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36Z^CE10e}[=KR*bv#n9YxG-;9t",
-        "finalUrl": "/livguard/products/batteries/it1672tt/a-plus/3-e7d79c.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36Z^CE10e}[=KR*bv#n9YxG-;9t",
+        finalUrl: "/livguard/products/batteries/it1672tt/a-plus/3-e7d79c.jpg",
     },
     "/livguard/products/batteries/it1672tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LtH+IcR*}Y,@nifQf6j[ACjtJ7S2",
-        "finalUrl": "/livguard/products/batteries/it1672tt/infographics/1-c7e91b.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LtH+IcR*}Y,@nifQf6j[ACjtJ7S2",
+        finalUrl: "/livguard/products/batteries/it1672tt/infographics/1-c7e91b.jpg",
     },
     "/livguard/products/batteries/it1672tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL;dH~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1672tt/infographics/2-3fc5df.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL;dH~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1672tt/infographics/2-3fc5df.jpg",
     },
     "/livguard/products/batteries/it1672tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C9F0y~C^6M{bv$j0K$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it1672tt/infographics/3-3f9b9e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C9F0y~C^6M{bv$j0K$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it1672tt/infographics/3-3f9b9e.jpg",
     },
     "/livguard/products/batteries/it1672tt/inforgraphic/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LuHut*R*}Y,@n%fQayj[ACfQJ7S2",
-        "finalUrl": "/livguard/products/batteries/it1672tt/inforgraphic/1-417a68.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LuHut*R*}Y,@n%fQayj[ACfQJ7S2",
+        finalUrl: "/livguard/products/batteries/it1672tt/inforgraphic/1-417a68.jpg",
     },
     "/livguard/products/batteries/it1672tt/inforgraphic/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL;dG~WIU?b~q?bM{IA.8W;MxMy",
-        "finalUrl": "/livguard/products/batteries/it1672tt/inforgraphic/2-d9297f.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL;dG~WIU?b~q?bM{IA.8W;MxMy",
+        finalUrl: "/livguard/products/batteries/it1672tt/inforgraphic/2-d9297f.jpg",
     },
     "/livguard/products/batteries/it1672tt/inforgraphic/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L25|$hD$0{^l}tIoS~-B0ew|^RIU",
-        "finalUrl": "/livguard/products/batteries/it1672tt/inforgraphic/3-361d0e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L25|$hD$0{^l}tIoS~-B0ew|^RIU",
+        finalUrl: "/livguard/products/batteries/it1672tt/inforgraphic/3-361d0e.jpg",
     },
     "/livguard/products/batteries/it1672tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1672tt/thumbnail-0da5ba.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1672tt/thumbnail-0da5ba.png",
     },
     "/livguard/products/batteries/it1860tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LLIBr_jG]T}Z#SS2sojt0|J7kCJ7",
-        "finalUrl": "/livguard/products/batteries/it1860tt/a-plus/1-d3e7cf.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LLIBr_jG]T}Z#SS2sojt0|J7kCJ7",
+        finalUrl: "/livguard/products/batteries/it1860tt/a-plus/1-d3e7cf.jpg",
     },
     "/livguard/products/batteries/it1860tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNLqRy^+oz_4~q?aIUIA-=W.IUIT",
-        "finalUrl": "/livguard/products/batteries/it1860tt/a-plus/2-bd03b6.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNLqRy^+oz_4~q?aIUIA-=W.IUIT",
+        finalUrl: "/livguard/products/batteries/it1860tt/a-plus/2-bd03b6.jpg",
     },
     "/livguard/products/batteries/it1860tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L370iGE10e}[$PR*xuwJ4.xG?H9t",
-        "finalUrl": "/livguard/products/batteries/it1860tt/a-plus/3-7cc5c8.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L370iGE10e}[$PR*xuwJ4.xG?H9t",
+        finalUrl: "/livguard/products/batteries/it1860tt/a-plus/3-7cc5c8.jpg",
     },
     "/livguard/products/batteries/it1860tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrH[z4R*}Z,@jFa|jZoLACfQJ7S2",
-        "finalUrl": "/livguard/products/batteries/it1860tt/infographics/1-e099f2.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrH[z4R*}Z,@jFa|jZoLACfQJ7S2",
+        finalUrl: "/livguard/products/batteries/it1860tt/infographics/1-e099f2.jpg",
     },
     "/livguard/products/batteries/it1860tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL|}+~WIU?b~q?bM{IU.8W;MxMy",
-        "finalUrl": "/livguard/products/batteries/it1860tt/infographics/2-f6c847.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL|}+~WIU?b~q?bM{IU.8W;MxMy",
+        finalUrl: "/livguard/products/batteries/it1860tt/infographics/2-f6c847.jpg",
     },
     "/livguard/products/batteries/it1860tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36@1o9Z0y}[-BRjxaxG0e$j}[9t",
-        "finalUrl": "/livguard/products/batteries/it1860tt/infographics/3-b038cb.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36@1o9Z0y}[-BRjxaxG0e$j}[9t",
+        finalUrl: "/livguard/products/batteries/it1860tt/infographics/3-b038cb.jpg",
     },
     "/livguard/products/batteries/it1860tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1860tt/thumbnail-ae536e.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1860tt/thumbnail-ae536e.png",
     },
     "/livguard/products/batteries/it1872tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNH[mtae]m}Z#SS2sof70|NabbJ7",
-        "finalUrl": "/livguard/products/batteries/it1872tt/a-plus/1-0a0f1b.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNH[mtae]m}Z#SS2sof70|NabbJ7",
+        finalUrl: "/livguard/products/batteries/it1872tt/a-plus/1-0a0f1b.jpg",
     },
     "/livguard/products/batteries/it1872tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LPLg-B^+oz_3~q?HIUIA%gW.MxIU",
-        "finalUrl": "/livguard/products/batteries/it1872tt/a-plus/2-927867.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LPLg-B^+oz_3~q?HIUIA%gW.MxIU",
+        finalUrl: "/livguard/products/batteries/it1872tt/a-plus/2-927867.jpg",
     },
     "/livguard/products/batteries/it1872tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36ja#E10e}[=KR*g3wK9YxG-;9t",
-        "finalUrl": "/livguard/products/batteries/it1872tt/a-plus/3-620278.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36ja#E10e}[=KR*g3wK9YxG-;9t",
+        finalUrl: "/livguard/products/batteries/it1872tt/a-plus/3-620278.jpg",
     },
     "/livguard/products/batteries/it1872tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LtH+IcR*}Z,@jFfQjZj[ACjtJ7S2",
-        "finalUrl": "/livguard/products/batteries/it1872tt/infographics/1-7e3eac.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LtH+IcR*}Z,@jFfQjZj[ACjtJ7S2",
+        finalUrl: "/livguard/products/batteries/it1872tt/infographics/1-7e3eac.jpg",
     },
     "/livguard/products/batteries/it1872tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL|}+~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it1872tt/infographics/2-e3878a.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL|}+~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it1872tt/infographics/2-e3878a.jpg",
     },
     "/livguard/products/batteries/it1872tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C4.0y~C^6M{g3$j0K$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it1872tt/infographics/3-e0a3dc.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C4.0y~C^6M{g3$j0K$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it1872tt/infographics/3-e0a3dc.jpg",
     },
     "/livguard/products/batteries/it1872tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it1872tt/thumbnail-a997ac.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it1872tt/thumbnail-a997ac.png",
     },
     "/livguard/products/batteries/it2048tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LMI2HjjZ[;}Fv~S2s:oM0|NakCJ7",
-        "finalUrl": "/livguard/products/batteries/it2048tt/a-plus/1-4ed1a4.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LMI2HjjZ[;}Fv~S2s:oM0|NakCJ7",
+        finalUrl: "/livguard/products/batteries/it2048tt/a-plus/1-4ed1a4.jpg",
     },
     "/livguard/products/batteries/it2048tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNLqRy^+oz_3~q?HIUIA-=X5IUIT",
-        "finalUrl": "/livguard/products/batteries/it2048tt/a-plus/2-b10ce2.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNLqRy^+oz_3~q?HIUIA-=X5IUIT",
+        finalUrl: "/livguard/products/batteries/it2048tt/a-plus/2-b10ce2.jpg",
     },
     "/livguard/products/batteries/it2048tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36@D~E10K~C#SR*x]wJ4.xG?b9t",
-        "finalUrl": "/livguard/products/batteries/it2048tt/a-plus/3-43dcd1.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36@D~E10K~C#SR*x]wJ4.xG?b9t",
+        finalUrl: "/livguard/products/batteries/it2048tt/a-plus/3-43dcd1.jpg",
     },
     "/livguard/products/batteries/it2048tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LsH[,KR*}F,@jFayjtoL9[fQJ7SN",
-        "finalUrl": "/livguard/products/batteries/it2048tt/infographics/1-4f3d3b.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LsH[,KR*}F,@jFayjtoL9[fQJ7SN",
+        finalUrl: "/livguard/products/batteries/it2048tt/infographics/1-4f3d3b.jpg",
     },
     "/livguard/products/batteries/it2048tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL}1?~WIU?b~W?bM{IU.8W;MxMx",
-        "finalUrl": "/livguard/products/batteries/it2048tt/infographics/2-409c49.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL}1?~WIU?b~W?bM{IU.8W;MxMx",
+        finalUrl: "/livguard/products/batteries/it2048tt/infographics/2-409c49.jpg",
     },
     "/livguard/products/batteries/it2048tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36%pQ9Z0e~C,@RjtRw{0K$j~C9t",
-        "finalUrl": "/livguard/products/batteries/it2048tt/infographics/3-137078.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36%pQ9Z0e~C,@RjtRw{0K$j~C9t",
+        finalUrl: "/livguard/products/batteries/it2048tt/infographics/3-137078.jpg",
     },
     "/livguard/products/batteries/it2048tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it2048tt/thumbnail-94b3b4.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it2048tt/thumbnail-94b3b4.png",
     },
     "/livguard/products/batteries/it2060tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LLI28LjF]m}Z#SS2soo10|J7kCJ7",
-        "finalUrl": "/livguard/products/batteries/it2060tt/a-plus/1-efdc1f.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LLI28LjF]m}Z#SS2soo10|J7kCJ7",
+        finalUrl: "/livguard/products/batteries/it2060tt/a-plus/1-efdc1f.jpg",
     },
     "/livguard/products/batteries/it2060tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNLqRy^+oz_4~q?aIUIA-=W.IUIT",
-        "finalUrl": "/livguard/products/batteries/it2060tt/a-plus/2-c32de9.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNLqRy^+oz_4~q?aIUIA-=W.IUIT",
+        finalUrl: "/livguard/products/batteries/it2060tt/a-plus/2-c32de9.jpg",
     },
     "/livguard/products/batteries/it2060tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L370iGE10e}[$PR*xuwJ4.xG?H9t",
-        "finalUrl": "/livguard/products/batteries/it2060tt/a-plus/3-737593.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L370iGE10e}[$PR*xuwJ4.xG?H9t",
+        finalUrl: "/livguard/products/batteries/it2060tt/a-plus/3-737593.jpg",
     },
     "/livguard/products/batteries/it2060tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrH[z4R*}Z,@jFa{jZoLACfQJ7S2",
-        "finalUrl": "/livguard/products/batteries/it2060tt/infographics/1-183cc7.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrH[z4R*}Z,@jFa{jZoLACfQJ7S2",
+        finalUrl: "/livguard/products/batteries/it2060tt/infographics/1-183cc7.jpg",
     },
     "/livguard/products/batteries/it2060tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL|}+~WIU?b~q?bM{IU.8W;MxMy",
-        "finalUrl": "/livguard/products/batteries/it2060tt/infographics/2-7c9ad7.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL|}+~WIU?b~q?bM{IU.8W;MxMy",
+        finalUrl: "/livguard/products/batteries/it2060tt/infographics/2-7c9ad7.jpg",
     },
     "/livguard/products/batteries/it2060tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36@1o9Z0y}[-BRjxaxG0e$j}[9t",
-        "finalUrl": "/livguard/products/batteries/it2060tt/infographics/3-f88313.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36@1o9Z0y}[-BRjxaxG0e$j}[9t",
+        finalUrl: "/livguard/products/batteries/it2060tt/infographics/3-f88313.jpg",
     },
     "/livguard/products/batteries/it2060tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it2060tt/thumbnail-8a64ea.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it2060tt/thumbnail-8a64ea.png",
     },
     "/livguard/products/batteries/it2072tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNH[mtae]m}Z#SS2sof70|NabbJ7",
-        "finalUrl": "/livguard/products/batteries/it2072tt/a-plus/1-0355d5.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNH[mtae]m}Z#SS2sof70|NabbJ7",
+        finalUrl: "/livguard/products/batteries/it2072tt/a-plus/1-0355d5.jpg",
     },
     "/livguard/products/batteries/it2072tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LPLg-B?boz_3~q?HIUIA%gW.MxIU",
-        "finalUrl": "/livguard/products/batteries/it2072tt/a-plus/2-10deec.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LPLg-B?boz_3~q?HIUIA%gW.MxIU",
+        finalUrl: "/livguard/products/batteries/it2072tt/a-plus/2-10deec.jpg",
     },
     "/livguard/products/batteries/it2072tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36Z^CE10e^k=KR*bv#n9ZxG%g9t",
-        "finalUrl": "/livguard/products/batteries/it2072tt/a-plus/3-fb0685.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36Z^CE10e^k=KR*bv#n9ZxG%g9t",
+        finalUrl: "/livguard/products/batteries/it2072tt/a-plus/3-fb0685.jpg",
     },
     "/livguard/products/batteries/it2072tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LtH+IcR*}Y,@jFfQjZj[ACjtJ7S2",
-        "finalUrl": "/livguard/products/batteries/it2072tt/infographics/1-d7a8fd.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LtH+IcR*}Y,@jFfQjZj[ACjtJ7S2",
+        finalUrl: "/livguard/products/batteries/it2072tt/infographics/1-d7a8fd.jpg",
     },
     "/livguard/products/batteries/it2072tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL;dH~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it2072tt/infographics/2-bd9efc.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL;dH~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it2072tt/infographics/2-bd9efc.jpg",
     },
     "/livguard/products/batteries/it2072tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C9F0y~C^6M{bv$j0d$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it2072tt/infographics/3-94572d.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C9F0y~C^6M{bv$j0d$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it2072tt/infographics/3-94572d.jpg",
     },
     "/livguard/products/batteries/it2072tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it2072tt/thumbnail-7a1baf.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it2072tt/thumbnail-7a1baf.png",
     },
     "/livguard/products/batteries/it2272tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LNH[mtae]n}Z#SS2sof70|NabaJ7",
-        "finalUrl": "/livguard/products/batteries/it2272tt/a-plus/1-8a4af0.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LNH[mtae]n}Z#SS2sof70|NabaJ7",
+        finalUrl: "/livguard/products/batteries/it2272tt/a-plus/1-8a4af0.jpg",
     },
     "/livguard/products/batteries/it2272tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LRLNus=}t7_3~q?HIUIA%gX7MxIU",
-        "finalUrl": "/livguard/products/batteries/it2272tt/a-plus/2-f1239f.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LRLNus=}t7_3~q?HIUIA%gX7MxIU",
+        finalUrl: "/livguard/products/batteries/it2272tt/a-plus/2-f1239f.jpg",
     },
     "/livguard/products/batteries/it2272tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36jazE10x}[=KR*bv#-9ZxG-;9t",
-        "finalUrl": "/livguard/products/batteries/it2272tt/a-plus/3-e7fb6a.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36jazE10x}[=KR*bv#-9ZxG-;9t",
+        finalUrl: "/livguard/products/batteries/it2272tt/a-plus/3-e7fb6a.jpg",
     },
     "/livguard/products/batteries/it2272tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LtH+IcR*}Z,@jFfQjZj[ACjtJ7S2",
-        "finalUrl": "/livguard/products/batteries/it2272tt/infographics/1-cbeabb.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LtH+IcR*}Z,@jFfQjZj[ACjtJ7S2",
+        finalUrl: "/livguard/products/batteries/it2272tt/infographics/1-cbeabb.jpg",
     },
     "/livguard/products/batteries/it2272tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKLz]g_2IU?b~q^+RPIU.8X8MxMy",
-        "finalUrl": "/livguard/products/batteries/it2272tt/infographics/2-04469e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKLz]g_2IU?b~q^+RPIU.8X8MxMy",
+        finalUrl: "/livguard/products/batteries/it2272tt/infographics/2-04469e.jpg",
     },
     "/livguard/products/batteries/it2272tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C9F0y~C^6M{bv$j0d$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it2272tt/infographics/3-eb38cb.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C9F0y~C^6M{bv$j0d$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it2272tt/infographics/3-eb38cb.jpg",
     },
     "/livguard/products/batteries/it2272tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it2272tt/thumbnail-ac9ac4.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it2272tt/thumbnail-ac9ac4.png",
     },
     "/livguard/products/batteries/it2360tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LLIBr_jZ]T}Z#SS2soo10|J7kCJ7",
-        "finalUrl": "/livguard/products/batteries/it2360tt/a-plus/1-67b0b0.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LLIBr_jZ]T}Z#SS2soo10|J7kCJ7",
+        finalUrl: "/livguard/products/batteries/it2360tt/a-plus/1-67b0b0.jpg",
     },
     "/livguard/products/batteries/it2360tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LOLgz_^ktQ_4~q?aIUIA-=bZIUIU",
-        "finalUrl": "/livguard/products/batteries/it2360tt/a-plus/2-885e90.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LOLgz_^ktQ_4~q?aIUIA-=bZIUIU",
+        finalUrl: "/livguard/products/batteries/it2360tt/a-plus/2-885e90.jpg",
     },
     "/livguard/products/batteries/it2360tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L370iHE10e}[$PR*xuwJ4.xG?H9t",
-        "finalUrl": "/livguard/products/batteries/it2360tt/a-plus/3-dd6954.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L370iHE10e}[$PR*xuwJ4.xG?H9t",
+        finalUrl: "/livguard/products/batteries/it2360tt/a-plus/3-dd6954.jpg",
     },
     "/livguard/products/batteries/it2360tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LrI2NzWB}Y,@jFa|jZoL9[a|J7S3",
-        "finalUrl": "/livguard/products/batteries/it2360tt/infographics/1-e5ca0e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LrI2NzWB}Y,@jFa|jZoL9[a|J7S3",
+        finalUrl: "/livguard/products/batteries/it2360tt/infographics/1-e5ca0e.jpg",
     },
     "/livguard/products/batteries/it2360tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LKL|}*~WIU?b~q?bM{IU.8W;MxMy",
-        "finalUrl": "/livguard/products/batteries/it2360tt/infographics/2-7abe05.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LKL|}*~WIU?b~q?bM{IU.8W;MxMy",
+        finalUrl: "/livguard/products/batteries/it2360tt/infographics/2-7abe05.jpg",
     },
     "/livguard/products/batteries/it2360tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L36@1o9Z0y}[-BRjxaxG0e$j}[9t",
-        "finalUrl": "/livguard/products/batteries/it2360tt/infographics/3-1d467d.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L36@1o9Z0y}[-BRjxaxG0e$j}[9t",
+        finalUrl: "/livguard/products/batteries/it2360tt/infographics/3-1d467d.jpg",
     },
     "/livguard/products/batteries/it2360tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it2360tt/thumbnail-a53a62.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it2360tt/thumbnail-a53a62.png",
     },
     "/livguard/products/batteries/it2672tt/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LMH[p$jZ]T}Z#mS2sUaz0|J7bbJ7",
-        "finalUrl": "/livguard/products/batteries/it2672tt/a-plus/1-da5bb4.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LMH[p$jZ]T}Z#mS2sUaz0|J7bbJ7",
+        finalUrl: "/livguard/products/batteries/it2672tt/a-plus/1-da5bb4.jpg",
     },
     "/livguard/products/batteries/it2672tt/a-plus/2.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LQLXJT?Ht7_3~q?HIUIA%gX6MxIU",
-        "finalUrl": "/livguard/products/batteries/it2672tt/a-plus/2-e56c59.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LQLXJT?Ht7_3~q?HIUIA%gX6MxIU",
+        finalUrl: "/livguard/products/batteries/it2672tt/a-plus/2-e56c59.jpg",
     },
     "/livguard/products/batteries/it2672tt/a-plus/3.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "L36ja#E10e}[=KR*kWwK9YxG-;9t",
-        "finalUrl": "/livguard/products/batteries/it2672tt/a-plus/3-cdf79d.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "L36ja#E10e}[=KR*kWwK9YxG-;9t",
+        finalUrl: "/livguard/products/batteries/it2672tt/a-plus/3-cdf79d.jpg",
     },
     "/livguard/products/batteries/it2672tt/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LsH+LkR*}Y,@nifQf6j[9]fQJ7S2",
-        "finalUrl": "/livguard/products/batteries/it2672tt/infographics/1-5e3ae7.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LsH+LkR*}Y,@nifQf6j[9]fQJ7S2",
+        finalUrl: "/livguard/products/batteries/it2672tt/infographics/1-5e3ae7.jpg",
     },
     "/livguard/products/batteries/it2672tt/infographics/2.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "LJL;dG~WIU?b~q^+M{IA.8W;IUMx",
-        "finalUrl": "/livguard/products/batteries/it2672tt/infographics/2-3f959e.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "LJL;dG~WIU?b~q^+M{IA.8W;IUMx",
+        finalUrl: "/livguard/products/batteries/it2672tt/infographics/2-3f959e.jpg",
     },
     "/livguard/products/batteries/it2672tt/infographics/3.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L26Z^C4.0y~C^6M{g3$j0K$j}[9Z",
-        "finalUrl": "/livguard/products/batteries/it2672tt/infographics/3-27919b.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L26Z^C4.0y~C^6M{g3$j0K$j}[9Z",
+        finalUrl: "/livguard/products/batteries/it2672tt/infographics/3-27919b.jpg",
     },
     "/livguard/products/batteries/it2672tt/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it2672tt/thumbnail-8a1333.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it2672tt/thumbnail-8a1333.png",
     },
     "/livguard/products/batteries/it9048st/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LJH*]vR*}F].#SW;soay0|Nuf6I:",
-        "finalUrl": "/livguard/products/batteries/it9048st/a-plus/1-017c64.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LJH*]vR*}F].#SW;soay0|Nuf6I:",
+        finalUrl: "/livguard/products/batteries/it9048st/a-plus/1-017c64.jpg",
     },
     "/livguard/products/batteries/it9048st/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LPMQt^~WRj-;_3-;RjMxS5IoRQWB",
-        "finalUrl": "/livguard/products/batteries/it9048st/a-plus/2-9849e3.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LPMQt^~WRj-;_3-;RjMxS5IoRQWB",
+        finalUrl: "/livguard/products/batteries/it9048st/a-plus/2-9849e3.jpg",
     },
     "/livguard/products/batteries/it9048st/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L36spc9]1H}t,ES2t7wJ9t=KXm0|",
-        "finalUrl": "/livguard/products/batteries/it9048st/a-plus/3-784501.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L36spc9]1H}t,ES2t7wJ9t=KXm0|",
+        finalUrl: "/livguard/products/batteries/it9048st/a-plus/3-784501.jpg",
     },
     "/livguard/products/batteries/it9048st/infographics/1.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LuH+9EjZ}Z$PjFayjZj[ACWVI:S2",
-        "finalUrl": "/livguard/products/batteries/it9048st/infographics/1-b5de3e.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LuH+9EjZ}Z$PjFayjZj[ACWVI:S2",
+        finalUrl: "/livguard/products/batteries/it9048st/infographics/1-b5de3e.jpg",
     },
     "/livguard/products/batteries/it9048st/infographics/2.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "LTM7ll~WWUog-;-;juM{W;InM{V@",
-        "finalUrl": "/livguard/products/batteries/it9048st/infographics/2-22c8e1.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "LTM7ll~WWUog-;-;juM{W;InM{V@",
+        finalUrl: "/livguard/products/batteries/it9048st/infographics/2-22c8e1.jpg",
     },
     "/livguard/products/batteries/it9048st/infographics/3.jpg": {
-        "width": 1228,
-        "height": 1228,
-        "blurHash": "L26Q3n0}1H}[wdWB%2rr0y|_=y5Q",
-        "finalUrl": "/livguard/products/batteries/it9048st/infographics/3-80a08a.jpg"
+        width: 1228,
+        height: 1228,
+        blurHash: "L26Q3n0}1H}[wdWB%2rr0y|_=y5Q",
+        finalUrl: "/livguard/products/batteries/it9048st/infographics/3-80a08a.jpg",
     },
     "/livguard/products/batteries/it9048st/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/batteries/it9048st/thumbnail-739376.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/batteries/it9048st/thumbnail-739376.png",
     },
     "/livguard/products/inverters/lg1100/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lg1100/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lg1100/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lg1150i/a-plus/1.jpg": {
-        "width": 16001,
-        "height": 10234,
-        "blurHash": "LEBU]}E}M{r?|xABNG-BxuJ6NGxG",
-        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/1-5f633d.jpg"
+        width: 16001,
+        height: 10234,
+        blurHash: "LEBU]}E}M{r?|xABNG-BxuJ6NGxG",
+        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/1-5f633d.jpg",
     },
     "/livguard/products/inverters/lg1150i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg1150i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg1150i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg1150i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg1150i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg1150i/infographics/1.jpg": {
-        "width": 4268,
-        "height": 4268,
-        "blurHash": "LAC5J7Kii_,F{z5QM{-VO?I:NGkW",
-        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/1-4461df.jpg"
+        width: 4268,
+        height: 4268,
+        blurHash: "LAC5J7Kii_,F{z5QM{-VO?I:NGkW",
+        finalUrl: "/livguard/products/inverters/lg1150i/infographics/1-4461df.jpg",
     },
     "/livguard/products/inverters/lg1150i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/2-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg1150i/infographics/2-778553.jpg",
     },
     "/livguard/products/inverters/lg1150i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/3-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg1150i/infographics/3-60e90a.jpg",
     },
     "/livguard/products/inverters/lg1150i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
-        "finalUrl": "/livguard/products/inverters/lg1150i/infographics/4-e5e62b.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
+        finalUrl: "/livguard/products/inverters/lg1150i/infographics/4-e5e62b.jpg",
     },
     "/livguard/products/inverters/lg1150i/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg1150i/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg1150i/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lg1450i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
-        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/1-c8d86d.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
+        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/1-c8d86d.jpg",
     },
     "/livguard/products/inverters/lg1450i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg1450i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg1450i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg1450i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg1450i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg1450i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
-        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/1-2620f2.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
+        finalUrl: "/livguard/products/inverters/lg1450i/infographics/1-2620f2.jpg",
     },
     "/livguard/products/inverters/lg1450i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/2-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg1450i/infographics/2-60e90a.jpg",
     },
     "/livguard/products/inverters/lg1450i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/3-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg1450i/infographics/3-778553.jpg",
     },
     "/livguard/products/inverters/lg1450i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        "finalUrl": "/livguard/products/inverters/lg1450i/infographics/4-0d4012.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        finalUrl: "/livguard/products/inverters/lg1450i/infographics/4-0d4012.jpg",
     },
     "/livguard/products/inverters/lg1450i/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lg1450i/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lg1450i/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lg1550i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFBLM0EzM{wd|_ACNG$kx]J7Rjw{",
-        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/1-8295ec.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFBLM0EzM{wd|_ACNG$kx]J7Rjw{",
+        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/1-8295ec.jpg",
     },
     "/livguard/products/inverters/lg1550i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg1550i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg1550i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg1550i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg1550i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg1550i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
-        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/1-c49132.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "L9CE%*K%rr+^{f0{M{=yO?I:NGoz",
+        finalUrl: "/livguard/products/inverters/lg1550i/infographics/1-c49132.jpg",
     },
     "/livguard/products/inverters/lg1550i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/2-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg1550i/infographics/2-60e90a.jpg",
     },
     "/livguard/products/inverters/lg1550i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/3-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg1550i/infographics/3-778553.jpg",
     },
     "/livguard/products/inverters/lg1550i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        "finalUrl": "/livguard/products/inverters/lg1550i/infographics/4-0d4012.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        finalUrl: "/livguard/products/inverters/lg1550i/infographics/4-0d4012.jpg",
     },
     "/livguard/products/inverters/lg1550i/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lg1550i/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lg1550i/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lg1950i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
-        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/1-db79ff.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFBLM0AWM{wd|_ACNG$kx]J7Rjw|",
+        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/1-db79ff.jpg",
     },
     "/livguard/products/inverters/lg1950i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg1950i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg1950i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg1950i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg1950i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg1950i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
-        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/1-6c8d85.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "L9CE%%K%rr+^{f0{M{=yO?I:NGog",
+        finalUrl: "/livguard/products/inverters/lg1950i/infographics/1-6c8d85.jpg",
     },
     "/livguard/products/inverters/lg1950i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/2-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg1950i/infographics/2-60e90a.jpg",
     },
     "/livguard/products/inverters/lg1950i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/3-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg1950i/infographics/3-778553.jpg",
     },
     "/livguard/products/inverters/lg1950i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        "finalUrl": "/livguard/products/inverters/lg1950i/infographics/4-0d4012.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        finalUrl: "/livguard/products/inverters/lg1950i/infographics/4-0d4012.jpg",
     },
     "/livguard/products/inverters/lg1950i/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lg1950i/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lg1950i/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lg2300/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg2300/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg2300/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lg3500/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg3500/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg3500/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lg5000/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg5000/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg5000/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lg700e/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lg700e/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lg700e/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lg750i/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
-        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/1-8f1164.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
+        finalUrl: "/livguard/products/inverters/lg750i/a-plus/1-8f1164.jpg",
     },
     "/livguard/products/inverters/lg750i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg750i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg750i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg750i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg750i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg750i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg750i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg750i/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L9C5F~K%r?+w{L0|M{=yKiI:NGoz",
-        "finalUrl": "/livguard/products/inverters/lg750i/infographics/1-687f5a.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L9C5F~K%r?+w{L0|M{=yKiI:NGoz",
+        finalUrl: "/livguard/products/inverters/lg750i/infographics/1-687f5a.jpg",
     },
     "/livguard/products/inverters/lg750i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg750i/infographics/2-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg750i/infographics/2-60e90a.jpg",
     },
     "/livguard/products/inverters/lg750i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg750i/infographics/3-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg750i/infographics/3-778553.jpg",
     },
     "/livguard/products/inverters/lg750i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        "finalUrl": "/livguard/products/inverters/lg750i/infographics/4-0d4012.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        finalUrl: "/livguard/products/inverters/lg750i/infographics/4-0d4012.jpg",
     },
     "/livguard/products/inverters/lg750i/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg750i/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg750i/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lg850i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFBLM0AWM{wd|_ACNG$kx]J7Rjw{",
-        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/1-944ec1.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFBLM0AWM{wd|_ACNG$kx]J7Rjw{",
+        finalUrl: "/livguard/products/inverters/lg850i/a-plus/1-944ec1.jpg",
     },
     "/livguard/products/inverters/lg850i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg850i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg850i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg850i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg850i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg850i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg850i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg850i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "L9CE%*K%rr+^{f0{NF=yO?I:NGog",
-        "finalUrl": "/livguard/products/inverters/lg850i/infographics/1-ca13d4.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "L9CE%*K%rr+^{f0{NF=yO?I:NGog",
+        finalUrl: "/livguard/products/inverters/lg850i/infographics/1-ca13d4.jpg",
     },
     "/livguard/products/inverters/lg850i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg850i/infographics/2-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg850i/infographics/2-60e90a.jpg",
     },
     "/livguard/products/inverters/lg850i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg850i/infographics/3-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg850i/infographics/3-778553.jpg",
     },
     "/livguard/products/inverters/lg850i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        "finalUrl": "/livguard/products/inverters/lg850i/infographics/4-0d4012.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        finalUrl: "/livguard/products/inverters/lg850i/infographics/4-0d4012.jpg",
     },
     "/livguard/products/inverters/lg850i/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg850i/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg850i/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lg900/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lg900/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lg900/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lg950i/a-plus/1.jpg": {
-        "width": 1692,
-        "height": 1083,
-        "blurHash": "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
-        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/1-f9ba84.jpg"
+        width: 1692,
+        height: 1083,
+        blurHash: "LEBBxQAWM{wd|_ACNG,[%3J7NGw|",
+        finalUrl: "/livguard/products/inverters/lg950i/a-plus/1-f9ba84.jpg",
     },
     "/livguard/products/inverters/lg950i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
-        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/2-917f60.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LFGbYa01M}~V0#Sh%1Io#-v}RPNH",
+        finalUrl: "/livguard/products/inverters/lg950i/a-plus/2-917f60.jpg",
     },
     "/livguard/products/inverters/lg950i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
-        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/3-55c1a4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LVM%cf8_bv?a~Bs:NGM{tRkBV[WB",
+        finalUrl: "/livguard/products/inverters/lg950i/a-plus/3-55c1a4.jpg",
     },
     "/livguard/products/inverters/lg950i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lg950i/a-plus/4-50c0e9.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLgbD4U%#-V~pxaIUNGyr%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lg950i/a-plus/4-50c0e9.jpg",
     },
     "/livguard/products/inverters/lg950i/infographics/1.jpg": {
-        "width": 2050,
-        "height": 2050,
-        "blurHash": "L9C5G0K%rs+w{L0|M{=yKiI:NGoz",
-        "finalUrl": "/livguard/products/inverters/lg950i/infographics/1-606a21.jpg"
+        width: 2050,
+        height: 2050,
+        blurHash: "L9C5G0K%rs+w{L0|M{=yKiI:NGoz",
+        finalUrl: "/livguard/products/inverters/lg950i/infographics/1-606a21.jpg",
     },
     "/livguard/products/inverters/lg950i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
-        "finalUrl": "/livguard/products/inverters/lg950i/infographics/2-60e90a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LGHUzy4oE2^*0fT0xtM{~W-7VsNe",
+        finalUrl: "/livguard/products/inverters/lg950i/infographics/2-60e90a.jpg",
     },
     "/livguard/products/inverters/lg950i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
-        "finalUrl": "/livguard/products/inverters/lg950i/infographics/3-778553.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOpJT8_SN?H~AxaNGM{NcR*V[jb",
+        finalUrl: "/livguard/products/inverters/lg950i/infographics/3-778553.jpg",
     },
     "/livguard/products/inverters/lg950i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
-        "finalUrl": "/livguard/products/inverters/lg950i/infographics/4-0d4012.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLLghT4.t,-B~q%2MxR*.TxYQ.Na",
+        finalUrl: "/livguard/products/inverters/lg950i/infographics/4-0d4012.jpg",
     },
     "/livguard/products/inverters/lg950i/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lg950i/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lg950i/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lgs1000i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "L$Kdxp-p%Moz~qn%axozkBRjRPni",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/1-d1da25.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "L$Kdxp-p%Moz~qn%axozkBRjRPni",
+        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/1-d1da25.jpg",
     },
     "/livguard/products/inverters/lgs1000i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/2-a41edb.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
+        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/2-a41edb.jpg",
     },
     "/livguard/products/inverters/lgs1000i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/3-ab6702.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
+        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/3-ab6702.jpg",
     },
     "/livguard/products/inverters/lgs1000i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/a-plus/4-26fedc.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lgs1000i/a-plus/4-26fedc.jpg",
     },
     "/livguard/products/inverters/lgs1000i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/1-38fc1a.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
+        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/1-38fc1a.jpg",
     },
     "/livguard/products/inverters/lgs1000i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/2-ceed88.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
+        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/2-ceed88.jpg",
     },
     "/livguard/products/inverters/lgs1000i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/3-1438fd.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
+        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/3-1438fd.jpg",
     },
     "/livguard/products/inverters/lgs1000i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
-        "finalUrl": "/livguard/products/inverters/lgs1000i/infographics/4-f37d18.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
+        finalUrl: "/livguard/products/inverters/lgs1000i/infographics/4-f37d18.jpg",
     },
     "/livguard/products/inverters/lgs1000i/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lgs1000i/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lgs1000i/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lgs1100i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "L$Kd#w-p%Moz~qo0axozkBRjRPni",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/1-caa45a.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "L$Kd#w-p%Moz~qo0axozkBRjRPni",
+        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/1-caa45a.jpg",
     },
     "/livguard/products/inverters/lgs1100i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/2-a41edb.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
+        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/2-a41edb.jpg",
     },
     "/livguard/products/inverters/lgs1100i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/3-ab6702.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
+        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/3-ab6702.jpg",
     },
     "/livguard/products/inverters/lgs1100i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/a-plus/4-26fedc.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lgs1100i/a-plus/4-26fedc.jpg",
     },
     "/livguard/products/inverters/lgs1100i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/1-6bdfeb.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
+        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/1-6bdfeb.jpg",
     },
     "/livguard/products/inverters/lgs1100i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/2-ceed88.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
+        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/2-ceed88.jpg",
     },
     "/livguard/products/inverters/lgs1100i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/3-1438fd.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
+        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/3-1438fd.jpg",
     },
     "/livguard/products/inverters/lgs1100i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
-        "finalUrl": "/livguard/products/inverters/lgs1100i/infographics/4-f37d18.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
+        finalUrl: "/livguard/products/inverters/lgs1100i/infographics/4-f37d18.jpg",
     },
     "/livguard/products/inverters/lgs1100i/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lgs1100i/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lgs1100i/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/lgs1600/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "L%Kd#x-p%2oz~qn%ayozkBRjRPjF",
-        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/1-b5fd5d.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "L%Kd#x-p%2oz~qn%ayozkBRjRPjF",
+        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/1-b5fd5d.jpg",
     },
     "/livguard/products/inverters/lgs1600/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
-        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/2-89d0ba.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
+        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/2-89d0ba.jpg",
     },
     "/livguard/products/inverters/lgs1600/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
-        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/3-55d6a1.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
+        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/3-55d6a1.jpg",
     },
     "/livguard/products/inverters/lgs1600/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
-        "finalUrl": "/livguard/products/inverters/lgs1600/a-plus/4-20cd4c.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
+        finalUrl: "/livguard/products/inverters/lgs1600/a-plus/4-20cd4c.jpg",
     },
     "/livguard/products/inverters/lgs1600/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
-        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/1-3a6d9c.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
+        finalUrl: "/livguard/products/inverters/lgs1600/infographics/1-3a6d9c.jpg",
     },
     "/livguard/products/inverters/lgs1600/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
-        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/2-771b09.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
+        finalUrl: "/livguard/products/inverters/lgs1600/infographics/2-771b09.jpg",
     },
     "/livguard/products/inverters/lgs1600/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
-        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/3-eb43a3.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
+        finalUrl: "/livguard/products/inverters/lgs1600/infographics/3-eb43a3.jpg",
     },
     "/livguard/products/inverters/lgs1600/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
-        "finalUrl": "/livguard/products/inverters/lgs1600/infographics/4-e19ac0.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
+        finalUrl: "/livguard/products/inverters/lgs1600/infographics/4-e19ac0.jpg",
     },
     "/livguard/products/inverters/lgs1600/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lgs1600/thumbnail-d7c861.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lgs1600/thumbnail-d7c861.png",
     },
     "/livguard/products/inverters/lgs1700/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "L$Kd#w-p%2oz~qn%ayozj[RjRPjF",
-        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/1-135ef4.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "L$Kd#w-p%2oz~qn%ayozj[RjRPjF",
+        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/1-135ef4.jpg",
     },
     "/livguard/products/inverters/lgs1700/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
-        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/2-89d0ba.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LcN^G1Int7$%~qxaM{WB-;s:M{bI",
+        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/2-89d0ba.jpg",
     },
     "/livguard/products/inverters/lgs1700/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
-        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/3-55d6a1.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LUM@1F8_bv?H~Bs.NGM{kWa{WBa#",
+        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/3-55d6a1.jpg",
     },
     "/livguard/products/inverters/lgs1700/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
-        "finalUrl": "/livguard/products/inverters/lgs1700/a-plus/4-20cd4c.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLzmq4U%}-V~qxaIUNGyY%1MKNa",
+        finalUrl: "/livguard/products/inverters/lgs1700/a-plus/4-20cd4c.jpg",
     },
     "/livguard/products/inverters/lgs1700/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
-        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/1-af2ebe.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LyLE4-?Hxuoz~qjtaeofRjWBRjaK",
+        finalUrl: "/livguard/products/inverters/lgs1700/infographics/1-af2ebe.jpg",
     },
     "/livguard/products/inverters/lgs1700/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
-        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/2-771b09.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LPO:Ry8^Sg?H~AxZM{M{I=WCV[oM",
+        finalUrl: "/livguard/products/inverters/lgs1700/infographics/2-771b09.jpg",
     },
     "/livguard/products/inverters/lgs1700/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
-        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/3-eb43a3.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOf[UWUxv$M~q-pRPM{?vt7Mxg3",
+        finalUrl: "/livguard/products/inverters/lgs1700/infographics/3-eb43a3.jpg",
     },
     "/livguard/products/inverters/lgs1700/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
-        "finalUrl": "/livguard/products/inverters/lgs1700/infographics/4-e19ac0.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LMLzmr9Ft,-B~q%2MxR*.Tt4Q-R*",
+        finalUrl: "/livguard/products/inverters/lgs1700/infographics/4-e19ac0.jpg",
     },
     "/livguard/products/inverters/lgs1700/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lgs1700/thumbnail-a178bf.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lgs1700/thumbnail-a178bf.png",
     },
     "/livguard/products/inverters/lgs2500/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lgs2500/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lgs2500/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lgs3000/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lgs3000/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lgs3000/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lgs4000/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lgs4000/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lgs4000/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lgs5000/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/lgs5000/thumbnail-9b3868.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/lgs5000/thumbnail-9b3868.png",
     },
     "/livguard/products/inverters/lgs900i/a-plus/1.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "L$Kd#w-p%Moz~qo0axozkBRjRPn$",
-        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/1-086ebd.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "L$Kd#w-p%Moz~qo0axozkBRjRPn$",
+        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/1-086ebd.jpg",
     },
     "/livguard/products/inverters/lgs900i/a-plus/2.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
-        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/2-a41edb.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LjNw4kIntQ%1~qxuM{NGtRWBV@t7",
+        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/2-a41edb.jpg",
     },
     "/livguard/products/inverters/lgs900i/a-plus/3.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
-        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/3-ab6702.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LWM%cf8_bv?H~Bs:NGM{o#oeV[WB",
+        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/3-ab6702.jpg",
     },
     "/livguard/products/inverters/lgs900i/a-plus/4.jpg": {
-        "width": 344,
-        "height": 220,
-        "blurHash": "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
-        "finalUrl": "/livguard/products/inverters/lgs900i/a-plus/4-26fedc.jpg"
+        width: 344,
+        height: 220,
+        blurHash: "LOLzmq4U%}-V~qxbIUNGyY%1Q-Na",
+        finalUrl: "/livguard/products/inverters/lgs900i/a-plus/4-26fedc.jpg",
     },
     "/livguard/products/inverters/lgs900i/infographics/1.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
-        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/1-f37d18.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LLL;BQ4.t,-C~q%2MxRj.TxYQ-Na",
+        finalUrl: "/livguard/products/inverters/lgs900i/infographics/1-f37d18.jpg",
     },
     "/livguard/products/inverters/lgs900i/infographics/2.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
-        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/2-1438fd.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LROyz{4mSN?H~AxaNGM{NcWVV@jb",
+        finalUrl: "/livguard/products/inverters/lgs900i/infographics/2-1438fd.jpg",
     },
     "/livguard/products/inverters/lgs900i/infographics/3.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
-        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/3-ceed88.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LSOf[Uax%M,=~q%MM{Io?vt7M{kW",
+        finalUrl: "/livguard/products/inverters/lgs900i/infographics/3-ceed88.jpg",
     },
     "/livguard/products/inverters/lgs900i/infographics/4.jpg": {
-        "width": 492,
-        "height": 492,
-        "blurHash": "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
-        "finalUrl": "/livguard/products/inverters/lgs900i/infographics/4-359103.jpg"
+        width: 492,
+        height: 492,
+        blurHash: "LyLNlY?Hxuoz~qj[aeofRjWBRjaK",
+        finalUrl: "/livguard/products/inverters/lgs900i/infographics/4-359103.jpg",
     },
     "/livguard/products/inverters/lgs900i/thumbnail.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/products/inverters/lgs900i/thumbnail-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/products/inverters/lgs900i/thumbnail-20ef47.png",
     },
     "/livguard/products/inverters/ps2500/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/ps2500/thumbnail-c9046d.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/ps2500/thumbnail-c9046d.png",
     },
     "/livguard/products/inverters/ps4000/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/inverters/ps4000/thumbnail-932bb7.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/inverters/ps4000/thumbnail-932bb7.png",
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L9B1#ekC0|$g}Zof9[en5:oJ+]NH",
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/a-plus/1-965be4.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L9B1#ekC0|$g}Zof9[en5:oJ+]NH",
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/a-plus/1-965be4.jpg",
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LJOpfFIA?v?b~qE1DiaeNxNFr?oL",
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/a-plus/2-fc1e98.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LJOpfFIA?v?b~qE1DiaeNxNFr?oL",
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/a-plus/2-fc1e98.jpg",
     },
     "/livguard/products/jodis/hi-power-jodi/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L36jtRo2E1-VG@s:NGS2^Qn%R*oe",
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/a-plus/3-91665e.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L36jtRo2E1-VG@s:NGS2^Qn%R*oe",
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/a-plus/3-91665e.jpg",
     },
     "/livguard/products/jodis/hi-power-jodi/infographics/1.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "L7D7HvFK1H}Y}ZX8ELr@0#w]rrEg",
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/infographics/1-f8356b.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "L7D7HvFK1H}Y}ZX8ELr@0#w]rrEg",
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/infographics/1-f8356b.jpg",
     },
     "/livguard/products/jodis/hi-power-jodi/infographics/2.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "L36@NNxGNG=z7|ofayWo|_n%WBnj",
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/infographics/2-e0e5a9.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "L36@NNxGNG=z7|ofayWo|_n%WBnj",
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/infographics/2-e0e5a9.jpg",
     },
     "/livguard/products/jodis/hi-power-jodi/infographics/3.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "LEOplVMx.R~W_39Z8{RjXnNF$kjY",
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/infographics/3-1bd67d.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "LEOplVMx.R~W_39Z8{RjXnNF$kjY",
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/infographics/3-1bd67d.jpg",
     },
     "/livguard/products/jodis/hi-power-jodi/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/jodis/hi-power-jodi/thumbnail-4ccf86.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/jodis/hi-power-jodi/thumbnail-4ccf86.png",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1-33e6ef.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1-33e6ef.jpg",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LKOpfFIA?v?b~qE1DiaeNeNGr@oL",
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2-915a87.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LKOpfFIA?v?b~qE1DiaeNeNGr@oL",
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/2-915a87.jpg",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1218,
-        "blurHash": "L36tE[azE1=yCQxZRjJ7}tf6R%s:",
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3-ba2996.jpg"
+        width: 1920,
+        height: 1218,
+        blurHash: "L36tE[azE1=yCQxZRjJ7}tf6R%s:",
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/3-ba2996.jpg",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/infographics/1.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "L7D7HwF11H}Y}Zof9[r@0#wvrrEg",
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/infographics/1-7a7c51.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "L7D7HwF11H}Y}Zof9[r@0#wvrrEg",
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/infographics/1-7a7c51.jpg",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/infographics/2.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "LDO:qtMy%z~q.89FDjV@yENFrrae",
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/infographics/2-fc3b3c.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "LDO:qtMy%z~q.89FDjV@yENFrrae",
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/infographics/2-fc3b3c.jpg",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/infographics/3.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "L37APdoLNF^Q3pxan%Na|_aeR*wd",
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/infographics/3-703946.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "L37APdoLNF^Q3pxan%Na|_aeR*wd",
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/infographics/3-703946.jpg",
     },
     "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/jodis/peace-of-mind-jodi/thumbnail-1a321a.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail-1a321a.png",
     },
     "/livguard/products/jodis/super-life-jodi/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L9B1#ekC0|$g}Zof9[i_5:oJ+]NH",
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/a-plus/1-076598.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L9B1#ekC0|$g}Zof9[i_5:oJ+]NH",
+        finalUrl: "/livguard/products/jodis/super-life-jodi/a-plus/1-076598.jpg",
     },
     "/livguard/products/jodis/super-life-jodi/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LKOpfFIA?v?b~qE1DiWBNxNGr@oL",
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/a-plus/2-0605ae.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LKOpfFIA?v?b~qE1DiWBNxNGr@oL",
+        finalUrl: "/livguard/products/jodis/super-life-jodi/a-plus/2-0605ae.jpg",
     },
     "/livguard/products/jodis/super-life-jodi/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L36tE[n+E1-VCQt6RjNa}tn%R*oL",
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/a-plus/3-df0a5a.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L36tE[n+E1-VCQt6RjNa}tn%R*oL",
+        finalUrl: "/livguard/products/jodis/super-life-jodi/a-plus/3-df0a5a.jpg",
     },
     "/livguard/products/jodis/super-life-jodi/infographics/1.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "L7D7HvF11H}F}Zbb9[sA0#wvrrEg",
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/infographics/1-3bfa9f.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "L7D7HvF11H}F}Zbb9[sA0#wvrrEg",
+        finalUrl: "/livguard/products/jodis/super-life-jodi/infographics/1-3bfa9f.jpg",
     },
     "/livguard/products/jodis/super-life-jodi/infographics/2.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "LDO:qtMy%z~q.89FDiV@yENFrrae",
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/infographics/2-4410b4.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "LDO:qtMy%z~q.89FDiV@yENFrrae",
+        finalUrl: "/livguard/products/jodis/super-life-jodi/infographics/2-4410b4.jpg",
     },
     "/livguard/products/jodis/super-life-jodi/infographics/3.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "L370*?soNG^Q7|t7f6R*|_jFWBsA",
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/infographics/3-96a121.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "L370*?soNG^Q7|t7f6R*|_jFWBsA",
+        finalUrl: "/livguard/products/jodis/super-life-jodi/infographics/3-96a121.jpg",
     },
     "/livguard/products/jodis/super-life-jodi/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/jodis/super-life-jodi/thumbnail-11d238.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/jodis/super-life-jodi/thumbnail-11d238.png",
     },
     "/livguard/products/jodis/urban-jodi/a-plus/1.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
-        "finalUrl": "/livguard/products/jodis/urban-jodi/a-plus/1-17d05b.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L8B1#ebb0|$g}Zof9[aK1foJ+]I;",
+        finalUrl: "/livguard/products/jodis/urban-jodi/a-plus/1-17d05b.jpg",
     },
     "/livguard/products/jodis/urban-jodi/a-plus/2.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "LJOpfFD%?]?b~qE1DiV[NxNFr@oL",
-        "finalUrl": "/livguard/products/jodis/urban-jodi/a-plus/2-63801b.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "LJOpfFD%?]?b~qE1DiV[NxNFr@oL",
+        finalUrl: "/livguard/products/jodis/urban-jodi/a-plus/2-63801b.jpg",
     },
     "/livguard/products/jodis/urban-jodi/a-plus/3.jpg": {
-        "width": 1920,
-        "height": 1228,
-        "blurHash": "L36%vfayE1=yCQxaRjJ7}tjZR*s:",
-        "finalUrl": "/livguard/products/jodis/urban-jodi/a-plus/3-4eac12.jpg"
+        width: 1920,
+        height: 1228,
+        blurHash: "L36%vfayE1=yCQxaRjJ7}tjZR*s:",
+        finalUrl: "/livguard/products/jodis/urban-jodi/a-plus/3-4eac12.jpg",
     },
     "/livguard/products/jodis/urban-jodi/infographics/1.jpg": {
-        "width": 3841,
-        "height": 3840,
-        "blurHash": "L7D7HwF11H}Y}ZkC9[r@0#wvrrEg",
-        "finalUrl": "/livguard/products/jodis/urban-jodi/infographics/1-9cdff2.jpg"
+        width: 3841,
+        height: 3840,
+        blurHash: "L7D7HwF11H}Y}ZkC9[r@0#wvrrEg",
+        finalUrl: "/livguard/products/jodis/urban-jodi/infographics/1-9cdff2.jpg",
     },
     "/livguard/products/jodis/urban-jodi/infographics/2.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "LEO:t#My%g~W-;9GIARjyENFrsae",
-        "finalUrl": "/livguard/products/jodis/urban-jodi/infographics/2-01d317.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "LEO:t#My%g~W-;9GIARjyENFrsae",
+        finalUrl: "/livguard/products/jodis/urban-jodi/infographics/2-01d317.jpg",
     },
     "/livguard/products/jodis/urban-jodi/infographics/3.jpg": {
-        "width": 3841,
-        "height": 3841,
-        "blurHash": "L370*?n*NG^Q3pxan%Na|_aeR*sA",
-        "finalUrl": "/livguard/products/jodis/urban-jodi/infographics/3-670e83.jpg"
+        width: 3841,
+        height: 3841,
+        blurHash: "L370*?n*NG^Q3pxan%Na|_aeR*sA",
+        finalUrl: "/livguard/products/jodis/urban-jodi/infographics/3-670e83.jpg",
     },
     "/livguard/products/jodis/urban-jodi/thumbnail.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/products/jodis/urban-jodi/thumbnail-8717f8.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/products/jodis/urban-jodi/thumbnail-8717f8.png",
     },
     "/livguard/category/batteries/1/1.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L27TkHOZ00{01J=|]m01;fRPXn%M",
-        "finalUrl": "/livguard/category/batteries/1/1-58a25f.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L27TkHOZ00{01J=|]m01;fRPXn%M",
+        finalUrl: "/livguard/category/batteries/1/1-58a25f.jpg",
     },
     "/livguard/category/batteries/1/desktp_hero.jpg": {
-        "width": 3840,
-        "height": 2161,
-        "blurHash": "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
-        "finalUrl": "/livguard/category/batteries/1/desktp_hero-9b3261.jpg"
+        width: 3840,
+        height: 2161,
+        blurHash: "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
+        finalUrl: "/livguard/category/batteries/1/desktp_hero-9b3261.jpg",
     },
     "/livguard/category/batteries/1/mobile_hero.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
-        "finalUrl": "/livguard/category/batteries/1/mobile_hero-6619f1.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
+        finalUrl: "/livguard/category/batteries/1/mobile_hero-6619f1.jpg",
     },
     "/livguard/category/batteries/2/1.jpg": {
-        "width": 4096,
-        "height": 2389,
-        "blurHash": "L37Aub#R1dI:O?E1%2NG0yE1}[xG",
-        "finalUrl": "/livguard/category/batteries/2/1-b0bce6.jpg"
+        width: 4096,
+        height: 2389,
+        blurHash: "L37Aub#R1dI:O?E1%2NG0yE1}[xG",
+        finalUrl: "/livguard/category/batteries/2/1-b0bce6.jpg",
     },
     "/livguard/category/batteries/2/2.jpg": {
-        "width": 3841,
-        "height": 2248,
-        "blurHash": "LBBpU[waMys:?d%K%NRjNKxtM|Rj",
-        "finalUrl": "/livguard/category/batteries/2/2-a20e55.jpg"
+        width: 3841,
+        height: 2248,
+        blurHash: "LBBpU[waMys:?d%K%NRjNKxtM|Rj",
+        finalUrl: "/livguard/category/batteries/2/2-a20e55.jpg",
     },
     "/livguard/category/batteries/2/3.jpg": {
-        "width": 3840,
-        "height": 2248,
-        "blurHash": "L267s3*y^QicPU4.^+IApJ56XmI:",
-        "finalUrl": "/livguard/category/batteries/2/3-9008af.jpg"
+        width: 3840,
+        height: 2248,
+        blurHash: "L267s3*y^QicPU4.^+IApJ56XmI:",
+        finalUrl: "/livguard/category/batteries/2/3-9008af.jpg",
     },
     "/livguard/category/batteries/2/4.jpg": {
-        "width": 3841,
-        "height": 2248,
-        "blurHash": "LFBM=9~q9F00-;ozNGIV4nD%t7%M",
-        "finalUrl": "/livguard/category/batteries/2/4-4ae2da.jpg"
+        width: 3841,
+        height: 2248,
+        blurHash: "LFBM=9~q9F00-;ozNGIV4nD%t7%M",
+        finalUrl: "/livguard/category/batteries/2/4-4ae2da.jpg",
     },
     "/livguard/category/batteries/4/1.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/batteries/4/1-ebc3b9.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/batteries/4/1-ebc3b9.png",
     },
     "/livguard/category/batteries/4/2.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/batteries/4/2-4544ba.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/batteries/4/2-4544ba.png",
     },
     "/livguard/category/batteries/6/hi-power-jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/batteries/6/hi-power-jodi-a5fa40.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/batteries/6/hi-power-jodi-a5fa40.png",
     },
     "/livguard/category/batteries/6/rural-jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/batteries/6/rural-jodi-55ed71.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/batteries/6/rural-jodi-55ed71.png",
     },
     "/livguard/category/batteries/6/super-life-jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/batteries/6/super-life-jodi-c920c0.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/batteries/6/super-life-jodi-c920c0.png",
     },
     "/livguard/category/batteries/6/urban-jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/batteries/6/urban-jodi-1d3b1b.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/batteries/6/urban-jodi-1d3b1b.png",
     },
     "/livguard/category/inverters/1/1.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L37^ADO?0y{y67^*-B0LcDI:Nwwf",
-        "finalUrl": "/livguard/category/inverters/1/1-4f0c3b.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L37^ADO?0y{y67^*-B0LcDI:Nwwf",
+        finalUrl: "/livguard/category/inverters/1/1-4f0c3b.jpg",
     },
     "/livguard/category/inverters/1/desktp_hero.jpg": {
-        "width": 3840,
-        "height": 2160,
-        "blurHash": "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
-        "finalUrl": "/livguard/category/inverters/1/desktp_hero-8d65e2.jpg"
+        width: 3840,
+        height: 2160,
+        blurHash: "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
+        finalUrl: "/livguard/category/inverters/1/desktp_hero-8d65e2.jpg",
     },
     "/livguard/category/inverters/1/mobile_hero.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
-        "finalUrl": "/livguard/category/inverters/1/mobile_hero-2b584f.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
+        finalUrl: "/livguard/category/inverters/1/mobile_hero-2b584f.jpg",
     },
     "/livguard/category/inverters/2/ai_charging.jpg": {
-        "width": 3841,
-        "height": 2249,
-        "blurHash": "L14nuo00%2}[%M9ZtRWB0K}[xu0K",
-        "finalUrl": "/livguard/category/inverters/2/ai_charging-c7345c.jpg"
+        width: 3841,
+        height: 2249,
+        blurHash: "L14nuo00%2}[%M9ZtRWB0K}[xu0K",
+        finalUrl: "/livguard/category/inverters/2/ai_charging-c7345c.jpg",
     },
     "/livguard/category/inverters/2/dual_sensor_thermal.jpg": {
-        "width": 3841,
-        "height": 2248,
-        "blurHash": "LDIX:Piv4U-p~qI:kWbH4:WWodR*",
-        "finalUrl": "/livguard/category/inverters/2/dual_sensor_thermal-85d19a.jpg"
+        width: 3841,
+        height: 2248,
+        blurHash: "LDIX:Piv4U-p~qI:kWbH4:WWodR*",
+        finalUrl: "/livguard/category/inverters/2/dual_sensor_thermal-85d19a.jpg",
     },
     "/livguard/category/inverters/2/new_age_design.jpg": {
-        "width": 3840,
-        "height": 2248,
-        "blurHash": "L14_kLd=#R#n_N0eXRI:n*D%?bbI",
-        "finalUrl": "/livguard/category/inverters/2/new_age_design-4bafb3.jpg"
+        width: 3840,
+        height: 2248,
+        blurHash: "L14_kLd=#R#n_N0eXRI:n*D%?bbI",
+        finalUrl: "/livguard/category/inverters/2/new_age_design-4bafb3.jpg",
     },
     "/livguard/category/inverters/2/three_years_warranty.jpg": {
-        "width": 3840,
-        "height": 2248,
-        "blurHash": "L15hGTIEIB#O~p0Lbw-n014n^+?b",
-        "finalUrl": "/livguard/category/inverters/2/three_years_warranty-ed973e.jpg"
+        width: 3840,
+        height: 2248,
+        blurHash: "L15hGTIEIB#O~p0Lbw-n014n^+?b",
+        finalUrl: "/livguard/category/inverters/2/three_years_warranty-ed973e.jpg",
     },
     "/livguard/category/inverters/4/1.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/category/inverters/4/1-20ef47.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/category/inverters/4/1-20ef47.png",
     },
     "/livguard/category/inverters/4/2.png": {
-        "width": 263,
-        "height": 263,
-        "finalUrl": "/livguard/category/inverters/4/2-f4c9db.png"
+        width: 263,
+        height: 263,
+        finalUrl: "/livguard/category/inverters/4/2-f4c9db.png",
     },
     "/livguard/category/jodi/hi_power_jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/jodi/hi_power_jodi-a5fa40.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/jodi/hi_power_jodi-a5fa40.png",
     },
     "/livguard/category/jodi/rural_jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/jodi/rural_jodi-55ed71.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/jodi/rural_jodi-55ed71.png",
     },
     "/livguard/category/jodi/super_life_jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/jodi/super_life_jodi-c920c0.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/jodi/super_life_jodi-c920c0.png",
     },
     "/livguard/category/jodi/urban_jodi.png": {
-        "width": 1100,
-        "height": 1100,
-        "finalUrl": "/livguard/category/jodi/urban_jodi-1d3b1b.png"
+        width: 1100,
+        height: 1100,
+        finalUrl: "/livguard/category/jodi/urban_jodi-1d3b1b.png",
+    },
+    "/livguard/contact-us/1/desktop_hero.jpg": {
+        width: 1280,
+        height: 412,
+        blurHash: "LG9~8E|[,[$j-BwwxGsoWVo0s:jt",
+        finalUrl: "/livguard/contact-us/1/desktop_hero-c61f63.jpg",
+    },
+    "/livguard/contact-us/1/mobile_hero.jpg": {
+        width: 360,
+        height: 356,
+        blurHash: "L57Arj:N$lwfxzrnRjo30MRhW;j]",
+        finalUrl: "/livguard/contact-us/1/mobile_hero-f69033.jpg",
     },
 };

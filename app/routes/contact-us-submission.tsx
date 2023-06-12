@@ -1,10 +1,8 @@
 import type {ActionFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
-import {verifyOtp} from "~/backend/authentication.server";
-import {insertOrUpdateContactLeads} from "~/backend/dealer.server";
-import {sendDataToFreshsales} from "~/backend/freshsales.server";
-import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {FormType} from "~/typeDefinitions";
+import {insertContactFormLeads} from "~/backend/dealer.server";
+import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {generateUuid} from "~/global-common-typescript/utilities/utilities";
 
 export type GenericActionData = {
     error: string | null;
@@ -13,110 +11,78 @@ export type GenericActionData = {
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
-    const inputData = safeParse(getObjectFromUnknown, body.get("inputData"));
-    const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
-    const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
-    const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
-    const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
+    const name = safeParse(getStringFromUnknown, body.get("name"));
+    const emailId = safeParse(getStringFromUnknown, body.get("email"));
+    const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
+    const formType = safeParse(getStringFromUnknown, body.get("formType"));
+    const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
+    const details = safeParse(getStringFromUnknown, body.get("queryDetails"));
+    let phoneNumber: string | null = "";
+    let product: string | null = "";
+    let rating: string | null = "";
+    let complaintType: string | null = "";
 
-    if (inputData == null || utmParameters == null || leadId == null || pageUrl == null || formType == null) {
+    if (formType == "complaintForm") {
+        phoneNumber = safeParse(getStringFromUnknown, body.get("phoneNumber"));
+        complaintType = safeParse(getStringFromUnknown, body.get("complaintOption"));
+    }
+
+    if (formType == "feedbackForm") {
+        product = safeParse(getStringFromUnknown, body.get("product"));
+        rating = safeParse(getStringFromUnknown, body.get("rating"));
+    }
+
+    if (
+        utmParameters == null ||
+        name == null ||
+        emailId == null ||
+        phoneNumber == null ||
+        formType == null ||
+        rating == null ||
+        product == null ||
+        termsAndConditionsChecked == null ||
+        details == null ||
+        complaintType == null
+    ) {
         const actionData: GenericActionData = {
-            error: "Error in submitting form! Error code: 5873419b-b4e8-4980-9982-5af1740ca619",
+            error: "Inputs cann't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
         };
         return json(actionData);
     }
 
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    if (formType == FormType.offerContactUsSubmission) {
-        const insertResult = await insertOrUpdateContactLeads(leadId, {
-            phoneNumber: inputData.phoneNumber,
-            name: inputData.name,
-            otpVerified: false,
+    if (formType == "feedbackForm") {
+        const insertResult = await insertContactFormLeads(generateUuid(), {
+            name: name,
+            emailId: emailId,
+            product: product,
+            rating: rating,
+            detials: details,
+            formType: formType,
             utmParameters: utmParametersDecoded,
-            pageUrl: pageUrl,
-            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
+            termsAndConditionsChecked: termsAndConditionsChecked,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: ba73958c-d7fe-4544-ae7e-3eb38e1b43ce",
+                error: "Error in submitting form! Error code: 48584397-7140-40fa-93e2-4804fc63ca40",
             };
             return json(actionData);
         }
     } else {
-        const insertResult = await insertOrUpdateContactLeads(leadId, {
-            phoneNumber: inputData.phoneNumber,
-            name: inputData.name,
-            emailId: inputData.emailId,
-            otpVerified: false,
+        const insertResult = await insertContactFormLeads(generateUuid(), {
+            name: name,
+            emailId: emailId,
+            phoneNumber: phoneNumber,
+            complaintType: complaintType,
+            detials: details,
+            formType: formType,
             utmParameters: utmParametersDecoded,
-            pageUrl: pageUrl,
-            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
+            termsAndConditionsChecked: termsAndConditionsChecked,
         });
         if (insertResult instanceof Error) {
             const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: fdda3dc2-79c7-4c93-91a3-0b2cc966ff62",
-            };
-            return json(actionData);
-        }
-    }
-
-    const otpVerificationResult = await verifyOtp(inputData.phoneNumber, inputData.otpSubmitted);
-    if (!otpVerificationResult.success) {
-        const actionData: GenericActionData = {
-            error: "Please enter valid otp! Error code: bba11be7-9661-4d64-bc1c-a24f1f974c67",
-        };
-        return json(actionData);
-    }
-
-    if (formType == FormType.offerContactUsSubmission) {
-        const insertResult = await insertOrUpdateContactLeads(leadId, {
-            phoneNumber: inputData.phoneNumber,
-            name: inputData.name,
-            otpVerified: true,
-            utmParameters: utmParametersDecoded,
-            pageUrl: pageUrl,
-            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
-        });
-        if (insertResult instanceof Error) {
-            const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: d308273f-64dd-4a3c-9f9f-29e5d436a57b",
-            };
-            return json(actionData);
-        }
-
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, otpVerified: true}, utmParametersDecoded, pageUrl);
-        if (freshsalesResult instanceof Error) {
-            const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
-            };
-            return json(actionData);
-        }
-    } else {
-        const insertResult = await insertOrUpdateContactLeads(leadId, {
-            phoneNumber: inputData.phoneNumber,
-            name: inputData.name,
-            emailId: inputData.emailId,
-            otpVerified: true,
-            utmParameters: utmParametersDecoded,
-            pageUrl: pageUrl,
-            termsAndConditionsChecked: inputData.TermsAndConditionsCheckboxClicked,
-        });
-        if (insertResult instanceof Error) {
-            const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: ec86ba5e-61f7-46ef-9fd8-02f5220e605a",
-            };
-            return json(actionData);
-        }
-
-        const freshsalesResult = await sendDataToFreshsales(
-            {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true},
-            utmParametersDecoded,
-            pageUrl,
-        );
-        if (freshsalesResult instanceof Error) {
-            const actionData: GenericActionData = {
-                error: "Error in submitting form! Error code: 0177ace3-f07e-454a-a27f-f210d67702a9",
+                error: "Error in submitting form! Error code: a6f5b2c8-c0a9-41e2-a093-268158313671",
             };
             return json(actionData);
         }

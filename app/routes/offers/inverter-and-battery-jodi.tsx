@@ -454,7 +454,7 @@ export function OfferContactUsDialog({
                 <fetcher.Form
                     className="tw-w-full tw-flex tw-flex-col"
                     method="post"
-                    action="/contact-us-submission"
+                    action="/lead-form-submission"
                 >
                     <div className="lg-text-body-bold lg-text-secondary-900 tw-pl-3">{getVernacularString("contactUsT3", userPreferences.language)}</div>
 

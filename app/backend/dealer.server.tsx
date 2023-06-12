@@ -123,7 +123,7 @@ export async function insertOrUpdateDealerLeads(
     }
 }
 
-export async function insertOrUpdateContactLeads(
+export async function insertOrUpdateLeadFormDetails(
     leadId: string,
     formResponse: {
         phoneNumber: string;
@@ -414,6 +414,30 @@ export async function insertSearchQuery(searchTerm: string): Promise<void | Erro
             )
         `,
         [generateUuid(), getCurrentIsoTimestamp(), searchTerm, 1, null],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+}
+
+export async function insertContactFormLeads(leadId: string, formResponse: any): Promise<void | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+                INSERT INTO
+                    livguard.contact_us_leads
+                VALUES(
+                    $1,
+                    $2,
+                    $3
+                )
+            `,
+        [leadId, getCurrentIsoTimestamp(), formResponse],
     );
 
     if (result instanceof Error) {
