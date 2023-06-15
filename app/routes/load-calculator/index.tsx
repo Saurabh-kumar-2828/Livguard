@@ -37,11 +37,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         return {
             title: "Plan the power consumption requirements of your home",
             description: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
+            "og:title": "Plan the power consumption requirements of your home ",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/load-calculator",
+            "og:description": "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
+            "og:type": "website",
+            "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
             title: "अपने घर की बिजली खपत आवश्यकताओं की योजना बनाएं",
             description: "हमारे आसानी से उपयोग में आने वाले पावर प्लानर के साथ अपने घर की ऊर्जा ज़रूरतों को निकालें और सुझाये गये इनवर्टर और बैटरी के साथ अपने घर को सशक्त बनाएँ।",
+            "og:title": "अपने घर की बिजली खपत आवश्यकताओं की योजना बनाएं",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/load-calculator",
+            "og:description": "हमारे आसानी से उपयोग में आने वाले पावर प्लानर के साथ अपने घर की ऊर्जा ज़रूरतों को निकालें और सुझाये गये इनवर्टर और बैटरी के साथ अपने घर को सशक्त बनाएँ।",
+            "og:type": "product",
+            "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);

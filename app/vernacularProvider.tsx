@@ -3926,10 +3926,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
                                 <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">privacy policy</a>
                                 outlined by the website.`,
         [Language.Hindi]: `<div class="lg-text-secondary-900 lg-text-icon">
-                                मैं स्वीकार करता हूं कि मैंने वेबसाइट द्वारा निर्दिष्ट 
-                                <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">नियम और शर्तें</a> 
-                                तथा 
-                                <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">गोपनीयता नीति</a> 
+                                मैं स्वीकार करता हूं कि मैंने वेबसाइट द्वारा निर्दिष्ट
+                                <a href="https://www.livguard.com/terms-and-conditions.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">नियम और शर्तें</a>
+                                तथा
+                                <a href="https://www.livguard.com/privacy-policy.php" target="_blank" class="tw-underline tw-underline-offset-2 tw-font-semibold">गोपनीयता नीति</a>
                                 को पढ़ा और समझा है, और उसका पालन करने के लिए सहमत हूं।`,
         [Language.Marathi]: "?????",
     },
@@ -4076,6 +4076,25 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     contactPagesuccessT1: {
         [Language.English]: `Thank You!`,
         [Language.Hindi]: "धन्यवाद!",
+    },
+    "c17b911e-a564-4192-a363-11def77e12b9": {
+        [Language.English]: "Starting from ₹",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "28c8bd29-74e4-425b-8654-9d0f51a98cba": {
+        [Language.English]: "/-",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "063dc56b-910e-4a48-acb8-8f52668a4c72": {
+        [Language.English]: "View Product",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "b9e34b6e-972e-4246-a393-6450421e4813": {
+        [Language.English]: "Offer coming soon!",
+        [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
 };
