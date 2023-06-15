@@ -4252,4 +4252,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "",
     },
     // Service Page Vernac Strings End
+
+    // Stabilizers Page Vernac Strings Start
+    "b0a3aa40-4b00-4bdd-88e0-67085fafa92b": {
+        [Language.English]: `Shower Some Love`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "",
+    },
+
+    "c0f802cc-902b-4328-b631-a3fad8fc7d18": {
+        [Language.English]: `On Our <span class="lg-text-highlighted">Social Handles</span>`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "",
+    },
 };
