@@ -1,5 +1,5 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {ActionFunction, LinksFunction, LoaderFunction, json} from "@remix-run/node";
+import {ActionFunction, LinksFunction, MetaFunction, LoaderFunction, json} from "@remix-run/node";
 import {Form, Link, useActionData} from "@remix-run/react";
 import React, {useEffect} from "react";
 import {useState} from "react";
@@ -24,25 +24,32 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Buy Inverter Battery Online at Best Prices In India",
-//             description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
-//             description: "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Get in Touch with Livguard: Contact Us Today",
+            description: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+            "og:title": "Get in Touch with Livguard: Contact Us Today",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/contact-us",
+            "og:description": "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+            "og:type": "website",
+            "og:image": "",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "?????",
+            description: "?????",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.livguard.com/contact-us/"}];
@@ -193,6 +200,29 @@ export default function () {
                     actionData={actionData}
                 />
             </PageScaffold>
+
+            {
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        { 
+                            "@type": "SiteNavigationElement",
+                            "name": "Contact us",
+                            "url": "https://www.livguard.com/contact-us",
+                            "telephone": "+91 92056-67999",
+                            "contactType": "",
+                            "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                            "addressLocality": "Gurugram",
+                            "addressRegion": "Haryana",
+                            "postalCode": "122016",
+                            "addressCountry": "India",
+                            "E-mail": "marketing@livguard.com, export@sar-group.com"  
+                          }
+                        `,
+                    }}
+                ></script>
+            }
 
             {/* <ProductAndCategoryBottomBar
                 userPreferences={userPreferences}

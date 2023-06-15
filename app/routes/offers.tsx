@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LoaderFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -21,9 +21,36 @@ import {ProductType} from "~/productData";
 import {ContactUsCta, DealerLocator} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type {UserPreferences} from "~/typeDefinitions";
+import {Language, type UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
+            description: "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
+            "og:title": "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/offer-page",
+            "og:description": "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
+            "og:type": "website",
+            "og:image": "",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "?????",
+            description: "?????",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/offer-page"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -416,17 +443,17 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
     );
 }
 
-function RecommendationCard({slug, productType}: {slug: string, productType: ProductType}) {
+function RecommendationCard({slug, productType}: {slug: string; productType: ProductType}) {
     return (
         <Link
             to={`/product/${slug}`}
             className="tw-w-full tw-h-full tw-grid tw-grid-cols-1"
         >
-            <div className="">
-                {convertProductInternalNameToPublicName(slug)}
-            </div>
+            <div className="">{convertProductInternalNameToPublicName(slug)}</div>
 
-            <FullWidthImage relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`} />
+            <FullWidthImage
+                relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
+            />
         </Link>
     );
 }
