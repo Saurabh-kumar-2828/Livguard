@@ -219,16 +219,10 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? "/livguard/services-page/6/service_mobile_banner-1adc56.jpg"
-                            : "/livguard/services-page/6/service_desktop_banner-7f2e3f.jpg"
+                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"
                     }
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? "/livguard/services-page/6/service_mobile_banner-1adc56.jpg"
-                            : "/livguard/services-page/6/service_desktop_banner-7f2e3f.jpg"
-                    }
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"}
                 />
             )}
 
@@ -944,15 +938,11 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
                 <>
                     <CoverImage
                         relativePath={
-                            containerHeight > containerWidth || containerWidth < 640
-                                ? "/livguard/services-page/6/warranty_mobile_banner-536eeb.jpg"
-                                : "/livguard/services-page/6/warranty_banner_desktop-5567bc.jpg"
+                            containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/warranty_mobile_banner.jpg" : "/livguard/services-page/6/warranty_banner_desktop.jpg"
                         }
                         className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
                         key={
-                            containerHeight > containerWidth || containerWidth < 640
-                                ? "/livguard/services-page/6/warranty_mobile_banner-536eeb.jpg"
-                                : "/livguard/services-page/6/warranty_banner_desktop-5567bc.jpg"
+                            containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/warranty_mobile_banner.jpg" : "/livguard/services-page/6/warranty_banner_desktop.jpg"
                         }
                     />
                 </>
