@@ -311,7 +311,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-9.5rem] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
             ref={ref}
@@ -513,6 +513,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                         ? setFeedbackFormSelectedProduct(item)
                                                         : setFeedbackFormSelectedProduct(getVernacularString("ormTrackingFormProduct1", userPreferences.language))
                                                 }
+                                                buttonClassName="!tw-rounded-full"
                                             />
                                         </div>
                                     </div>
@@ -797,24 +798,29 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
             </DefaultTextAnimation>
 
-            <VerticalSpacer className="tw-h-4 tw-row-start-2" />
+            <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
 
             <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
                 <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <VerticalSpacer className="tw-h-16 tw-row-start-4" />
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4" />
 
-            <div className="tw-row-start-5 lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-pb-8 tw-pt-4">
-                <div className="tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-grid tw-items-center tw-justify-center">
-                    <Telephone className="tw-h-10 tw-w-10" />
+            <div className="tw-row-start-5 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"}
+                        src="https://files.growthjockey.com/livguard/icons/services-page/call-us.svg"
+                    />
                 </div>
 
-                <div className="tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option1Text", userPreferences.language)}</div>
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start">{getVernacularString("contactUsS2Option1Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-button tw-w-[11.875rem]"
+                        className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
                             setDialougOptions({dialougType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -825,18 +831,23 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 </div>
             </div>
 
-            <VerticalSpacer className="tw-h-6 tw-row-start-6" />
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6" />
 
-            <div className="tw-row-start-7 lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-pb-8 tw-pt-4">
-                <div className="tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-grid tw-items-center tw-justify-center">
-                    <Whatsapp className="tw-h-10 tw-w-10" />
+            <div className="tw-row-start-7 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
+                        src="https://files.growthjockey.com/livguard/icons/services-page/whatsapp-us.svg"
+                    />
                 </div>
 
-                <div className="tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-[11.875rem]"
+                        className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
                             setDialougOptions({dialougType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -847,18 +858,23 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 </div>
             </div>
 
-            <VerticalSpacer className="tw-h-6 tw-row-start-[8]" />
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8]" />
 
-            <div className="tw-row-start-[9] lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-pb-8 tw-pt-4">
-                <div className="tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-grid tw-items-center tw-justify-center">
-                    <Envelope className="tw-h-10 tw-w-10" />
+            <div className="tw-row-start-[9] lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
+                        src="https://files.growthjockey.com/livguard/icons/services-page/email-us.svg"
+                    />
                 </div>
 
-                <div className="tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-[11.875rem]"
+                        className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
                             setDialougOptions({dialougType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -866,6 +882,31 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     >
                         {getVernacularString("contactUsS2Option3ButtonText", userPreferences.language)}
                     </button>
+                </div>
+            </div>
+
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[10]" />
+
+            <div className="tw-row-start-[11] lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/request-service.svg"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
+
+                    <Link
+                        className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[2rem] tw-text-center"
+                        to="/services"
+                        target="_blank"
+                    >
+                        {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
+                    </Link>
                 </div>
             </div>
 
