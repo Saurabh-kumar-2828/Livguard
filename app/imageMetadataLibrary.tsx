@@ -2863,6 +2863,18 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L57Arj:N$lwfxzrnRjo30MRhW;j]",
         finalUrl: "/livguard/contact-us/1/mobile_hero-f69033.jpg",
     },
+    "/livguard/offers/2/finance-partners-en-in.jpg": {
+        width: 598,
+        height: 331,
+        blurHash: "LIHc=-DisD?H_i_3kqVs*|xaK5WB",
+        finalUrl: "/livguard/offers/2/finance-partners-en-in-d0111a.jpg",
+    },
+    "/livguard/offers/2/finance-partners-hi-in.jpg": {
+        width: 598,
+        height: 331,
+        blurHash: "LGHwAk8{M{^R_O_3t,i^v2%1K5R*",
+        finalUrl: "/livguard/offers/2/finance-partners-hi-in-14754b.jpg",
+    },
     "/livguard/services-page/6/service_desktop_banner.jpg": {
         width: 1280,
         height: 426,

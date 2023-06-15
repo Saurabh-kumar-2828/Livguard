@@ -8,7 +8,6 @@ import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -121,7 +120,7 @@ function OffersPage({
 
             <BestOffers
                 userPreferences={userPreferences}
-                className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-w-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
             <FeaturedProducts
@@ -221,7 +220,7 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
             )}
             id="best-offers"
         >
-            <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
+            <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("28d2dcd2-f0a8-4314-b3d0-981ddf2444b9", userPreferences.language))}} />
                 </DefaultTextAnimation>
@@ -230,7 +229,7 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                 </DefaultTextAnimation>
             </h2>
 
-            <div className="lg-px-screen-edge tw-grid tw-grid-cols-4 tw-gap-x-4 tw-row-start-2 tw-col-start-1 tw-col-span-full lg:tw-grid-rows-4 lg:tw-grid-cols-1 lg:tw-gap-y-4 lg:tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-col-span-1 lg:tw-py-10">
+            <div className="lg-px-screen-edge tw-grid tw-grid-cols-4 tw-gap-x-4 tw-row-start-2 tw-col-start-1 tw-col-span-full lg:tw-grid-rows-4 lg:tw-grid-cols-1 lg:tw-gap-y-4 lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-col-span-1 lg:tw-py-10">
                 <ItemBuilder
                     items={[
                         {
@@ -289,102 +288,59 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
                     <ItemBuilder
                         items={[
-                            {
-                                image: "/livguard/home/3/2.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab2HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
-                                buttonLink: "/inverter-for-home",
-                                target: null,
-                            },
-                            {
-                                image: "/livguard/home/3/3.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab3HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
-                                buttonLink: "/inverter-batteries",
-                                target: null,
-                            },
-                            {
-                                image: "/livguard/home/3/1.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab1HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
-                                buttonLink: "/automotive-batteries.php",
-                                target: "_blank",
-                            },
-                            {
-                                image: "/livguard/home/3/4.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab4HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab4HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab4C", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab4BT", userPreferences.language)}`,
-                                buttonLink: "https://www.livguardsolar.com/",
-                                target: "_blank",
-                            },
-                            {
-                                image: "/livguard/home/3/5.jpg",
-                                headingContent1: `${getVernacularString("homeS3Tab5HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab5C", userPreferences.language)}`,
-                                buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
-                                buttonLink: "/lg-trolley-category/",
-                                target: "_blank",
-                            },
+                            [
+                                {
+                                    name: "finance-partners",
+                                },
+                                null,
+                                null,
+                                null,
+                            ],
+                            [
+                                {
+                                    name: "finance-partners",
+                                },
+                                null,
+                                null,
+                                null,
+                            ],
+                            [
+                                {
+                                    name: "finance-partners",
+                                },
+                                null,
+                                null,
+                                null,
+                            ],
+                            [
+                                {
+                                    name: "finance-partners",
+                                },
+                                null,
+                                null,
+                                null,
+                            ],
                         ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <div
-                                className="[@media(max-width:1024px)]:lg-px-screen-edge tw-flex tw-flex-col tw-justify-center tw-text-center tw-items-center"
-                                key={itemIndex}
-                            >
-                                <DefaultImageAnimation className="tw-w-full">
-                                    <FullWidthImage
-                                        relativePath={item.image}
-                                        className="tw-rounded-lg"
-                                    />
-                                </DefaultImageAnimation>
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <DefaultTextAnimation>
-                                    <div className="lg-text-body">{item.headingContent1}</div>
-                                </DefaultTextAnimation>
-
-                                <VerticalSpacer className="tw-h-1" />
-
-                                <DefaultTextAnimation>
-                                    <div className="lg-text-title1">{item.headingContent2}</div>
-                                </DefaultTextAnimation>
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <DefaultTextAnimation className="tw-flex-1">
-                                    <div className="lg-text-body">{item.content}</div>
-                                </DefaultTextAnimation>
-
-                                <VerticalSpacer className="tw-h-4" />
-
-                                <DefaultElementAnimation>
-                                    {item.target != null ? (
-                                        <Link
-                                            to={item.buttonLink}
-                                            target="_blank"
-                                            className="lg-cta-button"
-                                        >
-                                            {item.buttontext}
-                                        </Link>
-                                    ) : (
-                                        <Link
-                                            to={item.buttonLink}
-                                            className="lg-cta-button"
-                                        >
-                                            {item.buttontext}
-                                        </Link>
-                                    )}
-                                </DefaultElementAnimation>
+                        itemBuilder={(categoryOffers, categoryOffersIndex) => (
+                            <div className="tw-grid tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4">
+                                <ItemBuilder
+                                    items={categoryOffers}
+                                    itemBuilder={(offer, offerIndex) =>
+                                        offer == null ? (
+                                            <EmptyOfferCard
+                                                userPreferences={userPreferences}
+                                                key={offerIndex}
+                                            />
+                                        ) : (
+                                            <OfferCard
+                                                offer={offer}
+                                                userPreferences={userPreferences}
+                                                key={offerIndex}
+                                            />
+                                        )
+                                    }
+                                    key={categoryOffersIndex}
+                                />
                             </div>
                         )}
                     />
@@ -420,6 +376,22 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
             type: ProductType.inverter,
             slug: "lgs1600",
         },
+        {
+            type: ProductType.battery,
+            slug: "it1584tt",
+        },
+        {
+            type: ProductType.inverter,
+            slug: "lgs1600",
+        },
+        {
+            type: ProductType.battery,
+            slug: "it1584tt",
+        },
+        {
+            type: ProductType.inverter,
+            slug: "lgs1600",
+        },
     ];
 
     return (
@@ -429,25 +401,30 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("5ac20616-07fb-44f4-bf6f-c5e16b272eb8", userPreferences.language)}} />
                 </h2>
 
+                <VerticalSpacer className="tw-h-8" />
+
                 <CarouselStyle4
-                    items={featuredProducts.map((featuredProduct) => (
+                    items={featuredProducts.map((featuredProduct, featuredProductIndex) => (
                         <RecommendationCard
                             slug={featuredProduct.slug}
                             productType={featuredProduct.type}
+                            userPreferences={userPreferences}
+                            key={featuredProductIndex}
                         />
                     ))}
                     slidesContainerClassName="tw-auto-cols-[min(100%,15rem)]"
+                    controlsContainerClassName="lg-px-screen-edge"
                 />
             </div>
         </div>
     );
 }
 
-function RecommendationCard({slug, productType}: {slug: string; productType: ProductType}) {
+function RecommendationCard({slug, productType, userPreferences}: {slug: string; productType: ProductType; userPreferences: UserPreferences}) {
     return (
         <Link
             to={`/product/${slug}`}
-            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1"
+            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 tw-p-4 lg-bg-secondary-100 tw-rounded-lg"
         >
             <div className="">{convertProductInternalNameToPublicName(slug)}</div>
 
@@ -455,5 +432,21 @@ function RecommendationCard({slug, productType}: {slug: string; productType: Pro
                 relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
             />
         </Link>
+    );
+}
+
+function EmptyOfferCard({userPreferences}: {userPreferences: UserPreferences}) {
+    return (
+        <div className="tw-w-full tw-aspect-[598/331] tw-grid tw-grid-cols-1 tw-place-items-center lg-bg-secondary-100 tw-rounded-lg">
+            {getVernacularString("b9e34b6e-972e-4246-a393-6450421e4813", userPreferences.language)}
+        </div>
+    );
+}
+
+function OfferCard({offer, userPreferences}: {offer; userPreferences: UserPreferences}) {
+    return (
+        <div className="tw-w-full tw-rounded-lg tw-overflow-hidden">
+            <FullWidthImage relativePath={`/livguard/offers/2/${offer.name}-${userPreferences.language}.jpg`} />
+        </div>
     );
 }

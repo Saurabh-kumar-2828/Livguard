@@ -37,11 +37,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         return {
             title: "Dealer Locator | Find Livguard inverter battery shop near me",
             description: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
+            "og:title": "Dealer Locator | Find Livguard inverter battery shop near me",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
+            "og:description": "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
+            "og:type": "website",
+            "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
             title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
             description: "अपने आस-पास के डीलरों को आसानी से खोजें। खरीदें अपने घर के लिए लिवगार्ड इनवर्टर, इनवर्टर बैटरी हमारे अधिकृत डीलरों के माध्यम से।",
+            "og:title": "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
+            "og:description": "अपने आस-पास के डीलरों को आसानी से खोजें। खरीदें अपने घर के लिए लिवगार्ड इनवर्टर, इनवर्टर बैटरी हमारे अधिकृत डीलरों के माध्यम से।",
+            "og:type": "product",
+            "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);

@@ -31,11 +31,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         return {
             title: "Buy Best Inverter for Home at the Lowest Price in India",
             description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+            "og:title": "Buy Best Inverter for Home at the Lowest Price in India ",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/inverter-for-home",
+            "og:description": "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+            "og:type": "product",
+            "og:image": "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
             title: "भारत में सबसे कम कीमत पर घर के लिए सर्वश्रेष्ठ इनवर्टर खरीदें",
             description: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+            "og:title": "भारत में सबसे कम कीमत पर घर के लिए सर्वश्रेष्ठ इनवर्टर खरीदें",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/inverter-for-home",
+            "og:description": "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+            "og:type": "product",
+            "og:image": "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
