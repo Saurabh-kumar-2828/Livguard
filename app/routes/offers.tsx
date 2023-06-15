@@ -300,7 +300,10 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                                     items={categoryOffers}
                                     itemBuilder={(offer, offerIndex) =>
                                         offer == null ? (
-                                            <EmptyOfferCard key={offerIndex} />
+                                            <EmptyOfferCard
+                                                userPreferences={userPreferences}
+                                                key={offerIndex}
+                                            />
                                         ) : (
                                             <OfferCard
                                                 offer={offer}
