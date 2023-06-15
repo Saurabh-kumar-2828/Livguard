@@ -2863,4 +2863,28 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L57Arj:N$lwfxzrnRjo30MRhW;j]",
         finalUrl: "/livguard/contact-us/1/mobile_hero-f69033.jpg",
     },
+    "/livguard/services-page/6/service_desktop_banner.jpg": {
+        width: 1280,
+        height: 426,
+        blurHash: "LIBoRA}a#S#mxbxasojZNuWpkBj[",
+        finalUrl: "/livguard/services-page/6/service_desktop_banner-7f2e3f.jpg",
+    },
+    "/livguard/services-page/6/service_mobile_banner.jpg": {
+        width: 360,
+        height: 456,
+        blurHash: "LWE1:b}t-C%2RjkWogWAW=WWoLs:",
+        finalUrl: "/livguard/services-page/6/service_mobile_banner-1adc56.jpg",
+    },
+    "/livguard/services-page/6/warranty_banner_desktop.jpg": {
+        width: 1132,
+        height: 347,
+        blurHash: "L783#GzT}a=z^-ISxGtS%NM_j@o#",
+        finalUrl: "/livguard/services-page/6/warranty_banner_desktop-5567bc.jpg",
+    },
+    "/livguard/services-page/6/warranty_mobile_banner.jpg": {
+        width: 360,
+        height: 487,
+        blurHash: "LB97VC,mRNsl5u9YMwRj~X%1s+t7",
+        finalUrl: "/livguard/services-page/6/warranty_mobile_banner-536eeb.jpg",
+    },
 };

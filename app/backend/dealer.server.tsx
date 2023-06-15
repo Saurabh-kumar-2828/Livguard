@@ -444,3 +444,27 @@ export async function insertContactFormLeads(leadId: string, formResponse: any):
         return result;
     }
 }
+
+export async function insertServiceRequests(requestId: string, formResponse: any): Promise<void | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+                INSERT INTO
+                    livguard.service_page_leads
+                VALUES(
+                    $1,
+                    $2,
+                    $3
+                )
+            `,
+        [requestId, getCurrentIsoTimestamp(), formResponse],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+}
