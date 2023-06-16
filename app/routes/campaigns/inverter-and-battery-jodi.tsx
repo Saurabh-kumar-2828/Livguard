@@ -318,7 +318,7 @@ function HeroSection({
             ) : (
                 <img
                     src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-desktop.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, null)}
-                    className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover -tw-z-10"
+                    className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover tw-object-left-bottom -tw-z-10"
                     key={"/livguard/hero-banners/akshay-desktop.jpg"}
                 />
             )}
