@@ -316,9 +316,9 @@ function HeroSection({
                     />
                 </div>
             ) : (
-                <CoverImage
-                    relativePath={"/livguard/hero-banners/akshay-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
+                <img
+                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-desktop.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, null)}
+                    className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover -tw-z-10"
                     key={"/livguard/hero-banners/akshay-desktop.jpg"}
                 />
             )}
