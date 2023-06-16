@@ -583,17 +583,10 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         className="lg-text-banner tw-row-start-4 tw-text-center"
                                     />
 
-                                    {0 < 3 ? (
-                                        <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    ) : (
-                                        <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language)}}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    )}
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
+                                        className="lg-text-body tw-row-start-6 tw-text-center"
+                                    />
 
                                     {/* <VerticalSpacer className="tw-h-16 tw-row-start-7" /> */}
                                 </div>
