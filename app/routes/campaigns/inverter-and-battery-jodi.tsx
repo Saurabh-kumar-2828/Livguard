@@ -302,24 +302,25 @@ function HeroSection({
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] lg:tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
                 className,
             )}
             ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                // <CoverImage
-                //     relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/akshay-mobile.jpg" : "/livguard/hero-banners/akshay-desktop.jpg"}
-                //     className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
-                //     key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/akshay-mobile.jpg" : "/livguard/hero-banners/akshay-desktop.jpg"}
-                // />
+            {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
                 <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative">
                     <img
-                        src={getAbsolutePathForRelativePath(getMetadataForImage(containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/akshay-mobile.jpg" : "/livguard/hero-banners/akshay-desktop.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1920, 1920)}
+                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-mobile.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, 1080)}
                         className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover -tw-z-10"
-                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/akshay-mobile.jpg" : "/livguard/hero-banners/akshay-desktop.jpg"}
+                        key={"/livguard/hero-banners/akshay-mobile.jpg"}
                     />
                 </div>
+            ) : (
+                <CoverImage
+                    relativePath={"/livguard/hero-banners/akshay-desktop.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
+                    key={"/livguard/hero-banners/akshay-desktop.jpg"}
+                />
             )}
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
