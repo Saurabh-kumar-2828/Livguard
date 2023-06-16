@@ -20,7 +20,7 @@ export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
         emblaApi.scrollNext();
 
         timeoutHandle.current = setTimeout(autoplay, autoplayDelay, emblaApi);
-    };
+    }
 
     useEffect(() => {
         if (!emblaApi) {
@@ -43,3 +43,8 @@ export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
 
     return {emblaRef, emblaApi, selectedIndex};
 }
+
+/**
+ * @deprecated
+ */
+export const useEmblaCarouselWithIndex = useEmlbaCarouselWithIndex;
