@@ -4270,6 +4270,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "",
         [Language.Marathi]: "",
     },
+    "0a3cd411-749e-4d0a-8d1e-36bbf631e462": {
+        [Language.English]: `Hang on, our team will get in touch with your shortly.`,
+        [Language.Hindi]: "",
+        [Language.Marathi]: "",
+    },
     // Service Page Vernac Strings End
 
     // Stabilizers Page Vernac Strings Start

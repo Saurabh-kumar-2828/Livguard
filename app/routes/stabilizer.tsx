@@ -185,24 +185,6 @@ function StabilizerPage({userPreferences, actionData}: {userPreferences: UserPre
                         className="tw-row-start-7 lg:tw-row-start-5 lg:tw-col-start-2"
                     />
                 </div>
-                {/* <div className="tw-row-start-5 lg:tw-row-start-5 tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr)_auto_minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] tw-col-span-full">
-                    <WeAreEverywhere
-                        userPreferences={userPreferences}
-                        showCtaButton={true}
-                        className="tw-row-start-1 tw-col-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
-                    />
-                    <DealerLocator
-                        userPreferences={userPreferences}
-                        showCtaButton={true}
-                        className="tw-row-start-1 tw-col-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
-                    />
-
-                    <ChooseBestInverterBattery
-                        userPreferences={userPreferences}
-                        utmParameters={utmParameters}
-                        className="tw-row-start-2 lg:tw-col-start-3 lg:tw-row-start-1"
-                    />
-                </div> */}
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
