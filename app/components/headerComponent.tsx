@@ -36,6 +36,7 @@ export function HeaderComponent({
     showMobileMenuIcon,
     showSearchOption,
     showContactCtaButton,
+    showContactDetails,
     pageUrl,
 }: {
     userPreferences: UserPreferences;
@@ -43,6 +44,7 @@ export function HeaderComponent({
     showMobileMenuIcon: boolean;
     showSearchOption: boolean;
     showContactCtaButton: boolean;
+    showContactDetails: boolean;
     pageUrl?: string;
 }) {
     const submit = useSubmit();
@@ -113,23 +115,27 @@ export function HeaderComponent({
         <>
             <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
                 <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
-                    <button
-                        onClick={tryToOpenContactUsDialog}
-                        className="tw-underline tw-underline-offset-4 lg:tw-hidden"
-                    >
-                        {getVernacularString("headerS1T1", userPreferences.language)}
-                    </button>
+                    {showContactDetails == false ? null : (
+                        <>
+                            <button
+                                onClick={tryToOpenContactUsDialog}
+                                className="tw-underline tw-underline-offset-4 lg:tw-hidden"
+                            >
+                                {getVernacularString("headerS1T1", userPreferences.language)}
+                            </button>
 
-                    <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
-                        <HorizontalSpacer className="tw-w-1" />
-                        <a href="tel:18001025551">1800-1025-551</a>
-                        <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
-                        <HorizontalSpacer className="tw-w-4" />
-                        {getVernacularString("headerContactUsDialogT3", userPreferences.language)}:
-                        <HorizontalSpacer className="tw-w-1" />
-                        <a href="tel:+919205667999">+91 92056-67999</a>
-                    </div>
+                            <div className="tw-hidden lg:tw-flex tw-flex-row tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+                                {getVernacularString("headerContactUsDialogT2", userPreferences.language)}:
+                                <HorizontalSpacer className="tw-w-1" />
+                                <a href="tel:18001025551">1800-1025-551</a>
+                                <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
+                                <HorizontalSpacer className="tw-w-4" />
+                                {getVernacularString("headerContactUsDialogT3", userPreferences.language)}:
+                                <HorizontalSpacer className="tw-w-1" />
+                                <a href="tel:+919205667999">+91 92056-67999</a>
+                            </div>
+                        </>
+                    )}
 
                     <div className="tw-flex-1" />
 
@@ -1308,7 +1314,7 @@ const searchQueries: Array<SearchQuery> = [
     {keyword: "Automotive Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
     {keyword: "Home Battery", link: "/inverter-batteries/", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 1},
     {keyword: "Solar", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
-    {keyword: "Jodi", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
+    {keyword: "Combo", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 3},
     {keyword: "Car Battery", link: "/car-and-suv-batteries/", title: "Find the right battery for your car", score: 1},
     {keyword: "Car Battery", link: "", title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions", score: 2},
     {keyword: "E-Rickshaw Battery", link: "/erickshaw-batteries/", title: "Livguard E Rickshaw Battery", score: 1},

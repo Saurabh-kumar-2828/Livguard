@@ -1,8 +1,8 @@
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 
-export function EmbeddedYoutubeVideo({id, className, style}: {id: string; className?: string, style}) {
+export function EmbeddedYoutubeVideo({id, className, style, containerClassName}: {id: string; className?: string, style?: any, containerClassName?: string}) {
     return (
-        <div>
+        <div className={containerClassName}>
             <iframe
                 title="Youtube"
                 aria-hidden="true"

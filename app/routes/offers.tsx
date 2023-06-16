@@ -1,6 +1,7 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LoaderFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
+import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {StickyBottomBar} from "~/components/bottomBar";
@@ -17,7 +18,7 @@ import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/ut
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {ProductType} from "~/productData";
-import {ContactUsCta, DealerLocator} from "~/routes";
+import {ContactUsCta, ContactUsDialog, DealerLocator} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -82,6 +83,12 @@ function OffersPage({
     };
     pageUrl: string;
 }) {
+    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
+
+    function tryToOpenContactUsDialog() {
+        setIsContactUsDialogOpen(true);
+    }
+
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">
             <HeroSection
@@ -93,6 +100,11 @@ function OffersPage({
 
             <BestOffers
                 userPreferences={userPreferences}
+                utmParameters={utmParameters}
+                tryToOpenContactUsDialog={tryToOpenContactUsDialog}
+                isContactUsDialogOpen={isContactUsDialogOpen}
+                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                pageUrl={pageUrl}
                 className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-w-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
@@ -182,7 +194,25 @@ function HeroSection({
     );
 }
 
-export function BestOffers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+export function BestOffers({
+    userPreferences,
+    utmParameters,
+    isContactUsDialogOpen,
+    setIsContactUsDialogOpen,
+    tryToOpenContactUsDialog,
+    pageUrl,
+    className,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    isContactUsDialogOpen: boolean,
+    setIsContactUsDialogOpen: React.Dispatch<boolean>,
+    tryToOpenContactUsDialog: () => void;
+    pageUrl: string;
+    className?: string;
+}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
@@ -264,6 +294,7 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                             [
                                 {
                                     name: "finance-partners",
+                                    validTill: "June 31, 2023",
                                 },
                                 null,
                                 null,
@@ -272,6 +303,7 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                             [
                                 {
                                     name: "finance-partners",
+                                    validTill: "June 31, 2023",
                                 },
                                 null,
                                 null,
@@ -280,22 +312,21 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                             [
                                 {
                                     name: "finance-partners",
+                                    validTill: "June 31, 2023",
                                 },
                                 null,
                                 null,
                                 null,
                             ],
                             [
-                                {
-                                    name: "finance-partners",
-                                },
+                                null,
                                 null,
                                 null,
                                 null,
                             ],
                         ]}
                         itemBuilder={(categoryOffers, categoryOffersIndex) => (
-                            <div className="tw-grid tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4">
+                            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4 tw-px-2">
                                 <ItemBuilder
                                     items={categoryOffers}
                                     itemBuilder={(offer, offerIndex) =>
@@ -308,6 +339,7 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                                             <OfferCard
                                                 offer={offer}
                                                 userPreferences={userPreferences}
+                                                tryToOpenContactUsDialog={tryToOpenContactUsDialog}
                                                 key={offerIndex}
                                             />
                                         )
@@ -319,6 +351,14 @@ export function BestOffers({userPreferences, className}: {userPreferences: UserP
                     />
                 </div>
             </div>
+
+            <ContactUsDialog
+                userPreferences={userPreferences}
+                isContactUsDialogOpen={isContactUsDialogOpen}
+                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                utmParameters={utmParameters}
+                pageUrl={pageUrl}
+            />
         </div>
     );
 }
@@ -420,18 +460,28 @@ function RecommendationCard({slug, productType, userPreferences}: {slug: string;
 
 function EmptyOfferCard({userPreferences}: {userPreferences: UserPreferences}) {
     return (
-        <div className="tw-w-full tw-aspect-[598/331] tw-grid tw-grid-cols-1 tw-place-items-center lg-bg-secondary-100 tw-rounded-lg">
+        <div className="tw-w-full tw-h-full tw-min-h-[8rem] tw-grid tw-grid-cols-1 tw-place-items-center lg-bg-secondary-100 tw-rounded-lg">
             {getVernacularString("b9e34b6e-972e-4246-a393-6450421e4813", userPreferences.language)}
         </div>
     );
 }
 
-function OfferCard({offer, userPreferences}: {offer; userPreferences: UserPreferences}) {
+function OfferCard({offer, tryToOpenContactUsDialog, userPreferences}: {offer; tryToOpenContactUsDialog; userPreferences: UserPreferences}) {
     return (
-        <div className="tw-w-full tw-rounded-lg tw-overflow-hidden">
-            <FullWidthImage
-                relativePath={`/livguard/offers/2/${offer.name}-${userPreferences.language}.jpg`}
-            />
+        <div className="tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto] tw-gap-y-1 tw-gap-x-2 lg-bg-secondary-100 tw-rounded-lg tw-pb-2">
+            <div className="lg:tw-col-span-2">
+                <FullWidthImage relativePath={`/livguard/offers/2/${offer.name}-${userPreferences.language}.jpg`} className="tw-rounded-lg" />
+            </div>
+
+            <div className="tw-text-center lg:tw-text-left lg:tw-pl-2">
+                {getVernacularString("f0453469-c11f-46c4-b462-ad4445abfc46", userPreferences.language)}{offer.validTill}
+            </div>
+
+            <button
+                onClick={tryToOpenContactUsDialog}
+                className="lg:tw-pr-2 lg-text-body-bold lg-text-primary-500">
+                {getVernacularString("4d53d9a4-bbd6-464b-be5c-f0bab1defe02", userPreferences.language)}
+            </button>
         </div>
     );
 }

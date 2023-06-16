@@ -192,66 +192,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LQIOOp=|xuXm^+niIUX8~qxuIUxa",
         finalUrl: "/livguard/header/logo-100-light-f4f881.jpg",
     },
-    "/livguard/hero-banners/category-battery-hero-desktop.jpg": {
-        width: 3840,
-        height: 2161,
-        blurHash: "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
-        finalUrl: "/livguard/hero-banners/category-battery-hero-desktop-9b3261.jpg",
-    },
-    "/livguard/hero-banners/category-battery-hero-mobile.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
-        finalUrl: "/livguard/hero-banners/category-battery-hero-mobile-6619f1.jpg",
-    },
-    "/livguard/hero-banners/category-inverter-hero-desktop.jpg": {
-        width: 3840,
-        height: 2160,
-        blurHash: "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
-        finalUrl: "/livguard/hero-banners/category-inverter-hero-desktop-8d65e2.jpg",
-    },
-    "/livguard/hero-banners/category-inverter-hero-mobile.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
-        finalUrl: "/livguard/hero-banners/category-inverter-hero-mobile-2b584f.jpg",
-    },
-    "/livguard/hero-banners/lp-1-hero-desktop.jpg": {
-        width: 3840,
-        height: 2160,
-        blurHash: "L97wg7tl-;xu~q-px]xu-;xut7xa",
-        finalUrl: "/livguard/hero-banners/lp-1-hero-desktop-3ac348.jpg",
-    },
-    "/livguard/hero-banners/lp-1-hero-mobile.jpg": {
-        width: 3840,
-        height: 3841,
-        blurHash: "L86HcbtRxut7~X%Mxuoz^+xvt7t7",
-        finalUrl: "/livguard/hero-banners/lp-1-hero-mobile-814ced.jpg",
-    },
-    "/livguard/hero-banners/lp-2-hero-desktop.jpg": {
-        width: 3840,
-        height: 2161,
-        blurHash: "L9A0ap.8?b%2~X%2xuxu~Wt6bHt7",
-        finalUrl: "/livguard/hero-banners/lp-2-hero-desktop-86d170.jpg",
-    },
-    "/livguard/hero-banners/lp-2-hero-mobile.jpg": {
-        width: 3840,
-        height: 3841,
-        blurHash: "LGB3W+%M%2xu~X%2t7t7~WtRofof",
-        finalUrl: "/livguard/hero-banners/lp-2-hero-mobile-9aa1a2.jpg",
-    },
-    "/livguard/hero-banners/lp-3-desktop.jpg": {
-        width: 3840,
-        height: 2161,
-        blurHash: "L99Q5P.8?H-p~q?H%Mxu?H%Mt7of",
-        finalUrl: "/livguard/hero-banners/lp-3-desktop-e920d3.jpg",
-    },
-    "/livguard/hero-banners/lp-3-mobile.jpg": {
-        width: 3840,
-        height: 3840,
-        blurHash: "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
-        finalUrl: "/livguard/hero-banners/lp-3-mobile-12ee65.jpg",
-    },
     "/livguard/home/1/1-desktop.jpg": {
         width: 3841,
         height: 3840,
@@ -2874,5 +2814,77 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "height": 331,
         "blurHash": "LGHwAk8{M{^R_O_3t,i^v2%1K5R*",
         "finalUrl": "/livguard/offers/2/finance-partners-hi-in-14754b.jpg"
+    },
+    "/livguard/hero-banners/akshay-desktop.jpg": {
+        "width": 1280,
+        "height": 654,
+        "blurHash": "L46%sW}Z5R5R0|9t$*-UNaWB$jxF",
+        "finalUrl": "/livguard/hero-banners/akshay-desktop-17b073.jpg"
+    },
+    "/livguard/hero-banners/akshay-mobile.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L26a3a:+0LAV1a5Q}[-BBUM{}@w|",
+        "finalUrl": "/livguard/hero-banners/akshay-mobile-6a6de5.jpg"
+    },
+    "/livguard/hero-banners/category-battery-hero-desktop.jpg": {
+        "width": 3840,
+        "height": 2161,
+        "blurHash": "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
+        "finalUrl": "/livguard/hero-banners/category-battery-hero-desktop-9b3261.jpg"
+    },
+    "/livguard/hero-banners/category-battery-hero-mobile.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
+        "finalUrl": "/livguard/hero-banners/category-battery-hero-mobile-6619f1.jpg"
+    },
+    "/livguard/hero-banners/category-inverter-hero-desktop.jpg": {
+        "width": 3840,
+        "height": 2160,
+        "blurHash": "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
+        "finalUrl": "/livguard/hero-banners/category-inverter-hero-desktop-8d65e2.jpg"
+    },
+    "/livguard/hero-banners/category-inverter-hero-mobile.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
+        "finalUrl": "/livguard/hero-banners/category-inverter-hero-mobile-2b584f.jpg"
+    },
+    "/livguard/hero-banners/lp-1-hero-desktop.jpg": {
+        "width": 3840,
+        "height": 2160,
+        "blurHash": "L97wg7tl-;xu~q-px]xu-;xut7xa",
+        "finalUrl": "/livguard/hero-banners/lp-1-hero-desktop-3ac348.jpg"
+    },
+    "/livguard/hero-banners/lp-1-hero-mobile.jpg": {
+        "width": 3840,
+        "height": 3841,
+        "blurHash": "L86HcbtRxut7~X%Mxuoz^+xvt7t7",
+        "finalUrl": "/livguard/hero-banners/lp-1-hero-mobile-814ced.jpg"
+    },
+    "/livguard/hero-banners/lp-2-hero-desktop.jpg": {
+        "width": 3840,
+        "height": 2161,
+        "blurHash": "L9A0ap.8?b%2~X%2xuxu~Wt6bHt7",
+        "finalUrl": "/livguard/hero-banners/lp-2-hero-desktop-86d170.jpg"
+    },
+    "/livguard/hero-banners/lp-2-hero-mobile.jpg": {
+        "width": 3840,
+        "height": 3841,
+        "blurHash": "LGB3W+%M%2xu~X%2t7t7~WtRofof",
+        "finalUrl": "/livguard/hero-banners/lp-2-hero-mobile-9aa1a2.jpg"
+    },
+    "/livguard/hero-banners/lp-3-desktop.jpg": {
+        "width": 3840,
+        "height": 2161,
+        "blurHash": "L99Q5P.8?H-p~q?H%Mxu?H%Mt7of",
+        "finalUrl": "/livguard/hero-banners/lp-3-desktop-e920d3.jpg"
+    },
+    "/livguard/hero-banners/lp-3-mobile.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
+        "finalUrl": "/livguard/hero-banners/lp-3-mobile-12ee65.jpg"
     },
 };

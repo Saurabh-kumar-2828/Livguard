@@ -88,7 +88,7 @@ export function ContactForm({
 
                     <CoverImage
                         relativePath="/livguard/contact-form/background.jpg"
-                        className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-gidden tw-opacity-70 tw-z-8"
+                        className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-hidden tw-opacity-70 tw-z-8"
                     />
 
                     <div className="tw-row-start-2 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
@@ -171,6 +171,7 @@ export function ContactForm({
                                     className="lg-text-input tw-w-full"
                                     disabled={formStateInputs.showOtpField}
                                     defaultValue={formStateInputs.inputData.phoneNumber}
+                                    placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                                     ref={phoneNumberRef}
                                     onChange={(e) => {
                                         const phoneNumber = e.target.value;

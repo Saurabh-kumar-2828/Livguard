@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /campaigns/inverter-and-battery-jodi/
+Disallow: /campaigns/energy-storage-solution
+Disallow: /campaigns/inverter-and-battery
 
 Sitemap: https://www.Livguard.com/sitemap.xml

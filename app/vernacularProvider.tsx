@@ -987,7 +987,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4HT2: {
-        [Language.English]: `With Our Top <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">Jodis</span>`,
+        [Language.English]: `With Our Top <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">Combo</span>`,
         [Language.Hindi]: `बेहतरीन <span class="[@media(max-width:1024px)]:lg-text-highlighted lg:lg-text-title1">जोड़ियाँ</span> आपके लिए`,
         [Language.Marathi]: "?????",
     },
@@ -998,7 +998,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage2S4KeySpecificationTitle: {
-        [Language.English]: "Key Specifications of The Jodi",
+        [Language.English]: "Key Specifications of The Combo",
         [Language.Hindi]: "जोड़ी के मुख्य स्पेसिफिकेशन",
         [Language.Marathi]: "?????",
     },
@@ -1024,13 +1024,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage2S4J1Title: {
-        [Language.English]: "The Urban Jodi",
+        [Language.English]: "The Urban Combo",
         [Language.Hindi]: "अर्बन जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J1Description: {
         [Language.English]:
-            "A perfect Jodi to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this jodi can go on for hours and take heavy loads of appliances.",
+            "A perfect Combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this combo can go on for hours and take heavy loads of appliances.",
         [Language.Hindi]:
             "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श जोड़ी। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
         [Language.Marathi]: "?????",
@@ -1056,13 +1056,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Title: {
-        [Language.English]: "The Peace of Mind Jodi",
+        [Language.English]: "The Peace of Mind Combo",
         [Language.Hindi]: "मन की शांति वाली जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J2Description: {
         [Language.English]:
-            "A Jodi that would assure your peace of mind with its long durability and high backup power. Precisely chosen battery paired with the sturdy inverter ensures a seamless flow of energy to meet your needs.",
+            "A Combo that would assure your peace of mind with its long durability and high backup power. Precisely chosen battery paired with the sturdy inverter ensures a seamless flow of energy to meet your needs.",
         [Language.Hindi]:
             "एक जोड़ी जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
         [Language.Marathi]: "?????",
@@ -1088,12 +1088,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4J3Title: {
-        [Language.English]: "The Super Life Jodi",
+        [Language.English]: "The Super Life Combo",
         [Language.Hindi]: "सुपर लाइफ जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J3Description: {
-        [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this Jodi is just the right choice for your everyday energy requirements.",
+        [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this Combo is just the right choice for your everyday energy requirements.",
         [Language.Hindi]: "बेस्ट-इन-क्लास वारंटी और लंबे समय तक चलने वाले इनवर्टर के साथ समर्थित बैटरी के साथ, यह कॉम्बो आपकी रोजमर्रा की ऊर्जा आवश्यकताओं के लिए बिल्कुल सही विकल्प है।",
         [Language.Marathi]: "?????",
     },
@@ -1118,13 +1118,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S4J4Title: {
-        [Language.English]: "The Hi-power Jodi",
+        [Language.English]: "The Hi-power Combo",
         [Language.Hindi]: "हाई-पॉवर जोड़ी",
         [Language.Marathi]: "?????",
     },
     landingPage2S4J4Description: {
         [Language.English]:
-            "The perfect Jodi to meet the backup requirements for long hours. Smart AI charging along with the pure sinewave output delivers a smooth and efficient energy flow with enhanced life.",
+            "The perfect Combo to meet the backup requirements for long hours. Smart AI charging along with the pure sinewave output delivers a smooth and efficient energy flow with enhanced life.",
         [Language.Hindi]:
             "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही जोड़ी। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
         [Language.Marathi]: "?????",
@@ -1156,7 +1156,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage2S5HT2: {
-        [Language.English]: `<span class="lg-text-highlighted">Livguard Jodi?</span>`,
+        [Language.English]: `<span class="lg-text-highlighted">Livguard Combo?</span>`,
         [Language.Hindi]: "बेहतर क्यों है",
         [Language.Marathi]: "?????",
     },
@@ -1207,12 +1207,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage3S1T1: {
-        [Language.English]: "Smart & Strong Inverter and Battery Jodis",
-        [Language.Hindi]: "स्मार्ट और दमदार इनवर्टर और बैटरी की जोड़ी",
-        [Language.Marathi]: "?????",
+        [Language.English]: `Smart & Strong Home Inverter and Battery <span class="lg-text-highlighted">Combo</span>`,
+        [Language.Hindi]: `घर के लिए स्मार्ट और स्ट्रॉंग इनवर्टर और बैटरी <span class="lg-text-highlighted">कॉम्बो</span>`,
+        [Language.Marathi]: `?????`,
     },
     landingPage3S1T2: {
-        [Language.English]: "Empower your home with the perfect jodi to compliment your home needs",
+        [Language.English]: "Empower your home with the perfect combo to compliment your home needs",
         [Language.Hindi]: "अपने घर को सशक्त बनाएँ सही इनवर्टर और बैटरी की जोड़ी के साथ",
         [Language.Marathi]: "?????",
     },
@@ -1238,13 +1238,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     landingPage3S7HT1: {
-        [Language.English]: `Tap Into <span class="lg-text-highlighted">Efficiency</span>`,
-        [Language.Hindi]: "लिवगार्ड जोड़ी के साथ",
-        [Language.Marathi]: "?????",
+        [Language.English]: `Top Reasons to Buy Home`,
+        [Language.Hindi]: `घर के लिए इनवर्टर और बैटरी <span class="lg-text-highlighted">कॉम्बो</span>`,
+        [Language.Marathi]: `?????`,
     },
     landingPage3S7HT2: {
-        [Language.English]: "With Livguard Jodis",
-        [Language.Hindi]: `<span class="lg-text-highlighted">क्षमता</span> में निवेश करें`,
+        [Language.English]: `Inverter and Battery <span class="lg-text-highlighted">Combo</span>`,
+        [Language.Hindi]: `ख़रीदने के मुख्य कारण`,
         [Language.Marathi]: "?????",
     },
 
@@ -1717,22 +1717,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS6Jodi1Title: {
-        [Language.English]: "The Urban Jodi",
+        [Language.English]: "The Urban Combo",
         [Language.Hindi]: "अर्बन जोड़ी",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS6Jodi2Title: {
-        [Language.English]: "The Peace of Mind Jodi",
+        [Language.English]: "The Peace of Mind Combo",
         [Language.Hindi]: "मन की शांति वाला जोड़ी",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS6Jodi3Title: {
-        [Language.English]: "The Super Life Jodi",
+        [Language.English]: "The Super Life Combo",
         [Language.Hindi]: "सुपर लाइफ जोड़ी",
         [Language.Marathi]: "?????",
     },
     categoryBatteriesS6Jodi4Title: {
-        [Language.English]: "The Hi-Power Jodi",
+        [Language.English]: "The Hi-Power Combo",
         [Language.Hindi]: "हाई-पॉवर जोड़ी",
         [Language.Marathi]: "?????",
     },
@@ -2130,22 +2130,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi1Title: {
-        [Language.English]: "The Urban Jodi",
+        [Language.English]: "The Urban Combo",
         [Language.Hindi]: "अर्बन कॉम्बो",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi2Title: {
-        [Language.English]: "The Peace Of Mind Jodi",
+        [Language.English]: "The Peace Of Mind Combo",
         [Language.Hindi]: "मन की शांति वाली जोड़ी",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi3Title: {
-        [Language.English]: "The Super Life Jodi",
+        [Language.English]: "The Super Life Combo",
         [Language.Hindi]: "सुपर लाइफ कॉम्बो",
         [Language.Marathi]: "?????",
     },
     categoryInvertersS6Jodi4Title: {
-        [Language.English]: "The Hi-Power Jodi",
+        [Language.English]: "The Hi-Power Combo",
         [Language.Hindi]: "हाई-पॉवर कॉम्बो",
         [Language.Marathi]: "?????",
     },
@@ -2357,7 +2357,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     categoryViewJodiButtontext: {
-        [Language.English]: "View Jodi",
+        [Language.English]: "View Combo",
         [Language.Hindi]: "विस्तार से देखें",
         [Language.Marathi]: "?????",
     },
@@ -2372,7 +2372,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review1Message: {
-        [Language.English]: `"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard jodi a 10/10!"`,
+        [Language.English]: `"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard combo a 10/10!"`,
         [Language.Hindi]: `"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड जोड़ी को 10/10 दूंगा!"`,
         [Language.Marathi]: "?????",
     },
@@ -2437,7 +2437,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     review4ProductName: {
-        [Language.English]: "Jodi",
+        [Language.English]: "Combo",
         [Language.Hindi]: "जोड़ि",
         [Language.Marathi]: "?????",
     },
@@ -4094,6 +4094,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b9e34b6e-972e-4246-a393-6450421e4813": {
         [Language.English]: "Offer coming soon!",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "f0453469-c11f-46c4-b462-ad4445abfc46": {
+        [Language.English]: "Offer valid till: ",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "4d53d9a4-bbd6-464b-be5c-f0bab1defe02": {
+        [Language.English]: "Avail Offer",
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "71bf111f-fc1f-4026-baeb-9b4981a8aba9": {
+        [Language.English]: `Watch <span class="lg-text-highlighted">Digital Film</span`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },

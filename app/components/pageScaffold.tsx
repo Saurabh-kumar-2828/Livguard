@@ -32,6 +32,7 @@ export function PageScaffold({
                     showMobileMenuIcon={showMobileMenuIcon}
                     showSearchOption={true}
                     showContactCtaButton={false}
+                    showContactDetails={true}
                 />
 
                 {children}
