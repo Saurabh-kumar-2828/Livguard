@@ -1,41 +1,30 @@
-import React, {useEffect, useState} from "react";
 import {ActionFunction, LoaderFunction, json} from "@remix-run/node";
-import {Form, Link, useActionData, useLoaderData} from "@remix-run/react";
-import {Dialog, Transition} from "@headlessui/react";
-import {toast} from "react-toastify";
+import {Link, useActionData, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
-
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-
 import {insertServiceRequests} from "~/backend/dealer.server";
-
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {PageScaffold} from "~/components/pageScaffold";
-import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-
 import {Theme, UserPreferences} from "~/typeDefinitions";
-
 import {getVernacularString} from "~/vernacularProvider";
-
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
-import {SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
-import {DealerLocator} from ".";
+import {WhatsBestForYouComponent} from "~/components/category/common";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {ProductType} from "~/productData";
+import {CarouselStyle4} from "~/components/carouselStyle4";
+import {CarouselStyle6} from "~/components/carouselStyle6";
+import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -164,14 +153,21 @@ function StabilizerPage({userPreferences, actionData}: {userPreferences: UserPre
 
                 <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-                <BatteriesThatAreMeantToLast
+                <StabilizersThatAreMeantToLast
                     userPreferences={userPreferences}
                     className="tw-row-start-3 tw-col-start-1 tw-col-span-full"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-5 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5">
+                <StabilizersForHome
+                    userPreferences={userPreferences}
+                    className="tw-row-start-5 lg:tw-col-span-full tw-px-2 lg:tw-px-[124px]"
+                />
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+
+                <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5">
                     <WeAreEverywhere
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
@@ -186,22 +182,22 @@ function StabilizerPage({userPreferences, actionData}: {userPreferences: UserPre
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-9 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                    className="tw-row-start-9 lg:tw-row-start-9 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
 
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-11 lg:tw-row-start-9 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                    className="tw-row-start-11 lg:tw-row-start-11 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem]"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 lg:tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 lg:tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -213,7 +209,6 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                // tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-9.5rem]
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_3.5rem] lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] tw-text-center",
                 className,
             )}
@@ -222,16 +217,10 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? "/livguard/services-page/6/service_mobile_banner-1adc56.jpg"
-                            : "/livguard/services-page/6/service_desktop_banner-7f2e3f.jpg"
+                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"
                     }
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full lg:tw-col-span-full"
-                    key={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? "/livguard/services-page/6/service_mobile_banner-1adc56.jpg"
-                            : "/livguard/services-page/6/service_desktop_banner-7f2e3f.jpg"
-                    }
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"}
                 />
             )}
 
@@ -259,12 +248,12 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     );
 }
 
-function BatteriesThatAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const BatteryCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
+function StabilizersThatAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const StabilizerCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-grid tw-grid-rows-[1rem_auto_1rem_auto_minmax(1rem,1fr)_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-100-dark tw-rounded-lg",
+                    "tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-100-dark tw-rounded-lg",
                     className,
                 )}
             >
@@ -272,14 +261,14 @@ function BatteriesThatAreMeantToLast({userPreferences, className}: {userPreferen
                     <FullWidthImage relativePath={imageRelativePath} />
                 </div>
 
-                <DefaultTextAnimation className="tw-row-start-4 tw-text-center lg-text-title1">{title}</DefaultTextAnimation>
+                <div className="tw-row-start-4 tw-text-center lg-text-title1">{title}</div>
 
-                <DefaultTextAnimation className="tw-row-start-6 tw-text-center lg-text-body">{description}</DefaultTextAnimation>
+                <div className="tw-row-start-6 tw-text-center lg-text-body">{description}</div>
             </div>
         );
     };
 
-    const batteriesData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
+    const stabilizersData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
             titleTextContentPiece: "categoryBatteriesS2Slide1Heading",
             bodyTextContentPiece: "categoryBatteriesS2Slide1Description",
@@ -329,19 +318,195 @@ function BatteriesThatAreMeantToLast({userPreferences, className}: {userPreferen
                     </div>
                 </DefaultTextAnimation>
 
-                <VerticalSpacer className="tw-h-4 lg:tw-h-4" />
+                <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
                 <CarouselStyle5
-                    items={batteriesData.map((batteryData) => (
-                        <BatteryCard
+                    items={stabilizersData.map((batteryData, batteryDataIndex) => (
+                        <StabilizerCard
                             title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
                             description={getVernacularString(batteryData.bodyTextContentPiece, userPreferences.language)}
                             imageRelativePath={batteryData.imageRelativePath}
+                            key={batteryDataIndex}
                         />
                     ))}
                     className="tw-mx-auto"
                     slidesContainerClassName=""
                 />
+            </div>
+        </>
+    );
+}
+
+function StabilizersForHome({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const featuredProducts = [
+        {
+            type: ProductType.battery,
+            name: "LA 410 XS",
+            slug: "it1584tt",
+            isBestSeller: true,
+            price: "XXXXX",
+        },
+        {
+            type: ProductType.inverter,
+            name: "LA 413 DP",
+            slug: "lgs1600",
+            price: "XXXXX",
+        },
+        {
+            type: ProductType.battery,
+            name: "LA 413 XS",
+            price: "XXXXX",
+            slug: "it1584tt",
+        },
+        {
+            type: ProductType.inverter,
+            name: "LA 413 XS",
+            price: "XXXXX",
+            slug: "lgs1600",
+        },
+        {
+            type: ProductType.battery,
+            slug: "it1584tt",
+            name: "LA 517 XA",
+            price: "XXXXX",
+            isBestSeller: true,
+        },
+        {
+            type: ProductType.inverter,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 417 VX",
+        },
+        {
+            type: ProductType.battery,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 415 XS",
+        },
+        {
+            type: ProductType.inverter,
+            slug: "lgs1600",
+            isBestSeller: true,
+            name: "LA 415 XS",
+            price: "XXXXX",
+        },
+        {
+            type: ProductType.battery,
+            slug: "it1584tt",
+            isBestSeller: true,
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            type: ProductType.inverter,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+    ];
+
+    return (
+        <div className={className}>
+            <div className="tw-grid tw-grid-cols-1">
+                <h2 className="lg-text-headline tw-text-center">
+                    {/* <div dangerouslySetInnerHTML={{__html: getVernacularString("5ac20616-07fb-44f4-bf6f-c5e16b272eb8", userPreferences.language)}} /> */}
+                    <span className="lg-text-highlighted">Stabilizers</span>
+                </h2>
+
+                <h2 className="lg-text-headline tw-text-center">For Home</h2>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <StabilizerTypeSelector
+                    userPreferences={userPreferences}
+                    className=""
+                />
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <CarouselStyle6
+                    items={featuredProducts.map((featuredProduct, featuredProductIndex) => (
+                        <StabilizerCard
+                            slug={featuredProduct.slug}
+                            productType={featuredProduct.type}
+                            productName={featuredProduct.name}
+                            productPrice={featuredProduct.price}
+                            userPreferences={userPreferences}
+                            isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
+                            key={featuredProductIndex}
+                        />
+                    ))}
+                    slidesContainerClassName="!tw-auto-cols-[50%] lg:!tw-auto-cols-[25%] tw-grid-rows-[auto_auto] lg:tw-grid-rows-[auto_auto] tw-gap-y-8"
+                    controlsContainerClassName="lg-px-screen-edge"
+                    chevronButtonIndexChangeOffset={2}
+                />
+            </div>
+        </div>
+    );
+}
+
+function StabilizerTypeSelector({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const typeSelectorButtonsContent = [
+        {
+            iconUrl: "",
+            textContent: "For AC",
+        },
+        {
+            iconUrl: "",
+            textContent: "For Mains",
+        },
+        {
+            iconUrl: "",
+            textContent: "For TVs",
+        },
+        {
+            iconUrl: "",
+            textContent: "For Refrigerator",
+        },
+    ];
+    return <div className={concatenateNonNullStringsWithSpaces("tw-flex flex-row", className)}></div>;
+}
+
+function StabilizerCard({
+    slug,
+    productType,
+    productName,
+    productPrice,
+    userPreferences,
+    isBestSeller,
+}: {
+    slug: string;
+    productType: ProductType;
+    productName: string;
+    productPrice: string;
+    userPreferences: UserPreferences;
+    isBestSeller: boolean;
+}) {
+    return (
+        <>
+            <div className="tw-grid tw-grid-rows-[1.5rem_0.25rem_auto_1.5rem_auto_auto_0.5rem_auto_0.5rem_auto_1rem] lg:tw-grid-rows-[1.5rem_2rem_auto_1.5rem_auto_auto_0.5rem_auto_0.5rem_auto_1rem] tw-bg-secondary-100-dark tw-border-[1px] tw-border-[#4B4B4B] tw-rounded-lg">
+                {isBestSeller != null && isBestSeller === true && (
+                    <div className="tw-row-start-1 tw-h-full lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 lg:tw-px-4 tw-flex tw-flex-row tw-items-center">
+                        <span>Best Seller</span>
+                    </div>
+                )}
+
+                <div className="tw-row-start-3 tw-place-self-center">
+                    <FullWidthImage
+                        relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
+                    />
+                </div>
+
+                <div className="tw-row-start-5 tw-capitalize tw-place-self-center lg-text-body-bold !tw-text-white">{`${ProductType[`${productType}`]}`}</div>
+                <div className="tw-row-start-6 tw-place-self-center lg-text-body-bold !tw-text-white">{productName}</div>
+                <div className="tw-row-start-8 tw-place-self-center lg-text-body">Starting from ₹ {productPrice}</div>
+
+                <Link
+                    to={`/product/${slug}`}
+                    className="tw-row-start-10 tw-place-self-center tw-text-primary-500-dark"
+                >
+                    View Product
+                </Link>
             </div>
         </>
     );
@@ -396,27 +561,40 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
             </div>
 
             <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
-                <div className="tw-bg-secondary-100-dark tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4">
+                <a
+                    href="https://www.livguard.com/static-assets/livguard-buying-guide.pdf"
+                    download
+                    target="_blank"
+                    className="tw-bg-secondary-100-dark tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
+                >
                     <img
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
                         src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
                     />
                     <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">Buying Guide</div>
-                </div>
-                <div className="tw-bg-secondary-100-dark tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4">
+                </a>
+                <a
+                    href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
+                    download
+                    target="_blank"
+                    className="tw-bg-secondary-100-dark tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
+                >
                     <img
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
                         src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                     />
                     <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">Download Catalogue</div>
-                </div>
+                </a>
             </div>
 
             <VerticalSpacer className="tw-row-start-8 tw-h-6" />
 
-            <div className="tw-row-start-9 tw-grid tw-place-items-center">
-                <button className="lg-cta-button tw-place-self-center">Plan Your Power</button>
-            </div>
+            <Link
+                to="/load-calculator"
+                className="tw-row-start-9 tw-grid tw-place-items-center"
+            >
+                <div className="lg-cta-button tw-place-self-center">Plan Your Power</div>
+            </Link>
 
             <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
         </div>
@@ -456,49 +634,140 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
     );
 }
 
-export function ChooseBestInverterBattery({userPreferences, utmParameters, className}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; className?: string}) {
-    const sectionData: {
-        description: string;
-        downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
-        buttonText: string;
-    } = {
-        description: `${getVernacularString("categoryBatteriesS8Description", userPreferences.language)}`,
-        downloadButtons: [
-            {
-                iconRelativePath: "/livguard/icons/buyingGuide.png",
-                text: `${getVernacularString("categoryBatteriesS8B1T", userPreferences.language)}`,
-                downloadLink: "https://www.livguard.com/static-assets/livguard-buying-guide.pdf",
-                popup: false,
-            },
-            {
-                iconRelativePath: "/livguard/icons/downloadCatalogue.png",
-                text: `${getVernacularString("categoryBatteriesS8B2T", userPreferences.language)}`,
-                downloadLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
-                popup: false,
-            },
-        ],
-        buttonText: `${getVernacularString("categoryBatteriesS8BT", userPreferences.language)}`,
-    };
+function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const embeddedVideos = [
+        <EmbeddedYoutubeVideo
+            id="b6gqLXTnZnw"
+            style={{aspectRatio: "560/315"}}
+        />,
+        <EmbeddedYoutubeVideo
+            id="CRabeGp9800"
+            style={{aspectRatio: "560/315"}}
+        />,
+        <EmbeddedYoutubeVideo
+            id="tFj9GJcjq6s"
+            style={{aspectRatio: "560/315"}}
+        />,
+    ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col">
-                <h2 className="lg-text-headline tw-text-center">
-                    <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS8HT1", userPreferences.language))}} />
-                    </DefaultTextAnimation>
-                    <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS8HT2", userPreferences.language)}} />
-                    </DefaultTextAnimation>
-                </h2>
+        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
+                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
-                <VerticalSpacer className="tw-h-6" />
+                <div className="lg-text-headline">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
 
-                <WhatsBestForYouComponent
-                    vernacularContent={sectionData}
-                    userPreferences={userPreferences}
-                    utmParameters={utmParameters}
-                />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <CarouselStyle3 items={embeddedVideos} />
+
+                <VerticalSpacer className="tw-h-4" />
+
+                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div className="tw-flex tw-justify-evenly">
+                    <a
+                        href="https://www.facebook.com/LivguardEnergy/"
+                        target="_blank"
+                    >
+                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://twitter.com/LivguardEnergy"
+                        target="_blank"
+                    >
+                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.instagram.com/livguardenergy/"
+                        target="_blank"
+                    >
+                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/company/livguard-energy/"
+                        target="_blank"
+                    >
+                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                    <a
+                        href="https://www.youtube.com/@LivguardEnergy"
+                        target="_blank"
+                    >
+                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                    </a>
+                </div>
+
+                <VerticalSpacer className="tw-h-4" />
+            </div>
+
+            <div className="tw-hidden lg:tw-flex tw-flex-col tw-justify-center tw-text-center">
+                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+
+                <div className="lg-text-headline">
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
+
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
+                </div>
+
+                <VerticalSpacer className="tw-h-8" />
+
+                <div className="tw-grid tw-grid-cols-3 tw-gap-4">
+                    <ItemBuilder
+                        items={embeddedVideos}
+                        itemBuilder={(video, videoIndex) => (
+                            <div
+                                className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-pb-4 tw-overflow-hidden"
+                                key={videoIndex}
+                            >
+                                {video}
+
+                                <VerticalSpacer className="tw-h-2" />
+
+                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
+
+                                <div className="tw-flex tw-justify-evenly">
+                                    <a
+                                        href="https://www.facebook.com/LivguardEnergy/"
+                                        target="_blank"
+                                    >
+                                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://twitter.com/LivguardEnergy"
+                                        target="_blank"
+                                    >
+                                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://www.instagram.com/livguardenergy/"
+                                        target="_blank"
+                                    >
+                                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/company/livguard-energy/"
+                                        target="_blank"
+                                    >
+                                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                    <a
+                                        href="https://www.youtube.com/@LivguardEnergy"
+                                        target="_blank"
+                                    >
+                                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
+                                    </a>
+                                </div>
+                            </div>
+                        )}
+                    />
+                </div>
             </div>
         </div>
     );

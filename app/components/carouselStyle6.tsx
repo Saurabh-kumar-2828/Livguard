@@ -3,25 +3,41 @@ import React from "react";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 
-export function CarouselStyle5({items, className, slidesContainerClassName}: {items: Array<any>; className?: string; slidesContainerClassName?: string}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
+/**
+ * @function Multi row carousels
+ */
+
+export function CarouselStyle6({
+    items,
+    className,
+    slidesContainerClassName,
+    controlsContainerClassName,
+    chevronButtonIndexChangeOffset,
+}: {
+    items: Array<any>;
+    className?: string;
+    slidesContainerClassName?: string;
+    controlsContainerClassName?: string;
+    chevronButtonIndexChangeOffset: number;
+}) {
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"}, 8000, chevronButtonIndexChangeOffset);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full", className)}
             ref={emblaRef}
         >
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[33%]", slidesContainerClassName)}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[50%]", slidesContainerClassName)}>
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 ${itemIndex !== selectedIndex ? "tw-brightness-50" : ""}`}
+                            className="tw-px-4"
                             key={itemIndex}
                         >
-                            {itemIndex !== selectedIndex ? <div className="tw-p-5">{item}</div> : <>{item}</>}
+                            {item}
                         </div>
                     )}
                 />
@@ -29,28 +45,28 @@ export function CarouselStyle5({items, className, slidesContainerClassName}: {it
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10 lg-px-screen-edge-2">
+            <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10", controlsContainerClassName)}>
                 <button
                     type="button"
                     className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                    onClick={() => emblaApi?.scrollPrev()}
+                    onClick={() => {
+                        emblaApi?.scrollTo(selectedIndex - chevronButtonIndexChangeOffset);
+                    }}
                 >
                     <ChevronLeftIcon className="tw-w-6 tw-h-6" />
                 </button>
 
                 <div className="tw-flex tw-flex-row tw-gap-x-2">
                     <ItemBuilder
-                        items={items}
+                        items={items.slice(0, items.length / chevronButtonIndexChangeOffset)}
                         itemBuilder={(_, scrollSnapIndex) => (
                             <React.Fragment key={scrollSnapIndex}>
                                 <div
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-2 tw-h-2 tw-rounded-full",
+                                        scrollSnapIndex == selectedIndex / chevronButtonIndexChangeOffset ? "lg-bg-secondary-900" : "lg-bg-secondary-300",
+                                    )}
                                     key={scrollSnapIndex}
-                                    onClick={() => {
-                                        if (scrollSnapIndex !== selectedIndex) {
-                                            emblaApi?.scrollTo(scrollSnapIndex);
-                                        }
-                                    }}
                                 />
                             </React.Fragment>
                         )}
@@ -60,7 +76,9 @@ export function CarouselStyle5({items, className, slidesContainerClassName}: {it
                 <button
                     type="button"
                     className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                    onClick={() => emblaApi?.scrollNext()}
+                    onClick={() => {
+                        emblaApi?.scrollTo(selectedIndex + chevronButtonIndexChangeOffset);
+                    }}
                 >
                     <ChevronRightIcon className="tw-w-6 tw-h-6" />
                 </button>
