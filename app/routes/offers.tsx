@@ -431,6 +431,18 @@ function RecommendationCard({slug, productType, userPreferences}: {slug: string;
             <FullWidthImage
                 relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
             />
+
+            <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{convertProductInternalNameToPublicName(slug)}</div>
+
+            <VerticalSpacer className="tw-h-2" />
+
+            <div className="tw-w-full tw-text-center lg-text-secondary-700">
+                {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}500{getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
+            </div>
+
+            <VerticalSpacer className="tw-h-4" />
+
+            <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-primary-500">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</div>
         </Link>
     );
 }
