@@ -82,7 +82,7 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <StabilizersThatAreMeantToLast
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 tw-col-span-full"
+                    className="tw-row-start-3 tw-col-start-1 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
