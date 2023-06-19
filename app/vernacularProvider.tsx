@@ -3126,7 +3126,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     dealerLocatorPageFAQQ1Q: {
-        [Language.English]: "Can I avail financing options as a customer at these dealers locations?",
+        [Language.English]: "Can I avail financing options as a customer at these dealer locations?",
         [Language.Hindi]: "क्या मैं इन डीलर स्थानों पर वित्त के विकल्प का लाभ उठा सकता हूँ?",
         [Language.Marathi]: "?????",
     },
@@ -3281,18 +3281,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage3FAQQ1A: {
-        [Language.English]: `In order to file a service request for your Livguard inverter or inverter battery, you can reach out to the dealer. If that doesn’t work, you can reach out to our service team at <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">>18001025551</a> and we will help you out.`,
-        [Language.Hindi]: `अपने लिवगार्ड इन्वर्टर या इन्वर्टर बैटरी के लिए सेवा अनुरोध दर्ज करने के लिए, आप डीलर से संपर्क कर सकते हैं। यदि वह काम नहीं करता है, तो आप <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">>18001025551</a> पर हमारी सेवा टीम से संपर्क कर सकते हैं और हम आपकी मदद करेंगे।`,
+        [Language.English]: `In order to file a service request for your Livguard inverter or inverter battery, you can reach out to the dealer. If that doesn’t work, you can reach out to our service team at <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">18001025551</a> and we will help you out.`,
+        [Language.Hindi]: `अपने लिवगार्ड इन्वर्टर या इन्वर्टर बैटरी के लिए सेवा अनुरोध दर्ज करने के लिए, आप डीलर से संपर्क कर सकते हैं। यदि वह काम नहीं करता है, तो आप <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">18001025551</a> पर हमारी सेवा टीम से संपर्क कर सकते हैं और हम आपकी मदद करेंगे।`,
         [Language.Marathi]: "?????",
     },
     landingPage3FAQQ2Q: {
-        [Language.English]: "Can I avail financing options as a customer at these dealers locations?",
+        [Language.English]: "Can I avail financing options as a customer at these dealer locations?",
         [Language.Hindi]: "क्या मैं इन डीलर स्थानों पर वित्त के विकल्प का लाभ उठा सकता हूँ?",
         [Language.Marathi]: "?????",
     },
     landingPage3FAQQ2A: {
-        [Language.English]: `Yes, Livguard has multiple financing opportunities available for our consumers for their ease. We are in partnership with Bajaj Finance and Paytail and consumers can choose any of the two options for the same. Call us at <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">>18001025551</a>`,
-        [Language.Hindi]: `हां, लिवगार्ड के पास हमारे उपभोक्ताओं के लिए उनकी आसानी के लिए वित्तपोषण के कई अवसर उपलब्ध हैं। हम बजाज फाइनेंस और पे टेल के साथ साझेदारी कर रहे हैं और उपभोक्ता इसके लिए दो विकल्पों में से कोई भी चुन सकते हैं। हमें  <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">>18001025551</a> पर कॉल करें।`,
+        [Language.English]: `Yes, Livguard has multiple financing opportunities available for our consumers for their ease. We are in partnership with Bajaj Finance and Paytail and consumers can choose any of the two options for the same. Call us at <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">18001025551</a>`,
+        [Language.Hindi]: `हां, लिवगार्ड के पास हमारे उपभोक्ताओं के लिए उनकी आसानी के लिए वित्तपोषण के कई अवसर उपलब्ध हैं। हम बजाज फाइनेंस और पे टेल के साथ साझेदारी कर रहे हैं और उपभोक्ता इसके लिए दो विकल्पों में से कोई भी चुन सकते हैं। हमें  <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">18001025551</a> पर कॉल करें।`,
         [Language.Marathi]: "?????",
     },
     landingPage3FAQQ3Q: {
@@ -3311,8 +3311,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     landingPage3FAQQ4A: {
-        [Language.English]: `It depends on dealer to dealer. Most of our channel partners provide installation services at their end. If you face any problem, you can reach out to our service team, LivServ at <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">>18001025551</a>`,
-        [Language.Hindi]: `यह डीलर से डीलर पर निर्भर करता है। हमारे अधिकांश चैनल पार्टनर अपनी ओर से इंस्टालेशन सेवाएं प्रदान करते हैं। यदि आपको कोई समस्या आती है, तो आप <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">>18001025551</a> पर हमारी सर्विस टीम, लिवसर्व से संपर्क कर सकते हैं।`,
+        [Language.English]: `It depends on dealer to dealer. Most of our channel partners provide installation services at their end. If you face any problem, you can reach out to our service team, LivServ at <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">18001025551</a>`,
+        [Language.Hindi]: `यह डीलर से डीलर पर निर्भर करता है। हमारे अधिकांश चैनल पार्टनर अपनी ओर से इंस्टालेशन सेवाएं प्रदान करते हैं। यदि आपको कोई समस्या आती है, तो आप <a href="tel:18001025551" <a href="/load-calculator" class="tw-underline">18001025551</a> पर हमारी सर्विस टीम, लिवसर्व से संपर्क कर सकते हैं।`,
         [Language.Marathi]: "?????",
     },
     landingPage3FAQQ5Q: {

@@ -1,36 +1,37 @@
+import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {FetcherWithComponents, Link, useFetcher} from "@remix-run/react";
-import {useEffect, useReducer, useRef, useState} from "react";
+import type {FetcherWithComponents} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
+import {useEffect, useReducer, useRef} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {toast} from "react-toastify";
+import {ContactForm} from "~/components/contactUsForm";
+import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {CoverImage} from "~/components/images/coverImage";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {ContactUsCta, ContactUsDialog, TransformingLives} from "~/routes";
+import {ContactUsCta, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {ExploreStarProducts, JodiSection, WhyLivguardJodi} from "~/routes/campaigns/inverter-and-battery";
-import {PowerPlannerTeaser} from "~/routes/load-calculator";
+import {JodiSection, WhyLivguardJodi} from "~/routes/campaigns/inverter-and-battery";
+import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
+import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {ContactForm} from "~/components/contactUsForm";
-import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
-import {ImageCdnProvider, Uuid} from "~/global-common-typescript/typeDefinitions";
-import {FormStateInputs, FormStateInputsAction, FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
-import {toast} from "react-toastify";
-import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -308,7 +309,7 @@ function HeroSection({
             ref={ref}
         >
             {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
-                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative">
+                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
                     <img
                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-mobile.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, 1080)}
                         className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover -tw-z-10"
@@ -501,7 +502,11 @@ export function TvcSection({
 
             <VerticalSpacer className="tw-h-6" />
 
-            <EmbeddedYoutubeVideo id="ZtywGUDhzqw" className="tw-w-full tw-h-full" containerClassName="tw-w-full tw-aspect-video tw-max-w-7xl tw-mx-auto" />
+            <EmbeddedYoutubeVideo
+                id="ZtywGUDhzqw"
+                className="tw-w-full tw-h-full"
+                containerClassName="tw-w-full tw-aspect-video tw-max-w-7xl tw-mx-auto"
+            />
         </div>
     );
 }
@@ -541,10 +546,16 @@ export function TapIntoEfficiency({
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}>
             <div className="lg-text-headline">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT1", userPreferences.language)}} className="tw-text-center" />
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT1", userPreferences.language)}}
+                        className="tw-text-center"
+                    />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT2", userPreferences.language)}} className="tw-text-center" />
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT2", userPreferences.language)}}
+                        className="tw-text-center"
+                    />
                 </DefaultTextAnimation>
             </div>
             <VerticalSpacer className="tw-h-6" />

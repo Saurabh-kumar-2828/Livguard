@@ -93,7 +93,7 @@ export const action: ActionFunction = async ({request, params}) => {
     ) {
         console.log("ABCDDDDDDDDD");
         const actionData: ActionData = {
-            error: "Inputs cann't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
+            error: "Inputs can't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
             formType: null,
         };
         return json(actionData);
@@ -384,7 +384,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
     useEffect(() => {
         if (actionData != null) {
             if (actionData.error != null) {
-                toast.error("ERROR in submitting form");
+                toast.error("Error in submitting form");
                 return;
             }
 

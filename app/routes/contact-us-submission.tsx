@@ -45,7 +45,7 @@ export const action: ActionFunction = async ({request, params}) => {
         complaintType == null
     ) {
         const actionData: GenericActionData = {
-            error: "Inputs cann't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
+            error: "Inputs can't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
         };
         return json(actionData);
     }

@@ -167,7 +167,7 @@ export function ContactForm({
                                     name="phoneNumber"
                                     pattern={indianPhoneNumberValidationPattern}
                                     required
-                                    autoFocus={true}
+                                    // autoFocus={true}
                                     className="lg-text-input tw-w-full"
                                     disabled={formStateInputs.showOtpField}
                                     defaultValue={formStateInputs.inputData.phoneNumber}

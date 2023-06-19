@@ -765,7 +765,7 @@ export function FooterComponent({
 
 export function FooterSocialLogosAndCopyright({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-mx-[calc(-1*var(--lg-px-screen-edge))] lg-px-screen-edge lg-bg-secondary-100", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge lg-bg-secondary-100", className)}>
             <VerticalSpacer className="tw-h-3" />
 
             <SocialMediaIcons />
