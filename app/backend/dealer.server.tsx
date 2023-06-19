@@ -429,14 +429,14 @@ export async function insertContactFormLeads(leadId: string, formResponse: any):
 
     const result = await postgresDatabaseManager.execute(
         `
-                INSERT INTO
-                    livguard.contact_page_leads
-                VALUES(
-                    $1,
-                    $2,
-                    $3
-                )
-            `,
+            INSERT INTO
+                livguard.contact_page_leads
+            VALUES(
+                $1,
+                $2,
+                $3
+            )
+        `,
         [leadId, getCurrentIsoTimestamp(), formResponse],
     );
 
@@ -453,14 +453,14 @@ export async function insertServiceRequests(requestId: string, formResponse: any
 
     const result = await postgresDatabaseManager.execute(
         `
-                INSERT INTO
-                    livguard.service_page_leads
-                VALUES(
-                    $1,
-                    $2,
-                    $3
-                )
-            `,
+            INSERT INTO
+                livguard.service_page_leads
+            VALUES(
+                $1,
+                $2,
+                $3
+            )
+        `,
         [requestId, getCurrentIsoTimestamp(), formResponse],
     );
 
