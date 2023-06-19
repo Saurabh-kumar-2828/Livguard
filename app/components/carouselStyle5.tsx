@@ -3,25 +3,27 @@ import React from "react";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 
 export function CarouselStyle5({items, className, slidesContainerClassName}: {items: Array<any>; className?: string; slidesContainerClassName?: string}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full", className)}
             ref={emblaRef}
         >
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[33%]", slidesContainerClassName)}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[28%]", slidesContainerClassName)}>
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
+                        // Non selected items are dimmed
                         <div
                             className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 ${itemIndex !== selectedIndex ? "tw-brightness-50" : ""}`}
                             key={itemIndex}
                         >
-                            {itemIndex !== selectedIndex ? <div className="tw-p-5">{item}</div> : <>{item}</>}
+                            {/* Selected Item's container's height is increased to give highlighted effect */}
+                            {itemIndex !== selectedIndex ? <div className="lg:tw-p-5">{item}</div> : <>{item}</>}
                         </div>
                     )}
                 />

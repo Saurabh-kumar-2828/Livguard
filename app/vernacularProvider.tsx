@@ -4277,16 +4277,123 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     // Service Page Vernac Strings End
 
-    // Stabilizers Page Vernac Strings Start
+    // Stabilizer Page Vernac Strings Start
+    "dead4984-38fc-490e-8b38-0670a9a03631": {
+        [Language.English]: `Best Voltage`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "e716f6b1-74ad-4087-80e1-fb88fb9a44ce": {
+        [Language.English]: `Stabilizers for Home`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "10653f56-45cc-4317-9951-d6db74523397": {
+        [Language.English]: `Livguard, aims at offering “Smart and Innovative energy solutions” to its customers. Our company is determined at delivering quality`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "612038bf-767c-475f-beca-aa4428c56d9f": {
+        [Language.English]: `Stabilizers That Are`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "4a65b232-e2e5-4a85-9004-a84a5e04f91d": {
+        [Language.English]: `<span class="lg-text-highlighted">Meant To Last</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "342e7f22-6183-4d16-afd9-3f4e05c36a04": {
+        [Language.English]: `Stabilizers`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "d0d3b5e3-a618-4174-b3a8-14e8d6d11ff2": {
+        [Language.English]: `For Home`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "076cf02d-0b8a-4af2-9e0f-63d1804402d2": {
+        [Language.English]: `For AC`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9": {
+        [Language.English]: `For Mains`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "b82414bd-0f13-4401-a592-84cbc4f9a4e2": {
+        [Language.English]: `For TVs`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "33655fc5-1527-4744-a163-bd6217eac5b4": {
+        [Language.English]: `For Refrigerators`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "92897a67-ff1d-4e6c-804f-4f69dd03db4d": {
+        [Language.English]: `We Are`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "53b219cb-fdee-4ea2-aff4-858f5c63aed0": {
+        [Language.English]: `<span class="lg-text-highlighted">Everywhere!</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "24bb85a9-42af-4302-b21b-dece9f9d0d21": {
+        [Language.English]: `Available Across 21000+ Pincodes`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "db232019-b302-4eb7-a10c-05b17e72a800": {
+        [Language.English]: `Find My Dealer`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "53bbe30f-9859-42e5-add2-64dd0de0d415": {
+        [Language.English]: `Choose The`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "91461747-63e3-4cfa-bacf-715015891ee8": {
+        [Language.English]: `<span class="lg-text-highlighted">Right Stabilizer</span> For You`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "8e88b1c7-bac7-4b9e-a112-5fc7431b4ccd": {
+        [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter battery and our
+        Product Catalogue for product specifications`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "b3660763-f092-42d4-a97d-76a34dd701f6": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "1271cac7-693c-48bc-850f-16199416dd0e": {
+        [Language.English]: `Plan Your Power`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+
     "b0a3aa40-4b00-4bdd-88e0-67085fafa92b": {
         [Language.English]: `Shower Some Love`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
-
     "c0f802cc-902b-4328-b631-a3fad8fc7d18": {
         [Language.English]: `On Our <span class="lg-text-highlighted">Social Handles</span>`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
+    //Stabilizer Page Vernac Strings End
 };

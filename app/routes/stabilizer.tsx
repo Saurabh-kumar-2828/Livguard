@@ -1,12 +1,10 @@
-import {ActionFunction, LoaderFunction, json} from "@remix-run/node";
-import {Link, useActionData, useLoaderData} from "@remix-run/react";
+import {LoaderFunction} from "@remix-run/node";
+import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
-import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {insertServiceRequests} from "~/backend/dealer.server";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -15,16 +13,13 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
-import {WhatsBestForYouComponent} from "~/components/category/common";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {ProductType} from "~/productData";
-import {CarouselStyle4} from "~/components/carouselStyle4";
-import {CarouselStyle6} from "~/components/carouselStyle6";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
+import {useState} from "react";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -47,78 +42,15 @@ export const loader: LoaderFunction = async ({request}) => {
     return loaderData;
 };
 
-export type ActionData = {
-    error: string | null;
-};
-
-export const action: ActionFunction = async ({request, params}) => {
-    const body = await request.formData();
-
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~ inside action data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
-    const issueDetails = safeParse(getStringFromUnknown, body.get("issueDetails"));
-    const contactNumber = safeParse(getStringFromUnknown, body.get("contactNumber"));
-    const emailId = safeParse(getStringFromUnknown, body.get("emailId"));
-    const name = safeParse(getStringFromUnknown, body.get("name"));
-    const pinCode = safeParse(getStringFromUnknown, body.get("pinCode"));
-    const city = safeParse(getStringFromUnknown, body.get("city"));
-    const state = safeParse(getStringFromUnknown, body.get("state"));
-    const serviceNumber = safeParse(getStringFromUnknown, body.get("serviceNumber"));
-    const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
-    const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
-    const product = safeParse(getStringFromUnknown, body.get("product"));
-
-    if (
-        utmParameters === null ||
-        termsAndConditionsChecked === null ||
-        issueDetails === null ||
-        contactNumber === null ||
-        emailId === null ||
-        name === null ||
-        pinCode === null ||
-        city === null ||
-        state === null ||
-        product === null
-    ) {
-        const actionData: ActionData = {
-            error: "Inputs cannot be null! Error code: af16f518-6eef-4b8c-9ccf-34f86cee43c7",
-        };
-        return json(actionData);
-    }
-
-    const utmParametersDecoded = JSON.parse(utmParameters);
-
-    const insertResult = await insertServiceRequests(generateUuid(), {
-        issueDetails: issueDetails,
-        product: product,
-        contactNumber: contactNumber,
-        emailId: emailId,
-        name: name,
-        pinCode: pinCode,
-        city: city,
-        state: state,
-        serviceNumber: serviceNumber,
-        utmParameters: utmParametersDecoded,
-        termsAndConditionsChecked: termsAndConditionsChecked,
-    });
-
-    if (insertResult instanceof Error) {
-        const actionData: ActionData = {
-            error: "Error in submiting form! Error code: 7b84af66-174a-4b89-bbfa-3a51d9aa8862",
-        };
-        return json(actionData);
-    }
-
-    const actionData: ActionData = {
-        error: null,
-    };
-
-    return json(actionData);
-};
+enum StabilizerType {
+    forAC = 0,
+    forMains = 1,
+    forTVs = 2,
+    forRefrigerator = 3,
+}
 
 export default () => {
     const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
-    const actionData = useActionData() as ActionData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -131,18 +63,13 @@ export default () => {
                 utmParameters={utmSearchParameters}
                 breadcrumbs={[]}
             >
-                <StabilizerPage
-                    userPreferences={userPreferences}
-                    actionData={actionData}
-                />
+                <StabilizerPage userPreferences={userPreferences} />
             </PageScaffold>
         </>
     );
 };
 
-function StabilizerPage({userPreferences, actionData}: {userPreferences: UserPreferences; actionData: {error: string | null}}) {
-    const utmParameters = useUtmSearchParameters();
-
+function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -162,7 +89,7 @@ function StabilizerPage({userPreferences, actionData}: {userPreferences: UserPre
 
                 <StabilizersForHome
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-col-span-full tw-px-2 lg:tw-px-[124px]"
+                    className="tw-row-start-5 lg:tw-col-span-full"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
@@ -226,23 +153,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {/* {getVernacularString("1f489840-705d-44b1-a18a-73a2645594de", userPreferences.language)} */}
-                    Best Voltage
+                    {getVernacularString("dead4984-38fc-490e-8b38-0670a9a03631", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {/* {getVernacularString("1f489840-705d-44b1-a18a-73a2645594de", userPreferences.language)} */}
-                    Stabilizers for Home
+                    {getVernacularString("e716f6b1-74ad-4087-80e1-fb88fb9a44ce", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-start-2">
-                <div className="lg-text-body !tw-text-secondary-900-dark">
-                    {/* {getVernacularString("5a7fe2d5-9f46-4bb4-814e-7f075f8ca843", userPreferences.language)} */}
-                    Livguard, aims at offering “Smart and Innovative energy solutions” to its customers. Our company is determined at delivering quality,
-                </div>
+                <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString("10653f56-45cc-4317-9951-d6db74523397", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
@@ -310,12 +232,8 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
         <>
             <div className={className}>
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    {/* <div>{getVernacularString("74058229-5e75-4efe-833c-18009f248c6a", userPreferences.language)}</div> */}
-                    <div>Batteries That Are</div>
-                    {/* <div dangerouslySetInnerHTML={{__html: getVernacularString("afe86242-a8aa-4955-8951-516c560fc956", userPreferences.language)}} /> */}
-                    <div>
-                        <span className="lg-text-highlighted">Meant To Last</span>
-                    </div>
+                    <div>{getVernacularString("612038bf-767c-475f-beca-aa4428c56d9f", userPreferences.language)}</div>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("4a65b232-e2e5-4a85-9004-a84a5e04f91d", userPreferences.language)}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
@@ -330,7 +248,6 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                         />
                     ))}
                     className="tw-mx-auto"
-                    slidesContainerClassName=""
                 />
             </div>
         </>
@@ -340,131 +257,388 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
 function StabilizersForHome({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const featuredProducts = [
         {
-            type: ProductType.battery,
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
             name: "LA 410 XS",
             slug: "it1584tt",
             isBestSeller: true,
             price: "XXXXX",
         },
         {
-            type: ProductType.inverter,
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
             name: "LA 413 DP",
             slug: "lgs1600",
             price: "XXXXX",
         },
         {
-            type: ProductType.battery,
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
             name: "LA 413 XS",
             price: "XXXXX",
             slug: "it1584tt",
         },
         {
-            type: ProductType.inverter,
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
             name: "LA 413 XS",
             price: "XXXXX",
             slug: "lgs1600",
         },
         {
-            type: ProductType.battery,
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
             slug: "it1584tt",
             name: "LA 517 XA",
             price: "XXXXX",
             isBestSeller: true,
         },
         {
-            type: ProductType.inverter,
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
             slug: "lgs1600",
             price: "XXXXX",
             name: "LA 417 VX",
         },
         {
-            type: ProductType.battery,
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
             slug: "it1584tt",
             price: "XXXXX",
             name: "LA 415 XS",
         },
         {
-            type: ProductType.inverter,
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
             slug: "lgs1600",
             isBestSeller: true,
             name: "LA 415 XS",
             price: "XXXXX",
         },
         {
-            type: ProductType.battery,
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
             slug: "it1584tt",
             isBestSeller: true,
             price: "XXXXX",
             name: "LA 413 DP",
         },
         {
-            type: ProductType.inverter,
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            isBestSeller: true,
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
+            slug: "it1584tt",
+            isBestSeller: true,
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            isBestSeller: true,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            isBestSeller: true,
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            slug: "lgs1600",
+            isBestSeller: true,
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            slug: "lgs1600",
+            isBestSeller: true,
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forAC,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forMains,
+            slug: "lgs1600",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.battery,
+            stabilizerType: StabilizerType.forTVs,
+            slug: "it1584tt",
+            price: "XXXXX",
+            name: "LA 413 DP",
+        },
+        {
+            productType: ProductType.inverter,
+            stabilizerType: StabilizerType.forRefrigerator,
             slug: "lgs1600",
             price: "XXXXX",
             name: "LA 413 DP",
         },
     ];
 
+    const [selectedStabilizerType, setSelectedStabilizerType] = useState<StabilizerType>(StabilizerType.forAC);
+
     return (
-        <div className={className}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-px-3 lg:lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-cols-1">
                 <h2 className="lg-text-headline tw-text-center">
-                    {/* <div dangerouslySetInnerHTML={{__html: getVernacularString("5ac20616-07fb-44f4-bf6f-c5e16b272eb8", userPreferences.language)}} /> */}
-                    <span className="lg-text-highlighted">Stabilizers</span>
+                    <span className="lg-text-highlighted">{getVernacularString("342e7f22-6183-4d16-afd9-3f4e05c36a04", userPreferences.language)}</span>
                 </h2>
 
-                <h2 className="lg-text-headline tw-text-center">For Home</h2>
+                <h2 className="lg-text-headline tw-text-center">{getVernacularString("d0d3b5e3-a618-4174-b3a8-14e8d6d11ff2", userPreferences.language)}</h2>
 
                 <VerticalSpacer className="tw-h-2" />
 
                 <StabilizerTypeSelector
                     userPreferences={userPreferences}
-                    className=""
+                    selectedStabilizerType={selectedStabilizerType}
+                    setSelectedStabilizerType={setSelectedStabilizerType}
                 />
 
-                <VerticalSpacer className="tw-h-8" />
+                <VerticalSpacer className="tw-h-6" />
 
-                <CarouselStyle6
-                    items={featuredProducts.map((featuredProduct, featuredProductIndex) => (
-                        <StabilizerCard
-                            slug={featuredProduct.slug}
-                            productType={featuredProduct.type}
-                            productName={featuredProduct.name}
-                            productPrice={featuredProduct.price}
-                            userPreferences={userPreferences}
-                            isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
-                            key={featuredProductIndex}
-                        />
-                    ))}
-                    slidesContainerClassName="!tw-auto-cols-[50%] lg:!tw-auto-cols-[25%] tw-grid-rows-[auto_auto] lg:tw-grid-rows-[auto_auto] tw-gap-y-8"
-                    controlsContainerClassName="lg-px-screen-edge"
-                    chevronButtonIndexChangeOffset={2}
-                />
+                <div className="tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] lg:tw-grid-cols-[repeat(auto-fill,minmax(14.5rem,1fr))] tw-gap-4 lg:tw-gap-8">
+                    {featuredProducts
+                        .filter((product) => product.stabilizerType === selectedStabilizerType)
+                        .sort((product) => (product.isBestSeller === true ? -1 : 1))
+                        .map((featuredProduct, featuredProductIndex) => (
+                            <StabilizerCard
+                                slug={featuredProduct.slug}
+                                productType={featuredProduct.productType}
+                                productName={featuredProduct.name}
+                                productPrice={featuredProduct.price}
+                                userPreferences={userPreferences}
+                                isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
+                                key={featuredProductIndex}
+                            />
+                        ))}
+                </div>
             </div>
         </div>
     );
 }
 
-function StabilizerTypeSelector({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function StabilizerTypeSelector({
+    userPreferences,
+    className,
+    selectedStabilizerType,
+    setSelectedStabilizerType,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    selectedStabilizerType: number;
+    setSelectedStabilizerType: Function;
+}) {
     const typeSelectorButtonsContent = [
         {
             iconUrl: "",
-            textContent: "For AC",
+            iconUrlSelected: "https://files.growthjockey.com/livguard/icons/stabilizer/for-ac.svg",
+            textContentPiece: "076cf02d-0b8a-4af2-9e0f-63d1804402d2",
         },
         {
-            iconUrl: "",
-            textContent: "For Mains",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-mains.svg",
+            iconUrlSelected: "",
+            textContentPiece: "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9",
         },
         {
-            iconUrl: "",
-            textContent: "For TVs",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-tvs.svg",
+            iconUrlSelected: "",
+            textContentPiece: "b82414bd-0f13-4401-a592-84cbc4f9a4e2",
         },
         {
-            iconUrl: "",
-            textContent: "For Refrigerator",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-refrigerator.svg",
+            iconUrlSelected: "",
+            textContentPiece: "33655fc5-1527-4744-a163-bd6217eac5b4",
         },
     ];
-    return <div className={concatenateNonNullStringsWithSpaces("tw-flex flex-row", className)}></div>;
+
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex flex-row lg:tw-justify-center tw-px-4 tw-overflow-x-scroll no-scrollbar", className)}>
+            {/* Adding temporarily since UI is not finalised, discussed with Komal, will be changed*/}
+            <style>
+                {`
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                    
+                    /* Hide scrollbar for IE, Edge and Firefox */
+                    .no-scrollbar {
+                        -ms-overflow-style: none;  /* IE and Edge */
+                        scrollbar-width: none;  /* Firefox */
+                    }`}
+            </style>
+            {typeSelectorButtonsContent.map((typeSelector, typeSelectorIndex) => {
+                const isSelected = selectedStabilizerType === typeSelectorIndex;
+                return (
+                    <div
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-mx-4 tw-place-items-center tw-rounded-lg tw-py-2",
+                            isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+                        )}
+                        onClick={() => {
+                            setSelectedStabilizerType(typeSelectorIndex);
+                        }}
+                        key={typeSelectorIndex}
+                    >
+                        <div
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-col-start-2 tw-w-[2rem] tw-h-[2rem] tw-rounded-full tw-flex tw-flex-row tw-justify-center tw-items-center tw-shadow-[0px_4px_4px_0px_#00000040]",
+                                isSelected ? "tw-bg-white" : "tw-bg-secondary-500-light",
+                            )}
+                        >
+                            <img src={isSelected ? typeSelector.iconUrlSelected : typeSelector.iconUrl} />
+                        </div>
+
+                        <div className="tw-col-start-4">{getVernacularString(typeSelector.textContentPiece, userPreferences.language)}</div>
+                    </div>
+                );
+            })}
+        </div>
+    );
 }
 
 function StabilizerCard({
@@ -474,6 +648,7 @@ function StabilizerCard({
     productPrice,
     userPreferences,
     isBestSeller,
+    className,
 }: {
     slug: string;
     productType: ProductType;
@@ -481,34 +656,42 @@ function StabilizerCard({
     productPrice: string;
     userPreferences: UserPreferences;
     isBestSeller: boolean;
+    className?: string;
 }) {
     return (
-        <>
-            <div className="tw-grid tw-grid-rows-[1.5rem_0.25rem_auto_1.5rem_auto_auto_0.5rem_auto_0.5rem_auto_1rem] lg:tw-grid-rows-[1.5rem_2rem_auto_1.5rem_auto_auto_0.5rem_auto_0.5rem_auto_1rem] tw-bg-secondary-100-dark tw-border-[1px] tw-border-[#4B4B4B] tw-rounded-lg">
-                {isBestSeller != null && isBestSeller === true && (
-                    <div className="tw-row-start-1 tw-h-full lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 lg:tw-px-4 tw-flex tw-flex-row tw-items-center">
-                        <span>Best Seller</span>
-                    </div>
-                )}
+        <Link
+            to={`/product/${slug}`}
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg", className)}
+        >
+            {isBestSeller != null && isBestSeller === true ? (
+                <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center">
+                    <span>Best Seller</span>
+                </div>
+            ) : (
+                <VerticalSpacer className="tw-h-[1.5rem]" />
+            )}
 
-                <div className="tw-row-start-3 tw-place-self-center">
-                    <FullWidthImage
-                        relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
-                    />
+            <div className="tw-p-4">
+                <FullWidthImage
+                    relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
+                />
+
+                <div className="tw-w-full tw-capitalize tw-text-center lg-text-body-bold lg-text-secondary-900">{ProductType[`${productType}`]}</div>
+                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{productName}</div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div className="tw-w-full tw-text-center lg-text-secondary-700">
+                    {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}
+                    {productPrice}
+                    {getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
                 </div>
 
-                <div className="tw-row-start-5 tw-capitalize tw-place-self-center lg-text-body-bold !tw-text-white">{`${ProductType[`${productType}`]}`}</div>
-                <div className="tw-row-start-6 tw-place-self-center lg-text-body-bold !tw-text-white">{productName}</div>
-                <div className="tw-row-start-8 tw-place-self-center lg-text-body">Starting from ₹ {productPrice}</div>
+                <VerticalSpacer className="tw-h-4" />
 
-                <Link
-                    to={`/product/${slug}`}
-                    className="tw-row-start-10 tw-place-self-center tw-text-primary-500-dark"
-                >
-                    View Product
-                </Link>
+                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-primary-500">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</div>
             </div>
-        </>
+        </Link>
     );
 }
 
@@ -522,13 +705,13 @@ function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPrefe
                     </div>
 
                     <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T1", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS10H1T2", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
+                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
                     </div>
 
                     <VerticalSpacer className="tw-h-1" />
 
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
 
                     {showCtaButton && (
                         <>
@@ -538,7 +721,7 @@ function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPrefe
                                 to="/dealer-for-inverters-and-batteries"
                                 className="tw-z-10 lg-cta-button"
                             >
-                                {getVernacularString("homeS10T3", userPreferences.language)}
+                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
                             </Link>
                         </>
                     )}
@@ -551,14 +734,12 @@ function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPrefe
 function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
-            <div className="tw-row-start-2 tw-text-center lg-text-headline">Choose The</div>
-            <div className="tw-row-start-3 tw-text-center lg-text-headline">
-                <span className="lg-text-highlighted">Right Stabilizer</span> For You
-            </div>
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">
-                Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter battery and our
-                Product Catalogue for product specifications
-            </div>
+            <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("53bbe30f-9859-42e5-add2-64dd0de0d415", userPreferences.language)}</div>
+            <div
+                className="tw-row-start-3 tw-text-center lg-text-headline"
+                dangerouslySetInnerHTML={{__html: getVernacularString("91461747-63e3-4cfa-bacf-715015891ee8", userPreferences.language)}}
+            />
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("8e88b1c7-bac7-4b9e-a112-5fc7431b4ccd", userPreferences.language)}</div>
 
             <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
                 <a
@@ -571,7 +752,9 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
                         src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
                     />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">Buying Guide</div>
+                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
+                        {getVernacularString("b3660763-f092-42d4-a97d-76a34dd701f6", userPreferences.language)}
+                    </div>
                 </a>
                 <a
                     href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
@@ -583,7 +766,9 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
                         src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
                     />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">Download Catalogue</div>
+                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
+                        {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                    </div>
                 </a>
             </div>
 
@@ -593,7 +778,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                 to="/load-calculator"
                 className="tw-row-start-9 tw-grid tw-place-items-center"
             >
-                <div className="lg-cta-button tw-place-self-center">Plan Your Power</div>
+                <div className="lg-cta-button tw-place-self-center">{getVernacularString("1271cac7-693c-48bc-850f-16199416dd0e", userPreferences.language)}</div>
             </Link>
 
             <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
