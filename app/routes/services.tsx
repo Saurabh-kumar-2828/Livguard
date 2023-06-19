@@ -5,17 +5,13 @@ import {Dialog, Transition} from "@headlessui/react";
 import {toast} from "react-toastify";
 import {useResizeDetector} from "react-resize-detector";
 import {X} from "react-bootstrap-icons";
-
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-
 import {insertServiceRequests} from "~/backend/dealer.server";
-
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
@@ -23,13 +19,9 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-
 import {UserPreferences} from "~/typeDefinitions";
-
 import {getVernacularString} from "~/vernacularProvider";
-
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 
 type LoaderData = {
@@ -60,8 +52,6 @@ export type ActionData = {
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~ inside action data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
     const issueDetails = safeParse(getStringFromUnknown, body.get("issueDetails"));
     const contactNumber = safeParse(getStringFromUnknown, body.get("contactNumber"));
     const emailId = safeParse(getStringFromUnknown, body.get("emailId"));
@@ -69,22 +59,22 @@ export const action: ActionFunction = async ({request, params}) => {
     const pinCode = safeParse(getStringFromUnknown, body.get("pinCode"));
     const city = safeParse(getStringFromUnknown, body.get("city"));
     const state = safeParse(getStringFromUnknown, body.get("state"));
-    const serviceNumber = safeParse(getStringFromUnknown, body.get("serviceNumber"));
+    const serviceNumber = safeParse(getStringFromUnknown, body.get("serviceNumber")); //optional field
     const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
     const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
     const product = safeParse(getStringFromUnknown, body.get("product"));
 
     if (
-        utmParameters === null ||
-        termsAndConditionsChecked === null ||
-        issueDetails === null ||
-        contactNumber === null ||
-        emailId === null ||
-        name === null ||
-        pinCode === null ||
-        city === null ||
-        state === null ||
-        product === null
+        issueDetails == null ||
+        contactNumber == null ||
+        emailId == null ||
+        name == null ||
+        pinCode == null ||
+        city == null ||
+        state == null ||
+        termsAndConditionsChecked == null ||
+        utmParameters == null ||
+        product == null
     ) {
         const actionData: ActionData = {
             error: "Inputs cannot be null! Error code: af16f518-6eef-4b8c-9ccf-34f86cee43c7",
@@ -210,7 +200,6 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                // tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-9.5rem]
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
@@ -286,15 +275,15 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
 
     const serviceSpecialities = [
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/services-page/pan-india-presence.svg",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/services/pan-india-presence.svg",
             title: getVernacularString("521eb4a5-fa32-4ac8-aa40-b8866848e565", userPreferences.language),
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/services-page/service-excellence.svg",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/services/service-excellence.svg",
             title: getVernacularString("dce77179-dece-4a32-87e8-571459bccdbb", userPreferences.language),
         },
         {
-            iconUrl: "https://files.growthjockey.com/livguard/icons/services-page/quick-resolution.svg",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/services/quick-resolution.svg",
             title: getVernacularString("4fc10235-8e85-48c9-9202-916a0bda22db", userPreferences.language),
         },
     ];
@@ -338,7 +327,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
     const [isServiceRequestFormTermsAndConditionsChecked, setIsServiceRequestFormTermsAndConditionsChecked] = useState(true);
     const [serviceRequestFormSelectedProduct, setServiceRequestFormSelectedProduct] = useState(getVernacularString("ormTrackingFormProduct1", userPreferences.language));
 
-    const defaultValues = false;
+    const toggleFormDefaultValues = false;
 
     useEffect(() => {
         if (actionData != null) {
@@ -377,7 +366,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                             placeholder={getVernacularString("2f725e91-eb31-4d56-898a-87db94a21e48", userPreferences.language)}
                                             rows={3}
                                             required
-                                            defaultValue={defaultValues ? "Test Issue" : ""}
+                                            defaultValue={toggleFormDefaultValues ? "Test Issue" : ""}
                                         />
                                     </div>
 
@@ -396,7 +385,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                         getVernacularString("ormTrackingFormProduct4", userPreferences.language),
                                                     ]}
                                                     itemBuilder={(item) =>
-                                                        item == null ? `${getVernacularString("ormTrackingFormProduct1", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
+                                                        item == null ? getVernacularString("ormTrackingFormProduct1", userPreferences.language) : `<div class="tw-py-1">${item}</div>`
                                                     }
                                                     value={serviceRequestFormSelectedProduct}
                                                     setValue={(item) =>
@@ -421,7 +410,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 pattern={indianPhoneNumberValidationPattern}
                                                 placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
                                                 required
-                                                defaultValue={defaultValues ? "9953465989" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "9953465989" : ""}
                                             />
                                         </div>
                                     </div>
@@ -438,7 +427,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 pattern={emailIdValidationPattern}
                                                 placeholder={getVernacularString("01fce108-4fe0-40c2-bb3a-3fb980fcec72", userPreferences.language)}
-                                                defaultValue={defaultValues ? "test@test.com" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "test@test.com" : ""}
                                                 required
                                             />
                                         </div>
@@ -454,7 +443,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("a0d68490-ad84-47fb-863c-2a9c812feaec", userPreferences.language)}
                                                 required
-                                                defaultValue={defaultValues ? "Test Name" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "Test Name" : ""}
                                             />
                                         </div>
                                     </div>
@@ -471,7 +460,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("848eb522-5221-4035-ac77-94338e97ac9c", userPreferences.language)}
                                                 required
-                                                defaultValue={defaultValues ? "Pin Code" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "Pin Code" : ""}
                                             />
                                         </div>
 
@@ -486,7 +475,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("c5702705-3fa4-4f7d-a706-4e22ea024aac", userPreferences.language)}
                                                 required
-                                                defaultValue={defaultValues ? "City" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "City" : ""}
                                             />
                                         </div>
                                     </div>
@@ -503,7 +492,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("981952eb-5f5c-4b14-b4e8-f1b766851c64", userPreferences.language)}
                                                 required
-                                                defaultValue={defaultValues ? "State" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "State" : ""}
                                             />
                                         </div>
 
@@ -517,7 +506,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 name="serviceNumber"
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("54ff368f-0a01-443e-b940-9a9240cbe783", userPreferences.language)}
-                                                defaultValue={defaultValues ? "Service Number" : ""}
+                                                defaultValue={toggleFormDefaultValues ? "Service Number" : ""}
                                             />
                                         </div>
                                     </div>
@@ -542,12 +531,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         className="tw-hidden"
                                         readOnly
                                         value={JSON.stringify(utmSearchParameters)}
-                                    />
-                                    <input
-                                        readOnly
-                                        name="formType"
-                                        className="tw-hidden"
-                                        value="feedbackForm"
                                     />
                                     <input
                                         readOnly
@@ -601,7 +584,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-    const [dialougOptions, setDialougOptions] = useState<{dialougType: string; headerTextContentId: string}>({dialougType: "", headerTextContentId: ""});
+    const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
@@ -617,11 +600,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4" />
 
-            <div className="tw-row-start-5 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+            <div className="tw-row-start-5 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"}
-                        src="https://files.growthjockey.com/livguard/icons/services-page/call-us.svg"
+                        src="https://files.growthjockey.com/livguard/icons/services/call-us.svg"
                     />
                 </div>
 
@@ -633,7 +616,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <button
                         className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
-                            setDialougOptions({dialougType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
+                            setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                             setIsContactUsDialogOpen(true);
                         }}
                     >
@@ -644,11 +627,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6" />
 
-            <div className="tw-row-start-7 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+            <div className="tw-row-start-7 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
-                        src="https://files.growthjockey.com/livguard/icons/services-page/whatsapp-us.svg"
+                        src="https://files.growthjockey.com/livguard/icons/services/whatsapp-us.svg"
                     />
                 </div>
 
@@ -660,7 +643,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <button
                         className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
-                            setDialougOptions({dialougType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
+                            setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
                         }}
                     >
@@ -671,11 +654,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8]" />
 
-            <div className="tw-row-start-[9] lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
+            <div className="tw-row-start-[9] lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
-                        src="https://files.growthjockey.com/livguard/icons/services-page/email-us.svg"
+                        src="https://files.growthjockey.com/livguard/icons/services/email-us.svg"
                     />
                 </div>
 
@@ -687,7 +670,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <button
                         className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
-                            setDialougOptions({dialougType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
+                            setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
                         }}
                     >
@@ -700,8 +683,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-                headerTextContentId={dialougOptions.headerTextContentId}
-                dialougType={dialougOptions.dialougType}
+                headerTextContentId={dialogOptions.headerTextContentId}
+                dialogType={dialogOptions.dialogType}
             />
         </div>
     );
@@ -712,13 +695,13 @@ function ContactUsDialog({
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
     headerTextContentId,
-    dialougType,
+    dialogType,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
     headerTextContentId: string;
-    dialougType: string;
+    dialogType: string;
 }) {
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
@@ -777,30 +760,30 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialougType == "call-us" ? "tel:800-1025-551" : dialougType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
+                                to={dialogType == "call-us" ? "tel:800-1025-551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialougType == "call-us" ? "800-1025-551" : dialougType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "800-1025-551" : dialogType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
 
-                                    {dialougType == "call-us" && (
+                                    {dialogType == "call-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/services-page/call-us-dialog.svg"
+                                            src="https://files.growthjockey.com/livguard/icons/services/call-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "email-us" && (
+                                    {dialogType == "email-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/services-page/email-us-dialog.svg"
+                                            src="https://files.growthjockey.com/livguard/icons/services/email-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "chat-with-us" && (
+                                    {dialogType == "chat-with-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/services-page/whatsapp-us-dialog.svg"
+                                            src="https://files.growthjockey.com/livguard/icons/services/whatsapp-us-dialog.svg"
                                         />
                                     )}
                                 </div>
@@ -813,30 +796,30 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialougType == "call-us" ? "tel:+91 92056-67999" : dialougType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
+                                to={dialogType == "call-us" ? "tel:+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialougType == "call-us" ? "+91 92056-67999" : dialougType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
 
-                                    {dialougType == "call-us" && (
+                                    {dialogType == "call-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/services-page/call-us-dialog.svg"
+                                            src="https://files.growthjockey.com/livguard/icons/services/call-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "email-us" && (
+                                    {dialogType == "email-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/services-page/email-us-dialog.svg"
+                                            src="https://files.growthjockey.com/livguard/icons/services/email-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "chat-with-us" && (
+                                    {dialogType == "chat-with-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/services-page/whatsapp-us-dialog.svg"
+                                            src="https://files.growthjockey.com/livguard/icons/services/whatsapp-us-dialog.svg"
                                         />
                                     )}
                                 </div>
