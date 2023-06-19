@@ -17,7 +17,6 @@
         "@sentry/remix": "^7.54.0",
         "embla-carousel-autoplay": "^7.1.0",
         "embla-carousel-react": "^7.1.0",
-        "formik": "^2.4.1",
         "isbot": "^3.6.10",
         "jsonwebtoken": "^9.0.0",
         "pg": "^8.11.0",
