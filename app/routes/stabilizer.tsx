@@ -176,7 +176,6 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
             <div
                 className={concatenateNonNullStringsWithSpaces(
                     "tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-100-dark tw-rounded-lg",
-                    className,
                 )}
             >
                 <div className="tw-row-start-2">
@@ -664,7 +663,7 @@ function StabilizerCard({
     return (
         <Link
             to={`/product/${slug}`}
-            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg", className)}
+            className={concatenateNonNullStringsWithSpaces("tw-px-4 tw-pt-4 tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg", className)}
         >
             {isBestSeller != null && isBestSeller === true ? (
                 <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center">
