@@ -426,8 +426,6 @@ function RecommendationCard({slug, productType, userPreferences}: {slug: string;
             to={`/product/${slug}`}
             className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 tw-p-4 lg-bg-secondary-100 tw-rounded-lg"
         >
-            <div className="">{convertProductInternalNameToPublicName(slug)}</div>
-
             <FullWidthImage
                 relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
             />
