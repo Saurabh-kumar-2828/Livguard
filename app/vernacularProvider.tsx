@@ -4314,22 +4314,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     "076cf02d-0b8a-4af2-9e0f-63d1804402d2": {
-        [Language.English]: `For AC`,
+        [Language.English]: `For&nbsp;AC`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9": {
-        [Language.English]: `For Mains`,
+        [Language.English]: `For&nbsp;Mains`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     "b82414bd-0f13-4401-a592-84cbc4f9a4e2": {
-        [Language.English]: `For TVs`,
+        [Language.English]: `For&nbsp;TVs`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
     "33655fc5-1527-4744-a163-bd6217eac5b4": {
-        [Language.English]: `For Refrigerators`,
+        [Language.English]: `For&nbsp;Refrigerators`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },

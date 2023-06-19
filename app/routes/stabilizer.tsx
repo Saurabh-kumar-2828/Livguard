@@ -633,7 +633,10 @@ function StabilizerTypeSelector({
                             <img src={isSelected ? typeSelector.iconUrlSelected : typeSelector.iconUrl} />
                         </div>
 
-                        <div className="tw-col-start-4">{getVernacularString(typeSelector.textContentPiece, userPreferences.language)}</div>
+                        <div
+                            className="tw-col-start-4"
+                            dangerouslySetInnerHTML={{__html: getVernacularString(typeSelector.textContentPiece, userPreferences.language)}}
+                        />
                     </div>
                 );
             })}
