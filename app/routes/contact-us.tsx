@@ -837,7 +837,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
             <VerticalSpacer className="tw-h-4 lg:tw-h-6 tw-row-start-4" />
 
             <div className="tw-row-start-5 tw-grid tw-grid-rows-[auto_2rem_auto] lg:tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_2rem_minmax(0,1fr)] lg:tw-gap-6">
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
                     <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"}
@@ -864,7 +864,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </div>
                 </div>
 
-                <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
                     <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
@@ -889,7 +889,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </div>
                 </div>
 
-                <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
                     <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
@@ -914,7 +914,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </div>
                 </div>
 
-                <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
                     <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
