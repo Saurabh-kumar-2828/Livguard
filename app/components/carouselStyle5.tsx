@@ -5,7 +5,17 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 
-export function CarouselStyle5({items, className, slidesContainerClassName}: {items: Array<any>; className?: string; slidesContainerClassName?: string}) {
+export function CarouselStyle5({
+    items,
+    className,
+    slidesContainerClassName,
+    selectedContainerClassName,
+}: {
+    items: Array<any>;
+    className?: string;
+    selectedContainerClassName?: string;
+    slidesContainerClassName?: string;
+}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
     return (
@@ -13,7 +23,7 @@ export function CarouselStyle5({items, className, slidesContainerClassName}: {it
             className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full", className)}
             ref={emblaRef}
         >
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[28%]", slidesContainerClassName)}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[100%] md:tw-auto-cols-[50%] lg:tw-auto-cols-[28%]", slidesContainerClassName)}>
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
@@ -23,7 +33,7 @@ export function CarouselStyle5({items, className, slidesContainerClassName}: {it
                             key={itemIndex}
                         >
                             {/* Selected Item's container's height is increased to give highlighted effect */}
-                            {itemIndex !== selectedIndex ? <div className="lg:tw-p-5">{item}</div> : <>{item}</>}
+                            {itemIndex !== selectedIndex ? <div className={selectedContainerClassName}>{item}</div> : <>{item}</>}
                         </div>
                     )}
                 />
