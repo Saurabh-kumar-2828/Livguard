@@ -362,7 +362,15 @@ export function ContactForm({
                         <button
                             type="submit"
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60 !tw-text-white"
-                            disabled={fetcher.state != "idle"}
+                            disabled={
+                                fetcher.state != "idle" ||
+                                formStateInputs.inputData.name == "" ||
+                                formStateInputs.inputData.email == "" ||
+                                formStateInputs.inputData.phoneNumber == "" ||
+                                formStateInputs.inputData.phoneNumber.length != 10 ||
+                                formStateInputs.inputData.otpSubmitted == "" ||
+                                formStateInputs.inputData.otpSubmitted.length != 6
+                            }
                         >
                             {getVernacularString("contactUsFormT4", userPreferences.language)}
                         </button>

@@ -2887,4 +2887,20 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         "blurHash": "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
         "finalUrl": "/livguard/hero-banners/lp-3-mobile-12ee65.jpg"
     },
+    "/livguard/lp3/1/akshay.png": {
+        "width": 360,
+        "height": 471,
+        "finalUrl": "/livguard/lp3/1/akshay-1d4b8d.png"
+    },
+    "/livguard/lp3/1/bg.jpg": {
+        "width": 3840,
+        "height": 3840,
+        "blurHash": "L03uNA@F}t=yHB00K%K4~q8_-ps;",
+        "finalUrl": "/livguard/lp3/1/bg-e624f7.jpg"
+    },
+    "/livguard/lp3/1/combo.png": {
+        "width": 452,
+        "height": 412,
+        "finalUrl": "/livguard/lp3/1/combo-a25e68.png"
+    },
 };
