@@ -151,19 +151,19 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 />
             )}
 
-            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2">
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("dead4984-38fc-490e-8b38-0670a9a03631", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2">
+            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("e716f6b1-74ad-4087-80e1-fb88fb9a44ce", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-start-2">
+            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
                 <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString("10653f56-45cc-4317-9951-d6db74523397", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
@@ -592,26 +592,18 @@ function StabilizerTypeSelector({
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex flex-row lg:tw-justify-center tw-px-4 tw-overflow-x-scroll no-scrollbar", className)}>
-            {/* Adding temporarily since UI is not finalised, discussed with Komal, will be changed*/}
-            <style>
-                {`
-                    .no-scrollbar::-webkit-scrollbar {
-                        display: none;
-                    }
-                    
-                    /* Hide scrollbar for IE, Edge and Firefox */
-                    .no-scrollbar {
-                        -ms-overflow-style: none;  /* IE and Edge */
-                        scrollbar-width: none;  /* Firefox */
-                    }`}
-            </style>
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-grid tw-auto-rows-auto tw-grid-cols-[minmax(auto,1fr)_minmax(auto,1fr)] tw-gap-4 lg-px-screen-edge-2 lg:tw-flex lg:tw-flex-row lg:tw-justify-center",
+                className,
+            )}
+        >
             {typeSelectorButtonsContent.map((typeSelector, typeSelectorIndex) => {
                 const isSelected = selectedStabilizerType === typeSelectorIndex;
                 return (
                     <div
                         className={concatenateNonNullStringsWithSpaces(
-                            "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-mx-4 tw-place-items-center tw-rounded-lg tw-py-2",
+                            "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-place-items-center tw-rounded-lg tw-py-2",
                             isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
                         )}
                         onClick={() => {
