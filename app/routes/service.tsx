@@ -830,7 +830,7 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialogType == "call-us" ? "tel:+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
+                                to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">

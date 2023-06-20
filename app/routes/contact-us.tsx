@@ -206,18 +206,18 @@ export default function () {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: `
-                        { 
+                        {
                             "@type": "SiteNavigationElement",
                             "name": "Contact us",
                             "url": "https://www.livguard.com/contact-us",
-                            "telephone": "+91 92056-67999",
+                            "telephone": "+919205667999",
                             "contactType": "",
                             "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
                             "addressLocality": "Gurugram",
                             "addressRegion": "Haryana",
                             "postalCode": "122016",
                             "addressCountry": "India",
-                            "E-mail": "marketing@livguard.com, export@sar-group.com"  
+                            "E-mail": "marketing@livguard.com, export@sar-group.com"
                           }
                         `,
                     }}
@@ -292,7 +292,7 @@ function ContactPage({
 }: {
     userPreferences: UserPreferences;
     utmParameters: {[searchParameter: string]: string};
-    actionData: {error: string | null; formType: string};
+    actionData: ActionData;
 }) {
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -305,7 +305,7 @@ function ContactPage({
 
             <WeAreListening
                 userPreferences={userPreferences}
-                className="tw-row-start-5 lg:tw-row-start-3 lg:tw-col-start-1"
+                className="tw-row-start-5 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-max-w-2xl lg:tw-justify-self-end"
                 actionData={actionData}
             />
 
@@ -313,7 +313,7 @@ function ContactPage({
 
             <ClickConnectPowerUpSection
                 userPreferences={userPreferences}
-                className="tw-row-start-3 lg:tw-row-start-3 lg:tw-col-start-2"
+                className="tw-row-start-3 lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-max-w-2xl lg:tw-justify-self-start"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
@@ -397,8 +397,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     );
 }
 
-function WeAreListening({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: {error: string | null; formType: string}}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: false});
+function WeAreListening({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const utmSearchParameters = useUtmSearchParameters();
 
     const [isFeedbackFormSubmitted, setIsFeedbackFormSubmitted] = useState(false);
@@ -442,7 +442,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                         "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-1 hover:tw-cursor-pointer",
                         `${selectedIndex == 0 ? "tw-bg-primary-500-light" : "lg-bg-secondary-100"}`,
                     )}
-                    onClick={() => emblaApi?.scrollTo(0)}
+                    onClick={() => setSelectedIndex(0)}
                 >
                     <div className="lg-text-body lg-text-secondary-900 tw-font-bold">{getVernacularString("contactUsS3Feedback", userPreferences.language)}</div>
                 </div>
@@ -452,7 +452,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                         "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-3 hover:tw-cursor-pointer",
                         `${selectedIndex == 1 ? "tw-bg-primary-500-light" : "lg-bg-secondary-100"}`,
                     )}
-                    onClick={() => emblaApi?.scrollTo(1)}
+                    onClick={() => setSelectedIndex(1)}
                 >
                     <div className="lg-text-body lg-text-secondary-900 tw-font-bold">{getVernacularString("contactUsS3Complaint", userPreferences.language)}</div>
                 </div>
@@ -461,357 +461,358 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
             <VerticalSpacer className="tw-h-12 tw-row-start-4" />
 
             <div className="tw-row-start-5 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0">
-                <div
-                    className="tw-overflow-hidden"
-                    ref={emblaRef}
-                >
-                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch">
-                        <div className="tw-grid tw-grid-glow-rows">
-                            {!isFeedbackFormSubmitted ? (
-                                <Form
-                                    method="post"
-                                    className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
-                                >
-                                    <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-center tw-gap-2">
-                                        <div className="tw-grid tw-row-start-1 tw-max-w-fit tw-grid-flow-col tw-gap-2">
-                                            <ItemBuilder
-                                                items={[1, 2, 3, 4, 5]}
-                                                itemBuilder={(item, itemIndex) => (
-                                                    <StarFill
-                                                        className={concatenateNonNullStringsWithSpaces(
-                                                            "tw-w-9 tw-h-9",
-                                                            `${itemIndex < rating ? "tw-text-primary-500-light" : "tw-text-secondary-700-dark"}`,
-                                                        )}
-                                                        onClick={() => {
-                                                            setRating(item);
-                                                        }}
-                                                        key={itemIndex}
-                                                    />
-                                                )}
-                                            />
-                                        </div>
-
-                                        <div className="tw-row-start-2 ">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-text-center">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-2 tw-grid-cols-2 tw-gap-2">
-                                        <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="emailId"
-                                                className="lg-text-input"
-                                                pattern={emailIdValidationPattern}
-                                                placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormProductText", userPreferences.language)}</div>
-
-                                        <div className="tw-row-start-2">
-                                            <FormSelectComponent
-                                                items={[
-                                                    getVernacularString("ormTrackingFormProduct1", userPreferences.language),
-                                                    getVernacularString("ormTrackingFormProduct2", userPreferences.language),
-                                                    getVernacularString("ormTrackingFormProduct3", userPreferences.language),
-                                                    getVernacularString("ormTrackingFormProduct4", userPreferences.language),
-                                                ]}
-                                                itemBuilder={(item) =>
-                                                    item == null ? `${getVernacularString("ormTrackingFormProduct1", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
-                                                }
-                                                value={feedbackFormSelectedProduct}
-                                                setValue={(item) =>
-                                                    item != null
-                                                        ? setFeedbackFormSelectedProduct(item)
-                                                        : setFeedbackFormSelectedProduct(getVernacularString("ormTrackingFormProduct1", userPreferences.language))
-                                                }
-                                                buttonClassName="!tw-rounded-full"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-4 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FeedbackFormDetailText", userPreferences.language)}</div>
-
-                                        <textarea
-                                            name="queryDetails"
-                                            className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                            placeholder={getVernacularString("contactUsS3FeedbackFormDetailPlaceholder", userPreferences.language)}
-                                            rows={3}
+                <div className="tw-grid tw-grid-flow-rows">
+                    {selectedIndex == 0 ? (
+                        !isFeedbackFormSubmitted ? (
+                            <Form
+                                method="post"
+                                className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
+                            >
+                                <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-center tw-gap-2">
+                                    <div className="tw-grid tw-row-start-1 tw-max-w-fit tw-grid-flow-col tw-gap-2">
+                                        <ItemBuilder
+                                            items={[1, 2, 3, 4, 5]}
+                                            itemBuilder={(item, itemIndex) => (
+                                                <StarFill
+                                                    className={concatenateNonNullStringsWithSpaces(
+                                                        "tw-w-9 tw-h-9",
+                                                        `${itemIndex < rating ? "tw-text-primary-500-light" : "tw-text-secondary-700-dark"}`,
+                                                    )}
+                                                    onClick={() => {
+                                                        setRating(item);
+                                                    }}
+                                                    key={itemIndex}
+                                                />
+                                            )}
                                         />
                                     </div>
 
-                                    <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
-                                        <input
-                                            type="checkbox"
-                                            name="termsAndConditionsChecked"
-                                            style={{accentColor: `${isFeedbackFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
-                                            defaultChecked={isFeedbackFormTermsAndConditionsChecked}
-                                            required
-                                            onChange={(e) => {
-                                                setIsFeedbackFormTermsAndConditionsChecked(!isFeedbackFormTermsAndConditionsChecked);
-                                            }}
-                                        />
-
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
+                                    <div className="tw-row-start-2 ">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-text-center">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
                                     </div>
-
-                                    <input
-                                        name="utmParameters"
-                                        className="tw-hidden"
-                                        readOnly
-                                        value={JSON.stringify(utmSearchParameters)}
-                                    />
-                                    <input
-                                        readOnly
-                                        name="formType"
-                                        className="tw-hidden"
-                                        value="feedbackForm"
-                                    />
-                                    <input
-                                        readOnly
-                                        name="rating"
-                                        className="tw-hidden"
-                                        value={rating}
-                                    />
-                                    <input
-                                        readOnly
-                                        name="termsAndConditionsChecked"
-                                        className="tw-hidden"
-                                        value={isFeedbackFormTermsAndConditionsChecked ? "True" : "False"}
-                                    />
-                                    <input
-                                        readOnly
-                                        name="product"
-                                        className="tw-hidden"
-                                        value={feedbackFormSelectedProduct}
-                                    />
-
-                                    <button
-                                        type="submit"
-                                        className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
-                                        disabled={rating == 0 || feedbackFormSelectedProduct == ""}
-                                    >
-                                        {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
-                                    </button>
-                                </Form>
-                            ) : (
-                                // <ContactFormSuccess userPreferences={userPreferences} />
-                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
-                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
-                                        <FixedWidthImage
-                                            relativePath="/livguard/icons/confirmation.png"
-                                            width="10rem"
-                                        />
-                                    </div>
-
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
-                                        className="lg-text-banner tw-row-start-4 tw-text-center"
-                                    />
-
-                                    {rating < 3 ? (
-                                        <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    ) : (
-                                        <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language)}}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    )}
                                 </div>
-                            )}
-                        </div>
 
-                        <div className="tw-grid tw-grid-glow-rows">
-                            {!isComplaintFormSubmitted ? (
-                                <Form
-                                    method="post"
-                                    className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
-                                >
-                                    <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
-                                            {getVernacularString("contactUsS3ComplaintFormRadioText", userPreferences.language)}
-                                        </div>
-
-                                        <div className="tw-row-start-2 tw-grid tw-grid-rows-[auto_1rem_auto] tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)] lg:tw-row-start-1">
-                                            <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
-                                                <input
-                                                    type="radio"
-                                                    id="product"
-                                                    name="complaintOption"
-                                                    className="tw-col-start-1 tw-w-4 tw-h-4"
-                                                    value={getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}
-                                                    style={{
-                                                        accentColor: `${
-                                                            complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language) ? "#eb2a2b" : "white"
-                                                        }`,
-                                                    }}
-                                                    onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language))}
-                                                />
-                                                <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}</div>
-                                            </div>
-
-                                            <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
-                                                <input
-                                                    type="radio"
-                                                    id="service"
-                                                    name="complaintOption"
-                                                    className="tw-col-start-1 tw-w-4 tw-h-4"
-                                                    value={getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}
-                                                    style={{
-                                                        accentColor: `${
-                                                            complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language) ? "#eb2a2b" : "white"
-                                                        }`,
-                                                    }}
-                                                    onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language))}
-                                                />
-                                                <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-2 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3ComplaintFormDetailText", userPreferences.language)}</div>
-
-                                        <textarea
-                                            name="queryDetails"
-                                            className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                            placeholder={getVernacularString("contactUsS3ComplaintFormDetailPlaceholder", userPreferences.language)}
-                                            rows={3}
-                                        />
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+                                <div className="tw-grid tw-row-start-2 tw-grid-cols-2 tw-gap-2">
+                                    <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
 
                                         <input
                                             type="text"
-                                            name="phoneNumber"
-                                            className="lg-text-input tw-row-start-2"
-                                            pattern={indianPhoneNumberValidationPattern}
-                                            placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
-                                        />
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-4 tw-grid-cols-2 tw-gap-2">
-                                        <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="emailId"
-                                                className="lg-text-input"
-                                                pattern={emailIdValidationPattern}
-                                                placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
-                                        <input
-                                            type="checkbox"
-                                            name="termsAndConditionsCheckedCheckbox"
-                                            style={{accentColor: `${isComplaintFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
-                                            defaultChecked={isComplaintFormTermsAndConditionsChecked}
+                                            name="emailId"
+                                            className="lg-text-input"
+                                            pattern={emailIdValidationPattern}
+                                            placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
                                             required
-                                            onChange={(e) => {
-                                                setIsComplaintFormTermsAndConditionsChecked(!isComplaintFormTermsAndConditionsChecked);
-                                            }}
-                                        />
-
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
-                                    </div>
-
-                                    <input
-                                        name="utmParameters"
-                                        className="tw-hidden"
-                                        readOnly
-                                        value={JSON.stringify(utmSearchParameters)}
-                                    />
-                                    <input
-                                        readOnly
-                                        className="tw-hidden"
-                                        value="complaintForm"
-                                        name="formType"
-                                    />
-                                    <input
-                                        readOnly
-                                        name="termsAndConditionsChecked"
-                                        className="tw-hidden"
-                                        value={isComplaintFormTermsAndConditionsChecked ? "True" : "False"}
-                                    />
-
-                                    <button
-                                        type="submit"
-                                        className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start"
-                                    >
-                                        {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
-                                    </button>
-                                </Form>
-                            ) : (
-                                // <ContactFormSuccess userPreferences={userPreferences} />
-                                <div className="tw-grid tw-grid-rows-[3.5rem_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
-                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
-                                        <FixedWidthImage
-                                            relativePath="/livguard/icons/confirmation.png"
-                                            width="10rem"
                                         />
                                     </div>
 
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
-                                        className="lg-text-banner tw-row-start-4 tw-text-center"
-                                    />
+                                    <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
 
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
-                                        className="lg-text-body tw-row-start-6 tw-text-center"
-                                    />
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            className="lg-text-input"
+                                            placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
 
-                                    <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
+                                <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormProductText", userPreferences.language)}</div>
 
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
-                                        className="lg-text-icon tw-row-start-[10] tw-text-center"
+                                    <div className="tw-row-start-2">
+                                        <FormSelectComponent
+                                            items={[
+                                                getVernacularString("ormTrackingFormProduct1", userPreferences.language),
+                                                getVernacularString("ormTrackingFormProduct2", userPreferences.language),
+                                                getVernacularString("ormTrackingFormProduct3", userPreferences.language),
+                                                getVernacularString("ormTrackingFormProduct4", userPreferences.language),
+                                            ]}
+                                            itemBuilder={(item) =>
+                                                item == null ? `${getVernacularString("ormTrackingFormProduct1", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
+                                            }
+                                            value={feedbackFormSelectedProduct}
+                                            setValue={(item) =>
+                                                item != null
+                                                    ? setFeedbackFormSelectedProduct(item)
+                                                    : setFeedbackFormSelectedProduct(getVernacularString("ormTrackingFormProduct1", userPreferences.language))
+                                            }
+                                            // buttonClassName="!tw-rounded-full"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="tw-grid tw-row-start-4 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FeedbackFormDetailText", userPreferences.language)}</div>
+
+                                    <textarea
+                                        name="queryDetails"
+                                        className="lg-text-input !tw-rounded-lg tw-row-start-2"
+                                        placeholder={getVernacularString("contactUsS3FeedbackFormDetailPlaceholder", userPreferences.language)}
+                                        rows={3}
                                     />
                                 </div>
-                            )}
-                        </div>
-                    </div>
+
+                                <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
+                                    <input
+                                        type="checkbox"
+                                        name="termsAndConditionsChecked"
+                                        style={{accentColor: `${isFeedbackFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
+                                        defaultChecked={isFeedbackFormTermsAndConditionsChecked}
+                                        required
+                                        onChange={(e) => {
+                                            setIsFeedbackFormTermsAndConditionsChecked(!isFeedbackFormTermsAndConditionsChecked);
+                                        }}
+                                        className="tw-flex-none"
+                                    />
+
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}}
+                                        className="tw-flex-1"
+                                    />
+                                </div>
+
+                                <input
+                                    name="utmParameters"
+                                    className="tw-hidden"
+                                    readOnly
+                                    value={JSON.stringify(utmSearchParameters)}
+                                />
+                                <input
+                                    readOnly
+                                    name="formType"
+                                    className="tw-hidden"
+                                    value="feedbackForm"
+                                />
+                                <input
+                                    readOnly
+                                    name="rating"
+                                    className="tw-hidden"
+                                    value={rating}
+                                />
+                                <input
+                                    readOnly
+                                    name="termsAndConditionsChecked"
+                                    className="tw-hidden"
+                                    value={isFeedbackFormTermsAndConditionsChecked ? "True" : "False"}
+                                />
+                                <input
+                                    readOnly
+                                    name="product"
+                                    className="tw-hidden"
+                                    value={feedbackFormSelectedProduct}
+                                />
+
+                                <button
+                                    type="submit"
+                                    className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
+                                    disabled={rating == 0 || feedbackFormSelectedProduct == ""}
+                                >
+                                    {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                                </button>
+                            </Form>
+                        ) : (
+                            // <ContactFormSuccess userPreferences={userPreferences} />
+                            <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
+                                <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
+                                    <FixedWidthImage
+                                        relativePath="/livguard/icons/confirmation.png"
+                                        width="10rem"
+                                    />
+                                </div>
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                    className="lg-text-banner tw-row-start-4 tw-text-center"
+                                />
+
+                                {rating < 3 ? (
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
+                                        className="lg-text-body tw-row-start-6 tw-text-center"
+                                    />
+                                ) : (
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language)}}
+                                        className="lg-text-body tw-row-start-6 tw-text-center"
+                                    />
+                                )}
+                            </div>
+                        )
+                    ) : (
+                        !isComplaintFormSubmitted ? (
+                            <Form
+                                method="post"
+                                className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
+                            >
+                                <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
+                                        {getVernacularString("contactUsS3ComplaintFormRadioText", userPreferences.language)}
+                                    </div>
+
+                                    <div className="tw-row-start-2 tw-grid tw-grid-rows-[auto_1rem_auto] tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)] lg:tw-row-start-1">
+                                        <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
+                                            <input
+                                                type="radio"
+                                                id="product"
+                                                name="complaintOption"
+                                                className="tw-col-start-1 tw-w-4 tw-h-4"
+                                                value={getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}
+                                                style={{
+                                                    accentColor: `${
+                                                        complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language) ? "#eb2a2b" : "white"
+                                                    }`,
+                                                }}
+                                                onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language))}
+                                            />
+                                            <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}</div>
+                                        </div>
+
+                                        <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
+                                            <input
+                                                type="radio"
+                                                id="service"
+                                                name="complaintOption"
+                                                className="tw-col-start-1 tw-w-4 tw-h-4"
+                                                value={getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}
+                                                style={{
+                                                    accentColor: `${
+                                                        complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language) ? "#eb2a2b" : "white"
+                                                    }`,
+                                                }}
+                                                onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language))}
+                                            />
+                                            <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="tw-grid tw-row-start-2 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3ComplaintFormDetailText", userPreferences.language)}</div>
+
+                                    <textarea
+                                        name="queryDetails"
+                                        className="lg-text-input !tw-rounded-lg tw-row-start-2"
+                                        placeholder={getVernacularString("contactUsS3ComplaintFormDetailPlaceholder", userPreferences.language)}
+                                        rows={3}
+                                    />
+                                </div>
+
+                                <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+
+                                    <input
+                                        type="text"
+                                        name="phoneNumber"
+                                        className="lg-text-input tw-row-start-2"
+                                        pattern={indianPhoneNumberValidationPattern}
+                                        placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                    />
+                                </div>
+
+                                <div className="tw-grid tw-row-start-4 tw-grid-cols-2 tw-gap-2">
+                                    <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
+
+                                        <input
+                                            type="text"
+                                            name="emailId"
+                                            className="lg-text-input"
+                                            pattern={emailIdValidationPattern}
+                                            placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
+
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            className="lg-text-input"
+                                            placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
+                                    <input
+                                        type="checkbox"
+                                        name="termsAndConditionsChecked"
+                                        style={{accentColor: `${isComplaintFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
+                                        defaultChecked={isComplaintFormTermsAndConditionsChecked}
+                                        required
+                                        onChange={(e) => {
+                                            setIsComplaintFormTermsAndConditionsChecked(!isComplaintFormTermsAndConditionsChecked);
+                                        }}
+                                        className="tw-flex-none"
+                                    />
+
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}}
+                                        className="tw-flex-1"
+                                    />
+                                </div>
+
+                                <input
+                                    name="utmParameters"
+                                    className="tw-hidden"
+                                    readOnly
+                                    value={JSON.stringify(utmSearchParameters)}
+                                />
+                                <input
+                                    readOnly
+                                    className="tw-hidden"
+                                    value="complaintForm"
+                                    name="formType"
+                                />
+                                <input
+                                    readOnly
+                                    name="termsAndConditionsChecked"
+                                    className="tw-hidden"
+                                    value={isComplaintFormTermsAndConditionsChecked ? "True" : "False"}
+                                />
+
+                                <button
+                                    type="submit"
+                                    className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start"
+                                >
+                                    {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                                </button>
+                            </Form>
+                        ) : (
+                            // <ContactFormSuccess userPreferences={userPreferences} />
+                            <div className="tw-grid tw-grid-rows-[3.5rem_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
+                                <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
+                                    <FixedWidthImage
+                                        relativePath="/livguard/icons/confirmation.png"
+                                        width="10rem"
+                                    />
+                                </div>
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                    className="lg-text-banner tw-row-start-4 tw-text-center"
+                                />
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
+                                    className="lg-text-body tw-row-start-6 tw-text-center"
+                                />
+
+                                <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                                    className="lg-text-icon tw-row-start-[10] tw-text-center"
+                                />
+                            </div>
+                        )
+                    )}
                 </div>
             </div>
         </div>
@@ -1043,7 +1044,7 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialogType == "call-us" ? "tel:800-1025-551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
+                                to={dialogType == "call-us" ? "tel:8001025551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
@@ -1079,7 +1080,7 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialogType == "call-us" ? "tel:+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
+                                to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "mailto:marketing@livguard.com" : "https://wa.me/920566799"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
@@ -1119,7 +1120,7 @@ function ContactUsDialog({
 
 function OurPresence({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS4H", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -1179,7 +1180,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 
 function ExploreCareers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
                 <div className="tw-w-[7.75rem] tw-h-[7.75rem] tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-full tw-grid tw-justify-center tw-items-center tw-place-self-center lg:tw-place-self-start">
                     <img
