@@ -820,7 +820,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-    const [dialougOptions, setDialougOptions] = useState<{dialougType: string; headerTextContentId: string}>({dialougType: "", headerTextContentId: ""});
+    const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
@@ -855,7 +855,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                         <button
                             className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                             onClick={() => {
-                                setDialougOptions({dialougType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
+                                setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                                 setIsContactUsDialogOpen(true);
                             }}
                         >
@@ -880,7 +880,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                         <button
                             className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                             onClick={() => {
-                                setDialougOptions({dialougType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
+                                setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                                 setIsContactUsDialogOpen(true);
                             }}
                         >
@@ -905,7 +905,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                         <button
                             className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                             onClick={() => {
-                                setDialougOptions({dialougType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
+                                setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                                 setIsContactUsDialogOpen(true);
                             }}
                         >
@@ -929,7 +929,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
                         <Link
                             className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
-                            to="/services"
+                            to="/service"
                             target="_blank"
                         >
                             {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
@@ -942,8 +942,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-                headerTextContentId={dialougOptions.headerTextContentId}
-                dialougType={dialougOptions.dialougType}
+                headerTextContentId={dialogOptions.headerTextContentId}
+                dialogType={dialogOptions.dialogType}
             />
         </div>
     );
@@ -954,13 +954,13 @@ function ContactUsDialog({
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
     headerTextContentId,
-    dialougType,
+    dialogType,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
     headerTextContentId: string;
-    dialougType: string;
+    dialogType: string;
 }) {
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
@@ -1019,27 +1019,27 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialougType == "call-us" ? "tel:800-1025-551" : dialougType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
+                                to={dialogType == "call-us" ? "tel:800-1025-551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialougType == "call-us" ? "800-1025-551" : dialougType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "800-1025-551" : dialogType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
 
-                                    {dialougType == "call-us" && (
+                                    {dialogType == "call-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
                                             src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "email-us" && (
+                                    {dialogType == "email-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
                                             src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "chat-with-us" && (
+                                    {dialogType == "chat-with-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
                                             src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
@@ -1055,27 +1055,27 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialougType == "call-us" ? "tel:+91 92056-67999" : dialougType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
+                                to={dialogType == "call-us" ? "tel:+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialougType == "call-us" ? "+91 92056-67999" : dialougType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
 
-                                    {dialougType == "call-us" && (
+                                    {dialogType == "call-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
                                             src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "email-us" && (
+                                    {dialogType == "email-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
                                             src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
                                         />
                                     )}
 
-                                    {dialougType == "chat-with-us" && (
+                                    {dialogType == "chat-with-us" && (
                                         <img
                                             className="tw-w-6 tw-h-6 tw-flex-0"
                                             src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
