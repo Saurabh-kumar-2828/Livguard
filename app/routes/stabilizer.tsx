@@ -151,19 +151,19 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 />
             )}
 
-            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("dead4984-38fc-490e-8b38-0670a9a03631", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
+            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("e716f6b1-74ad-4087-80e1-fb88fb9a44ce", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
+            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
                 <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString("10653f56-45cc-4317-9951-d6db74523397", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
