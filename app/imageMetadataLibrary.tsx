@@ -2899,4 +2899,16 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LB97VC,mRNsl5u9YMwRj~X%1s+t7",
         finalUrl: "/livguard/services-page/6/warranty_mobile_banner-536eeb.jpg",
     },
+    "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg": {
+        width: 1279,
+        height: 654,
+        blurHash: "LRD]PQ^+%2?b_N%Moexusqj]RjoL",
+        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-desktop-8c8c68.jpg"
+    },
+    "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg": {
+        width: 360,
+        height: 496,
+        blurHash: "LMC$s9kDIUxu.mt6V?oz$+t7V@a#",
+        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-mobile-7dd746.jpg"
+    }
 };

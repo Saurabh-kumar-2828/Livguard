@@ -144,10 +144,10 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={
-                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"
+                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg" : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"
                     }
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full lg:tw-col-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"}
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg" : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"}
                 />
             )}
 
