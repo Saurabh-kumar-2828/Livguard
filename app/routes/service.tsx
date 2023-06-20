@@ -303,7 +303,7 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
                     text={getVernacularString("3815727b-e9b3-4e71-a167-1c85c66b9e1d", userPreferences.language)}
                 />
 
-                <div className="tw-row-start-6 tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr),minmax(0,1fr)] lg:lg-px-screen-edge-2">
+                <div className="tw-row-start-6 tw-grid tw-grid-cols-[repeat(3,minmax(0,1fr))] lg:lg-px-screen-edge-2">
                     {serviceSpecialities.map((serviceSpeciality, index) => {
                         return (
                             <ServiceSpecialityCard
@@ -326,8 +326,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
     const [isServiceRequestFormSubmitted, setIsServiceRequestFormSubmitted] = useState(false);
     const [isServiceRequestFormTermsAndConditionsChecked, setIsServiceRequestFormTermsAndConditionsChecked] = useState(true);
     const [serviceRequestFormSelectedProduct, setServiceRequestFormSelectedProduct] = useState(getVernacularString("ormTrackingFormProduct1", userPreferences.language));
-
-    const toggleFormDefaultValues = false;
 
     useEffect(() => {
         if (actionData != null) {
@@ -366,7 +364,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                             placeholder={getVernacularString("2f725e91-eb31-4d56-898a-87db94a21e48", userPreferences.language)}
                                             rows={3}
                                             required
-                                            defaultValue={toggleFormDefaultValues ? "Test Issue" : ""}
                                         />
                                     </div>
 
@@ -410,7 +407,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 pattern={indianPhoneNumberValidationPattern}
                                                 placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
                                                 required
-                                                defaultValue={toggleFormDefaultValues ? "9953465989" : ""}
                                             />
                                         </div>
                                     </div>
@@ -427,7 +423,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 pattern={emailIdValidationPattern}
                                                 placeholder={getVernacularString("01fce108-4fe0-40c2-bb3a-3fb980fcec72", userPreferences.language)}
-                                                defaultValue={toggleFormDefaultValues ? "test@test.com" : ""}
                                                 required
                                             />
                                         </div>
@@ -443,7 +438,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("a0d68490-ad84-47fb-863c-2a9c812feaec", userPreferences.language)}
                                                 required
-                                                defaultValue={toggleFormDefaultValues ? "Test Name" : ""}
                                             />
                                         </div>
                                     </div>
@@ -460,7 +454,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("848eb522-5221-4035-ac77-94338e97ac9c", userPreferences.language)}
                                                 required
-                                                defaultValue={toggleFormDefaultValues ? "Pin Code" : ""}
                                             />
                                         </div>
 
@@ -475,7 +468,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("c5702705-3fa4-4f7d-a706-4e22ea024aac", userPreferences.language)}
                                                 required
-                                                defaultValue={toggleFormDefaultValues ? "City" : ""}
                                             />
                                         </div>
                                     </div>
@@ -492,7 +484,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("981952eb-5f5c-4b14-b4e8-f1b766851c64", userPreferences.language)}
                                                 required
-                                                defaultValue={toggleFormDefaultValues ? "State" : ""}
                                             />
                                         </div>
 
@@ -506,7 +497,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 name="serviceNumber"
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("54ff368f-0a01-443e-b940-9a9240cbe783", userPreferences.language)}
-                                                defaultValue={toggleFormDefaultValues ? "Service Number" : ""}
                                             />
                                         </div>
                                     </div>
@@ -570,8 +560,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
                                         className="lg-text-body tw-row-start-6 tw-text-center"
                                     />
-
-                                    {/* <VerticalSpacer className="tw-h-16 tw-row-start-7" /> */}
                                 </div>
                             )}
                         </div>
