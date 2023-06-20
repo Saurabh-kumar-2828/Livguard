@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {ActionFunction, LoaderFunction, json} from "@remix-run/node";
+import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, json} from "@remix-run/node";
 import {Form, Link, useActionData, useLoaderData} from "@remix-run/react";
 import {Dialog, Transition} from "@headlessui/react";
 import {toast} from "react-toastify";
@@ -20,9 +20,36 @@ import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {UserPreferences} from "~/typeDefinitions";
+import {Language, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Livguard Services - Reliable Solutions for Your Power Needs",
+            description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
+            "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/service",
+            "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
+            "og:type": "website",
+            "og:image": "",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "?????",
+            description: "?????",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/service"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
