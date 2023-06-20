@@ -14,6 +14,7 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {StickyLandingPage3BottomBar} from "~/components/landingPage3BottomBar";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
@@ -98,7 +99,11 @@ export default function () {
                 />
             </CampaignPageScaffold>
 
-            <StickyLandingPageBottomBar userPreferences={userPreferences} />
+            <StickyLandingPage3BottomBar
+                userPreferences={userPreferences}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+            />
 
             <script
                 type="application/ld+json"
@@ -304,7 +309,10 @@ function HeroSection({
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] sm:tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
+                containerWidth == null || containerWidth < 380
+                    ? "tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
+                    : "tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]",
                 className,
             )}
             ref={ref}
@@ -326,22 +334,26 @@ function HeroSection({
             )} */}
 
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
-                <CoverImage
-                    relativePath="/livguard/lp3/1/bg.jpg"
-                />
+                <CoverImage relativePath="/livguard/lp3/1/bg.jpg" />
 
                 {containerWidth == null ? null : (
                     <>
                         <img
                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
                             alt="Akshay Kumar"
-                            className={concatenateNonNullStringsWithSpaces("tw-absolute", containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-1/4 tw-h-3/5")}
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute",
+                                containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-1/4 tw-h-3/5",
+                            )}
                         />
 
                         <img
                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/combo.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
                             alt="Livguard inverter-battery combo"
-                            className={concatenateNonNullStringsWithSpaces("tw-absolute", containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-left-8 tw-h-3/5")}
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute",
+                                containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-left-8 tw-h-3/5",
+                            )}
                         />
                     </>
                 )}
