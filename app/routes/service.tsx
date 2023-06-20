@@ -265,6 +265,7 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
                         <img
                             src={iconUrl}
                             alt=""
+                            className="tw-invert dark:tw-invert-0"
                         />
                     </div>
                     <div className="tw-text-center">{title}</div>
@@ -574,24 +575,12 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
 
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
-            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
-            </DefaultTextAnimation>
-
-            <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
-
-            <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
-                <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
-            </DefaultTextAnimation>
-
-            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4" />
-
+    function CallUsCard() {
+        return (
             <div className="tw-row-start-5 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
-                        className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"}
+                        className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
                         src="https://files.growthjockey.com/livguard/icons/service/call-us.svg"
                     />
                 </div>
@@ -612,13 +601,15 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </button>
                 </div>
             </div>
+        );
+    }
 
-            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6" />
-
+    function WhatsappUsCard() {
+        return (
             <div className="tw-row-start-7 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
-                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us.svg"
                     />
                 </div>
@@ -639,13 +630,15 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </button>
                 </div>
             </div>
+        );
+    }
 
-            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8]" />
-
+    function EmailUsCard() {
+        return (
             <div className="tw-row-start-[9] lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
-                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/service/email-us.svg"
                     />
                 </div>
@@ -666,6 +659,32 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </button>
                 </div>
             </div>
+        );
+    }
+
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
+            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
+            </DefaultTextAnimation>
+
+            <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
+
+            <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
+                <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
+            </DefaultTextAnimation>
+
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4" />
+
+            <CallUsCard />
+
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6" />
+
+            <WhatsappUsCard />
+
+            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8]" />
+
+            <EmailUsCard />
 
             <ContactUsDialog
                 userPreferences={userPreferences}
