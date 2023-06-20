@@ -822,6 +822,122 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
 
+    function CallUsCard() {
+        return (
+            <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/call-us.svg"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start tw-text-center lg:tw-text-left">
+                        {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
+                    </div>
+
+                    <button
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        onClick={() => {
+                            setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
+                            setIsContactUsDialogOpen(true);
+                        }}
+                    >
+                        {getVernacularString("contactUsS2Option1ButtonText", userPreferences.language)}
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    function WhatsappUsCard() {
+        return (
+            <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us.svg"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
+
+                    <button
+                        className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        onClick={() => {
+                            setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
+                            setIsContactUsDialogOpen(true);
+                        }}
+                    >
+                        {getVernacularString("contactUsS2Option2ButtonText", userPreferences.language)}
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    function EmailUsCard() {
+        return (
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/email-us.svg"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
+
+                    <button
+                        className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        onClick={() => {
+                            setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
+                            setIsContactUsDialogOpen(true);
+                        }}
+                    >
+                        {getVernacularString("contactUsS2Option3ButtonText", userPreferences.language)}
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    function RequestAServiceCard() {
+        return (
+            <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/request-service.svg"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
+
+                    <Link
+                        className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
+                        to="/service"
+                        target="_blank"
+                    >
+                        {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
@@ -837,105 +953,13 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
             <VerticalSpacer className="tw-h-4 lg:tw-h-6 tw-row-start-4" />
 
             <div className="tw-row-start-5 tw-grid tw-grid-rows-[auto_2rem_auto] lg:tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_2rem_minmax(0,1fr)] lg:tw-gap-6">
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
-                    <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
-                        <img
-                            className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"}
-                            src="https://files.growthjockey.com/livguard/icons/contact-us/call-us.svg"
-                        />
-                    </div>
+                <CallUsCard />
 
-                    <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
+                <WhatsappUsCard />
 
-                    <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                        <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start tw-text-center lg:tw-text-left">
-                            {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
-                        </div>
+                <EmailUsCard />
 
-                        <button
-                            className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
-                            onClick={() => {
-                                setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
-                                setIsContactUsDialogOpen(true);
-                            }}
-                        >
-                            {getVernacularString("contactUsS2Option1ButtonText", userPreferences.language)}
-                        </button>
-                    </div>
-                </div>
-
-                <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
-                    <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
-                        <img
-                            className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
-                            src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us.svg"
-                        />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
-
-                    <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                        <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
-
-                        <button
-                            className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
-                            onClick={() => {
-                                setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
-                                setIsContactUsDialogOpen(true);
-                            }}
-                        >
-                            {getVernacularString("contactUsS2Option2ButtonText", userPreferences.language)}
-                        </button>
-                    </div>
-                </div>
-
-                <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
-                    <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
-                        <img
-                            className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
-                            src="https://files.growthjockey.com/livguard/icons/contact-us/email-us.svg"
-                        />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
-
-                    <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                        <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
-
-                        <button
-                            className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
-                            onClick={() => {
-                                setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
-                                setIsContactUsDialogOpen(true);
-                            }}
-                        >
-                            {getVernacularString("contactUsS2Option3ButtonText", userPreferences.language)}
-                        </button>
-                    </div>
-                </div>
-
-                <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
-                    <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
-                        <img
-                            className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10"
-                            src="https://files.growthjockey.com/livguard/icons/contact-us/request-service.svg"
-                        />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
-
-                    <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                        <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
-
-                        <Link
-                            className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
-                            to="/service"
-                            target="_blank"
-                        >
-                            {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
-                        </Link>
-                    </div>
-                </div>
+                <RequestAServiceCard />
             </div>
 
             <ContactUsDialog
