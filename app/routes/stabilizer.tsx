@@ -175,7 +175,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-100-dark tw-rounded-lg",
+                    "tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-300-light dark:tw-bg-secondary-100-dark tw-rounded-lg",
                 )}
             >
                 <div className="tw-row-start-2">
@@ -247,7 +247,8 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                         />
                     ))}
                     className="tw-mx-auto"
-                    selectedContainerClassName="lg:tw-py-5"
+                    deselectedContainersClassName="lg:tw-py-5"
+                    selectedContainerClassName="tw-h-full"
                 />
             </div>
         </>
@@ -570,7 +571,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                                 )}
                             >
                                 <img
-                                    className={isSelected ? "dark:tw-invert" : ""}
+                                    className={isSelected ? "tw-invert" : ""}
                                     src={typeSelector.iconUrl}
                                 />
                             </div>
@@ -731,7 +732,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                     href="https://www.livguard.com/static-assets/livguard-buying-guide.pdf"
                     download
                     target="_blank"
-                    className="tw-bg-secondary-100-dark tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
+                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
                 >
                     <img
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
@@ -745,7 +746,7 @@ function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences:
                     href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
                     download
                     target="_blank"
-                    className="tw-bg-secondary-100-dark tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
+                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
                 >
                     <img
                         className="tw-row-start-1 tw-col-start-1 tw-place-self-center"

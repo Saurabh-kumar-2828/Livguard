@@ -10,10 +10,12 @@ export function CarouselStyle5({
     className,
     slidesContainerClassName,
     selectedContainerClassName,
+    deselectedContainersClassName,
 }: {
     items: Array<any>;
     className?: string;
     selectedContainerClassName?: string;
+    deselectedContainersClassName?: string;
     slidesContainerClassName?: string;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
@@ -29,11 +31,11 @@ export function CarouselStyle5({
                     itemBuilder={(item, itemIndex) => (
                         // Non selected items are dimmed
                         <div
-                            className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 ${itemIndex !== selectedIndex ? "tw-brightness-50" : ""}`}
+                            className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 tw-h-full ${itemIndex !== selectedIndex ? "tw-brightness-50" : ""}`}
                             key={itemIndex}
                         >
-                            {/* Selected Item's container's height is increased to give highlighted effect */}
-                            {itemIndex !== selectedIndex ? <div className={selectedContainerClassName}>{item}</div> : <>{item}</>}
+                            {/* Deselected items' container's height is decreased to give highlighted effect */}
+                            {itemIndex !== selectedIndex ? <div className={deselectedContainersClassName}>{item}</div> : <div className={selectedContainerClassName}>{item}</div>}
                         </div>
                     )}
                 />
