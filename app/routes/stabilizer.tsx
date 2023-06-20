@@ -247,7 +247,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                         />
                     ))}
                     className="tw-mx-auto"
-                    deselectedContainersClassName="lg:tw-py-5"
+                    deselectedContainersClassName="tw-scale-y-[0.9]"
                     selectedContainerClassName="tw-h-full"
                 />
             </div>
@@ -521,7 +521,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
         },
     ];
 
-    function StabilizerTypeSelector({
+    const StabilizerTypeSelector = ({
         userPreferences,
         selectedStabilizerType,
         setSelectedStabilizerType,
@@ -529,7 +529,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
         userPreferences: UserPreferences;
         selectedStabilizerType: number;
         setSelectedStabilizerType: Function;
-    }) {
+    }) => {
         const typeSelectorButtonsContent = [
             {
                 iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-AC.svg",
@@ -585,7 +585,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                 })}
             </div>
         );
-    }
+    };
 
     function StabilizerCard({
         slug,
