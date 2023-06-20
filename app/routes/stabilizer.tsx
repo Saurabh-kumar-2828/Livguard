@@ -574,23 +574,19 @@ function StabilizerTypeSelector({
 }) {
     const typeSelectorButtonsContent = [
         {
-            iconUrl: "",
-            iconUrlSelected: "https://files.growthjockey.com/livguard/icons/stabilizer/for-ac.svg",
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-AC.svg",
             textContentPiece: "076cf02d-0b8a-4af2-9e0f-63d1804402d2",
         },
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-mains.svg",
-            iconUrlSelected: "",
             textContentPiece: "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9",
         },
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-tvs.svg",
-            iconUrlSelected: "",
             textContentPiece: "b82414bd-0f13-4401-a592-84cbc4f9a4e2",
         },
         {
             iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-refrigerator.svg",
-            iconUrlSelected: "",
             textContentPiece: "33655fc5-1527-4744-a163-bd6217eac5b4",
         },
     ];
@@ -629,7 +625,10 @@ function StabilizerTypeSelector({
                                 isSelected ? "tw-bg-white" : "tw-bg-secondary-500-light",
                             )}
                         >
-                            <img src={isSelected ? typeSelector.iconUrlSelected : typeSelector.iconUrl} />
+                            <img
+                                className={isSelected ? "dark:tw-invert" : ""}
+                                src={typeSelector.iconUrl}
+                            />
                         </div>
 
                         <div
