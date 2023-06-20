@@ -4108,7 +4108,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     "71bf111f-fc1f-4026-baeb-9b4981a8aba9": {
-        [Language.English]: `Watch <span class="lg-text-highlighted">Digital Film</span`,
+        [Language.English]: `Watch <span class="lg-text-highlighted">Digital Film</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "dfa03024-6e74-45c6-9634-8d83833930f3": {
+        [Language.English]: `Charged Up <span class="lg-text-highlighted">Deals</span> For You`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "0931e2ce-74c8-49b3-84d0-760b290166eb": {
+        [Language.English]: `Best deals and offers curated specially for you`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },

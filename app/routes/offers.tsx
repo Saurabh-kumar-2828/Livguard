@@ -9,6 +9,7 @@ import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -113,16 +114,15 @@ function OffersPage({
                 className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <div className="tw-row-start-4 tw-col-start-1 tw-col-span-full tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center">
+            <div className="tw-row-start-4 tw-col-start-1 tw-col-span-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center tw-max-w-[100rem] tw-mx-auto">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
-                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
+                    className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem] lg:tw-max-h-[36rem]"
                 />
 
-                <ChooseBestInverterBattery
+                <FaqSection
                     userPreferences={userPreferences}
-                    utmParameters={utmParameters}
                     className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1"
                 />
             </div>
@@ -146,10 +146,9 @@ function HeroSection({
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
     return (
-        // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-19.625rem-var(--lg-mobile-ui-height))] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
                 className,
             )}
             ref={ref}
@@ -157,39 +156,24 @@ function HeroSection({
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
                     key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/home/1/1-mobile.jpg" : "/livguard/home/1/1-desktop.jpg"}
                 />
             )}
 
-            <div className="tw-row-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-black tw-opacity-40" />
-
-            <h2 className="tw-row-start-4 tw-col-start-1 tw-flex tw-flex-col tw-gap-y-2 tw-z-10 tw-text-center lg-px-screen-edge">
-                <DefaultTextAnimation>
-                    <div className="lg-text-banner">{appendSpaceToString(getVernacularString("homeS1T1", userPreferences.language))}</div>
-                </DefaultTextAnimation>
-
-                <DefaultTextAnimation>
-                    <div className="lg-text-title1">{getVernacularString("homeS1T2", userPreferences.language)}</div>
-                </DefaultTextAnimation>
-            </h2>
-
-            <DefaultElementAnimation className="tw-row-start-6 tw-col-start-1 tw-z-10">
-                <ContactUsCta
-                    userPreferences={userPreferences}
-                    textVernacId="homeS1T3"
-                    className="tw-z-10"
-                    utmParameters={utmParameters}
-                    pageUrl={pageUrl}
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("dfa03024-6e74-45c6-9634-8d83833930f3", userPreferences.language)}}
+                    className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
                 />
-            </DefaultElementAnimation>
+            </DefaultTextAnimation>
 
-            <Link
-                to="#energy-storage-solutions"
-                className="tw-row-[9] tw-col-start-1"
-            >
-                <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce tw-z-10" />
-            </Link>
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("0931e2ce-74c8-49b3-84d0-760b290166eb", userPreferences.language)}}
+                    className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                />
+            </DefaultTextAnimation>
         </div>
     );
 }
@@ -483,5 +467,38 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences}: {offer; t
                 {getVernacularString("4d53d9a4-bbd6-464b-be5c-f0bab1defe02", userPreferences.language)}
             </button>
         </div>
+    );
+}
+
+function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "homeS9Q1Q",
+            answer: "homeS9Q1A",
+        },
+        {
+            question: "homeS9Q2Q",
+            answer: "homeS9Q2A",
+        },
+        {
+            question: "homeS9Q3Q",
+            answer: "homeS9Q3A",
+        },
+        {
+            question: "homeS9Q4Q",
+            answer: "homeS9Q4A",
+        },
+        {
+            question: "homeS9Q5Q",
+            answer: "homeS9Q5A",
+        },
+    ];
+
+    return (
+        <FaqSectionInternal
+            faqs={faqs}
+            userPreferences={userPreferences}
+            className={className}
+        />
     );
 }

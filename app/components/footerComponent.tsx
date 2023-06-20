@@ -557,7 +557,7 @@ export function FooterComponent({
 
                 <FooterSocialLogosAndCopyright
                     userPreferences={userPreferences}
-                    className="lg:tw-hidden"
+                    className="lg:tw-hidden tw-mx-[calc(-1*var(--lg-px-screen-edge))]"
                 />
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-row-span-3">
