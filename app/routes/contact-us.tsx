@@ -459,7 +459,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
             <VerticalSpacer className="tw-h-12 tw-row-start-4" />
 
             <div className="tw-row-start-5 tw-col-span-full lg:tw-px-0">
-                <div className="tw-grid tw-grid-flow-row tw-h-full">
+                <div className="tw-grid tw-grid-flow-row tw-h-full tw-justify-center lg:tw-justify-normal">
                     {selectedIndex == 0 ? (
                         !isFeedbackFormSubmitted ? (
                             <Form
@@ -650,7 +650,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                     ) : !isComplaintFormSubmitted ? (
                         <Form
                             method="post"
-                            className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2  tw-place-self-start"
+                            className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2  tw-place-self-center"
                         >
                             <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-gap-2">
                                 <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
@@ -787,7 +787,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                         </Form>
                     ) : (
                         // <ContactFormSuccess userPreferences={userPreferences} />
-                        <div className="tw-grid tw-grid-rows-[minmax(0,1fr)_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(1rem,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-place-self-center">
+                        <div className="tw-grid tw-grid-rows-[minmax(0,1fr)_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(1rem,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-place-self-center tw-px-16">
                             <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
                                 <FixedWidthImage
                                     relativePath="/livguard/icons/confirmation.png"
