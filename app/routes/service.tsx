@@ -258,7 +258,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 function EffortlessService({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     function ReadMore({text, className}: {text: string; className?: string}) {
         const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-        const [isReadMore, setIsReadMore] = useState(true);
+        const [isReadMore, setIsReadMore] = useState(false);
         const toggleReadMore = () => {
             setIsReadMore(!isReadMore);
         };
@@ -269,12 +269,12 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
             >
                 {containerHeight !== undefined && containerWidth !== undefined && (containerHeight > containerWidth || containerWidth < 640) ? (
                     <p className="lg-text-body">
-                        {isReadMore ? text.slice(0, 135) : text}&nbsp;
+                        {!isReadMore && text.length > 135 ? text.slice(0, 135) + "..." : text}&nbsp;
                         <span
                             onClick={toggleReadMore}
                             className="tw-text-primary-500-dark tw-underline"
                         >
-                            {isReadMore ? "Read More" : "Show Less"}
+                            {text.length > 135 && <>{isReadMore ? "Show Less" : "Read More"}</>}
                         </span>
                     </p>
                 ) : (
