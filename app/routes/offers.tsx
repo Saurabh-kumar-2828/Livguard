@@ -435,7 +435,17 @@ function RecommendationCard({slug, productType, userPreferences}: {slug: string;
             <VerticalSpacer className="tw-h-2" />
 
             <div className="tw-w-full tw-text-center lg-text-secondary-700">
-                {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}500{getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
+                {userPreferences.language === Language.English ? (
+                    <>
+                        {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}500
+                        {getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
+                    </>
+                ) : (
+                    <>
+                        ₹500{getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}&nbsp;
+                        {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}
+                    </>
+                )}
             </div>
 
             <VerticalSpacer className="tw-h-4" />

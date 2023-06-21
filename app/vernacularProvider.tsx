@@ -3820,37 +3820,37 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "28d2dcd2-f0a8-4314-b3d0-981ddf2444b9": {
         [Language.English]: `Best <span class="lg-text-highlighted">Offers</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सर्वश्रेष्ठ <span class="lg-text-highlighted">ऑफर्स</span>`,
         [Language.Marathi]: "?????",
     },
     "5b7f29b4-216f-4c13-ac5d-811cc4cb1733": {
         [Language.English]: `Power-Packed and Ready`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `शक्ति से भरे और तैयार`,
         [Language.Marathi]: "?????",
     },
     "7b226d84-b7f2-4f94-8626-67627cb47c28": {
         [Language.English]: `Inverter & Battery Offers`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर & बैटरी ऑफर्स `,
         [Language.Marathi]: "?????",
     },
     "e3f844b6-79ab-47fd-a25c-67fadebeae73": {
         [Language.English]: `Automotive Offers`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑटोमोटिव ऑफर्स`,
         [Language.Marathi]: "?????",
     },
     "ddf400a4-3900-4561-85fb-1447c8693412": {
         [Language.English]: `Solar Offers`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सोलर ऑफर्स`,
         [Language.Marathi]: "?????",
     },
     "46c68fad-1e6e-442c-ab3c-fc09234693d2": {
         [Language.English]: `Accessories Offers`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सहायक उपकरण ऑफर्स`,
         [Language.Marathi]: "?????",
     },
     "5ac20616-07fb-44f4-bf6f-c5e16b272eb8": {
         [Language.English]: `Our Featured <span class="lg-text-highlighted">Products</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारे विशेष <span class="lg-text-highlighted">उत्पाद</span>`,
         [Language.Marathi]: "?????",
     },
     contactFormS1T1: {
@@ -4089,22 +4089,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c17b911e-a564-4192-a363-11def77e12b9": {
         [Language.English]: "Starting from ₹",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "से शुरू",
         [Language.Marathi]: "?????",
     },
     "28c8bd29-74e4-425b-8654-9d0f51a98cba": {
         [Language.English]: "/-",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "/-",
         [Language.Marathi]: "?????",
     },
     "063dc56b-910e-4a48-acb8-8f52668a4c72": {
         [Language.English]: "View Product",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "उत्पाद देखें",
         [Language.Marathi]: "?????",
     },
     "b9e34b6e-972e-4246-a393-6450421e4813": {
-        [Language.English]: "Offer coming soon!",
-        [Language.Hindi]: "?????",
+        [Language.English]: "Offers coming soon!",
+        [Language.Hindi]: "ऑफर जल्दी ही आने वाले हैं!",
         [Language.Marathi]: "?????",
     },
     // Service Page Vernac Strings Start
