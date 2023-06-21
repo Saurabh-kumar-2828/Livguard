@@ -39,7 +39,7 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "?????",
+            title: "लिवगार्ड के रोमांचक ऑफर: इनवर्टर, बैटरी और बहुत कुछ कम कीमतों पर खरीदें!",
             description: "?????",
         };
     } else {
