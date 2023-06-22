@@ -27,8 +27,7 @@ stages {
             sh 'ls -l'  
             sh 'cd app/'
             sh 'ls -l'
-            sh 'cd livguard-common-typescript'
-            sh 'ls -l'
+        
         }
     
      }
