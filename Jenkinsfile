@@ -23,7 +23,7 @@ stages {
     }
      stage('Cloning Git website') {
         steps {
-            sh 'git clone git@github.com:GrowthJockey/growth-jockey-website.git'
+            git branch: 'main', credentialsId: 'eb9c31e1-3939-4a09-a234-210cf16a4045', url: 'https://github.com/GrowthJockey/livguard-website.git'
      
         }
     
