@@ -650,7 +650,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
+                        className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
                             setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -679,7 +679,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
+                        className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
                         onClick={() => {
                             setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);

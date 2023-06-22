@@ -863,7 +863,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
                             setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -892,7 +892,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
                             setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -921,7 +921,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
 
                     <Link
-                        className="lg-cta-outline-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
                         to="/service"
                         target="_blank"
                     >
@@ -933,7 +933,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
     }
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-px-0", className)}>
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
             </DefaultTextAnimation>
