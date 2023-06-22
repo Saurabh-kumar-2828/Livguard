@@ -24,7 +24,11 @@ stages {
      stage('Cloning Git website') {
         steps {
             git branch: 'main', credentialsId: 'eb9c31e1-3939-4a09-a234-210cf16a4045', url: 'https://github.com/GrowthJockey/livguard-website.git'
-            sh 'ls -l'       
+            sh 'ls -l'  
+            sh 'cd app/'
+            sh 'ls -l'
+            sh 'cd livguard-common-typescript'
+            sh 'ls -l'
         }
     
      }
