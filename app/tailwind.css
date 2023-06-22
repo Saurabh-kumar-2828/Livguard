@@ -267,6 +267,18 @@
         background: linear-gradient(270deg, #F25F60 -106.84%, #EB2A2B 102.47%);
     }
 
+    .lg-about-us-who-we-are-bg-gradient-dark {
+        background: linear-gradient(171.42deg, #474546 -6.46%, #1F2022 71.76%);
+    }
+
+    .lg-about-us-who-we-are-bg-gradient-light {
+        background: linear-gradient(171.42deg, #d7d7d7 -6.46%, #fcfcfc 71.76%);
+    }
+
+    .lg-about-us-leaders-bg-gradient {
+        background: linear-gradient(270deg, #F25F60 -106.84%, #EB2A2B 102.47%);
+    }
+
     /* @keyframes animation-text-baseline {
         0% {
             transform: translateY(1em);

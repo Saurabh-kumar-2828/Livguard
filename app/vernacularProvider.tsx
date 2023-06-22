@@ -4416,4 +4416,172 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     //Stabilizer Page Vernac Strings End
+
+    //About Us Page Vernac Strings Start
+    "b38f6ec8-1c38-44ef-b016-93da7ed7bf19": {
+        [Language.English]: `Bringing Unlimited Energy To Every Household`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "540952b6-a7ef-453f-a6e5-cd8953fa4222": {
+        [Language.English]: `Who <span class="lg-text-highlighted">We Are</span>`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "55c526fa-c19d-4a73-a460-62c333174a1b": {
+        [Language.English]: `About Livguard`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "a95dff17-79db-4ac9-b9aa-2518f93919c5": {
+        [Language.English]: `With our customer-centric approach, we aim to empower everyone across the nation with limitless energy. Our diverse product portfolio, spanning from automotive batteries, inverters and inverter batteries, to stabilizers and residential solar solutions, ushers in a new era of innovative energy products.`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "8a35dff2-079c-4638-a96a-8100d04a72b6": {
+        [Language.English]: `Our Mission`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "4e49216b-9457-488a-860e-3fb97ba34100": {
+        [Language.English]: `Establish Livguard as a strong player in energy-solution space in India. We will achieve this by developing an ecosystem of delighted customers, committed partners, exceptional product quality and delightful service.`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "68b1762f-e31f-4110-bf87-3afc487d7edf": {
+        [Language.English]: `Our Vision`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "373fedff-da89-4396-b215-ed4099abfcf9": {
+        [Language.English]: `To be a global leader in energy storage products driven by innovative technology and excellence in manufacturing & services.`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "75b7261b-7ced-4385-891a-ecfe8123bab5": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Presence</span>`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "bc06ea32-4286-48ed-bde2-5a5c7250ff67": {
+        [Language.English]: `India Operations`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "78cd576b-2c66-4cf1-b4db-209d0543a659": {
+        [Language.English]: `Livguard, with its widespread network of dealers, distributors, and service providers, aims to deliver limitless energy experiences to all.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "02195d6b-8516-4598-9214-d1b13866d85b": {
+        [Language.English]: `Know More`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "8ae1096b-408d-4d55-8005-78574a7b5815": {
+        [Language.English]: `International Operations`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "812b45ce-01e5-4ecb-9595-33766948660f": {
+        [Language.English]: `Livguard has established connections in many countries, which enable them to seize opportunities in the Global Energy Storage Solutions Sector.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "2adcc683-70f0-4b39-be83-73211ea28f20": {
+        [Language.English]: `<span class="lg-text-highlighted">Explore Careers</span> <br/> At Livguard`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "1aa2a41b-b500-43bb-b0cd-b9999f5e442b": {
+        [Language.English]: `Be a part of Livguard's energy-packed team. Drop us a mail with your field of interest and we will get back to you!`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "c1a8bbb2-f085-4c71-8082-7e292fcde4e7": {
+        [Language.English]: `Apply Now`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "13f6e1c4-d97c-46cf-8ddb-52712843410b": {
+        [Language.English]: `Meet Our`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "cb60764f-1758-4b61-a998-8f7acc7b0b92": {
+        [Language.English]: `<span class="lg-text-highlighted">Leaders</span>`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "d867ff63-d4bf-49ae-8ac7-7290a76caef3": {
+        [Language.English]: `Mr. Rakesh Malhotra `,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "755f8e01-18c9-4883-956c-5851e4e3885f": {
+        [Language.English]: `(Founder & Mentor)`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "8ddd1acf-9b2d-41f4-b4cd-e2395c211c88": {
+        [Language.English]: `A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "4ca82802-b39e-4844-9586-82ce4b095cff": {
+        [Language.English]: `Mr. Gurpreet Bhatia`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "23fd4d15-8063-44e1-be03-a3aa6585d33b": {
+        [Language.English]: `(Founder & Mentor)`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "4f82218c-1156-4660-b634-a1231d82d457": {
+        [Language.English]: `A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "54c7930a-aed3-4efc-b2eb-68a7b5b87ae2": {
+        [Language.English]: `Mr. Navneet Kapoor`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5": {
+        [Language.English]: `(Co-founder & Chairman)`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "07d2f8d0-b81b-4dd3-a547-1adef20b3fea": {
+        [Language.English]: `One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "4d638603-3fff-4920-b8b2-927d6a748d54": {
+        [Language.English]: `Mr. Alankar Mittal`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "62e2f1af-3ce5-4558-a8aa-3cbd1e48ee87": {
+        [Language.English]: `(Executive VP)`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "fca6fd65-7e15-40dc-a89a-52895912401f": {
+        [Language.English]: `One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "389859cd-81c3-4b9a-95ad-b38dde856511": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Values</span>`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "0840f752-7ac4-4277-8e49-5cf832119941": {
+        [Language.English]: `AIM & ACT`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    //About Us Page Vernac Strings End
 };

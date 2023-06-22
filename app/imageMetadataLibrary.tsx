@@ -2903,12 +2903,32 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         width: 1279,
         height: 654,
         blurHash: "LRD]PQ^+%2?b_N%Moexusqj]RjoL",
-        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-desktop-8c8c68.jpg"
+        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-desktop-8c8c68.jpg",
     },
     "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg": {
         width: 360,
         height: 496,
         blurHash: "LMC$s9kDIUxu.mt6V?oz$+t7V@a#",
-        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-mobile-7dd746.jpg"
-    }
+        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-mobile-7dd746.jpg",
+    },
+    "/livguard/about-us/3/leader-1.svg": {
+        width: 141,
+        height: 141,
+        finalUrl: "/livguard/about-us/3/leader-1-538545.svg",
+    },
+    "/livguard/about-us/3/leader-2.svg": {
+        width: 141,
+        height: 141,
+        finalUrl: "/livguard/about-us/3/leader-2-70fcf5.svg",
+    },
+    "/livguard/about-us/3/leader-3.svg": {
+        width: 141,
+        height: 141,
+        finalUrl: "/livguard/about-us/3/leader-3-570fca.svg",
+    },
+    "/livguard/about-us/5/value-aim.png": {
+        width: 307,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-aim-a46096.png",
+    },
 };
