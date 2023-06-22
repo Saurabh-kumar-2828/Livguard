@@ -82,19 +82,19 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <StabilizersThatAreMeantToLast
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0"
+                    className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
                 <StabilizersForHome
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-col-span-full"
+                    className="tw-row-start-5 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5">
+                <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
                     <WeAreEverywhere
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
@@ -113,7 +113,7 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-9 lg:tw-row-start-9 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                    className="tw-row-start-9 lg:tw-row-start-9 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
@@ -121,7 +121,7 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-11 lg:tw-row-start-11 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem]"
+                    className="tw-row-start-11 lg:tw-row-start-11 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 lg:tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
@@ -175,7 +175,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-300-light dark:tw-bg-secondary-100-dark tw-rounded-lg",
+                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-300-light dark:tw-bg-secondary-100-dark tw-rounded-lg",
                 )}
             >
                 <div className="tw-row-start-2">
@@ -211,14 +211,19 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
             imageRelativePath: "/livguard/category/batteries/2/4.jpg",
         },
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide4Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide4Description",
-            imageRelativePath: "/livguard/category/batteries/2/4.jpg",
+            titleTextContentPiece: "categoryBatteriesS2Slide1Heading",
+            bodyTextContentPiece: "categoryBatteriesS2Slide1Description",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
         },
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide4Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide4Description",
-            imageRelativePath: "/livguard/category/batteries/2/4.jpg",
+            titleTextContentPiece: "categoryBatteriesS2Slide2Heading",
+            bodyTextContentPiece: "categoryBatteriesS2Slide2Description",
+            imageRelativePath: "/livguard/category/batteries/2/2.jpg",
+        },
+        {
+            titleTextContentPiece: "categoryBatteriesS2Slide3Heading",
+            bodyTextContentPiece: "categoryBatteriesS2Slide3Description",
+            imageRelativePath: "/livguard/category/batteries/2/3.jpg",
         },
         {
             titleTextContentPiece: "categoryBatteriesS2Slide4Heading",
@@ -229,7 +234,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
 
     return (
         <>
-            <div className={className}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div>{getVernacularString("612038bf-767c-475f-beca-aa4428c56d9f", userPreferences.language)}</div>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("4a65b232-e2e5-4a85-9004-a84a5e04f91d", userPreferences.language)}} />
@@ -521,71 +526,24 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
         },
     ];
 
-    const StabilizerTypeSelector = ({
-        userPreferences,
-        selectedStabilizerType,
-        setSelectedStabilizerType,
-    }: {
-        userPreferences: UserPreferences;
-        selectedStabilizerType: number;
-        setSelectedStabilizerType: Function;
-    }) => {
-        const typeSelectorButtonsContent = [
-            {
-                iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-AC.svg",
-                textContentPiece: "076cf02d-0b8a-4af2-9e0f-63d1804402d2",
-            },
-            {
-                iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-mains.svg",
-                textContentPiece: "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9",
-            },
-            {
-                iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-tvs.svg",
-                textContentPiece: "b82414bd-0f13-4401-a592-84cbc4f9a4e2",
-            },
-            {
-                iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-refrigerator.svg",
-                textContentPiece: "33655fc5-1527-4744-a163-bd6217eac5b4",
-            },
-        ];
-
-        return (
-            <div className="tw-grid tw-auto-rows-auto tw-grid-cols-[minmax(auto,1fr)_minmax(auto,1fr)] tw-gap-4 lg-px-screen-edge-2 lg:tw-flex lg:tw-flex-row lg:tw-justify-center">
-                {typeSelectorButtonsContent.map((typeSelector, typeSelectorIndex) => {
-                    const isSelected = selectedStabilizerType === typeSelectorIndex;
-                    return (
-                        <div
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-place-items-center tw-rounded-lg tw-py-2",
-                                isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
-                            )}
-                            onClick={() => {
-                                setSelectedStabilizerType(typeSelectorIndex);
-                            }}
-                            key={typeSelectorIndex}
-                        >
-                            <div
-                                className={concatenateNonNullStringsWithSpaces(
-                                    "tw-col-start-2 tw-w-[2rem] tw-h-[2rem] tw-rounded-full tw-flex tw-flex-row tw-justify-center tw-items-center tw-shadow-[0px_4px_4px_0px_#00000040]",
-                                    isSelected ? "tw-bg-white" : "tw-bg-secondary-500-light",
-                                )}
-                            >
-                                <img
-                                    className={isSelected ? "tw-invert" : ""}
-                                    src={typeSelector.iconUrl}
-                                />
-                            </div>
-
-                            <div
-                                className="tw-col-start-4"
-                                dangerouslySetInnerHTML={{__html: getVernacularString(typeSelector.textContentPiece, userPreferences.language)}}
-                            />
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    };
+    const typeSelectorButtonsContent = [
+        {
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-AC.svg",
+            textContentPiece: "076cf02d-0b8a-4af2-9e0f-63d1804402d2",
+        },
+        {
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-mains.svg",
+            textContentPiece: "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9",
+        },
+        {
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-tvs.svg",
+            textContentPiece: "b82414bd-0f13-4401-a592-84cbc4f9a4e2",
+        },
+        {
+            iconUrl: "https://files.growthjockey.com/livguard/icons/stabilizer/for-refrigerator.svg",
+            textContentPiece: "33655fc5-1527-4744-a163-bd6217eac5b4",
+        },
+    ];
 
     function StabilizerCard({
         slug,
@@ -608,7 +566,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                 className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg"
             >
                 {isBestSeller != null && isBestSeller === true ? (
-                    <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center">
+                    <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
                         <span>Best Seller</span>
                     </div>
                 ) : (
@@ -642,7 +600,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
     const [selectedStabilizerType, setSelectedStabilizerType] = useState<StabilizerType>(StabilizerType.forAC);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-px-3 lg:lg-px-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}>
             <div className="tw-grid tw-grid-cols-1">
                 <h2 className="lg-text-headline tw-text-center">
                     <span className="lg-text-highlighted">{getVernacularString("342e7f22-6183-4d16-afd9-3f4e05c36a04", userPreferences.language)}</span>
@@ -652,15 +610,44 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <StabilizerTypeSelector
-                    userPreferences={userPreferences}
-                    selectedStabilizerType={selectedStabilizerType}
-                    setSelectedStabilizerType={setSelectedStabilizerType}
-                />
+                <div className="tw-grid tw-auto-rows-auto tw-grid-cols-[minmax(auto,1fr)_minmax(auto,1fr)] tw-gap-4 lg-px-screen-edge-2 lg:tw-flex lg:tw-flex-row lg:tw-justify-center">
+                    {typeSelectorButtonsContent.map((typeSelector, typeSelectorIndex) => {
+                        const isSelected = selectedStabilizerType === typeSelectorIndex;
+                        return (
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-place-items-center tw-rounded-lg tw-py-2 tw-transition-colors tw-duration-200 tw-cursor-pointer",
+                                    isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+                                )}
+                                onClick={() => {
+                                    setSelectedStabilizerType(typeSelectorIndex);
+                                }}
+                                key={typeSelectorIndex}
+                            >
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-col-start-2 tw-w-[2rem] tw-h-[2rem] tw-rounded-full tw-flex tw-flex-row tw-justify-center tw-items-center tw-shadow-[0px_4px_4px_0px_#00000040]",
+                                        isSelected ? "tw-bg-white" : "tw-bg-secondary-500-light",
+                                    )}
+                                >
+                                    <img
+                                        className={isSelected ? "tw-invert" : ""}
+                                        src={typeSelector.iconUrl}
+                                    />
+                                </div>
+
+                                <div
+                                    className={`tw-col-start-4 ${isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(typeSelector.textContentPiece, userPreferences.language)}}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] lg:tw-grid-cols-[repeat(auto-fill,minmax(14.5rem,1fr))] tw-gap-4 lg:tw-gap-8">
+                <div className="tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] lg:tw-grid-cols-[repeat(auto-fill,14.5rem)] lg:tw-grid-flow-row-dense lg:tw-justify-center tw-gap-4 lg:tw-gap-8">
                     {featuredProducts
                         .filter((product) => product.stabilizerType === selectedStabilizerType)
                         .sort((product) => (product.isBestSeller === true ? -1 : 1))
