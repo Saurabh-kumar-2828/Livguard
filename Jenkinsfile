@@ -24,14 +24,25 @@ stages {
      stage('Cloning Git website') {
         steps {
             git branch: 'main', credentialsId: 'eb9c31e1-3939-4a09-a234-210cf16a4045', url: 'https://github.com/GrowthJockey/livguard-website.git'
-            sh 'ls -l'  
-            sh 'cd app/'
-            sh 'ls -l'
         
         }
     
      }
-     
+
+     stage('Building image') {
+        steps{
+            script {
+                withCredentials([string(credentialsId: 'a598f42f-4d80-4be6-83f3-8b1d4129ee56', variable: 'DockerCredentials')]) {
+                    sh "docker login -u lakshita08 -p ${DockerCredentials}"
+                    sh "docker build -t ${IMAGE_REPO_NAME}:latest ."
+
+                }
+
+            }
+
+        }
+
+    }
    }
 
   }
