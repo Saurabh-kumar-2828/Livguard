@@ -252,7 +252,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                         />
                     ))}
                     className="tw-mx-auto"
-                    deselectedContainersClassName="tw-scale-y-[0.9]"
+                    deselectedContainersClassName="tw-scale-y-[0.9] tw-h-full"
                     selectedContainerClassName="tw-h-full"
                 />
             </div>
