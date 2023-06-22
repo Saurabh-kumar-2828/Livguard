@@ -152,7 +152,10 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                breadcrumbs={[
+                    {contentId: "84ec1aea-1f61-4508-ae92-cd3647247ef1", link: "/"},
+                    {contentId: "9672b1a1-0713-48e3-98a2-17322eda6ff2", link: "#"},
+                ]}
             >
                 <ServicesPage
                     userPreferences={userPreferences}
@@ -176,14 +179,14 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
 
                 <EffortlessService
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full"
+                    className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
                 <RequestAService
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 lg:tw-row-start-5 tw-col-start-1"
+                    className="tw-row-start-7 lg:tw-row-start-5 tw-col-start-1 tw-max-w-7xl lg:tw-justify-self-end"
                     actionData={actionData}
                 />
 
@@ -191,14 +194,14 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
 
                 <ClickConnectPowerUpSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-row-start-5 lg:tw-col-start-2"
+                    className="tw-row-start-5 lg:tw-row-start-5 lg:tw-col-start-2 tw-max-w-7xl lg:tw-justify-self-start"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
                 <Testimonials
                     userPreferences={userPreferences}
-                    className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-9 lg:tw-row-start-7 lg:tw-col-span-full"
+                    className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-9 lg:tw-row-start-7 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
@@ -212,7 +215,7 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-13 lg:tw-row-start-11 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                    className="tw-row-start-13 lg:tw-row-start-11 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-14 lg:tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
@@ -367,7 +370,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
     }, [actionData]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left lg:lg-pl-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left lg:lg-pl-screen-edge-2 tw-h-full", className)}>
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 tw-text-center lg:tw-text-left">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("58490cb1-5f27-4f67-98d3-939b5a3b9b10", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -375,9 +378,9 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
             <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
             <div className="tw-row-start-4 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0">
-                <div className="tw-overflow-hidden">
-                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch">
-                        <div className="tw-grid tw-grid-glow-rows">
+                <div className="tw-overflow-hidden tw-h-full">
+                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-h-full">
+                        <div className="tw-grid tw-grid-glow-rows tw-h-full">
                             {!isServiceRequestFormSubmitted ? (
                                 <Form
                                     method="post"
@@ -571,7 +574,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                     </button>
                                 </Form>
                             ) : (
-                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)_4.5rem] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
+                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)_4.5rem] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-px-16">
                                     <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
                                         <FixedWidthImage
                                             relativePath="/livguard/icons/confirmation.png"
@@ -580,12 +583,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                     </div>
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("6d0f2700-ee1b-4215-b60c-f920ba0d0a2b", userPreferences.language)}}
                                         className="lg-text-banner tw-row-start-4 tw-text-center"
                                     />
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("d0b96a23-94c3-45c9-af3e-0722264c7ed5", userPreferences.language)}}
                                         className="lg-text-body tw-row-start-6 tw-text-center"
                                     />
                                 </div>

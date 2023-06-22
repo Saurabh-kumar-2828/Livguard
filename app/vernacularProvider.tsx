@@ -4108,6 +4108,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Marathi]: "?????",
     },
     // Service Page Vernac Strings Start
+    "84ec1aea-1f61-4508-ae92-cd3647247ef1": {
+        [Language.English]: `Home`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "9672b1a1-0713-48e3-98a2-17322eda6ff2": {
+        [Language.English]: `Service`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
     "1f489840-705d-44b1-a18a-73a2645594de": {
         [Language.English]: `Reliable Service`,
         [Language.Hindi]: "?????",
@@ -4242,6 +4252,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a": {
         [Language.English]: `Request A Call Back`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "6d0f2700-ee1b-4215-b60c-f920ba0d0a2b": {
+        [Language.English]: `Thank You!`,
+        [Language.Hindi]: "?????",
+        [Language.Marathi]: "?????",
+    },
+    "d0b96a23-94c3-45c9-af3e-0722264c7ed5": {
+        [Language.English]: `Hang on, our team will get in touch with you shortly.`,
         [Language.Hindi]: "?????",
         [Language.Marathi]: "?????",
     },
