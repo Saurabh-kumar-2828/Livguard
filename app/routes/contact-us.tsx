@@ -827,13 +827,13 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
                     <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start tw-text-center lg:tw-text-left">
                         {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
                     </div>
 
                     <button
-                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
                             setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -848,7 +848,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function WhatsappUsCard() {
         return (
-            <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+            <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
@@ -858,11 +858,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
                     <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
                             setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -877,7 +877,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function EmailUsCard() {
         return (
-            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
                 <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
@@ -887,11 +887,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
                     <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
                             setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -916,11 +916,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
                 <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
                     <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
 
                     <Link
-                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
                         to="/service"
                         target="_blank"
                     >
