@@ -88,7 +88,7 @@ export function ContactForm({
 
                     <CoverImage
                         relativePath="/livguard/contact-form/background.jpg"
-                        className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-gidden tw-opacity-70 tw-z-8"
+                        className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-hidden tw-opacity-70 tw-z-8"
                     />
 
                     <div className="tw-row-start-2 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
@@ -167,10 +167,11 @@ export function ContactForm({
                                     name="phoneNumber"
                                     pattern={indianPhoneNumberValidationPattern}
                                     required
-                                    autoFocus={true}
+                                    // autoFocus={true}
                                     className="lg-text-input tw-w-full"
                                     disabled={formStateInputs.showOtpField}
                                     defaultValue={formStateInputs.inputData.phoneNumber}
+                                    placeholder={getVernacularString("contactUsT2E", userPreferences.language)}
                                     ref={phoneNumberRef}
                                     onChange={(e) => {
                                         const phoneNumber = e.target.value;
@@ -361,7 +362,15 @@ export function ContactForm({
                         <button
                             type="submit"
                             className="lg-cta-button tw-px-4 tw-self-center tw-w-60 !tw-text-white"
-                            disabled={fetcher.state != "idle"}
+                            disabled={
+                                fetcher.state != "idle" ||
+                                formStateInputs.inputData.name == "" ||
+                                formStateInputs.inputData.email == "" ||
+                                formStateInputs.inputData.phoneNumber == "" ||
+                                formStateInputs.inputData.phoneNumber.length != 10 ||
+                                formStateInputs.inputData.otpSubmitted == "" ||
+                                formStateInputs.inputData.otpSubmitted.length != 6
+                            }
                         >
                             {getVernacularString("contactUsFormT4", userPreferences.language)}
                         </button>

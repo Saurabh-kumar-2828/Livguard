@@ -255,6 +255,10 @@
         @apply tw-border-secondary-700-light dark:tw-border-secondary-700-dark;
     }
 
+    .lg-border-secondary-300 {
+        @apply tw-border-secondary-300-light dark:tw-border-secondary-300-dark;
+    }
+
     .lg-contact-gradient-dark {
         background: linear-gradient(162.96deg, #474546 3.31%, #1f2022 88.69%);
     }

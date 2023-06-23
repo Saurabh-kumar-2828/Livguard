@@ -105,7 +105,7 @@ export default function () {
                         {
                             "@context": "https://schema.org",
                             "@type": "Organization",
-                            "name": "Inverter and Battery Jodi",
+                            "name": "Inverter and Battery Combo",
                             "url": "https://www.livguard.com/campaigns/inverter-and-battery-jodi/",
                             "logo": "",
                             "sameAs": ""
@@ -556,7 +556,7 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
                                         </div>
                                     </div>
 
-                                    <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
+                                    <div className="tw-border lg-border-secondary-300 tw-mb-2 tw-mt-1" />
 
                                     <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                         <div className="tw-text-body">{item.content2}</div>
@@ -569,7 +569,7 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
                                         </div>
                                     </div>
 
-                                    <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
+                                    <div className="tw-border lg-border-secondary-300 tw-mb-2 tw-mt-1" />
 
                                     <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                         <div className="tw-text-body">{item.content3}</div>
@@ -582,7 +582,7 @@ export function WhyLivguardJodi({userPreferences, className}: {userPreferences: 
                                         </div>
                                     </div>
 
-                                    <div className="tw-border tw-border-secondary-700 tw-mb-2 tw-mt-1" />
+                                    <div className="tw-border lg-border-secondary-300 tw-mb-2 tw-mt-1" />
 
                                     <div className="tw-flex tw-flex-row tw-justify-between tw-items-center">
                                         <div className="tw-text-body">{item.content4}</div>

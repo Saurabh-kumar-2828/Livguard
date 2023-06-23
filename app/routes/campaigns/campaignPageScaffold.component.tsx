@@ -36,6 +36,7 @@ export function CampaignPageScaffold({
                     showMobileMenuIcon={showMobileMenuIcon}
                     showSearchOption={showSearchOption}
                     showContactCtaButton={showContactCtaButton}
+                    showContactDetails={false}
                     pageUrl={pageUrl}
                 />
 
@@ -53,6 +54,26 @@ export function CampaignPageScaffold({
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}
                 /> */}
+
+                {/* Suppress Haptik on campaign pages */}
+                <style
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        #haptik-xdk-wrapper {
+                            display: none !important;
+                        }
+
+                        iframe#haptik-xdk-main-view {
+                            display: none !important;
+                        }
+
+                        iframe.xdk-iframe {
+                            display: none !important;
+                        }
+                    `,
+                    }}
+                />
+                {/* /Suppress Haptik on campaign pages */}
             </div>
         </>
     );

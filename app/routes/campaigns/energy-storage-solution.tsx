@@ -295,7 +295,7 @@ function HeroSection({
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/lp-1-hero-mobile.jpg" : "/livguard/hero-banners/lp-1-hero-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
                     key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/hero-banners/lp-1-hero-mobile.jpg" : "/livguard/hero-banners/lp-1-hero-desktop.jpg"}
                 />
             )}

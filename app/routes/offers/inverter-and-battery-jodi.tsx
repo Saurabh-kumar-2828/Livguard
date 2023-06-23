@@ -31,7 +31,7 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
-            title: "Buy Livguard Inverter Battery Jodi and win cashback upto Rs. 1500",
+            title: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
             description: "Experience an uninterrupted summer with Livguard Inverter and Battery Jodis and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
         };
     } else if (userPreferences.language == Language.Hindi) {

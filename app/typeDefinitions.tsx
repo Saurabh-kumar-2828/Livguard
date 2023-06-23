@@ -19,7 +19,7 @@ export type UserPreferences = {
 export enum Language {
     English = "en-in",
     Hindi = "hi-in",
-    Marathi = "mr-in",
+    // Marathi = "mr-in",
 }
 
 export enum Theme {
@@ -33,8 +33,8 @@ export function languageToHumanFriendlyString(language: Language) {
             return "English";
         case Language.Hindi:
             return "हिंदी";
-        case Language.Marathi:
-            return "मराठी";
+        // case Language.Marathi:
+        //     return "मराठी";
         default:
             const exhaustiveCheck: never = language;
             throw new Error(`Unexpected value for Language: ${language}`);
@@ -47,8 +47,8 @@ export function languageToShortHumanFriendlyFormat(language: Language) {
             return "EN";
         case Language.Hindi:
             return "हि";
-        case Language.Marathi:
-            return "मराठी";
+        // case Language.Marathi:
+        //     return "मराठी";
         default:
             const exhaustiveCheck: never = language;
             throw new Error(`Unexpected value for Language: ${language}`);
@@ -106,7 +106,8 @@ export function getLanguageFromUnknown(input: unknown): Language {
         throw new Error(`${input} of type ${typeof input} is not a valid Language!`);
     }
 
-    return input == Language.Hindi ? Language.Hindi : input == Language.Marathi ? Language.Marathi : Language.English;
+    // return input == Language.Hindi ? Language.Hindi : input == Language.Marathi ? Language.Marathi : Language.English;
+    return input == Language.Hindi ? Language.Hindi : Language.English;
 }
 
 export function getThemeFromUnknown(input: unknown): Theme {

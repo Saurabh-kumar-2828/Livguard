@@ -30,7 +30,7 @@ export function JodiCarousel({
             className="tw-overflow-hidden tw-w-full"
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[min(50%,47rem)]">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (

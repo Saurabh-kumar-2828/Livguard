@@ -1,28 +1,39 @@
+import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
 import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
-import {Link} from "@remix-run/react";
-import {useState} from "react";
+import type {FetcherWithComponents} from "@remix-run/react";
+import {Link, useFetcher} from "@remix-run/react";
+import {useEffect, useReducer, useRef} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {toast} from "react-toastify";
+import {ContactForm} from "~/components/contactUsForm";
+import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
-import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
-import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {StickyLandingPage3BottomBar} from "~/components/landingPage3BottomBar";
+import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
+import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {ContactUsCta, ContactUsDialog, TransformingLives} from "~/routes";
+import {ContactUsCta, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {ExploreStarProducts, JodiSection} from "~/routes/campaigns/inverter-and-battery";
-import {PowerPlannerTeaser} from "~/routes/load-calculator";
+import {JodiSection, WhyLivguardJodi} from "~/routes/campaigns/inverter-and-battery";
+import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
+import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -88,7 +99,11 @@ export default function () {
                 />
             </CampaignPageScaffold>
 
-            <StickyLandingPageBottomBar userPreferences={userPreferences} />
+            <StickyLandingPage3BottomBar
+                userPreferences={userPreferences}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+            />
 
             <script
                 type="application/ld+json"
@@ -120,34 +135,130 @@ function LandingPage({
     };
     pageUrl: string;
 }) {
+    const fetcher = useFetcher();
+    const otpFetcher = useFetcher();
+    const leadId = useRef<Uuid>(generateUuid());
+
+    const [formStateInputs, dispatch] = useReducer(FormStateInputsReducer, createInitialFormState());
+
+    useEffect(() => {
+        if (fetcher.data == null) {
+            return;
+        }
+
+        if (fetcher.data.error != null) {
+            toast.error(fetcher.data.error);
+            const action: FormStateInputsAction = {
+                actionType: FormStateInputsActionType.SetInvalidOtp,
+                payload: true,
+            };
+            dispatch(action);
+            return;
+        }
+
+        const action: FormStateInputsAction = {
+            actionType: FormStateInputsActionType.SetFormSuccessfullySubmited,
+            payload: true,
+        };
+        dispatch(action);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
+        return;
+    }, [fetcher.data]);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (formStateInputs.isOtpresent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
+            setTimeout(() => {
+                const action: FormStateInputsAction = {
+                    actionType: FormStateInputsActionType.SetResendTimeOut,
+                    payload: formStateInputs.resendTimeOut - 1,
+                };
+                dispatch(action);
+            }, 1000);
+        }
+    }, [formStateInputs.resendTimeOut]);
+
+    const utmSearchParameters = useUtmSearchParameters();
+
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">
             <HeroSection
                 userPreferences={userPreferences}
-                utmParameters={utmParameters}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+                fetcher={fetcher}
+                otpFetcher={otpFetcher}
+                utmParameters={utmSearchParameters}
+                formStateInputs={formStateInputs}
+                dispatch={dispatch}
+                leadId={leadId.current}
                 pageUrl={pageUrl}
+            />
+
+            <div
+                className="tw-row-start-2 tw-col-start-1 lg:tw-hidden"
+                id="contact-us-form-mobile"
+            >
+                {!formStateInputs.formSuccessfullySubmitted ? (
+                    <ContactForm
+                        userPreferences={userPreferences}
+                        fetcher={fetcher}
+                        otpFetcher={otpFetcher}
+                        utmParameters={utmSearchParameters}
+                        formStateInputs={formStateInputs}
+                        dispatch={dispatch}
+                        leadId={leadId.current}
+                        pageUrl={pageUrl}
+                    />
+                ) : (
+                    <ContactFormSuccess userPreferences={userPreferences} />
+                )}
+            </div>
+
+            <WhyLivguardJodi
+                userPreferences={userPreferences}
+                className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-span-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
             <JodiSection
                 userPreferences={userPreferences}
-                className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-col-span-2"
             />
 
-            <DealerLocator
+            {/* <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px] tw-h-full"
-            />
+                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px] tw-h-full"
+            /> */}
 
-            <PowerPlannerTeaser
+            {/* <PowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+            /> */}
 
-            <ExploreStarProducts
+            {/* <ExploreStarProducts
                 userPreferences={userPreferences}
+                className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+            /> */}
+
+            <TvcSection
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
                 className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                pageUrl={pageUrl}
             />
 
             <TapIntoEfficiency
@@ -172,6 +283,239 @@ function LandingPage({
 
 function HeroSection({
     userPreferences,
+    className,
+    fetcher,
+    otpFetcher,
+    utmParameters,
+    formStateInputs,
+    dispatch,
+    leadId,
+    pageUrl,
+}: {
+    userPreferences: UserPreferences;
+    className?: string;
+    fetcher: FetcherWithComponents<any>;
+    otpFetcher: FetcherWithComponents<any>;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    formStateInputs: FormStateInputs;
+    dispatch: React.Dispatch<FormStateInputsAction>;
+    leadId: Uuid;
+    pageUrl: string;
+}) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
+                containerWidth == null || containerWidth < 380
+                    ? "tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
+                    : "tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]",
+                className,
+            )}
+            ref={ref}
+        >
+            {/* {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
+                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
+                    <img
+                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-mobile.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, 1080)}
+                        className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover -tw-z-10"
+                        key={"/livguard/hero-banners/akshay-mobile.jpg"}
+                    />
+                </div>
+            ) : (
+                <img
+                    src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-desktop.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, null)}
+                    className="tw-w-full tw-h-full tw-absolute tw-inset-0 tw-object-cover tw-object-left-bottom -tw-z-10"
+                    key={"/livguard/hero-banners/akshay-desktop.jpg"}
+                />
+            )} */}
+
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
+                <CoverImage relativePath="/livguard/lp3/1/bg.jpg" />
+
+                {containerWidth == null ? null : (
+                    <>
+                        <img
+                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
+                            alt="Akshay Kumar"
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute",
+                                containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-1/4 tw-h-3/5",
+                            )}
+                        />
+
+                        <img
+                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/combo.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
+                            alt="Livguard inverter-battery combo"
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute",
+                                containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-left-8 tw-h-3/5",
+                            )}
+                        />
+                    </>
+                )}
+            </div>
+
+            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
+                    className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                />
+            </DefaultTextAnimation>
+
+            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T2", userPreferences.language)}}
+                    className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                />
+            </DefaultTextAnimation>
+
+            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1 lg:tw-hidden">
+                <Link
+                    to="#contact-us-form-mobile"
+                    className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
+                >
+                    {getVernacularString("landingPage3S1T3", userPreferences.language)}
+                </Link>
+            </DefaultElementAnimation>
+
+            <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
+                <Link
+                    to="#contact-us-form-mobile"
+                    className="tw-block lg:tw-hidden"
+                >
+                    <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                </Link>
+
+                <Link
+                    to="#energy-solutions"
+                    className="tw-hidden lg:tw-block"
+                >
+                    <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                </Link>
+            </div>
+
+            <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
+                <div
+                    className="lg:tw-w-[25rem]"
+                    id="contact-us-form-desktop"
+                >
+                    {!formStateInputs.formSuccessfullySubmitted ? (
+                        <ContactForm
+                            userPreferences={userPreferences}
+                            fetcher={fetcher}
+                            otpFetcher={otpFetcher}
+                            utmParameters={utmParameters}
+                            formStateInputs={formStateInputs}
+                            dispatch={dispatch}
+                            leadId={leadId}
+                            pageUrl={pageUrl}
+                        />
+                    ) : (
+                        <ContactFormSuccess userPreferences={userPreferences} />
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// function HeroSection({
+//     userPreferences,
+//     utmParameters,
+//     className,
+//     pageUrl,
+// }: {
+//     userPreferences: UserPreferences;
+//     utmParameters: {
+//         [searchParameter: string]: string;
+//     };
+//     className?: string;
+//     pageUrl: string;
+// }) {
+//     // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+//     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
+
+//     return (
+//         <div
+//             className={concatenateNonNullStringsWithSpaces(
+//                 className,
+//                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-isolate",
+//             )}
+//             // ref={ref}
+//             // onClick={() => setIsContactUsDialogOpen(true)}
+//         >
+//             {/* {containerWidth == null || containerHeight == null ? null : (
+//                 <CoverImage
+//                     relativePath={
+//                         containerHeight > containerWidth || containerWidth < 640
+//                             ? userPreferences.language == Language.English
+//                                 ? "/livguard/landing-pages/3/top-banner-mobile-english.jpg"
+//                                 : "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg"
+//                             : userPreferences.language == Language.English
+//                             ? "/livguard/landing-pages/3/top-banner-desktop-english.jpg"
+//                             : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
+//                     }
+//                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+//                     key={
+//                         containerHeight > containerWidth || containerWidth < 640
+//                             ? userPreferences.language == Language.English
+//                                 ? "/livguard/landing-pages/3/top-banner-mobile-english.jpg"
+//                                 : "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg"
+//                             : userPreferences.language == Language.English
+//                             ? "/livguard/landing-pages/3/top-banner-desktop-english.jpg"
+//                             : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
+//                     }
+//                 />
+//             )} */}
+
+//             <CoverImage
+//                 relativePath="/livguard/landing-pages/3/hero_image.jpg"
+//                 className="tw-row-[1/span_12] tw-col-start-1 -tw-z-10"
+//             />
+
+//             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+//                 <div
+//                     dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
+//                     className="lg-text-banner lg-px-screen-edge tw-text-white"
+//                 />
+//             </DefaultTextAnimation>
+
+//             <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
+//                 <div
+//                     dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T2", userPreferences.language)}}
+//                     className="lg-text-title1 lg-px-screen-edge tw-text-white"
+//                 />
+//             </DefaultTextAnimation>
+
+//             <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
+//                 <ContactUsCta
+//                     userPreferences={userPreferences}
+//                     textVernacId="landingPage3S1T3"
+//                     className="tw-z-10"
+//                     utmParameters={utmParameters}
+//                     pageUrl={pageUrl}
+//                 />
+//             </DefaultElementAnimation>
+
+//             {/* <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" /> */}
+
+//             <ContactUsDialog
+//                 userPreferences={userPreferences}
+//                 isContactUsDialogOpen={isContactUsDialogOpen}
+//                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+//                 utmParameters={utmParameters}
+//                 pageUrl={pageUrl}
+//             />
+//         </div>
+//     );
+// }
+
+export function TvcSection({
+    userPreferences,
     utmParameters,
     className,
     pageUrl,
@@ -183,79 +527,20 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
-    // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-
     return (
-        <div
-            className={concatenateNonNullStringsWithSpaces(
-                className,
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-isolate",
-            )}
-            // ref={ref}
-            // onClick={() => setIsContactUsDialogOpen(true)}
-        >
-            {/* {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? userPreferences.language == Language.English
-                                ? "/livguard/landing-pages/3/top-banner-mobile-english.jpg"
-                                : "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg"
-                            : userPreferences.language == Language.English
-                            ? "/livguard/landing-pages/3/top-banner-desktop-english.jpg"
-                            : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
-                    }
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? userPreferences.language == Language.English
-                                ? "/livguard/landing-pages/3/top-banner-mobile-english.jpg"
-                                : "/livguard/landing-pages/3/top-banner-mobile-hindi.jpg"
-                            : userPreferences.language == Language.English
-                            ? "/livguard/landing-pages/3/top-banner-desktop-english.jpg"
-                            : "/livguard/landing-pages/3/top-banner-desktop-hindi.jpg"
-                    }
-                />
-            )} */}
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}>
+            <div className="lg-text-headline">
+                <DefaultTextAnimation>
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("71bf111f-fc1f-4026-baeb-9b4981a8aba9", userPreferences.language)}} />
+                </DefaultTextAnimation>
+            </div>
 
-            <CoverImage
-                relativePath="/livguard/landing-pages/3/hero_image.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1 -tw-z-10"
-            />
+            <VerticalSpacer className="tw-h-6" />
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
-                    className="lg-text-banner lg-px-screen-edge tw-text-white"
-                />
-            </DefaultTextAnimation>
-
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T2", userPreferences.language)}}
-                    className="lg-text-title1 lg-px-screen-edge tw-text-white"
-                />
-            </DefaultTextAnimation>
-
-            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1">
-                <ContactUsCta
-                    userPreferences={userPreferences}
-                    textVernacId="landingPage3S1T3"
-                    className="tw-z-10"
-                    utmParameters={utmParameters}
-                    pageUrl={pageUrl}
-                />
-            </DefaultElementAnimation>
-
-            {/* <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" /> */}
-
-            <ContactUsDialog
-                userPreferences={userPreferences}
-                isContactUsDialogOpen={isContactUsDialogOpen}
-                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-                utmParameters={utmParameters}
-                pageUrl={pageUrl}
+            <EmbeddedYoutubeVideo
+                id="ZtywGUDhzqw"
+                className="tw-w-full tw-h-full"
+                containerClassName="tw-w-full tw-aspect-video tw-max-w-7xl tw-mx-auto"
             />
         </div>
     );
@@ -296,10 +581,16 @@ export function TapIntoEfficiency({
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}>
             <div className="lg-text-headline">
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT1", userPreferences.language)}} />
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT1", userPreferences.language)}}
+                        className="tw-text-center"
+                    />
                 </DefaultTextAnimation>
                 <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT2", userPreferences.language)}} />4
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S7HT2", userPreferences.language)}}
+                        className="tw-text-center"
+                    />
                 </DefaultTextAnimation>
             </div>
             <VerticalSpacer className="tw-h-6" />

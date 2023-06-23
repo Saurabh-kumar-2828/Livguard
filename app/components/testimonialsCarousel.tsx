@@ -14,7 +14,7 @@ export function TestimonialsCarousel({
     userPreferences: UserPreferences;
     testimonials: Array<{video?: JSX.Element; name: string; rating: number; state: string; message: string; productImage: string; productName: string}>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"});
+    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
 
     return (
         <div>

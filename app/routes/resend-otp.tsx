@@ -14,7 +14,7 @@ export const action: ActionFunction = async ({request, params}) => {
 
     if (phoneNumber == null || name == null) {
         const actionData: GenericActionData = {
-            error: "Inputs cann't be null! Error code: ec05b264-8d0c-4450-a34c-c24be937b259",
+            error: "Inputs can't be null! Error code: ec05b264-8d0c-4450-a34c-c24be937b259",
         };
         return json(actionData);
     }
