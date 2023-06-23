@@ -34,8 +34,8 @@ export function CarouselStyle5({
                             className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 tw-h-full ${itemIndex !== selectedIndex ? "tw-brightness-50" : ""}`}
                             key={itemIndex}
                         >
-                            {/* Deselected items' container's height is decreased to give highlighted effect */}
-                            {itemIndex !== selectedIndex ? <div className={deselectedContainersClassName}>{item}</div> : <div className={selectedContainerClassName}>{item}</div>}
+                            {/* {itemIndex !== selectedIndex ? <div className={deselectedContainersClassName}>{item}</div> : <div className={selectedContainerClassName}>{item}</div>} */}
+                            <div className={itemIndex === selectedIndex ? selectedContainerClassName : deselectedContainersClassName}>{item}</div>
                         </div>
                     )}
                 />

@@ -4583,5 +4583,28 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
         [Language.Marathi]: "?????",
     },
+    "310ad3b5-2e4a-409b-9622-c1389c366dbd": {
+        [Language.English]: `Empowered By <span class="lg-text-highlighted">SAR</span>`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "b005d8fa-48dc-4f1a-acee-4afdeec1a1d2": {
+        [Language.English]: `Our Guidance & Motivation`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "4a0ff6e2-3456-4e80-a100-dd0437e1e1a5": {
+        [Language.English]: `Established in 1988 by visionaries Mr. Rakesh Malhotra and Mr. Navneet Kapoor, the SAR Group has been at the forefront of creating a safer, better future through innovative and
+        eco-friendly brands. These brands include Livpure, Livguard, Lectrix, Ncubate, and HEKA. Over the decades, the group has carved a strong niche for itself, leading the market in areas
+        such as Water Purification, Batteries, Inverters, Electric Vehicles, and Venture Capital.`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+    "1dac654a-dcb3-48bf-9b14-2e08470548d9": {
+        [Language.English]: `Our Sister Companies`,
+        [Language.Hindi]: `?????`,
+        [Language.Marathi]: "?????",
+    },
+
     //About Us Page Vernac Strings End
 };

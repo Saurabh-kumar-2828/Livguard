@@ -1,31 +1,21 @@
-import React, {Dispatch, useEffect, useState} from "react";
+import {useState} from "react";
 import {LoaderFunction} from "@remix-run/node";
-import {Form, Link, useLoaderData} from "@remix-run/react";
-import {Dialog, Transition} from "@headlessui/react";
-import {toast} from "react-toastify";
+import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
-import {X} from "react-bootstrap-icons";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {insertServiceRequests} from "~/backend/dealer.server";
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {PageScaffold} from "~/components/pageScaffold";
-import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {CarouselStyle5} from "~/components/carouselStyle5";
-import {useEmblaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {FixedHeightImage} from "~/components/images/fixedHeightImage";
+import {CarouselStyle7} from "~/components/carouselStyle7";
+import {InfiniteHorizontalScroller, HorizontalScrollDirection} from "~/livguard-common-typescript/infiniteHorizontalScroller";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -71,7 +61,7 @@ export default () => {
 function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
-            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
+            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start">
                 <HeroSection
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
@@ -81,26 +71,26 @@ function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <WhoWeAre
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full"
+                    className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
                 <MeetOurLeaders
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-col-span-full"
+                    className="tw-row-start-5 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-row-start-6 tw-h-10 lg:tw-h-20" />
 
                 <OurPresence
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 lg:tw-col-span-full"
+                    className="tw-row-start-7 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] tw-col-span-full lg-px-screen-edge-2 tw-gap-x-5">
+                <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] tw-col-span-full lg-px-screen-edge-2 tw-gap-x-5 tw-w-full tw-max-w-7xl tw-mx-auto">
                     <OurValues
                         userPreferences={userPreferences}
                         className="tw-row-start-1 lg:tw-col-start-1"
@@ -119,10 +109,19 @@ function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <ExploreCareers
                     userPreferences={userPreferences}
-                    className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-11 lg:tw-col-span-full"
+                    className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-11 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
+
+                <div className="tw-row-start-13 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2">
+                    <EmpoweredBySAR
+                        userPreferences={userPreferences}
+                        className="tw-w-full"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-14 tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -222,78 +221,53 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
 }
 
 function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const LeaderCard = ({
-        title,
-        position,
-        description,
-        imageRelativePath,
-        isBackgroundPrimary,
-    }: {
-        title: string;
-        position: string;
-        description: string;
-        imageRelativePath: string;
-        isBackgroundPrimary: boolean;
-    }) => {
-        return (
-            <div
-                className={`tw-h-full tw-grid tw-grid-rows-[auto_0.75rem_auto_0.75rem_auto_0.75rem_auto_minmax(1rem,1fr)] tw-rounded-[0.625rem] tw-px-4 ${
-                    isBackgroundPrimary ? "lg-about-us-leaders-bg-gradient" : "lg-bg-secondary-100"
-                }`}
-            >
-                <div className="tw-row-start-1 tw-h-[8.3rem] tw-w-[8.3rem] tw-rounded-full tw-relative tw-bottom-6">
-                    <FullWidthImage relativePath={imageRelativePath} />
-                </div>
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
-                <div className="tw-row-start-3 lg-text-title1">{title}</div>
-                <div className="tw-row-start-5 lg-text-title2">{position}</div>
-                <div className="tw-row-start-7 lg-text-secondary-900">{description}</div>
-            </div>
-        );
-    };
-
-    const leadersData: Array<{titleTextContentPiece: string; positionTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
+    const leadersData: Array<{title: string; position: string; description: string; imageRelativePath: string}> = [
         {
-            titleTextContentPiece: "d867ff63-d4bf-49ae-8ac7-7290a76caef3",
-            positionTextContentPiece: "755f8e01-18c9-4883-956c-5851e4e3885f",
-            bodyTextContentPiece: "8ddd1acf-9b2d-41f4-b4cd-e2395c211c88",
+            title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
+            position: getVernacularString("755f8e01-18c9-4883-956c-5851e4e3885f", userPreferences.language),
+            description: getVernacularString("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88", userPreferences.language),
             imageRelativePath: "/livguard/about-us/3/leader-1.svg",
         },
         {
-            titleTextContentPiece: "4ca82802-b39e-4844-9586-82ce4b095cff",
-            positionTextContentPiece: "23fd4d15-8063-44e1-be03-a3aa6585d33b",
-            bodyTextContentPiece: "4f82218c-1156-4660-b634-a1231d82d457",
+            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
+            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
+            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
             imageRelativePath: "/livguard/about-us/3/leader-2.svg",
         },
         {
-            titleTextContentPiece: "54c7930a-aed3-4efc-b2eb-68a7b5b87ae2",
-            positionTextContentPiece: "5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5",
-            bodyTextContentPiece: "07d2f8d0-b81b-4dd3-a547-1adef20b3fea",
+            title: getVernacularString("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2", userPreferences.language),
+            position: getVernacularString("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5", userPreferences.language),
+            description: getVernacularString("07d2f8d0-b81b-4dd3-a547-1adef20b3fea", userPreferences.language),
             imageRelativePath: "/livguard/about-us/3/leader-3.svg",
         },
         {
-            titleTextContentPiece: "d867ff63-d4bf-49ae-8ac7-7290a76caef3",
-            positionTextContentPiece: "755f8e01-18c9-4883-956c-5851e4e3885f",
-            bodyTextContentPiece: "8ddd1acf-9b2d-41f4-b4cd-e2395c211c88",
+            title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
+            position: getVernacularString("755f8e01-18c9-4883-956c-5851e4e3885f", userPreferences.language),
+            description: getVernacularString("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88", userPreferences.language),
             imageRelativePath: "/livguard/about-us/3/leader-1.svg",
         },
         {
-            titleTextContentPiece: "4ca82802-b39e-4844-9586-82ce4b095cff",
-            positionTextContentPiece: "23fd4d15-8063-44e1-be03-a3aa6585d33b",
-            bodyTextContentPiece: "4f82218c-1156-4660-b634-a1231d82d457",
+            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
+            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
+            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
             imageRelativePath: "/livguard/about-us/3/leader-2.svg",
         },
         {
-            titleTextContentPiece: "54c7930a-aed3-4efc-b2eb-68a7b5b87ae2",
-            positionTextContentPiece: "5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5",
-            bodyTextContentPiece: "07d2f8d0-b81b-4dd3-a547-1adef20b3fea",
+            title: getVernacularString("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2", userPreferences.language),
+            position: getVernacularString("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5", userPreferences.language),
+            description: getVernacularString("07d2f8d0-b81b-4dd3-a547-1adef20b3fea", userPreferences.language),
             imageRelativePath: "/livguard/about-us/3/leader-3.svg",
         },
     ];
 
     return (
         <>
-            <div className={className}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}
+                ref={ref}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div>{getVernacularString("13f6e1c4-d97c-46cf-8ddb-52712843410b", userPreferences.language)}</div>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("cb60764f-1758-4b61-a998-8f7acc7b0b92", userPreferences.language)}} />
@@ -301,21 +275,13 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-                <CarouselStyle5
-                    items={leadersData.map((leaderData, leaderDataIndex) => (
-                        <LeaderCard
-                            key={leaderDataIndex}
-                            title={getVernacularString(leaderData.titleTextContentPiece, userPreferences.language)}
-                            position={getVernacularString(leaderData.positionTextContentPiece, userPreferences.language)}
-                            description={getVernacularString(leaderData.bodyTextContentPiece, userPreferences.language)}
-                            imageRelativePath={leaderData.imageRelativePath}
-                            isBackgroundPrimary={leaderDataIndex % 2 === 0}
-                        />
-                    ))}
+                <CarouselStyle7
+                    items={leadersData}
                     className="tw-mx-auto"
                     slidesContainerClassName=""
                     deselectedContainersClassName="tw-pt-6 md:tw-pt-12 tw-h-full"
                     selectedContainerClassName="tw-pt-6 tw-h-full"
+                    chevronButtonsBelowCarousel={containerWidth != null && containerHeight != null && (containerHeight > containerWidth || containerWidth < 640) ? false : true}
                 />
             </div>
         </>
@@ -357,7 +323,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
                     <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
@@ -405,27 +371,27 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
         {
             letter: "I",
             valueText: `<span class="lg-text-primary-500">I</span>nspire and energize your team`,
-            valueImage: "/livguard/about-us/5/value-aim.png",
+            valueImage: "/livguard/about-us/5/value-inspire.png",
         },
         {
             letter: "M",
             valueText: `<span class="lg-text-primary-500">M</span>easure, track and review your results.`,
-            valueImage: "/livguard/about-us/5/value-aim.png",
+            valueImage: "/livguard/about-us/5/value-measure.png",
         },
         {
             letter: "A",
             valueText: `<span class="lg-text-primary-500">A</span>nalyze customer needs and being their champion.`,
-            valueImage: "/livguard/about-us/5/value-aim.png",
+            valueImage: "/livguard/about-us/5/value-analyze.png",
         },
         {
             letter: "C",
             valueText: `<span class="lg-text-primary-500">C</span>ommunicate honestly and listen carefully.`,
-            valueImage: "/livguard/about-us/5/value-aim.png",
+            valueImage: "/livguard/about-us/5/value-communicate.png",
         },
         {
             letter: "T",
             valueText: `<span class="lg-text-primary-500">T</span>rust and create winning Teams`,
-            valueImage: "/livguard/about-us/5/value-aim.png",
+            valueImage: "/livguard/about-us/5/value-trust.png",
         },
     ];
 
@@ -441,9 +407,8 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
                             key={valueDataIndex}
                             className={`${
                                 isSelected ? "lg-about-us-leaders-bg-gradient" : "lg-bg-secondary-100"
-                            } tw-grid tw-place-items-center tw-place-content-center  tw-px-5 tw-py-3 tw-row-start-1 tw-rounded-sm lg-text-body-bold`}
+                            } tw-grid tw-place-items-center tw-place-content-center  tw-px-5 tw-py-3 tw-row-start-1 tw-rounded-sm lg-text-body-bold tw-cursor-pointer tw-transition-colors tw-duration-200`}
                             onClick={() => {
-                                // emblaApi?.scrollTo(valueDataIndex);
                                 setSelectedValue(valueDataIndex);
                             }}
                         >
@@ -472,8 +437,6 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
         );
     };
 
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: false});
-
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_1rem_auto]", className)}>
             <div
@@ -483,21 +446,35 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
 
             <div className="tw-row-start-3 lg-text-title2 tw-text-center lg:tw-text-left">{getVernacularString("0840f752-7ac4-4277-8e49-5cf832119941", userPreferences.language)}</div>
 
-            <ValueSelector valueSelectorClassName="tw-row-start-5" />
+            {/* <ValueSelector valueSelectorClassName="tw-row-start-5" /> */}
+            <div className={concatenateNonNullStringsWithSpaces("tw-row-start-5 tw-grid tw-auto-cols-[repeat(6,1fr)] tw-gap-1")}>
+                {valuesData.map((valueData, valueDataIndex) => {
+                    const isSelected = selectedValue === valueDataIndex;
+                    return (
+                        <div
+                            key={valueDataIndex}
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-grid tw-place-items-center tw-place-content-center tw-px-5 tw-py-3 tw-row-start-1 tw-rounded-sm lg-text-body-bold tw-cursor-pointer tw-transition-colors tw-duration-200",
+                                isSelected ? "!tw-text-secondary-900-dark lg-bg-primary-500" : "lg-text-secondary-900 lg-bg-secondary-100",
+                            )}
+                            onClick={() => {
+                                setSelectedValue(valueDataIndex);
+                            }}
+                        >
+                            {valueData.letter}
+                        </div>
+                    );
+                })}
+            </div>
 
-            {/* <div
-                className="tw-row-start-7 tw-grid tw-grid-rows-[auto_1rem_auto]"
-                ref={emblaRef}
-            > */}
             <ValueDisplay valueDisplayClassName="tw-row-start-7" />
-            {/* </div> */}
         </div>
     );
 }
 
 function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("", className)}>
             <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
@@ -563,11 +540,81 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
     );
 }
 
-// function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces(
-//             "",
-//             className
-//         )}
-//     )
-// }
+function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+
+    const sisterCompanyLogos = [
+        {
+            logoUrl: "/livguard/about-us/7/livgreen.png",
+        },
+        {
+            logoUrl: "/livguard/about-us/7/livpure.png",
+        },
+        {
+            logoUrl: "/livguard/about-us/7/livfast.png",
+        },
+        {
+            logoUrl: "/livguard/about-us/7/livpure_smart.png",
+        },
+        {
+            logoUrl: "/livguard/about-us/7/ncubate.png",
+        },
+    ];
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto] md:tw-grid-rows-[minmax(0,1fr)_2.5rem_auto_auto_1rem_auto_2.5rem_minmax(0,1fr)] tw-justify-center tw-place-items-center md:tw-border-2 md:lg-border-secondary-900 tw-rounded-lg md:tw-px-16",
+                className,
+            )}
+            ref={ref}
+        >
+            <div className="tw-row-start-1 md:tw-row-start-3 tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_0.5rem_auto] md:tw-grid-rows-[auto_auto_1rem_auto] md:tw-grid-cols-[minmax(0,11fr)_1.5rem_minmax(0,9fr)] md:tw-w-full">
+                <div
+                    className="tw-row-start-1 lg-text-headline tw-text-center md:tw-row-start-1 md:tw-col-start-3"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("310ad3b5-2e4a-409b-9622-c1389c366dbd", userPreferences.language)}}
+                />
+                <div className="tw-row-start-3 tw-text-center lg-text-title2 md:tw-row-start-2 md:tw-col-start-3">
+                    {getVernacularString("b005d8fa-48dc-4f1a-acee-4afdeec1a1d2", userPreferences.language)}
+                </div>
+                <div className="tw-row-start-5 md:tw-row-start-1 md:tw-row-span-full md:tw-col-start-1 md:tw-place-self-center">
+                    <FullWidthImage relativePath="/livguard/about-us/7/sar.png" />
+                </div>
+                <div className="tw-row-start-7 tw-text-center md:tw-row-start-4 md:tw-col-start-3 md:tw-w-full lg-text-body lg-text-secondary-900">
+                    {getVernacularString("4a0ff6e2-3456-4e80-a100-dd0437e1e1a5", userPreferences.language)}
+                </div>
+            </div>
+            <div className="tw-row-start-3 md:tw-row-start-4 tw-text-center lg-text-title2 md:lg-text-body md:lg-text-secondary-900">
+                {getVernacularString("1dac654a-dcb3-48bf-9b14-2e08470548d9", userPreferences.language)}
+            </div>
+            <div className="tw-row-start-5 md:tw-row-start-6 tw-w-full tw-grid tw-grid-flow-col tw-overflow-hidden tw-gap-x-8">
+                {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
+                    <InfiniteHorizontalScroller
+                        horizontalScrollDirection={HorizontalScrollDirection.left}
+                        speed={50}
+                    >
+                        {sisterCompanyLogos.map((sisterCompanyLogo, sisterCompanyLogoIndex) => (
+                            <div className="tw-px-4 tw-w-full">
+                                <FullWidthImage
+                                    // height="47px"
+                                    relativePath={sisterCompanyLogo.logoUrl}
+                                    key={sisterCompanyLogoIndex}
+                                    className="tw-w-full"
+                                />
+                            </div>
+                        ))}
+                    </InfiniteHorizontalScroller>
+                ) : (
+                    sisterCompanyLogos.map((sisterCompanyLogo, sisterCompanyLogoIndex) => {
+                        return (
+                            <FixedHeightImage
+                                height="47px"
+                                relativePath={sisterCompanyLogo.logoUrl}
+                                key={sisterCompanyLogoIndex}
+                            />
+                        );
+                    })
+                )}
+            </div>
+        </div>
+    );
+}
