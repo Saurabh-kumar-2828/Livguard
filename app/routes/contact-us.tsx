@@ -318,13 +318,13 @@ function ContactPage({userPreferences, utmParameters, actionData}: {userPreferen
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
-
+            {/* 
             <ExploreCareers
                 userPreferences={userPreferences}
                 className="tw-row-start-[9] lg:tw-row-start-7 tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] lg:tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] lg:tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full" /> */}
         </div>
     );
 }
@@ -1120,12 +1120,12 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
 
             <div className="tw-row-start-3 tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-x-16 tw-gap-y-8">
-                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
+                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-6 tw-py-10 tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start !tw-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/india.svg"
                             alt="india-operations"
-                            className="tw-w-[3.5rem] tw-h-[3.5rem]"
+                            className="tw-w-[3.5rem] tw-h-[3.5rem] "
                         />
                     </div>
 
@@ -1134,21 +1134,21 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option1Text", userPreferences.language)}</div>
 
-                        <Link
+                        {/* <Link
                             to="/"
                             className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                         >
                             {getVernacularString("contactUsS4ButtonText", userPreferences.language)}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-6 tw-py-10 tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start !tw-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
                             alt="international-operations"
-                            className="tw-w-[3.5rem] tw-h-[3.5rem]"
+                            className="tw-w-[3.5rem] tw-h-[3.5rem] tw-self-center"
                         />
                     </div>
 
@@ -1157,12 +1157,12 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option2Text", userPreferences.language)}</div>
 
-                        <Link
+                        {/* <Link
                             to="/"
                             className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                         >
                             {getVernacularString("contactUsS4ButtonText", userPreferences.language)}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>
