@@ -298,8 +298,8 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
 
             <div className="tw-row-start-3 tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-x-16 tw-gap-y-8">
-                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
+                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-8 tw-py-4 tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/india.svg"
                             alt="india-operations"
@@ -323,8 +323,8 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-8 tw-py-4 tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
                             alt="international-operations"
