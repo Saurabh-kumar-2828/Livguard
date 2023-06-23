@@ -3332,6 +3332,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "ऑफर जल्दी ही आने वाले हैं!",
         [Language.Marathi]: "?????",
     },
+    "f0453469-c11f-46c4-b462-ad4445abfc46": {
+        [Language.English]: "Offer valid till: ",
+        [Language.Hindi]: "?????",
+    },
+    "4d53d9a4-bbd6-464b-be5c-f0bab1defe02": {
+        [Language.English]: "Avail Offer",
+        [Language.Hindi]: "ऑफर का लाभ उठाएं",
+    },
+    "71bf111f-fc1f-4026-baeb-9b4981a8aba9": {
+        [Language.English]: `Watch <span class="lg-text-highlighted">Digital Film</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "dfa03024-6e74-45c6-9634-8d83833930f3": {
+        [Language.English]: `Charged Up <span class="lg-text-highlighted">Deals</span> For You`,
+        [Language.Hindi]: `ऊर्जा से भरपूर <span class="lg-text-highlighted">डील्स</span>`,
+    },
+    "0931e2ce-74c8-49b3-84d0-760b290166eb": {
+        [Language.English]: `Best deals and offers curated specially for you`,
+        [Language.Hindi]: `आपके लिए विशेष रूप से चुनी गई सबसे बेहतरीन डील्स और ऑफर्स`,
+    },
     // Service Page Vernac Strings Start
     "84ec1aea-1f61-4508-ae92-cd3647247ef1": {
         [Language.English]: `Home`,
