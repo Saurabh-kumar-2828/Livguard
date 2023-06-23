@@ -466,8 +466,11 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 method="post"
                                 className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2 tw-place-self-start"
                             >
-                                <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-center tw-gap-2">
-                                    <div className="tw-grid tw-row-start-1 tw-max-w-fit tw-grid-flow-col tw-gap-2">
+                                <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-start tw-gap-2">
+                                    <div className="tw-row-start-1">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-text-left">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
+                                    </div>
+                                    <div className="tw-grid tw-row-start-2 tw-max-w-fit tw-grid-flow-col tw-gap-2 tw-mb-1">
                                         <ItemBuilder
                                             items={[1, 2, 3, 4, 5]}
                                             itemBuilder={(item, itemIndex) => (
@@ -483,10 +486,6 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                 />
                                             )}
                                         />
-                                    </div>
-
-                                    <div className="tw-row-start-2 ">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-text-center">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
                                     </div>
                                 </div>
 
