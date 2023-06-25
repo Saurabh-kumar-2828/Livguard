@@ -1,5 +1,5 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {ActionFunction, LinksFunction, LoaderFunction, json} from "@remix-run/node";
+import {ActionFunction, LinksFunction, MetaFunction, LoaderFunction, json} from "@remix-run/node";
 import {Form, Link, useActionData} from "@remix-run/react";
 import React, {useEffect} from "react";
 import {useState} from "react";
@@ -24,25 +24,32 @@ import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Buy Inverter Battery Online at Best Prices In India",
-//             description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
-//             description: "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Get in Touch with Livguard: Contact Us Today",
+            description: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+            "og:title": "Get in Touch with Livguard: Contact Us Today",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/contact-us",
+            "og:description": "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+            "og:type": "website",
+            "og:image": "",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
+            description: "?????",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.livguard.com/contact-us/"}];
@@ -194,6 +201,29 @@ export default function () {
                 />
             </PageScaffold>
 
+            {
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        {
+                            "@type": "SiteNavigationElement",
+                            "name": "Contact us",
+                            "url": "https://www.livguard.com/contact-us",
+                            "telephone": "+919205667999",
+                            "contactType": "",
+                            "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                            "addressLocality": "Gurugram",
+                            "addressRegion": "Haryana",
+                            "postalCode": "122016",
+                            "addressCountry": "India",
+                            "E-mail": "marketing@livguard.com, export@sar-group.com"
+                          }
+                        `,
+                    }}
+                ></script>
+            }
+
             {/* <ProductAndCategoryBottomBar
                 userPreferences={userPreferences}
                 utmParameters={utmSearchParameters}
@@ -255,15 +285,7 @@ export default function () {
     );
 }
 
-function ContactPage({
-    userPreferences,
-    utmParameters,
-    actionData,
-}: {
-    userPreferences: UserPreferences;
-    utmParameters: {[searchParameter: string]: string};
-    actionData: {error: string | null; formType: string};
-}) {
+function ContactPage({userPreferences, utmParameters, actionData}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; actionData: ActionData}) {
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
             <HeroSection
@@ -273,18 +295,20 @@ function ContactPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-            <WeAreListening
-                userPreferences={userPreferences}
-                className="tw-row-start-5 lg:tw-row-start-3 lg:tw-col-start-1"
-                actionData={actionData}
-            />
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2">
+                <WeAreListening
+                    userPreferences={userPreferences}
+                    className="tw-row-start-3 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-max-w-2xl lg:tw-justify-self-end"
+                    actionData={actionData}
+                />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
 
-            <ClickConnectPowerUpSection
-                userPreferences={userPreferences}
-                className="tw-row-start-3 lg:tw-row-start-3 lg:tw-col-start-2"
-            />
+                <ClickConnectPowerUpSection
+                    userPreferences={userPreferences}
+                    className="tw-row-start-1 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-max-w-2xl lg:tw-justify-self-start"
+                />
+            </div>
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
@@ -294,13 +318,13 @@ function ContactPage({
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
-
+            {/* 
             <ExploreCareers
                 userPreferences={userPreferences}
                 className="tw-row-start-[9] lg:tw-row-start-7 tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] lg:tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] lg:tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full" /> */}
         </div>
     );
 }
@@ -311,7 +335,7 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-9.5rem] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
             ref={ref}
@@ -367,8 +391,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     );
 }
 
-function WeAreListening({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: {error: string | null; formType: string}}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: false});
+function WeAreListening({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const utmSearchParameters = useUtmSearchParameters();
 
     const [isFeedbackFormSubmitted, setIsFeedbackFormSubmitted] = useState(false);
@@ -399,22 +423,24 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
     }, [actionData]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left lg:lg-pl-screen-edge-2", className)}>
-            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 tw-text-center lg:tw-text-left">
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_1rem_auto_1.5rem_minmax(0,1fr)] tw-w-full", className)}>
+            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS3H", userPreferences.language))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
-            <div className="tw-row-start-3 tw-grid tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)] lg-px-screen-edge-2 lg:tw-pl-0 tw-place-self-center lg:tw-place-self-start">
+            <div className="tw-row-start-3 tw-grid tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)] lg:tw-pl-0 tw-place-self-center lg:tw-place-self-start">
                 <div
                     className={concatenateNonNullStringsWithSpaces(
                         "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-1 hover:tw-cursor-pointer",
                         `${selectedIndex == 0 ? "tw-bg-primary-500-light" : "lg-bg-secondary-100"}`,
                     )}
-                    onClick={() => emblaApi?.scrollTo(0)}
+                    onClick={() => setSelectedIndex(0)}
                 >
-                    <div className="lg-text-body lg-text-secondary-900 tw-font-bold">{getVernacularString("contactUsS3Feedback", userPreferences.language)}</div>
+                    <div className={`lg-text-body tw-font-bold ${selectedIndex === 0 ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}>
+                        {getVernacularString("contactUsS3Feedback", userPreferences.language)}
+                    </div>
                 </div>
 
                 <div
@@ -422,365 +448,363 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                         "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-3 hover:tw-cursor-pointer",
                         `${selectedIndex == 1 ? "tw-bg-primary-500-light" : "lg-bg-secondary-100"}`,
                     )}
-                    onClick={() => emblaApi?.scrollTo(1)}
+                    onClick={() => setSelectedIndex(1)}
                 >
-                    <div className="lg-text-body lg-text-secondary-900 tw-font-bold">{getVernacularString("contactUsS3Complaint", userPreferences.language)}</div>
+                    <div className={`lg-text-body tw-font-bold ${selectedIndex === 1 ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}>
+                        {getVernacularString("contactUsS3Complaint", userPreferences.language)}
+                    </div>
                 </div>
             </div>
 
             <VerticalSpacer className="tw-h-12 tw-row-start-4" />
 
-            <div className="tw-row-start-5 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0">
-                <div
-                    className="tw-overflow-hidden"
-                    ref={emblaRef}
-                >
-                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch">
-                        <div className="tw-grid tw-grid-glow-rows">
-                            {!isFeedbackFormSubmitted ? (
-                                <Form
-                                    method="post"
-                                    className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
-                                >
-                                    <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-center tw-gap-2">
-                                        <div className="tw-grid tw-row-start-1 tw-max-w-fit tw-grid-flow-col tw-gap-2">
-                                            <ItemBuilder
-                                                items={[1, 2, 3, 4, 5]}
-                                                itemBuilder={(item, itemIndex) => (
-                                                    <StarFill
-                                                        className={concatenateNonNullStringsWithSpaces(
-                                                            "tw-w-9 tw-h-9",
-                                                            `${itemIndex < rating ? "tw-text-primary-500-light" : "tw-text-secondary-700-dark"}`,
-                                                        )}
-                                                        onClick={() => {
-                                                            setRating(item);
-                                                        }}
-                                                        key={itemIndex}
-                                                    />
-                                                )}
-                                            />
-                                        </div>
-
-                                        <div className="tw-row-start-2 ">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-text-center">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
-                                        </div>
+            <div className="tw-row-start-5 tw-col-span-full lg:tw-px-0">
+                <div className="tw-grid tw-grid-flow-row tw-h-full tw-justify-center lg:tw-justify-normal">
+                    {selectedIndex == 0 ? (
+                        !isFeedbackFormSubmitted ? (
+                            <Form
+                                method="post"
+                                className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2 tw-place-self-start"
+                            >
+                                <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-start tw-gap-2">
+                                    <div className="tw-row-start-1">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-text-left">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
                                     </div>
-
-                                    <div className="tw-grid tw-row-start-2 tw-grid-cols-2 tw-gap-2">
-                                        <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="emailId"
-                                                className="lg-text-input"
-                                                pattern={emailIdValidationPattern}
-                                                placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormProductText", userPreferences.language)}</div>
-
-                                        <div className="tw-row-start-2">
-                                            <FormSelectComponent
-                                                items={[
-                                                    getVernacularString("ormTrackingFormProduct1", userPreferences.language),
-                                                    getVernacularString("ormTrackingFormProduct2", userPreferences.language),
-                                                    getVernacularString("ormTrackingFormProduct3", userPreferences.language),
-                                                    getVernacularString("ormTrackingFormProduct4", userPreferences.language),
-                                                ]}
-                                                itemBuilder={(item) =>
-                                                    item == null ? `${getVernacularString("ormTrackingFormProduct1", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
-                                                }
-                                                value={feedbackFormSelectedProduct}
-                                                setValue={(item) =>
-                                                    item != null
-                                                        ? setFeedbackFormSelectedProduct(item)
-                                                        : setFeedbackFormSelectedProduct(getVernacularString("ormTrackingFormProduct1", userPreferences.language))
-                                                }
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-4 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FeedbackFormDetailText", userPreferences.language)}</div>
-
-                                        <textarea
-                                            name="queryDetails"
-                                            className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                            placeholder={getVernacularString("contactUsS3FeedbackFormDetailPlaceholder", userPreferences.language)}
-                                            rows={3}
+                                    <div className="tw-grid tw-row-start-2 tw-max-w-fit tw-grid-flow-col tw-gap-2 tw-mb-1">
+                                        <ItemBuilder
+                                            items={[1, 2, 3, 4, 5]}
+                                            itemBuilder={(item, itemIndex) => (
+                                                <StarFill
+                                                    className={concatenateNonNullStringsWithSpaces(
+                                                        "tw-w-9 tw-h-9",
+                                                        `${itemIndex < rating ? "tw-text-primary-500-light" : "tw-text-secondary-700-dark"}`,
+                                                    )}
+                                                    onClick={() => {
+                                                        setRating(item);
+                                                    }}
+                                                    key={itemIndex}
+                                                />
+                                            )}
                                         />
                                     </div>
+                                </div>
 
-                                    <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
+                                <div className="tw-grid tw-row-start-2 tw-grid-cols-2 tw-gap-2">
+                                    <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
+
                                         <input
-                                            type="checkbox"
-                                            name="termsAndConditionsChecked"
-                                            style={{accentColor: `${isFeedbackFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
-                                            defaultChecked={isFeedbackFormTermsAndConditionsChecked}
+                                            type="text"
+                                            name="emailId"
+                                            className="lg-text-input"
+                                            pattern={emailIdValidationPattern}
+                                            placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
                                             required
-                                            onChange={(e) => {
-                                                setIsFeedbackFormTermsAndConditionsChecked(!isFeedbackFormTermsAndConditionsChecked);
-                                            }}
                                         />
-
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
                                     </div>
 
-                                    <input
-                                        name="utmParameters"
-                                        className="tw-hidden"
-                                        readOnly
-                                        value={JSON.stringify(utmSearchParameters)}
+                                    <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
+
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            className="lg-text-input"
+                                            placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormProductText", userPreferences.language)}</div>
+
+                                    <div className="tw-row-start-2">
+                                        <FormSelectComponent
+                                            items={[
+                                                getVernacularString("ormTrackingFormProduct1", userPreferences.language),
+                                                getVernacularString("ormTrackingFormProduct2", userPreferences.language),
+                                                getVernacularString("ormTrackingFormProduct3", userPreferences.language),
+                                                getVernacularString("ormTrackingFormProduct4", userPreferences.language),
+                                            ]}
+                                            itemBuilder={(item) =>
+                                                item == null ? `${getVernacularString("ormTrackingFormProduct1", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
+                                            }
+                                            value={feedbackFormSelectedProduct}
+                                            setValue={(item) =>
+                                                item != null
+                                                    ? setFeedbackFormSelectedProduct(item)
+                                                    : setFeedbackFormSelectedProduct(getVernacularString("ormTrackingFormProduct1", userPreferences.language))
+                                            }
+                                            // buttonClassName="!tw-rounded-full"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="tw-grid tw-row-start-4 tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FeedbackFormDetailText", userPreferences.language)}</div>
+
+                                    <textarea
+                                        name="queryDetails"
+                                        className="lg-text-input !tw-rounded-lg tw-row-start-2"
+                                        placeholder={getVernacularString("contactUsS3FeedbackFormDetailPlaceholder", userPreferences.language)}
+                                        rows={3}
                                     />
+                                </div>
+
+                                <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
                                     <input
-                                        readOnly
-                                        name="formType"
-                                        className="tw-hidden"
-                                        value="feedbackForm"
-                                    />
-                                    <input
-                                        readOnly
-                                        name="rating"
-                                        className="tw-hidden"
-                                        value={rating}
-                                    />
-                                    <input
-                                        readOnly
+                                        type="checkbox"
                                         name="termsAndConditionsChecked"
-                                        className="tw-hidden"
-                                        value={isFeedbackFormTermsAndConditionsChecked ? "True" : "False"}
+                                        style={{accentColor: `${isFeedbackFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
+                                        defaultChecked={isFeedbackFormTermsAndConditionsChecked}
+                                        required
+                                        onChange={(e) => {
+                                            setIsFeedbackFormTermsAndConditionsChecked(!isFeedbackFormTermsAndConditionsChecked);
+                                        }}
+                                        className="tw-flex-none"
                                     />
-                                    <input
-                                        readOnly
-                                        name="product"
-                                        className="tw-hidden"
-                                        value={feedbackFormSelectedProduct}
-                                    />
-
-                                    <button
-                                        type="submit"
-                                        className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
-                                        disabled={rating == 0 || feedbackFormSelectedProduct == ""}
-                                    >
-                                        {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
-                                    </button>
-                                </Form>
-                            ) : (
-                                // <ContactFormSuccess userPreferences={userPreferences} />
-                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
-                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
-                                        <FixedWidthImage
-                                            relativePath="/livguard/icons/confirmation.png"
-                                            width="10rem"
-                                        />
-                                    </div>
 
                                     <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
-                                        className="lg-text-banner tw-row-start-4 tw-text-center"
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}}
+                                        className="tw-flex-1"
                                     />
+                                </div>
 
-                                    {rating < 3 ? (
-                                        <div
-                                            dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    ) : (
+                                <input
+                                    name="utmParameters"
+                                    className="tw-hidden"
+                                    readOnly
+                                    value={JSON.stringify(utmSearchParameters)}
+                                />
+                                <input
+                                    readOnly
+                                    name="formType"
+                                    className="tw-hidden"
+                                    value="feedbackForm"
+                                />
+                                <input
+                                    readOnly
+                                    name="rating"
+                                    className="tw-hidden"
+                                    value={rating}
+                                />
+                                <input
+                                    readOnly
+                                    name="termsAndConditionsChecked"
+                                    className="tw-hidden"
+                                    value={isFeedbackFormTermsAndConditionsChecked ? "True" : "False"}
+                                />
+                                <input
+                                    readOnly
+                                    name="product"
+                                    className="tw-hidden"
+                                    value={feedbackFormSelectedProduct}
+                                />
+
+                                <button
+                                    type="submit"
+                                    className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
+                                    disabled={rating == 0 || feedbackFormSelectedProduct == ""}
+                                >
+                                    {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                                </button>
+                            </Form>
+                        ) : (
+                            // <ContactFormSuccess userPreferences={userPreferences} />
+                            <div className="tw-grid tw-grid-rows-[minmax(0,1fr)_auto_2rem_auto_2rem_auto_1.5rem_auto_2rem_auto_minmax(1rem,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-place-self-center tw-px-16">
+                                <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
+                                    <FixedWidthImage
+                                        relativePath="/livguard/icons/confirmation.png"
+                                        width="10rem"
+                                    />
+                                </div>
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                    className="lg-text-banner tw-row-start-4 tw-text-center"
+                                />
+
+                                {rating < 3 ? (
+                                    <div
+                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language)}}
+                                        className="lg-text-body tw-row-start-6 tw-text-center"
+                                    />
+                                ) : (
+                                    <>
                                         <div
                                             dangerouslySetInnerHTML={{__html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language)}}
                                             className="lg-text-body tw-row-start-6 tw-text-center"
                                         />
-                                    )}
+                                        <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
+
+                                        <div
+                                            dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
+                                            className="lg-text-icon tw-row-start-[10] tw-text-center"
+                                        />
+                                    </>
+                                )}
+                            </div>
+                        )
+                    ) : !isComplaintFormSubmitted ? (
+                        <Form
+                            method="post"
+                            className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2  tw-place-self-center"
+                        >
+                            <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-gap-2">
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
+                                    {getVernacularString("contactUsS3ComplaintFormRadioText", userPreferences.language)}
                                 </div>
-                            )}
-                        </div>
 
-                        <div className="tw-grid tw-grid-glow-rows">
-                            {!isComplaintFormSubmitted ? (
-                                <Form
-                                    method="post"
-                                    className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2"
-                                >
-                                    <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
-                                            {getVernacularString("contactUsS3ComplaintFormRadioText", userPreferences.language)}
-                                        </div>
-
-                                        <div className="tw-row-start-2 tw-grid tw-grid-rows-[auto_1rem_auto] tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)] lg:tw-row-start-1">
-                                            <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
-                                                <input
-                                                    type="radio"
-                                                    id="product"
-                                                    name="complaintOption"
-                                                    className="tw-col-start-1 tw-w-4 tw-h-4"
-                                                    value={getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}
-                                                    style={{
-                                                        accentColor: `${
-                                                            complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language) ? "#eb2a2b" : "white"
-                                                        }`,
-                                                    }}
-                                                    onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language))}
-                                                />
-                                                <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}</div>
-                                            </div>
-
-                                            <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
-                                                <input
-                                                    type="radio"
-                                                    id="service"
-                                                    name="complaintOption"
-                                                    className="tw-col-start-1 tw-w-4 tw-h-4"
-                                                    value={getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}
-                                                    style={{
-                                                        accentColor: `${
-                                                            complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language) ? "#eb2a2b" : "white"
-                                                        }`,
-                                                    }}
-                                                    onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language))}
-                                                />
-                                                <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-2 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3ComplaintFormDetailText", userPreferences.language)}</div>
-
-                                        <textarea
-                                            name="queryDetails"
-                                            className="lg-text-input !tw-rounded-lg tw-row-start-2"
-                                            placeholder={getVernacularString("contactUsS3ComplaintFormDetailPlaceholder", userPreferences.language)}
-                                            rows={3}
-                                        />
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
-                                        <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
-
+                                <div className="tw-row-start-2 tw-grid tw-grid-rows-[auto_1rem_auto] tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)] lg:tw-row-start-1">
+                                    <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
                                         <input
-                                            type="text"
-                                            name="phoneNumber"
-                                            className="lg-text-input tw-row-start-2"
-                                            pattern={indianPhoneNumberValidationPattern}
-                                            placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
-                                        />
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-4 tw-grid-cols-2 tw-gap-2">
-                                        <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="emailId"
-                                                className="lg-text-input"
-                                                pattern={emailIdValidationPattern}
-                                                placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="lg-text-input"
-                                                placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
-                                        <input
-                                            type="checkbox"
-                                            name="termsAndConditionsCheckedCheckbox"
-                                            style={{accentColor: `${isComplaintFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
-                                            defaultChecked={isComplaintFormTermsAndConditionsChecked}
-                                            required
-                                            onChange={(e) => {
-                                                setIsComplaintFormTermsAndConditionsChecked(!isComplaintFormTermsAndConditionsChecked);
+                                            type="radio"
+                                            id="product"
+                                            name="complaintOption"
+                                            className="tw-col-start-1 tw-w-4 tw-h-4"
+                                            value={getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}
+                                            style={{
+                                                accentColor: `${complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language) ? "#eb2a2b" : "white"}`,
                                             }}
+                                            onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language))}
                                         />
-
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
+                                        <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption1", userPreferences.language)}</div>
                                     </div>
 
-                                    <input
-                                        name="utmParameters"
-                                        className="tw-hidden"
-                                        readOnly
-                                        value={JSON.stringify(utmSearchParameters)}
-                                    />
-                                    <input
-                                        readOnly
-                                        className="tw-hidden"
-                                        value="complaintForm"
-                                        name="formType"
-                                    />
-                                    <input
-                                        readOnly
-                                        name="termsAndConditionsChecked"
-                                        className="tw-hidden"
-                                        value={isComplaintFormTermsAndConditionsChecked ? "True" : "False"}
-                                    />
-
-                                    <button
-                                        type="submit"
-                                        className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start"
-                                    >
-                                        {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
-                                    </button>
-                                </Form>
-                            ) : (
-                                // <ContactFormSuccess userPreferences={userPreferences} />
-                                <div className="tw-grid tw-grid-rows-[3.5rem_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
-                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
-                                        <FixedWidthImage
-                                            relativePath="/livguard/icons/confirmation.png"
-                                            width="10rem"
+                                    <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
+                                        <input
+                                            type="radio"
+                                            id="service"
+                                            name="complaintOption"
+                                            className="tw-col-start-1 tw-w-4 tw-h-4"
+                                            value={getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}
+                                            style={{
+                                                accentColor: `${complaintFormOption == getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language) ? "#eb2a2b" : "white"}`,
+                                            }}
+                                            onClick={() => setComplaintFormOption(getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language))}
                                         />
+                                        <div className="tw-col-start-3 lg-text-body">{getVernacularString("contactUsS3ComplaintFormRadioOption2", userPreferences.language)}</div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
-                                        className="lg-text-banner tw-row-start-4 tw-text-center"
-                                    />
+                            <div className="tw-grid tw-row-start-2 tw-grid-flow-row tw-gap-2">
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3ComplaintFormDetailText", userPreferences.language)}</div>
 
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
-                                        className="lg-text-body tw-row-start-6 tw-text-center"
-                                    />
+                                <textarea
+                                    name="queryDetails"
+                                    className="lg-text-input !tw-rounded-lg tw-row-start-2"
+                                    placeholder={getVernacularString("contactUsS3ComplaintFormDetailPlaceholder", userPreferences.language)}
+                                    rows={3}
+                                />
+                            </div>
 
-                                    <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
+                            <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
 
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
-                                        className="lg-text-icon tw-row-start-[10] tw-text-center"
+                                <input
+                                    type="text"
+                                    name="phoneNumber"
+                                    className="lg-text-input tw-row-start-2"
+                                    pattern={indianPhoneNumberValidationPattern}
+                                    placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                />
+                            </div>
+
+                            <div className="tw-grid tw-row-start-4 tw-grid-cols-2 tw-gap-2">
+                                <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
+
+                                    <input
+                                        type="text"
+                                        name="emailId"
+                                        className="lg-text-input"
+                                        pattern={emailIdValidationPattern}
+                                        placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
+                                        required
                                     />
                                 </div>
-                            )}
+
+                                <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
+
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        className="lg-text-input"
+                                        placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-gap-4 tw-items-start">
+                                <input
+                                    type="checkbox"
+                                    name="termsAndConditionsChecked"
+                                    style={{accentColor: `${isComplaintFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
+                                    defaultChecked={isComplaintFormTermsAndConditionsChecked}
+                                    required
+                                    onChange={(e) => {
+                                        setIsComplaintFormTermsAndConditionsChecked(!isComplaintFormTermsAndConditionsChecked);
+                                    }}
+                                    className="tw-flex-none"
+                                />
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}}
+                                    className="tw-flex-1"
+                                />
+                            </div>
+
+                            <input
+                                name="utmParameters"
+                                className="tw-hidden"
+                                readOnly
+                                value={JSON.stringify(utmSearchParameters)}
+                            />
+                            <input
+                                readOnly
+                                className="tw-hidden"
+                                value="complaintForm"
+                                name="formType"
+                            />
+                            <input
+                                readOnly
+                                name="termsAndConditionsChecked"
+                                className="tw-hidden"
+                                value={isComplaintFormTermsAndConditionsChecked ? "True" : "False"}
+                            />
+
+                            <button
+                                type="submit"
+                                className="tw-row-start-6 lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start"
+                            >
+                                {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
+                            </button>
+                        </Form>
+                    ) : (
+                        // <ContactFormSuccess userPreferences={userPreferences} />
+                        <div className="tw-grid tw-grid-rows-[minmax(0,1fr)_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(1rem,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-place-self-center tw-px-16">
+                            <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
+                                <FixedWidthImage
+                                    relativePath="/livguard/icons/confirmation.png"
+                                    width="10rem"
+                                />
+                            </div>
+
+                            <div
+                                dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
+                                className="lg-text-banner tw-row-start-4 tw-text-center"
+                            />
+
+                            <div
+                                dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
+                                className="lg-text-body tw-row-start-6 tw-text-center"
+                            />
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </div>
@@ -789,34 +813,29 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-    const [dialougOptions, setDialougOptions] = useState<{dialougType: string; headerTextContentId: string}>({dialougType: "", headerTextContentId: ""});
+    const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
 
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
-            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
-            </DefaultTextAnimation>
-
-            <VerticalSpacer className="tw-h-4 tw-row-start-2" />
-
-            <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
-                <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
-            </DefaultTextAnimation>
-
-            <VerticalSpacer className="tw-h-16 tw-row-start-4" />
-
-            <div className="tw-row-start-5 lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-pb-8 tw-pt-4">
-                <div className="tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-grid tw-items-center tw-justify-center">
-                    <Telephone className="tw-h-10 tw-w-10" />
+    function CallUsCard() {
+        return (
+            <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/call-us.svg"
+                    />
                 </div>
 
-                <div className="tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option1Text", userPreferences.language)}</div>
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start tw-text-center lg:tw-text-left">
+                        {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
+                    </div>
 
                     <button
-                        className="lg-cta-button tw-w-[11.875rem]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
-                            setDialougOptions({dialougType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
+                            setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                             setIsContactUsDialogOpen(true);
                         }}
                     >
@@ -824,21 +843,28 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </button>
                 </div>
             </div>
+        );
+    }
 
-            <VerticalSpacer className="tw-h-6 tw-row-start-6" />
-
-            <div className="tw-row-start-7 lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-pb-8 tw-pt-4">
-                <div className="tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-grid tw-items-center tw-justify-center">
-                    <Whatsapp className="tw-h-10 tw-w-10" />
+    function WhatsappUsCard() {
+        return (
+            <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us.svg"
+                    />
                 </div>
 
-                <div className="tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-[11.875rem]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
-                            setDialougOptions({dialougType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
+                            setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
                         }}
                     >
@@ -846,21 +872,28 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </button>
                 </div>
             </div>
+        );
+    }
 
-            <VerticalSpacer className="tw-h-6 tw-row-start-[8]" />
-
-            <div className="tw-row-start-[9] lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-pb-8 tw-pt-4">
-                <div className="tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-grid tw-items-center tw-justify-center">
-                    <Envelope className="tw-h-10 tw-w-10" />
+    function EmailUsCard() {
+        return (
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/email-us.svg"
+                    />
                 </div>
 
-                <div className="tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-outline-button tw-w-[11.875rem]"
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0]"
                         onClick={() => {
-                            setDialougOptions({dialougType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
+                            setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
                         }}
                     >
@@ -868,13 +901,66 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     </button>
                 </div>
             </div>
+        );
+    }
+
+    function RequestAServiceCard() {
+        return (
+            <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+                    <img
+                        className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
+                        src="https://files.growthjockey.com/livguard/icons/contact-us/request-service.svg"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+
+                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
+                    <div className="lg-text-body tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS2Option4Text", userPreferences.language)}</div>
+
+                    <Link
+                        className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
+                        to="/service"
+                        target="_blank"
+                    >
+                        {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-px-0", className)}>
+            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
+            </DefaultTextAnimation>
+
+            <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
+
+            <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
+                <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
+            </DefaultTextAnimation>
+
+            <VerticalSpacer className="tw-h-4 lg:tw-h-6 tw-row-start-4" />
+
+            <div className="tw-row-start-5 tw-grid tw-grid-rows-[auto_2rem_auto] lg:tw-grid-rows-[auto_auto_auto_auto] tw-grid-cols-[minmax(0,1fr)_2rem_minmax(0,1fr)] lg:tw-gap-6">
+                <CallUsCard />
+
+                <WhatsappUsCard />
+
+                <EmailUsCard />
+
+                <RequestAServiceCard />
+            </div>
 
             <ContactUsDialog
                 userPreferences={userPreferences}
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
-                headerTextContentId={dialougOptions.headerTextContentId}
-                dialougType={dialougOptions.dialougType}
+                headerTextContentId={dialogOptions.headerTextContentId}
+                dialogType={dialogOptions.dialogType}
             />
         </div>
     );
@@ -885,13 +971,13 @@ function ContactUsDialog({
     isContactUsDialogOpen,
     setIsContactUsDialogOpen,
     headerTextContentId,
-    dialougType,
+    dialogType,
 }: {
     userPreferences: UserPreferences;
     isContactUsDialogOpen: boolean;
     setIsContactUsDialogOpen: React.Dispatch<boolean>;
     headerTextContentId: string;
-    dialougType: string;
+    dialogType: string;
 }) {
     function tryToCloseContactUsDialog() {
         setIsContactUsDialogOpen(false);
@@ -950,17 +1036,32 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialougType == "call-us" ? "tel:800-1025-551" : dialougType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
+                                to={dialogType == "call-us" ? "tel:8001025551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialougType == "call-us" ? "800-1025-551" : dialougType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "800-1025-551" : dialogType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
 
-                                    {dialougType == "call-us" && <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />}
+                                    {dialogType == "call-us" && (
+                                        <img
+                                            className="tw-w-6 tw-h-6 tw-flex-0"
+                                            src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                        />
+                                    )}
 
-                                    {dialougType == "email-us" && <Envelope className="tw-w-6 tw-h-6 tw-flex-0" />}
+                                    {dialogType == "email-us" && (
+                                        <img
+                                            className="tw-w-6 tw-h-6 tw-flex-0"
+                                            src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                        />
+                                    )}
 
-                                    {dialougType == "chat-with-us" && <Whatsapp className="tw-w-6 tw-h-6 tw-flex-0" />}
+                                    {dialogType == "chat-with-us" && (
+                                        <img
+                                            className="tw-w-6 tw-h-6 tw-flex-0"
+                                            src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
+                                        />
+                                    )}
                                 </div>
                             </Link>
 
@@ -971,17 +1072,32 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialougType == "call-us" ? "tel:+91 92056-67999" : dialougType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
+                                to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "mailto:marketing@livguard.com" : "https://wa.me/920566799"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialougType == "call-us" ? "+91 92056-67999" : dialougType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
 
-                                    {dialougType == "call-us" && <Telephone className="tw-w-6 tw-h-6 tw-flex-0" />}
+                                    {dialogType == "call-us" && (
+                                        <img
+                                            className="tw-w-6 tw-h-6 tw-flex-0"
+                                            src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                        />
+                                    )}
 
-                                    {dialougType == "email-us" && <Envelope className="tw-w-6 tw-h-6 tw-flex-0" />}
+                                    {dialogType == "email-us" && (
+                                        <img
+                                            className="tw-w-6 tw-h-6 tw-flex-0"
+                                            src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                        />
+                                    )}
 
-                                    {dialougType == "chat-with-us" && <Whatsapp className="tw-w-6 tw-h-6 tw-flex-0" />}
+                                    {dialogType == "chat-with-us" && (
+                                        <img
+                                            className="tw-w-6 tw-h-6 tw-flex-0"
+                                            src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
+                                        />
+                                    )}
                                 </div>
                             </Link>
                         </div>
@@ -996,7 +1112,7 @@ function ContactUsDialog({
 
 function OurPresence({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS4H", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -1004,12 +1120,12 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
 
             <div className="tw-row-start-3 tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-x-16 tw-gap-y-8">
-                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
+                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-6 tw-py-10 tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start !tw-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/india.svg"
                             alt="india-operations"
-                            className="tw-w-[3.5rem] tw-h-[3.5rem]"
+                            className="tw-w-[3.5rem] tw-h-[3.5rem] "
                         />
                     </div>
 
@@ -1018,21 +1134,21 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option1Text", userPreferences.language)}</div>
 
-                        <Link
+                        {/* <Link
                             to="/"
                             className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                         >
                             {getVernacularString("contactUsS4ButtonText", userPreferences.language)}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-4 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start">
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-6 tw-py-10 tw-items-center">
+                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start !tw-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
                             alt="international-operations"
-                            className="tw-w-[3.5rem] tw-h-[3.5rem]"
+                            className="tw-w-[3.5rem] tw-h-[3.5rem] tw-self-center"
                         />
                     </div>
 
@@ -1041,12 +1157,12 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option2Text", userPreferences.language)}</div>
 
-                        <Link
+                        {/* <Link
                             to="/"
                             className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                         >
                             {getVernacularString("contactUsS4ButtonText", userPreferences.language)}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>
@@ -1056,7 +1172,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
 
 function ExploreCareers({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-p-6 lg-contact-gradient-light dark:lg-contact-gradient-dark tw-rounded-lg tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)_1rem_auto] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_20rem_2rem_minmax(0,1fr)_2rem_auto] tw-items-center">
                 <div className="tw-w-[7.75rem] tw-h-[7.75rem] tw-col-start-1 tw-row-start-1 lg-bg-secondary-100 tw-rounded-full tw-grid tw-justify-center tw-items-center tw-place-self-center lg:tw-place-self-start">
                     <img

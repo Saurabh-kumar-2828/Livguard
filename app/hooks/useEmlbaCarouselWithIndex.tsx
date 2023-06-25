@@ -1,7 +1,7 @@
 import useEmblaCarousel, {EmblaCarouselType} from "embla-carousel-react";
 import {useCallback, useEffect, useRef, useState} from "react";
 
-export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
+export function useEmblaCarouselWithIndex(options, autoplayDelay?: number, autoPlayIndexChangeOffset?: number) {
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -17,10 +17,14 @@ export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
     }, [emblaApi]);
 
     function autoplay(emblaApi: EmblaCarouselType) {
-        emblaApi.scrollNext();
+        if (autoPlayIndexChangeOffset != null) {
+            emblaApi.scrollTo(emblaApi.selectedScrollSnap() + autoPlayIndexChangeOffset);
+        } else {
+            emblaApi.scrollNext();
+        }
 
         timeoutHandle.current = setTimeout(autoplay, autoplayDelay, emblaApi);
-    };
+    }
 
     useEffect(() => {
         if (!emblaApi) {
@@ -43,3 +47,8 @@ export function useEmlbaCarouselWithIndex(options, autoplayDelay?: number) {
 
     return {emblaRef, emblaApi, selectedIndex};
 }
+
+/**
+  @deprecated Use `emblaCarouselWithIndex()` instead.
+**/
+export const useEmlbaCarouselWithIndex = useEmblaCarouselWithIndex;

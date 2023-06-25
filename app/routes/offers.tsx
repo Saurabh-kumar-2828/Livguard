@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LoaderFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
@@ -22,9 +22,36 @@ import {ProductType} from "~/productData";
 import {ContactUsCta, ContactUsDialog, DealerLocator} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type {UserPreferences} from "~/typeDefinitions";
+import {Language, type UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = data.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return {
+            title: "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
+            description: "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
+            "og:title": "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
+            "og:site_name": "Livguard",
+            "og:url": "https://www.livguard.com/offer-page",
+            "og:description": "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
+            "og:type": "website",
+            "og:image": "",
+        };
+    } else if (userPreferences.language == Language.Hindi) {
+        return {
+            title: "लिवगार्ड के रोमांचक ऑफर: इनवर्टर, बैटरी और बहुत कुछ कम कीमतों पर खरीदें!",
+            description: "?????",
+        };
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
+
+export const links: LinksFunction = () => {
+    return [{rel: "canonical", href: "https://www.livguard.com/offer-page"}];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -191,8 +218,8 @@ export function BestOffers({
     utmParameters: {
         [searchParameter: string]: string;
     };
-    isContactUsDialogOpen: boolean,
-    setIsContactUsDialogOpen: React.Dispatch<boolean>,
+    isContactUsDialogOpen: boolean;
+    setIsContactUsDialogOpen: React.Dispatch<boolean>;
     tryToOpenContactUsDialog: () => void;
     pageUrl: string;
     className?: string;
@@ -302,12 +329,7 @@ export function BestOffers({
                                 null,
                                 null,
                             ],
-                            [
-                                null,
-                                null,
-                                null,
-                                null,
-                            ],
+                            [null, null, null, null],
                         ]}
                         itemBuilder={(categoryOffers, categoryOffersIndex) => (
                             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4 tw-px-2">
@@ -432,7 +454,17 @@ function RecommendationCard({slug, productType, userPreferences}: {slug: string;
             <VerticalSpacer className="tw-h-2" />
 
             <div className="tw-w-full tw-text-center lg-text-secondary-700">
-                {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}500{getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
+                {userPreferences.language === Language.Hindi ? (
+                    <>
+                        ₹500{getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}&nbsp;
+                        {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}
+                    </>
+                ) : (
+                    <>
+                        {getVernacularString("c17b911e-a564-4192-a363-11def77e12b9", userPreferences.language)}500
+                        {getVernacularString("28c8bd29-74e4-425b-8654-9d0f51a98cba", userPreferences.language)}
+                    </>
+                )}
             </div>
 
             <VerticalSpacer className="tw-h-4" />
@@ -454,16 +486,21 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences}: {offer; t
     return (
         <div className="tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto] tw-gap-y-1 tw-gap-x-2 lg-bg-secondary-100 tw-rounded-lg tw-pb-2">
             <div className="lg:tw-col-span-2">
-                <FullWidthImage relativePath={`/livguard/offers/2/${offer.name}-${userPreferences.language}.jpg`} className="tw-rounded-lg" />
+                <FullWidthImage
+                    relativePath={`/livguard/offers/2/${offer.name}-${userPreferences.language}.jpg`}
+                    className="tw-rounded-lg"
+                />
             </div>
 
             <div className="tw-text-center lg:tw-text-left lg:tw-pl-2">
-                {getVernacularString("f0453469-c11f-46c4-b462-ad4445abfc46", userPreferences.language)}{offer.validTill}
+                {getVernacularString("f0453469-c11f-46c4-b462-ad4445abfc46", userPreferences.language)}
+                {offer.validTill}
             </div>
 
             <button
                 onClick={tryToOpenContactUsDialog}
-                className="lg:tw-pr-2 lg-text-body-bold lg-text-primary-500">
+                className="lg:tw-pr-2 lg-text-body-bold lg-text-primary-500"
+            >
                 {getVernacularString("4d53d9a4-bbd6-464b-be5c-f0bab1defe02", userPreferences.language)}
             </button>
         </div>

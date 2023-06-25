@@ -2804,103 +2804,214 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         finalUrl: "/livguard/contact-us/1/mobile_hero-f69033.jpg",
     },
     "/livguard/offers/2/finance-partners-en-in.jpg": {
-        "width": 598,
-        "height": 331,
-        "blurHash": "LIHc=-DisD?H_i_3kqVs*|xaK5WB",
-        "finalUrl": "/livguard/offers/2/finance-partners-en-in-d0111a.jpg"
+        width: 598,
+        height: 331,
+        blurHash: "LIHc=-DisD?H_i_3kqVs*|xaK5WB",
+        finalUrl: "/livguard/offers/2/finance-partners-en-in-d0111a.jpg",
     },
     "/livguard/offers/2/finance-partners-hi-in.jpg": {
-        "width": 598,
-        "height": 331,
-        "blurHash": "LGHwAk8{M{^R_O_3t,i^v2%1K5R*",
-        "finalUrl": "/livguard/offers/2/finance-partners-hi-in-14754b.jpg"
+        width: 598,
+        height: 331,
+        blurHash: "LGHwAk8{M{^R_O_3t,i^v2%1K5R*",
+        finalUrl: "/livguard/offers/2/finance-partners-hi-in-14754b.jpg",
     },
     "/livguard/hero-banners/akshay-desktop.jpg": {
-        "width": 1280,
-        "height": 654,
-        "blurHash": "L46%sW}Z5R5R0|9t$*-UNaWB$jxF",
-        "finalUrl": "/livguard/hero-banners/akshay-desktop-17b073.jpg"
+        width: 1280,
+        height: 654,
+        blurHash: "L46%sW}Z5R5R0|9t$*-UNaWB$jxF",
+        finalUrl: "/livguard/hero-banners/akshay-desktop-17b073.jpg",
     },
     "/livguard/hero-banners/akshay-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L26a3a:+0LAV1a5Q}[-BBUM{}@w|",
-        "finalUrl": "/livguard/hero-banners/akshay-mobile-6a6de5.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L26a3a:+0LAV1a5Q}[-BBUM{}@w|",
+        finalUrl: "/livguard/hero-banners/akshay-mobile-6a6de5.jpg",
     },
     "/livguard/hero-banners/category-battery-hero-desktop.jpg": {
-        "width": 3840,
-        "height": 2161,
-        "blurHash": "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
-        "finalUrl": "/livguard/hero-banners/category-battery-hero-desktop-9b3261.jpg"
+        width: 3840,
+        height: 2161,
+        blurHash: "L68:*UY5^+x]?w^ktlt7_3%Mt7t7",
+        finalUrl: "/livguard/hero-banners/category-battery-hero-desktop-9b3261.jpg",
     },
     "/livguard/hero-banners/category-battery-hero-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
-        "finalUrl": "/livguard/hero-banners/category-battery-hero-mobile-6619f1.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L99GgpyD-;xa_N?Hxut7~W%Mxat7",
+        finalUrl: "/livguard/hero-banners/category-battery-hero-mobile-6619f1.jpg",
     },
     "/livguard/hero-banners/category-inverter-hero-desktop.jpg": {
-        "width": 3840,
-        "height": 2160,
-        "blurHash": "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
-        "finalUrl": "/livguard/hero-banners/category-inverter-hero-desktop-8d65e2.jpg"
+        width: 3840,
+        height: 2160,
+        blurHash: "L14xA1C5-VtRGt}[Or%M~Ctm-Vxa",
+        finalUrl: "/livguard/hero-banners/category-inverter-hero-desktop-8d65e2.jpg",
     },
     "/livguard/hero-banners/category-inverter-hero-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
-        "finalUrl": "/livguard/hero-banners/category-inverter-hero-mobile-2b584f.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L154:MlT?b%gT{~BNYx]~Wpc-p%2",
+        finalUrl: "/livguard/hero-banners/category-inverter-hero-mobile-2b584f.jpg",
     },
     "/livguard/hero-banners/lp-1-hero-desktop.jpg": {
-        "width": 3840,
-        "height": 2160,
-        "blurHash": "L97wg7tl-;xu~q-px]xu-;xut7xa",
-        "finalUrl": "/livguard/hero-banners/lp-1-hero-desktop-3ac348.jpg"
+        width: 3840,
+        height: 2160,
+        blurHash: "L97wg7tl-;xu~q-px]xu-;xut7xa",
+        finalUrl: "/livguard/hero-banners/lp-1-hero-desktop-3ac348.jpg",
     },
     "/livguard/hero-banners/lp-1-hero-mobile.jpg": {
-        "width": 3840,
-        "height": 3841,
-        "blurHash": "L86HcbtRxut7~X%Mxuoz^+xvt7t7",
-        "finalUrl": "/livguard/hero-banners/lp-1-hero-mobile-814ced.jpg"
+        width: 3840,
+        height: 3841,
+        blurHash: "L86HcbtRxut7~X%Mxuoz^+xvt7t7",
+        finalUrl: "/livguard/hero-banners/lp-1-hero-mobile-814ced.jpg",
     },
     "/livguard/hero-banners/lp-2-hero-desktop.jpg": {
-        "width": 3840,
-        "height": 2161,
-        "blurHash": "L9A0ap.8?b%2~X%2xuxu~Wt6bHt7",
-        "finalUrl": "/livguard/hero-banners/lp-2-hero-desktop-86d170.jpg"
+        width: 3840,
+        height: 2161,
+        blurHash: "L9A0ap.8?b%2~X%2xuxu~Wt6bHt7",
+        finalUrl: "/livguard/hero-banners/lp-2-hero-desktop-86d170.jpg",
     },
     "/livguard/hero-banners/lp-2-hero-mobile.jpg": {
-        "width": 3840,
-        "height": 3841,
-        "blurHash": "LGB3W+%M%2xu~X%2t7t7~WtRofof",
-        "finalUrl": "/livguard/hero-banners/lp-2-hero-mobile-9aa1a2.jpg"
+        width: 3840,
+        height: 3841,
+        blurHash: "LGB3W+%M%2xu~X%2t7t7~WtRofof",
+        finalUrl: "/livguard/hero-banners/lp-2-hero-mobile-9aa1a2.jpg",
     },
     "/livguard/hero-banners/lp-3-desktop.jpg": {
-        "width": 3840,
-        "height": 2161,
-        "blurHash": "L99Q5P.8?H-p~q?H%Mxu?H%Mt7of",
-        "finalUrl": "/livguard/hero-banners/lp-3-desktop-e920d3.jpg"
+        width: 3840,
+        height: 2161,
+        blurHash: "L99Q5P.8?H-p~q?H%Mxu?H%Mt7of",
+        finalUrl: "/livguard/hero-banners/lp-3-desktop-e920d3.jpg",
     },
     "/livguard/hero-banners/lp-3-mobile.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
-        "finalUrl": "/livguard/hero-banners/lp-3-mobile-12ee65.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L88p.V%g-pxu~q?Hxvt7~W%Mxuof",
+        finalUrl: "/livguard/hero-banners/lp-3-mobile-12ee65.jpg",
     },
     "/livguard/lp3/1/akshay.png": {
-        "width": 360,
-        "height": 471,
-        "finalUrl": "/livguard/lp3/1/akshay-1d4b8d.png"
+        width: 360,
+        height: 471,
+        finalUrl: "/livguard/lp3/1/akshay-1d4b8d.png",
     },
     "/livguard/lp3/1/bg.jpg": {
-        "width": 3840,
-        "height": 3840,
-        "blurHash": "L03uNA@F}t=yHB00K%K4~q8_-ps;",
-        "finalUrl": "/livguard/lp3/1/bg-e624f7.jpg"
+        width: 3840,
+        height: 3840,
+        blurHash: "L03uNA@F}t=yHB00K%K4~q8_-ps;",
+        finalUrl: "/livguard/lp3/1/bg-e624f7.jpg",
     },
     "/livguard/lp3/1/combo.png": {
-        "width": 452,
-        "height": 412,
-        "finalUrl": "/livguard/lp3/1/combo-a25e68.png"
+        width: 452,
+        height: 412,
+        finalUrl: "/livguard/lp3/1/combo-a25e68.png",
+    },
+    "/livguard/services-page/6/service_desktop_banner.jpg": {
+        width: 1280,
+        height: 426,
+        blurHash: "LIBoRA}a#S#mxbxasojZNuWpkBj[",
+        finalUrl: "/livguard/services-page/6/service_desktop_banner-7f2e3f.jpg",
+    },
+    "/livguard/services-page/6/service_mobile_banner.jpg": {
+        width: 360,
+        height: 456,
+        blurHash: "LWE1:b}t-C%2RjkWogWAW=WWoLs:",
+        finalUrl: "/livguard/services-page/6/service_mobile_banner-1adc56.jpg",
+    },
+    "/livguard/services-page/6/warranty_banner_desktop.jpg": {
+        width: 1132,
+        height: 347,
+        blurHash: "L783#GzT}a=z^-ISxGtS%NM_j@o#",
+        finalUrl: "/livguard/services-page/6/warranty_banner_desktop-5567bc.jpg",
+    },
+    "/livguard/services-page/6/warranty_mobile_banner.jpg": {
+        width: 360,
+        height: 487,
+        blurHash: "LB97VC,mRNsl5u9YMwRj~X%1s+t7",
+        finalUrl: "/livguard/services-page/6/warranty_mobile_banner-536eeb.jpg",
+    },
+    "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg": {
+        width: 1279,
+        height: 654,
+        blurHash: "LRD]PQ^+%2?b_N%Moexusqj]RjoL",
+        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-desktop-8c8c68.jpg",
+    },
+    "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg": {
+        width: 360,
+        height: 496,
+        blurHash: "LMC$s9kDIUxu.mt6V?oz$+t7V@a#",
+        finalUrl: "/livguard/stabilizer/1/stabilizer-banner-mobile-7dd746.jpg",
+    },
+    "/livguard/about-us/3/leader-1.svg": {
+        width: 141,
+        height: 141,
+        finalUrl: "/livguard/about-us/3/leader-1-538545.svg",
+    },
+    "/livguard/about-us/3/leader-2.svg": {
+        width: 141,
+        height: 141,
+        finalUrl: "/livguard/about-us/3/leader-2-70fcf5.svg",
+    },
+    "/livguard/about-us/3/leader-3.svg": {
+        width: 141,
+        height: 141,
+        finalUrl: "/livguard/about-us/3/leader-3-570fca.svg",
+    },
+    "/livguard/about-us/5/value-aim.png": {
+        width: 307,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-aim-3b8ad1.png",
+    },
+    "/livguard/about-us/5/value-inspire.png": {
+        width: 308,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-inspire-1d6c4b.png",
+    },
+    "/livguard/about-us/5/value-measure.png": {
+        width: 308,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-measure-ba3f8b.png",
+    },
+    "/livguard/about-us/5/value-analyze.png": {
+        width: 308,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-analyze-876cc9.png",
+    },
+    "/livguard/about-us/5/value-communicate.png": {
+        width: 308,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-communicate-d4624e.png",
+    },
+    "/livguard/about-us/5/value-trust.png": {
+        width: 308,
+        height: 249,
+        finalUrl: "/livguard/about-us/5/value-trust-a80ff2.png",
+    },
+    "/livguard/about-us/7/sar.png": {
+        width: 502,
+        height: 184,
+        finalUrl: "/livguard/about-us/7/sar-6d87fa.png",
+    },
+    "/livguard/about-us/7/livfast.png": {
+        width: 141,
+        height: 46,
+        finalUrl: "/livguard/about-us/7/livfast-741b02.png",
+    },
+    "/livguard/about-us/7/livgreen.png": {
+        width: 119,
+        height: 47,
+        finalUrl: "/livguard/about-us/7/livgreen-b3273b.png",
+    },
+    "/livguard/about-us/7/livpure.png": {
+        width: 136,
+        height: 46,
+        finalUrl: "/livguard/about-us/7/livpure-95728b.png",
+    },
+    "/livguard/about-us/7/livpure_smart.png": {
+        width: 159,
+        height: 46,
+        finalUrl: "/livguard/about-us/7/livpure_smart-1a30dd.png",
+    },
+    "/livguard/about-us/7/ncubate.png": {
+        width: 247,
+        height: 46,
+        finalUrl: "/livguard/about-us/7/ncubate-16275a.png",
     },
 };
