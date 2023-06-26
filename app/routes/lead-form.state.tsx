@@ -213,6 +213,7 @@ export function createInitialFormState() {
         showOtpField: false,
         invalidOtp: false,
         isOtpresent: false,
+        resendTimeOut: 60,
     };
 
     return state;

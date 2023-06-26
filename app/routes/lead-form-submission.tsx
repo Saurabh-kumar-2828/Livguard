@@ -47,7 +47,7 @@ export const action: ActionFunction = async ({request, params}) => {
         const insertResult = await insertOrUpdateLeadFormDetails(leadId, {
             phoneNumber: inputData.phoneNumber,
             name: inputData.name,
-            emailId: inputData.emailId,
+            emailId: inputData.email,
             otpVerified: false,
             utmParameters: utmParametersDecoded,
             pageUrl: pageUrl,
@@ -96,7 +96,7 @@ export const action: ActionFunction = async ({request, params}) => {
         const insertResult = await insertOrUpdateLeadFormDetails(leadId, {
             phoneNumber: inputData.phoneNumber,
             name: inputData.name,
-            emailId: inputData.emailId,
+            emailId: inputData.email,
             otpVerified: true,
             utmParameters: utmParametersDecoded,
             pageUrl: pageUrl,
