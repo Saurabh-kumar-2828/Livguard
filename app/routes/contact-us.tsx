@@ -596,7 +596,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 <button
                                     type="submit"
                                     className="tw-row-start-7 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
-                                    disabled={rating == 0 || feedbackFormSelectedProduct == ""}
+                                    disabled={rating == 0}
                                 >
                                     {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
                                 </button>
@@ -689,6 +689,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     name="queryDetails"
                                     className="lg-text-input !tw-rounded-lg tw-row-start-2"
                                     placeholder={getVernacularString("contactUsS3ComplaintFormDetailPlaceholder", userPreferences.language)}
+                                    required
                                     rows={3}
                                 />
                             </div>
@@ -702,6 +703,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     className="lg-text-input tw-row-start-2"
                                     pattern={indianPhoneNumberValidationPattern}
                                     placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                    required
                                 />
                             </div>
 
@@ -798,6 +800,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <button
                                 type="submit"
                                 className="tw-row-start-7 lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start"
+                                disabled={complaintFormOption === 0}
                             >
                                 {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
                             </button>
@@ -1222,6 +1225,7 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
 export function getFormSelectProductItems(language: Language): string[] {
     return [
+        getVernacularString("ormTrackingFormProductDefault", language),
         getVernacularString("ormTrackingFormProduct1", language),
         getVernacularString("ormTrackingFormProduct2", language),
         getVernacularString("ormTrackingFormProduct3", language),

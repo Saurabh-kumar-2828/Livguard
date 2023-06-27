@@ -2978,6 +2978,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Query Details",
         [Language.Hindi]: "प्रश्न विवरण",
     },
+    ormTrackingFormProductDefault: {
+        [Language.English]: "Please Select Your Product",
+        [Language.Hindi]: "कृपया अपना उत्पाद चुनें",
+    },
     ormTrackingFormProduct1: {
         [Language.English]: "Inverter",
         [Language.Hindi]: "इनवर्टर",
