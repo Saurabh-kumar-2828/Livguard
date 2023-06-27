@@ -3045,6 +3045,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Change",
         [Language.Hindi]: "चेंज",
     },
+    "15a15952-4fe9-4c9e-b07f-fb1467a3614d": {
+        [Language.English]: "Contact Us",
+        [Language.Hindi]: "संपर्क",
+    },
     "f2e43648-a6bb-4144-a594-280b68479566": {
         [Language.English]: `Product<br/>Catalog`,
         [Language.Hindi]: `प्रोडक्ट<br/>कैटलॉग`,
@@ -3252,12 +3256,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     contactUsS2Option4Text: {
         [Language.English]: "Get seamless service for your Livguard product",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपने लिवगार्ड उत्पाद के लिए बिना रुकावट की सर्विस प्राप्त करें",
         [Language.Marathi]: "?????",
     },
     contactUsS2Option4ButtonText: {
         [Language.English]: "Request Service",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सर्विस अनुरोध करें",
         [Language.Marathi]: "?????",
     },
     contactUsS4H: {
