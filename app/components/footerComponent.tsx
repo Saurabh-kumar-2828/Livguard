@@ -333,12 +333,16 @@ export function FooterComponent({
                                     className="lg-text-secondary-900"
                                     key={itemIndex}
                                 >
-                                    <Link
-                                        to={item.link}
-                                        target="_blank"
-                                    >
-                                        {item.title}
-                                    </Link>
+                                    {item.target ? (
+                                        <Link
+                                            to={item.link}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ) : (
+                                        <Link to={item.link}>{item.title}</Link>
+                                    )}
                                 </div>
                             )}
                         />
