@@ -397,7 +397,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
     const [isFeedbackFormSubmitted, setIsFeedbackFormSubmitted] = useState(false);
     const [isFeedbackFormTermsAndConditionsChecked, setIsFeedbackFormTermsAndConditionsChecked] = useState(true);
-    const [feedbackFormSelectedProduct, setFeedbackFormSelectedProduct] = useState(0);
+    const [feedbackFormSelectedProduct, setFeedbackFormSelectedProduct] = useState<null | number>(null);
 
     const [isComplaintFormSubmitted, setIsComplaintFormSubmitted] = useState(false);
     const [isComplaintFormTermsAndConditionsChecked, setIsComplaintFormTermsAndConditionsChecked] = useState(true);
@@ -521,12 +521,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
                                     <div className="tw-row-start-2">
                                         <FormSelectComponent
-                                            items={productItems}
+                                            items={[null, ...productItems]}
                                             itemBuilder={(item) =>
-                                                item == null ? `${getVernacularString("ormTrackingFormProduct1", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
+                                                item == null ? `${getVernacularString("48aa62c2-244f-45ac-9750-56016d86d5b9", userPreferences.language)}` : `<div class="tw-py-1">${item}</div>`
                                             }
-                                            value={productItems[feedbackFormSelectedProduct]}
-                                            setValue={(item) => (item != null ? setFeedbackFormSelectedProduct(productItems.indexOf(item)) : setFeedbackFormSelectedProduct(0))}
+                                            value={feedbackFormSelectedProduct == null ? null : productItems[feedbackFormSelectedProduct]}
+                                            setValue={(item) => (item != null ? setFeedbackFormSelectedProduct(productItems.indexOf(item)) : setFeedbackFormSelectedProduct(null))}
                                             buttonClassName="!tw-rounded-full"
                                         />
                                     </div>
@@ -590,7 +590,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     readOnly
                                     name="product"
                                     className="tw-hidden"
-                                    value={productItems[feedbackFormSelectedProduct]}
+                                    value={feedbackFormSelectedProduct == null ? "" : productItems[feedbackFormSelectedProduct]}
                                 />
 
                                 <button
@@ -1229,7 +1229,6 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
 export function getFormSelectProductItems(language: Language): string[] {
     return [
-        getVernacularString("48aa62c2-244f-45ac-9750-56016d86d5b9", language),
         getVernacularString("ab28480c-7f98-45fc-8bb0-e15cd633b31b", language),
         getVernacularString("3373177a-78dd-4930-8a52-96800b5de45e", language),
         getVernacularString("6b5c90fb-35f1-4f34-9064-46c4cbd94eaa", language),
