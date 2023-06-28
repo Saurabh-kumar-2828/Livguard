@@ -9,6 +9,7 @@ export function FaqSectionInternal({
     userPreferences,
     className,
     faqs,
+    textClassName,
 }: {
     userPreferences: UserPreferences;
     className?: string;
@@ -16,27 +17,26 @@ export function FaqSectionInternal({
         question: string;
         answer: string;
     }>;
+    textClassName?: string;
 }) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
-            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,(minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-x-4 tw-gap-y-4">
-                <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-flex tw-flex-col">
-                    <div className="lg-text-headline tw-text-center lg:tw-text-left">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
+        <div className={concatenateNonNullStringsWithSpaces("tw-h-full tw-w-full lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
+            <div className="tw-h-full tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[fit-content_minmax(0,1fr)_auto_(minmax(0,1fr)_auto] tw-gap-x-4 tw-gap-y-4">
+                <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full tw-flex tw-flex-col">
+                    <div className={concatenateNonNullStringsWithSpaces("lg-text-headline tw-text-center", textClassName)}>
+                        <div dangerouslySetInnerHTML={{__html: `${getVernacularString("homeS9H1T1", userPreferences.language)} ${getVernacularString("homeS9H1T2", userPreferences.language)}`}} />
                     </div>
 
-                    <VerticalSpacer className="tw-h-4" />
+                    <VerticalSpacer className="tw-h-2" />
 
-                    <div className="lg-text-body tw-text-center lg:tw-text-left">
-                        <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                        <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
+                    <div className={concatenateNonNullStringsWithSpaces("lg-text-body tw-text-center", textClassName)}>
+                        <div>
+                            {getVernacularString("homeS9T2P1", userPreferences.language)} {getVernacularString("homeS9T2P2", userPreferences.language)}
+                        </div>
                     </div>
-
-                    <VerticalSpacer className="tw-h-0 lg:tw-h-16" />
                 </div>
 
-                <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full tw-flex tw-flex-col tw-gap-y-3">
+                <div className="tw-row-start-2 lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-flex tw-flex-col tw-gap-y-3">
                     <ItemBuilder
                         items={faqs}
                         itemBuilder={(item, itemIndex) => (
@@ -56,7 +56,12 @@ export function FaqSectionInternal({
                     />
                 </div>
 
-                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-max-w-[25rem]">
+                <div
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-w-full tw-row-start-3 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-self-end lg:tw-justify-self-center lg:tw-col-span-full lg-text-body tw-text-center",
+                        textClassName,
+                    )}
+                >
                     <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
                     <div>
                         {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}

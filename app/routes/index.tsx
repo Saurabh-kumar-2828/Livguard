@@ -27,7 +27,7 @@ import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FormSubmissionSuccessLivguardDialog} from "~/routes/dealer-for-inverters-and-batteries";
 import type {FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
@@ -298,7 +298,7 @@ function HeroSection({
     pageUrl: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-    // const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true}, 10000);
+    // const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 10000);
 
     return (
         // screen = 48px + 56px + ? + 32px + 56px + 32px + 90px
@@ -474,7 +474,7 @@ function EnergyStorageSolutions({userPreferences, className}: {userPreferences: 
 }
 
 export function EnergySolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     return (
         <div

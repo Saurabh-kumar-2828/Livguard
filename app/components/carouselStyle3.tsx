@@ -3,11 +3,11 @@ import Autoplay from "embla-carousel-autoplay";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 
 export function CarouselStyle3({items, className}: {items: Array<any>, className?: string}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     return (
         <div

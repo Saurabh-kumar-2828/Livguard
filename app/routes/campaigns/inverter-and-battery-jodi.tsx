@@ -339,11 +339,11 @@ function HeroSection({
                 {containerWidth == null ? null : (
                     <>
                         <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
+                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
                             alt="Akshay Kumar"
                             className={concatenateNonNullStringsWithSpaces(
                                 "tw-absolute",
-                                containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-1/4 tw-h-3/5",
+                                containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-[30%]" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-[30%] tw-h-3/5",
                             )}
                         />
 

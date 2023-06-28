@@ -46,8 +46,8 @@ export function FooterComponent({
     const aboutUsAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure1T1", userPreferences.language)}`,
-            link: "/contact.php",
-            target: true,
+            link: "/contact-us",
+            target: false,
         },
         {
             title: `${getVernacularString("footerDisclosure1T2", userPreferences.language)}`,

@@ -2760,9 +2760,63 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Product",
         [Language.Hindi]: "उत्पाद",
     },
+    "d502b3fa-3677-4a4a-add3-05647aed0690": {
+        [Language.English]: "Home",
+        [Language.Hindi]: "होम",
+    },
     "af3ba663-53b9-4e18-b3ca-9ea9f80d5134": {
         [Language.English]: "Offers",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ऑफर्स",
+    },
+    "966a0e78-306b-45e9-ad8f-2b6a0c969baf": {
+        [Language.English]: "Can I combine two offers?",
+        [Language.Hindi]: "क्या मैं दो ऑफरों को संयोजित कर सकता हूँ?",
+    },
+    "c5752ff7-5992-4b5d-8952-c7268f991508": {
+        [Language.English]:
+            "Unfortunately, Livguard's offer terms and conditions do not allow the combination of multiple offers. Each offer is designed to provide the best value individually, ensuring that customers can benefit from specific promotions.",
+        [Language.Hindi]:
+            "दुर्भाग्य से, लिवगार्ड के प्रस्ताव के नियम और शर्तें इसकी अनुमति नहीं देते हैं| अनेक प्रस्तावों का संयोजन. प्रत्येक ऑफ़र को व्यक्तिगत रूप से सर्वोत्तम मूल्य प्रदान करने के लिए डिज़ाइन किया गया है, यह सुनिश्चित करते हुए कि ग्राहक विशिष्ट प्रचारों से लाभान्वित हो सकें।",
+    },
+    "3f92c05d-76c1-42b5-acb5-b80c2bd92433": {
+        [Language.English]: "Are these offers available nationwide?",
+        [Language.Hindi]: "क्या ये ऑफर देश भर में समान रूप से उपलब्ध हैं?",
+    },
+    "091214cd-663a-4560-9b6d-af4a48fa424b": {
+        [Language.English]:
+            "Yes, Livguard's offers are available nationwide. We strive to provide our energy solutions and promotional offers to customers across the country, ensuring everyone can take advantage of our products and promotions.",
+        [Language.Hindi]:
+            "हां, लिवगार्ड के ऑफर देशभर में उपलब्ध हैं। हम प्रयास करते हैं देश भर में ग्राहकों को हमारे ऊर्जा समाधान और प्रचार प्रस्ताव प्रदान करना, यह सुनिश्चित करना कि हर कोई हमारे उत्पादों और प्रचारों का लाभ उठा सके।",
+    },
+    "3eee040c-50a3-48d3-86b3-6bc76e59e2a0": {
+        [Language.English]: "What should I do if I am facing troubles in availing an offer?",
+        [Language.Hindi]: "यदि मुझे कोई ऑफर मिलने में परेशानी हो रही है, तो मैं क्या करूँ?",
+    },
+    "0aed81ce-bf2b-4c77-bd84-f1bced9f1dca": {
+        [Language.English]:
+            "If you are experiencing any difficulties in availing of one of our offers, we apologize for the inconvenience. Please reach out to our customer support team at 1800-1025-551. They will assist you in resolving the issue and ensuring you can take full advantage of the offer.",
+        [Language.Hindi]:
+            "हमारे किसी ऑफर का लाभ उठाने में अगर आपको कोई परेशानी आ रही है, तो इस असुविधा के लिए हम क्षमा चाहते हैं। कृपया 1800-1025-551 पर हमारी ग्राहक सहायता टीम से संपर्क करें। वे समस्या को सुलझाने में आपकी सहायता करेंगे और यह सुनिश्चित करेंगे कि आप ऑफ़र का पूरा लाभ उठा सकें।",
+    },
+    "ef4dd710-d4a8-48c0-ac6a-8e735cb47ea7": {
+        [Language.English]: "Do you have any EMI or financing offers?",
+        [Language.Hindi]: "क्या आपके पास EMI या वित्तीय ऑफर हैं",
+    },
+    "34982c2c-6e0f-44be-ae61-00a435a5c754": {
+        [Language.English]:
+            "Yes, Livguard offers convenient EMI (Equated Monthly Installments) and financing options for our customers. We understand that energy solutions can involve a significant investment, and our EMI and financing offers allow you to manage the cost more comfortably. Please refer to the specific terms and conditions of each offer for further details.",
+        [Language.Hindi]:
+            "हां, लिवगार्ड, हमारे ग्राहकों के लिए, सुविधाजनक ईएमआई (समान मासिक किश्तें) और वित्तीय सहायता प्रदान करता है  । हम समझते हैं कि ऊर्जा समाधानों में महत्वपूर्ण निवेश शामिल हो सकता है, और हमारी ईएमआई और वित्तीय सहायता आपको लागत को अधिक आराम से प्रबंधित करने की अनुमति देती है। अधिक जानकारी के लिए, कृपया प्रत्येक ऑफर के विशिष्ट नियम और शर्तें देखें ।",
+    },
+    "7c20c250-9b65-47fe-b9e7-705d731d2dac": {
+        [Language.English]: "What happens if an offer I availed is no longer available or changes?",
+        [Language.Hindi]: "यदि मैंने एक ऑफर का लाभ उठाया है और वह अब उपलब्ध नहीं है या बदल गया है, तो क्या होगा?",
+    },
+    "e9d7f2b1-4824-4534-976d-afad6e4c9d75": {
+        [Language.English]:
+            "In the event that an offer you have availed of is no longer available or has been modified, we understand your concern. Rest assured, if you have already availed of the offer, you will continue to receive the benefits as per the terms and conditions applicable at the time of your purchase. However, any changes or modifications to an offer will be communicated to customers in advance to ensure transparency and provide alternative options whenever possible.",
+        [Language.Hindi]:
+            "उस स्थिति में आपने जिस ऑफ़र का लाभ उठाया है अगर वह अब उपलब्ध नहीं है या संशोधित कर दिया गया है, हम आपकी चिंता को समझते हैं। निश्चिंत रहें, यदि आपने पहले ही ऑफर का लाभ उठा लिया है, तो आपको उस समय लागू नियमों और शर्तों के अनुसार लाभ मिलता रहेगा। हालाँकि, पारदर्शिता सुनिश्चित करने और जब भी संभव हो विकल्प प्रदान करने के लिए किसी ऑफ़र में कोई भी बदलाव या संशोधन ग्राहकों को पहले से सूचित किया जाएगा।",
     },
     OfferJodiHT1: {
         [Language.English]: `Beat The Heat with Power-Packed <span class="lg-text-highlighted">Cashback</span>`,
@@ -2977,10 +3031,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     ormTrackingFormT13: {
         [Language.English]: "Query Details",
         [Language.Hindi]: "प्रश्न विवरण",
-    },
-    ormTrackingFormProductDefault: {
-        [Language.English]: "Please Select Your Product",
-        [Language.Hindi]: "कृपया अपना उत्पाद चुनें",
     },
     ormTrackingFormProduct1: {
         [Language.English]: "Inverter",
@@ -3320,29 +3370,68 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Thank You!`,
         [Language.Hindi]: "धन्यवाद!",
     },
-    "c17b911e-a564-4192-a363-11def77e12b9": {
+    "48aa62c2-244f-45ac-9750-56016d86d5b9": {
+        [Language.English]: "Please Select Your Product",
+        [Language.Hindi]: "कृपया अपना उत्पाद चुनें",
+    },
+    "ab28480c-7f98-45fc-8bb0-e15cd633b31b": {
+        [Language.English]: "Inverters",
+        [Language.Hindi]: "इनवर्टर",
+    },
+    "3373177a-78dd-4930-8a52-96800b5de45e": {
+        [Language.English]: "Inverter Batteries",
+        [Language.Hindi]: "इनवर्टर बैटरी",
+    },
+    "6b5c90fb-35f1-4f34-9064-46c4cbd94eaa": {
+        [Language.English]: "Automotive Batteries",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
+    },
+    "e9977450-be65-4c1b-9eb6-c2224246a81a": {
+        [Language.English]: "Lithium Batteries",
+        [Language.Hindi]: "लिथियम बैटरी",
+    },
+    "178f037b-d4e3-41dc-b44d-dc4468fa4c74": {
+        [Language.English]: "Solar Solutions",
+        [Language.Hindi]: "सोलर सलूशन",
+    },
+    "49cca91d-11f0-463a-8d24-873cf9428e62": {
+        [Language.English]: "Other Products",
+        [Language.Hindi]: "अन्य उत्पाद",
+    },
+    "abce92ec-fd9a-4578-ab56-ddfd9fdafe72": {
         [Language.English]: "Starting from ₹",
-        [Language.Hindi]: "से शुरू",
-        [Language.Marathi]: "?????",
+        [Language.Hindi]: "₹",
     },
-    "28c8bd29-74e4-425b-8654-9d0f51a98cba": {
+    "0044b486-6eca-4e3a-abf0-102eede6e10c": {
         [Language.English]: "/-",
-        [Language.Hindi]: "/-",
-        [Language.Marathi]: "?????",
+        [Language.Hindi]: "/- से शुरू",
     },
+
     "063dc56b-910e-4a48-acb8-8f52668a4c72": {
         [Language.English]: "View Product",
         [Language.Hindi]: "उत्पाद देखें",
         [Language.Marathi]: "?????",
+    },
+    "14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f": {
+        [Language.English]: "Best Seller",
+        [Language.Hindi]: "श्रेष्ठ विकल्प",
     },
     "b9e34b6e-972e-4246-a393-6450421e4813": {
         [Language.English]: "Offers coming soon!",
         [Language.Hindi]: "ऑफर जल्दी ही आने वाले हैं!",
         [Language.Marathi]: "?????",
     },
+    "8110c3a9-9ce4-4fb6-9133-eed73ee34e88": {
+        [Language.English]: `Bring home the best products at <span class="lg-text-primary-500">0% interest</span> with our trusted finance partners`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">0% ब्याज</span> पर घर लाये बेहतरीन प्रोडक्ट्स, भरोसेमंद फाइनेंस पार्टनर्स के साथ`,
+    },
     "f0453469-c11f-46c4-b462-ad4445abfc46": {
         [Language.English]: "Offer valid till: ",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ऑफर की अवधि: ",
+    },
+    "df574a28-5854-4ceb-a9ec-9bfe5dec1b17": {
+        [Language.English]: "",
+        [Language.Hindi]: " तक",
     },
     "4d53d9a4-bbd6-464b-be5c-f0bab1defe02": {
         [Language.English]: "Avail Offer",
@@ -3359,6 +3448,30 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "0931e2ce-74c8-49b3-84d0-760b290166eb": {
         [Language.English]: `Best deals and offers curated specially for you`,
         [Language.Hindi]: `आपके लिए विशेष रूप से चुनी गई सबसे बेहतरीन डील्स और ऑफर्स`,
+    },
+    "3b44dc3a-1029-454b-ab4f-748b8cf16a8a": {
+        [Language.English]: "Oops! No Active Offers",
+        [Language.Hindi]: "ओहो! कोई ऑफर चालू नहीं",
+    },
+    "e4b32997-8139-4b74-8508-0b3ee57977a2": {
+        [Language.English]: "Stay tuned, take a look at our products till then",
+        [Language.Hindi]: "जुड़े रहें, तब तक हमारे उत्पादों श्रेणी देखें",
+    },
+    "4391ead5-8016-4a2f-9132-0b6370b40cd3": {
+        [Language.English]: "Explore Inverter and Batteries",
+        [Language.Hindi]: "इनवर्टर और बैटरी देखें",
+    },
+    "cf35b042-9f06-44d4-b0c3-f7ed9399e400": {
+        [Language.English]: "Explore Automotive Batteries",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी देखें",
+    },
+    "1945f91a-ddb2-42ab-99d0-f094a02094b0": {
+        [Language.English]: "Explore Solar",
+        [Language.Hindi]: "सोलर देखें",
+    },
+    "15f8008f-5fa5-4b55-9876-916ff55cf323": {
+        [Language.English]: "Explore Accessories",
+        [Language.Hindi]: "सहायक उपकरण देखें",
     },
     // Service Page Vernac Strings Start
     "84ec1aea-1f61-4508-ae92-cd3647247ef1": {

@@ -3,10 +3,10 @@ import React from "react";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 
 export function CarouselStyle4({items, className, slidesContainerClassName, controlsContainerClassName}: {items: Array<any>; className?: string, slidesContainerClassName?: string, controlsContainerClassName?: string}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true, align: "start"}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"}, 8000);
 
     return (
         <div

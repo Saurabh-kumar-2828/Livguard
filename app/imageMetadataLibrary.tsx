@@ -712,6 +712,39 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 32,
         finalUrl: "/livguard/load-calculator/utilisation-f9be84.svg",
     },
+    "/livguard/common/akshay.png": {
+        width: 407,
+        height: 700,
+        finalUrl: "/livguard/common/akshay-8df513.png",
+    },
+    "/livguard/offers/1/bg-desktop.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L03IFszV}t,@yD9tXSR*5kPAEfOD",
+        finalUrl: "/livguard/offers/1/bg-desktop-b8e377.jpg",
+    },
+    "/livguard/offers/1/bg-banner-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L14UZ;+b-B-BGZ5QKON]~Cic-BoL",
+        finalUrl: "/livguard/offers/1/bg-banner-mobile-2ca028.jpg",
+    },
+    "/livguard/offers/1/bg-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L14K~cvgIn-;u45QV@=|^+MxaK%M",
+        finalUrl: "/livguard/offers/1/bg-mobile-e50071.jpg",
+    },
+    "/livguard/offers/1/all-products.png": {
+        width: 921,
+        height: 346,
+        finalUrl: "/livguard/offers/1/all-products-c4b754.png",
+    },
+    "/livguard/offers/1/products.png": {
+        width: 905,
+        height: 411,
+        finalUrl: "/livguard/offers/1/products-25ced3.png",
+    },
     "/livguard/offers/top-banner-desktop-01.jpg": {
         width: 3840,
         height: 3840,
@@ -2814,6 +2847,41 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 331,
         blurHash: "LGHwAk8{M{^R_O_3t,i^v2%1K5R*",
         finalUrl: "/livguard/offers/2/finance-partners-hi-in-14754b.jpg",
+    },
+    "/livguard/offers/2/no-offers.png": {
+        width: 455,
+        height: 397,
+        finalUrl: "/livguard/offers/2/no-offers-ea4c39.png",
+    },
+    "/livguard/offers/2/offer-automotive-en-in.png": {
+        width: 598,
+        height: 331,
+        finalUrl: "/livguard/offers/2/offer-automotive-en-in-60dc9e.png",
+    },
+    "/livguard/offers/2/offer-automotive-hi-in.png": {
+        width: 598,
+        height: 331,
+        finalUrl: "/livguard/offers/2/offer-automotive-hi-in-8ecd5e.png",
+    },
+    "/livguard/offers/2/offer-inverter-battery-hi-in.png": {
+        width: 598,
+        height: 331,
+        finalUrl: "/livguard/offers/2/offer-inverter-battery-en-in-b0de65.png",
+    },
+    "/livguard/offers/2/offer-inverter-battery-en-in.png": {
+        width: 598,
+        height: 331,
+        finalUrl: "/livguard/offers/2/offer-inverter-battery-hi-in-540eaa.png",
+    },
+    "/livguard/offers/2/offer-solar-en-in.png": {
+        width: 598,
+        height: 331,
+        finalUrl: "/livguard/offers/2/offer-solar-en-in-7d386e.png",
+    },
+    "/livguard/offers/2/offer-solar-hi-in.png": {
+        width: 598,
+        height: 331,
+        finalUrl: "/livguard/offers/2/offer-solar-hi-in-04ad44.png",
     },
     "/livguard/hero-banners/akshay-desktop.jpg": {
         width: 1280,

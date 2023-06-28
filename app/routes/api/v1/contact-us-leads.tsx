@@ -14,7 +14,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
     const authorization = safeParse(getStringFromUnknown, request.headers.get("Authorization"));
     if (authorization != `Bearer ${getRequiredEnvironmentVariableNew("INTELLSYS_TOKEN")}`) {
         return new Response("Authorization error: 3029d69b-ab53-46e1-9f2d-93cdb0c461e8", {
-            status: 400,
+            status: 401,
         });
     }
 

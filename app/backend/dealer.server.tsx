@@ -2,6 +2,7 @@ import {getPostgresDatabaseManager} from "~/global-common-typescript/server/post
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
+import {DealerForHaptik} from "~/routes/api/haptik/dealer-locator";
 import type {ContactUsLead, Dealer, TermFrequency} from "~/typeDefinitions";
 
 export async function getDealerForCity(query: string): Promise<Array<Dealer> | Error> {
@@ -467,4 +468,45 @@ export async function insertServiceRequests(requestId: string, formResponse: any
     if (result instanceof Error) {
         return result;
     }
+}
+
+export async function getDealersForHaptik(latitude: number, longitude: number): Promise<Array<DealerForHaptik> | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                dealer_name,
+                address,
+                phone_number
+            FROM
+                livguard.dealer
+            ORDER BY
+                SQRT(POWER(latitude - $1, 2) + POWER(longitude - $2, 2))
+            LIMIT
+                5
+        `,
+        [latitude, longitude],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return result.rows.map(row => rowToDealerForHaptik(row));
+}
+
+function rowToDealerForHaptik(row: unknown): DealerForHaptik {
+    // TODO: Type validation
+
+    const dealerForHaptik: DealerForHaptik = {
+        dealerName: row.dealer_name,
+        address: row.address,
+        phoneNumber: row.phone_number,
+    };
+
+    return dealerForHaptik;
 }

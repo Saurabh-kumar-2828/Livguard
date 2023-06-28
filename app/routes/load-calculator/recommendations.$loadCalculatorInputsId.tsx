@@ -16,7 +16,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FaqSection, SolarSolutions} from "~/routes";
 import {LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
 import {OurBatteriesSectionInternal} from "~/routes/__category/inverter-batteries";
@@ -365,7 +365,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 }
 
 function OurSuggestionsSection({userPreferences}: {userPreferences: UserPreferences}) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     return (
         <div className="tw-flex tw-flex-col tw-justify-center">

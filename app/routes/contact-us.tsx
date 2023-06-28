@@ -20,7 +20,7 @@ import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilit
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -318,7 +318,7 @@ function ContactPage({userPreferences, utmParameters, actionData}: {userPreferen
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
-            {/* 
+            {/*
             <ExploreCareers
                 userPreferences={userPreferences}
                 className="tw-row-start-[9] lg:tw-row-start-7 tw-col-start-1 lg:tw-col-span-full"
@@ -1088,39 +1088,43 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                            {dialogType !== "chat-with-us" && (
+                                <>
+                                    <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
 
-                            <VerticalSpacer className="tw-h-2" />
+                                    <VerticalSpacer className="tw-h-2" />
 
-                            <Link
-                                to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "mailto:marketing@livguard.com" : "https://wa.me/9205667999"}
-                                className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
-                            >
-                                <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-67999"}</div>
+                                    <Link
+                                        to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "mailto:marketing@livguard.com" : "https://wa.me/9205667999"}
+                                        className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
+                                    >
+                                        <div className="tw-flex tw-flex-row tw-items-center">
+                                            <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-67999"}</div>
 
-                                    {dialogType == "call-us" && (
-                                        <img
-                                            className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
-                                        />
-                                    )}
+                                            {dialogType == "call-us" && (
+                                                <img
+                                                    className="tw-w-6 tw-h-6 tw-flex-0"
+                                                    src="https://files.growthjockey.com/livguard/icons/contact-us/call-us-dialog.svg"
+                                                />
+                                            )}
 
-                                    {dialogType == "email-us" && (
-                                        <img
-                                            className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
-                                        />
-                                    )}
+                                            {dialogType == "email-us" && (
+                                                <img
+                                                    className="tw-w-6 tw-h-6 tw-flex-0"
+                                                    src="https://files.growthjockey.com/livguard/icons/contact-us/email-us-dialog.svg"
+                                                />
+                                            )}
 
-                                    {dialogType == "chat-with-us" && (
-                                        <img
-                                            className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
-                                        />
-                                    )}
-                                </div>
-                            </Link>
+                                            {dialogType == "chat-with-us" && (
+                                                <img
+                                                    className="tw-w-6 tw-h-6 tw-flex-0"
+                                                    src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us-dialog.svg"
+                                                />
+                                            )}
+                                        </div>
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     </Transition.Child>
                 </Dialog.Panel>
@@ -1225,10 +1229,12 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
 export function getFormSelectProductItems(language: Language): string[] {
     return [
-        getVernacularString("ormTrackingFormProductDefault", language),
-        getVernacularString("ormTrackingFormProduct1", language),
-        getVernacularString("ormTrackingFormProduct2", language),
-        getVernacularString("ormTrackingFormProduct3", language),
-        getVernacularString("ormTrackingFormProduct4", language),
+        getVernacularString("48aa62c2-244f-45ac-9750-56016d86d5b9", language),
+        getVernacularString("ab28480c-7f98-45fc-8bb0-e15cd633b31b", language),
+        getVernacularString("3373177a-78dd-4930-8a52-96800b5de45e", language),
+        getVernacularString("6b5c90fb-35f1-4f34-9064-46c4cbd94eaa", language),
+        getVernacularString("e9977450-be65-4c1b-9eb6-c2224246a81a", language),
+        getVernacularString("178f037b-d4e3-41dc-b44d-dc4468fa4c74", language),
+        getVernacularString("49cca91d-11f0-463a-8d24-873cf9428e62", language),
     ];
 }

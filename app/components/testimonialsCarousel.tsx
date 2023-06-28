@@ -4,7 +4,7 @@ import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import type {UserPreferences} from "~/typeDefinitions";
 
 export function TestimonialsCarousel({
@@ -14,7 +14,7 @@ export function TestimonialsCarousel({
     userPreferences: UserPreferences;
     testimonials: Array<{video?: JSX.Element; name: string; rating: number; state: string; message: string; productImage: string; productName: string}>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     return (
         <div>

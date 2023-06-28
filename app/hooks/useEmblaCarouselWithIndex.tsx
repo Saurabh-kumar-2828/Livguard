@@ -1,4 +1,5 @@
-import useEmblaCarousel, {EmblaCarouselType} from "embla-carousel-react";
+import type {EmblaCarouselType} from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
 import {useCallback, useEffect, useRef, useState} from "react";
 
 export function useEmblaCarouselWithIndex(options, autoplayDelay?: number, autoPlayIndexChangeOffset?: number) {
@@ -47,8 +48,3 @@ export function useEmblaCarouselWithIndex(options, autoplayDelay?: number, autoP
 
     return {emblaRef, emblaApi, selectedIndex};
 }
-
-/**
-  @deprecated Use `emblaCarouselWithIndex()` instead.
-**/
-export const useEmlbaCarouselWithIndex = useEmblaCarouselWithIndex;

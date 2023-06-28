@@ -19,7 +19,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, getIntegerArrayOfLength, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {useEmlbaCarouselWithIndex} from "~/hooks/useEmlbaCarouselWithIndex";
+import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FaqSection} from "~/routes";
 import type {LoadCalculatorInputsAction} from "~/routes/load-calculator/index.state";
 import {createInitialState, createInitialStateNewUi, LoadCalculatorInputsActionType, loadCalculatorInputsReducer} from "~/routes/load-calculator/index.state";
@@ -193,7 +193,7 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
     const [searchParams, setSearchParams] = useSearchParams();
     const propertyType = searchParams.get("property_type");
 
-    const {emblaRef, emblaApi, selectedIndex} = useEmlbaCarouselWithIndex({loop: true});
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     const [loadCalculatorInputs, dispatch] = useReducer(
         loadCalculatorInputsReducer,
