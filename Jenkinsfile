@@ -24,7 +24,8 @@ pipeline {
         stage('Cloning Git website') {
             steps {
                 //sh 'sudo rm -rf test-23-06-22; mkdir test-23-06-22; cd test-23-06-22; eval "$(ssh-agent -s)"; ssh-add /home/jenkins/sshKeys/bitbuckey-key; git clone git@bitbucket.org:growthjockey-workspace/livguard-website.git; cd livguard-website; git submodule update --init --recursive;'
-                git branch: env.BRANCH_NAME, credentialsId: '68ae340b-3fcc-4af1-b9bd-0ce5e244ead4', url: 'git@bitbucket.org:growthjockey-workspace/livguard-website.git'
+                //git branch: env.BRANCH_NAME, credentialsId: '68ae340b-3fcc-4af1-b9bd-0ce5e244ead4', url: 'git@bitbucket.org:growthjockey-workspace/livguard-website.git' 
+                git branch: '', credentialsId: 'ed9e344e-a5e3-4f67-956a-2550c9175c40', url: 'https://github.com/GrowthJockey/livguard-website.git'
             }
         }
     
