@@ -1,4 +1,4 @@
-FROM growthjockey / livguard-stage
+FROM growthjockey/livguard-stage:first
 
 WORKDIR /new
 COPY package*.json ./
