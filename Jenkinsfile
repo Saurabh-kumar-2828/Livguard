@@ -32,7 +32,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'feature/livguard') {
+                    if (env.BRANCH_NAME == 'staging') {
                         withCredentials([string(credentialsId: '1b9711f1-d9cd-4518-9e8e-891f270dfdfd', variable: 'DockerCredentials')]) {
                             sh "docker login -u growthjockey -p ${DockerCredentials}"
                             sh "docker build -t livguard-stage:latest ."
@@ -51,7 +51,7 @@ pipeline {
         stage('Pushing to ECR') {
             steps{
                 script {
-                    if (env.BRANCH_NAME == 'feature/livguard') {
+                    if (env.BRANCH_NAME == 'staging') {
                         sh "docker tag livguard-stage:latest 048578456468.dkr.ecr.ap-south-1.amazonaws.com/livguard-stage:${env.BUILD_ID}"
                         sh "docker push 048578456468.dkr.ecr.ap-south-1.amazonaws.com/livguard-stage:${env.BUILD_ID}"
                     } 
@@ -70,7 +70,7 @@ pipeline {
         stage('Deploy on k8') {
             steps {
               script{
-                 if (env.BRANCH_NAME == 'feature/livguard') {
+                 if (env.BRANCH_NAME == 'staging') {
                         sshagent(['b6cb4788-6567-401f-b5d8-afc6e0892118'])  {
                          sh """ssh -o StrictHostKeyChecking=no ec2-user@ec2-3-110-125-38.ap-south-1.compute.amazonaws.com 'sudo su'"""
                          sh """ssh -o StrictHostKeyChecking=no ec2-user@ec2-3-110-125-38.ap-south-1.compute.amazonaws.com 'sudo docker rm -f \$(sudo docker ps -aq)'"""
