@@ -1,4 +1,4 @@
-FROM growthjockey/livguard-stage:first
+FROM 048578456468.dkr.ecr.ap-south-1.amazonaws.com/livguard-stage:first
 
 WORKDIR /new
 COPY package*.json ./
