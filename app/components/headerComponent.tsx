@@ -149,7 +149,10 @@ export function HeaderComponent({
                         to="/offers"
                         className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
                     >
-                        <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/get-offers.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                        <img
+                            className="tw-invert dark:tw-invert-0"
+                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/get-offers.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                        />
                         <HorizontalSpacer className="tw-w-1" />
                         {getVernacularString("9316f275-c395-4344-99d7-895d162602c0", userPreferences.language)}
                     </Link>
@@ -160,7 +163,10 @@ export function HeaderComponent({
                         target="_blank"
                         className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
                     >
-                        <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/e-waste-management.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                        <img
+                            className="tw-invert dark:tw-invert-0"
+                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/e-waste-management.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                        />
                         <HorizontalSpacer className="tw-w-1" />
                         {getVernacularString("headerMenuSM8T6", userPreferences.language)}
                     </Link>
