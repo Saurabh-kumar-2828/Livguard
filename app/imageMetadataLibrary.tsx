@@ -192,6 +192,16 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LQIOOp=|xuXm^+niIUX8~qxuIUxa",
         finalUrl: "/livguard/header/logo-100-light-f4f881.jpg",
     },
+    "/livguard/header/e-waste-management.svg": {
+        width: 17,
+        height: 18,
+        finalUrl: "/livguard/header/e-waste-management-fe9e3b.svg",
+    },
+    "/livguard/header/get-offers.svg": {
+        width: 19,
+        height: 19,
+        finalUrl: "/livguard/header/get-offers-d13a8c.svg",
+    },
     "/livguard/home/1/1-desktop.jpg": {
         width: 3841,
         height: 3840,

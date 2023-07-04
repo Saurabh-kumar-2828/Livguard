@@ -179,6 +179,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Blogs",
         [Language.Hindi]: "ब्लॉग",
     },
+    "7ad4abbd-2d09-4f4a-9605-f0f2c5008fa8": {
+        [Language.English]: "Offers",
+        [Language.Hindi]: "ऑफर्स",
+    },
+    "088ccfe9-7891-49bd-b01f-2ea4836b0342": {
+        [Language.English]: "Contact Us",
+        [Language.Hindi]: "हमसे संपर्क करें",
+    },
+    "9316f275-c395-4344-99d7-895d162602c0": {
+        [Language.English]: "Get Offers",
+        [Language.Hindi]: "ऑफर्स पाएं",
+    },
+    "0d7eacab-de68-49a3-a0d2-c25eba53a1e3": {
+        [Language.English]: "E-Waste Management",
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
+    },
     headerMenuSM8T6: {
         [Language.English]: "E-Waste Management",
         [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",

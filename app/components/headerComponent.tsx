@@ -12,6 +12,12 @@ import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
+import {ContactUsDialog as ContactUsLeadFormDialog} from "~/routes";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {useResizeDetector} from "react-resize-detector";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {getMetadataForImage} from "~/utilities";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
 enum MenuState {
     Closed,
@@ -138,6 +144,27 @@ export function HeaderComponent({
                     )}
 
                     <div className="tw-flex-1" />
+
+                    <Link
+                        to="/offers"
+                        className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
+                    >
+                        <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/get-offers.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                        <HorizontalSpacer className="tw-w-1" />
+                        {getVernacularString("9316f275-c395-4344-99d7-895d162602c0", userPreferences.language)}
+                    </Link>
+                    <HorizontalSpacer className="tw-w-5" />
+
+                    <Link
+                        to="/e-waste-management.php"
+                        target="_blank"
+                        className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
+                    >
+                        <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/header/e-waste-management.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                        <HorizontalSpacer className="tw-w-1" />
+                        {getVernacularString("headerMenuSM8T6", userPreferences.language)}
+                    </Link>
+                    <HorizontalSpacer className="tw-w-5" />
 
                     <Form
                         method="post"
@@ -319,17 +346,24 @@ export function HeaderComponent({
                                 onClick={() => {
                                     tryToOpenSubMenu(SubMenu.Inverters);
                                 }}
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
                             >
                                 {getVernacularString("headerMenuS1T1", userPreferences.language)}
                             </button>
 
-                            <Link to="/inverter-batteries">{getVernacularString("headerMenuS1T2", userPreferences.language)}</Link>
+                            <Link
+                                to="/inverter-batteries"
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+                            >
+                                {getVernacularString("headerMenuS1T2", userPreferences.language)}
+                            </Link>
 
                             <button
                                 type="button"
                                 onClick={() => {
                                     tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
                                 }}
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
                             >
                                 {getVernacularString("headerMenuS1T3", userPreferences.language)}
                             </button>
@@ -339,6 +373,7 @@ export function HeaderComponent({
                                 onClick={() => {
                                     tryToOpenSubMenu(SubMenu.Solar);
                                 }}
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
                             >
                                 {getVernacularString("headerMenuS1T4", userPreferences.language)}
                             </button>
@@ -348,11 +383,17 @@ export function HeaderComponent({
                                 onClick={() => {
                                     tryToOpenSubMenu(SubMenu.AccessoriesAndotherBatteries);
                                 }}
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
                             >
                                 {getVernacularString("headerMenuS1T5", userPreferences.language)}
                             </button>
 
-                            <Link to="/dealer-for-inverters-and-batteries">{getVernacularString("headerMenuS1T6", userPreferences.language)}</Link>
+                            <Link
+                                to="/dealer-for-inverters-and-batteries"
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+                            >
+                                {getVernacularString("headerMenuS1T6", userPreferences.language)}
+                            </Link>
 
                             {/* <a
                             href="/register-and-warranty-for-inverters.php"
@@ -365,6 +406,7 @@ export function HeaderComponent({
                                 onClick={() => {
                                     tryToOpenSubMenu(SubMenu.More);
                                 }}
+                                className="tw-transition tw-duration-200 hover:lg-text-primary-500"
                             >
                                 {getVernacularString("headerMenuS1T8", userPreferences.language)}
                             </button>
@@ -574,6 +616,18 @@ function MenuDialog({
                                         subMenu: SubMenu.More,
                                         link: null,
                                     },
+                                    {
+                                        linkTextTextContentPiece: "9316f275-c395-4344-99d7-895d162602c0",
+                                        enterClassName: "tw-delay-[650ms]",
+                                        subMenu: null,
+                                        link: "/offers",
+                                    },
+                                    {
+                                        linkTextTextContentPiece: "0d7eacab-de68-49a3-a0d2-c25eba53a1e3",
+                                        enterClassName: "tw-delay-[700ms]",
+                                        subMenu: null,
+                                        link: "/e-waste-management.php",
+                                    },
                                 ]}
                                 itemBuilder={(item, itemIndex) => (
                                     <button
@@ -623,9 +677,10 @@ function MenuDialog({
                             />
                         </div>
 
-                        <VerticalSpacer className="tw-h-8" />
+                        <VerticalSpacer className="tw-h-[3.625rem]" />
 
-                        <Transition.Child
+                        {/* Removed Akshay to add Get Offers and E-Waste Management links to Mobile Menu */}
+                        {/* <Transition.Child
                             as="div"
                             enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
                             enterFrom="tw-opacity-0"
@@ -638,7 +693,7 @@ function MenuDialog({
                                 relativePath="/livguard/header/akshay.png"
                                 height="13.75rem"
                             />
-                        </Transition.Child>
+                        </Transition.Child> */}
 
                         <Transition.Child
                             as={React.Fragment}
@@ -915,13 +970,13 @@ function SubMenuDialog({
                                                   external: true,
                                                   download: null,
                                               },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T6",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/e-waste-management.php",
-                                                  external: true,
-                                                  download: null,
-                                              },
+                                              //   {
+                                              //       linkTextTextContentPiece: "headerMenuSM8T6",
+                                              //       enterClassName: "tw-delay-[300ms]",
+                                              //       link: "/e-waste-management.php",
+                                              //       external: true,
+                                              //       download: null,
+                                              //   },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T3",
                                                   enterClassName: "tw-delay-[350ms]",
