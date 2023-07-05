@@ -158,7 +158,7 @@ export function HeaderComponent({
                     </Link>
                     <HorizontalSpacer className="tw-w-5" />
 
-                    <Link
+                    {/* <Link
                         to="/e-waste-management.php"
                         target="_blank"
                         className="tw-hidden lg:tw-flex flex-row tw-justify-between tw-items-center tw-transition tw-duration-200 hover:lg-text-primary-500"
@@ -169,7 +169,8 @@ export function HeaderComponent({
                         />
                         <HorizontalSpacer className="tw-w-1" />
                         {getVernacularString("headerMenuSM8T6", userPreferences.language)}
-                    </Link>
+                    </Link> */}
+
                     <HorizontalSpacer className="tw-w-5" />
 
                     <Form
@@ -976,13 +977,13 @@ function SubMenuDialog({
                                                   external: true,
                                                   download: null,
                                               },
-                                              //   {
-                                              //       linkTextTextContentPiece: "headerMenuSM8T6",
-                                              //       enterClassName: "tw-delay-[300ms]",
-                                              //       link: "/e-waste-management.php",
-                                              //       external: true,
-                                              //       download: null,
-                                              //   },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM8T6",
+                                                  enterClassName: "tw-delay-[300ms]",
+                                                  link: "/e-waste-management.php",
+                                                  external: true,
+                                                  download: null,
+                                              },
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM8T3",
                                                   enterClassName: "tw-delay-[350ms]",
