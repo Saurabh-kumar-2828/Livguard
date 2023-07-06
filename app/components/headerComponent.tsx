@@ -566,7 +566,7 @@ function MenuDialog({
                                         linkTextTextContentPiece: "headerMenuS1T7",
                                         enterClassName: "tw-delay-[550ms]",
                                         subMenu: null,
-                                        link: "/register-and-warranty-for-inverters.php",
+                                        link: "register-and-warranty-for-inverters.php",
                                     },
                                     {
                                         linkTextTextContentPiece: "headerMenuS1T8",
