@@ -254,7 +254,7 @@ export default function Root() {
                         dangerouslySetInnerHTML={{
                             __html: `
                                 #haptik-xdk-wrapper {
-                                    z-index: 51 !important;
+                                    z-index: 61 !important;
                                 }
 
                                 @media (min-width: 640px) {
