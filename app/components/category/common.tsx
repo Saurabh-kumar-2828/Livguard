@@ -202,7 +202,7 @@ export function ProductCardComponent({
     userPreferences: UserPreferences;
 }) {
     return (
-        <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3 tw-rounded-lg lg-bg-secondary-100">
+        <div className="tw-h-full tw-grid tw-grid-rows-[repeat(2,auto)_minmax(0,1fr)_repeat(2,auto)] tw-grid-flow-row tw-justify-between tw-relative tw-px-3 tw-rounded-lg lg-bg-secondary-100">
             {vernacularContent.bestseller && (
                 <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 lg-text-secondary-900 tw-text-white tw-pt-[2px]"> Best Seller </div>
             )}
@@ -213,17 +213,17 @@ export function ProductCardComponent({
                 <div className="tw-text-body tw-text-center">{vernacularContent.title}</div>
             </DefaultTextAnimation>
 
-            <VerticalSpacer className="tw-h-4" />
+            {/* <VerticalSpacer className="tw-h-4" /> */}
 
-            <DefaultImageAnimation>
+            <DefaultImageAnimation className="tw-row-start-4">
                 <div className="tw-px-4 tw-rounded-lg">
                     <FullWidthImage relativePath={vernacularContent.imageRelativePath} />
                 </div>
             </DefaultImageAnimation>
 
-            <VerticalSpacer className="tw-h-1" />
+            <VerticalSpacer className="tw-h-1 tw-row-start-5" />
 
-            <DefaultElementAnimation>
+            <DefaultElementAnimation className="tw-row-start-6">
                 <Link
                     to={vernacularContent.link}
                     className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center"
