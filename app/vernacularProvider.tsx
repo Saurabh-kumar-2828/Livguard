@@ -3432,6 +3432,18 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Best Seller",
         [Language.Hindi]: "श्रेष्ठ विकल्प",
     },
+    "e1b52be2-199b-48da-b5da-ab126f163411": {
+        [Language.English]: "ZING PRIMO ZP 70D26 L",
+        [Language.Hindi]: "?????",
+    },
+    "7674034f-6ba5-49aa-8a27-0fb8076dd0c9": {
+        [Language.English]: "1500VA Capacity",
+        [Language.Hindi]: "?????",
+    },
+    "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a": {
+        [Language.English]: "72 Months Warranty",
+        [Language.Hindi]: "?????",
+    },
     "b9e34b6e-972e-4246-a393-6450421e4813": {
         [Language.English]: "Offers coming soon!",
         [Language.Hindi]: "ऑफर जल्दी ही आने वाले हैं!",

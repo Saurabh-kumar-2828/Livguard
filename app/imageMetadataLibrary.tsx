@@ -2893,6 +2893,16 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 331,
         finalUrl: "/livguard/offers/2/offer-solar-hi-in-04ad44.png",
     },
+    "/livguard/offers/3/capacity.svg": {
+        width: 14,
+        height: 21,
+        finalUrl: "/livguard/offers/3/capacity-891ee7.svg",
+    },
+    "/livguard/offers/3/warranty.svg": {
+        width: 19,
+        height: 24,
+        finalUrl: "/livguard/offers/3/warranty-b4c732.svg",
+    },
     "/livguard/hero-banners/akshay-desktop.jpg": {
         width: 1280,
         height: 654,

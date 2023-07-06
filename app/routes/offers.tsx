@@ -409,43 +409,73 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
     const featuredProducts = [
         {
             type: ProductType.battery,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "it1584tt",
             isBestSeller: true,
         },
         {
             type: ProductType.inverter,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "lgs1600",
         },
         {
             type: ProductType.battery,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "it1584tt",
         },
         {
             type: ProductType.inverter,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "lgs1600",
         },
         {
             type: ProductType.battery,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "it1584tt",
         },
         {
             type: ProductType.inverter,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "lgs1600",
         },
         {
             type: ProductType.battery,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "it1584tt",
         },
         {
             type: ProductType.inverter,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "lgs1600",
         },
         {
             type: ProductType.battery,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "it1584tt",
         },
         {
             type: ProductType.inverter,
+            name: "e1b52be2-199b-48da-b5da-ab126f163411",
+            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
+            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
             slug: "lgs1600",
             isBestSeller: true,
         },
@@ -467,6 +497,9 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
                             <RecommendationCard
                                 slug={featuredProduct.slug}
                                 productType={featuredProduct.type}
+                                name={getVernacularString(featuredProduct.name, userPreferences.language)}
+                                capacity={getVernacularString(featuredProduct.capacity, userPreferences.language)}
+                                warranty={getVernacularString(featuredProduct.warranty, userPreferences.language)}
                                 userPreferences={userPreferences}
                                 key={featuredProductIndex}
                                 isBestSeller={featuredProduct.isBestSeller}
@@ -480,7 +513,23 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
     );
 }
 
-function RecommendationCard({slug, productType, userPreferences, isBestSeller}: {slug: string; productType: ProductType; userPreferences: UserPreferences; isBestSeller?: boolean}) {
+function RecommendationCard({
+    slug,
+    productType,
+    userPreferences,
+    isBestSeller,
+    name,
+    capacity,
+    warranty,
+}: {
+    slug: string;
+    productType: ProductType;
+    userPreferences: UserPreferences;
+    isBestSeller?: boolean;
+    name: string;
+    capacity: string;
+    warranty: string;
+}) {
     return (
         <Link
             to={`/product/${slug}`}
@@ -494,14 +543,37 @@ function RecommendationCard({slug, productType, userPreferences, isBestSeller}: 
                 <VerticalSpacer className="tw-h-[1.5rem]" />
             )}
 
-            <div className="tw-p-4">
+            <div className="tw-p-4 tw-grid tw-grid-flow-row">
                 <FullWidthImage
                     relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
                 />
 
-                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{convertProductInternalNameToPublicName(slug)}</div>
+                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">
+                    {/* {convertProductInternalNameToPublicName(slug)} */}
+                    {name}
+                </div>
 
                 <VerticalSpacer className="tw-h-2" />
+
+                <div className="tw-place-self-center tw-grid tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-items-center">
+                    <img
+                        className="tw-col-start-1"
+                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/3/capacity.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                    />
+                    <span className="tw-col-start-3">{capacity}</span>
+                </div>
+
+                <VerticalSpacer className="tw-h-2" />
+
+                <div className="tw-place-self-center tw-grid tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-items-center">
+                    <img
+                        className="tw-col-start-1"
+                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/3/warranty.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
+                    />
+                    <span className="tw-col-start-3">{warranty}</span>
+                </div>
+
+                <VerticalSpacer className="tw-h-6" />
 
                 <div className="tw-w-full tw-text-center lg-text-secondary-700">
                     {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}500${getVernacularString(
