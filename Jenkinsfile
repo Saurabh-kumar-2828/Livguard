@@ -16,7 +16,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 048578456468.dkr.ecr.ap-south-1.amazonaws.com"
+                    sshagent(['d8ae1e21-5394-44c2-9f82-2f662ce059f1']) {
+                      sh "/repos/livguard-website/deploy.sh"
+                }
                 }
             }
         }
