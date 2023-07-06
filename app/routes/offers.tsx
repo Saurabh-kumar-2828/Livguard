@@ -557,7 +557,7 @@ function RecommendationCard({
 
                 <div className="tw-place-self-center tw-grid tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-items-center">
                     <img
-                        className="tw-col-start-1"
+                        className="tw-col-start-1 tw-invert dark:tw-invert-0"
                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/3/capacity.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                     />
                     <span className="tw-col-start-3">{capacity}</span>
@@ -567,7 +567,7 @@ function RecommendationCard({
 
                 <div className="tw-place-self-center tw-grid tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-items-center">
                     <img
-                        className="tw-col-start-1"
+                        className="tw-col-start-1 tw-invert dark:tw-invert-0"
                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/3/warranty.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                     />
                     <span className="tw-col-start-3">{warranty}</span>
