@@ -540,7 +540,7 @@ function RecommendationCard({
                 <VerticalSpacer className="tw-h-full" />
             )}
 
-            <div className="tw-p-4 tw-grid tw-grid-flow-row">
+            <div className="tw-p-4 tw-grid tw-grid-flow-row tw-grid-rows-[repeat(6,auto)_minmax(0,1fr)_repeat(4,auto)]">
                 <FullWidthImage
                     relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
                 />
@@ -572,16 +572,18 @@ function RecommendationCard({
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-w-full tw-text-center lg-text-secondary-700">
+                <div className="tw-w-full tw-text-center lg-text-secondary-700 tw-row-start-8">
                     {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${price}${getVernacularString(
                         "0044b486-6eca-4e3a-abf0-102eede6e10c",
                         userPreferences.language,
                     )}`}
                 </div>
 
-                <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4 tw-row-start-10" />
 
-                <button className="lg-cta-button-product-card tw-w-full tw-text-center tw-px-1">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
+                <button className="lg-cta-button-product-card tw-w-full tw-text-center tw-px-1 tw-row-start-11">
+                    {getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}
+                </button>
             </div>
         </Link>
     );
