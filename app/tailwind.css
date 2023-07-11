@@ -236,7 +236,7 @@
     }
 
     .lg-cta-button-product-card {
-        @apply tw-block lg-text-button tw-px-12 tw-py-3 tw-rounded-full tw-border-2 lg-text-primary-500 tw-border-primary-500-dark tw-transition tw-duration-200 hover:lg-bg-primary-500 hover:tw-text-secondary-900-dark;
+        @apply tw-block lg-text-button tw-px-12 tw-py-3 tw-rounded-full tw-border-2 lg-text-primary-500 tw-border-primary-500-dark dark:tw-text-secondary-900-dark tw-transition tw-duration-200 hover:lg-bg-primary-500 hover:tw-text-secondary-900-dark;
     }
 
     .lg-text-highlighted {
