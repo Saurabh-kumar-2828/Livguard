@@ -408,76 +408,72 @@ export function BestOffers({
 function FeaturedProducts({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const featuredProducts = [
         {
-            type: ProductType.battery,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "it1584tt",
+            type: ProductType.inverter,
+            name: "3a0f3353-3cde-4043-9cf5-714be3fa406d",
+            warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
+            capacity: "fac6f9bf-7f72-487d-b802-4e2e9a1d520f",
+            slug: "lg700e",
+            price: "4,699",
+        },
+        {
+            type: ProductType.inverter,
+            name: "6dfe6fec-f82b-43e8-b9ca-6757423f56d1",
+            warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
+            capacity: "ede80aa8-51b8-4695-adb7-0fd148def188",
+            slug: "lgs1100i",
             isBestSeller: true,
-        },
-        {
-            type: ProductType.inverter,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "lgs1600",
+            price: "6,999",
         },
         {
             type: ProductType.battery,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "it1584tt",
-        },
-        {
-            type: ProductType.inverter,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "lgs1600",
-        },
-        {
-            type: ProductType.battery,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "it1584tt",
-        },
-        {
-            type: ProductType.inverter,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "lgs1600",
-        },
-        {
-            type: ProductType.battery,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "it1584tt",
-        },
-        {
-            type: ProductType.inverter,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "lgs1600",
-        },
-        {
-            type: ProductType.battery,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "it1584tt",
-        },
-        {
-            type: ProductType.inverter,
-            name: "e1b52be2-199b-48da-b5da-ab126f163411",
-            capacity: "7674034f-6ba5-49aa-8a27-0fb8076dd0c9",
-            warranty: "34ac44bc-1ed5-40eb-898b-d9f3f3b1252a",
-            slug: "lgs1600",
+            name: "ae3c747b-5b1a-4d8f-863f-caf3db8f0569",
+            capacity: "68195aa4-ec44-46ec-8b74-51e341e4ed66",
+            warranty: "9d144768-a8e3-49be-8b89-b27300a9769a",
+            slug: "it1548tt",
             isBestSeller: true,
+            price: "14,440",
+        },
+        {
+            type: ProductType.battery,
+            name: "051eb599-fedc-46ea-be7c-5d857fad1d76",
+            capacity: "e42d6d5a-4b06-45de-b675-cc467d47d4b4",
+            warranty: "33862866-bbdb-46ad-a797-f7fbd07df131",
+            slug: "it2272tt",
+            price: "19,499",
+        },
+        {
+            type: ProductType.inverter,
+            name: "3a0f3353-3cde-4043-9cf5-714be3fa406d",
+            warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
+            capacity: "fac6f9bf-7f72-487d-b802-4e2e9a1d520f",
+            slug: "lg700e",
+            price: "4,699",
+        },
+        {
+            type: ProductType.inverter,
+            name: "6dfe6fec-f82b-43e8-b9ca-6757423f56d1",
+            warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
+            capacity: "ede80aa8-51b8-4695-adb7-0fd148def188",
+            slug: "lgs1100i",
+            isBestSeller: true,
+            price: "6,999",
+        },
+        {
+            type: ProductType.battery,
+            name: "ae3c747b-5b1a-4d8f-863f-caf3db8f0569",
+            capacity: "68195aa4-ec44-46ec-8b74-51e341e4ed66",
+            warranty: "9d144768-a8e3-49be-8b89-b27300a9769a",
+            slug: "it1548tt",
+            isBestSeller: true,
+            price: "14,440",
+        },
+        {
+            type: ProductType.battery,
+            name: "051eb599-fedc-46ea-be7c-5d857fad1d76",
+            capacity: "e42d6d5a-4b06-45de-b675-cc467d47d4b4",
+            warranty: "33862866-bbdb-46ad-a797-f7fbd07df131",
+            slug: "it2272tt",
+            price: "19,499",
         },
     ];
 
@@ -503,6 +499,7 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
                                 userPreferences={userPreferences}
                                 key={featuredProductIndex}
                                 isBestSeller={featuredProduct.isBestSeller}
+                                price={featuredProduct.price}
                             />
                         ))}
                     slidesContainerClassName="tw-auto-cols-[min(100%,15rem)]"
@@ -521,6 +518,7 @@ function RecommendationCard({
     name,
     capacity,
     warranty,
+    price,
 }: {
     slug: string;
     productType: ProductType;
@@ -529,18 +527,19 @@ function RecommendationCard({
     name: string;
     capacity: string;
     warranty: string;
+    price: string;
 }) {
     return (
         <Link
             to={`/product/${slug}`}
-            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg"
+            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 tw-grid-rows-[1.5rem_auto] lg-bg-secondary-100 tw-rounded-lg"
         >
             {isBestSeller != null && isBestSeller === true ? (
-                <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
+                <div className="tw-row-start-1 tw-h-full lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
                     <span>{getVernacularString("14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f", userPreferences.language)}</span>
                 </div>
             ) : (
-                <VerticalSpacer className="tw-h-[1.5rem]" />
+                <VerticalSpacer className="tw-h-full" />
             )}
 
             <div className="tw-p-4 tw-grid tw-grid-flow-row">
@@ -555,28 +554,28 @@ function RecommendationCard({
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <div className="tw-place-self-center tw-grid tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-items-center">
+                <div className="tw-place-self-center tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center">
                     <img
-                        className="tw-col-start-1 tw-invert dark:tw-invert-0"
+                        className="tw-col-start-2 tw-invert dark:tw-invert-0"
                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/3/capacity.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                     />
-                    <span className="tw-col-start-3">{capacity}</span>
+                    <span className="tw-col-start-4 tw-text-center">{capacity}</span>
                 </div>
 
                 <VerticalSpacer className="tw-h-2" />
 
-                <div className="tw-place-self-center tw-grid tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-items-center">
+                <div className="tw-place-self-center tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center">
                     <img
-                        className="tw-col-start-1 tw-invert dark:tw-invert-0"
+                        className="tw-col-start-2 tw-invert dark:tw-invert-0"
                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/3/warranty.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                     />
-                    <span className="tw-col-start-3">{warranty}</span>
+                    <span className="tw-col-start-4 tw-text-center">{warranty}</span>
                 </div>
 
                 <VerticalSpacer className="tw-h-6" />
 
                 <div className="tw-w-full tw-text-center lg-text-secondary-700">
-                    {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}500${getVernacularString(
+                    {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${price}${getVernacularString(
                         "0044b486-6eca-4e3a-abf0-102eede6e10c",
                         userPreferences.language,
                     )}`}

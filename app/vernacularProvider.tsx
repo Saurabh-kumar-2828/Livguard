@@ -3194,6 +3194,90 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `हमारे विशेष <span class="lg-text-highlighted">उत्पाद</span>`,
         [Language.Marathi]: "?????",
     },
+    "3a0f3353-3cde-4043-9cf5-714be3fa406d": {
+        [Language.English]: `LG700E`,
+        [Language.Hindi]: `LG700E`,
+    },
+    "6dfe6fec-f82b-43e8-b9ca-6757423f56d1": {
+        [Language.English]: `LGS1100i`,
+        [Language.Hindi]: `LGS1100i`,
+    },
+    "ae3c747b-5b1a-4d8f-863f-caf3db8f0569": {
+        [Language.English]: `IT1548TT`,
+        [Language.Hindi]: `IT1548TT`,
+    },
+    "051eb599-fedc-46ea-be7c-5d857fad1d76": {
+        [Language.English]: `IT2272TT`,
+        [Language.Hindi]: `IT2272TT`,
+    },
+    "771acd9e-b288-4898-8e7e-f098012ee548": {
+        [Language.English]: `The Urban Combo`,
+        [Language.Hindi]: `अर्बन जोड़ी`,
+    },
+    "479fcb6e-0031-476c-81aa-24551d3252ad": {
+        [Language.English]: `The Peace of Mind Combo`,
+        [Language.Hindi]: `मन की शांति वाला जोड़ी`,
+    },
+    "d3aedfd8-f2fa-4ade-a208-bf9ffcaf299d": {
+        [Language.English]: `The Super Life Combo`,
+        [Language.Hindi]: `सुपर लाइफ जोड़ी`,
+    },
+    "1daec891-8315-4e82-9f5f-649c5e29af09": {
+        [Language.English]: `The Hi-Power Combo`,
+        [Language.Hindi]: `हाई-पॉवर जोड़ी`,
+    },
+    "a8de768d-be36-4746-b3d4-ee72e6dbe3a6": {
+        [Language.English]: `3 Year Warranty`,
+        [Language.Hindi]: `3 वर्ष वारंटी`,
+    },
+    "fac6f9bf-7f72-487d-b802-4e2e9a1d520f": {
+        [Language.English]: `600 VA Capacity`,
+        [Language.Hindi]: `600 VA कैपेसिटी`,
+    },
+    "ede80aa8-51b8-4695-adb7-0fd148def188": {
+        [Language.English]: `900 VA Capacity`,
+        [Language.Hindi]: `900 VA कैपेसिटी`,
+    },
+    "9d144768-a8e3-49be-8b89-b27300a9769a": {
+        [Language.English]: `30 + 18* Months Warranty`,
+        [Language.Hindi]: `30 + 18* महीने वारंटी`,
+    },
+    "68195aa4-ec44-46ec-8b74-51e341e4ed66": {
+        [Language.English]: `150 Ah Capacity`,
+        [Language.Hindi]: `150 Ah कैपेसिटी`,
+    },
+    "33862866-bbdb-46ad-a797-f7fbd07df131": {
+        [Language.English]: `48 + 24* Months Warranty`,
+        [Language.Hindi]: `48 + 24* महीने वारंटी`,
+    },
+    "e42d6d5a-4b06-45de-b675-cc467d47d4b4": {
+        [Language.English]: `220 Ah Capacity`,
+        [Language.Hindi]: `220 Ah कैपेसिटी`,
+    },
+    "4a6d0641-1194-4e47-9ed8-57f27989c541": {
+        [Language.English]: `3 Years | 36 + 24* Months Warranty`,
+        [Language.Hindi]: `3 वर्ष | 36 + 24* महीने वारंटी`,
+    },
+    "f0aaf884-f888-4743-b6f3-2a22a6472038": {
+        [Language.English]: `1250VA | 200Ah`,
+        [Language.Hindi]: `1250VA | 200Ah कैपेसिटी`,
+    },
+    "c79c879d-a81a-4348-8684-f5c745c0c701": {
+        [Language.English]: `3 Years | 60 + 24* Months Warranty`,
+        [Language.Hindi]: `3 Years | 60 + 24* महीने वारंटी`,
+    },
+    "32b02219-4da3-4ef3-9014-8aec2d563414": {
+        [Language.English]: `1500VA | 150 Ah Capacity`,
+        [Language.Hindi]: `1500VA | 150 Ah कैपेसिटी`,
+    },
+    "7c7cb84c-8890-4044-87fa-03264f5a5d9c": {
+        [Language.English]: `3 Years | 42 + 30* Months Warranty`,
+        [Language.Hindi]: `3 Years | 42 + 30* महीने वारंटी`,
+    },
+    "2f80ec77-0512-4838-aeef-308518466ecd": {
+        [Language.English]: `2000VA | 260 Ah Capacity`,
+        [Language.Hindi]: `2000VA | 260 Ah कैपेसिटी`,
+    },
     contactFormS1T1: {
         [Language.English]: "Get In Touch With Us",
         [Language.Hindi]: "हमसे संपर्क करें",
