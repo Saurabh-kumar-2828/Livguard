@@ -581,7 +581,7 @@ function RecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <button className="lg-cta-button tw-w-full tw-text-center tw-px-1">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
+                <button className="lg-cta-button-product-card tw-w-full tw-text-center tw-px-1">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
             </div>
         </Link>
     );
