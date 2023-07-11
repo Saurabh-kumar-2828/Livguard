@@ -3278,6 +3278,54 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `2000VA | 260 Ah Capacity`,
         [Language.Hindi]: `2000VA | 260 Ah कैपेसिटी`,
     },
+    "8b0f4c66-acde-442e-84b2-f73479b94b8b": {
+        [Language.English]: `LG1950I`,
+        [Language.Hindi]: `LG1950I`,
+    },
+    "20184ae3-2f4e-467f-b440-e446ae611331": {
+        [Language.English]: `1650 VA Capacity`,
+        [Language.Hindi]: `1650 VA कैपेसिटी`,
+    },
+    "9c479fcb-3f9a-47e2-a882-bd8f7d0a07c0": {
+        [Language.English]: `3 Year Warranty`,
+        [Language.Hindi]: `3 वर्ष वारंटी`,
+    },
+    "e2bd393e-eae8-4746-b5e2-2ec4da81e734": {
+        [Language.English]: `LGS1700`,
+        [Language.Hindi]: `LGS1700`,
+    },
+    "05b5a3d3-5023-4549-b8af-87c5e284b022": {
+        [Language.English]: `1500 VA Capacity`,
+        [Language.Hindi]: `1500 VA कैपेसिटी`,
+    },
+    "81bdfd50-fab0-419b-a8d3-2116c190ba9f": {
+        [Language.English]: `3 Year Warranty`,
+        [Language.Hindi]: `3 वर्ष वारंटी`,
+    },
+    "2cac1604-155d-4a6a-950b-e33233842875": {
+        [Language.English]: `IT1584TT`,
+        [Language.Hindi]: `IT1584TT`,
+    },
+    "7b2dc937-de7d-4c76-9f7a-6a804267562e": {
+        [Language.English]: `60 + 24* Months Warranty`,
+        [Language.Hindi]: `60 + 24* महीने वारंटी`,
+    },
+    "c41f16ec-4789-43a2-81cd-74852fa07169": {
+        [Language.English]: `150 Ah Capacity`,
+        [Language.Hindi]: `150 Ah कैपेसिटी`,
+    },
+    "1b97fd62-2934-44ca-8665-fd0471d099b1": {
+        [Language.English]: `IT1578TT`,
+        [Language.Hindi]: `IT1578TT`,
+    },
+    "d997eb4d-3ffc-4b1a-a4f5-e88ae9aabcee": {
+        [Language.English]: `48 + 30* Months Warranty`,
+        [Language.Hindi]: `48 + 30* महीने वारंटी`,
+    },
+    "0224e287-af94-47fa-8ca4-410424c8861c": {
+        [Language.English]: `150 Ah Capacity`,
+        [Language.Hindi]: `150 Ah कैपेसिटी`,
+    },
     contactFormS1T1: {
         [Language.English]: "Get In Touch With Us",
         [Language.Hindi]: "हमसे संपर्क करें",
