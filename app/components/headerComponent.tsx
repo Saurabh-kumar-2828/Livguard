@@ -857,7 +857,7 @@ function SubMenuDialog({
                                               {
                                                   linkTextTextContentPiece: "headerMenuSM1T3",
                                                   enterClassName: "tw-delay-[300ms]",
-                                                  link: "/high-capacity-inverters/",
+                                                  link: "/high-capacity-inverters",
                                                   external: true,
                                                   download: null,
                                               },

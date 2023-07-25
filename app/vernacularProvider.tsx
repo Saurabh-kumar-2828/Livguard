@@ -4088,6 +4088,784 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     //About Us Page Vernac Strings End
 
+    //HKVA Vernac Strings Start
+    "1333b617-c9a4-4b8c-b6ae-652d2b17c58b": {
+        [Language.English]: `HKVA Inverters For`,
+        [Language.Hindi]: `?????`,
+    },
+    "f7ab7eb5-83ec-4ced-b179-c9ad29f8673e": {
+        [Language.English]: `High-Load Appliances`,
+        [Language.Hindi]: `?????`,
+    },
+    "6576ec8d-6a69-482e-b4e9-9f11b9b01dfd": {
+        [Language.English]: `Inverters made to empower your home with Limitless Energy at all times.`,
+        [Language.Hindi]: `?????`,
+    },
+    "eaa6ffa9-a509-4be1-8f5e-93a008f86aaf": {
+        [Language.English]: `Experience <span class="lg-text-highlighted">High Power</span> And`,
+        [Language.Hindi]: `?????`,
+    },
+    "354321fa-4e5e-4cc5-80a4-07a320dfe654": {
+        [Language.English]: `Higher Convenience`,
+        [Language.Hindi]: `?????`,
+    },
+    "ceb40b2c-64aa-4279-a44b-88fdfa0f6940": {
+        [Language.English]: `New Generation Technology`,
+        [Language.Hindi]: `?????`,
+    },
+    "82a58556-3b79-42da-99fa-fb37bf75fc76": {
+        [Language.English]: `Inverters built with MOSFET Based PWM Technology, which brings greater efficiency, dynamic stability, and reduced electricity bills.`,
+        [Language.Hindi]: `?????`,
+    },
+    "bdf346b3-6536-4eb0-bf84-833185c53ec6": {
+        [Language.English]: `Intelligent Battery Charging`,
+        [Language.Hindi]: `?????`,
+    },
+    "312aecd5-8481-4cad-867d-70f3cca7a78c": {
+        [Language.English]: `Find your ideal power inverter with Auto Sense Intelligent Control (ASIC) that makes your batteries last longer, as compared to ordinary UPS.`,
+        [Language.Hindi]: `?????`,
+    },
+    "9b22fdf1-dec8-48c8-9710-f0d8ac89b7d9": {
+        [Language.English]: `Interactive LCD Display`,
+        [Language.Hindi]: `?????`,
+    },
+    "6aa6f045-8ba1-4157-a838-c794bc015eba": {
+        [Language.English]: `Experience the convenience of uninterrupted energy with the user-friendly and easy-to-understand LCD display, that reflects all modes of operation and parameters.`,
+        [Language.Hindi]: `?????`,
+    },
+    "bfc88889-a1cb-4fc0-9823-aa2596efdde8": {
+        [Language.English]: `Guaranteed Protection`,
+        [Language.Hindi]: `?????`,
+    },
+    "6a0ce82e-1378-4cfd-a26f-83152e0ec09a": {
+        [Language.English]: `Bring home inverters packed with safety features including Overload Protection, MCB Protection, Battery Full Charge, Battery Low Voltage, Over Temperature, and Short Circuit Protection. `,
+        [Language.Hindi]: `?????`,
+    },
+    "b3b052f7-ef5b-43d1-b426-279e9c05ca84": {
+        [Language.English]: `Choose <span class="lg-text-highlighted">Your Inverter</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "354448cd-c3be-4427-b3a5-c3f5cf7afaf9": {
+        [Language.English]: `Based On Your Needs`,
+        [Language.Hindi]: `?????`,
+    },
+    "0bcd7c25-b650-4085-990b-36795b06c1f5": {
+        [Language.English]: `HKVA`,
+        [Language.Hindi]: `?????`,
+    },
+    "7618d425-96b8-4402-9ffb-50f4a69efbf9": {
+        [Language.English]: `Home Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "1685c892-2604-467b-835b-751154288554": {
+        [Language.English]: `Power Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "1e7e9b6c-9b4b-43c9-876c-3b1eb84c555f": {
+        [Language.English]: `Designed for commercial and industrial applications that require high power capacities.`,
+        [Language.Hindi]: `?????`,
+    },
+    "a5350102-acd3-4024-a3ef-bcf478522fbb": {
+        [Language.English]: `Designed for residential use, for powering household appliances, electronics, and providing backup power during outages.`,
+        [Language.Hindi]: `?????`,
+    },
+    "a331300e-7f4f-4937-b652-be74e52427fa": {
+        [Language.English]: `Load Handling Capability`,
+        [Language.Hindi]: `?????`,
+    },
+    "86034731-4b04-4172-8ba3-bc4f6ba538a7": {
+        [Language.English]: `Suitable for high-power requirement appliances like machinery, industrial equipment, data canters etc`,
+        [Language.Hindi]: `?????`,
+    },
+    "45f25658-b0ea-4f47-aee0-99769c6be404": {
+        [Language.English]: `Suitable for handling appliances with Lighter Load capacity.`,
+        [Language.Hindi]: `?????`,
+    },
+    "72d5d1e9-8be5-4207-8b96-24ca298341ec": {
+        [Language.English]: `Scalability`,
+        [Language.Hindi]: `?????`,
+    },
+    "3e617d69-c451-401f-aba2-40937134cee3": {
+        [Language.English]: `Built to enable multiple unit connection and supports scalability.`,
+        [Language.Hindi]: `?????`,
+    },
+    "d293fd91-73a4-4cb9-94b1-fa261e25f284": {
+        [Language.English]: `Built for individual use for individual homes and small-scale applications.`,
+        [Language.Hindi]: `?????`,
+    },
+    "2ae8f286-2ead-4d34-9c10-b28b49c90149": {
+        [Language.English]: `Technical Advancements`,
+        [Language.Hindi]: `?????`,
+    },
+    "32461cc4-3f7b-403d-b4f3-b4b413c39c59": {
+        [Language.English]: `Equipped with advanced features and technology to cater to specific needs of commercial and industrial settings`,
+        [Language.Hindi]: `?????`,
+    },
+    "f1a96b7a-bb14-4c20-803a-81373f0195fc": {
+        [Language.English]: `-`,
+        [Language.Hindi]: `?????`,
+    },
+    "32366348-8f4d-4253-959f-f9b586c26b25": {
+        [Language.English]: `<span class="lg-text-highlighted">Powerhouse Inverters</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "33d1aa29-9949-4a28-92f3-4c27ce30d244": {
+        [Language.English]: `for Heavy-Duty Appliances`,
+        [Language.Hindi]: `?????`,
+    },
+    "7854d25c-c385-49b5-b1e5-e1127f1d1e5d": {
+        [Language.English]: `Recommended`,
+        [Language.Hindi]: `?????`,
+    },
+    "96915132-3fda-47ff-8bbb-b35a33432e74": {
+        [Language.English]: `ih-verter LGS 2500`,
+        [Language.Hindi]: `?????`,
+    },
+    "0a4f9eab-f48f-47a8-bec9-a1c06c452bb9": {
+        [Language.English]: `Find the ideal battery that suits your two-wheeler. Use our Buying Guide to get to know in detail about how you can buy your battery and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "be198f94-415e-4384-87d4-3887e8cd8a2c": {
+        [Language.English]: `Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "c4d0e968-550c-4289-a333-6a4c7cc59a76": {
+        [Language.English]: `24 Months`,
+        [Language.Hindi]: `?????`,
+    },
+    "7ee64780-1190-49dc-a305-0f6e9551e8aa": {
+        [Language.English]: `Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "b3a5db70-edb5-4d97-ac68-34948136ef74": {
+        [Language.English]: `2000 VA / 24V`,
+        [Language.Hindi]: `?????`,
+    },
+    "94ba8c21-8088-4d61-a674-4f9d4ec28744": {
+        [Language.English]: `Technology`,
+        [Language.Hindi]: `?????`,
+    },
+    "61866568-5831-4f41-9db7-1058f8b67154": {
+        [Language.English]: `Longer Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "781a0678-8e4b-4543-bda3-c80a5cf30176": {
+        [Language.English]: `Dimensions`,
+        [Language.Hindi]: `?????`,
+    },
+    "3f7043c1-174e-4714-8d63-7b44d67a1f41": {
+        [Language.English]: `275 x 320 x 275 mm`,
+        [Language.Hindi]: `?????`,
+    },
+    "dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee": {
+        [Language.English]: `Explore Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "857b8564-8171-4ea0-b4eb-940b767fb270": {
+        [Language.English]: `Power Up with`,
+        [Language.Hindi]: `?????`,
+    },
+    "6cf663f6-3c72-4bbd-93a6-f9e53a53cc08": {
+        [Language.English]: `<span class="lg-text-highlighted">High-Capacity Inverters</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "f4b66650-853d-4dd7-946f-1cda1f5c724a": {
+        [Language.English]: `Best Seller`,
+        [Language.Hindi]: `?????`,
+    },
+    "0d96f3ca-0045-405f-bc18-1fd584bfd934": {
+        [Language.English]: `ih-verter LGS 2500`,
+        [Language.Hindi]: `?????`,
+    },
+    "ebcab455-5e5e-4a46-a814-780f81fd1297": {
+        [Language.English]: `1500VA Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "348082cf-b5a1-43eb-bc24-9797a5b50d02": {
+        [Language.English]: `72 Months Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "5a00bddd-f110-4ef7-8eae-40524a72dd91": {
+        [Language.English]: `Starting from ₹`,
+        [Language.Hindi]: `?????`,
+    },
+    "0febb66a-4aa4-4e78-8a17-14c49f5d6a86": {
+        [Language.English]: `/-`,
+        [Language.Hindi]: `?????`,
+    },
+    "b6b6bee5-c2b4-4221-8776-7e55212e5a0e": {
+        [Language.English]: `View Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "a5bdaea0-3ac4-4e61-bb56-15921022d881": {
+        [Language.English]: `Your Guide to Finding The`,
+        [Language.Hindi]: `?????`,
+    },
+    "cd0ff218-fadc-488a-a3b8-f97beffed82b": {
+        [Language.English]: `<span class="lg-text-highlighted">Right Inverter</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "b137befb-819f-4e24-a9f1-8a8a7fefeb3a": {
+        [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "8d939846-726e-4b7a-a834-a985292cec9b": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: `?????`,
+    },
+    "d44ffe14-87dd-42e8-8550-0b82ac2dad04": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "bfcd956a-49a7-4586-b645-b6b1a4e20a83": {
+        [Language.English]: `Plan Your Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "4810d194-34b9-4aec-b27b-61905a838517": {
+        [Language.English]: `Can I use an inverter for fridge?`,
+        [Language.Hindi]: `?????`,
+    },
+    "adf7b4db-adfb-47fe-8a4e-6290465e6abb": {
+        [Language.English]: `Yes you can opt for Livguard Sinewave inverter depending on the power requirement of the Fridge . The easiest way to find the right inverter that fits your needs is to use the Load calculator, called the Power Planner(link to Power Planner).`,
+        [Language.Hindi]: `?????`,
+    },
+    "7fe9f5d4-00a9-41a1-a09e-facb4f63ee0b": {
+        [Language.English]: `Can I run an AC on inverter?`,
+        [Language.Hindi]: `?????`,
+    },
+    "3b1d76dd-c2bb-4d9f-b56d-d682a0cd42de": {
+        [Language.English]: `Yes, depending on the AC load (tonnage), You can choose the ideal Livguard High Rating Inverter, designed specially to take care of the surge current arising due to switching ON of the AC compressor. Take a look Livguard's range if inverters to empower your home with Limitless enegry.`,
+        [Language.Hindi]: `?????`,
+    },
+    "22698520-ae75-494a-a16b-4afc4ac1992c": {
+        [Language.English]: `What happens if you overload an inverter?`,
+        [Language.Hindi]: `?????`,
+    },
+    "7e5ac090-a155-46f8-8461-404c710b925d": {
+        [Language.English]: `The most common reason for a power overload is when the inverter reaches its peak power output. The best way to avoid this is by using a high-capacity inverter that produces clean AC power when and where needed. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
+        [Language.Hindi]: `?????`,
+    },
+    "a78c0c49-ffb7-4dce-aa79-308daa5623a4": {
+        [Language.English]: `What appliances can be operated on Livguard's high-capacity inverters at home?`,
+        [Language.Hindi]: `?????`,
+    },
+    "31c4c4e8-2c27-4d1f-abce-9bffd83915b2": {
+        [Language.English]: `The various appliances that can be operated on Livguard's high-capacity inverters include a fridge, AC, washing machine, microwave, steam iron etc. at home. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
+        [Language.Hindi]: `?????`,
+    },
+    "9f264c8e-4212-43c1-a101-8f680845d25c": {
+        [Language.English]: `What are high-capacity inverters?`,
+        [Language.Hindi]: `?????`,
+    },
+    "64882f53-b9a6-4486-89a7-5c673f36a258": {
+        [Language.English]: `Livguard's “ih-verter” systems are an ideal option for residential and commercial power back-up. They are a cohesive power backup system that produces clean AC power when and where it's needed. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
+        [Language.Hindi]: `?????`,
+    },
+
+    //Inverter Trolley Vernac Strings Start
+    "c8044356-0123-4e47-a1b9-a453d40c6f41": {
+        [Language.English]: `Inverter Trolley`,
+        [Language.Hindi]: `?????`,
+    },
+    "a44c1ac7-94e3-4b5f-92a7-97d56aa17619": {
+        [Language.English]: `Livguard, aims at offering “Smart and Innovative energy solutions” to its customers. Our company is determined at delivering quality`,
+        [Language.Hindi]: `?????`,
+    },
+    "71072fc8-967d-4e21-9922-2bab4b7513b5": {
+        [Language.English]: `Batteries That Are`,
+        [Language.Hindi]: `?????`,
+    },
+    "1d257cca-7858-42b7-ba71-cb411c5b6bf3": {
+        [Language.English]: `<span class="lg-text-highlighted">Meant To Last</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "656202ba-4d43-417e-ab8a-4d411da87ede": {
+        [Language.English]: `Futuristic Design`,
+        [Language.Hindi]: `?????`,
+    },
+    "b1860dae-087d-4b2e-b55e-72b0d91de418": {
+        [Language.English]: `Livguard Inverter Batteries are manufactured with PPC Plastic to avoid leakage and keeping in mind the customer’s needs to deliver the safest and aesthetic designs for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "9b082fd9-8254-4ea0-a76f-f831d2bd3248": {
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "3bee363a-d749-49b8-8f1e-fa1cc640c526": {
+        [Language.English]: `Based On Your Choice`,
+        [Language.Hindi]: `?????`,
+    },
+    "6abe737b-e0b3-4b27-8d3e-45e0555ca4fd": {
+        [Language.English]: `Trolley`,
+        [Language.Hindi]: `?????`,
+    },
+    "a64d10d2-45b4-4263-8903-3b5ba891181f": {
+        [Language.English]: `Enjoy a constant supply of electric power for long hours without any trouble. Built with the Industry’s first and patented 3D Grid technology to ensure long-lasting life with enhanced performance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "ee044c57-6d8d-43ec-9a6f-8b8457c56963": {
+        [Language.English]: `Inverter Specification`,
+        [Language.Hindi]: `?????`,
+    },
+    "49106fd2-d12b-454d-a3ea-24a793de49b6": {
+        [Language.English]: `Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "965c45f7-f888-4d22-bd3a-cad183c42e7e": {
+        [Language.English]: `24 Months`,
+        [Language.Hindi]: `?????`,
+    },
+    "71bd364d-bc35-416e-92ee-212a82b4d833": {
+        [Language.English]: `Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "31f21f05-2ce7-46d8-9971-1102f33f1569": {
+        [Language.English]: `1500 VA`,
+        [Language.Hindi]: `?????`,
+    },
+    "5999ee40-e846-4dab-a5f5-6f0b31575546": {
+        [Language.English]: `3D Grid`,
+        [Language.Hindi]: `?????`,
+    },
+    "0432ce29-748f-4de1-89b5-f80453c3c429": {
+        [Language.English]: `Longer Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "75fd8c06-fd2d-422c-8cd2-c972065f72e2": {
+        [Language.English]: `Dimensions`,
+        [Language.Hindi]: `?????`,
+    },
+    "0de3fa1c-d195-45dd-9670-155370379e7a": {
+        [Language.English]: `275(L) X 277(W) X 153(H) mm`,
+        [Language.Hindi]: `?????`,
+    },
+    "b537cb7c-46f5-4d95-b329-8e2745900f0a": {
+        [Language.English]: `Explore Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "e596f970-68cb-4c78-a74f-885ff89a0f84": {
+        [Language.English]: `Choose The`,
+        [Language.Hindi]: `?????`,
+    },
+    "da847308-2fc2-449f-9346-7372e8f72d97": {
+        [Language.English]: `<span class="lg-text-highlighted">Right Battery</span> For You`,
+        [Language.Hindi]: `?????`,
+    },
+    "6e9b8409-2e42-4c63-9d68-9be787e999ab": {
+        [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "1f38d219-7fb1-4b45-84d8-d28ea3bd3a71": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: `?????`,
+    },
+    "af4fabfc-67ee-488b-be62-5a17bac10daf": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "fcb9e80f-e552-41af-81fc-6ade228105ab": {
+        [Language.English]: `Plan Your Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "a1d8ea9a-0849-49aa-826e-87bab380866b": {
+        [Language.English]: `FAQ Q1`,
+        [Language.Hindi]: `?????`,
+    },
+    "47d12216-c8fc-4aa9-9bdb-29d8dcd0ab69": {
+        [Language.English]: `FAQ A1`,
+        [Language.Hindi]: `?????`,
+    },
+    "e2f88f7e-1815-46e8-9aa1-01cefaca9f07": {
+        [Language.English]: `FAQ Q2`,
+        [Language.Hindi]: `?????`,
+    },
+    "59ccc2c2-5029-4e43-889b-479f159893f3": {
+        [Language.English]: `FAQ A2`,
+        [Language.Hindi]: `?????`,
+    },
+    "20500319-4842-4a4f-91ce-d2adbd17b524": {
+        [Language.English]: `FAQ Q3`,
+        [Language.Hindi]: `?????`,
+    },
+    "d14ed9a8-72cb-4eea-847b-fc7ae260924b": {
+        [Language.English]: `FAQ A3`,
+        [Language.Hindi]: `?????`,
+    },
+    "f9132ecf-4676-4cae-a86b-f754884b1caf": {
+        [Language.English]: `FAQ Q4`,
+        [Language.Hindi]: `?????`,
+    },
+    "677ad117-00ce-425f-92f5-a2e879a907a8": {
+        [Language.English]: `FAQ A4`,
+        [Language.Hindi]: `?????`,
+    },
+    "036a4ed1-77f5-4a67-bc17-c3a2d364e21d": {
+        [Language.English]: `FAQ Q5`,
+        [Language.Hindi]: `?????`,
+    },
+    "c14fc130-2857-4951-a934-54186d7824b8": {
+        [Language.English]: `FAQ A5`,
+        [Language.Hindi]: `?????`,
+    },
+    "10a749b0-d7b2-4c29-add5-a4afb989249d": {
+        [Language.English]: `View More`,
+        [Language.Hindi]: `?????`,
+    },
+    "05dd627c-2d81-4390-a8ec-4543cb8b8cd7": {
+        [Language.English]: `Show Less`,
+        [Language.Hindi]: `?????`,
+    },
+
+    //E Rickshaw Charger vernac start
+    "cf6da0b7-e5ad-4b79-b0a5-65a72b31b132": {
+        [Language.English]: `Efficiency in Every Move`,
+        [Language.Hindi]: `?????`,
+    },
+    "1e3021a0-0a0d-479a-84eb-bcc17a9747a0": {
+        [Language.English]: `Livguard E-Rickshaw Batteries`,
+        [Language.Hindi]: `?????`,
+    },
+    "e012e585-3558-420d-8614-393e2ecfd8bc": {
+        [Language.English]: `Make every journey power packed with the best E-Rickshaw battery for your ride`,
+        [Language.Hindi]: `?????`,
+    },
+    "6148b8eb-4751-480f-96ef-b8ef9a1754a0": {
+        [Language.English]: `<span class="lg-text-highlighted">Superior Features</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "5323b1af-564e-435c-8e06-2d3041494551": {
+        [Language.English]: `For A Supreme Performance`,
+        [Language.Hindi]: `?????`,
+    },
+    "2fb36c26-a28f-4b1a-878a-fdb7d122caf4": {
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "b15faf10-0686-425c-abf7-50c35e7f1658": {
+        [Language.English]: `Based On Your Choice`,
+        [Language.Hindi]: `?????`,
+    },
+    "22669d2d-400b-4699-9d1c-2dd7078949b5": {
+        [Language.English]: `Recommended`,
+        [Language.Hindi]: `?????`,
+    },
+    "79ecf90e-de5b-47f3-ad78-2ab6c8b38c14": {
+        [Language.English]: `E-Rickshaw Charger Black`,
+        [Language.Hindi]: `?????`,
+    },
+    "73741111-9f1f-4c7c-b9c7-678fda1b62c5": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Sit accusamus facere et numquam nihil qui dolor impedit ut velit ....`,
+        [Language.Hindi]: `?????`,
+    },
+    "46e8b48e-8f18-4d30-892d-9bdf5b3e76f6": {
+        [Language.English]: `Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "8b0eae76-d68a-41e3-ae04-ac2663f60e09": {
+        [Language.English]: `24 + 24* Months`,
+        [Language.Hindi]: `?????`,
+    },
+    "761454b0-a898-4f44-a557-65fc8d21069f": {
+        [Language.English]: `Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "32af45e9-f996-4fec-a122-e2e00e6c34c2": {
+        [Language.English]: `7 Ah`,
+        [Language.Hindi]: `?????`,
+    },
+    "30ae7d41-ad39-4778-b8e1-3e205fb71af8": {
+        [Language.English]: `3D Grid`,
+        [Language.Hindi]: `?????`,
+    },
+    "002950ee-d6b9-4b1d-a619-30c4917302b3": {
+        [Language.English]: `Longer Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "77b93075-16aa-4d56-a897-842797e65523": {
+        [Language.English]: `Dimensions`,
+        [Language.Hindi]: `?????`,
+    },
+    "90d584ae-5ce3-451c-bf58-6e0b2d713463": {
+        [Language.English]: `275(L) X 277(W) X 153(H) mm`,
+        [Language.Hindi]: `?????`,
+    },
+    "e48d4eeb-f921-45f5-b023-680f699816c5": {
+        [Language.English]: `Explore Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "bd79396d-6510-44b5-b0cc-222450998828": {
+        [Language.English]: `Discover More`,
+        [Language.Hindi]: `?????`,
+    },
+    "a3079b91-9d9c-4adc-9859-158932a6b433": {
+        [Language.English]: `<span class="lg-text-highlighted>E-Rickshaw Video Guide</span>"`,
+        [Language.Hindi]: `?????`,
+    },
+    "449e3c56-4dd9-4495-b968-a4ef45533fbb": {
+        [Language.English]: `Choose the`,
+        [Language.Hindi]: `?????`,
+    },
+    "e8fb1edc-fdbc-4bc9-b660-012d4cbb10f5": {
+        [Language.English]: `<span class="lg-text-highlighted">Right Battery</span> For You`,
+        [Language.Hindi]: `?????`,
+    },
+    "698f4100-216f-4ce8-89be-80b336b942ed": {
+        [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "50f5f8f9-afaf-4793-97e9-201bdaeeb853": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: `?????`,
+    },
+    "214695af-9a93-4d51-909a-c3574f457997": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "92797775-c5d0-49a7-93e4-b35314cddc6f": {
+        [Language.English]: `Plan Your Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "323526ea-ed1b-4b23-af2e-ecaed76b5b5b": {
+        [Language.English]: `FAQ Q1`,
+        [Language.Hindi]: `?????`,
+    },
+    "1e7321f5-ccd6-4785-8e8b-3ea11cfebb41": {
+        [Language.English]: `FAQ A1`,
+        [Language.Hindi]: `?????`,
+    },
+    "bc46294e-c29b-4a11-b855-6f79390476de": {
+        [Language.English]: `FAQ Q2`,
+        [Language.Hindi]: `?????`,
+    },
+    "e692619d-2df7-4fc4-b2bc-dfdad15e52f8": {
+        [Language.English]: `FAQ A2`,
+        [Language.Hindi]: `?????`,
+    },
+    "840f6a27-cb5a-441c-b158-eff37cbfb968": {
+        [Language.English]: `FAQ Q3`,
+        [Language.Hindi]: `?????`,
+    },
+    "c9fde4b2-0b06-4239-a7c9-e03d1f374ba3": {
+        [Language.English]: `FAQ A3`,
+        [Language.Hindi]: `?????`,
+    },
+    "eab3ebfe-f04a-47a6-89ff-5f296bae7056": {
+        [Language.English]: `FAQ Q4`,
+        [Language.Hindi]: `?????`,
+    },
+    "07ace5c9-f216-4df2-abe7-d7f041394ad4": {
+        [Language.English]: `FAQ A4`,
+        [Language.Hindi]: `?????`,
+    },
+    "3b0e9005-84e1-4c8a-8aa5-020c321322f7": {
+        [Language.English]: `FAQ Q5`,
+        [Language.Hindi]: `?????`,
+    },
+    "7231c617-3d3c-46fb-8b7c-daf31ca2cafe": {
+        [Language.English]: `FAQ A5`,
+        [Language.Hindi]: `?????`,
+    },
+    "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0": {
+        [Language.English]: `Futuristic Design`,
+        [Language.Hindi]: `?????`,
+    },
+    "16cbfbfb-a3c7-4dae-99e7-52b422c31104": {
+        [Language.English]: `Livguard Inverter Batteries are manufactured with PPC Plastic to avoid leakage and keeping in mind the customer’s needs to deliver the safest and aesthetic designs for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "c17b911e-a564-4192-a363-11def77e12b9": {
+        [Language.English]: `Starting From `,
+        [Language.Hindi]: `?????`,
+    },
+    "28c8bd29-74e4-425b-8654-9d0f51a98cba": {
+        [Language.English]: `/-`,
+        [Language.Hindi]: `?????`,
+    },
+    "450429b9-9d3a-47e8-acdc-667773c39d28": {
+        [Language.English]: `Livguard `,
+        [Language.Hindi]: `?????`,
+    },
+    "d9eec0e4-1258-4ff7-8871-4d530e2c8424": {
+        [Language.English]: `is a Complete End-to-End Solution Provider for E-mobility`,
+        [Language.Hindi]: `?????`,
+    },
+    "3f724c0f-7cd3-4c2e-b320-a8d48ee22cd3": {
+        [Language.English]: `Connect with Us`,
+        [Language.Hindi]: ``,
+    },
+    "30f39249-45bb-45cb-a674-bcbe3df9710e": {
+        [Language.English]: `<span class="lg-text-highlighted">E-mobility</span> Solutions`,
+        [Language.Hindi]: `?????`,
+    },
+    "f81436a4-b523-4061-b646-6d92691558ac": {
+        [Language.English]: `Li-Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "9a55d278-dd6f-45e5-a3cd-2b60df7085fb": {
+        [Language.English]: `DC-DC`,
+        [Language.Hindi]: `?????`,
+    },
+    "ff52743c-c468-41df-9cc8-6288f4ed9e0c": {
+        [Language.English]: `Motor`,
+        [Language.Hindi]: `?????`,
+    },
+    "4a5e6924-7308-4054-af6e-076c9d0f7ebb": {
+        [Language.English]: `BMS, IoT-Analytics`,
+        [Language.Hindi]: `?????`,
+    },
+    "9c43c2af-9a25-4db7-b2a7-5de061f50c6b": {
+        [Language.English]: `Charger`,
+        [Language.Hindi]: `?????`,
+    },
+    "fdc2da8c-7208-4586-8d53-c4e695106585": {
+        [Language.English]: `Controller`,
+        [Language.Hindi]: `?????`,
+    },
+    "0972912b-220b-4ee1-8804-f5400ed35247": {
+        [Language.English]: `With our customer-centric approach, we aim to empower everyone across the nation with limitless energy. Our diverse product portfolio, spanning from automotive batteries, inverters and inverter batteries, to stabilizers and residential solar solutions, ushers in a new era of innovative energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "839a039a-24f0-4be7-8c56-9baf569a006c": {
+        [Language.English]: `Why <span class="lg-text-highlighted">Choose</span> Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "98a3947e-f747-4ed8-81df-fb966d2e05c5": {
+        [Language.English]: `With our customer-centric approach, we aim to empower everyone across the nation with limitless energy. Our diverse product portfolio, spanning from automotive batteries, inverters and inverter batteries, to stabilizers and residential solar solutions, ushers in a new era of innovative energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "06cdcb60-4fd5-49e0-a640-fca8898d55e0": {
+        [Language.English]: `Our Mission`,
+        [Language.Hindi]: `?????`,
+    },
+    "b339f978-1e57-47c9-8402-1c34ea02f66d": {
+        [Language.English]: `Establish Livguard as a strong player in energy-solution space in India. We will achieve this by developing an ecosystem of delighted customers, committed partners, exceptional product quality and delightful service.`,
+        [Language.Hindi]: `?????`,
+    },
+    "b159ebed-e057-4d21-9362-eee84ce38fb6": {
+        [Language.English]: `Our Vision`,
+        [Language.Hindi]: `?????`,
+    },
+    "a88d1585-3cce-464d-925c-3ddff5526b09": {
+        [Language.English]: `To be a global leader in energy storage products driven by innovative technology and excellence in manufacturing & services.`,
+        [Language.Hindi]: `?????`,
+    },
+    "b24ae6c1-e9ff-4195-9e2b-3491f4ae01b1": {
+        [Language.English]: `Current <span class="lg-text-highlighted">Business Landscape</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "4de0722e-80e6-4e87-960d-91c2efb131db": {
+        [Language.English]: `Sept-2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "15a51924-fad4-489e-a6a2-0a0e82ee3434": {
+        [Language.English]: `IATF 16949:2015 Certificate`,
+        [Language.Hindi]: `?????`,
+    },
+    "a4b92fab-45f9-4440-8364-58ed72240c19": {
+        [Language.English]: `Plan from TUV SUD Asia`,
+        [Language.Hindi]: `?????`,
+    },
+    "5ef91974-9065-4189-96e3-db71ce9771be": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Certifications</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "45b2c5d2-cf75-40be-bbaf-57e929c22828": {
+        [Language.English]: `Sept-2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "61480ca5-73da-452d-86a4-0ee2981f322f": {
+        [Language.English]: `IATF 16949:2015 Certificate`,
+        [Language.Hindi]: `?????`,
+    },
+    "8490141e-9269-434d-83cb-a746a345a84d": {
+        [Language.English]: `Plan from TUV SUD Asia`,
+        [Language.Hindi]: `?????`,
+    },
+    "776efacc-bd35-4b34-80ce-e7ceb01a3f1f": {
+        [Language.English]: `Legacy of`,
+        [Language.Hindi]: `?????`,
+    },
+    "83b23d97-4f66-4838-844b-1ac515a72681": {
+        [Language.English]: `30+ years`,
+        [Language.Hindi]: `?????`,
+    },
+    "9282ac4f-ae32-4033-a3ee-98e2973fcb28": {
+        [Language.English]: `Wide range`,
+        [Language.Hindi]: `?????`,
+    },
+    "1ccecae3-b11a-480f-b9cc-e0dd22a1ef72": {
+        [Language.English]: `Product Portfolio`,
+        [Language.Hindi]: `?????`,
+    },
+    "503a9e8c-3f0d-4e64-9cdc-d04db357908e": {
+        [Language.English]: `PAN India`,
+        [Language.Hindi]: `?????`,
+    },
+    "1b722a5b-f096-43af-9ca0-a8eaadf68a51": {
+        [Language.English]: `Service Network`,
+        [Language.Hindi]: `?????`,
+    },
+    "cfab32fb-ae56-4c8a-8e4c-79802cf5fb59": {
+        [Language.English]: `Revenue FY23`,
+        [Language.Hindi]: `?????`,
+    },
+    "2d112cc9-a076-4e80-8e40-fd4b9368fd85": {
+        [Language.English]: `USD 470Mn`,
+        [Language.Hindi]: `?????`,
+    },
+    "98eb0f6b-e093-4f20-8d32-9f731e8a27d2": {
+        [Language.English]: `Extensive`,
+        [Language.Hindi]: `?????`,
+    },
+    "062f06fe-eafa-4ae8-b8d0-de4e25b67f54": {
+        [Language.English]: `Manufacturing Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "7674811d-eb93-411a-9a5e-06cd3a052895": {
+        [Language.English]: `Strong Network of`,
+        [Language.Hindi]: `?????`,
+    },
+    "01f3da01-fbc6-4522-9f3c-319955a0a114": {
+        [Language.English]: `Distribution & People`,
+        [Language.Hindi]: `?????`,
+    },
+    "5833e10b-79c9-4f71-ba98-0a23d4999194": {
+        [Language.English]: `Meet Our Leaders`,
+        [Language.Hindi]: `?????`,
+    },
+    "fa87f6a2-b572-4742-a928-a3c85fb52e2f": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Manufacturing Plant</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "c6d0ac89-bf45-4974-9585-d6e5ceec6849": {
+        [Language.English]: `Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Residential Solar Solutions, we are bringing in a new dimension of smart energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "387ff60d-9f20-4e2f-b0fd-0fa92591b722": {
+        [Language.English]: `Livguard Manufacturing Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "41c60984-c721-414b-9ebf-838604bb70b3": {
+        [Language.English]: `Total Factory Area: `,
+        [Language.Hindi]: `?????`,
+    },
+    "89db53cb-3d7d-4f7b-96ba-21ae5d09d39d": {
+        [Language.English]: `32K Sq Ft.`,
+        [Language.Hindi]: `?????`,
+    },
+    "46e6c304-5826-4d6b-bf9b-6cf61eed070a": {
+        [Language.English]: `Plant Capacity: `,
+        [Language.Hindi]: `?????`,
+    },
+    "5b0971a6-a16b-47ce-9e10-169d9fa4bd89": {
+        [Language.English]: `2.5 Lac Packs Per Annum Manesar`,
+        [Language.Hindi]: `?????`,
+    },
+    "f085747f-308f-4ca7-8c1d-8f944dc6a664": {
+        [Language.English]: `<span class="lg-text-highlighted">Partner</span> with Us`,
+        [Language.Hindi]: `?????`,
+    },
+
     //Two Wheeler Page Vernac Strings Start
     "c106b24b-668c-4bc2-b9fe-747eea24944a": {
         [Language.English]: `Uninterrupted Power`,
@@ -4341,8 +5119,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "7e6ef891-fa59-4673-b436-af77ecff2da0": {
-        [Language.English]:
-            "Batteries made with Advance Calcium Technology for a smooth and maintenance-free battery life.",
+        [Language.English]: "Batteries made with Advance Calcium Technology for a smooth and maintenance-free battery life.",
         [Language.Hindi]: "?????",
     },
     "c5b351d6-0747-4a75-8e47-48f20f9adb0f": {
@@ -4354,8 +5131,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     "79f76b0b-3fce-4d4f-8fb8-4a468a20420b": {
-       [Language.English]: "Long Battery Life",
-       [Language.Hindi]: "????????",
+        [Language.English]: "Long Battery Life",
+        [Language.Hindi]: "????????",
     },
     "559a1118-7d22-4c63-8838-c246921b9361": {
         [Language.English]: "Experience unparalleled longevity of batteries, with the use of Tough Radial Grid design to keep you moving always.",
@@ -5392,42 +6169,42 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "16052fa6-9c46-49f5-b3dc-a90ba4a0cd64": {
         [Language.English]: `Can an e-rickshaw charger recharge deeply discharged batteries?`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "276a2fc2-4ad5-46b1-8e1a-898f4ad48ac2": {
         [Language.English]: `E-rickshaw chargers can recharge deeply discharged batteries, but using the right charger is vital. Livguard's e-rickshaw battery chargers, designed with advanced technology, adeptly handle deeply discharged batteries, ensuring longevity and a consistent power supply.`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "d172e8a9-1a56-44ac-9624-f6909bc7ab64": {
         [Language.English]: `Can I use any charger for my e-rickshaw battery?`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "1b7d7fa0-ce6b-455f-8f4c-a042dea09650": {
         [Language.English]: `While some chargers do consume more power, it's not the same with every charger. Livguard's e-rickshaw chargers are engineered for energy efficiency, providing optimal charging without consuming excess electricity.`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "6d7b3095-b837-47c2-a733-55d13c7cbe32": {
         [Language.English]: `How can I maximize the performance of my e-rickshaw charger?`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "b9a59c4c-1212-4d95-9127-5cd030d7b940": {
         [Language.English]: `Low input voltage can often hamper the charging process. However, Livguard e-rickshaw chargers are designed to efficiently charge even in low voltage conditions, ensuring your vehicle is always ready for the road.`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "a5d60a5a-54f8-41aa-a381-fa75ff5d1b0c": {
         [Language.English]: `Who can I contact for E-Rickshawshaw charger repairing?`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "0479936a-0406-42b9-a22a-985b38cc4179": {
         [Language.English]: `For any repairs concerning your Livguard e-rickshaw charger, it's best to contact our dedicated service team. They can provide necessary guidance and arrange for a qualified technician to address the issue.  Simply call us at - 1800-1025-551`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "da71434e-3e83-47b4-bce6-087f5e55e293": {
         [Language.English]: `What E-Rickshawshaw battery charger specifications should I look for before buying?`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
     "db980c86-e5b7-4a2e-bb2c-f3cbbd6a952d": {
         [Language.English]: `Before purchasing an e-rickshaw battery charger, you should look for features like automatic cut-off, equalization capability, and compatibility with your battery type. Choosing a Livguard e-rickshaw charger assures you of all these specifications and more, offering a secure and efficient charging experience.`,
-        [Language.Hindi]: `?????`, 
+        [Language.Hindi]: `?????`,
     },
 };

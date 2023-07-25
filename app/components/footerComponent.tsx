@@ -104,7 +104,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
-            link: "/high-capacity-inverters/",
+            link: "/high-capacity-inverters",
             target: true,
         },
     ];

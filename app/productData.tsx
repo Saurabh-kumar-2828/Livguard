@@ -20550,4 +20550,646 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             features: [],
         },
     },
+    lg2350ixl: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/inverters/lg2350ixl/thumbnail.png",
+                },
+            ],
+            title: "LG 2350 iXL",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 Months Warranty",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "2000 VA",
+                },
+                {
+                    icon: "/livguard/icons/technology.png",
+                    text: "Bigger Cabinet",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "350(L ) X 306(W) X 145(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG 2350 iXL",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "2000 VA",
+                },
+                {
+                    title: "Technology",
+                    value: "Bigger Cabinet",
+                },
+                {
+                    title: "Dimensions",
+                    value: "350(L ) X 306(W) X 145(H) mm",
+                },
+            ],
+            features: [],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/inverters/lg2350ixl/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGS 3000",
+                    imageRelativePath: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs3000",
+                },
+                {
+                    title: "LGS 3500",
+                    imageRelativePath: "/livguard/products/inverters/lg3500/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lg3500",
+                },
+                {
+                    title: "LGS 4000",
+                    imageRelativePath: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs4000",
+                },
+                {
+                    title: "LGS 5000",
+                    imageRelativePath: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs5000",
+                },
+            ],
+            type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+        },
+    },
+    lgs2500: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/inverters/lgs2500/thumbnail.png",
+                },
+            ],
+            title: "LGS 2500",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "2000 VA",
+                },
+                {
+                    icon: "/livguard/icons/technology.png",
+                    text: "Sinewave",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "275(L) X 320(W) X 275(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGS 2500",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 Months Warranty",
+                },
+                {
+                    title: "Capacity",
+                    value: "2000 VA / 24V",
+                },
+                {
+                    title: "Technology",
+                    value: "Sinewave",
+                },
+                {
+                    title: "Dimensions",
+                    value: "275(L) X 320(W) X 275(H) mm",
+                },
+            ],
+            features: [],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard ih-verter LGS2500 inverters are designed to suit the needs of all your appliances. Equipped with artificial intelligent charging, Livguard ih-verter LGS2500 inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection. Livguard ih-verter LGS2500 inverters are compatible with Flat, Tubular, SMF and other local batteries. Livguard ih-verter LGS2500 inverters are High quality sine wave inverters are rated upto 90-95% efficiency.",
+                images: [
+                    {
+                        image: "/livguard/products/inverters/lgs2500/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGS 3000",
+                    imageRelativePath: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs3000",
+                },
+                {
+                    title: "LGS 3500",
+                    imageRelativePath: "/livguard/products/inverters/lg3500/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lg3500",
+                },
+                {
+                    title: "LGS 4000",
+                    imageRelativePath: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs4000",
+                },
+                {
+                    title: "LGS 5000",
+                    imageRelativePath: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs5000",
+                },
+            ],
+            type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+        },
+    },
+    lgs3000: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                },
+            ],
+            title: "LGS 3000",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "2500 VA",
+                },
+                {
+                    icon: "/livguard/icons/technology.png",
+                    text: "Sinewave",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "275(L) X 320(W) X 275(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGS 3000",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 Months Warranty",
+                },
+                {
+                    title: "Capacity",
+                    value: "2500 VA / 24V",
+                },
+                {
+                    title: "Technology",
+                    value: "Sinewave",
+                },
+                {
+                    title: "Dimensions",
+                    value: "275(L) X 320(W) X 275(H) mm",
+                },
+            ],
+            features: [],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard ih-verter LGS3000 inverters are designed to suit the needs of all your appliances. Equipped with artificial intelligent charging, Livguard ih-verter LGS3000 inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection. Livguard ih-verter LGS3000 inverters are compatible with Flat, Tubular, SMF and other local batteries. Livguard ih-verter LGS3000 inverters are High quality sine wave inverters are rated upto 90-95% efficiency.",
+                images: [
+                    {
+                        image: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG 2350 iXL",
+                    imageRelativePath: "/livguard/products/inverters/lg2350ixl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lg2350ixl",
+                },
+                {
+                    title: "LG 3500",
+                    imageRelativePath: "/livguard/products/inverters/lg3500/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs3500",
+                },
+                {
+                    title: "LGS 4000",
+                    imageRelativePath: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs4000",
+                },
+                {
+                    title: "LGS 5000",
+                    imageRelativePath: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs5000",
+                },
+            ],
+            type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+        },
+    },
+    lg3500: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/inverters/lg3500/thumbnail.png",
+                },
+            ],
+            title: "LG 3500",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "3500VA",
+                },
+                {
+                    icon: "/livguard/icons/technology.png",
+                    text: "Sinewave",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "330(L ) X 275(W) X 377(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG 3500",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 Months Warranty",
+                },
+                {
+                    title: "Capacity",
+                    value: "3500 VA / 48V",
+                },
+                {
+                    title: "Technology",
+                    value: "Sinewave",
+                },
+                {
+                    title: "Dimensions",
+                    value: "330(L ) X 275(W) X 377(H) mm",
+                },
+            ],
+            features: [],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard ih-verter LG3500 inverters are pure sine wave inverters, designed to suit the needs of all your electric appliances. These high capacity inverters are equipped with artificial intelligent charging. Livguard ih-verter LG3500 inverters can run heavy appliances efficiently and have longer power back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection. Livguard ih-verter LG2300 inverters are compatible with Flat, Tubular, SMF and other local batteries. Livguard ih-verter LG3500 inverters are High quality sine wave inverters are rated upto 90-95% efficiency.",
+                images: [
+                    {
+                        image: "/livguard/products/inverters/lg3500/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGS 2350 iXL",
+                    imageRelativePath: "/livguard/products/inverters/lg2350ixl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs2350ixl",
+                },
+                {
+                    title: "LGS 3000",
+                    imageRelativePath: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lGS3000",
+                },
+                {
+                    title: "LGS 4000",
+                    imageRelativePath: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs4000",
+                },
+                {
+                    title: "LGS 5000",
+                    imageRelativePath: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs5000",
+                },
+            ],
+            type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+        },
+    },
+    lgs4000: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                },
+            ],
+            title: "LGS 4000",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "3500VA",
+                },
+                {
+                    icon: "/livguard/icons/technology.png",
+                    text: "Sinewave",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "275(L) X 350(W) X 375(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGS 4000",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 Months Warranty",
+                },
+                {
+                    title: "Capacity",
+                    value: "3500 VA / 36V",
+                },
+                {
+                    title: "Technology",
+                    value: "Sinewave",
+                },
+                {
+                    title: "Dimensions",
+                    value: "275(L) X 350(W) X 375(H) mm",
+                },
+            ],
+            features: [],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard ih-verter LGS4000 inverters are designed to suit the needs of all your appliances. Equipped with artificial intelligent charging, Livguard ih-verter LGS4000 inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection. Livguard ih-verter LGS4000 inverters are compatible with Flat, Tubular, SMF and other local batteries. Livguard ih-verter LGS4000 inverters are High quality sine wave inverters are rated upto 90-95% efficiency.",
+                images: [
+                    {
+                        image: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGS 2350 iXL",
+                    imageRelativePath: "/livguard/products/inverters/lg2350ixl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs2350ixl",
+                },
+                {
+                    title: "LGS 3000",
+                    imageRelativePath: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lGS3000",
+                },
+                {
+                    title: "LGS 4000",
+                    imageRelativePath: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs4000",
+                },
+                {
+                    title: "LGS 5000",
+                    imageRelativePath: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs5000",
+                },
+            ],
+            type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+        },
+    },
+    lgs5000: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                },
+            ],
+            title: "LGS 5000",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "4000 VA",
+                },
+                {
+                    icon: "/livguard/icons/technology.png",
+                    text: "Sinewave",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "275(L) X 350(W) X 375(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGS 5000",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 Months Warranty",
+                },
+                {
+                    title: "Capacity",
+                    value: "4000 VA / 48 V",
+                },
+                {
+                    title: "Technology",
+                    value: "Sinewave",
+                },
+                {
+                    title: "Dimensions",
+                    value: "275(L) X 350(W) X 375(H) mm",
+                },
+            ],
+            features: [],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard High Capacity Inverters ih-verter LG5000 is the best residential and commercial power backup solution. Based on since wave technology Livguard ih-verter LG5000 heavy-duty inverter is of 5000 VA capacity and comes with 24 months warranty. Equipped with artificial intelligent charging, Livguard ih-verter LG5000 inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection. Livguard ih-verter LG2300 inverters are compatible with Flat, Tubular, SMF and other local batteries. Livguard ih-verter LG5000 inverters are High quality sine wave inverters are rated upto 90-95% efficiency.",
+                images: [
+                    {
+                        image: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGS 2350 iXL",
+                    imageRelativePath: "/livguard/products/inverters/lg2350ixl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs2350ixl",
+                },
+                {
+                    title: "LGS 3000",
+                    imageRelativePath: "/livguard/products/inverters/lgs3000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lGS3000",
+                },
+                {
+                    title: "LGS 4000",
+                    imageRelativePath: "/livguard/products/inverters/lgs4000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs4000",
+                },
+                {
+                    title: "LGS 5000",
+                    imageRelativePath: "/livguard/products/inverters/lgs5000/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgs5000",
+                },
+            ],
+            type: ProductType.inverter,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+        },
+    },
 };

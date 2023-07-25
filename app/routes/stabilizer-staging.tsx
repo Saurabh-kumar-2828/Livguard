@@ -20,6 +20,7 @@ import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {ProductType} from "~/productData";
 import {useState} from "react";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -50,7 +51,7 @@ enum StabilizerType {
 }
 
 export default () => {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -65,6 +66,12 @@ export default () => {
             >
                 <StabilizerPage userPreferences={userPreferences} />
             </PageScaffold>
+
+            <ProductAndCategoryBottomBar
+                userPreferences={userPreferences}
+                utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
+            />
         </>
     );
 };
@@ -175,7 +182,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 tw-bg-secondary-300-light dark:tw-bg-secondary-100-dark tw-rounded-lg",
+                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-bg-secondary-100 tw-rounded-lg",
                 )}
             >
                 <div className="tw-row-start-2">
@@ -191,44 +198,44 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
 
     const stabilizersData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide1Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide1Description",
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
             imageRelativePath: "/livguard/category/batteries/2/1.jpg",
         },
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide2Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide2Description",
-            imageRelativePath: "/livguard/category/batteries/2/2.jpg",
-        },
-        {
-            titleTextContentPiece: "categoryBatteriesS2Slide3Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide3Description",
-            imageRelativePath: "/livguard/category/batteries/2/3.jpg",
-        },
-        {
-            titleTextContentPiece: "categoryBatteriesS2Slide4Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide4Description",
-            imageRelativePath: "/livguard/category/batteries/2/4.jpg",
-        },
-        {
-            titleTextContentPiece: "categoryBatteriesS2Slide1Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide1Description",
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
             imageRelativePath: "/livguard/category/batteries/2/1.jpg",
         },
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide2Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide2Description",
-            imageRelativePath: "/livguard/category/batteries/2/2.jpg",
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
         },
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide3Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide3Description",
-            imageRelativePath: "/livguard/category/batteries/2/3.jpg",
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
         },
         {
-            titleTextContentPiece: "categoryBatteriesS2Slide4Heading",
-            bodyTextContentPiece: "categoryBatteriesS2Slide4Description",
-            imageRelativePath: "/livguard/category/batteries/2/4.jpg",
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+        },
+        {
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+        },
+        {
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+        },
+        {
+            titleTextContentPiece: "cefeeda8-fa1a-41c4-bb8c-d53b052ca9d0",
+            bodyTextContentPiece: "16cbfbfb-a3c7-4dae-99e7-52b422c31104",
+            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
         },
     ];
 
@@ -252,7 +259,7 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
                         />
                     ))}
                     className="tw-mx-auto"
-                    deselectedContainersClassName="tw-scale-y-[0.9] tw-h-full"
+                    deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
                     selectedContainerClassName="tw-h-full"
                 />
             </div>

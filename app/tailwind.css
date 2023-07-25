@@ -263,6 +263,10 @@
         @apply tw-border-secondary-300-light dark:tw-border-secondary-300-dark;
     }
 
+    .lg-border-secondary-100 {
+        @apply tw-border-secondary-100-light dark:tw-border-secondary-100-dark;
+    }
+
     .lg-contact-gradient-dark {
         background: linear-gradient(162.96deg, #474546 3.31%, #1f2022 88.69%);
     }
@@ -342,6 +346,29 @@
 
     .lg-lead-form-top-gradient {
         background: radial-gradient(136.96% 3728.32% at 114.88% 111.75%, #f25f60 3.53%, #eb2a2b 100%);
+    }
+
+    .lg-bg-our-suggestions {
+        @apply tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark
+    }
+
+    .lg-bg-our-suggestions-card {
+        @apply tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark
+    }
+
+    .lg-lithium-shadow {
+        box-shadow: 0px 0px 0px 0px #0D0D0D0D, 4px 0px 12px 0px #0D0D0D0D, 16px 40px 23px 0px #0D0D0D0A;
+    }
+
+    .lg-cta-outline-button-transition {
+        background: transparent;
+        transition: background 0.2s linear, color 0.2s linear;
+    }
+
+    .lg-cta-outline-button-transition:hover {
+        border: 2px solid transparent;
+        background: linear-gradient(90deg, #F25F60 0%, #EB2A2B 100%);
+        color: #FCFCFC;
     }
 
     .lg-automotive-bg-gradient-right-to-left-dark {
