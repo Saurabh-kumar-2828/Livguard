@@ -6745,4 +6745,247 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Before purchasing an e-rickshaw battery charger, you should look for features like automatic cut-off, equalization capability, and compatibility with your battery type. Choosing a Livguard e-rickshaw charger assures you of all these specifications and more, offering a secure and efficient charging experience.`,
         [Language.Hindi]: `?????`,
     },
+    //India Ops Page Vernac Strings Start
+    "434a3b79-cd9d-47e9-8284-f23b7d677d97": {
+        [Language.English]: `Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Residential Solar Solutions, we are bringing in a new dimension of smart energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "f0a9f643-18b1-4220-ab20-07882267fb84": {
+        [Language.English]: `Product <span class="lg-text-highlighted">Categories</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "eb3dd920-3d22-4d87-a269-b95b1c0d4d14": {
+        [Language.English]: `Home Inverters`,
+        [Language.Hindi]: `?????`,
+    },
+    "572d155d-bf16-45f3-9bac-66c905f3ad17": {
+        [Language.English]: `Inverter Batteries`,
+        [Language.Hindi]: `?????`,
+    },
+    "329b0815-9513-4218-b6fb-7b6ef834b015": {
+        [Language.English]: `Automotive Batteries`,
+        [Language.Hindi]: `?????`,
+    },
+    "f6791517-756d-46e8-b3b6-c05b8b2a9910": {
+        [Language.English]: `Solar Solutions`,
+        [Language.Hindi]: `?????`,
+    },
+    "94ef620f-270c-4196-92b4-58bf6993de50": {
+        [Language.English]: `Other Accessories`,
+        [Language.Hindi]: `?????`,
+    },
+    "1c837763-6546-4d29-a8cf-53ea73f3fe0b": {
+        [Language.English]: `Why <span class="lg-text-highlighted">Livguard</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "e461e21e-79be-4fc9-891c-725ff8dcd336": {
+        [Language.English]: `Our aim is to transform the lives of people in our communities by contributing in four major field of social development, which includes Promotion of Education, Promotion of Healthcare, Promotion of Livelihood and Ensure Environmental Sustainability.`,
+        [Language.Hindi]: `?????`,
+    },
+    "e416be0f-8181-43bb-9914-bd9fcf072388": {
+        [Language.English]: `10`,
+        [Language.Hindi]: `?????`,
+    },
+    "8452789c-6e24-4998-af36-6e9c54dac50d": {
+        [Language.English]: `Manufacturing units`,
+        [Language.Hindi]: `?????`,
+    },
+    "08480ce3-5f9e-4d09-910d-779b36d312d3": {
+        [Language.English]: `200Mn+`,
+        [Language.Hindi]: `?????`,
+    },
+    "e81a4f23-4e59-4e14-88bf-a78fa13218e0": {
+        [Language.English]: `Customers`,
+        [Language.Hindi]: `?????`,
+    },
+    "7ab1943f-7e7d-4fbe-8c67-67541b59d8dc": {
+        [Language.English]: `150+`,
+        [Language.Hindi]: `?????`,
+    },
+    "36b96437-768d-44b7-9715-eb9658574b6d": {
+        [Language.English]: `Products`,
+        [Language.Hindi]: `?????`,
+    },
+    "2b763748-e9c4-4f29-9063-84844e38ab13": {
+        [Language.English]: `5000+`,
+        [Language.Hindi]: `?????`,
+    },
+    "b002d357-ffa0-43d2-b9b9-ced844e6d0c5": {
+        [Language.English]: `Dealer network`,
+        [Language.Hindi]: `?????`,
+    },
+    "c984cd4a-eae3-4584-a958-8b18d1df3f0e": {
+        [Language.English]: `Head <span class="lg-text-highlighted">Office</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "e512a33e-392f-4a62-a0d7-102b0b36dee2": {
+        [Language.English]: `Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Residential Solar Solutions, we are bringing in a new dimension of smart energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "a6e58719-05ec-4bfb-8b33-cea19d8e172e": {
+        [Language.English]: `Livguard Energy Technologies Private Limited`,
+        [Language.Hindi]: `?????`,
+    },
+    "a0f90939-327f-4308-9150-4896b4608ecd": {
+        [Language.English]: `Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India <a class="tw-inline-block tw-underline" href="tel:+91-124-4987 400">+91-124-4987 400</a>`,
+        [Language.Hindi]: `?????`,
+    },
+    "b98270e9-5f07-47d8-9cd9-67235c9e92d7": {
+        [Language.English]: `Regional <span class="lg-text-highlighted">Offices</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "e522dad2-1dc3-429d-9837-aa30c9e4a38d": {
+        [Language.English]: `Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Residential Solar Solutions, we are bringing in a new dimension of smart energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "49784df9-4213-42cb-b013-6360553d726b": {
+        [Language.English]: `Livguard Energy Technologies Private Limited`,
+        [Language.Hindi]: `?????`,
+    },
+    "8feca67b-7fe9-4672-a4cc-cf958dc8fdf8": {
+        [Language.English]: `Registered Office - Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India <a class="tw-inline-block tw-underline" href="tel:+91-124-4987 400">+91-124-4987 400</a>`,
+        [Language.Hindi]: `?????`,
+    },
+    "a704b916-2aa5-4cd9-8251-968d635f27de": {
+        [Language.English]: `Battery Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "581f4ec0-4487-48e7-9578-137360461090": {
+        [Language.English]: `Solar Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "232a40f4-6046-4877-ae46-317935351949": {
+        [Language.English]: `Inverter Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "2f75c946-eefa-4173-ba70-2bf71894c373": {
+        [Language.English]: `<span class="lg-text-highlighted">PAN India</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "75f36250-5f38-4b37-99a3-39caaee72b31": {
+        [Language.English]: `Presence`,
+        [Language.Hindi]: `?????`,
+    },
+    "202a7d42-c50e-4074-bb42-55cf01803a6f": {
+        [Language.English]: `With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.`,
+        [Language.Hindi]: `?????`,
+    },
+    "56fb901a-105b-41f6-9f28-5352624665ea": {
+        [Language.English]: `Your Guide to Finding`,
+        [Language.Hindi]: `?????`,
+    },
+    "2c808484-f637-4570-8825-b0e8d877a58f": {
+        [Language.English]: `The <span class="lg-text-highlighted">Right Inverter</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "eb5b90de-47c1-423e-8f2c-9945498c0d5d": {
+        [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "47f28213-0a21-4782-b006-cf696dec0758": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "7d4dc76d-c541-4f5c-af15-3ec0f0ef4487": {
+        [Language.English]: `Download Catalogue for Automotive Batteries`,
+        [Language.Hindi]: `?????`,
+    },
+    "b3026d95-83f1-4957-82b0-80480b7a31e3": {
+        [Language.English]: `Download Catalogue for Inverter Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "d82b18b5-075b-40f8-a295-142db690894b": {
+        [Language.English]: `Download Catalogue for Home Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "3850de5b-b7ba-4b2a-863a-bfb9416da0e6": {
+        [Language.English]: `Download Catalogue for Solar Solution`,
+        [Language.Hindi]: `?????`,
+    },
+    "d1aa9371-f547-41b6-9d8a-650971f771f8": {
+        [Language.English]: `Download Catalogue for Other Accessories`,
+        [Language.Hindi]: `?????`,
+    },
+
+    //International Ops Vernac Start
+    "d1c50aa6-1529-4fe4-8e3b-b526888ec7e9": {
+        [Language.English]: `Livguard`,
+        [Language.Hindi]: `????`,
+    },
+    "ac1d1b59-b34e-4bad-8b06-bf9de7999447": {
+        [Language.English]: `Power That Empowers Lives`,
+        [Language.Hindi]: `????`,
+    },
+    "2c463782-52de-4cf3-b55d-93bfce4e1ec1": {
+        [Language.English]: `Connect with Us`,
+        [Language.Hindi]: `????`,
+    },
+    "a21ac9fc-8b0d-47cf-8624-d5a8b747e817": {
+        [Language.English]: `<span class="lg-text-highlighted">International</span> Operations`,
+        [Language.Hindi]: `????`,
+    },
+    "ad28c51d-af5e-4e47-9c32-68313738a1f2": {
+        [Language.English]: `With a remarkable vision and foresight for the growing energy solutions industry, today the brand boasts of an incredible Our aim is to transform the lives of people in our communities by contributing in four major field of social development, which includes Promotion of Education, Promotion of Healthcare, Promotion of Livelihood and Ensure Environmental Sustainability.`,
+        [Language.Hindi]: `????`,
+    },
+    "9ea95f50-fe69-4791-9592-beaa2e0653ce": {
+        [Language.English]: `Why <span class="lg-text-highlighted">Livguard</span>`,
+        [Language.Hindi]: `????`,
+    },
+    "24e6de69-c47d-4b2e-bc5b-635a9cbb31ff": {
+        [Language.English]: `Our aim is to transform the lives of people in our communities by contributing in four major field of social development, which includes Promotion of Education, Promotion of Healthcare, Promotion of Livelihood and Ensure Environmental Sustainability.`,
+        [Language.Hindi]: `????`,
+    },
+    "539abcc9-a3b3-4ba8-b0b7-9320c02921a9": {
+        [Language.English]: `Our International Presence`,
+        [Language.Hindi]: `????`,
+    },
+    "04aa014b-9343-44e4-b0a5-35efab1f87ca": {
+        [Language.English]: `36+`,
+        [Language.Hindi]: `????`,
+    },
+    "9bb5760a-18e0-42bf-880d-6ddcc259dbc6": {
+        [Language.English]: `Countries`,
+        [Language.Hindi]: `????`,
+    },
+    "142e6c8d-b760-494f-8bb6-3c7d1a1a8663": {
+        [Language.English]: `350`,
+        [Language.Hindi]: `????`,
+    },
+    "b491fad1-4bcd-4167-95d3-dfdf48769a67": {
+        [Language.English]: `States`,
+        [Language.Hindi]: `????`,
+    },
+    "f2dd4264-0102-44f7-a3d8-4ed0747dc785": {
+        [Language.English]: `3500`,
+        [Language.Hindi]: `????`,
+    },
+    "b4a41fb9-4438-4760-954c-b92d5f752602": {
+        [Language.English]: `Cities`,
+        [Language.Hindi]: `????`,
+    },
+    "287da09c-577e-48c9-8bf8-afdde8dfeb7f": {
+        [Language.English]: `<span class="lg-text-highlighted">Innovation</span> Solution`,
+        [Language.Hindi]: `????`,
+    },
+    "06daee92-6429-4732-996c-adc4de0153a5": {
+        [Language.English]: `Inverter Batteries`,
+        [Language.Hindi]: `????`,
+    },
+    "5c6e3030-2ce7-4f27-8f39-e75490428d22": {
+        [Language.English]: `Livguard Innovation Solutions is a leading provider of advanced and eco-friendly batteries for automotive, inverter, and industrial applications. They prioritize technology and customer satisfaction to deliver reliable power storage solutions.`,
+        [Language.Hindi]: `????`,
+    },
+    "ce1d109e-6aa7-4b43-851b-3dbfda2397ad": {
+        [Language.English]: `Legacy And Heritage`,
+        [Language.Hindi]: `????`,
+    },
+    "8c6d06ec-e5a5-42d4-af83-67c9719cb313": {
+        [Language.English]: `Forayed into diversified business real estate`,
+        [Language.Hindi]: `????`,
+    },
+    "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8": {
+        [Language.English]: `2011`,
+        [Language.Hindi]: `????`,
+    },
 };

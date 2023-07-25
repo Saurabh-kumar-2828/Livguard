@@ -10,12 +10,14 @@ export function CarouselStyle4({
     className,
     slidesContainerClassName,
     controlsContainerClassName,
+    hideButtons,
     itemContainerClassName,
 }: {
     items: Array<any>;
     className?: string;
     slidesContainerClassName?: string;
     controlsContainerClassName?: string;
+    hideButtons?: boolean;
     itemContainerClassName?: string;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"}, 8000);
@@ -41,14 +43,22 @@ export function CarouselStyle4({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10", controlsContainerClassName)}>
-                <button
-                    type="button"
-                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                    onClick={() => emblaApi?.scrollPrev()}
-                >
-                    <ChevronLeftIcon className="tw-w-6 tw-h-6" />
-                </button>
+            <div
+                className={concatenateNonNullStringsWithSpaces(
+                    "tw-w-full tw-flex tw-flex-row tw-items-center lg:tw-justify-center lg:tw-gap-10",
+                    controlsContainerClassName,
+                    hideButtons ? "tw-justify-center" : "tw-justify-between",
+                )}
+            >
+                {!hideButtons && (
+                    <button
+                        type="button"
+                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                        onClick={() => emblaApi?.scrollPrev()}
+                    >
+                        <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                    </button>
+                )}
 
                 <div className="tw-flex tw-flex-row tw-gap-x-2">
                     <ItemBuilder
@@ -58,19 +68,24 @@ export function CarouselStyle4({
                                 <div
                                     className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
                                     key={scrollSnapIndex}
+                                    onClick={() => {
+                                        emblaApi?.scrollTo(scrollSnapIndex);
+                                    }}
                                 />
                             </React.Fragment>
                         )}
                     />
                 </div>
 
-                <button
-                    type="button"
-                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                    onClick={() => emblaApi?.scrollNext()}
-                >
-                    <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                </button>
+                {!hideButtons && (
+                    <button
+                        type="button"
+                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                        onClick={() => emblaApi?.scrollNext()}
+                    >
+                        <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                    </button>
+                )}
             </div>
         </div>
     );
