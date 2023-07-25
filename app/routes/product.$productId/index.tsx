@@ -179,7 +179,7 @@ function ProductPage({
             <ProductSpecifications
                 userPreferences={userPreferences}
                 ProductDetails={productData}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="lg:tw-px-[72px] xl:tw-px-[120px] tw-w-full tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -187,7 +187,7 @@ function ProductPage({
             <ProductDescription
                 userPreferences={userPreferences}
                 productDescription={productData.productDescription}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -202,12 +202,12 @@ function ProductPage({
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="lg:tw-pl-[72px] xl:tw-pl-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center tw-max-w-7xl tw-mx-auto">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
@@ -226,7 +226,7 @@ function ProductPage({
             <SuggestedProducts
                 userPreferences={userPreferences}
                 recommendedProducts={productData.recommendedProducts}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -267,7 +267,7 @@ function ProductInfo({
     const [mainImageIndex, setMainImageIndex] = useState(0);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2">
                 <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[auto,minmax(0,1fr)] lg:tw-grid-rows-1 tw-row-start-1 lg:tw-col-start-1 tw-gap-2 tw-w-full">
                     <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-10">
@@ -460,9 +460,22 @@ function ProductDescription({
                     )}
                 />
             </div>
-            <div className="tw-hidden lg:tw-block">
-                <ProductInfoCarousel items={productDescription.images} />
-            </div>
+            {productDescription.images.length > 1 ? (
+                <div className="tw-hidden lg:tw-block">
+                    <ProductInfoCarousel items={productDescription.images} />
+                </div>
+            ) : (
+                productDescription.images.length === 1 && (
+                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[45%] tw-justify-center">
+                        <div className="tw-rounded-lg tw-w-full">
+                            <FullWidthImage
+                                relativePath={productDescription.images[0].image}
+                                className="tw-rounded-lg"
+                            />
+                        </div>
+                    </div>
+                )
+            )}
         </div>
     );
 }
@@ -563,7 +576,7 @@ function SuggestedProducts({
 
             <VerticalSpacer className="tw-h-10" />
 
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-grid-cols-4 tw-gap-x-3 tw-gap-y-10">
+            <div className="tw-grid max-lg:tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-auto-cols-[15.875rem] lg:tw-justify-center tw-gap-x-3 tw-gap-y-10">
                 <ItemBuilder
                     items={recommendedProducts}
                     itemBuilder={(combo, comboIndex) => (

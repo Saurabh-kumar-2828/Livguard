@@ -901,6 +901,13 @@ function SubMenuDialog({
                                                   external: true,
                                                   download: null,
                                               },
+                                              {
+                                                  linkTextTextContentPiece: "headerMenuSM3T7",
+                                                  enterClassName: "tw-delay-[500ms]",
+                                                  link: "/e-rickshaw-batteries/",
+                                                  external: true,
+                                                  download: null,
+                                              },
                                           ]
                                         : currentlyOpenSubMenu == SubMenu.Solar
                                         ? [

@@ -4,6 +4,7 @@ export const enum ProductType {
     inverter = 0,
     battery = 1,
     combo = 2,
+    automotiveBattery = 3,
 }
 
 export type ProductDetails = {
@@ -12291,6 +12292,8262 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
 
                 `,
             },
+        },
+    },
+    ze38b20l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/ze38b20l/infographics/1.png",
+                },
+            ],
+            title: "Zing Eterna ZE 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Eterna ZE 38B20 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [{title: "", value: ""}],
+            productDescription: {
+                description:
+                    "Livguard Eterna ZE 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/ze38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "ETERNA ZE 38B20R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20r",
+                },
+                {
+                    title: "ETRENA ZE 55B24LS L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze55b24lsl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [{value: ""}],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/ze38b20l/infographics/1.png",
+                },
+            ],
+            title: "Zing Eterna ZE 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Eterna ZE 38B20 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [{title: "", value: ""}],
+            productDescription: {
+                description:
+                    "Livguard Eterna ZE 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/ze38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "ETERNA ZE 38B20R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20r",
+                },
+                {
+                    title: "ETRENA ZE 55B24LS L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze55b24lsl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [{value: ""}],
+        },
+    },
+    ze38b20r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/ze38b20r/infographics/1.png",
+                },
+            ],
+            title: "Zing Eterna ZE 38B20 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Eterna ZE 38B20 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Eterna ZE 38B20 R battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [{image: "/livguard/products/automotive-batteries/ze38b20r/a-plus/1.jpeg"}],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "ETERNA ZE 38B20R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20r",
+                },
+                {
+                    title: "ETRENA ZE 55B24LS L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze55b24lsl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/ze38b20r/infographics/1.png",
+                },
+            ],
+            title: "Zing Eterna ZE 38B20 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Eterna ZE 38B20 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Eterna ZE 38B20 R battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [{image: "/livguard/products/automotive-batteries/ze38b20r/a-plus/1.jpeg"}],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "ETERNA ZE 38B20R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20r",
+                },
+                {
+                    title: "ETRENA ZE 55B24LS L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze55b24lsl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    ze55b24lsl: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/ze55b24lsl/infographics/1.png",
+                },
+            ],
+            title: "Zing Eterna ZE 55B24 LS L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "45 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Eterna ZE 55B24 LS L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "45 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Eterna ZE 55B24LS L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/ze55b24lsl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "ETERNA ZE 38B20R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20r",
+                },
+                {
+                    title: "ETRENA ZE 55B24LS L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze55b24lsl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/ze55b24lsl/infographics/1.png",
+                },
+            ],
+            title: "Zing Eterna ZE 55B24 LS L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "45 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Eterna ZE 55B24 LS L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "45 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Eterna ZE 55B24LS L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/ze55b24lsl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "ETERNA ZE 38B20R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20r",
+                },
+                {
+                    title: "ETRENA ZE 55B24LS L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze55b24lsl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zu38b20l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zu38b20l/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU 38B20 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zu38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA ZE 38B20 R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zu38b20l/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 36* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU 38B20 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 36* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zu38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA ZE 38B20 R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zu38b20r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zu38b20r/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU 38B20 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU 38B20 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU 38B20 R battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zu38b20r/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zu38b20r/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU 38B20 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU 38B20 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU 38B20 R battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zu38b20r/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zu38b20bhl: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zu38b20bhl/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU 38B20 BH L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU 38B20 BH L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU 38B20 BH L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zu38b20bhl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA ZE 38B20 R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zu38b20bhl/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU 38B20 BH L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU 38B20 BH L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU 38B20 BH L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zu38b20bhl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA ZE 38B20 R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zudin44lhl: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin44lhl/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN44 LH L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "44 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN44 LH L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "44 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN44 LH L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin44lhl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin44lhl/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN44 LH L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "44 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN44 LH L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "44 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN44 LH L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin44lhl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zudin50l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin50l/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN50 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "50 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN50 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "50 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN50 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin50l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin50l/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN50 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "50 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN50 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "50 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN50 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin50l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zudin55r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin55r/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN55 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "55 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN55 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "55 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZE ZU DIN55 R battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin55r/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin55r/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN55 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "55 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN55 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "55 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZE ZU DIN55 R battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin55r/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zudin60l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin60l/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN60 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "60 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN60 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "60 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN60 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin60l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin60l/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN60 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "60 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN60 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "60 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN60 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin60l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zudin65lhl: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin65lhl/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN65 LH L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "65 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN65 LH L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "65 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN65 LH L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin65lhl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zudin65lhl/infographics/1.png",
+                },
+            ],
+            title: "Zing Ultra ZU DIN65 LH L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "30 + 30* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "65 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Ultra ZU DIN65 LH L",
+                },
+                {
+                    title: "Warranty",
+                    value: "30 + 30* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "65 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197(L) X 129(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Ultra ZU DIN65 LH L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zudin65lhl/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+                {
+                    title: "ULTRA  ZE 38B20  R",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20r",
+                },
+                {
+                    title: "ULTRA ZU 38B20 BH L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20bhl",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zp38b20l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zp38b20l/infographics/1.png",
+                },
+            ],
+            title: "Zing Primo ZP 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Primo ZP 38B20 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Primo ZP 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zp38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "PRIMO ZP 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp38b20l",
+                },
+                {
+                    title: "PRIMO ZP 70D26 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp70d26l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp70d26l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zp38b20l/infographics/1.png",
+                },
+            ],
+            title: "Zing Primo ZP 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Primo ZP 38B20 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Primo ZP 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zp38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "PRIMO ZP 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp38b20l",
+                },
+                {
+                    title: "PRIMO ZP 70D26 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp70d26l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp70d26l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    zp70d26l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zp70d26l/infographics/1.png",
+                },
+            ],
+            title: "Zing Primo ZP 70D26 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Primo ZP 70D26 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Primo ZP 70D26 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zp70d26l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "PRIMO ZP 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp38b20l",
+                },
+                {
+                    title: "PRIMO ZP 70D26 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp70d26l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp70d26l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/zp70d26l/infographics/1.png",
+                },
+            ],
+            title: "Zing Primo ZP 70D26 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah @ C₂₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Zing Primo ZP 70D26 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah @ C₂₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306(L) X 173(W) X 225(H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard Primo ZP 70D26 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/zp70d26l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "PRIMO ZP 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp38b20l",
+                },
+                {
+                    title: "PRIMO ZP 70D26 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp70d26l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp70d26l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    pc38b20l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/pc38b20l/infographics/1.png",
+                },
+            ],
+            title: "Pro CAB PC 38B20L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "12 + 3 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306 X 173 X 225 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Pro CAB PC 38B20L",
+                },
+                {
+                    title: "Warranty",
+                    value: "12 + 3 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306 X 173 X 225 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard PRO CAB ZP 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/pc38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "PRIMO ZP 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp38b20l",
+                },
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/pc38b20l/infographics/1.png",
+                },
+            ],
+            title: "Pro CAB PC 38B20L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "12 + 3 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "306 X 173 X 225 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "Pro CAB PC 38B20L",
+                },
+                {
+                    title: "Warranty",
+                    value: "12 + 3 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "306 X 173 X 225 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Livguard PRO CAB ZP 38B20 L battery is engineered to suit all SUVs, mid-sized and large sedans. The internal structure is designed using latest technology that provides more power and reserve capacity to the battery making it reliable, consistent and truly maintenance-free.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/pc38b20l/a-plus/1.jpeg",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "ETERNA ZE 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/ze38b20l",
+                },
+                {
+                    title: "PRIMO ZP 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zp38b20l",
+                },
+                {
+                    title: "ULTRA ZU 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/zu38b20l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    "lgbtx2.5l": {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGBTX 2.5L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "2.5 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "80 X 70 X 105 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGBTX 2.5L",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "2.5 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "80 X 70 X 105 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGBTX 2.5L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "2.5 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "80 X 70 X 105 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGBTX 2.5L",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "2.5 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "80 X 70 X 105 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+    },
+    lgbtx7l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGBTX 7L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "7 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "146 X 60 X 130 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGBTX 7L",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "7 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "146 X 60 X 130 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGBTX 7L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "7 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "146 X 60 X 130 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGBTX 7L",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "7 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "146 X 60 X 130 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+    },
+    lgbtx9l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGBTX 9L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "9 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "135 X 75 X 139 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGBTX 9L",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "9 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "135 X 75 X 139 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGBTX 9L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "9 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "135 X 75 X 139 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGBTX 9L",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "9 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+                {
+                    title: "Dimensions",
+                    value: "135 X 75 X 139 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+    },
+    lgzhhtx5: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgzhhtx5/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGZ HH TX5",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "5 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "122 X 60 X 129 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGZ HH TX5",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "5 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "122 X 60 X 129 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgzhhtx5/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgzhhtx5/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGZ HH TX5",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "5 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "122 X 60 X 129 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGZ HH TX5",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "5 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "122 X 60 X 129 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgzhhtx5/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+    },
+    lgzhhtz4: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgzhhtz4/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGZ HH TZ4",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "3 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "113 X 70 X 85 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGZ HH TZ4",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "3 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "113 X 70 X 85 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgzhhtz4/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgzhhtz4/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGZ HH TZ4",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "3 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "113 X 70 X 85 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGZ HH TZ4",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "3 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "113 X 70 X 85 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgzhhtz4/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+    },
+    lgzhhtz5: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgzhhtz5/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGZ HH TZ5",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "3 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "113 X 70 X 85 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGZ HH TZ5",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "3 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "113 X 70 X 85 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgzhhtz5/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lgzhhtz5/thumbnail.png",
+                },
+            ],
+            title: "MoRide LGZ HH TZ5",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "24 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "3 Ah @ C₁₀",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "113 X 70 X 85 mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "MoRide LGZ HH TZ5",
+                },
+                {
+                    title: "Warranty",
+                    value: "24 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "3 Ah @ C₁₀",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "113 X 70 X 85 mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [
+                    {
+                        image: "/livguard/products/automotive-batteries/lgzhhtz5/thumbnail.png",
+                    },
+                ],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "MoRide LGBTX 2.5L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx2.5l",
+                },
+                {
+                    title: "MoRide LGBTX 7L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx7l",
+                },
+                {
+                    title: "MoRide LGBTX 9L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgbtx9l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [
+                {
+                    value: "Special Lid Design: With engineered valve to provide longer life and better cranking ability.",
+                },
+                {
+                    value: "Innovative AGM Separator: With high purity glass fibers are best suited for Indian Tough Road condition.",
+                },
+                {
+                    value: "Terminal Technology: Reduces corrosion on terminals & extends battery life.",
+                },
+                {
+                    value: "Special Grid Design: Helps in smooth power transmission by reducing the resistance.",
+                },
+            ],
+        },
+    },
+    lgb0erfp1500: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG B0 ERFP1500",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "6 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG B0 ERFP1500",
+                },
+                {
+                    title: "Warranty",
+                    value: "6 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG C0 ERTU1800",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu1800",
+                },
+                {
+                    title: "LG D0 ERTU2300",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2300",
+                },
+                {
+                    title: "LG D0 ERTU2500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2500",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG B0 ERFP1500",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "6 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG B0 ERFP1500",
+                },
+                {
+                    title: "Warranty",
+                    value: "6 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG C0 ERTU1800",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu1800",
+                },
+                {
+                    title: "LG D0 ERTU2300",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu2300",
+                },
+                {
+                    title: "LG D0 ERTU2500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu2500",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgc0ertu1800: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG C0 ERTU1800",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "9 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "110Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG C0 ERTU1800",
+                },
+                {
+                    title: "Warranty",
+                    value: "9 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "110Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG B0 ERFP1500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgb0erfp1500",
+                },
+                {
+                    title: "LG D0 ERTU2300",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2300",
+                },
+                {
+                    title: "LG D0 ERTU2500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2500",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG C0 ERTU1800",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "9 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "110Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG C0 ERTU1800",
+                },
+                {
+                    title: "Warranty",
+                    value: "9 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "110Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG B0 ERFP1500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu1500",
+                },
+                {
+                    title: "LG D0 ERTU2300",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu2300",
+                },
+                {
+                    title: "LG D0 ERTU2500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu2500",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgd0ertu2300: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG D0 ERTU2300",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "12 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "130Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG D0 ERTU2300",
+                },
+                {
+                    title: "Warranty",
+                    value: "12 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "130Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG B0 ERFP1500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgb0erfp1500",
+                },
+                {
+                    title: "LG C0 ERTU1800",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu1800",
+                },
+                {
+                    title: "LG D0 ERTU2500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2500",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG D0 ERTU2300",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "12 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "130Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG D0 ERTU2300",
+                },
+                {
+                    title: "Warranty",
+                    value: "12 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "130Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG B0 ERFP1500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgb0erfp1500",
+                },
+                {
+                    title: "LG C0 ERTU1800",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu1800",
+                },
+                {
+                    title: "LG D0 ERTU2500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2500",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgd0ertu2500: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG D0 ERTU2500",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "15 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "140Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG D0 ERTU2500",
+                },
+                {
+                    title: "Warranty",
+                    value: "15 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "140Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG B0 ERFP1500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgb0erfp1500",
+                },
+                {
+                    title: "LG C0 ERTU1800",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu1800",
+                },
+                {
+                    title: "LG D0 ERTU2300",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2300",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LG D0 ERTU2500",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "15 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "140Ah",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LG D0 ERTU2500",
+                },
+                {
+                    title: "Warranty",
+                    value: "15 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "140Ah",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LG B0 ERFP1500",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgb0erfp1500",
+                },
+                {
+                    title: "LG C0 ERTU1800",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgc0ertu1800",
+                },
+                {
+                    title: "LG D0 ERTU2300",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgd0ertu2300",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglff80r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 80 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 80 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100H29R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+                {
+                    title: "LGL FF 100 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 80 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 80 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100H29R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+                {
+                    title: "LGL FF 100 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglff80l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 80 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 80 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 100H29R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+                {
+                    title: "LGL FF 100 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 80 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 80 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 100H29R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+                {
+                    title: "LGL FF 100 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglff100h29r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 100H29 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 100H29 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 100H29 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 100H29 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglff100l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 100 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 100 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 100 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 100 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglnff130r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGLN FF 130 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "130Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGLN FF 130 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "130Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGLN FF 130 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "130Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGLN FF 130 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "130Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglff180r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 180 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "180Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 180 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "180Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGL FF 180 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "180Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGL FF 180 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "180Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglnhd150r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGLN HD 150 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 12* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "150Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGLN HD 150 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 12* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "150Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGLN HD 150 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 12* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "150Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGLN HD 150 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 12* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "150Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGL FF 80 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80r",
+                },
+                {
+                    title: "LGL FF 80 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff80l",
+                },
+                {
+                    title: "LGL FF 100 H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lglff100h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lghx8048r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 8048 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 8048 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048l",
+                },
+                {
+                    title: "LGHX 10048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048l",
+                },
+                {
+                    title: "LGHX 10048H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 8048 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 8048 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048l",
+                },
+                {
+                    title: "LGHX 10048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048l",
+                },
+                {
+                    title: "LGHX 10048H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lghx8048l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 8048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 8048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048r",
+                },
+                {
+                    title: "LGHX 10048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048l",
+                },
+                {
+                    title: "LGHX 10048H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 8048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 8048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048r",
+                },
+                {
+                    title: "LGHX 10048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048l",
+                },
+                {
+                    title: "LGHX 10048H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lghx10048l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 10048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 8048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048r",
+                },
+                {
+                    title: "LGHX 8048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048l",
+                },
+                {
+                    title: "LGHX 10048H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 10048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 8048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048r",
+                },
+                {
+                    title: "LGHX 8048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048l",
+                },
+                {
+                    title: "LGHX 10048H29 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lghx10048h29r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 10048H29 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 10048H29 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048r",
+                },
+                {
+                    title: "LGHX 8048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048l",
+                },
+                {
+                    title: "LGHX 10048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGHX 10048H29 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGHX 10048H29 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGHX 8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048r",
+                },
+                {
+                    title: "LGHX 8048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx8048l",
+                },
+                {
+                    title: "LGHX 10048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lghx10048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgptr800r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGP TR800 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGP TR800 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGP TR900 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr900l",
+                },
+                {
+                    title: "LGP TR1000 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr1000l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGP TR800 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGP TR800 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGP TR900 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr900l",
+                },
+                {
+                    title: "LGP TR1000 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr1000l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgptr900l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGP TR900 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "90Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGP TR900 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "90Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGP TR800 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr800r",
+                },
+                {
+                    title: "LGP TR1000 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr1000l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGP TR900 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "90Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGP TR900 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "90Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGP TR800 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr800r",
+                },
+                {
+                    title: "LGP TR1000 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr1000l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgptr1000l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGP TR1000 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGP TR1000 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGP TR800 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr800r",
+                },
+                {
+                    title: "LGP TR900 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr900l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGP TR1000 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "36 + 18* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGP TR1000 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "36 + 18* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGP TR800 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr800r",
+                },
+                {
+                    title: "LGP TR900 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgptr900l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgpxtr8048r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR8048 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR8048 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR9048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048l",
+                },
+                {
+                    title: "LGPX TR10048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr10048r",
+                },
+                {
+                    title: "LGPX TR9048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR8048 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "80Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR8048 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "80Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR9048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048l",
+                },
+                {
+                    title: "LGPX TR10048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr10048r",
+                },
+                {
+                    title: "LGPX TR9048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgpxtr9048l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR9048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "90Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR9048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "90Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr8048r",
+                },
+                {
+                    title: "LGPX TR10048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr10048r",
+                },
+                {
+                    title: "LGPX TR9048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR9048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "90Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR9048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "90Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr8048r",
+                },
+                {
+                    title: "LGPX TR10048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr10048r",
+                },
+                {
+                    title: "LGPX TR9048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgpxtr10048l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR10048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR10048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr8048r",
+                },
+                {
+                    title: "LGPX TR9048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048l",
+                },
+                {
+                    title: "LGPX TR9048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR10048 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "100Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR10048 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "100Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr8048r",
+                },
+                {
+                    title: "LGPX TR9048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048l",
+                },
+                {
+                    title: "LGPX TR9048H29 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048h29l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgpxtr9048h29l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR9048 H29 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "90Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR9048 H29 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "90Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr8048r",
+                },
+                {
+                    title: "LGPX TR9048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048l",
+                },
+                {
+                    title: "LGPX TR10048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr10048l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGPX TR9048 H29 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "48 + 24* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "90Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGPX TR9048 H29 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "48 + 24* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "90Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGPX TR8048 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr8048r",
+                },
+                {
+                    title: "LGPX TR9048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr9048l",
+                },
+                {
+                    title: "LGPX TR10048 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgpxtr10048l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgmf0ar32r: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGM F0 AR32 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "32Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGM F0 AR32 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "32Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGM F0 AR60 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgmf0ar60l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGM F0 AR32 R",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "32Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "R",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGM F0 AR32 R",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "32Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "R",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGM F0 AR60 L",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgmf0ar60l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lgmf0ar60l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGM F0 AR60 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "60 Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGM F0 AR60 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "60 Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGM F0 AR32 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgmf0ar32r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "",
+                },
+            ],
+            title: "LGM F0 AR60 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "60 Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGM F0 AR60 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "60 Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "LGM F0 AR32 R",
+                    imageRelativePath: "",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/lgmf0ar32r",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+    },
+    lglpp38b20l: {
+        [Language.English]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lglpp38b20l/thumbnail.png",
+                },
+            ],
+            title: "LGL PP 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 + 6* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197 (L) * 129 (W) * 225 (H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGM F0 AR60 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 + 6* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197 (L) * 129 (W) * 225 (H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "PC 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/pc38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/pc38b20l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
+        },
+        [Language.Hindi]: {
+            images: [
+                {
+                    image: "/livguard/products/automotive-batteries/lglpp38b20l/thumbnail.png",
+                },
+            ],
+            title: "LGL PP 38B20 L",
+            subTitle: "",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+            productIcons: [
+                {
+                    icon: "/livguard/icons/waranty.png",
+                    text: "18 + 6* Months",
+                },
+                {
+                    icon: "/livguard/icons/capacity.png",
+                    text: "35 Ah",
+                },
+                {
+                    icon: "/livguard/icons/polarity.svg",
+                    text: "L",
+                },
+                {
+                    icon: "/livguard/icons/dimensions.png",
+                    text: "197 (L) * 129 (W) * 225 (H) mm",
+                },
+            ],
+            specifications: [
+                {
+                    title: "Model Number",
+                    value: "LGM F0 AR60 L",
+                },
+                {
+                    title: "Warranty",
+                    value: "18 + 6* Months",
+                },
+                {
+                    title: "Capacity",
+                    value: "35 Ah",
+                },
+                {
+                    title: "Polarity",
+                    value: "L",
+                },
+                {
+                    title: "Dimensions",
+                    value: "197 (L) * 129 (W) * 225 (H) mm",
+                },
+            ],
+            additionalInfo: [],
+            productDescription: {
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit aliquam etiam erat. Sagittis id consectetur purus ut faucibus.",
+                images: [],
+            },
+            reviews: {
+                rating: 4.6,
+                numberOfReviews: 120,
+            },
+            recommendedProducts: [
+                {
+                    title: "PC 38B20 L",
+                    imageRelativePath: "/livguard/products/automotive-batteries/pc38b20l/thumbnail.png",
+                    buttonText: "categoryViewProductButtontext",
+                    bestseller: false,
+                    link: "/product/pc38b20l",
+                },
+            ],
+            type: ProductType.automotiveBattery,
+            metadata: {
+                title: "",
+                description: "",
+                canonicalUrl: "",
+                schema: `
+
+                `,
+            },
+            features: [],
         },
     },
 };

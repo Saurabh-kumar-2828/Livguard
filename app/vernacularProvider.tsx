@@ -118,6 +118,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Three Wheeler Batteries",
         [Language.Hindi]: "3-पहिया बैटरी",
     },
+    headerMenuSM3T7: {
+        [Language.English]: "E-Rickshaw Batteries",
+        [Language.Hindi]: "ई-रिक्शा की बैटरी",
+    },
     headerMenuSM4T1: {
         [Language.English]: "Solar",
         [Language.Hindi]: "सोलर",
@@ -2082,6 +2086,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "E-Rickshaw Batteries",
         [Language.Hindi]: "ई-रिक्शा की बैटरी",
     },
+    footerDisclosure3T6: {
+        [Language.English]: "Car and SUV Batteries",
+        [Language.Hindi]: "गाड़ी और SUV बैटरी",
+    },
     footerDisclosure4H: {
         [Language.English]: "Solar Solutions",
         [Language.Hindi]: "सोलर सलूशन",
@@ -3541,7 +3549,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     "063dc56b-910e-4a48-acb8-8f52668a4c72": {
-        [Language.English]: "View Product",
+        [Language.English]: "view battery",
         [Language.Hindi]: "उत्पाद देखें",
     },
     "14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f": {
@@ -4079,4 +4087,1347 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     //About Us Page Vernac Strings End
+
+    //Two Wheeler Page Vernac Strings Start
+    "c106b24b-668c-4bc2-b9fe-747eea24944a": {
+        [Language.English]: `Uninterrupted Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "24038be1-0e21-4016-9f8e-17d3d522b20e": {
+        [Language.English]: `For Your Two-Wheelers`,
+        [Language.Hindi]: `?????`,
+    },
+    "7751ea6c-f22e-4cbf-b6a7-45dfc655bdc1": {
+        [Language.English]: `Empower your ride with our range of Automotive Batteries. From Two and Three Wheeler batteries to Car and Truck Batteries, Livguard covers it all`,
+        [Language.Hindi]: `?????`,
+    },
+    "d3b47f52-f35c-4523-bb3f-0c4a55113f63": {
+        [Language.English]: `Strong <span class="lg-text-highlighted">Automotive Batteries</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "83e88e8e-82c4-4a1f-9540-6551a24c703c": {
+        [Language.English]: `To Drive Your Journey Forward`,
+        [Language.Hindi]: `?????`,
+    },
+    "4136551e-69a6-4500-b475-321dd6b4e658": {
+        [Language.English]: `Better Cranking Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "34bb4867-d4f4-434d-a956-e3bb03c23b34": {
+        [Language.English]: `Livguard Automotive Batteries are made with the perfect blend of Grid Structure and Plate Chemistry to ensure a more efficient and higher cranking power.`,
+        [Language.Hindi]: `?????`,
+    },
+    "701881a3-e5f5-42b7-b41e-118fa30f47e0": {
+        [Language.English]: `Easy Maintenance`,
+        [Language.Hindi]: `?????`,
+    },
+    "7aaf5c28-e9df-4665-8aa7-5358869f54e8": {
+        [Language.English]: `The durable design and technology that helps in improving efficiency and reducing waste makes Livguard automotive batteries the ideal pick for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "353cc560-e2f2-4e33-a948-607d46455471": {
+        [Language.English]: `Performance with Safety`,
+        [Language.Hindi]: `?????`,
+    },
+    "fe83636f-3c6f-4450-a329-17edf6e7ea31": {
+        [Language.English]: `Our Automotive Batteries for cars, two-wheelers, trucks, tractors and more are engineered with high safety standards and assured performance to ensure a limitless experience for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "b21c18a0-c411-4c08-adb9-cb1623a207bc": {
+        [Language.English]: `Choose Your Ideal`,
+        [Language.Hindi]: `?????`,
+    },
+    "c0e900e7-59e1-45d8-b317-54988a6051ba": {
+        [Language.English]: `<span class="lg-text-highlighted">Two Wheeler</span> Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "114a82b5-b299-4bb9-8528-b295394771d8": {
+        [Language.English]:
+            "Find the ideal battery that suits your two-wheeler. Use our Buying Guide to get to know in detail about how you can buy your battery and our Product Catalogue for product specifications",
+        [Language.Hindi]: `?????`,
+    },
+    "a1ac20a8-c430-4a35-b262-2ff35b480344": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "897a4524-8f8b-4a11-9eab-0d08a2c6242d": {
+        [Language.English]: "Starting from ₹",
+        [Language.Hindi]: "₹",
+    },
+    "00e77ff4-ada2-4182-83bb-5fae21004db9": {
+        [Language.English]: "/-",
+        [Language.Hindi]: "/- से शुरू",
+    },
+    "3e16fc04-40ab-4a32-aca8-bb10812fe30d": {
+        [Language.English]: `Top <span class="lg-text-highlighted">Two-Wheeler</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "52d70e49-05fc-47e2-93c0-104e51b58fbc": {
+        [Language.English]: `Battery Picks`,
+        [Language.Hindi]: "?????",
+    },
+    "cd191eb4-b171-47b1-ab0e-21e4f3259011": {
+        [Language.English]: `Best Seller`,
+        [Language.Hindi]: "?????",
+    },
+    "2b42baca-b2b7-489c-b1a2-2d25d18f9ffd": {
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "d4091725-079a-4f18-831c-03cc7bb2ec09": {
+        [Language.English]: `Based On Your Choice`,
+        [Language.Hindi]: "?????",
+    },
+    "0dc1ec96-3b51-4314-ab45-9b5b542f66c5": {
+        [Language.English]: `Filter`,
+        [Language.Hindi]: "?????",
+    },
+    "51d56374-4d1d-46c1-8ef1-f72396e12e6a": {
+        [Language.English]: `Select Manufacturer`,
+        [Language.Hindi]: "?????",
+    },
+    "5793b8a3-16b1-4c11-bc37-ef5062160855": {
+        [Language.English]: `Select Segment`,
+        [Language.Hindi]: "?????",
+    },
+    "97f3fc31-1116-46f6-a385-d4df5e25bde1": {
+        [Language.English]: `Select Model`,
+        [Language.Hindi]: "?????",
+    },
+    "3231d38a-1950-46eb-be3b-76bd8bce6998": {
+        [Language.English]: `Apply`,
+        [Language.Hindi]: "?????",
+    },
+    "e9d54eec-71d3-4c7e-aa3e-265e7c7db57f": {
+        [Language.English]: `MoRide LGBTX 7L`,
+        [Language.Hindi]: "?????",
+    },
+    "5cce2027-a1dd-4e17-983d-52d22b1dd958": {
+        [Language.English]:
+            "Find the ideal battery that suits your two-wheeler. Use our Buying Guide to get to know in detail about how you can buy your battery and our Product Catalogue for product specifications",
+        [Language.Hindi]: "?????",
+    },
+    "211ca435-d909-41ca-8a4a-8ecddfc46a30": {
+        [Language.English]: `24 + 24* Months`,
+        [Language.Hindi]: "?????",
+    },
+    "a5e5e57c-b7a4-498c-a46b-11d7a196ccad": {
+        [Language.English]: `7 Ah`,
+        [Language.Hindi]: "?????",
+    },
+    "5d3c4456-c255-43f1-80cd-17e092379dc7": {
+        [Language.English]: `R`,
+        [Language.Hindi]: "?????",
+    },
+    "4b9c2c47-f63d-4641-895d-2fe1f3cc9fc0": {
+        [Language.English]: `275(L) X 277(W) X 153(H) mm`,
+        [Language.Hindi]: "?????",
+    },
+    "7bcd803f-7cae-427b-9838-8c1966e13b01": {
+        [Language.English]: `Recommended`,
+        [Language.Hindi]: "?????",
+    },
+    "42bd678d-83ef-4935-a3aa-7e9406887b28": {
+        [Language.English]: `Explore Product`,
+        [Language.Hindi]: "?????",
+    },
+    "2c6dc668-49ef-4913-88c1-904d6e9be1a2": {
+        [Language.English]: `Warranty`,
+        [Language.Hindi]: "?????",
+    },
+    "c73ece31-e0c3-4b1f-94c5-51d742ae3186": {
+        [Language.English]: `Capacity`,
+        [Language.Hindi]: "?????",
+    },
+    "0bbd2699-d61f-48ee-ae84-491a2ee102eb": {
+        [Language.English]: `Polarity`,
+        [Language.Hindi]: "?????",
+    },
+    "e44c8c4b-bf5d-412c-9ca4-27552ec79104": {
+        [Language.English]: `Dimensions`,
+        [Language.Hindi]: "?????",
+    },
+
+    "03af4bc6-64c9-4819-8b24-32aa3e2ef3f1": {
+        [Language.English]: `How to find the best two-wheeler battery?`,
+        [Language.Hindi]: "?????",
+    },
+    "9e54904b-adb2-4589-89c9-c1e4c407a454": {
+        [Language.English]: `When it comes to two-wheeler batteries, quality is the most important thing to consider. Livguard excels in manufacturing robust and reliable two-wheeler batteries. Our Automotive Batteries(link to page) are designed to offer superior performance, easy handling, and low maintenance requirements.`,
+        [Language.Hindi]: "?????",
+    },
+    "346c1030-2edd-4ba5-94d0-32f877f452be": {
+        [Language.English]: `Which battery is best for bikes?`,
+        [Language.Hindi]: "?????",
+    },
+    "1e94b867-5da8-4c8c-befe-4d3018a8bb56": {
+        [Language.English]: `Livguard's range of MoRide battery(Link to best selling product) is the best for bikes. They are high-performance two-wheeler batteries designed to deliver a power-packed ride through the narrow lanes and tough terrains of India. Livguard MoRide two-wheeler batteries offer more cranking power, more consistent performance and more battery life.`,
+        [Language.Hindi]: "?????",
+    },
+    "666f5b25-c71d-41b4-8695-2f2f29a2915c": {
+        [Language.English]: `What is the life of a two-wheeler bike battery?`,
+        [Language.Hindi]: "?????",
+    },
+    "fb9a1ce5-7522-442d-89b0-10387f9dbecd": {
+        [Language.English]: `An average two-wheeler bike battery lasts between 2-3 years depending upon the usage. There are many factors that affect the batteries’ lifecycle. Such as:<br>
+        - Overloading the battery<br>
+        - Faulty voltage regulator<br>
+        - Leaky circuit<br>
+        - Heat and vibration<br>
+        Livguards range of Two-wheeler batteries(Link to page) are made to power your ride with better performance and efficiency.`,
+        [Language.Hindi]: "?????",
+    },
+    "77454b24-599c-4a4a-a980-abe2ea759eda": {
+        [Language.English]: `How can I improve my bike battery life?`,
+        [Language.Hindi]: "?????",
+    },
+    "44842d1f-5e7a-4ace-83f8-1e02bf0e4b81": {
+        [Language.English]: `A few careful steps and guidelines can extend the life of your bike's battery by several years. These include:<br>
+        - Use the right battery<br>
+        - Keep the battery charged<br>
+        - Follow a maintenance schedule<br>
+        Livguard's range of MoRide(link to best selling MoRide battery) batteries is the best for bikes. They offer more cranking power, more consistent performance and more battery life. They are easy to handle and low on maintenance.`,
+        [Language.Hindi]: "?????",
+    },
+    "eb26cf7b-27ef-4778-b611-eaa017322540": {
+        [Language.English]: `Which two-wheeler bike battery is suitable for 200cc bikes?`,
+        [Language.Hindi]: "?????",
+    },
+    "2266d6d4-5dfe-4850-bd66-e2fa675eb9a5": {
+        [Language.English]: `Livguard's BTX9L(link to product) is the best battery for 200cc bikes. Its battery capacity is 9Ah and provides more consistent performance.`,
+        [Language.Hindi]: "?????",
+    },
+    "de841654-95b1-424b-a000-e70cde20f666": {
+        [Language.English]: "1500VA Capacity",
+        [Language.Hindi]: "?????",
+    },
+    "f31a5e79-e3fd-44a7-a077-b012913af431": {
+        [Language.English]: "72 Months Warranty",
+        [Language.Hindi]: "?????",
+    },
+
+    //Car and SUV Vernac Strings Start
+
+    "835eb595-c459-46db-a37a-f310363e1733": {
+        [Language.English]: " Simply amaZING Batteries",
+        [Language.Hindi]: "?????",
+    },
+    "4abfa328-bde2-4190-b944-71556401c22c": {
+        [Language.English]: "With Best in Class Warranties",
+        [Language.Hindi]: "?????",
+    },
+    "1d0accca-ec98-4ea1-89b9-88072cf5881d": {
+        [Language.English]: "Make every ride an adventure with Livguard's range of Car & SUV batteries. Select and buy the ideal one that fits your Car and SUV's needs",
+        [Language.Hindi]: "?????",
+    },
+    "32311f43-f3bd-4137-8d35-381f0bfff7bf": {
+        [Language.English]: `Strong <span class="lg-text-highlighted">Automotive Batteries</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "30486bb4-8e46-4f90-87e0-1ecf2addaba4": {
+        [Language.English]: "To Drive Your Journey Forward",
+        [Language.Hindi]: "?????",
+    },
+    "f6ffda18-14b4-4973-9f1d-8394404caae0": {
+        [Language.English]: "Best In Class Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "a3d4f75e-dfc7-4a1e-b227-f7ba59c7415d": {
+        [Language.English]: "Experience unmatched performance for your car and SUV with peace of mind of our best-in-class warranty, for each Ah battery category",
+        [Language.Hindi]: "?????",
+    },
+    "035647a1-11fd-46c8-9779-6ca45d66aef9": {
+        [Language.English]: "Maintenance Free",
+        [Language.Hindi]: "?????",
+    },
+    "7e6ef891-fa59-4673-b436-af77ecff2da0": {
+        [Language.English]:
+            "Batteries made with Advance Calcium Technology for a smooth and maintenance-free battery life.",
+        [Language.Hindi]: "?????",
+    },
+    "c5b351d6-0747-4a75-8e47-48f20f9adb0f": {
+        [Language.English]: "Smooth Start",
+        [Language.Hindi]: "?????",
+    },
+    "521768ff-9aa1-41fe-b403-5fbeaf100b3b": {
+        [Language.English]: "Car and SUV batteries built with Unique Active Material for seamless ignition, during every ride.",
+        [Language.Hindi]: "?????",
+    },
+    "79f76b0b-3fce-4d4f-8fb8-4a468a20420b": {
+       [Language.English]: "Long Battery Life",
+       [Language.Hindi]: "????????",
+    },
+    "559a1118-7d22-4c63-8838-c246921b9361": {
+        [Language.English]: "Experience unparalleled longevity of batteries, with the use of Tough Radial Grid design to keep you moving always.",
+        [Language.Hindi]: "?????",
+    },
+    "1d2d55db-13cc-47d8-b960-9aa8906e1922": {
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "cd8f0fe0-3dae-485f-aa06-dac1a5450012": {
+        [Language.English]: "Based On Your Choice",
+        [Language.Hindi]: "?????",
+    },
+    "c505d928-fde1-4ad6-95f4-2f3109e0e87f": {
+        [Language.English]: "Filter",
+        [Language.Hindi]: "?????",
+    },
+    "38a5a09b-8b40-42ea-8d49-52cce1c949c2": {
+        [Language.English]: "Select Manufacturer",
+        [Language.Hindi]: "?????",
+    },
+    "89d6339c-70c9-4b06-aada-fc1800ed6018": {
+        [Language.English]: "Select Segment",
+        [Language.Hindi]: "?????",
+    },
+    "c7f85209-525c-4954-8450-f5dd4b3c3d1e": {
+        [Language.English]: "Select Model",
+        [Language.Hindi]: "?????",
+    },
+    "9e1abe1a-e9ab-47a1-ae4a-36b66a06af82": {
+        [Language.English]: "Select Fuel",
+        [Language.Hindi]: "?????",
+    },
+    "85423d3b-8623-4b4b-b4f1-48953aa4fee7": {
+        [Language.English]: "Apply",
+        [Language.Hindi]: "?????",
+    },
+    "e2ceac17-9977-44d4-933b-1f221aed6c85": {
+        [Language.English]: "Recommended",
+        [Language.Hindi]: "",
+    },
+    "30de7643-a5bc-49a0-b85f-bfa770836330": {
+        [Language.English]: "Explore Battery",
+        [Language.Hindi]: "?????",
+    },
+    "95a938d7-dd71-46de-80b0-a417845dfb4d": {
+        [Language.English]: "Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "c4c53678-fb9a-41c2-8782-de0690cffdd4": {
+        [Language.English]: "Capacity",
+        [Language.Hindi]: "?????",
+    },
+    "05bda873-c84c-4376-8a17-6503ac9d2820": {
+        [Language.English]: "Polarity",
+        [Language.Hindi]: "?????",
+    },
+    "9c719db5-fa53-423e-9b96-a77602b3c5bc": {
+        [Language.English]: "Dimensions",
+        [Language.Hindi]: "?????",
+    },
+    "7c0a4fcb-46bb-4f91-bad3-c2edf00a1950": {
+        [Language.English]: "ZING ULTRA ZU 38B20 L",
+        [Language.Hindi]: "?????",
+    },
+    "b356a538-622e-4f20-9c08-82c959a57934": {
+        [Language.English]:
+            "Find the ideal battery that suits your two-wheeler. Use our Buying Guide to get to know in detail about how you can buy your battery and our Product Catalogue for product specifications",
+        [Language.Hindi]: "?????",
+    },
+    "c064ffe8-b794-4e21-baf5-56a5515a28f5": {
+        [Language.English]: "Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "aaabaf03-79df-4e72-9785-855769b39789": {
+        [Language.English]: "30+30* Months",
+        [Language.Hindi]: "?????",
+    },
+    "cb10db44-cef3-48d4-9e58-bdf3994ab36c": {
+        [Language.English]: "Capacity",
+        [Language.Hindi]: "?????",
+    },
+    "0ae2cd6e-1165-41a6-82ec-977fda0f326b": {
+        [Language.English]: "35 Ah @C 2O",
+        [Language.Hindi]: "?????",
+    },
+    "192b8ada-bbdd-44cc-a446-eaea0eb04fff": {
+        [Language.English]: "Polarity",
+        [Language.Hindi]: "?????",
+    },
+    "c4503ffb-5eec-496c-88ad-3b9436fe9b47": {
+        [Language.English]: "L",
+        [Language.Hindi]: "?????",
+    },
+    "c813406c-6efb-41c1-8106-b75ef5856aa8": {
+        [Language.English]: "Dimensions",
+        [Language.Hindi]: "?????",
+    },
+    "fac2ba5d-65a2-4873-be4e-42ac01cd401e": {
+        [Language.English]: "197(L) x 129(W) x 225(H) mm",
+        [Language.Hindi]: "?????",
+    },
+    "72238b02-d35a-497e-be9d-1d1f2742dd6d": {
+        [Language.English]: `Top <span class="lg-text-highlighted">Car & SUV</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "7dccb0a9-930e-498d-bc45-194b73920af2": {
+        [Language.English]: "Battery Picks",
+        [Language.Hindi]: "",
+    },
+    "281b48d3-22ce-4806-905b-6d88896ed020": {
+        [Language.English]: "Eterna",
+        [Language.Hindi]: "?????",
+    },
+    "98d02101-07aa-4103-963b-c1675daa1576": {
+        [Language.English]: "Ultra",
+        [Language.Hindi]: "?????",
+    },
+    "ee5b08fe-e6f1-4a6d-ab99-31aeb1abe1bc": {
+        [Language.English]: "Primo",
+        [Language.Hindi]: "?????",
+    },
+    "17d7345c-0b35-4984-b6c8-1c82bf3ae2ce": {
+        [Language.English]: "Pro Cab",
+        [Language.Hindi]: "?????",
+    },
+    "299dcb87-0cc8-489e-a94b-596cd3335156": {
+        [Language.English]: "Pro Cab +",
+        [Language.Hindi]: "?????",
+    },
+    "5bda278a-5862-4086-ab7c-f54aa5a0df4c": {
+        [Language.English]: "Zing Eterna",
+        [Language.Hindi]: "?????",
+    },
+    "370fbb82-0ac6-4fb3-bfdf-02b69882b943": {
+        [Language.English]: "Best Seller",
+        [Language.Hindi]: "?????",
+    },
+    "550d6911-0818-4aa4-aa5b-13f72a16006b": {
+        [Language.English]: "Zing Eterna ZE 38B20 L",
+        [Language.Hindi]: "?????",
+    },
+    "d5ec2af4-0493-42aa-af9e-8be6f13f2208": {
+        [Language.English]: "Zing Eterna ZE 38B20 R",
+        [Language.Hindi]: "?????",
+    },
+    "c200a3c3-2788-4260-aa83-65bd64943b40": {
+        [Language.English]: "Zing Eterna ZE 55B24LS L",
+        [Language.Hindi]: "?????",
+    },
+    "bdbd5dc8-b00f-4ff4-a98c-845d26ccffda": {
+        [Language.English]: "1500VA Capacity",
+        [Language.Hindi]: "?????",
+    },
+    "0061a02b-31d0-4ea3-a5a2-0eec5013365a": {
+        [Language.English]: "72 Months Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "00ffb138-e09f-4367-8122-f852a57f4c98": {
+        [Language.English]: "Starting from  ₹ ",
+        [Language.Hindi]: "?????",
+    },
+    "5d0a2e9e-ca60-407c-a167-01953328876c": {
+        [Language.English]: "/-",
+        [Language.Hindi]: "?????",
+    },
+    "d93bb3f7-4979-4b40-88c8-fae1cee412e5": {
+        [Language.English]: "View Product",
+        [Language.Hindi]: "?????",
+    },
+    "16c43b68-0710-47d2-953d-2e0ac5c33f9d": {
+        [Language.English]: "Zing Ultra",
+        [Language.Hindi]: "?????",
+    },
+    "63efc0ee-4a39-48eb-a1c2-23895f1ec0a7": {
+        [Language.English]: "Zing Ultra ZU 38B20 L",
+        [Language.Hindi]: "?????",
+    },
+    "dd3020ef-66a4-4ac3-bb78-fb7fd80db08e": {
+        [Language.English]: `Zing Ultra ZU 38B20 R`,
+        [Language.Hindi]: `?????`,
+    },
+    "b5878967-eab1-47ef-bebe-ed939fadf376": {
+        [Language.English]: `Zing Ultra ZU 38B20 BH L`,
+        [Language.Hindi]: `?????`,
+    },
+    "21094d77-3a84-4bd0-97e6-0e3c0b8cad0d": {
+        [Language.English]: `Zing Ultra ZU DIN44 LH L`,
+        [Language.Hindi]: `?????`,
+    },
+    "b1db6c14-244d-4743-9599-75bb008a2cd2": {
+        [Language.English]: `Zing Ultra ZU DIN50 L`,
+        [Language.Hindi]: `?????`,
+    },
+    "212eea82-704c-49fa-bfa9-352f6a75ad30": {
+        [Language.English]: `Zing Ultra ZU DIN55 R`,
+        [Language.Hindi]: `?????`,
+    },
+    "5161c418-80ff-4bed-b328-641b24d6a0c5": {
+        [Language.English]: `Zing Ultra ZU DIN60 L`,
+        [Language.Hindi]: `?????`,
+    },
+    "bd10a04d-f213-4a57-b01d-be91035a3e9c": {
+        [Language.English]: `Zing Ultra ZU DIN65 LH L`,
+        [Language.Hindi]: `?????`,
+    },
+    "f2314bd0-7e41-4ce1-9b84-08b02a2ccaa9": {
+        [Language.English]: "Zing Primo",
+        [Language.Hindi]: "?????",
+    },
+    "0d7ccc05-97d7-40a4-95e6-86b1b371f74a": {
+        [Language.English]: "Zing Primo ZP 38B20 L",
+        [Language.Hindi]: "?????",
+    },
+    "4a4eccc2-bf48-4e2c-be60-05d97913d1e8": {
+        [Language.English]: "Zing Primo ZP 70D26 L",
+        [Language.Hindi]: "?????",
+    },
+    "50836139-5c57-4eee-88e4-69f83fb371ab": {
+        [Language.English]: "Pro Cab",
+        [Language.Hindi]: "?????",
+    },
+    "d1756624-057c-4bf3-9284-5f5d155b70e3": {
+        [Language.English]: "Pro Cab PC 38B20 L",
+        [Language.Hindi]: "?????",
+    },
+    "3dd8ef5c-fbb6-42e3-ba7a-32ac98bef635": {
+        [Language.English]: "Choose Your Ideal",
+        [Language.Hindi]: "?????",
+    },
+    "a1cd74ff-061a-4631-916b-66ca35810235": {
+        [Language.English]: `<span class="lg-text-highlighted">Car & SUV</span> Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "9e3c8233-9c58-4c24-b87c-fd99c33ff11e": {
+        [Language.English]:
+            "Find the ideal battery that fits perfectly with your Car and SUV. Use our Buying Guide to get to know in detail about how you can buy your battery and our Product Catalogue for product specifications",
+        [Language.Hindi]: "?????",
+    },
+    "2e95883c-ae7a-46d4-91c7-baff1724f551": {
+        [Language.English]: "Can we charge a dead car battery?",
+        [Language.Hindi]: "?????",
+    },
+    "e5dc6e92-092d-4879-8e6f-869818c6fe35": {
+        [Language.English]:
+            "A car battery is considered discharged when the voltage drops below 12 volts. And if the car battery is below 12 volts, use a dedicated charger to charge it. Consider Livguard's range (link to page) of cars and SUV batteries for a smooth experience.",
+        [Language.Hindi]: "?????",
+    },
+    "c7184bc7-e542-4611-9a62-ad9459b1c6ec": {
+        [Language.English]: "Does a car battery discharge in cold weather?",
+        [Language.Hindi]: "?????",
+    },
+    "1a580e9e-7d49-4c5e-b99a-4c75b5788551": {
+        [Language.English]:
+            "Cold temperatures thicken motor oil, making it harder to turn the engine over. A cold battery has less cranking power, thus making it difficult to start in cold weather. Livguard automotive batteries (link to page) are made with higher cranking power to deliver a smooth experience",
+        [Language.Hindi]: "?????",
+    },
+    "9d49ec97-e7f0-4fb7-90ad-23f73ed28b69": {
+        [Language.English]: "What is the average life of a car battery? How to find the best car battery?",
+        [Language.Hindi]: "?????",
+    },
+    "93d6fb1c-e245-43ee-a440-43938bc33b1d": {
+        [Language.English]:
+            "Car batteries usually last between 3 and 5 years. There are many factors which decide the average life of a battery. To find the best car battery visit Livguard's Automotive Battery (link to page) range.",
+        [Language.Hindi]: "?????",
+    },
+    "348ff8a2-eb90-4f43-8099-306938e8f7cb": {
+        [Language.English]: "How do I choose a car battery?",
+        [Language.Hindi]: "?????",
+    },
+    "ec314aa6-aed3-4ef2-96d4-9627a4241bc4": {
+        [Language.English]: `To find the right battery power for your vehicle, you need to consider a few important factors.<br>
+        The cold-cranking amps (CCA): Cranking amps are the measure of the battery's starting power.<br>
+        Reserve capacity (RC) of the battery: It refers to a battery's standing power.<br>
+        The standard requirements of your vehicle.<br>
+        Size and brand<br>
+        Livguard’s battery finder is the best way to help you find the right battery for your vehicle.<br>`,
+        [Language.Hindi]: "?????",
+    },
+    "09cfe0e4-6cf2-4624-96d2-814f38c3a7b7": {
+        [Language.English]: "What is a maintenance-free Car battery?",
+        [Language.Hindi]: "?????",
+    },
+    "a334719f-b502-42db-ad3d-61020e863d49": {
+        [Language.English]:
+            "A maintenance-free car battery implies that the manufacturer didn’t provide any means of maintaining the water/acid level in the battery. This means it can only be replaced if the battery boils dry. Therefore, buying a maintenance-free battery from a trusted and renowned manufacturer like Livguard is imperative. We provide robust, sturdy and long-lasting batteries for every road condition in India. Livguard’s Zing ETERNA battery (link to product page) for Cars & SUVs is an ideal choice with a double-lid design which prevents external damage and terminal corrosion for a maintenance-free life.",
+        [Language.Hindi]: "?????",
+    },
+    "e2e8a837-7ec1-4291-9838-aaf60d3bc843": {
+        [Language.English]: "35 Ah @ C₂₀",
+        [Language.Hindi]: "?????",
+    },
+    "4f1fafa4-d985-4be7-a5d0-7f1e49255824": {
+        [Language.English]: "36+36* Months Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "ff61389f-35a0-4cf1-88cd-613b51b70ff8": {
+        [Language.English]: "35 Ah @ C₂₀",
+        [Language.Hindi]: "?????",
+    },
+    "3c8221ff-8df4-4cd0-ba47-930d75e848b9": {
+        [Language.English]: "36+36* Months Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "5295b378-d248-4114-bf3d-5a12db6e779e": {
+        [Language.English]: "45 Ah @ C₂₀",
+        [Language.Hindi]: "?????",
+    },
+    "dc12b69e-67f3-47c3-8887-4153756f4140": {
+        [Language.English]: "36+36* Months Warranty",
+        [Language.Hindi]: "?????",
+    },
+
+    //Tractor Page Vernac Strings Start
+    "1ff75fcb-01bd-4946-84bc-f759d4dad669": {
+        [Language.English]: "The Pradhan Of Batteries",
+        [Language.Hindi]: "?????",
+    },
+    "d11c39cc-f5a5-412e-acfa-a08385f2fd26": {
+        [Language.English]: "For Powerful Tractors",
+        [Language.Hindi]: "?????",
+    },
+    "6dfb8a56-4b0a-48d1-a976-7bb6f235c9c2": {
+        [Language.English]: "Empowering India's agriculture segment with power-packed tractor battery choices",
+        [Language.Hindi]: "?????",
+    },
+    "c15def47-2c4f-4e42-ba57-102da4f0ee11": {
+        [Language.English]: `<span class="lg-text-highlighted">Superior Features</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "7547aa62-ca76-48e4-9fb0-62cea563108c": {
+        [Language.English]: "For A Supreme Performance",
+        [Language.Hindi]: "?????",
+    },
+    "054be978-134a-4185-9c1c-af2e2115a679": {
+        [Language.English]: "All Weather Performance",
+        [Language.Hindi]: "?????",
+    },
+    "52f9b679-cbea-492f-be72-97980bbd8f4f": {
+        [Language.English]: "Livguard Automotive Batteries are made with the perfect blend of Grid Structure and Plate Chemistry to ensure a more efficient and higher cranking power.",
+        [Language.Hindi]: "?????",
+    },
+    "55d766c4-1a47-4ba3-bb6f-299997cb27ee": {
+        [Language.English]: "Long Service Life",
+        [Language.Hindi]: "?????",
+    },
+    "3d8116d8-57fd-461c-916d-060537ceda59": {
+        [Language.English]:
+            "Our Automotive Batteries for cars, two-wheelers, trucks, tractors and more are engineered with high safety standards and assured performance to ensure a limitless experience for you",
+        [Language.Hindi]: "?????",
+    },
+    "2e1d6311-034a-4ee3-8f50-bee164a05906": {
+        [Language.English]: "Low Maintenance ",
+        [Language.Hindi]: "?????",
+    },
+    "141b0934-353a-4b48-ba96-69afbe2bc115": {
+        [Language.English]: "The durable design and technology that helps in improving efficiency and reducing waste makes Livguard automotive batteries the ideal pick for you",
+        [Language.Hindi]: "?????",
+    },
+    "0e93ec35-4468-4b70-a176-bd13df7e5e63": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Top Picks</span> For Your`,
+        [Language.Hindi]: "?????",
+    },
+    "ab60649d-e18a-4461-8cc3-2e9e0b2150ab": {
+        [Language.English]: "Limitless Growth",
+        [Language.Hindi]: "?????",
+    },
+    "3daf8d68-a883-4175-b8b5-6dca9724201a": {
+        [Language.English]: "Pradhaan",
+        [Language.Hindi]: "?????",
+    },
+    "e2420ef0-f6c0-48df-b14f-e801d8273618": {
+        [Language.English]: "Pradhaan Xtralife",
+        [Language.Hindi]: "?????",
+    },
+    "1acb2c77-192a-4aff-8293-2a85cc28de1c": {
+        [Language.English]: "Pradhan LGL FF TR90 L",
+        [Language.Hindi]: "?????",
+    },
+    "fbfd6623-21b5-46cd-91b4-b42c51957987": {
+        [Language.English]: "Lorem ipsum dolor sit amet. Sit accusamus facere et numquam nihil qui dolor impedit ut velit ....",
+        [Language.Hindi]: "?????",
+    },
+    "7a706b0b-70b9-4880-9ef1-c90f1fde1dc0": {
+        [Language.English]: "Warranty",
+        [Language.Hindi]: "?????",
+    },
+    "7df7a369-4108-454a-90e4-0846ad1610ee": {
+        [Language.English]: "24 + 24* Months",
+        [Language.Hindi]: "?????",
+    },
+    "20746cd1-a2d8-4dba-bc90-7632e05cc1f9": {
+        [Language.English]: "Capacity",
+        [Language.Hindi]: "?????",
+    },
+    "db1eec3b-ce03-42ae-89a2-4b6f19ce8f2d": {
+        [Language.English]: "7 Ah",
+        [Language.Hindi]: "?????",
+    },
+    "0761744f-33a9-4cce-9cb6-340ca934e7c0": {
+        [Language.English]: "3D Grid",
+        [Language.Hindi]: "?????",
+    },
+    "6224bdb8-9b67-46aa-bb09-34bf7ef69421": {
+        [Language.English]: "Longer Life",
+        [Language.Hindi]: "?????",
+    },
+    "38ae7f11-a012-4361-8f9a-397405fbfac7": {
+        [Language.English]: "Dimensions",
+        [Language.Hindi]: "?????",
+    },
+    "e06d3d4a-dd54-4c26-b31b-33e3615f92b4": {
+        [Language.English]: "275(L) X 277(W) X 153(H) mm",
+        [Language.Hindi]: "?????",
+    },
+    "7451874c-1eb6-429b-8588-8a7aafbd4e6b": {
+        [Language.English]: "Starting from  ₹",
+        [Language.Hindi]: "?????",
+    },
+    "8dd8194a-1425-444a-8cb6-f878e74deafc": {
+        [Language.English]: "/-",
+        [Language.Hindi]: "?????",
+    },
+    "f1e465b1-e9fe-4bb0-85bc-b15f4f59212b": {
+        [Language.English]: "Humraahi LGL FF 100 L",
+        [Language.Hindi]: "?????",
+    },
+    "d369315b-4984-4bd1-a6d2-2f93a23ba265": {
+        [Language.English]: "Lorem ipsum dolor sit amet. Sit accusamus facere et numquam nihil qui dolor impedit ut velit ....",
+        [Language.Hindi]: "?????",
+    },
+    "a586fc3e-db19-4e87-8a21-42606fadf4f1": {
+        [Language.English]: "24 + 24* Months",
+        [Language.Hindi]: "?????",
+    },
+    "d93b1f36-897b-4a48-bbdf-e711392d0d09": {
+        [Language.English]: "7 Ah",
+        [Language.Hindi]: "?????",
+    },
+    "ad4c3394-bb30-4900-9e0c-9a29bde7ab19": {
+        [Language.English]: "Longer Life",
+        [Language.Hindi]: "?????",
+    },
+    "9f4d3993-7938-40f7-b514-4c5413a9f219": {
+        [Language.English]: "275(L) X 277(W) X 153(H) mm",
+        [Language.Hindi]: "?????",
+    },
+    "27518d22-a27d-4519-b01a-18d1fed070ed": {
+        [Language.English]: `Choose The`,
+        [Language.Hindi]: "?????",
+    },
+    "4092b04f-c277-4ec3-b313-0844337ae7df": {
+        [Language.English]: `<span class="lg-text-highlighted">Right Battery</span> For You`,
+        [Language.Hindi]: "?????",
+    },
+    "c92fa811-4140-4bef-86a4-6034b9ad2cf9": {
+        [Language.English]:
+            "Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications",
+        [Language.Hindi]: "?????",
+    },
+    "ec0d9e43-a1e3-414a-b6fe-01114e016fd3": {
+        [Language.English]: "Buying Guide",
+        [Language.Hindi]: "?????",
+    },
+    "b0b06e47-de82-4dba-acc2-90e3b74df96b": {
+        [Language.English]: "Download Catalogue",
+        [Language.Hindi]: "?????",
+    },
+    "734ba5fc-030e-4c78-a3c3-b31ae30e1f51": {
+        [Language.English]: "Find My Battery",
+        [Language.Hindi]: "?????",
+    },
+    "6a9dcdf2-db86-4d1a-a9aa-0431dc441372": {
+        [Language.English]: "Which is the best farm tractor battery?",
+        [Language.Hindi]: "?????",
+    },
+    "775f35e2-464a-4571-a75e-babbc97ac4d2": {
+        [Language.English]:
+            "The best tractor battery for agriculture may vary on the needs of the individual buying it. Livguard's Pradhan is an ideal choice for your agricultural vehicles. They are designed for an unmatched performance of tractors with high energy demands.",
+        [Language.Hindi]: "?????",
+    },
+    "a5472cd9-0d41-4450-88ed-d7c07c18a319": {
+        [Language.English]: "How can I find the best battery for tractor?",
+        [Language.Hindi]: "?????",
+    },
+    "550c8080-9893-46ac-92bf-b317fc9aaeb4": {
+        [Language.English]:
+            "When looking for the best tractor battery, consider factors like power, durability, and weather resistance. For a reliable choice that meets all these criteria, Livguard's range of tractor batteries is an ideal option for you to explore.",
+        [Language.Hindi]: "?????",
+    },
+    "a46b2d72-9f30-4fc6-ac40-48427ed1f401": {
+        [Language.English]: "What should be the capacity of a diesel tractor battery?",
+        [Language.Hindi]: "?????",
+    },
+    "477e9287-3dd5-4d80-99b2-49cab09dcc3d": {
+        [Language.English]: "Livguard's 12-volt tractor battery has the capacity of 80ah, 90Ah & 100Ah which are the ideal for a diesel tractor battery.",
+        [Language.Hindi]: "?????",
+    },
+    "8bf5fb61-8c2c-4728-b93f-0b291817209e": {
+        [Language.English]: "What are the signs of a failing tractor battery?",
+        [Language.Hindi]: "?????",
+    },
+    "563e329b-a70c-4093-9ec9-e07c9942721d": {
+        [Language.English]:
+            "Common signs of a failing tractor battery can include difficulty in starting the tractor, dimming lights, and decreased electrical functions. If you experience such issues, it's wise to consider Livguard batteries, which are known for their reliability and long-lasting performance.",
+        [Language.Hindi]: "?????",
+    },
+    "9b90fd59-08ca-4378-b846-3f364b90d058": {
+        [Language.English]: "Are heavy-duty tractor batteries suitable for all types of tractors?",
+        [Language.Hindi]: "?????",
+    },
+    "aaa8b7ad-37fa-4782-8f3a-68f3690cf08b": {
+        [Language.English]:
+            "While most tractors can utilize heavy-duty batteries, the right choice depends on your specific vehicle's requirements. Livguard's range of heavy-duty tractor batteries is designed to cater to a broad spectrum of tractors, providing robust performance and durability.",
+        [Language.Hindi]: "?????",
+    },
+
+    //Bus and truck vernac strings start
+    "67dd15a8-c016-43f0-8715-e7ba18ca5c38": {
+        [Language.English]: `Empowering`,
+        [Language.Hindi]: `?????`,
+    },
+    "7853d640-7e57-4678-af5d-8631f2ec6cf7": {
+        [Language.English]: `Limitless Journeys`,
+        [Language.Hindi]: `?????`,
+    },
+    "cc5f0cf2-f523-4726-83b6-e950d6007ef4": {
+        [Language.English]: `Robust Bus and Truck Batteries made to deliver excellence every time`,
+        [Language.Hindi]: `?????`,
+    },
+    "853e41c9-26ed-409d-a636-03af2124e7bb": {
+        [Language.English]: `<span class="lg-text-highlighted">Superior Features</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "dcfc64d7-ca43-4e45-a11a-f0c4fe765152": {
+        [Language.English]: `For A Supreme Performance`,
+        [Language.Hindi]: `?????`,
+    },
+    "70f2a04d-bc31-4848-9509-f77f40137e84": {
+        [Language.English]: `Long Battery Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "fbba1481-db00-4e47-8a74-8382af5b4ac4": {
+        [Language.English]: `Made with a Robust Design and Double Clad Separation, our Automotive Batteries are made to last long and deliver a seamless experience`,
+        [Language.Hindi]: `?????`,
+    },
+    "75c7f633-bbb4-4a79-bdcb-5b817da7c076": {
+        [Language.English]: `Better Cranking Power`,
+        [Language.Hindi]: `?????`,
+    },
+    "c5bf4b2a-a0a8-4d43-9b84-c25c048dd079": {
+        [Language.English]: `Our Automotive Batteries for cars, two-wheelers, trucks, tractors and more are engineered with high safety standards and assured performance to ensure a limitless experience for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "3bed811b-de77-40ab-8181-86efbf684059": {
+        [Language.English]: `Corrosion Resistance Terminal`,
+        [Language.Hindi]: `?????`,
+    },
+    "fc26240d-32c8-47bc-a2bf-c29c0a25e6af": {
+        [Language.English]: `The durable design and technology that helps in improving efficiency and reducing waste makes Livguard automotive batteries the ideal pick for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "537716c2-f2d4-48af-b779-46cfd71501d7": {
+        [Language.English]: `Explore Our`,
+        [Language.Hindi]: `?????`,
+    },
+    "8ffe8884-7063-4944-98d1-a54fe742262d": {
+        [Language.English]: `<span class="lg-text-highlighted">Bus & Truck Batteries</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "f22a7acc-0168-4011-9eaf-6a8f3328f093": {
+        [Language.English]: `Best Seller`,
+        [Language.Hindi]: `?????`,
+    },
+    "fdb7af25-0b1a-4052-90ff-99ec30711c30": {
+        [Language.English]: `1500VA Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "9fb9e463-7ee3-42b3-96f2-858a032733ac": {
+        [Language.English]: `72 Months Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "48ad8c65-8ec7-4a35-be5f-e73180099178": {
+        [Language.English]: `Starting from ₹`,
+        [Language.Hindi]: `?????`,
+    },
+    "584c3b75-5cd8-4b82-ba73-b105838035d6": {
+        [Language.English]: `/-`,
+        [Language.Hindi]: `?????`,
+    },
+    "d2731f76-051f-4f2b-ac83-2a83f690c401": {
+        [Language.English]: `View Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "c46c205c-ffdc-4791-a3f9-b4a839925185": {
+        [Language.English]: `Choose The`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea7ce343-ef9d-447e-95ff-578d437bcd97": {
+        [Language.English]: `<span class="lg-text-highlighted">Right Battery</span> For You`,
+        [Language.Hindi]: `?????`,
+    },
+    "13754e87-5d5e-46f4-9f02-6f84770a8ec8": {
+        [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "b0a19244-9a60-4fd6-93a7-d0224c9d95d5": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: `?????`,
+    },
+    "f28967c2-99fe-44dc-96cb-6d926c5ea4df": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "2c8b3327-a317-4ad0-9c09-d6dbb0846c5c": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "2b84c09e-60d6-4590-9f2a-a8b058c94087": {
+        [Language.English]: `What should I consider before buying commercial truck batteries?`,
+        [Language.Hindi]: `?????`,
+    },
+    "0acdb496-94a8-487b-a73d-829546437963": {
+        [Language.English]: `Consider factors like power requirement, vehicle model, weather conditions, and regular usage. Livguard's range of truck battery offers high cranking power, superior performance and durability, making them an excellent choice for commercial trucks.`,
+        [Language.Hindi]: `?????`,
+    },
+    "3db5b6a7-0861-41ff-8d90-2ffbac60bf69": {
+        [Language.English]: `How to select best battery for a diesel truck?`,
+        [Language.Hindi]: `?????`,
+    },
+    "4023e870-1e78-41f9-a528-2640381c5288": {
+        [Language.English]: `Choosing a battery for a diesel truck involves considering power needs, engine size, and weather conditions. Livguard batteries, with high cranking power and exceptional durability, are well-suited to meet the needs of diesel trucks.`,
+        [Language.Hindi]: `?????`,
+    },
+    "7f21538b-0330-4a9b-a3fc-937390f6967a": {
+        [Language.English]: `How can I properly maintain a 24-volt truck battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "e0581f37-46a0-472c-94e6-c7205e04d466": {
+        [Language.English]: `Proper maintenance of a 24-volt truck battery includes regular cleaning, avoiding overcharging, and ensuring it stays adequately charged. Livguard's 24-volt truck batteries are designed for longevity and reliability, reducing the need for frequent maintenance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "df814438-bb8d-441c-85b2-55609037be4f": {
+        [Language.English]: `Will someone help me with my truck battery installation?`,
+        [Language.Hindi]: `?????`,
+    },
+    "e4e5ac1d-e5a5-4ae8-8a8b-3e05d9264d1b": {
+        [Language.English]: `?????`,
+        [Language.Hindi]: `?????`,
+    },
+    "ad3d0c4f-7438-4436-b607-322798870bf8": {
+        [Language.English]: `Does higher bus battery capacity mean a longer battery life for a bus?`,
+        [Language.Hindi]: `?????`,
+    },
+    "64eb212f-e988-4ec9-8cd9-c8af0bdb1f63": {
+        [Language.English]: `Typically, higher battery capacity can extend a bus's operational period between charges. However, battery life also depends on factors like usage, maintenance, and quality. Livguard's bus batteries, with their high capacities, ensure prolonged battery life while delivering exceptional performance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "a504cf0b-8c7c-4afe-b5e2-925f9576d1c0": {
+        [Language.English]: `Humraahi`,
+        [Language.Hindi]: `?????`,
+    },
+    "da25b231-d277-41c9-bd06-494ce7b53ae7": {
+        [Language.English]: `Humraahi Xtralife`,
+        [Language.Hindi]: `?????`,
+    },
+
+    //Three Wheeler vernac strings start
+    "aa7c13b1-5476-452b-aa90-6d19bf361db4": {
+        [Language.English]: `Power on Wheels`,
+        [Language.Hindi]: `?????`,
+    },
+    "fc06f9c9-c5a3-4631-a62b-3884075b1aa2": {
+        [Language.English]: `Three-Wheeler Battery Solutions`,
+        [Language.Hindi]: `?????`,
+    },
+    "51532ae7-57b6-4c23-9622-ecfcd21e8985": {
+        [Language.English]: `Battery Solutions that power up your ride with Limitless energy, for a long and smooth performance`,
+        [Language.Hindi]: `?????`,
+    },
+    "75dfe585-c7bc-4497-a8a7-23bb1ed11625": {
+        [Language.English]: `<span class="lg-text-highlighted">Reliability</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "942ecb94-3de6-477e-9dea-5079f62a04c3": {
+        [Language.English]: `You Can Experience`,
+        [Language.Hindi]: `?????`,
+    },
+    "c9209f83-6335-404e-ad8e-491d010741d3": {
+        [Language.English]: `Long Battery Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "267f262c-3030-43e4-bae7-b778518d7ee2": {
+        [Language.English]: `Made with a Robust Design and Double Clad Separation, our Automotive Batteries are made to last long and deliver a seamless experience`,
+        [Language.Hindi]: `?????`,
+    },
+    "22d2b329-b855-4127-9e99-edb36347d88b": {
+        [Language.English]: `Easy Maintenance`,
+        [Language.Hindi]: `?????`,
+    },
+    "adf2ff19-2a54-4ca7-9b4d-d2881ad856fc": {
+        [Language.English]: `The durable design and technology that helps in improving efficiency and reducing waste makes Livguard automotive batteries the ideal pick for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "c31a4732-aa1f-4973-b2fd-f3b0371c2895": {
+        [Language.English]: `Performance with Safety`,
+        [Language.Hindi]: `?????`,
+    },
+    "3b7b22d2-54c3-4ad6-9a7d-e8fede699840": {
+        [Language.English]: `Our Automotive Batteries for cars, two-wheelers, trucks, tractors and more are engineered with high safety standards and assured performance to ensure a limitless experience for you`,
+        [Language.Hindi]: `?????`,
+    },
+    "baedfb58-af7c-4126-baa3-63f5ad0ce156": {
+        [Language.English]: `<span class="lg-text-highlighted">Three-Wheeler Batteries</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "836d0f37-0171-4ac9-b4c8-79bd9aaf0afc": {
+        [Language.English]: `For Unmatched power`,
+        [Language.Hindi]: `?????`,
+    },
+    "4f1b53b9-36a8-4a0e-b693-4f92e8a1b32b": {
+        [Language.English]: `Recommended`,
+        [Language.Hindi]: `?????`,
+    },
+    "bd815d59-dd50-4f9f-85c3-dc769977e6c2": {
+        [Language.English]: `Autoz LGM F0 AR32 R`,
+        [Language.Hindi]: `?????`,
+    },
+    "f9ef50be-3d8c-4059-9967-3a764e178cbc": {
+        [Language.English]: `Experience the resilience of Livguard Autoz batteries, uniquely crafted for three-wheelers. Power up your ride with efficient and limitless performance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "8ef7eb7a-a46a-46b2-9479-cb31ce29ea98": {
+        [Language.English]: `Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "cc1b08f2-9903-4bd2-bf8a-974d2a76c080": {
+        [Language.English]: `24 + 24* Months`,
+        [Language.Hindi]: `?????`,
+    },
+    "28225ecc-5c09-4c69-a82a-0614dc248123": {
+        [Language.English]: `Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "75fec07e-0cd9-418b-900e-0990e945000e": {
+        [Language.English]: `7 Ah`,
+        [Language.Hindi]: `?????`,
+    },
+    "d71a4882-3a3c-4e2d-a884-071523e265d1": {
+        [Language.English]: `Polarity`,
+        [Language.Hindi]: `?????`,
+    },
+    "7bd29c13-e15d-48bd-9e24-c63c2c60a63c": {
+        [Language.English]: `R`,
+        [Language.Hindi]: `?????`,
+    },
+    "ff09f4be-754d-49ed-95bb-9223ab5d383e": {
+        [Language.English]: `Dimensions`,
+        [Language.Hindi]: `?????`,
+    },
+    "81298034-bd2c-4ad2-99af-2c80b6ea07a8": {
+        [Language.English]: `275(L) X 277(W) X 153(H) mm`,
+        [Language.Hindi]: `?????`,
+    },
+    "d7631d6c-a568-464f-8411-e1840750556a": {
+        [Language.English]: `Explore Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "d06ea4a8-87f2-40b0-a235-bfae5e318be3": {
+        [Language.English]: `Find the <span class="lg-text-highlighted">Right Battery</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "976354a4-d9b7-414f-a717-dcffa9018f98": {
+        [Language.English]: `For Your Three Wheeler`,
+        [Language.Hindi]: `?????`,
+    },
+    "b568d9fc-34b7-48ba-adaf-0c05c9e24168": {
+        [Language.English]: `Equip your auto, tempo, or any other three-wheeler with the right battery that delivers effortless efficiency. Use our battery finder to find your ideal battery.`,
+        [Language.Hindi]: `?????`,
+    },
+    "ca013e47-dc92-49c5-be2d-411b99f72797": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: `?????`,
+    },
+    "d957d3ac-7468-48a8-84bd-b73e6c8e0f98": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "8262f4de-6523-4ea4-a68e-4df5cd684074": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "af9ad542-bdcc-4eb4-aa38-c87d36ec9bda": {
+        [Language.English]: `What should I consider before auto battery?`,
+        [Language.Hindi]: `?????`,
+    },
+    "d1db1197-f5ee-4126-9fc2-a554820c24b4": {
+        [Language.English]: `Acknowledging that auto-rickshaws have compact engines and dynamos, they need a battery that not only charges rapidly but also supports multiple starts throughout the day. Additionally, a battery with an extended warranty and a robust design is advantageous. With these considerations, the Livguard Autoz series emerges as the top choice for auto batteries in the market.`,
+        [Language.Hindi]: `?????`,
+    },
+    "adddec59-1e50-4af6-a40f-a0b1144464d1": {
+        [Language.English]: `Can extreme winter affect my three wheeler battery?`,
+        [Language.Hindi]: `?????`,
+    },
+    "03ed45bf-cd92-4800-b855-c88e8b73e543": {
+        [Language.English]: `Yes, extreme winter can impact battery performance. However, Livguard's three-wheeler batteries are designed with advanced technology to withstand harsh weather conditions, ensuring consistent performance and longer life.`,
+        [Language.Hindi]: `?????`,
+    },
+    "87a69e85-3480-486c-babf-fb05e6936a76": {
+        [Language.English]: `How often should I replace my three-wheeler battery?`,
+        [Language.Hindi]: `?????`,
+    },
+    "18fced89-0dde-4bef-a1ec-7b3929eb9434": {
+        [Language.English]: `The replacement of a battery for a three-wheeler depends on usage and maintenance. However, on average, it might need replacement every 2-3 years. To ensure optimum performance and longevity, choosing a reliable brand like Livguard, known for its durability and excellent service, is recommended.`,
+        [Language.Hindi]: `?????`,
+    },
+    "c442cd80-c2c3-4c56-91a9-30530b22d5e6": {
+        [Language.English]: `What are some signs that my three-wheeler battery needs replacing?`,
+        [Language.Hindi]: `?????`,
+    },
+    "77fa3233-d479-405c-9984-052c8fb751bc": {
+        [Language.English]: `Signs that your three-wheeler battery might need replacement include slow engine crank, difficulty in starting the vehicle, dimming headlights, and weak horn. For a hassle-free ride, consider Livguard's auto batteries, known for their reliable performance and long-lasting service.`,
+        [Language.Hindi]: `?????`,
+    },
+    "d760e95e-4074-4ec7-af0e-9c296cf4d41d": {
+        [Language.English]: `What is the typical lifespan of a three-wheeler battery?`,
+        [Language.Hindi]: `?????`,
+    },
+    "83afccfb-5c2b-4cd8-893c-4a9757b630f6": {
+        [Language.English]: `The typical lifespan of a three-wheeler battery can vary, often lasting 3-5 years. However, Livguard Autoz series batteries, designed with advanced technology, deliver an extended lifespan along with superior performance and quick charging, enhancing the overall efficiency of your vehicle.`,
+        [Language.Hindi]: `?????`,
+    },
+
+    //E Rickshaw batteries vernac start
+    "67f761e4-5c9d-4ef7-87fa-df19fc2b92aa": {
+        [Language.English]: `E-Rickshaw Chargers`,
+        [Language.Hindi]: `?????`,
+    },
+    "45e0486f-a7d7-407a-82d2-7435396fde97": {
+        [Language.English]: ` For Energizing Every Ride`,
+        [Language.Hindi]: `?????`,
+    },
+    "91c8d137-eccb-4a0f-9799-3e2340ac54f7": {
+        [Language.English]: `Make every journey count, with fast chargers for your E-Rickshaw vehicle`,
+        [Language.Hindi]: `?????`,
+    },
+    "3e08230a-fc5d-4191-abfa-6b6be76e983f": {
+        [Language.English]: `<span class="lg-text-highlighted">Unmatched Performance</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "eb77dfed-047e-4fb7-bfb2-bbe06d128a93": {
+        [Language.English]: `for Smooth Journeys`,
+        [Language.Hindi]: `?????`,
+    },
+    "75c8e077-526b-4517-a52a-36a858dbb06e": {
+        [Language.English]: `Enhanced Battery Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "61b03b16-b490-4ae2-95ff-ffd4ef994b9b": {
+        [Language.English]: `Experience extended battery life with Livguard's e-rickshaw charger, which delicately nurtures your battery for longer, reliable rides.`,
+        [Language.Hindi]: `?????`,
+    },
+    "d660f7e7-4945-4d60-ac65-ee35d44644c4": {
+        [Language.English]: `Efficient Energy Usage`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea91df06-eee3-4f24-bac2-b4d0484c9c26": {
+        [Language.English]: `Livguard's range of e-rickshaw chargers use less electricity, making your rides not just eco-friendly, but also pocket-friendly.`,
+        [Language.Hindi]: `?????`,
+    },
+    "bbdf4cee-9f7c-475a-a464-ef1ef26204b8": {
+        [Language.English]: `Efficient Water Usage`,
+        [Language.Hindi]: `?????`,
+    },
+    "24233427-5ce6-4924-bea6-56eef727ef86": {
+        [Language.English]: `Our chargers use less water during the charging process, to ensure the efficiency and longevity of your e-rickshaw battery.`,
+        [Language.Hindi]: `?????`,
+    },
+    "8a8c6ad0-848e-4cdc-8570-3fc2d05abf5e": {
+        [Language.English]: `Overcharge Protection`,
+        [Language.Hindi]: `?????`,
+    },
+    "2dd6ceca-eaa9-4b31-89a2-60d1b54a1237": {
+        [Language.English]: `Chargers made with built-in overcharge protection, to prevent battery damage and ensure reliable performance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "8b08775f-905e-4826-a595-9001b888bead": {
+        [Language.English]: `Low Voltage Charging`,
+        [Language.Hindi]: `?????`,
+    },
+    "48127946-a89e-46bc-95ec-1baf8e68b072": {
+        [Language.English]: `Experience hassle-free charging with chargers that charge even during low input voltages, ensuring your journey never stops.`,
+        [Language.Hindi]: `?????`,
+    },
+    "368be9b9-37b1-4c94-9b54-9c7b8bbea351": {
+        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "e102bc0e-f831-4631-abb2-60f166440bbe": {
+        [Language.English]: `Based On Your Choice`,
+        [Language.Hindi]: `?????`,
+    },
+    "3ae8e96f-5ed1-4f8c-8e2f-194f16674982": {
+        [Language.English]: `Recommended`,
+        [Language.Hindi]: `?????`,
+    },
+    "daa1c57b-8e64-4766-8c7b-e1cc4b7ad6af": {
+        [Language.English]: `E-Shakti LG B0 ERFP 1500`,
+        [Language.Hindi]: `?????`,
+    },
+    "c19e20cc-9aba-4be4-82af-c5ae4df4388c": {
+        [Language.English]: `Find the suitable pick of e-rickshaw battery that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
+        [Language.Hindi]: `?????`,
+    },
+    "b384b853-774d-4227-b7e5-03dd24f5f1aa": {
+        [Language.English]: `Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "da734ae5-dad1-4f03-9c87-179fd1df47df": {
+        [Language.English]: `24 Months`,
+        [Language.Hindi]: `?????`,
+    },
+    "b6a49b1c-fa41-4958-a2ed-79f87707416c": {
+        [Language.English]: `Capacity`,
+        [Language.Hindi]: `?????`,
+    },
+    "a40bbd47-d6bf-4e1c-8ab7-1287bb3c2836": {
+        [Language.English]: `2000 VA / 24V`,
+        [Language.Hindi]: `?????`,
+    },
+    "2d4c7020-d295-4227-a8bf-c4ba7e047228": {
+        [Language.English]: `3D Grid`,
+        [Language.Hindi]: `?????`,
+    },
+    "3778f571-6279-4606-87df-a2fa9de75495": {
+        [Language.English]: `Longer Life`,
+        [Language.Hindi]: `?????`,
+    },
+    "151dfac3-66f4-4aa0-be1a-d92228015ee2": {
+        [Language.English]: `Dimensions`,
+        [Language.Hindi]: `?????`,
+    },
+    "898383a9-ce03-49b8-8089-2f97e944e57d": {
+        [Language.English]: `275 x 320 x 275 mm`,
+        [Language.Hindi]: `?????`,
+    },
+    "ecd16719-acbe-4e6a-860b-7918b8f22367": {
+        [Language.English]: `Explore Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "98c90c88-6fc4-4786-b130-a52ce614d5d0": {
+        [Language.English]: `Discover More`,
+        [Language.Hindi]: `?????`,
+    },
+    "73095405-033a-4718-b6de-e4d0b6dbc0f6": {
+        [Language.English]: `E-Rickshaw <span class="lg-text-highlighted">Video Guide</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "c52ecf6e-bc7d-4934-88d1-43660af8fe2d": {
+        [Language.English]: `Featured Products`,
+        [Language.Hindi]: `?????`,
+    },
+    "bdd593f6-18f6-47d2-af26-af2a71693731": {
+        [Language.English]: `<span class="lg-text-highlighted">For Your E-Rickshaw</span> For You`,
+        [Language.Hindi]: `?????`,
+    },
+    "66e82d76-b469-46b4-87fe-0e2b1a73118e": {
+        [Language.English]: `Boost your rides with the perfect e-rickshaw charger. Refer to our Buying Guide for detailed purchasing information and explore our Product Catalogue for specifications.`,
+        [Language.Hindi]: `?????`,
+    },
+    "c20eb3fa-8458-41e1-bd97-43b2fffd0d41": {
+        [Language.English]: `Buying Guide`,
+        [Language.Hindi]: `?????`,
+    },
+    "b49dbc60-f847-409f-bb7d-5af0301d3136": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `?????`,
+    },
+    "eab21892-bbf3-4c28-9d48-b98ff57f3f55": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "fcf882cd-32fe-4605-ae76-ccc436083dc8": {
+        [Language.English]: `How long does an e-rickshaw battery backup typically last?`,
+        [Language.Hindi]: `?????`,
+    },
+    "9c01d6ce-aa22-4501-8e14-61c8c01595f0": {
+        [Language.English]: `Typically, an e-rickshaw battery backup can last for around 70-100 km per charge depending on usage. However, Livguard e-rickshaw batteries are designed for longer-lasting performance, providing extended backup to keep you moving.`,
+        [Language.Hindi]: `?????`,
+    },
+    "4f6beddb-8033-415a-aa74-4e7e0a0c3614": {
+        [Language.English]: `When should i start looking for a new e rickshaw battery?`,
+        [Language.Hindi]: `?????`,
+    },
+    "f0e5f88d-99dc-4f6e-8f67-4fbfba8311d6": {
+        [Language.English]: `Consider replacing your e-rickshaw battery when you notice slower speeds, reduced range, or frequent power losses. Livguard's e-rickshaw batteries, designed with advanced technology for high cranking power and low maintenance, are a perfect replacement choice to ensure efficient performance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "d957964f-b824-40d0-8a81-0c2958f0505d": {
+        [Language.English]: `Which is the best e rickshaw battery? `,
+        [Language.Hindi]: `?????`,
+    },
+    "d486239a-3eed-49e6-aaf7-085f124ce7fd": {
+        [Language.English]: `The best e-rickshaw battery balances performance, durability, and affordability. Livguard e-rickshaw batteries stand out with their superior technology, high cranking power, enhanced safety standards, and extended battery life, making them a top choice for consistent, powerful performance.`,
+        [Language.Hindi]: `?????`,
+    },
+    "9f69d5c7-3b61-4452-bfa5-4e346343cfed": {
+        [Language.English]: `How long can a 120Ah e-rickshaw battery last on a single charge?`,
+        [Language.Hindi]: `?????`,
+    },
+    "b2832b89-7c80-4a76-82b0-d48f3e873ed9": {
+        [Language.English]: `Typically, a 120Ah e-rickshaw battery can last quite long on a single charge depending on the usage and conditions. However, with Livguard's 120Ah e-rickshaw batteries, you can expect extended duration thanks to their superior design, advanced technology, and high energy density for consistent power supply.`,
+        [Language.Hindi]: `?????`,
+    },
+    "79bd524d-8eef-453c-a170-8de1c9aff661": {
+        [Language.English]: `How do I properly charge my e-rickshaw battery?`,
+        [Language.Hindi]: `?????`,
+    },
+    "374a7225-1b73-4299-952e-e3af648d303d": {
+        [Language.English]: `Properly charging your e-rickshaw battery involves a steady power source and ensuring complete charging cycles. Livguard's e-rickshaw batteries are designed for efficient charging, long life, and consistent power supply, ensuring your e-rickshaw performs optimally at all times with correct charging practices.`,
+        [Language.Hindi]: `?????`,
+    },
+    "713355d6-1d59-4ecb-af08-1e9a651bddc1": {
+        [Language.English]: `Top <span class="lg-text-highlighted">Tractor</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "8993dcbc-2216-4dd2-954e-e8145571049f": {
+        [Language.English]: `View More`,
+        [Language.Hindi]: `?????`,
+    },
+    "ac9a30fb-5654-4692-9995-84c2dbe8301b": {
+        [Language.English]: `Show Less`,
+        [Language.Hindi]: `?????`,
+    },
+    "16052fa6-9c46-49f5-b3dc-a90ba4a0cd64": {
+        [Language.English]: `Can an e-rickshaw charger recharge deeply discharged batteries?`,
+        [Language.Hindi]: `?????`, 
+    },
+    "276a2fc2-4ad5-46b1-8e1a-898f4ad48ac2": {
+        [Language.English]: `E-rickshaw chargers can recharge deeply discharged batteries, but using the right charger is vital. Livguard's e-rickshaw battery chargers, designed with advanced technology, adeptly handle deeply discharged batteries, ensuring longevity and a consistent power supply.`,
+        [Language.Hindi]: `?????`, 
+    },
+    "d172e8a9-1a56-44ac-9624-f6909bc7ab64": {
+        [Language.English]: `Can I use any charger for my e-rickshaw battery?`,
+        [Language.Hindi]: `?????`, 
+    },
+    "1b7d7fa0-ce6b-455f-8f4c-a042dea09650": {
+        [Language.English]: `While some chargers do consume more power, it's not the same with every charger. Livguard's e-rickshaw chargers are engineered for energy efficiency, providing optimal charging without consuming excess electricity.`,
+        [Language.Hindi]: `?????`, 
+    },
+    "6d7b3095-b837-47c2-a733-55d13c7cbe32": {
+        [Language.English]: `How can I maximize the performance of my e-rickshaw charger?`,
+        [Language.Hindi]: `?????`, 
+    },
+    "b9a59c4c-1212-4d95-9127-5cd030d7b940": {
+        [Language.English]: `Low input voltage can often hamper the charging process. However, Livguard e-rickshaw chargers are designed to efficiently charge even in low voltage conditions, ensuring your vehicle is always ready for the road.`,
+        [Language.Hindi]: `?????`, 
+    },
+    "a5d60a5a-54f8-41aa-a381-fa75ff5d1b0c": {
+        [Language.English]: `Who can I contact for E-Rickshawshaw charger repairing?`,
+        [Language.Hindi]: `?????`, 
+    },
+    "0479936a-0406-42b9-a22a-985b38cc4179": {
+        [Language.English]: `For any repairs concerning your Livguard e-rickshaw charger, it's best to contact our dedicated service team. They can provide necessary guidance and arrange for a qualified technician to address the issue.  Simply call us at - 1800-1025-551`,
+        [Language.Hindi]: `?????`, 
+    },
+    "da71434e-3e83-47b4-bce6-087f5e55e293": {
+        [Language.English]: `What E-Rickshawshaw battery charger specifications should I look for before buying?`,
+        [Language.Hindi]: `?????`, 
+    },
+    "db980c86-e5b7-4a2e-bb2c-f3cbbd6a952d": {
+        [Language.English]: `Before purchasing an e-rickshaw battery charger, you should look for features like automatic cut-off, equalization capability, and compatibility with your battery type. Choosing a Livguard e-rickshaw charger assures you of all these specifications and more, offering a secure and efficient charging experience.`,
+        [Language.Hindi]: `?????`, 
+    },
 };

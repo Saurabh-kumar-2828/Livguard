@@ -558,6 +558,11 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 32,
         finalUrl: "/livguard/icons/inverter_capacity-cbb3f9.png",
     },
+    "/livguard/icons/polarity.svg": {
+        width: 25,
+        height: 25,
+        finalUrl: "/livguard/icons/polarity-2ccdd4.svg",
+    },
     "/livguard/icons/sine wave white.png": {
         width: 32,
         height: 32,
@@ -3153,5 +3158,615 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         width: 204,
         height: 47,
         finalUrl: "/livguard/about-us/7/ncubate-1db639.png",
+    },
+    "/livguard/two-wheeler/1/banner-desktop.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LC8z+B?G%1xZ*0%1t6kC4:NHR+Wq",
+        finalUrl: "/livguard/two-wheeler/1/banner-desktop-c391a0.jpg",
+    },
+    "/livguard/two-wheeler/1/banner-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LL97^mR.xuxvpfR.a#W=D+oeRjV@",
+        finalUrl: "/livguard/two-wheeler/1/banner-mobile-ff2a3a.jpg",
+    },
+    "/livguard/two-wheeler/1/products.png": {
+        width: 339,
+        height: 224,
+        finalUrl: "/livguard/two-wheeler/1/products-47a350.png",
+    },
+    "/livguard/two-wheeler/2/2.1.png": {
+        width: 334,
+        height: 196,
+        finalUrl: "/livguard/two-wheeler/2/2.1-f2c083.png",
+    },
+    "/livguard/two-wheeler/2/2.2.png": {
+        width: 335,
+        height: 196,
+        finalUrl: "/livguard/two-wheeler/2/2.2-f43260.png",
+    },
+    "/livguard/two-wheeler/2/2.3.png": {
+        width: 371,
+        height: 217,
+        finalUrl: "/livguard/two-wheeler/2/2.3-63178c.png",
+    },
+    "/livguard/two-wheeler/3/3.1.png": {
+        width: 254,
+        height: 233,
+        finalUrl: "/livguard/two-wheeler/3/3.1-a0bc4b.png",
+    },
+    "/livguard/two-wheeler/3/filter.svg": {
+        width: 24,
+        height: 24,
+        finalUrl: "/livguard/two-wheeler/3/filter-bc1e8c.svg",
+    },
+    "/livguard/two-wheeler/3/capacity-icon.svg": {
+        width: 35,
+        height: 34,
+        finalUrl: "/livguard/two-wheeler/3/capacity-icon-eb5b7c.svg",
+    },
+    "/livguard/two-wheeler/3/dimensions-icon.svg": {
+        width: 22,
+        height: 21,
+        finalUrl: "/livguard/two-wheeler/3/dimensions-icon-dbddb5.svg",
+    },
+    "/livguard/two-wheeler/3/polarity-icon.svg": {
+        width: 20,
+        height: 20,
+        finalUrl: "/livguard/two-wheeler/3/polarity-icon-6658d2.svg",
+    },
+    "/livguard/two-wheeler/3/warranty-icon.svg": {
+        width: 32,
+        height: 31,
+        finalUrl: "/livguard/two-wheeler/3/warranty-icon-f8bb6a.svg",
+    },
+    "/livguard/two-wheeler/4/4.1.png": {
+        width: 202,
+        height: 193,
+        finalUrl: "/livguard/two-wheeler/4/4.1-9fefd5.png",
+    },
+    "/livguard/two-wheeler/4/capacity.svg": {
+        width: 12,
+        height: 17,
+        finalUrl: "/livguard/two-wheeler/4/capacity-a180f0.svg",
+    },
+    "/livguard/two-wheeler/4/warranty.svg": {
+        width: 16,
+        height: 19,
+        finalUrl: "/livguard/two-wheeler/4/warranty-a130fb.svg",
+    },
+    "/livguard/car-and-suv/1/1.banner-desktop.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LCBfhL%Mxaxa?]tRbIofr=ofNHof",
+        finalUrl: "/livguard/car-and-suv/1/1.banner-desktop-bc692d.jpg",
+    },
+    "/livguard/car-and-suv/1/1.banner-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "L6BMiDx]D*M{*IozM|jFq]S4R-t7",
+        finalUrl: "/livguard/car-and-suv/1/1.banner-mobile-343d2f.jpg",
+    },
+    "/livguard/car-and-suv/2/2.1.png": {
+        width: 371,
+        height: 217,
+        finalUrl: "/livguard/car-and-suv/2/2.1-f675f9.png",
+    },
+    "/livguard/car-and-suv/2/2.2.png": {
+        width: 334,
+        height: 196,
+        finalUrl: "/livguard/car-and-suv/2/2.2-4e2840.png",
+    },
+    "/livguard/car-and-suv/2/2.3.png": {
+        width: 334,
+        height: 196,
+        finalUrl: "/livguard/car-and-suv/2/2.3-948bd8.png",
+    },
+    "/livguard/car-and-suv/3/3.filter.svg": {
+        width: 24,
+        height: 24,
+        finalUrl: "/livguard/car-and-suv/3/3.filter-bc1e8c.svg",
+    },
+    "/livguard/car-and-suv/3/3.capacity.svg": {
+        width: 35,
+        height: 34,
+        finalUrl: "/livguard/car-and-suv/3/3.capacity-6bfe72.svg",
+    },
+    "/livguard/car-and-suv/3/3.dimensions.svg": {
+        width: 22,
+        height: 21,
+        finalUrl: "/livguard/car-and-suv/3/3.dimensions-1d3087.svg",
+    },
+    "/livguard/car-and-suv/3/3.polarity.svg": {
+        width: 25,
+        height: 24,
+        finalUrl: "/livguard/car-and-suv/3/3.polarity-fc8fcd.svg",
+    },
+    "/livguard/car-and-suv/3/3.product.png": {
+        width: 309,
+        height: 266,
+        finalUrl: "/livguard/car-and-suv/3/3.product-7e979b.png",
+    },
+    "/livguard/car-and-suv/3/3.warranty.svg": {
+        width: 32,
+        height: 31,
+        finalUrl: "/livguard/car-and-suv/3/3.warranty-d44d00.svg",
+    },
+    "/livguard/car-and-suv/4/4.pro-cab-car.png": {
+        width: 550,
+        height: 314,
+        finalUrl: "/livguard/car-and-suv/4/4.pro-cab-car-1e5394.png",
+    },
+    "/livguard/car-and-suv/4/4.pro-cab.png": {
+        width: 255,
+        height: 255,
+        finalUrl: "/livguard/car-and-suv/4/4.pro-cab-dee2a8.png",
+    },
+    "/livguard/car-and-suv/4/4.zing-eterna-car.png": {
+        width: 537,
+        height: 332,
+        finalUrl: "/livguard/car-and-suv/4/4.zing-eterna-car-03f566.png",
+    },
+    "/livguard/car-and-suv/4/4.zing-eterna.png": {
+        width: 255,
+        height: 255,
+        finalUrl: "/livguard/car-and-suv/4/4.zing-eterna-0e0e4c.png",
+    },
+    "/livguard/car-and-suv/4/4.zing-primo-car.png": {
+        width: 500,
+        height: 320,
+        finalUrl: "/livguard/car-and-suv/4/4.zing-primo-car-b6b6c6.png",
+    },
+    "/livguard/car-and-suv/4/4.zing-primo.png": {
+        width: 255,
+        height: 255,
+        finalUrl: "/livguard/car-and-suv/4/4.zing-primo-2b2e53.png",
+    },
+    "/livguard/car-and-suv/4/4.zing-ultra-car.png": {
+        width: 534,
+        height: 356,
+        finalUrl: "/livguard/car-and-suv/4/4.zing-ultra-car-48bb6e.png",
+    },
+    "/livguard/car-and-suv/4/4.zing-ultra.png": {
+        width: 255,
+        height: 255,
+        finalUrl: "/livguard/car-and-suv/4/4.zing-ultra-4c093e.png",
+    },
+    "/livguard/car-and-suv/4/capacity.svg": {
+        width: 12,
+        height: 17,
+        finalUrl: "/livguard/car-and-suv/4/capacity-a180f0.svg",
+    },
+    "/livguard/car-and-suv/4/warranty.svg": {
+        width: 16,
+        height: 19,
+        finalUrl: "/livguard/car-and-suv/4/warranty-a130fb.svg",
+    },
+    "/livguard/tractor/1/banner-desktop.png": {
+        width: 3840,
+        height: 1140,
+        finalUrl: "/livguard/tractor/1/banner-desktop-7f4261.png",
+    },
+    "/livguard/tractor/1/banner-mobile.jpg": {
+        width: 3840,
+        height: 4608,
+        blurHash: "L~K_E~%2%Lxb?wkCWCbIXTWVRjoe",
+        finalUrl: "/livguard/tractor/1/banner-mobile-538827.jpg",
+    },
+    "/livguard/tractor/2/2.1.png": {
+        width: 371,
+        height: 217,
+        finalUrl: "/livguard/tractor/2/2.1-8ca9c1.png",
+    },
+    "/livguard/tractor/2/2.2.png": {
+        width: 334,
+        height: 196,
+        finalUrl: "/livguard/tractor/2/2.2-422e86.png",
+    },
+    "/livguard/tractor/2/2.3.png": {
+        width: 333,
+        height: 196,
+        finalUrl: "/livguard/tractor/2/2.3-dda8ec.png",
+    },
+    "/livguard/tractor/3/humraahi-battery.png": {
+        width: 166,
+        height: 92,
+        finalUrl: "/livguard/tractor/3/humraahi-battery-3818ad.png",
+    },
+    "/livguard/tractor/3/humraahi-tractor.png": {
+        width: 476,
+        height: 357,
+        finalUrl: "/livguard/tractor/3/humraahi-tractor-fb4213.png",
+    },
+    "/livguard/tractor/3/pradhan-tractor.png": {
+        width: 518,
+        height: 335,
+        finalUrl: "/livguard/tractor/3/pradhan-tractor-b583f4.png",
+    },
+    "/livguard/tractor/3/pradhan-battery.png": {
+        width: 166,
+        height: 92,
+        finalUrl: "/livguard/tractor/3/pradhan-battery-4a2d03.png",
+    },
+    "/livguard/tractor/3/3d-grid.svg": {
+        width: 24,
+        height: 24,
+        finalUrl: "/livguard/tractor/3/3d-grid-78f268.svg",
+    },
+    "/livguard/tractor/3/capacity.svg": {
+        width: 18,
+        height: 26,
+        finalUrl: "/livguard/tractor/3/capacity-dad8ab.svg",
+    },
+    "/livguard/tractor/3/dimensions.svg": {
+        width: 21,
+        height: 21,
+        finalUrl: "/livguard/tractor/3/dimensions-c0d7b8.svg",
+    },
+    "/livguard/tractor/3/warranty.svg": {
+        width: 21,
+        height: 25,
+        finalUrl: "/livguard/tractor/3/warranty-682ac6.svg",
+    },
+    "/livguard/bus-and-truck/2/2.1.png": {
+        width: 371,
+        height: 217,
+        finalUrl: "/livguard/bus-and-truck/2/2.1-bb291f.png",
+    },
+    "/livguard/bus-and-truck/2/2.2.png": {
+        width: 334,
+        height: 196,
+        finalUrl: "/livguard/bus-and-truck/2/2.2-de0f88.png",
+    },
+    "/livguard/bus-and-truck/2/2.3.png": {
+        width: 333,
+        height: 196,
+        finalUrl: "/livguard/bus-and-truck/2/2.3-c60b80.png",
+    },
+    "/livguard/bus-and-truck/3/product-1.png": {
+        width: 141,
+        height: 102,
+        finalUrl: "/livguard/bus-and-truck/3/product-1-4f0171.png",
+    },
+    "/livguard/bus-and-truck/3/product-2.png": {
+        width: 230,
+        height: 97,
+        finalUrl: "/livguard/bus-and-truck/3/product-2-b66ae6.png",
+    },
+    "/livguard/bus-and-truck/3/vehicle-1.png": {
+        width: 318,
+        height: 202,
+        finalUrl: "/livguard/bus-and-truck/3/vehicle-1-c20034.png",
+    },
+    "/livguard/bus-and-truck/3/vehicle-2.png": {
+        width: 278,
+        height: 200,
+        finalUrl: "/livguard/bus-and-truck/3/vehicle-2-cab108.png",
+    },
+    "/livguard/three-wheeler/2/2.1.png": {
+        width: 371,
+        height: 217,
+        finalUrl: "/livguard/three-wheeler/2/2.1-cb046e.png",
+    },
+    "/livguard/three-wheeler/2/2.2.png": {
+        width: 334,
+        height: 196,
+        finalUrl: "/livguard/three-wheeler/2/2.2-a1a591.png",
+    },
+    "/livguard/three-wheeler/2/2.3.png": {
+        width: 332,
+        height: 196,
+        finalUrl: "/livguard/three-wheeler/2/2.3-3c90ad.png",
+    },
+    "/livguard/three-wheeler/3/3.1.png": {
+        width: 216,
+        height: 199,
+        finalUrl: "/livguard/three-wheeler/3/3.1-dc7836.png",
+    },
+    "/livguard/three-wheeler/3/3.2.png": {
+        width: 201,
+        height: 143,
+        finalUrl: "/livguard/three-wheeler/3/3.2-029768.png",
+    },
+    "/livguard/three-wheeler/3/3.capacity-icon.svg": {
+        width: 17,
+        height: 27,
+        finalUrl: "/livguard/three-wheeler/3/3.capacity-icon-f56e74.svg",
+    },
+    "/livguard/three-wheeler/3/3.dimensions-icon.svg": {
+        width: 22,
+        height: 22,
+        finalUrl: "/livguard/three-wheeler/3/3.dimensions-icon-e5eae4.svg",
+    },
+    "/livguard/three-wheeler/3/3.polarity-icon.svg": {
+        width: 21,
+        height: 20,
+        finalUrl: "/livguard/three-wheeler/3/3.polarity-icon-de6e06.svg",
+    },
+    "/livguard/three-wheeler/3/3.warranty-icon.svg": {
+        width: 21,
+        height: 26,
+        finalUrl: "/livguard/three-wheeler/3/3.warranty-icon-3a50d7.svg",
+    },
+    "/livguard/e-rickshaw-batteries/2/2.1.png": {
+        width: 372,
+        height: 217,
+        finalUrl: "/livguard/e-rickshaw-batteries/2/2.1-8e5c7d.png",
+    },
+    "/livguard/e-rickshaw-batteries/2/2.2.png": {
+        width: 335,
+        height: 198,
+        finalUrl: "/livguard/e-rickshaw-batteries/2/2.2-6b01c5.png",
+    },
+    "/livguard/e-rickshaw-batteries/2/2.3.png": {
+        width: 335,
+        height: 196,
+        finalUrl: "/livguard/e-rickshaw-batteries/2/2.3-0b625c.png",
+    },
+    "/livguard/e-rickshaw-batteries/3/3.1.png": {
+        width: 242,
+        height: 203,
+        finalUrl: "/livguard/e-rickshaw-batteries/3/3.1-7a1c78.png",
+    },
+    "/livguard/e-rickshaw-batteries/3/3.capacity-icon.svg": {
+        width: 17,
+        height: 27,
+        finalUrl: "/livguard/e-rickshaw-batteries/3/3.capacity-icon-f56e74.svg",
+    },
+    "/livguard/e-rickshaw-batteries/3/3.dimensions-icon.svg": {
+        width: 22,
+        height: 22,
+        finalUrl: "/livguard/e-rickshaw-batteries/3/3.dimensions-icon-e5eae4.svg",
+    },
+    "/livguard/e-rickshaw-batteries/3/3.grid-icon.svg": {
+        width: 25,
+        height: 25,
+        finalUrl: "/livguard/e-rickshaw-batteries/3/3.grid-icon-3f3413.svg",
+    },
+    "/livguard/e-rickshaw-batteries/3/3.warranty-icon.svg": {
+        width: 21,
+        height: 26,
+        finalUrl: "/livguard/e-rickshaw-batteries/3/3.warranty-icon-3a50d7.svg",
+    },
+    "/livguard/products/automotive-batteries/pc38b20l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/pc38b20l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/pc38b20l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/pc38b20l/infographics/1-db7279.png",
+    },
+    "/livguard/products/automotive-batteries/pc38b20l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/pc38b20l/thumbnail-db7279.png",
+    },
+    "/livguard/products/automotive-batteries/ze38b20l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/ze38b20l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/ze38b20l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/ze38b20l/infographics/1-6ff5b1.png",
+    },
+    "/livguard/products/automotive-batteries/ze38b20l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/ze38b20l/thumbnail-6ff5b1.png",
+    },
+    "/livguard/products/automotive-batteries/ze38b20r/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/ze38b20r/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/ze38b20r/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/ze38b20r/infographics/1-0f0be5.png",
+    },
+    "/livguard/products/automotive-batteries/ze38b20r/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/ze38b20r/thumbnail-0f0be5.png",
+    },
+    "/livguard/products/automotive-batteries/ze55b24lsl/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/ze55b24lsl/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/ze55b24lsl/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/ze55b24lsl/infographics/1-71b1f7.png",
+    },
+    "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/ze55b24lsl/thumbnail-71b1f7.png",
+    },
+    "/livguard/products/automotive-batteries/zp38b20l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zp38b20l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zp38b20l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zp38b20l/infographics/1-71ef4f.png",
+    },
+    "/livguard/products/automotive-batteries/zp38b20l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zp38b20l/thumbnail-71ef4f.png",
+    },
+    "/livguard/products/automotive-batteries/zp70d26l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zp70d26l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zp70d26l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zp70d26l/infographics/1-aeee2a.png",
+    },
+    "/livguard/products/automotive-batteries/zp70d26l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zp70d26l/thumbnail-aeee2a.png",
+    },
+    "/livguard/products/automotive-batteries/zu38b20bhl/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20bhl/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zu38b20bhl/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20bhl/infographics/1-6b5694.png",
+    },
+    "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20bhl/thumbnail-6b5694.png",
+    },
+    "/livguard/products/automotive-batteries/zu38b20l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zu38b20l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20l/infographics/1-59e982.png",
+    },
+    "/livguard/products/automotive-batteries/zu38b20l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20l/thumbnail-59e982.png",
+    },
+    "/livguard/products/automotive-batteries/zu38b20r/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20r/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zu38b20r/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20r/infographics/1-59e982.png",
+    },
+    "/livguard/products/automotive-batteries/zu38b20r/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zu38b20r/thumbnail-59e982.png",
+    },
+    "/livguard/products/automotive-batteries/zudin44lhl/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zudin44lhl/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zudin44lhl/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin44lhl/infographics/1-0a4b37.png",
+    },
+    "/livguard/products/automotive-batteries/zudin44lhl/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin44lhl/thumbnail-0a4b37.png",
+    },
+    "/livguard/products/automotive-batteries/zudin50l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zudin50l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zudin50l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin50l/infographics/1-6b728d.png",
+    },
+    "/livguard/products/automotive-batteries/zudin50l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin50l/thumbnail-6b728d.png",
+    },
+    "/livguard/products/automotive-batteries/zudin55r/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zudin55r/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zudin55r/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin55r/infographics/1-3f85a1.png",
+    },
+    "/livguard/products/automotive-batteries/zudin55r/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin55r/thumbnail-3f85a1.png",
+    },
+    "/livguard/products/automotive-batteries/zudin60l/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zudin60l/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zudin60l/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin60l/infographics/1-9720ee.png",
+    },
+    "/livguard/products/automotive-batteries/zudin60l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin60l/thumbnail-9720ee.png",
+    },
+    "/livguard/products/automotive-batteries/zudin65lhl/a-plus/1.jpeg": {
+        width: 622,
+        height: 519,
+        finalUrl: "/livguard/products/automotive-batteries/zudin65lhl/a-plus/1-86259f.jpeg",
+    },
+    "/livguard/products/automotive-batteries/zudin65lhl/infographics/1.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin65lhl/infographics/1-2fddff.png",
+    },
+    "/livguard/products/automotive-batteries/zudin65lhl/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/zudin65lhl/thumbnail-2fddff.png",
+    },
+    "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/lgbtx2.5l/thumbnail-aa2ef8.png",
+    },
+    "/livguard/products/automotive-batteries/lgbtx7l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/lgbtx7l/thumbnail-d9f6c3.png",
+    },
+    "/livguard/products/automotive-batteries/lgbtx9l/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/lgbtx9l/thumbnail-758df5.png",
+    },
+    "/livguard/products/automotive-batteries/lgzhhtz4/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/lgzhhtz4/thumbnail-d84e0b.png",
+    },
+    "/livguard/products/automotive-batteries/lgzhhtx5/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/lgzhhtx5/thumbnail-7f1ea3.png",
+    },
+    "/livguard/products/automotive-batteries/lgzhhtz5/thumbnail.png": {
+        width: 575,
+        height: 493,
+        finalUrl: "/livguard/products/automotive-batteries/lgzhhtz5/thumbnail-03cdc0.png",
     },
 };

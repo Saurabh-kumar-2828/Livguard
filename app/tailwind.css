@@ -343,4 +343,99 @@
     .lg-lead-form-top-gradient {
         background: radial-gradient(136.96% 3728.32% at 114.88% 111.75%, #f25f60 3.53%, #eb2a2b 100%);
     }
+
+    .lg-automotive-bg-gradient-right-to-left-dark {
+        background: conic-gradient(from 15deg at 55% 100%,  rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83)  100%);
+    }
+
+    .lg-automotive-bg-gradient-left-to-right-light {
+        background: conic-gradient(from 345deg at 45% 100%, #F2F2F2 0%, #FFFFFF 100%);
+    }
+
+    .lg-automotive-bg-gradient-right-to-left-light {
+        background: conic-gradient(from 15deg at 55% 100%,  #FFFFFF 0%, #F2F2F2 100%);
+    }
+
+    .lg-automotive-bg-gradient-left-to-right-dark {
+        background: conic-gradient(from 345deg at 45% 100%, rgba(24, 26, 28, 0.83) 0%, rgba(31, 32, 34, 1) 100%);
+    }
+
+    .lg-automotive-bg-gradient-right-to-left-vertical-dark {
+        background: conic-gradient(from 252deg at 100% 20%, rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83) 100%);
+    }
+
+    .lg-automotive-bg-gradient-left-to-right-vertical-dark {
+        background: conic-gradient(from 108deg at 0% 20%, rgba(24, 26, 28, 0.83) 0%, rgba(31, 32, 34, 1) 100%);
+    }
+
+    .lg-automotive-bg-gradient-right-to-left-vertical-light {
+        background: conic-gradient(from 252deg at 100% 20%, #FFFFFF 0%, #F2F2F2 100%);
+    }
+
+    .lg-automotive-bg-gradient-left-to-right-vertical-light {
+        background: conic-gradient(from 108deg at 0% 20%, #F2F2F2 0%, #FFFFFF 100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-right-to-left-dark {
+        background: conic-gradient(from 15deg at 62% 100%,  rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83)  100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-left-to-right-dark {
+        background: conic-gradient(from 345deg at 38% 100%, rgba(24, 26, 28, 0.83) 0%, rgba(31, 32, 34, 1) 100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-right-to-left-light {
+        background: conic-gradient(from 15deg at 62% 100%, #FFFFFF 0%, #F2F2F2  100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-left-to-right-light {
+        background: conic-gradient(from 345deg at 38% 100%, #F2F2F2 0%, #FFFFFF 100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-right-to-left-vertical-dark {
+        background: conic-gradient(from 252deg at 100% 20%, rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83) 100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-left-to-right-vertical-dark {
+        background: conic-gradient(from 108deg at 0% 20%, rgba(24, 26, 28, 0.83) 0%, rgba(31, 32, 34, 1) 100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-right-to-left-vertical-light {
+        background: conic-gradient(from 252deg at 100% 20%, #FFFFFF 0%, #F2F2F2 100%);
+    }
+
+    .lg-automotive-tractor-bg-gradient-left-to-right-vertical-light {
+        background: conic-gradient(from 108deg at 0% 20%, #F2F2F2 0%, #FFFFFF 100%);
+    }
+
+    .lg-bg-our-suggestions {
+        @apply tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark
+    }
+
+    .lg-bg-our-suggestions-card {
+        @apply tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark
+    }
+
+    .lg-cta-outline-button-transition {
+        background: transparent;
+        transition: background 0.2s linear, color 0.2s linear;
+    }
+
+    .lg-cta-outline-button-transition:hover {
+        border: 2px solid transparent;
+        background: linear-gradient(90deg, #F25F60 0%, #EB2A2B 100%);
+        color: #FCFCFC;
+    }
+
+    .lg-cta-outline-button-category-section-transition {
+        background: transparent;
+        transition: background 0.2s linear;
+        color: rgb(71 69 70 / var(--tw-text-opacity));
+    }
+
+    .lg-cta-outline-button-category-section-transition:hover {
+        padding: 14px 18px;
+        border: 0px;
+        background: linear-gradient(90deg, #F25F60 0%, #EB2A2B 100%);
+    }
 }

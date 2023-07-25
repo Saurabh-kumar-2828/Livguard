@@ -109,7 +109,12 @@ export function FooterComponent({
         },
     ];
 
-    const automativeBatteriesAccordianList = [
+    const automotiveBatteriesAccordionList = [
+        {
+            title: `${getVernacularString("footerDisclosure3T6", userPreferences.language)}`,
+            link: "/car-and-suv-batteries/",
+            target: true,
+        },
         {
             title: `${getVernacularString("footerDisclosure3T1", userPreferences.language)}`,
             link: "/three-wheeler-batteries/",
@@ -132,7 +137,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure3T5", userPreferences.language)}`,
-            link: "/erickshaw-batteries/",
+            link: "/e-rickshaw-batteries/",
             target: true,
         },
     ];
@@ -381,7 +386,7 @@ export function FooterComponent({
                     title={getVernacularString("footerDisclosure3H", userPreferences.language)}
                     panelItem={
                         <ItemBuilder
-                            items={automativeBatteriesAccordianList}
+                            items={automotiveBatteriesAccordionList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"
@@ -652,7 +657,7 @@ export function FooterComponent({
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure3H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
-                            items={automativeBatteriesAccordianList}
+                            items={automotiveBatteriesAccordionList}
                             itemBuilder={(item, itemIndex) => (
                                 <div
                                     className="lg-text-secondary-900"

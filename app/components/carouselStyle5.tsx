@@ -11,12 +11,14 @@ export function CarouselStyle5({
     slidesContainerClassName,
     selectedContainerClassName,
     deselectedContainersClassName,
+    disabledChevronClassName,
 }: {
     items: Array<any>;
     className?: string;
     selectedContainerClassName?: string;
     deselectedContainersClassName?: string;
     slidesContainerClassName?: string;
+    disabledChevronClassName?: string;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
@@ -31,7 +33,7 @@ export function CarouselStyle5({
                     itemBuilder={(item, itemIndex) => (
                         // Non selected items are dimmed
                         <div
-                            className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 tw-h-full ${itemIndex !== selectedIndex ? "tw-brightness-50" : ""}`}
+                            className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 tw-h-full ${itemIndex !== selectedIndex ? "tw-opacity-50" : ""}`}
                             key={itemIndex}
                         >
                             {/* {itemIndex !== selectedIndex ? <div className={deselectedContainersClassName}>{item}</div> : <div className={selectedContainerClassName}>{item}</div>} */}
@@ -46,7 +48,10 @@ export function CarouselStyle5({
             <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10 lg-px-screen-edge-2">
                 <button
                     type="button"
-                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark",
+                        selectedIndex === 0 ? disabledChevronClassName : "",
+                    )}
                     onClick={() => emblaApi?.scrollPrev()}
                 >
                     <ChevronLeftIcon className="tw-w-6 tw-h-6" />
@@ -73,7 +78,10 @@ export function CarouselStyle5({
 
                 <button
                     type="button"
-                    className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark",
+                        selectedIndex === items.length - 1 ? disabledChevronClassName : "",
+                    )}
                     onClick={() => emblaApi?.scrollNext()}
                 >
                     <ChevronRightIcon className="tw-w-6 tw-h-6" />
