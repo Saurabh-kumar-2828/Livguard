@@ -1,8 +1,8 @@
 import {Link} from "@remix-run/react";
-import {FooterComponent} from "~/components/footerComponent";
+import {FooterComponent} from "~/components/footers/footerComponent";
 import {HeaderComponent} from "~/components/headerComponent";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function PageScaffold({
@@ -20,7 +20,7 @@ export function PageScaffold({
     utmParameters: {
         [searchParameter: string]: string;
     };
-    breadcrumbs: Array<{contentId: string; link: string}>;
+    breadcrumbs?: Array<{contentId: string; link: string}>;
 }) {
     return (
         <>

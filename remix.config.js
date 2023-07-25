@@ -8,5 +8,6 @@ module.exports = {
     // publicPath: "/build/",
     tailwind: true,
     future: {
+        v2_errorBoundary: true,
     },
 };

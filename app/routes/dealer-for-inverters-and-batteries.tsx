@@ -171,7 +171,7 @@ export default function () {
             {/* <div className="tw-hidden lg:tw-block tw-sticky tw-left-[1rem] tw-bottom-[1.75rem] tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-py-2 tw-px-4 tw-max-w-fit">
                 <a
                     href="/offers/inverter-and-battery-jodi"
-                    className="tw-grid tw-grid-cols-[auto_.5rem_auto] tw-items-center"
+                    className="tw-grid tw-grid-cols-[auto_0.5rem_auto] tw-items-center"
                 >
                     <svg
                         width="24"
@@ -311,25 +311,25 @@ export function DealerLocatorPage({
                             ></input>
 
                             {/* <FancySearchableSelect
-                        id="city"
-                        options={cityList.map((city, cityIndex) => ({
-                            value: cityIndex,
-                            label: city.name,
-                        }))}
-                        className="lg-text-input tw-w-full tw-text-center"
-                        placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
-                        onChange={(newValue) => setSelectedCity(newValue.value)}
-                        datastore={datastore}
-                    /> */}
+                                id="city"
+                                options={cityList.map((city, cityIndex) => ({
+                                    value: cityIndex,
+                                    label: city.name,
+                                }))}
+                                className="lg-text-input tw-w-full tw-text-center"
+                                placeholder={`${getVernacularString("dealerLocatorInputText", userPreferences.language)}`}
+                                onChange={(newValue) => setSelectedCity(newValue.value)}
+                                datastore={datastore}
+                            /> */}
 
                             {/* <FancySearchableSelect
-                        options={cities}
-                        selected={selected}
-                        setSelected={setSelected}
-                        // primaryAttribute="name"
-                        query={query}
-                        setQuery={setQuery}
-                    /> */}
+                                options={cities}
+                                selected={selected}
+                                setSelected={setSelected}
+                                // primaryAttribute="name"
+                                query={query}
+                                setQuery={setQuery}
+                            /> */}
 
                             <VerticalSpacer className="tw-h-4" />
                             <input

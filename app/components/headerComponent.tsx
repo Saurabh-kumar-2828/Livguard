@@ -5,19 +5,19 @@ import React, {useEffect, useRef, useState} from "react";
 import {ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
 import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
+import {getMetadataForImage} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {ContactUsDialog as ContactUsLeadFormDialog} from "~/routes";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useResizeDetector} from "react-resize-detector";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {getMetadataForImage} from "~/utilities";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
 enum MenuState {
     Closed,

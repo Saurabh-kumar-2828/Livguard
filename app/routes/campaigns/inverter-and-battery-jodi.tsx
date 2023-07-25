@@ -710,7 +710,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
 
                         <VerticalSpacer className="tw-h-1" />
 
-                        <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+                        <div className="tw-z-10 lg-text-title2 tw-text-center">{getVernacularString("homeS10T2", userPreferences.language)}</div>
 
                         {showCtaButton && (
                             <>
@@ -758,7 +758,7 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
 
                             <VerticalSpacer className="tw-h-1" />
 
-                            <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+                            <div className="tw-z-10 lg-text-title2 tw-text-center">{getVernacularString("homeS10T2", userPreferences.language)}</div>
 
                             {showCtaButton && (
                                 <>

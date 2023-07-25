@@ -348,6 +348,14 @@
         background: radial-gradient(136.96% 3728.32% at 114.88% 111.75%, #f25f60 3.53%, #eb2a2b 100%);
     }
 
+    .lg-contact-us-card-shadow {
+        filter: drop-shadow(0px 0px 0px rgba(13, 13, 13, 0.05)) drop-shadow(4px 10px 12px rgba(13, 13, 13, 0.05)) drop-shadow(16px 40px 23px rgba(13, 13, 13, 0.04));
+    }
+
+    .lg-international-shadow {
+        box-shadow: 0 0 #0d0d0d0d, 0 2px 12px #0d0d0d0d, 8px 10px 13px #0d0d0d0a;
+	}
+
     .lg-bg-our-suggestions {
         @apply tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark
     }

@@ -7,14 +7,17 @@ export function Accordion({
     title,
     panelItem,
     className,
-}:
-{
+    defaultOpen,
+    accordionPanelClassName,
+}: {
     title: string;
     panelItem: JSX.Element;
     className?: string;
+    defaultOpen?: boolean;
+    accordionPanelClassName?: string;
 }) {
     return (
-        <Disclosure>
+        <Disclosure defaultOpen={defaultOpen ?? false}>
             {({open}) => (
                 <div className={className}>
                     <Disclosure.Button
@@ -36,7 +39,14 @@ export function Accordion({
                         leaveFrom="tw-max-h-[30rem] tw-opacity-full"
                         leaveTo="tw-max-h-0 tw-opacity-0"
                     >
-                        <Disclosure.Panel className="tw-p-5 tw-rounded-b-lg lg-bg-secondary-300 tw-flex tw-flex-col tw-gap-6">{panelItem}</Disclosure.Panel>
+                        <Disclosure.Panel
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-p-5 tw-rounded-b-lg lg-bg-secondary-100 tw-border-t tw-border-secondary-300 tw-flex tw-flex-col tw-gap-6",
+                                accordionPanelClassName,
+                            )}
+                        >
+                            {panelItem}
+                        </Disclosure.Panel>
                     </Transition>
                 </div>
             )}
@@ -44,21 +54,20 @@ export function Accordion({
     );
 }
 
-
- // openDisclosureTitle,
+// openDisclosureTitle,
 // setOpenDisclosureTitle,
 
 // openDisclosureTitle: string | null;
-    // setOpenDisclosureTitle: React.Dispatch<React.SetStateAction<string | null>>;
+// setOpenDisclosureTitle: React.Dispatch<React.SetStateAction<string | null>>;
 
- // const ref = useRef(null);
+// const ref = useRef(null);
 
-    // useEffect(() => {
-    //     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
+// useEffect(() => {
+//     const isCurrentDisclosureOpen = ref.current.getAttribute("aria-expanded") == "true";
 
-    //     if (isCurrentDisclosureOpen) {
-    //         if (title != openDisclosureTitle) {
-    //             ref.current.click(null);
-    //         }
-    //     }
-    // }, [openDisclosureTitle]);
+//     if (isCurrentDisclosureOpen) {
+//         if (title != openDisclosureTitle) {
+//             ref.current.click(null);
+//         }
+//     }
+// }, [openDisclosureTitle]);

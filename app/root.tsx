@@ -1,21 +1,22 @@
-import type {ErrorBoundaryComponent, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import type {ShouldRevalidateFunction} from "@remix-run/react";
-import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLoaderData} from "@remix-run/react";
+import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse, useLoaderData, useRouteError} from "@remix-run/react";
+import type {V2_ErrorBoundaryComponent} from "@remix-run/react/dist/routeModules";
 import {useEffect} from "react";
+import {ToastContainer} from "react-toastify";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
-import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
+import {DynamicLinks} from "remix-utils";
+import {ErrorHeaderComponent} from "~/components/errorHeaderComponent copy";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {logFrontendError} from "~/global-common-typescript/logging";
+import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getBooleanFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import tailwindStylesheet from "~/tailwind.css";
 import type {UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import {Language, Theme} from "~/typeDefinitions";
-import tailwindStylesheet from "~/tailwind.css";
-import {DynamicLinks} from "remix-utils";
-import {ToastContainer} from "react-toastify";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -112,27 +113,29 @@ export default function Root() {
         document.body.appendChild(scriptTag);
     }
 
+    // TODO: Maintain state for this
     useEffect(() => {
         setTimeout(() => {
             // Google Tag Manager
             addScript(
-                `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`
+                `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`,
             );
 
             // Meta Pixel
             addScript(
-                `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '635911646858607');fbq('track', 'PageView');`
+                `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '635911646858607');fbq('track', 'PageView');`,
             );
         }, 2500);
 
         setTimeout(() => {
             // Microsoft Clarity
             addScript(
-                `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`
+                `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`,
             );
         }, 5000);
     }, []);
 
+    // TODO: Maintain state for this
     // Haptik
     useEffect(() => {
         const onDocumentLoad = () => {
@@ -303,99 +306,150 @@ export default function Root() {
     );
 }
 
-export function CatchBoundary() {
-    const caught = useCatch();
+export const ErrorBoundary: V2_ErrorBoundaryComponent = () => {
+    const routeError = useRouteError();
 
-    return (
-        <html
-        // TODO: Re-enable this
-        // lang="en"
-        >
-            <head>
-                <Meta />
-                <DynamicLinks />
-                <Links />
-            </head>
+    if (isRouteErrorResponse(routeError)) {
+        return (
+            <html>
+                <head>
+                    <Meta />
+                    <Links />
+                </head>
 
-            <body className="lg-bg-primary-500 lg-text-secondary-900 lg-text-body tw-text-secondary-900-dark">
-                <div className="tw-grow tw-grid tw-place-items-center tw-min-h-screen">
-                    <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
-                        {caught.status == 404 ? (
-                            <>
-                                <div className="lg-text-banner">404</div>
+                <body className="tw-bg-background-500-light tw-text-secondary-900-light lg-text-body">
+                    <div className="tw-grow tw-grid tw-grid-rows-[auto_minmax(0,1fr)_auto_4rem_auto_minmax(0,1fr)] tw-grid-cols-1 tw-place-items-center tw-min-h-screen">
+                        <ErrorHeaderComponent className="tw-justify-self-stretch tw-flex-none" />
 
-                                <div>Page not found</div>
-                            </>
-                        ) : (
-                            <>
-                                <div className="lg-text-banner">{caught.status}</div>
+                        <div className="tw-row-start-3 tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
+                            {routeError.status == 404 ? (
+                                <>
+                                    <div className="lg-text-banner">404</div>
 
-                                <div>We have notified our team, they are on it.</div>
-                            </>
-                        )}
+                                    <div>Page not found</div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="lg-text-banner">{routeError.status}</div>
+
+                                    <div>We have notified our team, they are on it.</div>
+                                </>
+                            )}
+                        </div>
+
+                        <Link
+                            to="/"
+                            className="tw-row-start-5 tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
+                        >
+                            Back to Home
+                        </Link>
                     </div>
 
-                    <Link
-                        to="/"
-                        className="tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
-                    >
-                        Back to Home
-                    </Link>
-                </div>
+                    <ScrollRestoration />
+                    <Scripts />
+                    <LiveReload />
+                </body>
+            </html>
+        );
+    } else if (routeError instanceof Error) {
+        // Deal with a simple Error
+        return (
+            <html>
+                <head>
+                    <Meta />
+                    <Links />
+                </head>
 
-                <Link
-                    to="/"
-                    className="tw-text-muted tw-lx-underline-on-hover"
-                >
-                    Back to Home
-                </Link>
+                <body className="tw-bg-background-500-light tw-text-secondary-900-light lg-text-body">
+                    <div className="tw-grow tw-grid tw-grid-rows-[auto_minmax(0,1fr)_auto_4rem_auto_minmax(0,1fr)] tw-grid-cols-1 tw-place-items-center tw-min-h-screen">
+                        <ErrorHeaderComponent className="tw-justify-self-stretch tw-flex-none" />
 
-                <ScrollRestoration />
-                <Scripts />
-                <LiveReload />
-            </body>
-        </html>
-    );
-}
+                        <div className="tw-row-start-3 tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
+                            <div className="lg-text-banner">Unexpected Error</div>
 
-export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
-    if (error.message.toLowerCase().includes("hydration") || error.message.toLocaleLowerCase().startsWith("minified react error")) {
-        return <></>;
+                            <div>We have notified our team, they are on it.</div>
+                        </div>
+
+                        <Link
+                            to="/"
+                            className="tw-row-start-5 tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
+                        >
+                            Back to Home
+                        </Link>
+                    </div>
+
+                    <ScrollRestoration />
+                    <Scripts />
+                    <LiveReload />
+                </body>
+            </html>
+        );
+    } else {
+        // Deal with an unknown
+        return (
+            <html>
+                <head>
+                    <Meta />
+                    <Links />
+                </head>
+
+                <body className="tw-bg-background-500-light tw-text-secondary-900-light lg-text-body">
+                    <div className="tw-grow tw-grid tw-grid-rows-[auto_minmax(0,1fr)_auto_4rem_auto_minmax(0,1fr)] tw-grid-cols-1 tw-place-items-center tw-min-h-screen">
+                        <ErrorHeaderComponent className="tw-justify-self-stretch tw-flex-none" />
+
+                        <div className="tw-row-start-3 tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
+                            <div className="lg-text-banner">{routeError.toString()}</div>
+
+                            <div>We have notified our team, they are on it.</div>
+                        </div>
+
+                        <Link
+                            to="/"
+                            className="tw-row-start-5 tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
+                        >
+                            Back to Home
+                        </Link>
+                    </div>
+
+                    <ScrollRestoration />
+                    <Scripts />
+                    <LiveReload />
+                </body>
+            </html>
+        );
     }
 
-    logFrontendError(error);
-
-    return (
-        <html
-        // TODO: Re-enable this
-        // lang="en"
-        >
-            <head>
-                <Meta />
-                <DynamicLinks />
-                <Links />
-            </head>
-
-            <body className="lg-bg-primary-500 lg-text-secondary-900 lg-text-body tw-text-secondary-900-dark">
-                <div className="tw-grow tw-grid tw-place-items-center tw-min-h-screen">
-                    <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
-                        <div className="lg-text-banner">Something went wrong</div>
-
-                        <div>We have notified our team, they are on it.</div>
-                    </div>
-
-                    <Link
-                        to="/"
-                        className="tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
-                    >
-                        Back to Home
-                    </Link>
-                </div>
-
-                <ScrollRestoration />
-                <Scripts />
-                <LiveReload />
-            </body>
-        </html>
-    );
+    // logFrontendError(routeError);
 };
+
+// <html
+// // TODO: Re-enable this
+// // lang="en"
+// >
+//     <head>
+//         <Meta />
+//         <DynamicLinks />
+//         <Links />
+//     </head>
+
+//     <body className="lg-bg-primary-500 lg-text-secondary-900 lg-text-body tw-text-secondary-900-dark">
+//         <div className="tw-grow tw-grid tw-place-items-center tw-min-h-screen">
+//             <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
+//                 <div className="lg-text-banner">Something went wrong</div>
+
+//                 <div>We have notified our team, they are on it.</div>
+//             </div>
+
+//             <Link
+//                 to="/"
+//                 className="tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
+//             >
+//                 Back to Home
+//             </Link>
+//         </div>
+
+//         <ScrollRestoration />
+//         <Scripts />
+//         <LiveReload />
+//     </body>
+// </html>

@@ -712,6 +712,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Know More",
         [Language.Hindi]: "अधिक जानिए",
     },
+    homeS13H1T1: {
+        [Language.English]: `In The <span class="lg-text-highlighted">News</span>`,
+        [Language.Hindi]: "???",
+    },
 
     landingPage1S1T1: {
         [Language.English]: `Empowering India With <br /> Unlimited Energy`,
@@ -1997,6 +2001,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `© Livguard 2023. All Rights Reserved | Technology Partner - <a href="https://growthjockey.com" target="_blank" class="tw-underline hover:tw-text-[#00a2ed]">GrowthJockey</a>`,
         [Language.Hindi]: `© लिवगार्ड 2023। सभी अधिकार सुरक्षित | प्रौद्योगिकी भागीदार - <a href="https://growthjockey.com">GrowthJockey</a>`,
     },
+    "aefcb24c-ff32-4530-a8e8-1fe009daa883": {
+        [Language.English]: `© Livguard 2023. All Rights Reserved | Get in touch - <a href="mailto:export@sar-group.com" class="tw-underline hover:tw-text-blue-600">export@sar-group.com</a>`,
+        [Language.Hindi]: `© लिवगार्ड 2023। सभी अधिकार सुरक्षित | संपर्क करें - <a href="mailto:export@sar-group.com" class="tw-underline hover:tw-text-blue-600">export@sar-group.com</a>`,
+    },
 
     footerSubscribeT1: {
         [Language.English]: "Be the first to find out about new stories & latest offers!",
@@ -2191,7 +2199,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "LETPL Notice dt 01/04/2023",
     },
     footerContactT1: {
-        [Language.English]: "GET IN TOUCH",
+        [Language.English]: "GET IN TOUCH With Us",
         [Language.Hindi]: "संपर्क करें",
     },
     "footerContactT1.5": {
@@ -4085,8 +4093,483 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `Our Sister Companies`,
         [Language.Hindi]: `?????`,
     },
+    // International page - Lebanon
+    "c7a9f807-dc1c-484e-990a-710af6961b66": {
+        [Language.English]: `Inverters`,
+        [Language.Hindi]: `محولات`,
+    },
+    "c9aeea78-b3fc-4174-9dcb-67cce19773cf": {
+        [Language.English]: `Batteries`,
+        [Language.Hindi]: `?????`,
+    },
+    "fe7e9e0d-8d73-4d4d-9d59-1beda4550084": {
+        [Language.English]: `Solar`,
+        [Language.Hindi]: `?????`,
+    },
+    "e3803682-49d9-4fb0-b444-a8f7de1d15a2": {
+        [Language.English]: `Empowering Advanced<br/>Energy Solutions`,
+        [Language.Hindi]: "تمكين حلول<br/>الطاقة المتقدمة",
+    },
+    "39eabaec-19d2-45df-9abd-d45e783cfdcc": {
+        [Language.English]: `Contact Livguard Expert Today`,
+        [Language.Hindi]: "تواصل مع خبراء ليفغارد",
+    },
+    "ca34d256-88ce-4a33-a03b-d416c7f3f2d3": {
+        [Language.English]: `Who We Are`,
+        [Language.Hindi]: `من نحن`,
+    },
+    "610220d1-def4-4ce0-94bc-00344568570e": {
+        [Language.English]: `Driven by innovation and an unwavering commitment to sustainability, Livguard continues to redefine the landscape of energy storage solutions. Offering an array of quality products including automotive batteries, inverters, and residential solar solutions, we're not just powering homes and businesses, but also supporting the world's shift to a cleaner future. Pioneering in our approach, we stand dedicated to deliver limitless energy, as we stride towards shaping a world where energy is accessible, efficient, and sustainable.`,
+        [Language.Hindi]: `مدفوعة بالابتكار والالتزام الثابت بالاستدامة ، تواصل ليفغارد إعادة تعريف مشهد حلول تخزين الطاقة. نحن نقدم مجموعة متنوعة من المنتجات عالية الجودة بما في ذلك بطاريات السيارات والمحولات وحلول الطاقة الشمسية المنزلية. لا نقوم فقط بتزويد المنازل والشركات بالطاقة ، بل ندعم أيضًا انتقال العالم نحو مستقبل أنظف. نكرس أنفسنا لنهجنا المبتكر ، فنحن ملتزمون بتوفير طاقة لا حدود لها ، ونسعى جاهدين نحو صياغة عالم تكون فيه الطاقة متاحة بسهولة وفعالة ومستدامة.`,
+    },
+    "e567b471-cc33-47a0-94fb-f1eda4724960": {
+        [Language.English]: `Why Livguard`,
+        [Language.Hindi]: `لماذا ليفغارد`,
+    },
+    "7bebe0ba-863e-4074-96c6-65e11c05099c": {
+        [Language.English]: `For an unparalleled experience`,
+        [Language.Hindi]: `تجربة لا مثيل لها`,
+    },
+    // "f5e9cdf7-6cf3-4c63-85e3-c0bd296204bf": {
+    //     [Language.English]: `As a part of the reputable SAR Group with a rich legacy of 35 years, Livguard has been at the forefront of providing sophisticated energy solutions with its global presence in the international market...`,
+    // },
+    "9fe1351b-a1a6-4ae5-be0a-9426c5ed9b12": {
+        [Language.English]: `As a part of the reputable SAR Group with a rich legacy of 35 years, Livguard has been at the forefront of providing sophisticated energy solutions with its global presence in the international market. With our cutting-edge technology in energy storage solutions like inverter, inverter tubular batteries, solar solutions, automotive solutions, e-rickshaw batteries, and more; we have garnered the trust of millions of customers throughout the globe. Supported by state-of-the-art, advanced plants and a skilled research team, we continue to build our aim of making the world a better and brighter place.`,
+        [Language.Hindi]: `باعتبارنا جزءاً من مجموعة إس إي آر SAR المميزة والتي تتمتع بإرث ثري يمتد إلى 35 عاماً، كانت ليفغارد في طليعة توفير حلول الطاقة المتطورة من خلال تواجدها العالمي في السوق الدولية. ومن خلال تقنيتنا المتطورة في حلول تخزين الطاقة مثل رافعات الجهد، والبطاريات، وحلول الطاقة الشمسية، وبطاريات السيارات، وبطاريات العربات الإلكترونية، والمزيد؛ فقد تمكنا من كسب  ثقة ملايين العملاء في جميع أنحاء العالم. من خلال دعم أحدث المصانع المتقدمة وفريق من الباحثين المهرة، ونحن نواصل بناء هدفنا المتمثل في جعل العالم مكاناً أفضل وأكثر إشراقاً.`,
+    },
+    "a0700edd-f810-4d32-a628-b7c67972c5db": {
+        [Language.English]: `Get In Touch With Us`,
+        [Language.Hindi]: `تواصل معنا`,
+    },
+    "38c490a1-bee1-4081-a32f-2837ebbfecab": {
+        [Language.English]: `Our customer support is available Monday to Friday: 8am-6:00pm. Average answer time: 24h`,
+        [Language.Hindi]: `دعم عملائنا متاح من الاثنين إلى الجمعة: من الساعة ٨ صباحاً حتى الساعة ٦ مساءً. الوقت المتوقع للاستجابة خلال: ٢٤ ساعة`,
+    },
+    "e9af9941-5944-4105-a9dd-9de72308536a": {
+        [Language.English]: `Leading Energy Solutions To Energize The World`,
+        [Language.Hindi]: `لتنشيط العالم حلول الطاقة الرائدة`,
+    },
+    "d2f9f210-6beb-4cf9-87b2-5cd8c5d5d66d": {
+        [Language.English]: `35+`,
+        [Language.Hindi]: `35+`,
+    },
+    "61565ab8-f715-495d-9029-09eb1426a986": {
+        [Language.English]: `Years of legacy`,
+        [Language.Hindi]: `سنة من الخبرة`,
+    },
+    "0c8bad55-25e9-479e-8714-21a3feb0abac": {
+        [Language.English]: `35+`,
+        [Language.Hindi]: `35+`,
+    },
+    "15b52a40-b4e0-4044-a74b-998f658de179": {
+        [Language.English]: `Countries and Counting`,
+        [Language.Hindi]: `تواجد في أكثر من دولة`,
+    },
+    "f27f64b7-f12d-4a10-9ad6-cf0ed54bcc9a": {
+        [Language.English]: `200 Mn+`,
+        [Language.Hindi]: `200M+`,
+    },
+    "c4f0437e-3d91-4f49-81f2-6ecdab6c94d3": {
+        [Language.English]: `Channel Partners`,
+        [Language.Hindi]: `أكثر من مليون شريك`,
+    },
+    "08c13aeb-9558-4fe6-a6d2-9cc12c7f62bb": {
+        [Language.English]: `Explore Our Categories`,
+        [Language.Hindi]: `تعرف على فئاتنا`,
+    },
+    "c9264ed3-d08a-4c9a-9de2-604105e8fb83": {
+        [Language.English]: `Featured Products`,
+        [Language.Hindi]: `المنتجات المميزة`,
+    },
+    "5a2cf17f-40da-4f67-8fe0-8d08d7401f1c": {
+        [Language.English]: `All Featured Products`,
+        [Language.Hindi]: `?????`,
+    },
+    "89e965e6-e1cd-4494-acca-539e38484973": {
+        [Language.English]: `Batteries`,
+        [Language.Hindi]: `البطاريات`,
+    },
+    "6a54a900-6176-454c-9ef6-d9025fee97c9": {
+        [Language.English]: `Inverter Batteries`,
+        [Language.Hindi]: `بطاريات للمحولات`,
+    },
+    "db1db71c-a35e-45d6-9a7d-8035c009f5ec": {
+        [Language.English]: `Solar`,
+        [Language.Hindi]: `شمسي`,
+    },
+    "c64a5e9d-ba14-41ff-9925-bda948a97c97": {
+        [Language.English]: `Solar Batteries`,
+        [Language.Hindi]: `بطاريات الطاقة الشمسية`,
+    },
+    "50420609-5320-4ac3-8157-0f8397a29900": {
+        [Language.English]: `Download Catalogue`,
+        [Language.Hindi]: `تنزيل دليل المستخدم`,
+    },
+    "7304b064-f70b-4ff8-8fd5-4c9dcf994143": {
+        [Language.English]: `Download Catalogue for Batteries`,
+        [Language.Hindi]: `تنزيل كتالوج البطاريات`,
+    },
+    "51d64204-748f-4791-86c1-be0258c896ef": {
+        [Language.English]: `Download Catalogue for Solar`,
+        [Language.Hindi]: `تحميل كتالوج للطاقة الشمسية`,
+    },
+    "b6fd32e9-4eaa-4f00-9b37-99c4c6959e22": {
+        [Language.English]: "Show Less",
+        [Language.Hindi]: `تظهر أقل`,
+    },
+    "04dea09c-912e-4573-9a7f-7f13ebd0d8f2": {
+        [Language.English]: `View All Products`,
+        [Language.Hindi]: `عرض جميع المنتجات`,
+    },
+    "edf58613-1a70-43ea-abaa-5bc822f90ced": {
+        [Language.English]: "City",
+        [Language.Hindi]: `المدينة`,
+    },
+    "9ff2ffc9-633e-482a-b720-c015f9c4aea4": {
+        [Language.English]: "Please enter city",
+        [Language.Hindi]: `أدخل المدينة`,
+    },
+    "0819dd0a-c836-4176-a121-888513e3bc8a": {
+        [Language.English]: "Zip Code",
+        [Language.Hindi]: `الرمز البريدي`,
+    },
+    "4c2ec5ee-e69d-477a-a882-cf4e3254a6e0": {
+        [Language.English]: "Please enter zip code",
+        [Language.Hindi]: `أدخل الرمز البريدي`,
+    },
+    "bf76b096-bc3b-4739-827f-71fa327931d6": {
+        [Language.English]: "Customer Care: ",
+        [Language.Hindi]: `خدمة العملاء`,
+    },
+    "e4352ec6-972a-46ff-85e6-a00de81e8d6d": {
+        [Language.English]: "Featured Products",
+        [Language.Hindi]: `المنتجات المميزة`,
+    },
+    "330a7f15-0687-4c44-bd72-a6e065e68a76": {
+        [Language.English]: "Batteries",
+        [Language.Hindi]: `البطاريات`,
+    },
+    "972bdd2f-5007-4e40-be0f-c7ab8e22caf5": {
+        [Language.English]: "Solar",
+        [Language.Hindi]: `شمسي`,
+    },
+    "58ba11d4-9639-4ae9-b701-b99e4122c7a6": {
+        [Language.English]: "Get in touch with us",
+        [Language.Hindi]: `تواصل معنا`,
+    },
+    "50cc12a0-8bca-46cd-ae1e-37aa23b7cc5c": {
+        [Language.English]: `Download Info`,
+        [Language.Hindi]: `?????`,
+    },
+    "4dbd6d59-b14a-43e7-968a-04b44513e509": {
+        [Language.English]: `Talk to us on a quick call`,
+        [Language.Hindi]: `تواصل معنا عبر مكالمة سريعة`,
+    },
+    "310ebdda-7d6d-4ff3-bdab-d8be5722b5f3": {
+        [Language.English]: "Call Us",
+        [Language.Hindi]: "اتصل بنا",
+    },
+    "e120af86-fd42-46cf-9c34-9862535fc3e4": {
+        [Language.English]: "Drop us an Email with your concern",
+        [Language.Hindi]: "للاستفسارات عبر البريد الالكتروني",
+    },
+    "4d277726-1e3a-48af-9dc8-55d2cae52861": {
+        [Language.English]: "Email Us",
+        [Language.Hindi]: "تواصل معنا عبر البريد الالكتروني",
+    },
+    "abc9495a-14d2-4c15-91ea-603c413935c8": {
+        [Language.English]: "Service",
+        [Language.Hindi]: "الخدمة",
+    },
+    "ca8542ad-35b6-46bc-bb66-6f133efda660": {
+        [Language.English]: `Name`,
+        [Language.Hindi]: `الاسم`,
+    },
+    "d2147fbf-37be-4867-b05a-5d955232d4ae": {
+        [Language.English]: `Enter Your Name`,
+        [Language.Hindi]: `الرجاء إدخال الاسم`,
+    },
+    "a7dca451-3b2d-4c5a-a3f0-60d50765e7ae": {
+        [Language.English]: `Phone Number`,
+        [Language.Hindi]: `رقم الهاتف`,
+    },
+    "4cc79e16-057f-4d9a-a485-5ede1ac4bec6": {
+        [Language.English]: `Enter Your Contact Number`,
+        [Language.Hindi]: `الرجاء إدخال رقم الهاتف المحمول`,
+    },
+    "03692181-3b16-4c29-a125-37832d186f8b": {
+        [Language.English]: `Email`,
+        [Language.Hindi]: `البريد الإلكتروني`,
+    },
 
+    "ab22c1ba-35c8-4435-8d2a-1d978582abc8": {
+        [Language.English]: `Enter Your E-mail `,
+        [Language.Hindi]: `الرجاء إدخال البريد الإلكتروني`,
+    },
+    "7fcce52e-a757-41ee-92e7-d6e54fc3d8a9": {
+        [Language.English]: `Required Battery Quantity`,
+        [Language.Hindi]: `?????`,
+    },
+    "a6eb5ef2-e65b-4d52-ba90-e07f86b7390e": {
+        [Language.English]: `Select Quantity`,
+        [Language.Hindi]: `?????`,
+    },
+    "bb6ae191-31a7-4cdc-8654-f1f4c3c9f4f5": {
+        [Language.English]: `I accept the terms of use & Privacy policy`,
+        [Language.Hindi]: `أوافق على شروط الاستخدام وسياسة الخصوصية`,
+    },
+    "779190ac-85b3-4bb2-b02a-bd3932455bf1": {
+        [Language.English]: `Submit`,
+        [Language.Hindi]: `إرسال`,
+    },
+    "e64854e3-77ba-4364-96f9-3731e77a888d": {
+        [Language.English]: `Enter Your Email To Subscribe`,
+        [Language.Hindi]: `للاشتراك: أدخل بريدك الإلكتروني`,
+    },
+    "6704bb3c-9278-4dc5-b945-d2fa6d625b60": {
+        [Language.English]: `Be the first to find out about new stories & latest offers!`,
+        [Language.Hindi]: `كن أول من يكتشف القصص الجديدة وأحدث العروض!`,
+    },
+    "d95cf021-4361-4855-b77f-fdaf49848385": {
+        [Language.English]: "Service",
+        [Language.Hindi]: "الخدمة",
+    },
+    "6c5ae599-d51b-4089-92f7-ccfad1cd6f92": {
+        [Language.English]: `Thank You!`,
+        [Language.Hindi]: `شكراً لك`,
+    },
+    "c5e3ae47-a9e3-49b1-a414-2bd6d2d5737c": {
+        [Language.English]: `We have received your details, you'll receive a call from our team soon.`,
+        [Language.Hindi]: `شكراً لمشاركتنا تفاصيلك، ستتلقى اتصالاً من فريقنا قريباً.`,
+    },
+    "5389e85c-776b-4979-86df-1b323b6ca815": {
+        [Language.English]: `Till then, show some love to our social handles!`,
+        [Language.Hindi]: `???`,
+    },
+
+    internationalProductsIt200exttCapacity: {
+        [Language.English]: `200AH @ C20`,
+        [Language.Hindi]: `200AH @ C20`,
+    },
+    internationalProductsIt200exttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt230exttCapacity: {
+        [Language.English]: `230AH @ C20`,
+        [Language.Hindi]: `230AH @ C20`,
+    },
+    internationalProductsIt230exttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt260exttCapacity: {
+        [Language.English]: `260AH @ C20`,
+        [Language.Hindi]: `260AH @ C20`,
+    },
+    internationalProductsIt260exttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt180exttCapacity: {
+        [Language.English]: `180AH @ C20`,
+        [Language.Hindi]: `180AH @ C20`,
+    },
+    internationalProductsIt180exttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt160exttCapacity: {
+        [Language.English]: `160AH @ C20`,
+        [Language.Hindi]: `160AH @ C20`,
+    },
+    internationalProductsIt160exttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt150exttCapacity: {
+        [Language.English]: `150AH @ C20`,
+        [Language.Hindi]: `150AH @ C20`,
+    },
+    internationalProductsIt150exttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt110exsttCapacity: {
+        [Language.English]: `110AH @ C20`,
+        [Language.Hindi]: `110AH @ C20`,
+    },
+    internationalProductsIt110exsttWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsIt100exstCapacity: {
+        [Language.English]: `100AH @ C20`,
+        [Language.Hindi]: `100AH @ C20`,
+    },
+    internationalProductsIt100exstWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsLs18060pttexCapacity: {
+        [Language.English]: `180AH @ C10`,
+        [Language.Hindi]: `180AH @ C10`,
+    },
+    internationalProductsLs18060pttexWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsLs20060ttexCapacity: {
+        [Language.English]: `200AH @ C10`,
+        [Language.Hindi]: `200AH @ C10`,
+    },
+    internationalProductsLs20060ttexWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+    internationalProductsLs24060ttexCapacity: {
+        [Language.English]: `240AH @ C10`,
+        [Language.Hindi]: `240AH @ C10`,
+    },
+    internationalProductsLs24060ttexWarranty: {
+        [Language.English]: `24 Months Warranty`,
+        [Language.Hindi]: `24 كفالة لعدة أشهر`,
+    },
+
+    "cc92d2f4-4884-4d08-bd15-9ed54eaf1e4d": {
+        [Language.English]: `Contact Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "f396f200-9afb-4408-85c2-fe7ed011e288": {
+        [Language.English]: `Global Reach`,
+        [Language.Hindi]: `?????`,
+    },
+    "3646d35c-629c-47af-902a-5ccc2941a5e5": {
+        [Language.English]: `Privacy Policy`,
+        [Language.Hindi]: `?????`,
+    },
+    "586b03b6-cd5a-4e80-88ac-ae3cdabc170c": {
+        [Language.English]: `About Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "41d5c04e-ff29-4bfc-8082-b2245a96dd7a": {
+        [Language.English]: `E-Waste Management`,
+        [Language.Hindi]: `?????`,
+    },
+    "70e9b582-ab5a-492a-a426-5552a796bc6d": {
+        [Language.English]: `CSR`,
+        [Language.Hindi]: `?????`,
+    },
+    "35fe95ed-b847-4ac1-a6f6-5878d1a183ea": {
+        [Language.English]: `Investor`,
+        [Language.Hindi]: `?????`,
+    },
+    "4293e069-961d-471a-b759-b506e1fa1d6b": {
+        [Language.English]: `Governance`,
+        [Language.Hindi]: `?????`,
+    },
+    "13a52500-50ab-4649-9811-a670bc78df8a": {
+        [Language.English]: `E-Waste Management`,
+        [Language.Hindi]: `?????`,
+    },
+    "501d17d3-de19-4710-9597-67c48bfdd52c": {
+        [Language.English]: `© Livguard `,
+        [Language.Hindi]: `?????`,
+    },
+    "ceb7cbb7-9f86-48fa-9781-e5b5c17f2c69": {
+        [Language.English]: `. All Rights Reserved`,
+        [Language.Hindi]: `?????`,
+    },
     //About Us Page Vernac Strings End
+
+    // Battery finder
+    "454f7c18-bc20-49a9-a1f8-273420f2679b": {
+        [Language.English]: `Choose Your Vehicle`,
+        [Language.Hindi]: `?????`,
+    },
+    "4ca84917-22f8-40be-acfe-4b3fca449539": {
+        [Language.English]: `2 Wheeler`,
+        [Language.Hindi]: `?????`,
+    },
+    "418de152-95ee-488d-b491-a86293219636": {
+        [Language.English]: `3 Wheeler`,
+        [Language.Hindi]: `?????`,
+    },
+    "9f009968-050d-4d5b-84bd-6396fb16b925": {
+        [Language.English]: `Bus and Truck`,
+        [Language.Hindi]: `?????`,
+    },
+    "669014e9-bd1e-4e30-ab8a-64c3900b7d51": {
+        [Language.English]: `Tractor`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea72fad1-6f0f-48bd-ba19-65be3fae44f1": {
+        [Language.English]: `Car and SUV`,
+        [Language.Hindi]: `?????`,
+    },
+    "dc5a454d-ec59-48fd-a3e9-f834038d7cdb": {
+        [Language.English]: `E-Rikshaw`,
+        [Language.Hindi]: `?????`,
+    },
+    "18953b2c-d9bf-4992-bcbd-903f9c78c0e7": {
+        [Language.English]: `Select Brand`,
+        [Language.Hindi]: `?????`,
+    },
+    "4990cdb1-9ee8-44d0-876f-3a668f2e7f9b": {
+        [Language.English]: `Select Model`,
+        [Language.Hindi]: `?????`,
+    },
+    "e2131e40-08cc-401d-958c-46baa3fa8642": {
+        [Language.English]: `Select Fuel Type`,
+        [Language.Hindi]: `?????`,
+    },
+    "112996e0-2850-4283-af77-7514a386d172": {
+        [Language.English]: `Find Ideal Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "d11295cc-c71b-40d3-b0c3-6dfb96473a3a": {
+        [Language.English]: `Know In Detail About`,
+        [Language.Hindi]: `?????`,
+    },
+    "7738908b-a43c-4ef9-8bb7-1f0d44e60899": {
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep two wheelers running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the two wheeler, Livguard proudly supports India's agricultural sector with reliable, high-performing two wheeler batteries.`,
+        [Language.Hindi]: `?????`,
+    },
+    "f6d0539b-16df-443a-af9c-2ae6f79765a4": {
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep three wheelers running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the three wheeler, Livguard proudly supports India's agricultural sector with reliable, high-performing three wheeler batteries.`,
+        [Language.Hindi]: `?????`,
+    },
+    "c635c871-90ac-480c-83d3-8032728f3059": {
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep buses and trucks running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the bus and truck, Livguard proudly supports India's agricultural sector with reliable, high-performing bus and truck batteries.`,
+        [Language.Hindi]: `?????`,
+    },
+    "171cb335-6ec4-44d1-a289-b0b231024c0b": {
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep tractors running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the tractor, Livguard proudly supports India's agricultural sector with reliable, high-performing tractor batteries.`,
+        [Language.Hindi]: `?????`,
+    },
+    "6dd9224e-2bae-425d-8687-767059c99732": {
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep cars and SUVs running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the car and SUV, Livguard proudly supports India's agricultural sector with reliable, high-performing car and SUV batteries.`,
+        [Language.Hindi]: `?????`,
+    },
+    "be93e4e6-cf77-4b1a-a418-5b22214fbaf6": {
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep E-Rikshaws running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the E-Rikshaw, Livguard proudly supports India's agricultural sector with reliable, high-performing E-Rikshaw batteries.`,
+        [Language.Hindi]: `?????`,
+    },
+    "8b6be5de-9c57-461a-8ec5-106f29eccaca": {
+        [Language.English]: `Know More`,
+        [Language.Hindi]: `?????`,
+    },
+    // /Battery finder
+    // Video gallery
+    "4ee70b17-b4be-4c8a-8c87-b12f9b26373f": {
+        [Language.English]: `Video Gallery`,
+        [Language.Hindi]: `?????`,
+    },
+    "c33cf682-8be6-4efe-a683-2f56c8e9b860": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Video Gallery</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    // /Video gallery
 
     //HKVA Vernac Strings Start
     "1333b617-c9a4-4b8c-b6ae-652d2b17c58b": {

@@ -1,14 +1,14 @@
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {FullWidthImage} from "../images/fullWidthImage";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getMetadataForImage} from "~/utilities";
-import {CarouselStyle4} from "../carouselStyle4";
 import {ProductType} from "~/productData";
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {Link} from "@remix-run/react";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {CarouselStyle4} from "~/components/carouselStyle4";
 
 export function SubCategoryProductsInternal({
     userPreferences,

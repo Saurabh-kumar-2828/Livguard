@@ -4,7 +4,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
-import {FullWidthImage} from "./images/fullWidthImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 
 export function CarouselStyle7({
     items,

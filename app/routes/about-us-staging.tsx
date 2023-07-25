@@ -502,7 +502,7 @@ function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPrefe
 
                     <VerticalSpacer className="tw-h-1" />
 
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
+                    <div className="tw-z-10 lg-text-title2 tw-text-center">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
 
                     {showCtaButton && (
                         <>

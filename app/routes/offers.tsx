@@ -146,6 +146,7 @@ function OffersPage({
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
+                    // TODO: Why do we have a max-h here?
                     className="tw-row-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem] lg:tw-max-h-[36rem] lg:tw-self-start"
                 />
 

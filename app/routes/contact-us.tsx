@@ -1,16 +1,15 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {ActionFunction, LinksFunction, MetaFunction, LoaderFunction, json} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {json} from "@remix-run/node";
 import {Form, Link, useActionData} from "@remix-run/react";
-import React, {useEffect} from "react";
-import {useState} from "react";
-import {Envelope, StarFill, Telephone, Whatsapp, X} from "react-bootstrap-icons";
+import React, {useEffect, useState} from "react";
+import {StarFill, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {insertContactFormLeads} from "~/backend/dealer.server";
-import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {SocialMediaIcons} from "~/components/footerComponent";
+import {SocialMediaIcons} from "~/components/footers/common";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -20,7 +19,6 @@ import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilit
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -63,8 +61,6 @@ export type ActionData = {
 export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~ inside action data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
     const name = safeParse(getStringFromUnknown, body.get("name"));
     const emailId = safeParse(getStringFromUnknown, body.get("emailId"));
     const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
@@ -98,7 +94,6 @@ export const action: ActionFunction = async ({request, params}) => {
         details == null ||
         complaintType == null
     ) {
-        console.log("ABCDDDDDDDDD");
         const actionData: ActionData = {
             error: "Inputs can't be null! Error code: 2dc8402e-24b3-4a7e-9024-64cc9ba14ad4",
             formType: null,
@@ -648,7 +643,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 </div>
 
                                 <div className="tw-row-start-3 tw-grid tw-grid-rows-[auto_1rem_auto] tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,max-content)_1rem_minmax(0,max-content)]">
-                                    <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
+                                    <div className="tw-col-start-1 tw-row-start-1 tw-grid tw-grid-cols-[auto_0.5rem_auto] tw-max-w-fit tw-items-center">
                                         <input
                                             type="radio"
                                             id="product"
@@ -665,7 +660,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
 
                                     {/* <VerticalSpacer className="tw-h-1 tw-row-start-2 lg:tw-hidden" /> */}
 
-                                    <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-cols-[auto_.5rem_auto] tw-max-w-fit tw-items-center">
+                                    <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-cols-[auto_0.5rem_auto] tw-max-w-fit tw-items-center">
                                         <input
                                             type="radio"
                                             id="service"
@@ -1154,7 +1149,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                         />
                     </div>
 
-                    <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_.5rem_minmax(0,1fr)_.5rem_auto]">
+                    <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto]">
                         <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option1Heading", userPreferences.language)}</div>
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option1Text", userPreferences.language)}</div>
@@ -1177,7 +1172,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                         />
                     </div>
 
-                    <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_.5rem_minmax(0,1fr)_.5rem_auto]">
+                    <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto]">
                         <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option2Heading", userPreferences.language)}</div>
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option2Text", userPreferences.language)}</div>

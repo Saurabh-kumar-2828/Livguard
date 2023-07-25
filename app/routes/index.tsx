@@ -42,6 +42,7 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
+            // TODO: This contains a space, hindi version does not. Why?
             title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
             description: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
             "og:title": "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
@@ -278,7 +279,7 @@ function HomePage({
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
         </div>
     );
@@ -918,7 +919,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
 
                     <VerticalSpacer className="tw-h-1" />
 
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("homeS10T2", userPreferences.language)}</div>
+                    <div className="tw-z-10 lg-text-title2 tw-text-center">{getVernacularString("homeS10T2", userPreferences.language)}</div>
 
                     {showCtaButton && (
                         <>

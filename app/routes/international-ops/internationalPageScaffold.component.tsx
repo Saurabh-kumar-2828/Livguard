@@ -1,8 +1,9 @@
-import {CampaignFooterComponent} from "~/components/footers/campaignFooterComponent";
-import {HeaderComponent} from "~/components/headerComponent";
+import {InternationalBusinessFooterComponent} from "~/components/footers/internationalBusinessFooterComponent";
+import {InternationalBusinessHeaderComponent} from "~/routes/international-ops/internationalBusinessHeaderComponent";
 import type {UserPreferences} from "~/typeDefinitions";
+import {getVernacularString} from "~/vernacularProvider";
 
-export function CampaignPageScaffold({
+export function InternationalPageScaffold({
     userPreferences,
     children,
     redirectTo,
@@ -12,6 +13,8 @@ export function CampaignPageScaffold({
     showContactCtaButton,
     showSearchOption,
     pageUrl,
+    productCategories,
+    scrollToProductCategory,
 }: {
     userPreferences: UserPreferences;
     children: any;
@@ -24,18 +27,17 @@ export function CampaignPageScaffold({
     showContactCtaButton: boolean;
     showSearchOption: boolean;
     pageUrl: string;
+    productCategories: Array<string>;
+    scrollToProductCategory: (categoryIndex: number, subCategoryIndex: number) => void;
 }) {
+    const currentYear = new Date().getFullYear();
     return (
         <>
             {/* tw-grid tw-grid-rows-[auto_1fr_auto] tw-grid-flow-col tw-min-h-screen */}
             <div className="tw-flex tw-flex-col tw-items-stretch tw-min-h-screen">
-                <HeaderComponent
+                <InternationalBusinessHeaderComponent
                     userPreferences={userPreferences}
                     redirectTo={redirectTo}
-                    showMobileMenuIcon={showMobileMenuIcon}
-                    showSearchOption={showSearchOption}
-                    showContactCtaButton={showContactCtaButton}
-                    showContactDetails={false}
                     pageUrl={pageUrl}
                 />
 
@@ -44,17 +46,25 @@ export function CampaignPageScaffold({
 
                 {/* <VerticalSpacer className="tw-h-[5rem] lg:tw-h-[10rem]" /> */}
 
-                <CampaignFooterComponent
-                    utmParameters={utmParameters}
+                <InternationalBusinessFooterComponent
                     userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    productCategories={productCategories}
+                    scrollToProductCategory={scrollToProductCategory}
                 />
+
+                <div className="tw-text-center lg:tw-text-left tw-py-6 lg:tw-pl-[4.5rem] tw-bg-[#f2f2f2] dark:tw-bg-secondary-100-dark">
+                    {getVernacularString("501d17d3-de19-4710-9597-67c48bfdd52c", userPreferences.language)}
+                    {currentYear}
+                    {getVernacularString("ceb7cbb7-9f86-48fa-9781-e5b5c17f2c69", userPreferences.language)}
+                </div>
 
                 {/* <FooterComponent
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}
                 /> */}
 
-                {/* Suppress Haptik on campaign pages */}
+                {/* Suppress Haptik on international pages */}
                 <style
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -72,7 +82,7 @@ export function CampaignPageScaffold({
                     `,
                     }}
                 />
-                {/* /Suppress Haptik on campaign pages */}
+                {/* /Suppress Haptik on international pages */}
             </div>
         </>
     );

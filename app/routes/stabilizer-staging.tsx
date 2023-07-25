@@ -618,6 +618,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                 <VerticalSpacer className="tw-h-2" />
 
                 <div className="tw-grid tw-auto-rows-auto tw-grid-cols-[minmax(auto,1fr)_minmax(auto,1fr)] tw-gap-4 lg-px-screen-edge-2 lg:tw-flex lg:tw-flex-row lg:tw-justify-center">
+                    {/* TODO: Replace with ButtonWithIconAndText */}
                     {typeSelectorButtonsContent.map((typeSelector, typeSelectorIndex) => {
                         const isSelected = selectedStabilizerType === typeSelectorIndex;
                         return (
@@ -691,7 +692,7 @@ function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPrefe
 
                     <VerticalSpacer className="tw-h-1" />
 
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
+                    <div className="tw-z-10 lg-text-title2 tw-text-center">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
 
                     {showCtaButton && (
                         <>

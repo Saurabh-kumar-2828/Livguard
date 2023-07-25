@@ -3,7 +3,7 @@ import {CoverImageInternal} from "~/global-common-typescript/components/images/c
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {getMetadataForImage} from "~/utilities";
 
-export function CoverImage({relativePath, className, loading}: {relativePath: string; className?: string, loading?: "eager" | "lazy"}) {
+export function CoverImage({relativePath, className, loading, imageClassName}: {relativePath: string; className?: string; loading?: "eager" | "lazy"; imageClassName?: string}) {
     const websiteConfiguration = useContext(WebsiteConfigurationContext);
 
     const imageMetadata = getMetadataForImage(relativePath);
@@ -15,6 +15,7 @@ export function CoverImage({relativePath, className, loading}: {relativePath: st
             loading={loading}
             imageMetadata={imageMetadata}
             imageCdnProvider={websiteConfiguration.imageCdnProvider}
+            imageClassName={imageClassName}
         />
     );
 }

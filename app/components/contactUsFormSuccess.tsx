@@ -27,7 +27,7 @@ export function ContactFormSuccess({userPreferences, className}: {userPreference
             <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
             <DefaultElementAnimation>
-                <div className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[5rem_minmax(0,fit-content)_.5rem_minmax(0,fit-content_.5rem_minmax(0,fit-content_.5rem_minmax(0,fit-content_2rem] tw-overflow-hidden tw-relative">
+                <div className="tw-w-full tw-rounded-lg tw-grid tw-grid-rows-[5rem_minmax(0,fit-content)_0.5rem_minmax(0,fit-content_0.5rem_minmax(0,fit-content_0.5rem_minmax(0,fit-content_2rem] tw-overflow-hidden tw-relative">
                     <div
                         className="tw-absolute -tw-top-4 tw-left-0 tw-right-0 lg-lead-form-top-gradient tw-h-[4rem] tw-z-10"
                         style={{clipPath: "ellipse(50% 100% at 50% 0%)"}}

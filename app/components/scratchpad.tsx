@@ -1,51 +1,63 @@
 import {Combobox, Transition} from "@headlessui/react";
 import {CheckIcon, ChevronUpDownIcon} from "@heroicons/react/20/solid";
-import React from "react";
+import React, {useRef} from "react";
 import {useState} from "react";
 import {ChevronDown, RecordCircle} from "react-bootstrap-icons";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {UserPreferences} from "~/typeDefinitions";
+import {getVernacularString} from "~/vernacularProvider";
 
-// ; placeholder: string; onChange: (newValue: any) => void; datastore
-
-// export function FancySearchableSelect<T>({
 export function FancySearchableSelect<T extends string>({
-    options,
-    selected,
-    setSelected,
-    // primaryAttribute,
-    query,
-    setQuery,
+    items,
+    selectedItem,
+    setSelectedItem,
+    filterFunction,
+    renderFunction,
+    placeholder,
     className,
 }: {
-    options: Array<T>;
-    selected: T;
-    setSelected: React.Dispatch<T>;
-    // primaryAttribute: string;
-    query: string;
-    setQuery: React.Dispatch<string>;
+    items: Array<T>;
+    selectedItem: T | null;
+    setSelectedItem: React.Dispatch<T | null>;
+    filterFunction: (items: Array<T>, query: string) => Array<T>;
+    renderFunction: (item: T) => string;
+    placeholder: string;
     className?: string;
 }) {
-    // const filteredOptions = query == "" ? options : options.filter((option) => option[primaryAttribute].toLowerCase().replace(/\s+/g, "").includes(query.toLowerCase().replace(/\s+/g, "")));
-    const filteredOptions = query == "" ? options : options.filter((option) => option.toLowerCase().replace(/\s+/g, "").includes(query.toLowerCase().replace(/\s+/g, "")));
+    const [query, setQuery] = useState("");
+    // const [isOpen, setIsOpen] = useState(false);
+
+    const filteredItems = query == "" ? items : filterFunction(items, query);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-top-16 tw-w-72 tw-z-10", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full", className)}>
             <Combobox
-                value={selected}
-                onChange={setSelected}
+                value={selectedItem}
+                onChange={setSelectedItem}
             >
-                <div className="tw-relative tw-mt-1">
-                    <div className="tw-relative tw-w-full tw-cursor-default tw-overflow-hidden tw-rounded-lg tw-bg-white tw-text-left tw-shadow-md focus:tw-outline-none focus-visible:tw-ring-2 focus-visible:tw-ring-white focus-visible:tw-ring-opacity-75 focus-visible:tw-ring-offset-2 focus-visible:tw-ring-offset-teal-300 sm:tw-text-sm">
+                <div className="tw-relative">
+                    <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_2.875rem]">
                         <Combobox.Input
-                            className="tw-w-full tw-border-none tw-py-2 tw-pl-3 tw-pr-10 tw-text-sm tw-leading-5 tw-text-gray-900 focus:tw-ring-0"
-                            displayValue={(option) => option}
-                            onChange={(event) => setQuery(event.target.value)}
+                            className="tw-row-start-1 tw-col-start-1 tw-col-span-2 lg-text-input tw-w-full"
+                            displayValue={renderFunction}
+                            placeholder={placeholder}
+                            onChange={(event) => {
+                                setQuery(event.target.value);
+                                // setIsOpen(true);
+                            }}
+                            // onFocus={() => {
+                            //     setIsOpen(true);
+                            // }}
+                            // onBlur={() => {
+                            //     setIsOpen(false);
+                            // }}
                         />
-                        <Combobox.Button className="tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2">
-                            <ChevronUpDownIcon
-                                className="tw-h-5 tw-w-5 tw-text-gray-400"
-                                aria-hidden="true"
-                            />
+
+                        <Combobox.Button
+                            className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center"
+                        >
+                            <ChevronUpDownIcon className="tw-h-4 tw-w-4" />
                         </Combobox.Button>
                     </div>
 
@@ -56,19 +68,24 @@ export function FancySearchableSelect<T extends string>({
                         leaveTo="tw-opacity-0"
                         afterLeave={() => setQuery("")}
                     >
-                        <Combobox.Options className="tw-absolute tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm">
-                            {filteredOptions.length == 0 && query != "" ? (
+                        <Combobox.Options
+                            // static={isOpen}
+                            className="tw-absolute tw-z-40 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm"
+                        >
+                            {filteredItems.length == 0 && query != "" ? (
                                 <div className="tw-relative tw-cursor-default tw-select-none tw-py-2 tw-px-4 tw-text-gray-700">Nothing found.</div>
                             ) : (
-                                filteredOptions.map((option, optionIndex) => (
+                                filteredItems.map((item, itemIndex) => (
                                     <Combobox.Option
-                                        key={optionIndex}
-                                        className={({active}) => `tw-relative tw-cursor-default tw-select-none tw-py-2 tw-pl-10 tw-pr-4 ${active ? "tw-bg-teal-600 tw-text-white" : "tw-text-gray-900"}`}
-                                        value={option}
+                                        key={itemIndex}
+                                        className={({active}) =>
+                                            `tw-relative tw-cursor-default tw-select-none tw-py-2 tw-pl-10 tw-pr-4 ${active ? "tw-bg-teal-600 tw-text-white" : "tw-text-gray-900"}`
+                                        }
+                                        value={item}
                                     >
                                         {({selected, active}) => (
                                             <>
-                                                <span className={`tw-block tw-truncate ${selected ? "tw-font-medium" : "tw-font-normal"}`}>{option}</span>
+                                                <span className={`tw-block tw-truncate ${selected ? "tw-font-medium" : "tw-font-normal"}`}>{renderFunction(item)}</span>
                                                 {selected ? (
                                                     <span className={`tw-absolute tw-inset-y-0 tw-left-0 tw-flex tw-items-center tw-pl-3 ${active ? "tw-text-white" : "tw-text-teal-600"}`}>
                                                         <CheckIcon
@@ -163,4 +180,45 @@ export function FancySearchableSelect<T extends string>({
     //         </ul>
     //     </div>
     // );
+}
+
+export function ButtonWithIconAndText({
+    isSelected,
+    iconRelativePath,
+    onClick,
+    contentId,
+    userPreferences,
+}: {
+    isSelected: boolean;
+    iconRelativePath: string;
+    onClick: () => void;
+    contentId: string;
+    userPreferences: UserPreferences;
+}) {
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-place-items-center tw-rounded-lg tw-py-2 tw-transition-colors tw-duration-200 tw-cursor-pointer",
+                isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+            )}
+            onClick={onClick}
+        >
+            <div
+                className={concatenateNonNullStringsWithSpaces(
+                    "tw-col-start-2 tw-w-[2rem] tw-h-[2rem] tw-rounded-full tw-flex tw-flex-row tw-justify-center tw-items-center tw-shadow-[0px_4px_4px_0px_#00000040]",
+                    isSelected ? "tw-bg-white" : "tw-bg-secondary-500-light",
+                )}
+            >
+                <img
+                    className={isSelected ? "tw-invert" : ""}
+                    src={iconRelativePath}
+                />
+            </div>
+
+            <div
+                className={`tw-col-start-4 ${isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}
+                dangerouslySetInnerHTML={{__html: getVernacularString(contentId, userPreferences.language)}}
+            />
+        </div>
+    );
 }

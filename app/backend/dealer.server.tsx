@@ -496,7 +496,7 @@ export async function getDealersForHaptik(latitude: number, longitude: number): 
         return result;
     }
 
-    return result.rows.map(row => rowToDealerForHaptik(row));
+    return result.rows.map((row) => rowToDealerForHaptik(row));
 }
 
 function rowToDealerForHaptik(row: unknown): DealerForHaptik {
@@ -509,4 +509,28 @@ function rowToDealerForHaptik(row: unknown): DealerForHaptik {
     };
 
     return dealerForHaptik;
+}
+
+export async function insertInternationalPageLeads(leadId: string, formResponse: any): Promise<void | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            INSERT INTO
+                livguard.international_page_leads
+            VALUES(
+                $1,
+                $2,
+                $3
+            )
+        `,
+        [leadId, getCurrentIsoTimestamp(), formResponse],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
 }
