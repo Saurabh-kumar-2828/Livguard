@@ -3,7 +3,7 @@ import {Language} from "~/typeDefinitions";
 export const enum ProductType {
     inverter = 0,
     battery = 1,
-    jodi = 2,
+    combo = 2,
 }
 
 export type ProductDetails = {
@@ -11135,7 +11135,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
         },
     },
-    "urban-jodi": {
+    "urban-combo": {
         [Language.English]: {
             images: [
                 {
@@ -11148,9 +11148,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/urban-jodi/infographics/3.jpg",
                 },
             ],
-            title: "Livguard Inverter / Inverter Battery Jodi i-verter pro / INVERTUFF Sinewave / Short Tall Tubular 900 VA / 150 Ah with 3 year / 36+24 Month Warranty.",
+            title: "Livguard Inverter / Inverter Battery Combo i-verter pro / INVERTUFF Sinewave / Short Tall Tubular 900 VA / 150 Ah with 3 year / 36+24 Month Warranty.",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description: "Bring home the power of limitless energy with our amazingly curated Jodi combos. Made to perfectly match your needs efficiently.",
+            description: "Bring home the power of limitless energy with our amazingly curated combos. Made to perfectly match your needs efficiently.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
@@ -11223,7 +11223,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
+                description: "For your home, choose nothing but the best! With Livguard inverter and battery combo, unlock unlimited energy powered by amazing features",
                 images: [
                     {
                         image: "/livguard/products/jodis/urban-jodi/a-plus/1.jpg",
@@ -11270,10 +11270,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "Buy Livguard Inverter and Battery Urban Jodi Online",
-                description: "Livguard Urban Jodi comes with i-verter pro Sinewave 1500 VA Inverter and INVERTUFF Tall Tubular 150 Ah Battery Backed with Smart Artificial Intelligent Charging",
+                title: "Buy Livguard Inverter and Battery Urban Combo Online",
+                description: "Livguard Urban Combo comes with i-verter pro Sinewave 1500 VA Inverter and INVERTUFF Tall Tubular 150 Ah Battery Backed with Smart Artificial Intelligent Charging",
                 canonicalUrl: "",
                 schema: `
 
@@ -11292,9 +11292,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/urban-jodi/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी i-वर्टर प्रो / INVERTUFF साइनवेव / शोर्ट ट्यूबुलर  900 VA / 150 Ah 3 वर्ष / 36+24* महीने की वारंटी के साथ",
+            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी कॉम्बो i-वर्टर प्रो / INVERTUFF साइनवेव / शोर्ट ट्यूबुलर  900 VA / 150 Ah 3 वर्ष / 36+24* महीने की वारंटी के साथ",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description: "हमारे असीम कुशलता से तैयार किए गए जोड़ी कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
+            description: "हमारे असीम कुशलता से तैयार किए गए कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
@@ -11363,7 +11363,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
+                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
                         image: "/livguard/products/jodis/urban-jodi/a-plus/1.jpg",
@@ -11410,10 +11410,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी अर्बन जोड़ी ऑनलाइन",
-                description: "लिवगार्ड अर्बन जोड़ी, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर  और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह जोड़ी स्मार्ट ए आई चार्जिंग से युक्त है।",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी अर्बन कॉम्बो ऑनलाइन",
+                description: "लिवगार्ड अर्बन कॉम्बो, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर  और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह कॉम्बो स्मार्ट ए आई चार्जिंग से युक्त है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -11421,7 +11421,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
         },
     },
-    "peace-of-mind-jodi": {
+    "peace-of-mind-combo": {
         [Language.English]: {
             images: [
                 {
@@ -11434,9 +11434,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/3.jpg",
                 },
             ],
-            title: "Livguard Inverter / Inverter Battery Jodi i2-verter pro / INVERTUFF Square wave / Tall Tubular 1250 VA / 200 Ah with 3 year / 36+24 Month Warranty",
+            title: "Livguard Inverter / Inverter Battery Combo i2-verter pro / INVERTUFF Square wave / Tall Tubular 1250 VA / 200 Ah with 3 year / 36+24 Month Warranty",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description: "Bring home the power of limitless energy with our amazingly curated Jodi combos. Made to perfectly match your needs efficiently.",
+            description: "Bring home the power of limitless energy with our amazingly curated combos. Made to perfectly match your needs efficiently.",
             productIcons: [
                 {
                     icon: "/livguard/icons/waranty.png",
@@ -11509,7 +11509,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
+                description: "For your home, choose nothing but the best! With Livguard inverter and battery combo, unlock unlimited energy powered by amazing features",
                 images: [
                     {
                         image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1.jpg",
@@ -11556,10 +11556,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "Buy Livguard Inverter and battery peace of mind jodi online",
-                description: "Livguard Peace of mind Jodi comes with an i2-verter pro Square wave 1250 VA Inverter and  INVERTUFF  Tall Tubular 200 Ah Battery",
+                title: "Buy Livguard Inverter and battery peace of mind combo online",
+                description: "Livguard Peace of mind Combo comes with an i2-verter pro Square wave 1250 VA Inverter and  INVERTUFF  Tall Tubular 200 Ah Battery",
                 canonicalUrl: "",
                 schema: `
 
@@ -11578,9 +11578,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/peace-of-mind-jodi/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी i2-वर्टर प्रो / INVERTUFF स्क्वायर वेव / टॉल ट्यूबलर 1250 VA / 200 Ah 3 वर्ष / 36+24* महीने की वारंटी के साथ",
+            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी कॉम्बो i2-वर्टर प्रो / INVERTUFF स्क्वायर वेव / टॉल ट्यूबलर 1250 VA / 200 Ah 3 वर्ष / 36+24* महीने की वारंटी के साथ",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description: "हमारे असीम कुशलता से तैयार किए गए जोड़ी कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
+            description: "हमारे असीम कुशलता से तैयार किए गए कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
             productIcons: [
                 {
                     icon: "/livguard/icons/capacity.png",
@@ -11653,7 +11653,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
+                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
                         image: "/livguard/products/jodis/peace-of-mind-jodi/a-plus/1.jpg",
@@ -11700,10 +11700,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी मन की शांति वाली जोड़ी ऑनलाइन",
-                description: "लिवगार्ड  मन की शांति वाली जोड़ी,  i2-वर्टर प्रो स्क्वायर वेव 1250 VA इनवर्टर  और INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी के साथ आती है।",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी मन की शांति वाली कॉम्बो ऑनलाइन",
+                description: "लिवगार्ड  मन की शांति वाली कॉम्बो,  i2-वर्टर प्रो स्क्वायर वेव 1250 VA इनवर्टर  और INVERTUFF टॉल ट्यूबलर 200 Ah बैटरी के साथ आती है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -11711,7 +11711,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
         },
     },
-    "super-life-jodi": {
+    "super-life-combo": {
         [Language.English]: {
             images: [
                 {
@@ -11724,9 +11724,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/super-life-jodi/infographics/3.jpg",
                 },
             ],
-            title: "Livguard Inverter / Inverter Battery Jodi i-verter pro / INVERTUFF Sinewave / Tall Tubular 1500 VA / 150 Ah with 3 year / 60+24 Month Warranty.",
+            title: "Livguard Inverter / Inverter Battery Combo i-verter pro / INVERTUFF Sinewave / Tall Tubular 1500 VA / 150 Ah with 3 year / 60+24 Month Warranty.",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description: "Bring home the power of limitless energy with our amazingly curated Jodi combos. Made to perfectly match your needs efficiently.",
+            description: "Bring home the power of limitless energy with our amazingly curated combos. Made to perfectly match your needs efficiently.",
             productIcons: [
                 {
                     icon: "/livguard/icons/capacity.png",
@@ -11799,7 +11799,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
+                description: "For your home, choose nothing but the best! With Livguard inverter and battery combo, unlock unlimited energy powered by amazing features",
                 images: [
                     {
                         image: "/livguard/products/jodis/super-life-jodi/a-plus/1.jpg",
@@ -11846,10 +11846,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "Buy Livguard Inverter and Battery super life Jodi online",
-                description: "Livguard Super life Jodi comes with i-verter pro Sinewave 1500 VA Inverter and  INVERTUFF Tall Tubular 150 Ah  Battery with High Charge Acceptance For Higher Backup",
+                title: "Buy Livguard Inverter and Battery super life Combo online",
+                description: "Livguard Super life Combo comes with i-verter pro Sinewave 1500 VA Inverter and  INVERTUFF Tall Tubular 150 Ah  Battery with High Charge Acceptance For Higher Backup",
                 canonicalUrl: "",
                 schema: `
 
@@ -11868,9 +11868,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/super-life-jodi/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी i-वर्टर प्रो / INVERTUFF साइनवेव / टॉल ट्यूबुलर  1500 VA / 150 Ah 3 वर्ष / 60+24* महीने की वारंटी के साथ",
+            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी कॉम्बो i-वर्टर प्रो / INVERTUFF साइनवेव / टॉल ट्यूबुलर  1500 VA / 150 Ah 3 वर्ष / 60+24* महीने की वारंटी के साथ",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description: "हमारे असीम कुशलता से तैयार किए गए जोड़ी कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
+            description: "हमारे असीम कुशलता से तैयार किए गए कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
             productIcons: [
                 {
                     icon: "/livguard/icons/capacity.png",
@@ -11943,7 +11943,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
+                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
                         image: "/livguard/products/jodis/super-life-jodi/a-plus/1.jpg",
@@ -11990,11 +11990,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी सुपर लाइफ जोड़ी ऑनलाइन",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी सुपर लाइफ कॉम्बो ऑनलाइन",
                 description:
-                    "लिवगार्ड सुपर लाइफ जोड़ी, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह जोड़ी उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के योग्य है।",
+                    "लिवगार्ड सुपर लाइफ कॉम्बो, i-वर्टर प्रो साइन वेव 1500 VA इनवर्टर और INVERTUFF टॉल ट्यूबलर 150 Ah बैटरी के साथ आती है। यह कॉम्बो उच्च बैकअप के लिए उच्च शुल्क स्वीकृति के योग्य है।",
                 canonicalUrl: "",
                 schema: `
 
@@ -12002,7 +12002,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
             },
         },
     },
-    "hi-power-jodi": {
+    "hi-power-combo": {
         [Language.English]: {
             images: [
                 {
@@ -12015,9 +12015,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/hi-power-jodi/infographics/3.jpg",
                 },
             ],
-            title: "Livguard Inverter / Inverter Battery Jodi Heavy Duty / INVERTUFF Sinewave / Tall Tubular 2000 VA / 260 Ah with 3 year / 42+30 Month Warranty.",
+            title: "Livguard Inverter / Inverter Battery Combo Heavy Duty / INVERTUFF Sinewave / Tall Tubular 2000 VA / 260 Ah with 3 year / 42+30 Month Warranty.",
             subTitle: "(Suitable Inverter for small offices, homes, and small shops)",
-            description: "Bring home the power of limitless energy with our amazingly curated Jodi combos. Made to perfectly match your needs efficiently.",
+            description: "Bring home the power of limitless energy with our amazingly curated combos. Made to perfectly match your needs efficiently.",
             productIcons: [
                 {
                     icon: "/livguard/icons/capacity.png",
@@ -12090,7 +12090,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "For your home, choose nothing but the best! With Livguard inverter and battery jodi, unlock unlimited energy powered by amazing features",
+                description: "For your home, choose nothing but the best! With Livguard inverter and battery combo, unlock unlimited energy powered by amazing features",
                 images: [
                     {
                         image: "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg",
@@ -12137,10 +12137,10 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "Buy Livguard Inverter and Battery Hi-power Jodi online",
-                description: "Livguard Hi-power jodi comes with a Heavy Duty Sinewave 2000 VA  Inverter combined with INVERTUFF Tall Tubular 260 Ah Battery that has a Heavy load handling capacity",
+                title: "Buy Livguard Inverter and Battery Hi-power Combo online",
+                description: "Livguard Hi-power combo comes with a Heavy Duty Sinewave 2000 VA  Inverter combined with INVERTUFF Tall Tubular 260 Ah Battery that has a Heavy load handling capacity",
                 canonicalUrl: "",
                 schema: `
 
@@ -12159,9 +12159,9 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     image: "/livguard/products/jodis/hi-power-jodi/infographics/3.jpg",
                 },
             ],
-            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी जोड़ी हेवी ड्यूटी / INVERTUFF साइनवेव / टॉल ट्यूबलर  2000 VA / 260 Ah 3 वर्ष / 42+30* महीने की वारंटी के साथ",
+            title: "लिवगार्ड इनवर्टर / इनवर्टर बैटरी कॉम्बो हेवी ड्यूटी / INVERTUFF साइनवेव / टॉल ट्यूबलर  2000 VA / 260 Ah 3 वर्ष / 42+30* महीने की वारंटी के साथ",
             subTitle: "(छोटे कार्यालयों, घरों और छोटी दुकानों के लिए उपयुक्त)",
-            description: "हमारे असीम कुशलता से तैयार किए गए जोड़ी कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
+            description: "हमारे असीम कुशलता से तैयार किए गए कॉम्बो के साथ असीम ऊर्जा की शक्ति को घर लाएं। यह कॉम्बो आपकी आवश्यकताओं को पूरी तरह से कुशलता से मेल खाने के लिए बनाए गए हैं",
             productIcons: [
                 {
                     icon: "/livguard/icons/capacity.png",
@@ -12234,7 +12234,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                 },
             ],
             productDescription: {
-                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
+                description: "अपने घर के लिए, कुछ आम नहीं बल्कि सबसे अच्छा चुनें! लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ, अद्भुत सुविधाओं द्वारा संचालित असीमित ऊर्जा अनलॉक करें।",
                 images: [
                     {
                         image: "/livguard/products/jodis/hi-power-jodi/a-plus/1.jpg",
@@ -12281,11 +12281,11 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     link: "/product/it1578tt",
                 },
             ],
-            type: ProductType.jodi,
+            type: ProductType.combo,
             metadata: {
-                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी हाई-पॉवर जोड़ी ऑनलाइन",
+                title: "ख़रीदें लिवगार्ड इनवर्टर और बैटरी हाई-पॉवर कॉम्बो ऑनलाइन",
                 description:
-                    "लिवगार्ड हाई-पावर जोड़ी हैवी ड्यूटी साइन वेव 2000 VA इनवर्टर  के साथ आती है जिसमें INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी है। यह जोड़ी भारी लोड संभलने की क्षमता से युक्त है।",
+                    "लिवगार्ड हाई-पावर कॉम्बो हैवी ड्यूटी साइन वेव 2000 VA इनवर्टर  के साथ आती है जिसमें INVERTUFF टॉल ट्यूबलर 260 Ah बैटरी है। यह कॉम्बो भारी लोड संभलने की क्षमता से युक्त है।",
                 canonicalUrl: "",
                 schema: `
 

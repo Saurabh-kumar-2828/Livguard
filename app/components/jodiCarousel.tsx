@@ -11,7 +11,7 @@ import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function JodiCarousel({
+export function ComboCarousel({
     userPreferences,
     items,
 }: {
@@ -20,7 +20,7 @@ export function JodiCarousel({
         title: string;
         description: string;
         keySpecifications: Array<{keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
-        jodiImageRelativePath: string;
+        comboImageRelativePath: string;
     }>;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
@@ -105,7 +105,7 @@ export function JodiCarousel({
 
                                             <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 tw-mx-12">
                                                 <FullWidthImage
-                                                    relativePath={item.jodiImageRelativePath}
+                                                    relativePath={item.comboImageRelativePath}
                                                 />
                                             </div>
                                         </div>

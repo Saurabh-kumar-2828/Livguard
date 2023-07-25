@@ -117,7 +117,7 @@ export default function () {
                         ? {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
                         : productData.type == ProductType.battery
                         ? {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "/inverter-batteries"}
-                        : productData.type == ProductType.jodi
+                        : productData.type == ProductType.combo
                         ? {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
                         : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"},
                     // TODO: Somehow get this to work
@@ -566,14 +566,14 @@ function SuggestedProducts({
             <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-grid-cols-4 tw-gap-x-3 tw-gap-y-10">
                 <ItemBuilder
                     items={recommendedProducts}
-                    itemBuilder={(jodi, jodiIndex) => (
+                    itemBuilder={(combo, comboIndex) => (
                         <div
                             className={`lg-bg-secondary-100 tw-rounded-lg`}
-                            key={jodiIndex}
+                            key={comboIndex}
                         >
                             <ProductCardComponent
-                                vernacularContent={jodi}
-                                key={jodiIndex}
+                                vernacularContent={combo}
+                                key={comboIndex}
                                 userPreferences={userPreferences}
                             />
                         </div>

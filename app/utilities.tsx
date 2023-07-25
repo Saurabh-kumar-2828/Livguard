@@ -51,7 +51,7 @@ export function getMetadataForImage(relativePath: string) {
 
 export function convertProductInternalNameToPublicName(internalName: string): string {
     // TOOD: Ensure this logic is correct
-    // TODO: Handle jodis
+    // TODO: Handle combos
     const capitalizedName = internalName.toUpperCase();
     if (capitalizedName.endsWith("I")) {
         return `${capitalizedName.slice(0, -1)}i`;

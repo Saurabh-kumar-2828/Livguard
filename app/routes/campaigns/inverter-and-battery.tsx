@@ -13,7 +13,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {JodiCarousel} from "~/components/jodiCarousel";
+import {ComboCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
 import {OtpVerificationForm} from "~/components/otpVerificationForm";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
@@ -223,14 +223,14 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
             <VerticalSpacer className="tw-row-start-6 lg:tw-row-start-[4] lg:tw-col-span-full lg:tw-h-20 tw-h-10" />
 
             <div className="tw-grid tw-grid-rows-[auto,auto,auto] tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-row-start-7 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full">
-                <JodiSection
+                <ComboSection
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
                 />
 
                 <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-hidden" />
 
-                <WhyLivguardJodi
+                <WhyLivguardCombo
                     userPreferences={userPreferences}
                     className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
                 />
@@ -370,12 +370,12 @@ function HeroSection({
     );
 }
 
-export function JodiSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const JodiData: Array<{
+export function ComboSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const comboData: Array<{
         title: string;
         description: string;
         keySpecifications: Array<{keySpecificationContent: string; keySpecificationIconRelativePath: string}>;
-        jodiImageRelativePath: string;
+        comboImageRelativePath: string;
     }> = [
         {
             title: `${getVernacularString("landingPage2S4J1Title", userPreferences.language)}`,
@@ -398,7 +398,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J2Title", userPreferences.language)}`,
@@ -421,7 +421,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J3Title", userPreferences.language)}`,
@@ -444,7 +444,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/products/jodis/super-life-jodi/thumbnail.png",
+            jodiImageRelativePath: "/livguard/products/combos/super-life-jodi/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
@@ -467,7 +467,7 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
         },
     ];
 
@@ -486,15 +486,15 @@ export function JodiSection({userPreferences, className}: {userPreferences: User
                 <VerticalSpacer className="tw-h-6" />
             </div>
 
-            <JodiCarousel
+            <ComboCarousel
                 userPreferences={userPreferences}
-                items={JodiData}
+                items={comboData}
             />
         </div>
     );
 }
 
-export function WhyLivguardJodi({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+export function WhyLivguardCombo({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData = [
         {
             image: "/livguard/products/jodis/urban-jodi/thumbnail.png",

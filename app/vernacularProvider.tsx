@@ -828,7 +828,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     landingPage2S4KeySpecificationTitle: {
         [Language.English]: "Key Specifications of The Combo",
-        [Language.Hindi]: "जोड़ी के मुख्य स्पेसिफिकेशन",
+        [Language.Hindi]: "कॉम्बो के मुख्य स्पेसिफिकेशन",
     },
     landingPage2S4Specification1Title: {
         [Language.English]: "Warranty",
@@ -849,13 +849,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     landingPage2S4J1Title: {
         [Language.English]: "The Urban Combo",
-        [Language.Hindi]: "अर्बन जोड़ी",
+        [Language.Hindi]: "अर्बन कॉम्बो",
     },
     landingPage2S4J1Description: {
         [Language.English]:
             "A perfect Combo to match the needs of your urban lifestyle, efficiently. With pure sine wave output and smart AI charging, this combo can go on for hours and take heavy loads of appliances.",
         [Language.Hindi]:
-            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श जोड़ी। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह जोड़ी घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
+            "आपकी शहरी जीवन शैली की जरूरतों को कुशलता से पूरा करने के लिए एक आदर्श कॉम्बो। शुद्ध साइन वेव आउटपुट और स्मार्ट एआई चार्जिंग के साथ, यह कॉम्बो घंटों तक चल सकती है और उपकरणों का भारी लोड उठा सकती है।",
     },
     landingPage2S4J1Specification1Content: {
         [Language.English]: "60 Months",
@@ -875,13 +875,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J2Title: {
         [Language.English]: "The Peace of Mind Combo",
-        [Language.Hindi]: "मन की शांति वाली जोड़ी",
+        [Language.Hindi]: "मन की शांति वाली कॉम्बो",
     },
     landingPage2S4J2Description: {
         [Language.English]:
             "A Combo that would assure your peace of mind with its long durability and high backup power. Precisely chosen battery paired with the sturdy inverter ensures a seamless flow of energy to meet your needs.",
         [Language.Hindi]:
-            "एक जोड़ी जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
+            "एक कॉम्बो जो अपने लंबे जीवन और उच्च बैकअप शक्ति के साथ आपके मन की शांति सुनिश्चित करेगी। मजबूत इनवर्टर के साथ सटीक रूप से चुनी गई बैटरी आपकी आवश्यकताओं को पूरा करने के लिए ऊर्जा का निर्बाध प्रवाह सुनिश्चित करती है।",
     },
     landingPage2S4J2Specification1Content: {
         [Language.English]: "60 Months",
@@ -901,7 +901,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J3Title: {
         [Language.English]: "The Super Life Combo",
-        [Language.Hindi]: "सुपर लाइफ जोड़ी",
+        [Language.Hindi]: "सुपर लाइफ कॉम्बो",
     },
     landingPage2S4J3Description: {
         [Language.English]: "With a battery backed with the best-in-class warranty and a long-lasting inverter, this Combo is just the right choice for your everyday energy requirements.",
@@ -925,13 +925,13 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     landingPage2S4J4Title: {
         [Language.English]: "The Hi-power Combo",
-        [Language.Hindi]: "हाई-पॉवर जोड़ी",
+        [Language.Hindi]: "हाई-पॉवर कॉम्बो",
     },
     landingPage2S4J4Description: {
         [Language.English]:
             "The perfect Combo to meet the backup requirements for long hours. Smart AI charging along with the pure sinewave output delivers a smooth and efficient energy flow with enhanced life.",
         [Language.Hindi]:
-            "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही जोड़ी। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
+            "लंबे समय तक बैकअप आवश्यकताओं को पूरा करने के लिए एकदम सही कॉम्बो। शुद्ध साइनवेव आउटपुट के साथ स्मार्ट एआई चार्जिंग बेहतर जीवन के साथ एक सहज और कुशल ऊर्जा प्रवाह प्रदान करता है।",
     },
     landingPage2S4J4Specification1Content: {
         [Language.English]: "72 Months",
@@ -952,7 +952,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     landingPage2S5HT1: {
         [Language.English]: "Why",
-        [Language.Hindi]: `<span class="lg-text-highlighted">लिवगार्ड जोड़ी</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">लिवगार्ड कॉम्बो</span>`,
     },
     landingPage2S5HT2: {
         [Language.English]: `<span class="lg-text-highlighted">Livguard Combo?</span>`,
@@ -998,11 +998,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     landingPage3S1T1: {
         [Language.English]: `Smart & Strong Home Inverter and Battery <span class="lg-text-highlighted">Combo</span>`,
         [Language.Hindi]: `घर के लिए स्मार्ट और स्ट्रॉंग इनवर्टर और बैटरी <span class="lg-text-highlighted">कॉम्बो</span>`,
-        [Language.Marathi]: `?????`,
     },
     landingPage3S1T2: {
         [Language.English]: "Empower your home with the perfect combo to compliment your home needs",
-        [Language.Hindi]: "अपने घर को सशक्त बनाएँ सही इनवर्टर और बैटरी की जोड़ी के साथ",
+        [Language.Hindi]: "अपने घर को सशक्त बनाएँ सही इनवर्टर और बैटरी की कॉम्बो के साथ",
     },
     landingPage3S1T3: {
         [Language.English]: "Connect Now",
@@ -1024,7 +1023,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     landingPage3S7HT1: {
         [Language.English]: `Top Reasons to Buy Home`,
         [Language.Hindi]: `घर के लिए इनवर्टर और बैटरी <span class="lg-text-highlighted">कॉम्बो</span>`,
-        [Language.Marathi]: `?????`,
     },
     landingPage3S7HT2: {
         [Language.English]: `Inverter and Battery <span class="lg-text-highlighted">Combo</span>`,
@@ -1036,24 +1034,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "सहज अनुकूलता",
     },
     landingPage3S7Slide1Content: {
-        [Language.English]: "Livguard inverter and inverter battery jodis offer a seamless compatibility which combine together for an uninterrupted flow of energy.",
-        [Language.Hindi]: "लिवगार्ड इनवर्टर और इनवर्टर बैटरी जोड़ी एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
+        [Language.English]: "Livguard inverter and inverter battery combos offer a seamless compatibility which combine together for an uninterrupted flow of energy.",
+        [Language.Hindi]: "लिवगार्ड इनवर्टर और इनवर्टर बैटरी कॉम्बो एक सहज अनुकूलता प्रदान करते हैं जो ऊर्जा के बिना रुकावट प्रवाह के लिए एक साथ जुड़ते हैं।",
     },
     landingPage3S7Slide2Heading: {
         [Language.English]: "Seamless Service",
         [Language.Hindi]: "निरंतर सर्विस",
     },
     landingPage3S7Slide2Content: {
-        [Language.English]: "With Livguard Jodis at your home, experience the comfort of hassle-free servicing for both the products, whenever you need.",
-        [Language.Hindi]: "अपने घर पर लिवगार्ड जोड़ी के साथ,इनवर्टर और इनवर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
+        [Language.English]: "With Livguard Combos at your home, experience the comfort of hassle-free servicing for both the products, whenever you need.",
+        [Language.Hindi]: "अपने घर पर लिवगार्ड कॉम्बो के साथ,इनवर्टर और इनवर्टर बैटरी के लिए आरामदायक सर्विसिंग का अनुभव करें ,जब  भी आपको आवश्यकता हो।",
     },
     landingPage3S7Slide3Heading: {
         [Language.English]: "Long Life",
         [Language.Hindi]: "लंबा जीवन",
     },
     landingPage3S7Slide3Content: {
-        [Language.English]: "The perfect match of inverter and inverter battery in Livguard Jodis ensure a longer , more efficient life of the products for you.",
-        [Language.Hindi]: "लिवगार्ड जोड़ी में इनवर्टर और इनवर्टर बैटरी का सही मेल आपके उत्पादों का लंबा, अधिक कुशल जीवन सुनिश्चित करता है।",
+        [Language.English]: "The perfect match of inverter and inverter battery in Livguard Combos ensure a longer , more efficient life of the products for you.",
+        [Language.Hindi]: "लिवगार्ड कॉम्बो में इनवर्टर और इनवर्टर बैटरी का सही मेल आपके उत्पादों का लंबा, अधिक कुशल जीवन सुनिश्चित करता है।",
     },
     landingPage3S7BT: {
         [Language.English]: "Reach out to Us",
@@ -1405,26 +1403,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     categoryBatteriesS6HT1: {
-        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis</span>`,
-        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">जोड़ियाँ</span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Combos</span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">कॉम्बो</span>`, // TODO: Fix
     },
-    categoryBatteriesS6Jodi1Title: {
+    categoryBatteriesS6Combo1Title: {
         [Language.English]: "The Urban Combo",
         [Language.Hindi]: "अर्बन जोड़ी",
     },
-    categoryBatteriesS6Jodi2Title: {
+    categoryBatteriesS6Combo2Title: {
         [Language.English]: "The Peace of Mind Combo",
         [Language.Hindi]: "मन की शांति वाला जोड़ी",
     },
-    categoryBatteriesS6Jodi3Title: {
+    categoryBatteriesS6Combo3Title: {
         [Language.English]: "The Super Life Combo",
         [Language.Hindi]: "सुपर लाइफ जोड़ी",
     },
-    categoryBatteriesS6Jodi4Title: {
+    categoryBatteriesS6Combo4Title: {
         [Language.English]: "The Hi-Power Combo",
-        [Language.Hindi]: "हाई-पॉवर जोड़ी",
+        [Language.Hindi]: "हाई-पॉवर कॉम्बो",
     },
-    categoryBatteriesS6JodiButtontext: {
+    categoryBatteriesS6ComboButtontext: {
         [Language.English]: "View Product",
         [Language.Hindi]: "अधिक जानिए",
     },
@@ -1738,26 +1736,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "?????",
     },
     categoryInvertersS6HT1: {
-        [Language.English]: `Suggested <span class="lg-text-highlighted">Jodis</span>`,
-        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">जोड़ियाँ</span>`,
+        [Language.English]: `Suggested <span class="lg-text-highlighted">Combos</span>`,
+        [Language.Hindi]: `सुझायी गई <span class="lg-text-highlighted">कॉम्बो</span>`, // TODO: Fix
     },
-    categoryInvertersS6Jodi1Title: {
+    categoryInvertersS6Combo1Title: {
         [Language.English]: "The Urban Combo",
         [Language.Hindi]: "अर्बन कॉम्बो",
     },
-    categoryInvertersS6Jodi2Title: {
+    categoryInvertersS6Combo2Title: {
         [Language.English]: "The Peace Of Mind Combo",
-        [Language.Hindi]: "मन की शांति वाली जोड़ी",
+        [Language.Hindi]: "मन की शांति वाली कॉम्बो",
     },
-    categoryInvertersS6Jodi3Title: {
+    categoryInvertersS6Combo3Title: {
         [Language.English]: "The Super Life Combo",
         [Language.Hindi]: "सुपर लाइफ कॉम्बो",
     },
-    categoryInvertersS6Jodi4Title: {
+    categoryInvertersS6Combo4Title: {
         [Language.English]: "The Hi-Power Combo",
         [Language.Hindi]: "हाई-पॉवर कॉम्बो",
     },
-    categoryInvertersS6JodiButtontext: {
+    categoryInvertersS6ComboButtontext: {
         [Language.English]: "Know More",
         [Language.Hindi]: "अधिक जानिए",
     },
@@ -1924,7 +1922,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "View Product",
         [Language.Hindi]: "विस्तार से देखें",
     },
-    categoryViewJodiButtontext: {
+    categoryViewComboButtontext: {
         [Language.English]: "View Combo",
         [Language.Hindi]: "विस्तार से देखें",
     },
@@ -1938,7 +1936,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     review1Message: {
         [Language.English]: `"Small issues are easily solved through video calls. Moreover, maintenance also poses zero issues. If you ask me for feedback, I would give Livguard combo a 10/10!"`,
-        [Language.Hindi]: `"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड जोड़ी को 10/10 दूंगा!"`,
+        [Language.Hindi]: `"छोटी-मोटी परेशानियाँ वीडियो कॉल के साथ ही सुलझा दी जाती हैं। मेंटेनेंस को लेकर भी कोई दिक़्क़त नहीं है। यदि आप मुझसे पूछें, तो मैं लिवगार्ड कॉम्बो को 10/10 दूंगा!"`,
     },
     review1ProductName: {
         [Language.English]: "Inverter",
@@ -2834,15 +2832,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]:
             "उस स्थिति में आपने जिस ऑफ़र का लाभ उठाया है अगर वह अब उपलब्ध नहीं है या संशोधित कर दिया गया है, हम आपकी चिंता को समझते हैं। निश्चिंत रहें, यदि आपने पहले ही ऑफर का लाभ उठा लिया है, तो आपको उस समय लागू नियमों और शर्तों के अनुसार लाभ मिलता रहेगा। हालाँकि, पारदर्शिता सुनिश्चित करने और जब भी संभव हो विकल्प प्रदान करने के लिए किसी ऑफ़र में कोई भी बदलाव या संशोधन ग्राहकों को पहले से सूचित किया जाएगा।",
     },
-    OfferJodiHT1: {
+    OfferComboHT1: {
         [Language.English]: `Beat The Heat with Power-Packed <span class="lg-text-highlighted">Cashback</span>`,
         [Language.Hindi]: `गर्मी को मात दें पावर-पैक्ड <span class="lg-text-highlighted">कैशबैक</span> के साथ`,
     },
-    OfferJodiHT2: {
-        [Language.English]: `For the first time ever, Livguard brings a striking cashback offer for you. Experience an uninterrupted summer with our Inverter and Battery Jodis and enjoy big savings with upto <b>₹1500 cashback!</b>`,
-        [Language.Hindi]: `पहली बार आपके लिए, हम लाएँ है एक बेहतरीन ऑफर। अपनी गर्मी के मौसम को परेशानी मुक्त बनाएँ हमारे इनवर्टर और बैटरी जोड़ी के साथ, और  <b>₹1500 तक के कैशबैक</b> के साथ बड़ी बचत का आनंद लें!`,
+    OfferComboHT2: {
+        [Language.English]: `For the first time ever, Livguard brings a striking cashback offer for you. Experience an uninterrupted summer with our Inverter and Battery Combos and enjoy big savings with upto <b>₹1500 cashback!</b>`,
+        [Language.Hindi]: `पहली बार आपके लिए, हम लाएँ है एक बेहतरीन ऑफर। अपनी गर्मी के मौसम को परेशानी मुक्त बनाएँ हमारे इनवर्टर और बैटरी कॉम्बो के साथ, और  <b>₹1500 तक के कैशबैक</b> के साथ बड़ी बचत का आनंद लें!`,
     },
-    OfferJodiHT3: {
+    OfferComboHT3: {
         [Language.English]: "Avail your cashback in 6 easy steps",
         [Language.Hindi]: "6 आसान चरणों में अपना कैशबैक प्राप्त करें",
     },
@@ -3224,7 +3222,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "1daec891-8315-4e82-9f5f-649c5e29af09": {
         [Language.English]: `The Hi-Power Combo`,
-        [Language.Hindi]: `हाई-पॉवर जोड़ी`,
+        [Language.Hindi]: `हाई-पॉवर कॉम्बो`,
     },
     "a8de768d-be36-4746-b3d4-ee72e6dbe3a6": {
         [Language.English]: `3 Year Warranty`,

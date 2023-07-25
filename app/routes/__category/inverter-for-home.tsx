@@ -195,7 +195,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10" /> */}
 
-            <SuggestedJodiSection
+            <SuggestedComboSection
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
@@ -686,8 +686,8 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
     );
 }
 
-export function SuggestedJodiSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const jodisData: Array<{
+export function SuggestedComboSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const combosData: Array<{
         title: string;
         imageRelativePath: string;
         buttonText: string;
@@ -695,32 +695,32 @@ export function SuggestedJodiSection({userPreferences, className}: {userPreferen
         link: string;
     }> = [
         {
-            title: `${getVernacularString("categoryInvertersS6Jodi1Title", userPreferences.language)}`,
+            title: `${getVernacularString("categoryInvertersS6Combo1Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
-            buttonText: "categoryViewJodiButtontext",
+            buttonText: "categoryViewComboButtontext",
             bestseller: false,
-            link: "/product/urban-jodi",
+            link: "/product/urban-combo",
         },
         {
-            title: `${getVernacularString("categoryInvertersS6Jodi2Title", userPreferences.language)}`,
+            title: `${getVernacularString("categoryInvertersS6Combo2Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
-            buttonText: "categoryViewJodiButtontext",
+            buttonText: "categoryViewComboButtontext",
             bestseller: true,
-            link: "/product/peace-of-mind-jodi",
+            link: "/product/peace-of-mind-combo",
         },
         {
-            title: `${getVernacularString("categoryInvertersS6Jodi3Title", userPreferences.language)}`,
+            title: `${getVernacularString("categoryInvertersS6Combo3Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/products/jodis/super-life-jodi/thumbnail.png",
-            buttonText: "categoryViewJodiButtontext",
+            buttonText: "categoryViewComboButtontext",
             bestseller: true,
-            link: "/product/super-life-jodi",
+            link: "/product/super-life-combo",
         },
         {
-            title: `${getVernacularString("categoryInvertersS6Jodi4Title", userPreferences.language)}`,
+            title: `${getVernacularString("categoryInvertersS6Combo4Title", userPreferences.language)}`,
             imageRelativePath: "/livguard/products/jodis/hi-power-jodi/thumbnail.png",
-            buttonText: "categoryViewJodiButtontext",
+            buttonText: "categoryViewComboButtontext",
             bestseller: false,
-            link: "/product/hi-power-jodi",
+            link: "/product/hi-power-combo",
         },
     ];
 
@@ -738,15 +738,15 @@ export function SuggestedJodiSection({userPreferences, className}: {userPreferen
 
             <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
                 <ItemBuilder
-                    items={jodisData}
-                    itemBuilder={(jodi, jodiIndex) => (
+                    items={combosData}
+                    itemBuilder={(combo, comboIndex) => (
                         <div
                             className={`lg-bg-secondary-100 tw-rounded-lg`}
-                            key={jodiIndex}
+                            key={comboIndex}
                         >
                             <ProductCardComponent
-                                vernacularContent={jodi}
-                                key={jodiIndex}
+                                vernacularContent={combo}
+                                key={comboIndex}
                                 userPreferences={userPreferences}
                             />
                         </div>

@@ -26,7 +26,7 @@ import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {ContactUsCta, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {JodiSection, WhyLivguardJodi} from "~/routes/campaigns/inverter-and-battery";
+import {ComboSection, WhyLivguardCombo} from "~/routes/campaigns/inverter-and-battery";
 import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
@@ -39,13 +39,13 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
-            title: "Buy livguard Smart & Strong Inverter and Battery Jodis",
-            description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
+            title: "Buy livguard Smart & Strong Inverter and Battery Combos",
+            description: "Empower your home with Livguard smart inverter and battery combos to compliment your home's energy needs.",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी खरीदें",
-            description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
+            title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी कॉम्बो खरीदें",
+            description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी कॉम्बो के साथ अपने घर को सशक्त बनाएं।",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
@@ -228,12 +228,12 @@ function LandingPage({
                 )}
             </div>
 
-            <WhyLivguardJodi
+            <WhyLivguardCombo
                 userPreferences={userPreferences}
                 className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-span-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
-            <JodiSection
+            <ComboSection
                 userPreferences={userPreferences}
                 className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-col-span-2"
             />

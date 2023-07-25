@@ -32,12 +32,12 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     if (userPreferences.language == Language.English) {
         return {
             title: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
-            description: "Experience an uninterrupted summer with Livguard Inverter and Battery Jodis and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
+            description: "Experience an uninterrupted summer with Livguard Inverter and Battery Combos and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "लिवगार्ड इन्वर्टर बैटरी जोड़ी खरीदें और रुपये 1500 तक कैशबैक जीतें। ",
-            description: "लिवगार्ड इन्वर्टर और बैटरी जोड़ी के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
+            title: "लिवगार्ड इन्वर्टर बैटरी कॉम्बो खरीदें और रुपये 1500 तक कैशबैक जीतें। ",
+            description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
@@ -226,7 +226,7 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
             <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
                 <DefaultTextAnimation>
                     <h1 className="lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("OfferJodiHT1", userPreferences.language))}} />
+                        <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("OfferComboHT1", userPreferences.language))}} />
                     </h1>
                 </DefaultTextAnimation>
 
@@ -235,14 +235,14 @@ export function StepsToAvailCashback({userPreferences, className}: {userPreferen
                 <DefaultTextAnimation>
                     <div
                         className="lg-text-body tw-max-w-[45rem] tw-text-center"
-                        dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("OfferJodiHT2", userPreferences.language))}}
+                        dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("OfferComboHT2", userPreferences.language))}}
                     />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-3 lg:tw-h-6" />
 
                 <DefaultTextAnimation>
-                    <div className="lg-text-title1">{getVernacularString("OfferJodiHT3", userPreferences.language)}</div>
+                    <div className="lg-text-title1">{getVernacularString("OfferComboHT3", userPreferences.language)}</div>
                 </DefaultTextAnimation>
             </div>
 
