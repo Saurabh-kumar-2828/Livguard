@@ -13,6 +13,7 @@ export function CarouselStyle7({
     selectedContainerClassName,
     deselectedContainersClassName,
     chevronButtonsBelowCarousel,
+    snapDotsDivisionFactor,
 }: {
     items: Array<any>;
     className?: string;
@@ -20,6 +21,7 @@ export function CarouselStyle7({
     deselectedContainersClassName?: string;
     slidesContainerClassName?: string;
     chevronButtonsBelowCarousel?: boolean;
+    snapDotsDivisionFactor?: number;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
@@ -93,13 +95,15 @@ export function CarouselStyle7({
 
                     <div className="tw-flex tw-flex-row tw-gap-x-2">
                         <ItemBuilder
-                            items={items}
+                            items={snapDotsDivisionFactor == undefined ? items : items.slice(0, items.length / 2)}
                             itemBuilder={(_, scrollSnapIndex) => (
                                 <React.Fragment key={scrollSnapIndex}>
                                     <div
                                         className={concatenateNonNullStringsWithSpaces(
                                             "tw-w-2 tw-h-2 tw-rounded-full",
-                                            scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300",
+                                            scrollSnapIndex == selectedIndex || (snapDotsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (items.length / snapDotsDivisionFactor))
+                                                ? "lg-bg-secondary-900"
+                                                : "lg-bg-secondary-300",
                                         )}
                                         key={scrollSnapIndex}
                                         onClick={() => {

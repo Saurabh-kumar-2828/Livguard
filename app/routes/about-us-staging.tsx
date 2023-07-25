@@ -11,11 +11,13 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {CarouselStyle7} from "~/components/carouselStyle7";
 import {InfiniteHorizontalScroller, HorizontalScrollDirection} from "~/livguard-common-typescript/infiniteHorizontalScroller";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -50,7 +52,10 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                breadcrumbs={[
+                    {contentId: "849dabf7-0fa6-47e6-a1f8-e4f544306f7c", link: "/"},
+                    {contentId: "6d164881-cc49-4447-8460-d6fa6cf7a14f", link: "#"},
+                ]}
             >
                 <AboutUsPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -107,21 +112,22 @@ function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
 
-                <ExploreCareers
+                {/* Remember to change tw-row-start numbers when uncommenting */}
+                {/* <ExploreCareers
                     userPreferences={userPreferences}
                     className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-11 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" /> */}
 
-                <div className="tw-row-start-13 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2">
+                <div className="tw-row-start-11 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2">
                     <EmpoweredBySAR
                         userPreferences={userPreferences}
                         className="tw-w-full"
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-14 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -133,25 +139,36 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid tw-grid-rows-[3rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-relative tw-isolate",
                 className,
             )}
             ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"
-                    }
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"}
-                />
-            )}
+            <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-start-2 tw-row-span-full lg:tw-col-span-full tw-isolate tw-z-[-10]">
+                {containerWidth == null || containerHeight == null ? null : (
+                    <>
+                        <CoverImage
+                            relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/about-us/1/banner-mobile.jpg" : "/livguard/about-us/1/banner-desktop.jpg"}
+                            className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                            key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/about-us/1/banner-mobile.jpg" : "/livguard/about-us/1/banner-desktop.jpg"}
+                        />
+                        <img
+                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/1/products-in-banner.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
+                            alt="Products"
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-absolute lg:lg-px-screen-edge-2",
+                                containerWidth < 1024 ? "tw-bottom-2 tw-inset-x-0 tw-mx-auto tw-h-1/3" : "tw-bottom-4 tw-h-[40%]",
+                            )}
+                        />
+                    </>
+                )}
+            </div>
 
-            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 tw-place-self-center lg-px-screen-edge-2">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center tw-max-w-[31rem]">
-                    {getVernacularString("b38f6ec8-1c38-44ef-b016-93da7ed7bf19", userPreferences.language)}
-                </div>
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 tw-place-self-start lg-px-screen-edge-2 tw-justify-self-center lg:tw-justify-self-start">
+                <div
+                    dangerouslySetInnerHTML={{__html: getVernacularString("b38f6ec8-1c38-44ef-b016-93da7ed7bf19", userPreferences.language)}}
+                    className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center lg:tw-text-left tw-max-w-[31rem]"
+                />
             </DefaultTextAnimation>
         </div>
     );
@@ -167,8 +184,8 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
                         className="tw-invert dark:tw-invert-0 tw-h-8 tw-w-8 lg:tw-h-[3.125rem] lg:tw-w-[3.125rem]"
                     />
                 </div>
-                <div className="tw-row-start-4 lg-text-title2 tw-text-center">{title}</div>
-                <div className="tw-row-start-6 lg-text-body tw-text-center">{description}</div>
+                <DefaultTextAnimation className="tw-row-start-4 lg-text-title2 tw-text-center">{title}</DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-6 lg-text-body tw-text-center">{description}</DefaultTextAnimation>
             </div>
         );
     }
@@ -228,37 +245,49 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
             title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
             position: getVernacularString("755f8e01-18c9-4883-956c-5851e4e3885f", userPreferences.language),
             description: getVernacularString("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88", userPreferences.language),
-            imageRelativePath: "/livguard/about-us/3/leader-1.svg",
-        },
-        {
-            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
-            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
-            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
-            imageRelativePath: "/livguard/about-us/3/leader-2.svg",
+            imageRelativePath: "/livguard/about-us/3/leader-rakesh.png",
         },
         {
             title: getVernacularString("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2", userPreferences.language),
             position: getVernacularString("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5", userPreferences.language),
             description: getVernacularString("07d2f8d0-b81b-4dd3-a547-1adef20b3fea", userPreferences.language),
-            imageRelativePath: "/livguard/about-us/3/leader-3.svg",
+            imageRelativePath: "/livguard/about-us/3/leader-navneet.png",
+        },
+        {
+            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
+            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
+            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
+            imageRelativePath: "/livguard/about-us/3/leader-gurpreet.png",
+        },
+        {
+            title: getVernacularString("4d638603-3fff-4920-b8b2-927d6a748d54", userPreferences.language),
+            position: getVernacularString("62e2f1af-3ce5-4558-a8aa-3cbd1e48ee87", userPreferences.language),
+            description: getVernacularString("fca6fd65-7e15-40dc-a89a-52895912401f", userPreferences.language),
+            imageRelativePath: "/livguard/about-us/3/leader-alankar.png",
         },
         {
             title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
             position: getVernacularString("755f8e01-18c9-4883-956c-5851e4e3885f", userPreferences.language),
             description: getVernacularString("8ddd1acf-9b2d-41f4-b4cd-e2395c211c88", userPreferences.language),
-            imageRelativePath: "/livguard/about-us/3/leader-1.svg",
-        },
-        {
-            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
-            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
-            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
-            imageRelativePath: "/livguard/about-us/3/leader-2.svg",
+            imageRelativePath: "/livguard/about-us/3/leader-rakesh.png",
         },
         {
             title: getVernacularString("54c7930a-aed3-4efc-b2eb-68a7b5b87ae2", userPreferences.language),
             position: getVernacularString("5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5", userPreferences.language),
             description: getVernacularString("07d2f8d0-b81b-4dd3-a547-1adef20b3fea", userPreferences.language),
-            imageRelativePath: "/livguard/about-us/3/leader-3.svg",
+            imageRelativePath: "/livguard/about-us/3/leader-navneet.png",
+        },
+        {
+            title: getVernacularString("4ca82802-b39e-4844-9586-82ce4b095cff", userPreferences.language),
+            position: getVernacularString("23fd4d15-8063-44e1-be03-a3aa6585d33b", userPreferences.language),
+            description: getVernacularString("4f82218c-1156-4660-b634-a1231d82d457", userPreferences.language),
+            imageRelativePath: "/livguard/about-us/3/leader-gurpreet.png",
+        },
+        {
+            title: getVernacularString("4d638603-3fff-4920-b8b2-927d6a748d54", userPreferences.language),
+            position: getVernacularString("62e2f1af-3ce5-4558-a8aa-3cbd1e48ee87", userPreferences.language),
+            description: getVernacularString("fca6fd65-7e15-40dc-a89a-52895912401f", userPreferences.language),
+            imageRelativePath: "/livguard/about-us/3/leader-alankar.png",
         },
     ];
 
@@ -282,6 +311,7 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
                     deselectedContainersClassName="tw-pt-6 md:tw-pt-12 tw-h-full"
                     selectedContainerClassName="tw-pt-6 tw-h-full"
                     chevronButtonsBelowCarousel={containerWidth != null && containerHeight != null && (containerHeight > containerWidth || containerWidth < 640) ? false : true}
+                    chevronButtonsDivisionFactor={2}
                 />
             </div>
         </>
@@ -298,7 +328,7 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
 
             <div className="tw-row-start-3 tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-x-16 tw-gap-y-8">
-                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-8 tw-py-4 tw-items-center">
+                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-8 tw-items-center">
                     <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/india.svg"
@@ -308,22 +338,22 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                     </div>
 
                     <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_.5rem_minmax(0,1fr)_.5rem_auto]">
-                        <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">
+                        <div className="lg-text-body-bold lg-text-secondary-900 tw-row-start-1 tw-text-center lg:tw-text-left">
                             {getVernacularString("bc06ea32-4286-48ed-bde2-5a5c7250ff67", userPreferences.language)}
                         </div>
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("78cd576b-2c66-4cf1-b4db-209d0543a659", userPreferences.language)}</div>
 
-                        <Link
+                        {/* <Link
                             to="/"
                             className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                         >
                             {getVernacularString("02195d6b-8516-4598-9214-d1b13866d85b", userPreferences.language)}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-8 tw-py-4 tw-items-center">
+                <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg:tw-row-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-p-8 tw-items-center">
                     <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center">
                         <img
                             src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
@@ -333,18 +363,18 @@ function OurPresence({userPreferences, className}: {userPreferences: UserPrefere
                     </div>
 
                     <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_.5rem_minmax(0,1fr)_.5rem_auto]">
-                        <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">
+                        <div className="lg-text-body-bold lg-text-secondary-900 tw-row-start-1 tw-text-center lg:tw-text-left">
                             {getVernacularString("8ae1096b-408d-4d55-8005-78574a7b5815", userPreferences.language)}
                         </div>
 
                         <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("812b45ce-01e5-4ecb-9595-33766948660f", userPreferences.language)}</div>
-
+                        {/* 
                         <Link
                             to="/"
                             className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
                         >
                             {getVernacularString("02195d6b-8516-4598-9214-d1b13866d85b", userPreferences.language)}
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>
@@ -364,73 +394,57 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
 
     const valuesData = [
         {
-            letter: "A",
-            valueText: `<span class="lg-text-primary-500">A</span>im outside your comfort zone`,
-            valueImage: "/livguard/about-us/5/value-aim.png",
+            letter: "8c3a35da-197a-422d-93e0-331f1a9370e4",
+            valueText: "795f5dfe-542d-4eaa-a26d-90effc18a849",
+            valueImageDesktop: "/livguard/about-us/5/value-aim-desktop.png",
+            valueImageMobile: "/livguard/about-us/5/value-aim-mobile.png",
         },
         {
-            letter: "I",
-            valueText: `<span class="lg-text-primary-500">I</span>nspire and energize your team`,
-            valueImage: "/livguard/about-us/5/value-inspire.png",
+            letter: "b2620aa3-0677-4330-9b99-ef2c0d7170cd",
+            valueText: "59a5ec6f-6eba-4395-9047-bec0c8bec32e",
+            valueImageDesktop: "/livguard/about-us/5/value-inspire-desktop.png",
+            valueImageMobile: "/livguard/about-us/5/value-inspire-mobile.png",
         },
         {
-            letter: "M",
-            valueText: `<span class="lg-text-primary-500">M</span>easure, track and review your results.`,
-            valueImage: "/livguard/about-us/5/value-measure.png",
+            letter: "dac92472-0230-4fe5-a152-bb6aab17c8e0",
+            valueText: "bffefb3c-8634-4f2b-bc52-e7c4d487da23",
+            valueImageDesktop: "/livguard/about-us/5/value-measure-desktop.png",
+            valueImageMobile: "/livguard/about-us/5/value-measure-mobile.png",
         },
         {
-            letter: "A",
-            valueText: `<span class="lg-text-primary-500">A</span>nalyze customer needs and being their champion.`,
-            valueImage: "/livguard/about-us/5/value-analyze.png",
+            letter: "d83054c4-751b-4bc1-a061-fd43e39c177c",
+            valueText: "8e99838f-3d77-4c89-955e-9411d2e447eb",
+            valueImageDesktop: "/livguard/about-us/5/value-analyze-desktop.png",
+            valueImageMobile: "/livguard/about-us/5/value-analyze-mobile.png",
         },
         {
-            letter: "C",
-            valueText: `<span class="lg-text-primary-500">C</span>ommunicate honestly and listen carefully.`,
-            valueImage: "/livguard/about-us/5/value-communicate.png",
+            letter: "2bbf5d96-c268-4c3a-ad76-0bc5d3dc5bc5",
+            valueText: "6bf5ab86-1ff2-42d6-b20e-b3641dc69d28",
+            valueImageDesktop: "/livguard/about-us/5/value-communicate-desktop.png",
+            valueImageMobile: "/livguard/about-us/5/value-communicate-mobile.png",
         },
         {
-            letter: "T",
-            valueText: `<span class="lg-text-primary-500">T</span>rust and create winning Teams`,
-            valueImage: "/livguard/about-us/5/value-trust.png",
+            letter: "d5435550-b3aa-493f-9513-56bc9e701701",
+            valueText: "d54dcad5-4ae4-4300-ab3a-e44d26e2a82a",
+            valueImageDesktop: "/livguard/about-us/5/value-trust-desktop.png",
+            valueImageMobile: "/livguard/about-us/5/value-trust-mobile.png",
         },
     ];
 
     const [selectedValue, setSelectedValue] = useState<Values>(Values.Aim);
 
-    const ValueSelector = ({valueSelectorClassName}: {valueSelectorClassName?: string}) => {
-        return (
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-auto-cols-[repeat(6,1fr)] tw-gap-1", valueSelectorClassName)}>
-                {valuesData.map((valueData, valueDataIndex) => {
-                    const isSelected = selectedValue === valueDataIndex;
-                    return (
-                        <div
-                            key={valueDataIndex}
-                            className={`${
-                                isSelected ? "lg-about-us-leaders-bg-gradient" : "lg-bg-secondary-100"
-                            } tw-grid tw-place-items-center tw-place-content-center  tw-px-5 tw-py-3 tw-row-start-1 tw-rounded-sm lg-text-body-bold tw-cursor-pointer tw-transition-colors tw-duration-200`}
-                            onClick={() => {
-                                setSelectedValue(valueDataIndex);
-                            }}
-                        >
-                            {valueData.letter}
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    };
-
     const ValueDisplay = ({valueDisplayClassName}: {valueDisplayClassName?: string}) => {
         return (
             <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_1rem_auto]", valueDisplayClassName)}>
                 <div
-                    dangerouslySetInnerHTML={{__html: valuesData[selectedValue].valueText}}
+                    dangerouslySetInnerHTML={{__html: getVernacularString(valuesData[selectedValue].valueText, userPreferences.language)}}
                     className="tw-row-start-1 tw-text-center lg:tw-text-left"
                 ></div>
                 <div className="tw-row-start-3 tw-flex flex-row tw-justify-center lg:tw-justify-start">
                     <FullWidthImage
                         className="tw-rounded-lg"
-                        relativePath={valuesData[selectedValue].valueImage}
+                        // relativePath={containerWidth != undefined && containerWidth < 1024 ? valuesData[selectedValue].valueImageMobile : valuesData[selectedValue].valueImageDesktop}
+                        relativePath={valuesData[selectedValue].valueImageDesktop}
                     />
                 </div>
             </div>
@@ -461,7 +475,7 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
                                 setSelectedValue(valueDataIndex);
                             }}
                         >
-                            {valueData.letter}
+                            {getVernacularString(valueData.letter, userPreferences.language)}
                         </div>
                     );
                 })}
@@ -545,16 +559,16 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
 
     const sisterCompanyLogos = [
         {
-            logoUrl: "/livguard/about-us/7/livgreen.png",
-        },
-        {
             logoUrl: "/livguard/about-us/7/livpure.png",
         },
         {
             logoUrl: "/livguard/about-us/7/livfast.png",
         },
         {
-            logoUrl: "/livguard/about-us/7/livpure_smart.png",
+            logoUrl: "/livguard/about-us/7/livgreen.png",
+        },
+        {
+            logoUrl: "/livguard/about-us/7/livpure-smart.png",
         },
         {
             logoUrl: "/livguard/about-us/7/ncubate.png",
@@ -610,6 +624,7 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
                                 height="47px"
                                 relativePath={sisterCompanyLogo.logoUrl}
                                 key={sisterCompanyLogoIndex}
+                                className="tw-brightness-0 dark:tw-invert hover:tw-brightness-100 hover:dark:tw-invert-0 tw-transition tw-duration-[250ms]"
                             />
                         );
                     })

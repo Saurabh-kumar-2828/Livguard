@@ -25,7 +25,6 @@ export function addVernacularString(
     value: {
         [Language.English]: string;
         [Language.Hindi]: string;
-        // [Language.Marathi]: string;
     },
 ) {
     vernacularStrings[id] = value;
@@ -1840,7 +1839,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     dealerLocatorHighlightedText: {
         [Language.English]: "Dealers Near You",
         [Language.Hindi]: "आप के नज़दीकी डीलर",
-        [Language.Marathi]: "OOOOO",
     },
     applyNowForDealerT1: {
         [Language.English]: "Become A Dealer Now",
@@ -1994,7 +1992,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     footerCopyrightText: {
         [Language.English]: `© Livguard 2023. All Rights Reserved | Technology Partner - <a href="https://growthjockey.com" target="_blank" class="tw-underline hover:tw-text-[#00a2ed]">GrowthJockey</a>`,
         [Language.Hindi]: `© लिवगार्ड 2023। सभी अधिकार सुरक्षित | प्रौद्योगिकी भागीदार - <a href="https://growthjockey.com">GrowthJockey</a>`,
-        [Language.Marathi]: "INVALID STRING REQUESTED",
     },
 
     footerSubscribeT1: {
@@ -3091,7 +3088,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     invalidKey: {
         [Language.English]: "INVALID STRING REQUESTED",
         [Language.Hindi]: "INVALID STRING REQUESTED",
-        [Language.Marathi]: "INVALID STRING REQUESTED",
     },
     dealerLocatorBottomBarT1: {
         [Language.English]: "Cashback Offer",
@@ -3160,37 +3156,30 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "28d2dcd2-f0a8-4314-b3d0-981ddf2444b9": {
         [Language.English]: `Best <span class="lg-text-highlighted">Offers</span>`,
         [Language.Hindi]: `सर्वश्रेष्ठ <span class="lg-text-highlighted">ऑफर्स</span>`,
-        [Language.Marathi]: "?????",
     },
     "5b7f29b4-216f-4c13-ac5d-811cc4cb1733": {
         [Language.English]: `Power-Packed and Ready`,
         [Language.Hindi]: `शक्ति से भरे और तैयार`,
-        [Language.Marathi]: "?????",
     },
     "7b226d84-b7f2-4f94-8626-67627cb47c28": {
         [Language.English]: `Inverter & Battery Offers`,
         [Language.Hindi]: `इनवर्टर & बैटरी ऑफर्स `,
-        [Language.Marathi]: "?????",
     },
     "e3f844b6-79ab-47fd-a25c-67fadebeae73": {
         [Language.English]: `Automotive Offers`,
         [Language.Hindi]: `ऑटोमोटिव ऑफर्स`,
-        [Language.Marathi]: "?????",
     },
     "ddf400a4-3900-4561-85fb-1447c8693412": {
         [Language.English]: `Solar Offers`,
         [Language.Hindi]: `सोलर ऑफर्स`,
-        [Language.Marathi]: "?????",
     },
     "46c68fad-1e6e-442c-ab3c-fc09234693d2": {
         [Language.English]: `Accessories Offers`,
         [Language.Hindi]: `सहायक उपकरण ऑफर्स`,
-        [Language.Marathi]: "?????",
     },
     "5ac20616-07fb-44f4-bf6f-c5e16b272eb8": {
         [Language.English]: `Our Featured <span class="lg-text-highlighted">Products</span>`,
         [Language.Hindi]: `हमारे विशेष <span class="lg-text-highlighted">उत्पाद</span>`,
-        [Language.Marathi]: "?????",
     },
     "3a0f3353-3cde-4043-9cf5-714be3fa406d": {
         [Language.English]: `LG700E`,
@@ -3457,12 +3446,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     contactUsS2Option4Text: {
         [Language.English]: "Get seamless service for your Livguard product",
         [Language.Hindi]: "अपने लिवगार्ड उत्पाद के लिए बिना रुकावट की सर्विस प्राप्त करें",
-        [Language.Marathi]: "?????",
     },
     contactUsS2Option4ButtonText: {
         [Language.English]: "Request Service",
         [Language.Hindi]: "सर्विस अनुरोध करें",
-        [Language.Marathi]: "?????",
     },
     contactUsS4H: {
         [Language.English]: `Our <span class="lg-text-highlighted">Operations</span>`,
@@ -3556,7 +3543,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "063dc56b-910e-4a48-acb8-8f52668a4c72": {
         [Language.English]: "View Product",
         [Language.Hindi]: "उत्पाद देखें",
-        [Language.Marathi]: "?????",
     },
     "14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f": {
         [Language.English]: "Best Seller",
@@ -3577,7 +3563,6 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "b9e34b6e-972e-4246-a393-6450421e4813": {
         [Language.English]: "Offers coming soon!",
         [Language.Hindi]: "ऑफर जल्दी ही आने वाले हैं!",
-        [Language.Marathi]: "?????",
     },
     "8110c3a9-9ce4-4fb6-9133-eed73ee34e88": {
         [Language.English]: `Bring home the best products at <span class="lg-text-primary-500">0% interest</span> with our trusted finance partners`,
@@ -3635,184 +3620,148 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "84ec1aea-1f61-4508-ae92-cd3647247ef1": {
         [Language.English]: `Home`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "1f489840-705d-44b1-a18a-73a2645594de": {
         [Language.English]: `Reliable Service`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "5a7fe2d5-9f46-4bb4-814e-7f075f8ca843": {
         [Language.English]: `For Uninterrupted Power Supply`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "2cc7bf42-cb40-4316-8429-f65309b51501": {
         [Language.English]: `Effortless <span class="lg-text-highlighted">Services</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
 
     "f4a43cd6-7aea-444f-8f0f-6499ebedb2bf": {
         [Language.English]: `For Limitless Energy Solutions`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "521eb4a5-fa32-4ac8-aa40-b8866848e565": {
         [Language.English]: `PAN India Presence`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "dce77179-dece-4a32-87e8-571459bccdbb": {
         [Language.English]: `Service Excellence`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "4fc10235-8e85-48c9-9202-916a0bda22db": {
         [Language.English]: `Quick Resolution`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "3815727b-e9b3-4e71-a167-1c85c66b9e1d": {
         [Language.English]: `At Livguard, our mission is to ensure a seamless and uninterrupted energy solution journey for you, always. With LivServ, our dedicated service platform, we simplify and streamline the service resolution process. From inverters and inverter battery services, car battery servicing to stabilizer services - we've got all your energy needs covered!`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
 
     "58490cb1-5f27-4f67-98d3-939b5a3b9b10": {
         [Language.English]: `Request A <span class="lg-text-highlighted">Service</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "1cc00f3b-4b94-4e16-bc4f-a0337877d25e": {
         [Language.English]: `Please describe the issue you are facing`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "2f725e91-eb31-4d56-898a-87db94a21e48": {
         [Language.English]: `Describe your concern here...`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "43e7ced0-33d1-46a2-ab06-4e50dae64256": {
         [Language.English]: `Select Your Product`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "17cfa283-6fcc-4a49-9dfe-a392e0310b27": {
         [Language.English]: `Your Contact Number`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "1e90dca7-b78f-4231-b2df-644a3b0322d1": {
         [Language.English]: `Enter Contact Number`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "31241b10-2784-43df-a2ea-a614c9ef7468": {
         [Language.English]: `Your Pin Code`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "848eb522-5221-4035-ac77-94338e97ac9c": {
         [Language.English]: `Enter Pin Code`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "a1a00432-ed7a-4e11-9e9b-4cc783a6776a": {
         [Language.English]: `Your City`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "c5702705-3fa4-4f7d-a706-4e22ea024aac": {
         [Language.English]: `Enter Your City`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "7de002e7-afeb-40d5-8bf5-6f2cd2be88ea": {
         [Language.English]: `Your Email`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "01fce108-4fe0-40c2-bb3a-3fb980fcec72": {
         [Language.English]: `Enter Email`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "6a37e3ee-a8a6-4999-9494-80465aaad48d": {
         [Language.English]: `Your Name`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "a0d68490-ad84-47fb-863c-2a9c812feaec": {
         [Language.English]: `Enter Full Name`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "d8a55222-554d-48c5-a638-118f37baf66b": {
         [Language.English]: `Your State`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "981952eb-5f5c-4b14-b4e8-f1b766851c64": {
         [Language.English]: `Enter Your State`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "5d393e57-cef0-497c-b9c6-87e469e34fe8": {
         [Language.English]: `Service Number (Optional)`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "54ff368f-0a01-443e-b940-9a9240cbe783": {
         [Language.English]: `Enter Service Number`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a": {
         [Language.English]: `Request A Call Back`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "6d0f2700-ee1b-4215-b60c-f920ba0d0a2b": {
         [Language.English]: `Thank You!`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "d0b96a23-94c3-45c9-af3e-0722264c7ed5": {
         [Language.English]: `Hang on, our team will get in touch with you shortly.`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "74058229-5e75-4efe-833c-18009f248c6a": {
         [Language.English]: `Join Our 2 Crore`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "afe86242-a8aa-4955-8951-516c560fc956": {
         [Language.English]: `<span class="lg-text-highlighted">Happy Users</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "aec063e5-c0a7-4ec7-8d66-8c2a92b61b5d": {
         [Language.English]: `Warranty`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "cbe9f24f-08f3-4448-aeb5-556dc08fd017": {
         [Language.English]: `Registration Made Easy`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "d1030527-97b8-4772-9810-e98c5c0b30c3": {
         [Language.English]: `Register Now`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "0a3cd411-749e-4d0a-8d1e-36bbf631e462": {
         [Language.English]: `Hang on, our team will get in touch with your shortly.`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     // Service Page Vernac Strings End
 
@@ -3820,309 +3769,313 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "dead4984-38fc-490e-8b38-0670a9a03631": {
         [Language.English]: `Best Voltage`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "e716f6b1-74ad-4087-80e1-fb88fb9a44ce": {
         [Language.English]: `Stabilizers for Home`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "10653f56-45cc-4317-9951-d6db74523397": {
         [Language.English]: `Livguard, aims at offering “Smart and Innovative energy solutions” to its customers. Our company is determined at delivering quality`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "612038bf-767c-475f-beca-aa4428c56d9f": {
         [Language.English]: `Stabilizers That Are`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "4a65b232-e2e5-4a85-9004-a84a5e04f91d": {
         [Language.English]: `<span class="lg-text-highlighted">Meant To Last</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "342e7f22-6183-4d16-afd9-3f4e05c36a04": {
         [Language.English]: `Stabilizers`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "d0d3b5e3-a618-4174-b3a8-14e8d6d11ff2": {
         [Language.English]: `For Home`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "076cf02d-0b8a-4af2-9e0f-63d1804402d2": {
         [Language.English]: `For&nbsp;AC`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "c3597ec0-a4b1-47b6-bdba-13b6e53f3cd9": {
         [Language.English]: `For&nbsp;Mains`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "b82414bd-0f13-4401-a592-84cbc4f9a4e2": {
         [Language.English]: `For&nbsp;TVs`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "33655fc5-1527-4744-a163-bd6217eac5b4": {
         [Language.English]: `For&nbsp;Refrigerators`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "92897a67-ff1d-4e6c-804f-4f69dd03db4d": {
         [Language.English]: `We Are`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "53b219cb-fdee-4ea2-aff4-858f5c63aed0": {
         [Language.English]: `<span class="lg-text-highlighted">Everywhere!</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "24bb85a9-42af-4302-b21b-dece9f9d0d21": {
         [Language.English]: `Available Across 21000+ Pincodes`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "db232019-b302-4eb7-a10c-05b17e72a800": {
         [Language.English]: `Find My Dealer`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "53bbe30f-9859-42e5-add2-64dd0de0d415": {
         [Language.English]: `Choose The`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "91461747-63e3-4cfa-bacf-715015891ee8": {
         [Language.English]: `<span class="lg-text-highlighted">Right Stabilizer</span> For You`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "8e88b1c7-bac7-4b9e-a112-5fc7431b4ccd": {
         [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter battery and our
         Product Catalogue for product specifications`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "b3660763-f092-42d4-a97d-76a34dd701f6": {
         [Language.English]: `Buying Guide`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26": {
         [Language.English]: `Download Catalogue`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "1271cac7-693c-48bc-850f-16199416dd0e": {
         [Language.English]: `Plan Your Power`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
 
     "b0a3aa40-4b00-4bdd-88e0-67085fafa92b": {
         [Language.English]: `Shower Some Love`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "c0f802cc-902b-4328-b631-a3fad8fc7d18": {
         [Language.English]: `On Our <span class="lg-text-highlighted">Social Handles</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     //Stabilizer Page Vernac Strings End
 
     //About Us Page Vernac Strings Start
+    "849dabf7-0fa6-47e6-a1f8-e4f544306f7c": {
+        [Language.English]: "Home",
+        [Language.Hindi]: "होम",
+    },
+    "6d164881-cc49-4447-8460-d6fa6cf7a14f": {
+        [Language.English]: "About Us",
+        [Language.Hindi]: "हमारे बारे में",
+    },
     "b38f6ec8-1c38-44ef-b016-93da7ed7bf19": {
-        [Language.English]: `Bringing Unlimited Energy To Every Household`,
+        [Language.English]: `Bringing <span class="lg-text-highlighted">Unlimited Energy</span> To Every Household`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "540952b6-a7ef-453f-a6e5-cd8953fa4222": {
         [Language.English]: `Who <span class="lg-text-highlighted">We Are</span>`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "55c526fa-c19d-4a73-a460-62c333174a1b": {
         [Language.English]: `About Livguard`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "a95dff17-79db-4ac9-b9aa-2518f93919c5": {
         [Language.English]: `With our customer-centric approach, we aim to empower everyone across the nation with limitless energy. Our diverse product portfolio, spanning from automotive batteries, inverters and inverter batteries, to stabilizers and residential solar solutions, ushers in a new era of innovative energy products.`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "8a35dff2-079c-4638-a96a-8100d04a72b6": {
         [Language.English]: `Our Mission`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "4e49216b-9457-488a-860e-3fb97ba34100": {
         [Language.English]: `Establish Livguard as a strong player in energy-solution space in India. We will achieve this by developing an ecosystem of delighted customers, committed partners, exceptional product quality and delightful service.`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "68b1762f-e31f-4110-bf87-3afc487d7edf": {
         [Language.English]: `Our Vision`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "373fedff-da89-4396-b215-ed4099abfcf9": {
         [Language.English]: `To be a global leader in energy storage products driven by innovative technology and excellence in manufacturing & services.`,
         [Language.Hindi]: "?????",
-        [Language.Marathi]: "?????",
     },
     "75b7261b-7ced-4385-891a-ecfe8123bab5": {
         [Language.English]: `Our <span class="lg-text-highlighted">Presence</span>`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "bc06ea32-4286-48ed-bde2-5a5c7250ff67": {
         [Language.English]: `India Operations`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "78cd576b-2c66-4cf1-b4db-209d0543a659": {
         [Language.English]: `Livguard, with its widespread network of dealers, distributors, and service providers, aims to deliver limitless energy experiences to all.`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "02195d6b-8516-4598-9214-d1b13866d85b": {
         [Language.English]: `Know More`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "8ae1096b-408d-4d55-8005-78574a7b5815": {
         [Language.English]: `International Operations`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "812b45ce-01e5-4ecb-9595-33766948660f": {
         [Language.English]: `Livguard has established connections in many countries, which enable them to seize opportunities in the Global Energy Storage Solutions Sector.`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "2adcc683-70f0-4b39-be83-73211ea28f20": {
         [Language.English]: `<span class="lg-text-highlighted">Explore Careers</span> <br/> At Livguard`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "1aa2a41b-b500-43bb-b0cd-b9999f5e442b": {
         [Language.English]: `Be a part of Livguard's energy-packed team. Drop us a mail with your field of interest and we will get back to you!`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "c1a8bbb2-f085-4c71-8082-7e292fcde4e7": {
         [Language.English]: `Apply Now`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "13f6e1c4-d97c-46cf-8ddb-52712843410b": {
         [Language.English]: `Meet Our`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "cb60764f-1758-4b61-a998-8f7acc7b0b92": {
         [Language.English]: `<span class="lg-text-highlighted">Leaders</span>`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "d867ff63-d4bf-49ae-8ac7-7290a76caef3": {
-        [Language.English]: `Mr. Rakesh Malhotra `,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "Mr. Rakesh Malhotra",
+        [Language.Hindi]: "श्री. राकेश मल्होत्रा",
     },
     "755f8e01-18c9-4883-956c-5851e4e3885f": {
-        [Language.English]: `(Founder & Mentor)`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "(Founder & Mentor)",
+        [Language.Hindi]: "(संस्थापक और संरक्षक)",
     },
     "8ddd1acf-9b2d-41f4-b4cd-e2395c211c88": {
-        [Language.English]: `A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]:
+            "A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.",
+        [Language.Hindi]:
+            "एक मार्गदर्शक , एक उपदेशक, एक दूरदर्शी, और एक समग्र प्रेरक शक्ति, श्री राकेश मल्होत्रा ​​​​का उद्योग के संपर्क में, उनका जुनून और नए विचारों को जीवन में लाने की उनकी भावना कई अन्य उद्यमियों को प्रेरित करती रही है।",
     },
     "4ca82802-b39e-4844-9586-82ce4b095cff": {
-        [Language.English]: `Mr. Gurpreet Bhatia`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "Mr. Gurpreet Bhatia",
+        [Language.Hindi]: "श्री गुरप्रीत भाटिया",
     },
     "23fd4d15-8063-44e1-be03-a3aa6585d33b": {
-        [Language.English]: `(Founder & Mentor)`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "(CEO)",
+        [Language.Hindi]: "(सीईओ)",
     },
     "4f82218c-1156-4660-b634-a1231d82d457": {
-        [Language.English]: `A leader, a mentor, a visionary, and an overall driving force, Mr. Rakesh Malhotra's exposure to the industry, his passion and his spirit to bring new and innovative ideas to life continues to motivate many other entrepreneurs.`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]:
+            "A dynamic leader with a formidable experience of over 25 years in B2B & B2C channels coupled with global experience in marketing, sales, and strategy. Mr. Gurpreet Bhatia is an impeccable example of someone who has created a unique career trajectory.",
+        [Language.Hindi]:
+            "मार्केटिंग, सेल्स और रणनीति में वैश्विक अनुभव के साथ बी2बी और बी2सी चैनलों में 25 से अधिक वर्षों के अनुभव के साथ एक मार्गदर्शक। श्री गुरप्रीत भाटिया एक उदाहरण हैं, जिसने एक अद्वितीय करियर मार्ग बनाया है।",
     },
     "54c7930a-aed3-4efc-b2eb-68a7b5b87ae2": {
-        [Language.English]: `Mr. Navneet Kapoor`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "Mr. Navneet Kapoor",
+        [Language.Hindi]: "श्री नवनीत कपूर",
     },
     "5267b971-9cbf-41dc-9cf8-abb2f8d7f2c5": {
-        [Language.English]: `(Co-founder & Chairman)`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "(Co-founder & Chairman)",
+        [Language.Hindi]: "(सह-संस्थापक और अध्यक्ष)",
     },
     "07d2f8d0-b81b-4dd3-a547-1adef20b3fea": {
-        [Language.English]: `One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]:
+            "One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.",
+        [Language.Hindi]:
+            "SAR ग्रुप के मुख्य स्तंभों में से एक और सच्चे उद्यमिता की पहचान, श्री नवनीत कपूर अपनी विशेषज्ञता और विश्वास के माध्यम से लिवगार्ड की प्रमुख ताकतों में से एक रहे हैं। उनका मानना है कि एक सफल व्यवसाय तब फलता-फूलता है जब उद्योग विशेषज्ञता के साथ उत्कृष्ट सेवा मिलती है!",
     },
     "4d638603-3fff-4920-b8b2-927d6a748d54": {
-        [Language.English]: `Mr. Alankar Mittal`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "Mr. Alankar Mittal",
+        [Language.Hindi]: "श्री अलंकार मित्तल",
     },
     "62e2f1af-3ce5-4558-a8aa-3cbd1e48ee87": {
-        [Language.English]: `(Executive VP)`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]: "(Executive VP)",
+        [Language.Hindi]: "(एग्जीक्यूटिव वी पी)",
     },
     "fca6fd65-7e15-40dc-a89a-52895912401f": {
-        [Language.English]: `One of the main pillars of the SAR Group and a hallmark of true entrepreneurship, Mr. Navneet Kapoor has been among the key forces behind Livguard through his expertise and belief that a successful business thrives when outstanding service is coupled with industry expertise and innovation.`,
-        [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+        [Language.English]:
+            "Extremely committed and iron-willed, Mr. Alankar Mittal believes leadership is not about a title or a designation. It is about impact, influence, and inspiration. His massive experience of over 20 years continues to be a driving force for many.",
+        [Language.Hindi]:
+            "अत्यधिक प्रतिबद्ध और मज़बूत इच्छाशक्ति वाले श्री अलंकार मित्तल का मानना ​​है कि नेतृत्व किसी उपाधि या पदनाम के बारे में नहीं है, यह प्रभाव और प्रेरणा के बारे में है। 20 से अधिक वर्षों का उनका व्यापक अनुभव कई लोगों के लिए प्रेरक शक्ति बना हुआ है।",
     },
     "389859cd-81c3-4b9a-95ad-b38dde856511": {
         [Language.English]: `Our <span class="lg-text-highlighted">Values</span>`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "0840f752-7ac4-4277-8e49-5cf832119941": {
         [Language.English]: `AIM & ACT`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
+    },
+    "8c3a35da-197a-422d-93e0-331f1a9370e4": {
+        [Language.English]: "A",
+        [Language.Hindi]: "?????",
+    },
+    "795f5dfe-542d-4eaa-a26d-90effc18a849": {
+        [Language.English]: `<span class="lg-text-primary-500">A</span>im outside your comfort zone`,
+        [Language.Hindi]: `?????`,
+    },
+    "b2620aa3-0677-4330-9b99-ef2c0d7170cd": {
+        [Language.English]: "I",
+        [Language.Hindi]: "?????",
+    },
+    "59a5ec6f-6eba-4395-9047-bec0c8bec32e": {
+        [Language.English]: `<span class="lg-text-primary-500">I</span>nspire and energize your team`,
+        [Language.Hindi]: `?????`,
+    },
+    "dac92472-0230-4fe5-a152-bb6aab17c8e0": {
+        [Language.English]: "M",
+        [Language.Hindi]: "?????",
+    },
+    "bffefb3c-8634-4f2b-bc52-e7c4d487da23": {
+        [Language.English]: `<span class="lg-text-primary-500">M</span>easure, track and review your results.`,
+        [Language.Hindi]: `?????`,
+    },
+    "d83054c4-751b-4bc1-a061-fd43e39c177c": {
+        [Language.English]: "A",
+        [Language.Hindi]: "?????",
+    },
+    "8e99838f-3d77-4c89-955e-9411d2e447eb": {
+        [Language.English]: `<span class="lg-text-primary-500">A</span>nalyze customer needs and being their champion.`,
+        [Language.Hindi]: `?????`,
+    },
+    "2bbf5d96-c268-4c3a-ad76-0bc5d3dc5bc5": {
+        [Language.English]: "C",
+        [Language.Hindi]: "?????",
+    },
+    "6bf5ab86-1ff2-42d6-b20e-b3641dc69d28": {
+        [Language.English]: `<span class="lg-text-primary-500">C</span>ommunicate honestly and listen carefully.`,
+        [Language.Hindi]: `?????`,
+    },
+    "d5435550-b3aa-493f-9513-56bc9e701701": {
+        [Language.English]: "T",
+        [Language.Hindi]: "?????",
+    },
+    "d54dcad5-4ae4-4300-ab3a-e44d26e2a82a": {
+        [Language.English]: `<span class="lg-text-primary-500">T</span>rust and create winning Teams`,
+        [Language.Hindi]: `?????`,
     },
     "310ad3b5-2e4a-409b-9622-c1389c366dbd": {
         [Language.English]: `Empowered By <span class="lg-text-highlighted">SAR</span>`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "b005d8fa-48dc-4f1a-acee-4afdeec1a1d2": {
         [Language.English]: `Our Guidance & Motivation`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "4a0ff6e2-3456-4e80-a100-dd0437e1e1a5": {
         [Language.English]: `Established in 1988 by visionaries Mr. Rakesh Malhotra and Mr. Navneet Kapoor, the SAR Group has been at the forefront of creating a safer, better future through innovative and
         eco-friendly brands. These brands include Livpure, Livguard, Lectrix, Ncubate, and HEKA. Over the decades, the group has carved a strong niche for itself, leading the market in areas
         such as Water Purification, Batteries, Inverters, Electric Vehicles, and Venture Capital.`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
     "1dac654a-dcb3-48bf-9b14-2e08470548d9": {
         [Language.English]: `Our Sister Companies`,
         [Language.Hindi]: `?????`,
-        [Language.Marathi]: "?????",
     },
 
     //About Us Page Vernac Strings End

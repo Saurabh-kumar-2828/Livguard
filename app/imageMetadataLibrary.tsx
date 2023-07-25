@@ -3027,50 +3027,102 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LMC$s9kDIUxu.mt6V?oz$+t7V@a#",
         finalUrl: "/livguard/stabilizer/1/stabilizer-banner-mobile-7dd746.jpg",
     },
-    "/livguard/about-us/3/leader-1.svg": {
+    "/livguard/about-us/1/banner-desktop.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LABD7,~W-=%3?^x]xutR00E1M_WV",
+        finalUrl: "/livguard/about-us/1/banner-desktop-c43680.jpg",
+    },
+    "/livguard/about-us/1/banner-mobile.jpg": {
+        width: 3840,
+        height: 3840,
+        blurHash: "LED9F%#--p~C%#M{ae%Mt5V@f6X8",
+        finalUrl: "/livguard/about-us/1/banner-mobile-e20302.jpg",
+    },
+    "/livguard/about-us/1/products-in-banner.png": {
+        width: 980,
+        height: 881,
+        finalUrl: "/livguard/about-us/1/products-in-banner-c38e89.png",
+    },
+    "/livguard/about-us/3/leader-alankar.png": {
+        width: 133,
+        height: 133,
+        finalUrl: "/livguard/about-us/3/leader-alankar-8dad88.png",
+    },
+    "/livguard/about-us/3/leader-gurpreet.png": {
         width: 141,
         height: 141,
-        finalUrl: "/livguard/about-us/3/leader-1-538545.svg",
+        finalUrl: "/livguard/about-us/3/leader-gurpreet-d3da2d.png",
     },
-    "/livguard/about-us/3/leader-2.svg": {
-        width: 141,
-        height: 141,
-        finalUrl: "/livguard/about-us/3/leader-2-70fcf5.svg",
+    "/livguard/about-us/3/leader-navneet.png": {
+        width: 133,
+        height: 133,
+        finalUrl: "/livguard/about-us/3/leader-navneet-ae6ef9.png",
     },
-    "/livguard/about-us/3/leader-3.svg": {
-        width: 141,
-        height: 141,
-        finalUrl: "/livguard/about-us/3/leader-3-570fca.svg",
+    "/livguard/about-us/3/leader-rakesh.png": {
+        width: 133,
+        height: 133,
+        finalUrl: "/livguard/about-us/3/leader-rakesh-fd472b.png",
     },
-    "/livguard/about-us/5/value-aim.png": {
+    "/livguard/about-us/5/value-aim-desktop.png": {
+        width: 628,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-aim-desktop-d5d238.png",
+    },
+    "/livguard/about-us/5/value-aim-mobile.png": {
         width: 307,
-        height: 249,
-        finalUrl: "/livguard/about-us/5/value-aim-3b8ad1.png",
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-aim-mobile-2f2edd.png",
     },
-    "/livguard/about-us/5/value-inspire.png": {
-        width: 308,
-        height: 249,
-        finalUrl: "/livguard/about-us/5/value-inspire-1d6c4b.png",
+    "/livguard/about-us/5/value-analyze-desktop.png": {
+        width: 628,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-analyze-desktop-46b1bf.png",
     },
-    "/livguard/about-us/5/value-measure.png": {
-        width: 308,
-        height: 249,
-        finalUrl: "/livguard/about-us/5/value-measure-ba3f8b.png",
+    "/livguard/about-us/5/value-analyze-mobile.png": {
+        width: 307,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-analyze-mobile-d5659c.png",
     },
-    "/livguard/about-us/5/value-analyze.png": {
-        width: 308,
-        height: 249,
-        finalUrl: "/livguard/about-us/5/value-analyze-876cc9.png",
+    "/livguard/about-us/5/value-communicate-desktop.png": {
+        width: 628,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-communicate-desktop-77fb2b.png",
     },
-    "/livguard/about-us/5/value-communicate.png": {
-        width: 308,
-        height: 249,
-        finalUrl: "/livguard/about-us/5/value-communicate-d4624e.png",
+    "/livguard/about-us/5/value-communicate-mobile.png": {
+        width: 307,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-communicate-mobile-c21510.png",
     },
-    "/livguard/about-us/5/value-trust.png": {
-        width: 308,
-        height: 249,
-        finalUrl: "/livguard/about-us/5/value-trust-a80ff2.png",
+    "/livguard/about-us/5/value-inspire-desktop.png": {
+        width: 628,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-inspire-desktop-caa17f.png",
+    },
+    "/livguard/about-us/5/value-inspire-mobile.png": {
+        width: 307,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-inspire-mobile-9a7dbc.png",
+    },
+    "/livguard/about-us/5/value-measure-desktop.png": {
+        width: 628,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-measure-desktop-318034.png",
+    },
+    "/livguard/about-us/5/value-measure-mobile.png": {
+        width: 307,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-measure-mobile-93a20f.png",
+    },
+    "/livguard/about-us/5/value-trust-desktop.png": {
+        width: 628,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-trust-desktop-305c5d.png",
+    },
+    "/livguard/about-us/5/value-trust-mobile.png": {
+        width: 307,
+        height: 291,
+        finalUrl: "/livguard/about-us/5/value-trust-mobile-d16c9d.png",
     },
     "/livguard/about-us/7/sar.png": {
         width: 502,
@@ -3080,26 +3132,26 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
     "/livguard/about-us/7/livfast.png": {
         width: 141,
         height: 46,
-        finalUrl: "/livguard/about-us/7/livfast-741b02.png",
+        finalUrl: "/livguard/about-us/7/livfast-e06c4b.png",
     },
     "/livguard/about-us/7/livgreen.png": {
         width: 119,
+        height: 48,
+        finalUrl: "/livguard/about-us/7/livgreen-b55aa7.png",
+    },
+    "/livguard/about-us/7/livpure-smart.png": {
+        width: 159,
         height: 47,
-        finalUrl: "/livguard/about-us/7/livgreen-b3273b.png",
+        finalUrl: "/livguard/about-us/7/livpure-smart-c8d024.png",
     },
     "/livguard/about-us/7/livpure.png": {
         width: 136,
         height: 46,
-        finalUrl: "/livguard/about-us/7/livpure-95728b.png",
-    },
-    "/livguard/about-us/7/livpure_smart.png": {
-        width: 159,
-        height: 46,
-        finalUrl: "/livguard/about-us/7/livpure_smart-1a30dd.png",
+        finalUrl: "/livguard/about-us/7/livpure-cbafef.png",
     },
     "/livguard/about-us/7/ncubate.png": {
-        width: 247,
-        height: 46,
-        finalUrl: "/livguard/about-us/7/ncubate-16275a.png",
+        width: 204,
+        height: 47,
+        finalUrl: "/livguard/about-us/7/ncubate-1db639.png",
     },
 };
