@@ -23,7 +23,7 @@ import {OurBatteriesSectionInternal} from "~/routes/__category/inverter-batterie
 import {OurInvertersSectionInternal} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 type LoaderData = {
@@ -31,6 +31,7 @@ type LoaderData = {
     redirectTo: string;
     loadCalculatorInputs: LoadCalculatorInputs;
     loadCalculatorOutputs: LoadCalculatorOutputs;
+    pageUrl;
 };
 
 export const loader: LoaderFunction = async ({request, params}) => {
@@ -56,13 +57,14 @@ export const loader: LoaderFunction = async ({request, params}) => {
         redirectTo: getRedirectToUrlFromRequest(request),
         loadCalculatorInputs: loadCalculatorInputs,
         loadCalculatorOutputs: loadCalculatorOutputs,
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, loadCalculatorInputs, loadCalculatorOutputs} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, loadCalculatorInputs, loadCalculatorOutputs, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -73,6 +75,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "/load-calculator"},
@@ -245,7 +248,8 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                             <div className="lg-bg-primary-500 tw-p-4 tw-rounded-lg tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-justify-items-center tw-items-center tw-gap-x-4 tw-gap-y-4">
                                 <div className="tw-col-span-full">
                                     <div className="tw-w-full tw-text-center lg-text-title2">
-                                        {getVernacularString("75a44862-4242-4b1b-a7b7-bd6b57e40da7", userPreferences.language)}: {loadCalculatorOutputs.totalWatts}W, {Math.round(loadCalculatorOutputs.ah)}Ah
+                                        {getVernacularString("75a44862-4242-4b1b-a7b7-bd6b57e40da7", userPreferences.language)}: {loadCalculatorOutputs.totalWatts}W,{" "}
+                                        {Math.round(loadCalculatorOutputs.ah)}Ah
                                     </div>
 
                                     <VerticalSpacer className="tw-h-2" />
@@ -467,16 +471,14 @@ function HorizontalInverterRecommendationCard({
             href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
-        {/* <Link
+            {/* <Link
             to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
             <VerticalSpacer className="tw-h-3" />
 
             <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
-                <div className="tw-rounded-full tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative tw-top-[-0.625rem]">
-                    &nbsp;
-                </div>
+                <div className="tw-rounded-full tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative tw-top-[-0.625rem]">&nbsp;</div>
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-gap-x-4">
                     <FixedWidthImage
@@ -513,14 +515,16 @@ function HorizontalInverterRecommendationCard({
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-between tw-gap-x-4">
-                    <div className="lg-text-secondary-900 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
+                    <div className="lg-text-secondary-900 lg-text-body-bold">
+                        {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}
+                    </div>
 
                     <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        {/* </Link> */}
+            {/* </Link> */}
         </a>
     );
 }
@@ -546,7 +550,7 @@ function HorizontalBatteryRecommendationCard({
             href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
-        {/* <Link
+            {/* <Link
             to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-full tw-max-w-[25rem] tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
@@ -592,14 +596,16 @@ function HorizontalBatteryRecommendationCard({
                 <VerticalSpacer className="tw-h-4" />
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-between tw-gap-x-4">
-                    <div className="lg-text-secondary-900 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
+                    <div className="lg-text-secondary-900 lg-text-body-bold">
+                        {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}
+                    </div>
 
                     <div className="lg-text-secondary-700 tw-underline tw-underline-offset-4">{getVernacularString("loadCalculatorRecommendationsS2T3", userPreferences.language)}</div>
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        {/* </Link> */}
+            {/* </Link> */}
         </a>
     );
 }
@@ -626,7 +632,7 @@ function VerticalInverterRecommendationCard({
             href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
-        {/* <Link
+            {/* <Link
             to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
@@ -641,7 +647,9 @@ function VerticalInverterRecommendationCard({
 
                 {/* TODO: Temp hack */}
                 {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
-                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
+                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">
+                    {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}
+                </div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -691,7 +699,7 @@ function VerticalInverterRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        {/* </Link> */}
+            {/* </Link> */}
         </a>
     );
 }
@@ -718,7 +726,7 @@ function VerticalBatteryRecommendationCard({
             href={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
-        {/* <Link
+            {/* <Link
             to={`/product/${recommendation.model}`}
             className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         > */}
@@ -733,7 +741,9 @@ function VerticalBatteryRecommendationCard({
 
                 {/* TODO: Temp hack */}
                 {/* <div className="lg-text-secondary-900">{recommendation.humanFriendlyString}</div> */}
-                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">{recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}</div>
+                <div className="lg-text-secondary-900 tw-px-4 lg-text-body-bold">
+                    {recommendation.humanFriendlyString.length > 0 ? recommendation.humanFriendlyString : convertProductInternalNameToPublicName(recommendation.model)}
+                </div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -776,7 +786,7 @@ function VerticalBatteryRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
             </div>
-        {/* </Link> */}
+            {/* </Link> */}
         </a>
     );
 }

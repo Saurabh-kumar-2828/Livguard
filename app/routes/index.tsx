@@ -105,6 +105,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[{contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "#"}]}
             >
                 <HomePage
@@ -1178,6 +1179,7 @@ export function ContactUsDialog({
     useEffect(() => {
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
             setTimeout(() => {
+                console.log("action dispatching", formStateInputs.resendTimeOut);
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,

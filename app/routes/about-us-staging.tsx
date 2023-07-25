@@ -41,7 +41,7 @@ export const loader: LoaderFunction = async ({request}) => {
 };
 
 export default () => {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -52,6 +52,7 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "849dabf7-0fa6-47e6-a1f8-e4f544306f7c", link: "/"},
                     {contentId: "6d164881-cc49-4447-8460-d6fa6cf7a14f", link: "#"},
@@ -311,7 +312,7 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
                     deselectedContainersClassName="tw-pt-6 md:tw-pt-12 tw-h-full"
                     selectedContainerClassName="tw-pt-6 tw-h-full"
                     chevronButtonsBelowCarousel={containerWidth != null && containerHeight != null && (containerHeight > containerWidth || containerWidth < 640) ? false : true}
-                    chevronButtonsDivisionFactor={2}
+                    snapDotsDivisionFactor={2}
                 />
             </div>
         </>

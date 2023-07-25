@@ -62,6 +62,7 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[]}
             >
                 <StabilizerPage userPreferences={userPreferences} />

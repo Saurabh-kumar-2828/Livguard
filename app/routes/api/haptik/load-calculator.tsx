@@ -2,9 +2,12 @@ import type {LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import type {LoadCalculatorOutputs} from "~/backend/loadCalculator.server";
 import {getLoadCalculatorOutputs} from "~/backend/loadCalculator.server";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {propertyTemplatesNewUi} from "~/routes/load-calculator/index.types";
+import {getMetadataForImage} from "~/utilities";
 
 type LoaderData = LoadCalculatorOutputs;
 
@@ -31,6 +34,24 @@ export const loader: LoaderFunction = async ({request, params}) => {
         averageConsumption: 0.5,
         backupHours: 4,
     });
+
+    if (loadCalculatorOutputs.recommendedBatteries != null) {
+        loadCalculatorOutputs.recommendedBatteries = loadCalculatorOutputs.recommendedBatteries.map((battery) => {
+            return {
+                ...battery,
+                imageUrl: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/batteries/${battery.model}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
+            };
+        });
+    }
+
+    if (loadCalculatorOutputs.recommendedInverters != null) {
+        loadCalculatorOutputs.recommendedInverters = loadCalculatorOutputs.recommendedInverters.map((inverter) => {
+            return {
+                ...inverter,
+                imageUrl: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/inverters/${inverter.model}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
+            };
+        });
+    }
 
     const loaderData: LoaderData = {
         ...loadCalculatorOutputs,

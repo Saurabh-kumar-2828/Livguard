@@ -78,6 +78,10 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Contact Us",
         [Language.Hindi]: "हमसे संपर्क करें",
     },
+    "360f578c-4a1f-49a7-baf8-ee0680fb3301": {
+        [Language.English]: "Request a Call Back",
+        [Language.Hindi]: "कॉल बैक का अनुरोध करें",
+    },
     headerMenuSM1T1: {
         [Language.English]: "Inverters",
         [Language.Hindi]: "इनवर्टर",
@@ -452,15 +456,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c4c839c0-582d-4f53-be91-6730977f87aa": {
         [Language.English]: `Take Charge of Your Energy`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी ऊर्जा ज़रूरतों के लिए",
     },
     "aab3e140-baaf-46ce-a405-be90c45ef157": {
         [Language.English]: `With Our <span class="lg-text-highlighted">Power Planner</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `आज़माएँ हमारा <span class="lg-text-highlighted">पावर प्लानर</span>`,
     },
     "5591c0ca-fe8b-42ae-8154-d7bab6ce721e": {
         [Language.English]: `Get tailored power solutions, use our Power Planner to find the right inverter and inverter battery options for your home.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी ऊर्जा ज़रूरतों के अनुसार समाधान पाएँ। हमारे पावर प्लानर का इस्तेमाल करके अपने घर के लिए सही इनवर्टर और इनवर्टर बैटरी विकल्प ढूँढें।",
     },
     homeS6H1T1: {
         [Language.English]: `<span class="lg-text-highlighted">Transforming Lives</span> With`,
@@ -3419,6 +3423,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: "Describe your concern here...",
         [Language.Hindi]: "अपनी समस्या का विवरण यहां करें...",
     },
+
     contactUsS3FormNumberText: {
         [Language.English]: "Your Contact Number",
         [Language.Hindi]: "आपका संपर्क नंबर",
@@ -3635,117 +3640,126 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     // Service Page Vernac Strings Start
     "84ec1aea-1f61-4508-ae92-cd3647247ef1": {
         [Language.English]: `Home`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "होम",
+    },
+    "9672b1a1-0713-48e3-98a2-17322eda6ff2": {
+        [Language.English]: `Service`,
+        [Language.Hindi]: "सर्विस",
     },
     "1f489840-705d-44b1-a18a-73a2645594de": {
         [Language.English]: `Reliable Service`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "विश्वसनीय सर्विस",
     },
     "5a7fe2d5-9f46-4bb4-814e-7f075f8ca843": {
         [Language.English]: `For Uninterrupted Power Supply`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "निरंतर ऊर्जा के लिए",
     },
     "2cc7bf42-cb40-4316-8429-f65309b51501": {
         [Language.English]: `Effortless <span class="lg-text-highlighted">Services</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `बिना कठिनाई <span class="lg-text-highlighted">सर्विस</span>`,
     },
 
     "f4a43cd6-7aea-444f-8f0f-6499ebedb2bf": {
         [Language.English]: `For Limitless Energy Solutions`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "असीमित ऊर्जा समाधानों के लिए",
     },
     "521eb4a5-fa32-4ac8-aa40-b8866848e565": {
-        [Language.English]: `PAN India Presence`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Pan India Presence`,
+        [Language.Hindi]: "पूरे भारत में मौजूदगी",
     },
     "dce77179-dece-4a32-87e8-571459bccdbb": {
         [Language.English]: `Service Excellence`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सर्वश्रेष्ठ सर्विस",
     },
     "4fc10235-8e85-48c9-9202-916a0bda22db": {
         [Language.English]: `Quick Resolution`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "तेज़ समाधान",
     },
     "3815727b-e9b3-4e71-a167-1c85c66b9e1d": {
         [Language.English]: `At Livguard, our mission is to ensure a seamless and uninterrupted energy solution journey for you, always. With LivServ, our dedicated service platform, we simplify and streamline the service resolution process. From inverters and inverter battery services, car battery servicing to stabilizer services - we've got all your energy needs covered!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "लिवगार्ड में, हमारा उद्देश्य आपके लिए एक बिना रुकावट और मन की शांति से भरपूर ऊर्जा की यात्रा संभव कराना है। हमारे सर्विस समाधान प्लेटफ़ॉर्म, लिवसर्व के साथ, हम आपकी सर्विस से संबंधित दुविधाओं को ख़त्म करने की प्रक्रिया को सहज बनाते हैं। इनवर्टर से लेकर इनवर्टर बैटरी की सर्विस, गाड़ी की बैटरी कि सर्विस से लेकर स्टेबलाइजर की सर्विस तक - हम आपकी सभी ऊर्जा संबंधित ज़रूरतों का ख़याल रखते हैं!",
+    },
+    "3ed955c3-a090-4862-9132-e08af40bc379": {
+        [Language.English]: `Click, <span class="lg-text-highlighted">Connect,</span> Power Up`,
+        [Language.Hindi]: `एक क्लिक में हमसे <span class="lg-text-highlighted">जुड़ें</span>`,
     },
 
     "58490cb1-5f27-4f67-98d3-939b5a3b9b10": {
         [Language.English]: `Request A <span class="lg-text-highlighted">Service</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">सर्विस</span>अनुरोध करें`,
     },
     "1cc00f3b-4b94-4e16-bc4f-a0337877d25e": {
         [Language.English]: `Please describe the issue you are facing`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कृपया अपनी दुविधा हमें बताएँ",
     },
     "2f725e91-eb31-4d56-898a-87db94a21e48": {
         [Language.English]: `Describe your concern here...`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी बात यहाँ व्यक्त करें…",
     },
     "43e7ced0-33d1-46a2-ab06-4e50dae64256": {
         [Language.English]: `Select Your Product`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपना उत्पाद चुनें",
     },
     "17cfa283-6fcc-4a49-9dfe-a392e0310b27": {
         [Language.English]: `Your Contact Number`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपका मोबाइल नंबर",
     },
     "1e90dca7-b78f-4231-b2df-644a3b0322d1": {
         [Language.English]: `Enter Contact Number`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपना मोबाइल नंबर डालें",
     },
     "31241b10-2784-43df-a2ea-a614c9ef7468": {
         [Language.English]: `Your Pin Code`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपका पिन कोड",
     },
     "848eb522-5221-4035-ac77-94338e97ac9c": {
         [Language.English]: `Enter Pin Code`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपना पिन कोड डालें",
     },
     "a1a00432-ed7a-4e11-9e9b-4cc783a6776a": {
         [Language.English]: `Your City`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपका शहर",
     },
     "c5702705-3fa4-4f7d-a706-4e22ea024aac": {
         [Language.English]: `Enter Your City`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपना शहर डालें",
     },
     "7de002e7-afeb-40d5-8bf5-6f2cd2be88ea": {
         [Language.English]: `Your Email`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपकी ईमेल",
     },
     "01fce108-4fe0-40c2-bb3a-3fb980fcec72": {
         [Language.English]: `Enter Email`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी ईमेल डालें",
     },
     "6a37e3ee-a8a6-4999-9494-80465aaad48d": {
         [Language.English]: `Your Name`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपका नाम",
     },
     "a0d68490-ad84-47fb-863c-2a9c812feaec": {
         [Language.English]: `Enter Full Name`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपना पूरा नाम डालें",
     },
     "d8a55222-554d-48c5-a638-118f37baf66b": {
         [Language.English]: `Your State`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपका राज्य",
     },
     "981952eb-5f5c-4b14-b4e8-f1b766851c64": {
         [Language.English]: `Enter Your State`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपना राज्य डालें",
     },
     "5d393e57-cef0-497c-b9c6-87e469e34fe8": {
         [Language.English]: `Service Number (Optional)`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सर्विस नंबर",
     },
     "54ff368f-0a01-443e-b940-9a9240cbe783": {
         [Language.English]: `Enter Service Number`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सर्विस नंबर डालें",
     },
     "0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a": {
-        [Language.English]: `Request A Call Back`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Submit`,
+        [Language.Hindi]: "सबमिट करें",
     },
     "6d0f2700-ee1b-4215-b60c-f920ba0d0a2b": {
         [Language.English]: `Thank You!`,
@@ -3757,28 +3771,69 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "74058229-5e75-4efe-833c-18009f248c6a": {
         [Language.English]: `Join Our 2 Crore`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "जुड़िए हमारे 2 करोड़",
     },
     "afe86242-a8aa-4955-8951-516c560fc956": {
         [Language.English]: `<span class="lg-text-highlighted">Happy Users</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">सुखी सदस्यों के साथ</span>`,
     },
     "aec063e5-c0a7-4ec7-8d66-8c2a92b61b5d": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आसान ",
     },
     "cbe9f24f-08f3-4448-aeb5-556dc08fd017": {
         [Language.English]: `Registration Made Easy`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वारंटी पंजीकरण",
     },
     "d1030527-97b8-4772-9810-e98c5c0b30c3": {
         [Language.English]: `Register Now`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अभी पंजीकरण करें",
     },
     "0a3cd411-749e-4d0a-8d1e-36bbf631e462": {
         [Language.English]: `Hang on, our team will get in touch with your shortly.`,
         [Language.Hindi]: "?????",
     },
+    "5816ad28-9bb2-42c3-8c82-e70a3f4e6f6c": {
+        [Language.English]: `What should I do if my product is not working correctly?`,
+        [Language.Hindi]: `यदि मेरा उत्पाद सही ढंग से काम नहीं कर रहा है तो मुझे क्या करना चाहिए?`,
+    },
+    "cb66e8d5-12ac-4de1-b33d-feaa972bc919": {
+        [Language.English]: `If you experience any issues with your Livguard product, you can simply connect with our service experts, and they will solve your issue! Reach out to us at 18001025551.`,
+        [Language.Hindi]: `यदि आप अपने लिवगार्ड उत्पाद के साथ किसी भी समस्या का अनुभव करते हैं, तो आप बस हमारे सेवा विशेषज्ञों से जुड़ सकते हैं, और वे आपकी समस्या का समाधान करेंगे! 18001025551 पर हमसे संपर्क करें।`,
+    },
+    "05424c86-424b-477a-9701-a55a7e04f02c": {
+        [Language.English]: `What if my product needs service after the warranty period?`,
+        [Language.Hindi]: `यदि मेरे उत्पाद को वारंटी अवधि के बाद सेवा की आवश्यकता हो तो क्या होगा?`,
+    },
+    "e00b0eba-3686-4dd5-bb24-f28b0e0aa159": {
+        [Language.English]: `Even after the warranty period, Livguard is committed to providing exceptional service to our customers. If your product requires service or repair, you can reach out to us at 18001025551.`,
+        [Language.Hindi]: `वारंटी अवधि के बाद भी, लिवगार्ड हमारे ग्राहकों को असाधारण सेवा प्रदान करने के लिए प्रतिबद्ध है। यदि आपके उत्पाद को सेवा या मरम्मत की आवश्यकता है, तो आप 18001025551 पर हमसे संपर्क कर सकते हैं।`,
+    },
+    "5269b845-bdc3-4fd9-ab53-e095b44a5352": {
+        [Language.English]: "How do I request a service or repair?",
+        [Language.Hindi]: `मैं किसी सेवा या मरम्मत का अनुरोध कैसे करूँ?`,
+    },
+    "08e6c940-69e6-4f33-b3f8-6966c67b3a3c": {
+        [Language.English]: `To request a service or repair for your Livguard E-Rickshaw battery, simply visit our website and fill out the service request form. Our dedicated service team will promptly reach out to you and schedule the necessary assistance. We strive to provide efficient and hassle-free service to ensure your battery is back up and running in no time.`,
+        [Language.Hindi]: `अपनी लिवगार्ड ई-रिक्शा बैटरी के लिए सेवा या मरम्मत का अनुरोध करने के लिए, बस हमारी वेबसाइट पर जाएँ और सेवा अनुरोध फ़ॉर्म भरें। हमारी समर्पित सेवा टीम तुरंत आप तक पहुंचेगी और आवश्यक सहायता निर्धारित करेगी। हम यह सुनिश्चित करने के लिए कुशल और परेशानी मुक्त सेवा प्रदान करने का प्रयास करते हैं कि आपकी बैटरी कुछ ही समय में वापस चालू हो जाए।`,
+    },
+    "39a32866-2d52-4cbb-80cf-43cc0a991304": {
+        [Language.English]: `How can I register for a warranty?`,
+        [Language.Hindi]: `मैं वारंटी के लिए कैसे पंजीकरण कर सकता हूं?`,
+    },
+    "4536af23-ca20-4466-8be7-5ff576707344": {
+        [Language.English]: `Registering your Livguard product for warranty is easy. Visit our website and navigate to the warranty registration page. Fill in the required details, including the purchase information, battery serial number, and your contact information. Once registered, you can enjoy the benefits of our comprehensive warranty coverage, providing peace of mind for your battery investment.`,
+        [Language.Hindi]: `वारंटी के लिए अपने लिवगार्ड उत्पाद को पंजीकृत करना आसान है। हमारी वेबसाइट पर जाएँ और वारंटी पंजीकरण पृष्ठ पर जाएँ। खरीदारी की जानकारी, बैटरी क्रमांक और अपनी संपर्क जानकारी सहित आवश्यक विवरण भरें। एक बार पंजीकृत होने के बाद, आप हमारे व्यापक वारंटी कवरेज का लाभ उठा सकते हैं, जो आपके बैटरी निवेश के लिए मानसिक शांति प्रदान करता है।`,
+    },
+    "b2d4555f-0f65-464c-b02e-b9c4a9893cc2": {
+        [Language.English]: `What happens if the product cannot be repaired?`,
+        [Language.Hindi]: `यदि उत्पाद की मरम्मत नहीं की जा सकती तो क्या होगा?`,
+    },
+    "db94ebb0-3c50-4cc4-9a4c-75548b10b158": {
+        [Language.English]: `In rare cases where a repair is not feasible, Livguard offers suitable alternatives for your needs. Our team will assess the situation and provide you with replacement options or suggest an upgraded model that meets your requirements.`,
+        [Language.Hindi]: `उन असामान्य मामलों में जहां मरम्मत संभव नहीं है, लिवगार्ड आपकी आवश्यकताओं के लिए उपयुक्त विकल्प प्रदान करता है। हमारी टीम स्थिति का आकलन करेगी और आपको प्रतिस्थापन विकल्प प्रदान करेगी या एक उन्नत मॉडल का सुझाव देगी जो आपकी आवश्यकताओं को पूरा करता हो।`,
+    },
+
     // Service Page Vernac Strings End
 
     // Stabilizer Page Vernac Strings Start

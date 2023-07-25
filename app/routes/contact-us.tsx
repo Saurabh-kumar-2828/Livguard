@@ -184,6 +184,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
@@ -938,7 +939,6 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <Link
                         className="lg-cta-button tw-w-full lg:tw-w-[8.375rem] tw-place-self-center tw-self-end lg:tw-place-self-start tw-row-start-2 !tw-px-[0] tw-text-center"
                         to="/service"
-                        target="_blank"
                     >
                         {getVernacularString("contactUsS2Option4ButtonText", userPreferences.language)}
                     </Link>
@@ -968,7 +968,7 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
                 <EmailUsCard />
 
-                {/* <RequestAServiceCard /> */}
+                <RequestAServiceCard />
             </div>
 
             <ContactUsDialog

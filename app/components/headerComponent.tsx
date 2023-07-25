@@ -18,6 +18,9 @@ import {getVernacularString} from "~/vernacularProvider";
 import {ContactUsDialog as ContactUsLeadFormDialog} from "~/routes";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useResizeDetector} from "react-resize-detector";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {getMetadataForImage} from "~/utilities";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
 enum MenuState {
     Closed,
@@ -51,7 +54,7 @@ export function HeaderComponent({
     showSearchOption: boolean;
     showContactCtaButton: boolean;
     showContactDetails: boolean;
-    pageUrl?: string;
+    pageUrl: string;
 }) {
     const submit = useSubmit();
 
@@ -65,12 +68,15 @@ export function HeaderComponent({
         }
     }
 
+    const utmParameters = useUtmSearchParameters();
+
     const [currentlyOpenSubMenu, setCurrentlyOpenSubMenu] = useState<SubMenu | null>(null);
     const subMenuState = useRef<MenuState>(MenuState.Closed);
 
     function tryToOpenSubMenu(subMenu: SubMenu) {
         if (subMenuState.current == MenuState.Closed) {
             setCurrentlyOpenSubMenu(subMenu);
+            setIsMenuOpen(false);
         }
     }
 
@@ -117,9 +123,18 @@ export function HeaderComponent({
         }
     }, [selectedTheme]);
 
+    const [isContactUsLeadFormDialogOpen, setIsContactUsLeadFormDialogOpen] = useState(false);
+    function tryToOpenContactUsLeadFormDialog() {
+        setIsContactUsLeadFormDialogOpen(true);
+    }
+    const {width: containerWidth, ref: resizeRef} = useResizeDetector();
+
     return (
         <>
-            <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
+            <div
+                className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]"
+                ref={resizeRef}
+            >
                 <div className="tw-flex tw-flex-row tw-items-center lg-bg-secondary-300 lg-px-screen-edge tw-py-3">
                     {showContactDetails == false ? null : (
                         <>
@@ -465,6 +480,7 @@ export function HeaderComponent({
                     setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
                     subMenuState={subMenuState}
                     tryToOpenSubMenu={tryToOpenSubMenu}
+                    tryToOpenContactUsLeadFormDialog={tryToOpenContactUsLeadFormDialog}
                 />
 
                 <SubMenuDialog
@@ -472,6 +488,19 @@ export function HeaderComponent({
                     currentlyOpenSubMenu={currentlyOpenSubMenu}
                     setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
                     subMenuState={subMenuState}
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
+                    setIsMenuOpen={setIsMenuOpen}
+                    tryToOpenContactUsLeadFormDialog={tryToOpenContactUsLeadFormDialog}
+                    containerWidth={containerWidth != null ? containerWidth : 0}
+                />
+
+                <ContactUsLeadFormDialog
+                    userPreferences={userPreferences}
+                    isContactUsDialogOpen={isContactUsLeadFormDialogOpen}
+                    setIsContactUsDialogOpen={setIsContactUsLeadFormDialogOpen}
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
                 />
 
                 <SearchDialog
@@ -491,8 +520,8 @@ function MenuDialog({
     menuState,
     currentlyOpenSubMenu,
     setCurrentlyOpenSubMenu,
-    subMenuState,
     tryToOpenSubMenu,
+    tryToOpenContactUsLeadFormDialog,
 }: {
     userPreferences: UserPreferences;
     isMenuOpen: boolean;
@@ -502,6 +531,7 @@ function MenuDialog({
     setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
     subMenuState: React.MutableRefObject<MenuState>;
     tryToOpenSubMenu: (subMenu: SubMenu) => void;
+    tryToOpenContactUsLeadFormDialog: () => void;
 }) {
     const navigate = useNavigate();
 
@@ -711,15 +741,18 @@ function MenuDialog({
                             leaveFrom="tw-opacity-full"
                             leaveTo="tw-opacity-0"
                         >
-                            <a
-                                href="tel:18001025551"
+                            <button
                                 className="lg-cta-button tw-px-4 tw-z-10"
+                                onClick={() => {
+                                    tryToCloseMenu();
+                                    tryToOpenContactUsLeadFormDialog();
+                                }}
                             >
                                 <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem] tw-items-center">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
-                                    <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
+                                    <div className="tw-col-start-3">{getVernacularString("360f578c-4a1f-49a7-baf8-ee0680fb3301", userPreferences.language)}</div>
                                 </div>
-                            </a>
+                            </button>
                         </Transition.Child>
                     </div>
                 </Dialog.Panel>
@@ -733,15 +766,26 @@ function SubMenuDialog({
     currentlyOpenSubMenu,
     setCurrentlyOpenSubMenu,
     subMenuState,
+    setIsMenuOpen,
+    tryToOpenContactUsLeadFormDialog,
+    containerWidth,
 }: {
     userPreferences: UserPreferences;
     currentlyOpenSubMenu: SubMenu | null;
     setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
     subMenuState: React.MutableRefObject<MenuState>;
+    utmParameters: {[searchParameter: string]: string};
+    pageUrl: string;
+    setIsMenuOpen: React.Dispatch<boolean>;
+    tryToOpenContactUsLeadFormDialog: () => void;
+    containerWidth: number;
 }) {
     function tryToCloseSubMenu() {
         if (subMenuState.current == MenuState.Open) {
             setCurrentlyOpenSubMenu(null);
+            if (containerWidth < 1024) {
+                setIsMenuOpen(true);
+            }
         }
     }
 
@@ -998,6 +1042,20 @@ function SubMenuDialog({
                                                   external: true,
                                                   download: null,
                                               },
+                                              {
+                                                  linkTextTextContentPiece: "7ad4abbd-2d09-4f4a-9605-f0f2c5008fa8",
+                                                  enterClassName: "tw-delay-[400ms]",
+                                                  link: "/offers",
+                                                  external: false,
+                                                  download: null,
+                                              },
+                                              {
+                                                  linkTextTextContentPiece: "088ccfe9-7891-49bd-b01f-2ea4836b0342",
+                                                  enterClassName: "tw-delay-[450ms]",
+                                                  link: "/contact-us",
+                                                  external: false,
+                                                  download: null,
+                                              },
                                           ]
                                         : []
                                 }
@@ -1065,15 +1123,19 @@ function SubMenuDialog({
                             leaveFrom="tw-opacity-full"
                             leaveTo="tw-opacity-0"
                         >
-                            <a
-                                href="tel:18001025551"
+                            <button
                                 className="lg-cta-button tw-px-4 tw-z-10"
+                                onClick={() => {
+                                    tryToCloseSubMenu();
+                                    setIsMenuOpen(false);
+                                    tryToOpenContactUsLeadFormDialog();
+                                }}
                             >
                                 <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem] tw-items-center">
                                     <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
-                                    <div className="tw-col-start-3">{getVernacularString("headerMenuS2T1", userPreferences.language)}</div>
+                                    <div className="tw-col-start-3">{getVernacularString("360f578c-4a1f-49a7-baf8-ee0680fb3301", userPreferences.language)}</div>
                                 </div>
-                            </a>
+                            </button>
                         </Transition.Child>
                     </div>
                 </Dialog.Panel>

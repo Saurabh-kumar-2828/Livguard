@@ -84,6 +84,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "d502b3fa-3677-4a4a-add3-05647aed0690", link: "/"},
                     {contentId: "af3ba663-53b9-4e18-b3ca-9ea9f80d5134", link: "#"},
@@ -186,8 +187,8 @@ function HeroSection({
                 {containerWidth == null || containerHeight == null ? null : (
                     <>
                         <CoverImage
-                            relativePath={containerWidth > containerHeight ? "/livguard/offers/1/bg-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
-                            key={containerWidth > containerHeight ? "/livguard/offers/1/bg-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
+                            relativePath={containerWidth > containerHeight ? "/livguard/offers/1/bg-banner-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
+                            key={containerWidth > containerHeight ? "/livguard/offers/1/bg-banner-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
                         />
 
                         <img
@@ -641,9 +642,9 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className}
                 <hr className="tw-w-full lg-border-secondary-900" />
             </div>
 
-            <VerticalSpacer className="tw-h-4 lg:tw-col-span-2" />
+            <VerticalSpacer className="tw-h-6 lg:tw-col-span-2" />
 
-            <div className="tw-text-center lg:tw-col-span-2 lg:tw-pl-2">
+            {/* <div className="tw-text-center lg:tw-col-span-2 lg:tw-pl-2">
                 {userPreferences.language === Language.Hindi ? (
                     <>
                         {getVernacularString("f0453469-c11f-46c4-b462-ad4445abfc46", userPreferences.language)}
@@ -656,9 +657,9 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className}
                         {offer.validTill}
                     </>
                 )}
-            </div>
+            </div> */}
 
-            <VerticalSpacer className="tw-h-4 lg:tw-col-span-2" />
+            {/* <VerticalSpacer className="tw-h-4 lg:tw-col-span-2" /> */}
 
             <button
                 onClick={tryToOpenContactUsDialog}
@@ -667,7 +668,7 @@ function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className}
                 {getVernacularString("4d53d9a4-bbd6-464b-be5c-f0bab1defe02", userPreferences.language)}
             </button>
 
-            <VerticalSpacer className="tw-h-8 lg:tw-col-span-2" />
+            <VerticalSpacer className="tw-h-6 lg:tw-col-span-2" />
         </div>
     );
 }

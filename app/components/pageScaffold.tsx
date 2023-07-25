@@ -12,6 +12,7 @@ export function PageScaffold({
     showMobileMenuIcon,
     utmParameters,
     breadcrumbs,
+    pageUrl,
 }: {
     userPreferences: UserPreferences;
     children: any;
@@ -20,7 +21,8 @@ export function PageScaffold({
     utmParameters: {
         [searchParameter: string]: string;
     };
-    breadcrumbs?: Array<{contentId: string; link: string}>;
+    breadcrumbs: Array<{contentId: string; link: string}>;
+    pageUrl: string;
 }) {
     return (
         <>
@@ -33,6 +35,7 @@ export function PageScaffold({
                     showSearchOption={true}
                     showContactCtaButton={false}
                     showContactDetails={true}
+                    pageUrl={pageUrl}
                 />
 
                 {children}

@@ -9,7 +9,7 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern, pinCodeValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {insertServiceRequests} from "~/backend/dealer.server";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
@@ -23,6 +23,7 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getFormSelectProductItems} from "~/routes/contact-us";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
@@ -39,8 +40,8 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "?????",
-            description: "?????",
+            title: "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
+            description: "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
         };
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
@@ -140,7 +141,7 @@ export const action: ActionFunction = async ({request, params}) => {
 };
 
 export default () => {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
     const actionData = useActionData() as ActionData;
 
     const utmSearchParameters = useUtmSearchParameters();
@@ -152,6 +153,7 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "84ec1aea-1f61-4508-ae92-cd3647247ef1", link: "/"},
                     {contentId: "9672b1a1-0713-48e3-98a2-17322eda6ff2", link: "#"},
@@ -184,41 +186,43 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
+                <ClickConnectPowerUpSection
+                    userPreferences={userPreferences}
+                    className="tw-row-start-5 lg:tw-col-span-full lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto"
+                />
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+
                 <RequestAService
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 lg:tw-row-start-5 tw-col-start-1 tw-max-w-7xl lg:tw-justify-self-end"
+                    className="tw-row-start-7 tw-max-w-7xl lg:lg-px-screen-edge-2 tw-mx-auto tw-justify-center lg:tw-col-span-full"
                     actionData={actionData}
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
-
-                <ClickConnectPowerUpSection
-                    userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-row-start-5 lg:tw-col-start-2 tw-max-w-7xl lg:tw-justify-self-start"
-                />
-
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
 
                 <Testimonials
                     userPreferences={userPreferences}
-                    className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-9 lg:tw-row-start-7 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
+                    className="lg:lg-px-screen-edge-2 tw-row-start-9 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
-
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
+                {/* 
                 <WarrantyBanner
                     userPreferences={userPreferences}
-                    className="lg:lg-pl-screen-edge-2 lg:lg-pr-screen-edge-2 tw-row-start-11 lg:tw-row-start-9 lg:tw-col-span-full"
+                    className="lg:lg-px-screen-edge-2 tw-row-start-11 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 lg:tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" /> */}
+
+                {/* TODO: Change row numbers when WarrantyBanner is enabled */}
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-13 lg:tw-row-start-11 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                    className="lg:lg-px-screen-edge-2 tw-row-start-11 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-14 lg:tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -237,11 +241,9 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
         >
             {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"
-                    }
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/1/banner-mobile.jpg" : "/livguard/service/1/banner-desktop.jpg"}
                     className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/service_mobile_banner.jpg" : "/livguard/services-page/6/service_desktop_banner.jpg"}
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/1/banner-mobile.jpg" : "/livguard/service/1/banner-desktop.jpg"}
                 />
             )}
 
@@ -321,7 +323,7 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_auto_1rem_auto_1.25rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}>
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("2cc7bf42-cb40-4316-8429-f65309b51501", userPreferences.language)}}
                     className="tw-row-start-1 lg-text-headline tw-text-center tw-mb-1"
@@ -356,7 +358,9 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
     const [isServiceRequestFormSubmitted, setIsServiceRequestFormSubmitted] = useState(false);
     const [isServiceRequestFormTermsAndConditionsChecked, setIsServiceRequestFormTermsAndConditionsChecked] = useState(true);
-    const [serviceRequestFormSelectedProduct, setServiceRequestFormSelectedProduct] = useState(getVernacularString("ormTrackingFormProduct1", userPreferences.language));
+    const [serviceRequestFormSelectedProduct, setServiceRequestFormSelectedProduct] = useState<null | number>(null);
+
+    const productItems = getFormSelectProductItems(userPreferences.language);
 
     useEffect(() => {
         if (actionData != null) {
@@ -370,8 +374,8 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
     }, [actionData]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left lg:lg-pl-screen-edge-2 tw-h-full", className)}>
-            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 tw-text-center lg:tw-text-left">
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left tw-h-full", className)}>
+            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("58490cb1-5f27-4f67-98d3-939b5a3b9b10", userPreferences.language))}} />
             </DefaultTextAnimation>
 
@@ -406,21 +410,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                             <div className="tw-row-start-2">
                                                 <FormSelectComponent
-                                                    items={[
-                                                        getVernacularString("ormTrackingFormProduct1", userPreferences.language),
-                                                        getVernacularString("ormTrackingFormProduct2", userPreferences.language),
-                                                        getVernacularString("ormTrackingFormProduct3", userPreferences.language),
-                                                        getVernacularString("ormTrackingFormProduct4", userPreferences.language),
-                                                    ]}
+                                                    items={productItems}
                                                     itemBuilder={(item) =>
-                                                        item == null ? getVernacularString("ormTrackingFormProduct1", userPreferences.language) : `<div class="tw-py-1">${item}</div>`
+                                                        item == null ? getVernacularString("48aa62c2-244f-45ac-9750-56016d86d5b9", userPreferences.language) : `<div>${item}</div>`
                                                     }
-                                                    value={serviceRequestFormSelectedProduct}
-                                                    setValue={(item) =>
-                                                        item != null
-                                                            ? setServiceRequestFormSelectedProduct(item)
-                                                            : setServiceRequestFormSelectedProduct(getVernacularString("ormTrackingFormProduct1", userPreferences.language))
-                                                    }
+                                                    value={serviceRequestFormSelectedProduct == null ? null : productItems[serviceRequestFormSelectedProduct]}
+                                                    setValue={(item) => (item != null ? setServiceRequestFormSelectedProduct(productItems.indexOf(item)) : setServiceRequestFormSelectedProduct(null))}
                                                     buttonClassName="!tw-rounded-full"
                                                 />
                                             </div>
@@ -482,6 +477,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                             <input
                                                 type="text"
                                                 name="pinCode"
+                                                pattern={pinCodeValidationPattern}
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("848eb522-5221-4035-ac77-94338e97ac9c", userPreferences.language)}
                                                 required
@@ -563,12 +559,13 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         readOnly
                                         name="product"
                                         className="tw-hidden"
-                                        value={serviceRequestFormSelectedProduct}
+                                        value={serviceRequestFormSelectedProduct == null ? "" : productItems[serviceRequestFormSelectedProduct]}
                                     />
 
                                     <button
                                         type="submit"
-                                        className="tw-row-start-7 tw-self-stretch lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-place-self-stretch lg:tw-place-self-start"
+                                        className="tw-row-start-7 tw-self-stretch lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-place-self-stretch lg:tw-place-self-center"
+                                        disabled={serviceRequestFormSelectedProduct == null}
                                     >
                                         {getVernacularString("0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a", userPreferences.language)}
                                     </button>
@@ -603,25 +600,27 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-    const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: ""});
+    const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: "call-us"});
 
     function CallUsCard() {
         return (
-            <div className="tw-row-start-5 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-5 lg:tw-row-start-1 lg:tw-w-full lg:tw-col-start-1 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4 lg:tw-p-0">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-rounded-full lg-bg-secondary-100 lg:lg-service-connect-bg-gradient-light lg:dark:lg-service-connect-bg-gradient-dark tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
                         src="https://files.growthjockey.com/livguard/icons/service/call-us.svg"
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-hidden" />
+                <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start">{getVernacularString("contactUsS2Option1Text", userPreferences.language)}</div>
+                <div className="tw-h-full tw-row-start-3 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 tw-place-self-center lg:tw-place-self-start lg:tw-text-center">
+                        {getVernacularString("contactUsS2Option1Text", userPreferences.language)}
+                    </div>
 
                     <button
-                        className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
+                        className="lg-cta-button tw-w-full !tw-px-6 tw-justify-self-center tw-self-end tw-row-start-2"
                         onClick={() => {
                             setDialogOptions({dialogType: "call-us", headerTextContentId: "contactUsS2Option1ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -636,21 +635,21 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function WhatsappUsCard() {
         return (
-            <div className="tw-row-start-7 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-7 lg:tw-row-start-1 lg:tw-col-start-2 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4 lg:tw-p-0">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-rounded-full lg-bg-secondary-100 lg:lg-service-connect-bg-gradient-light lg:dark:lg-service-connect-bg-gradient-dark tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us.svg"
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+                <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
+                <div className="tw-h-full tw-row-start-3 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 lg:tw-text-center">{getVernacularString("contactUsS2Option2Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
+                        className="lg-cta-button tw-w-full !tw-px-6 tw-place-self-center tw-self-end tw-row-start-2"
                         onClick={() => {
                             setDialogOptions({dialogType: "chat-with-us", headerTextContentId: "contactUsS2Option2ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -665,21 +664,21 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function EmailUsCard() {
         return (
-            <div className="tw-row-start-[9] lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center tw-px-4 tw-py-4">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-[9] lg:tw-row-start-1 lg:tw-col-start-3 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4 lg:tw-p-0">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-rounded-full lg-bg-secondary-100 lg:lg-service-connect-bg-gradient-light lg:dark:lg-service-connect-bg-gradient-dark tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/service/email-us.svg"
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-4 tw-row-start-2 lg:tw-row-start-1 lg:tw-hidden" />
+                <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
-                <div className="tw-row-start-3 lg:tw-row-start-1 tw-col-start-2 lg:tw-col-start-3 tw-grid tw-grid-flow-row tw-gap-4">
-                    <div className="lg-text-body tw-row-start-1">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
+                <div className="tw-h-full tw-row-start-3 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-flow-row tw-gap-4">
+                    <div className="lg-text-body tw-row-start-1 lg:tw-text-center">{getVernacularString("contactUsS2Option3Text", userPreferences.language)}</div>
 
                     <button
-                        className="lg-cta-button tw-w-[11.875rem] tw-place-self-center lg:tw-place-self-start tw-row-start-2"
+                        className="lg-cta-button tw-w-full !tw-px-6 tw-justify-self-center tw-self-end tw-row-start-2"
                         onClick={() => {
                             setDialogOptions({dialogType: "email-us", headerTextContentId: "contactUsS2Option3ButtonText"});
                             setIsContactUsDialogOpen(true);
@@ -693,28 +692,32 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
     }
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2 lg:tw-pl-0 lg:lg-pr-screen-edge-2", className)}>
-            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
+        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row", className)}>
+            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("3ed955c3-a090-4862-9132-e08af40bc379", userPreferences.language))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
 
-            <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left">
-                <div className="lg-text-body">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+            <div className="lg:tw-grid lg:tw-grid-cols-[minmax(0,7fr)_minmax(0,3fr)] lg:lg-bg-secondary-100 lg:tw-rounded-lg lg:tw-py-6">
+                <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full lg:tw-place-self-center lg:tw-px-16">
+                    <div className="lg-text-body lg:tw-text-center">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
+                </DefaultTextAnimation>
 
-            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4" />
+                <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4 lg:tw-hidden" />
 
-            <CallUsCard />
+                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-border-r-2 lg:tw-border-[#B1B1B1] lg:tw-grid lg:tw-auto-cols-[minmax(0,1fr)] lg:tw-gap-x-12 lg:tw-py-5 lg:tw-px-12">
+                    <CallUsCard />
 
-            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6" />
+                    <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6 lg:tw-hidden" />
 
-            <WhatsappUsCard />
+                    <WhatsappUsCard />
 
-            <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8]" />
+                    <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8] lg:tw-hidden" />
 
-            <EmailUsCard />
+                    <EmailUsCard />
+                </div>
+            </div>
 
             <ContactUsDialog
                 userPreferences={userPreferences}
@@ -797,11 +800,11 @@ function ContactUsDialog({
                             <VerticalSpacer className="tw-h-2" />
 
                             <Link
-                                to={dialogType == "call-us" ? "tel:800-1025-551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
+                                to={dialogType == "call-us" ? "tel:1800-1025-551" : dialogType == "email-us" ? "mailto:livserv@sar-group.com" : "https://wa.me/7428191000"}
                                 className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
                             >
                                 <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialogType == "call-us" ? "800-1025-551" : dialogType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
+                                    <div className="tw-flex-1">{dialogType == "call-us" ? "1800-1025-551" : dialogType == "email-us" ? "livserv@sar-group.com" : "7428191000"}</div>
 
                                     {dialogType == "call-us" && (
                                         <img
@@ -828,39 +831,43 @@ function ContactUsDialog({
 
                             <VerticalSpacer className="tw-h-4" />
 
-                            <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
+                            {dialogType !== "chat-with-us" && (
+                                <>
+                                    <div className="lg-text-title2">{getVernacularString("headerContactUsDialogT3", userPreferences.language)}</div>
 
-                            <VerticalSpacer className="tw-h-2" />
+                                    <VerticalSpacer className="tw-h-2" />
 
-                            <Link
-                                to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/920566799"}
-                                className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
-                            >
-                                <div className="tw-flex tw-flex-row tw-items-center">
-                                    <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-6799"}</div>
+                                    <Link
+                                        to={dialogType == "call-us" ? "tel:+919205667999" : dialogType == "email-us" ? "marketing@livguard.com" : "https://wa.me/9205667999"}
+                                        className="tw-w-full lg-bg-primary-500 tw-text-secondary-900-dark tw-py-3 tw-px-4 tw-rounded-full"
+                                    >
+                                        <div className="tw-flex tw-flex-row tw-items-center">
+                                            <div className="tw-flex-1">{dialogType == "call-us" ? "+91 92056-67999" : dialogType == "email-us" ? "marketing@livguard.com" : "+91 92056-67999"}</div>
 
-                                    {dialogType == "call-us" && (
-                                        <img
-                                            className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/service/call-us-dialog.svg"
-                                        />
-                                    )}
+                                            {dialogType == "call-us" && (
+                                                <img
+                                                    className="tw-w-6 tw-h-6 tw-flex-0"
+                                                    src="https://files.growthjockey.com/livguard/icons/service/call-us-dialog.svg"
+                                                />
+                                            )}
 
-                                    {dialogType == "email-us" && (
-                                        <img
-                                            className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/service/email-us-dialog.svg"
-                                        />
-                                    )}
+                                            {dialogType == "email-us" && (
+                                                <img
+                                                    className="tw-w-6 tw-h-6 tw-flex-0"
+                                                    src="https://files.growthjockey.com/livguard/icons/service/email-us-dialog.svg"
+                                                />
+                                            )}
 
-                                    {dialogType == "chat-with-us" && (
-                                        <img
-                                            className="tw-w-6 tw-h-6 tw-flex-0"
-                                            src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us-dialog.svg"
-                                        />
-                                    )}
-                                </div>
-                            </Link>
+                                            {dialogType == "chat-with-us" && (
+                                                <img
+                                                    className="tw-w-6 tw-h-6 tw-flex-0"
+                                                    src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us-dialog.svg"
+                                                />
+                                            )}
+                                        </div>
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     </Transition.Child>
                 </Dialog.Panel>
@@ -899,20 +906,20 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
                             productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                         },
-                        {
-                            video: (
-                                <EmbeddedYoutubeVideo
-                                    id="pNMTMVDWtiU"
-                                    style={{aspectRatio: "560/315"}}
-                                />
-                            ),
-                            name: `${getVernacularString("review2Name", userPreferences.language)}`,
-                            rating: 5,
-                            state: `${getVernacularString("review2State", userPreferences.language)}`,
-                            message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
-                            productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-                        },
+                        // {
+                        //     video: (
+                        //         <EmbeddedYoutubeVideo
+                        //             id="pNMTMVDWtiU"
+                        //             style={{aspectRatio: "560/315"}}
+                        //         />
+                        //     ),
+                        //     name: `${getVernacularString("review2Name", userPreferences.language)}`,
+                        //     rating: 5,
+                        //     state: `${getVernacularString("review2State", userPreferences.language)}`,
+                        //     message: `${getVernacularString("review2Message", userPreferences.language)}`,
+                        //     productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+                        //     productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
+                        // },
                         {
                             name: `${getVernacularString("review3Name", userPreferences.language)}`,
                             rating: 5,
@@ -948,17 +955,12 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
             ref={ref}
         >
             {containerWidth == null || containerHeight == null ? null : (
-                <>
-                    <CoverImage
-                        relativePath={
-                            containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/warranty_mobile_banner.jpg" : "/livguard/services-page/6/warranty_banner_desktop.jpg"
-                        }
-                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
-                        key={
-                            containerHeight > containerWidth || containerWidth < 640 ? "/livguard/services-page/6/warranty_mobile_banner.jpg" : "/livguard/services-page/6/warranty_banner_desktop.jpg"
-                        }
-                    />
-                </>
+                <CoverImage
+                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/6/warranty-mobile-banner.jpg" : "/livguard/service/6/warranty-banner-desktop.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
+                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/6/warranty-mobile-banner.jpg" : "/livguard/service/6/warranty-banner-desktop.jpg"}
+                    imageClassName="tw-rounded-lg"
+                />
             )}
 
             <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1">
@@ -974,9 +976,12 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
             </DefaultTextAnimation>
 
             <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg-px-screen-edge-2">
-                <button className="lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-center tw-text-center">
-                    {getVernacularString("d1030527-97b8-4772-9810-e98c5c0b30c3", userPreferences.language)}
-                </button>
+                {/* Redirecting to existing page for now */}
+                <Link to={`https://stage.livguard.com/register-and-warranty-for-inverters.php`}>
+                    <button className="lg-text-body tw-px-16 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-center tw-text-center">
+                        {getVernacularString("d1030527-97b8-4772-9810-e98c5c0b30c3", userPreferences.language)}
+                    </button>
+                </Link>
             </DefaultTextAnimation>
         </div>
     );
@@ -985,24 +990,24 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
 function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const faqs = [
         {
-            question: "homeS9Q1Q",
-            answer: "homeS9Q1A",
+            question: "5269b845-bdc3-4fd9-ab53-e095b44a5352",
+            answer: "08e6c940-69e6-4f33-b3f8-6966c67b3a3c",
         },
         {
-            question: "homeS9Q2Q",
-            answer: "homeS9Q2A",
+            question: "39a32866-2d52-4cbb-80cf-43cc0a991304",
+            answer: "4536af23-ca20-4466-8be7-5ff576707344",
         },
         {
-            question: "homeS9Q3Q",
-            answer: "homeS9Q3A",
+            question: "5816ad28-9bb2-42c3-8c82-e70a3f4e6f6c",
+            answer: "cb66e8d5-12ac-4de1-b33d-feaa972bc919",
         },
         {
-            question: "homeS9Q4Q",
-            answer: "homeS9Q4A",
+            question: "05424c86-424b-477a-9701-a55a7e04f02c",
+            answer: "e00b0eba-3686-4dd5-bb24-f28b0e0aa159",
         },
         {
-            question: "homeS9Q5Q",
-            answer: "homeS9Q5A",
+            question: "b2d4555f-0f65-464c-b02e-b9c4a9893cc2",
+            answer: "db94ebb0-3c50-4cc4-9a4c-75548b10b158",
         },
     ];
 

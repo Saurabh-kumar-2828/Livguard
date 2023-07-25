@@ -28,7 +28,7 @@ import {deviceTypeLibrary, getDeviceTypeDetails, getRoomTypeDetails, propertyTem
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {enumFromStringValue, getRedirectToUrlFromRequest} from "~/utilities";
+import {enumFromStringValue, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
@@ -94,6 +94,7 @@ export const action: ActionFunction = async ({request}) => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -105,6 +106,7 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     // TODO: Load property_type as well
@@ -113,7 +115,7 @@ export const loader: LoaderFunction = async ({request}) => {
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const actionData: ActionData = useActionData() as ActionData;
 
@@ -132,6 +134,7 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "cea6d04c-15b9-4c11-8d83-2e51af979f54", link: "#"},

@@ -291,6 +291,14 @@
         background: linear-gradient(270deg, #F25F60 -106.84%, #EB2A2B 102.47%);
     }
 
+    .lg-service-connect-bg-gradient-light {
+        background: linear-gradient(153deg, #b1b1b1 35.83%, #fcfcfc 81.14%);
+    }
+
+    .lg-service-connect-bg-gradient-dark {
+        background: linear-gradient(153deg, #474546 35.83%, #1F2022 81.14%);        
+    }
+
     /* @keyframes animation-text-baseline {
         0% {
             transform: translateY(1em);
