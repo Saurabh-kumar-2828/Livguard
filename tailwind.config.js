@@ -32,7 +32,7 @@ module.exports = {
                 "secondary-900": {
                     light: "#1f2022",
                     dark: "#fcfcfc",
-                },
+                },  
             },
             gridColumnStart: {
                 8: "8",

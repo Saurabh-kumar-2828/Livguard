@@ -315,6 +315,14 @@
         animation: animation-text-baseline 200ms forwards ease-in;
     } */
 
+    ::file-selector-button{
+        display: none;
+    }
+
+    ::-webkit-file-upload-button{
+        display: none;
+    }
+
     .lg-range-input {
         @apply tw-bg-gradient-to-r tw-from-secondary-300-light tw-to-primary-500-light dark:tw-from-secondary-300-dark dark:tw-to-primary-500-dark;
 

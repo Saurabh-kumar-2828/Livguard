@@ -1,9 +1,12 @@
+import AWS from "aws-sdk";
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {DealerForHaptik} from "~/routes/api/haptik/dealer-locator";
 import type {ContactUsLead, Dealer, TermFrequency} from "~/typeDefinitions";
+import {getExtensionFromFilename} from "~/utilities";
 
 export async function getDealerForCity(query: string): Promise<Array<Dealer> | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
@@ -533,4 +536,79 @@ export async function insertInternationalPageLeads(leadId: string, formResponse:
     if (result instanceof Error) {
         return result;
     }
+}
+export async function insertWarrantyFormLeads(leadId: Uuid, formResponse: any): Promise<void | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            INSERT INTO
+                livguard.warranty_entries
+            VALUES(
+                $1,
+                $2,
+                $3
+            )
+        `,
+        [leadId, getCurrentIsoTimestamp(), formResponse],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+}
+
+export async function updateWarrantyRecordWithDob(uuid: string, dob: string) {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            UPDATE 
+                livguard.warranty_entries
+            SET 
+                form_response = JSONB_SET(CAST(form_response AS jsonb), '{dateOfBirth}', $1, true)
+            WHERE 
+                id = $2;
+        `,
+        [`"${dob}"`, uuid],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+}
+
+export async function uploadFileToS3(file: {fileBlob: any; name: any}): Promise<string | Error> {
+    const {fileBlob, name} = file;
+    const extension = getExtensionFromFilename(name);
+    if (extension == null) {
+        return new Error("Invalid file extension! Error code: 216991c9-36a5-4c49-9f05-39fb446fc38b");
+    }
+    const s3 = new AWS.S3({
+        accessKeyId: getRequiredEnvironmentVariableNew("AWS_S3_ACCESS_KEY"),
+        secretAccessKey: getRequiredEnvironmentVariableNew("AWS_S3_SECRET_ACCESS_KEY"),
+    });
+
+    const imageBuffer = Buffer.from(await fileBlob.arrayBuffer());
+
+    const result = await s3
+        .upload({
+            Bucket: getRequiredEnvironmentVariableNew("AWS_S3_BUCKET"),
+            Key: `${generateUuid()}-${extension}`,
+            Body: imageBuffer,
+            ACL: "public-read",
+        })
+        .promise();
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return result.Location;
 }

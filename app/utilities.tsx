@@ -59,3 +59,16 @@ export function convertProductInternalNameToPublicName(internalName: string): st
         return capitalizedName;
     }
 }
+
+export function getExtensionFromFilename(filename: string): string | null {
+    if (!filename.includes(".")) {
+        return null;
+    }
+
+    const extension = filename.split(".").pop();
+    if (extension == null || extension.length === 0) {
+        return null;
+    }
+
+    return `.${extension}`;
+}

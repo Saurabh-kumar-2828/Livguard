@@ -17,7 +17,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {ContactUsCta} from ".";
+import {ContactUsCta} from "~/routes/index";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 

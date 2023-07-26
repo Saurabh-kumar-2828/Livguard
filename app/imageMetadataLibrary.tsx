@@ -4507,4 +4507,43 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L26Y]*wz1t$Q||juE|w{1aSL=KWV",
         finalUrl: "/livguard/global-ops/4/presence-mobile-ea0b33.jpg",
     },
+    "/livguard/warranty/1/warranty_banner_desktop.jpg": {
+        width: 1132,
+        height: 347,
+        blurHash: "L783x9zT}a=z^-ISxGtS%NM_j?o#",
+        finalUrl: "/livguard/warranty/1/warranty_banner_desktop-dee30e.jpg",
+    },
+    "/livguard/warranty/1/warranty_mobile_banner.jpg": {
+        width: 360,
+        height: 487,
+        blurHash: "LB97VC,mRNsl5u9YMwRj~X%1s+t7",
+        finalUrl: "/livguard/warranty/1/warranty_mobile_banner-86d7b9.jpg",
+    },
+    "/livguard/warranty/2/effortless-experience.svg": {
+        width: 32,
+        height: 32,
+        finalUrl: "/livguard/warranty/2/effortless-experience-517d98.svg",
+    },
+    "/livguard/warranty/2/paperless-warranty.svg": {
+        width: 32,
+        height: 32,
+        finalUrl: "/livguard/warranty/2/paperless-warranty-c9725d.svg",
+    },
+    "/livguard/warranty/2/quick-registration.svg": {
+        width: 32,
+        height: 32,
+        finalUrl: "/livguard/warranty/2/quick-registration-bda21c.svg",
+    },
+    "/livguard/warranty/5/banner-desktop.jpg": {
+        width: 1280,
+        height: 422,
+        blurHash: "L9Duus{M[o+b_3oh$%RjOsI:xtWX",
+        finalUrl: "/livguard/warranty/5/banner-desktop-7d6519.jpg",
+    },
+    "/livguard/warranty/5/banner-mobile.jpg": {
+        width: 360,
+        height: 456,
+        blurHash: "LUEn-c}Z,@%3M_o}o#RPS$WVoKt7",
+        finalUrl: "/livguard/warranty/5/banner-mobile-1d7ca0.jpg",
+    },
 };

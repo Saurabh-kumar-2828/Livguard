@@ -6988,4 +6988,213 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `2011`,
         [Language.Hindi]: `????`,
     },
+    // Warranty Page Vernac Strings Start
+    "8a3404ac-d12b-47f2-bc31-5d9411a55fde": {
+        [Language.English]: `Warranty Registration`,
+        [Language.Hindi]: `?????`,
+    },
+    "e979cb3b-1a68-45bd-a7cd-0e20d389f91d": {
+        [Language.English]: `Made Easy For You`,
+        [Language.Hindi]: `?????`,
+    },
+    "e631b621-5214-4ef4-a2d6-1b6126137c00": {
+        [Language.English]: `With Livguard as your energy partner, register your products easily and effortlessly. We are always available on call, chat and mail for you.`,
+        [Language.Hindi]: `?????`,
+    },
+    "4c465a92-fb45-41f3-9fc5-dfed80962b12": {
+        [Language.English]: `Experience <span class="lg-text-highlighted">Seamless Service</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "dc2254fc-6ca8-49f7-a007-7e833db77009": {
+        [Language.English]: "With Livguard Warranties",
+        [Language.Hindi]: "",
+    },
+    "7bd7f0d0-1ba0-43f9-82be-0d7f05c21578": {
+        [Language.English]: `Registering your warranty online is like having a helpful friend ready to support you. By registering your <span class="lg-text-body-bold">Livguard product's warranty</span> online, you ensure quick and efficient access to support, if and when needed. It simplifies service requests, speeds up the resolution process, and serves as proof of purchase. Whether it is an <span class="lg-text-body-bold">inverter warranty, inverter battery warranty,</span> automotive battery warranty, stabilizer warranty, or any Livguard product, we make registration simple for you. Livguard offers two types of warranties - Flat and Pro Rata. Flat Warranty: A <span class="lg-text-body-bold">flat warranty</span> is a full-coverage warranty for a fixed period of time. This means that if a product fails or breaks down within the warranty period, the manufacturer or the company will repair or replace the product at no extra cost to you. Pro Rata Warranty: A <span class="lg-text-body-bold">pro rata warranty</span> offers coverage that reduces over time. After an initial period of flat warranty, during which the company will replace a faulty product, the pro rata period begins. In this phase, if the product fails, you'll have to pay a proportion of the replacement cost, calculated based on how long you've had the product.`,
+        [Language.Hindi]: `?????`,
+    },
+    "6e06bc73-f6b0-4a28-9db8-ff032b6722ff": {
+        [Language.English]: `Benefits of Online Warranty Registration`,
+        [Language.Hindi]: `?????`,
+    },
+    "5f2ff78d-56a6-4f19-87d2-03342967850b": {
+        [Language.English]: `Quick Registration`,
+        [Language.Hindi]: `?????`,
+    },
+    "08cd30f4-21ca-442c-8533-0a0ea8519c3b": {
+        [Language.English]: `Paperless Warranty`,
+        [Language.Hindi]: `?????`,
+    },
+    "a0e00e4e-7130-489c-9fe1-7a9fad0f3aa7": {
+        [Language.English]: `Effortless Experience`,
+        [Language.Hindi]: `?????`,
+    },
+    "7ad4e46b-f080-4885-a39b-7b752906698f": {
+        [Language.English]: `Benefits of Online Warranty Registration`,
+        [Language.Hindi]: `?????`,
+    },
+    "4e6a2a00-461a-4407-a51e-ebee08a59f1f": {
+        [Language.English]: `You Can Also Register <span class="lg-text-highlighted">Warranty</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "94cc6e89-af38-4bdf-9c02-f666eb559837": {
+        [Language.English]: `Through Our Team of Experts`,
+        [Language.Hindi]: `?????`,
+    },
+    "995ba2bf-62b1-402f-a8d0-9928081e37c5": {
+        [Language.English]: `Call us on our toll-free number to register`,
+        [Language.Hindi]: `?????`,
+    },
+    "84b91d23-dc94-48a8-ac22-24fb97f95e4d": {
+        [Language.English]: `Call Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "399595dc-4684-42cb-bf32-e0ce0ba8fc28": {
+        [Language.English]: `Send us a message to register your product`,
+        [Language.Hindi]: `?????`,
+    },
+    "793169c2-90d3-47a6-8d4e-ea93ae0ec10d": {
+        [Language.English]: `Chat With Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "a92293f2-bba1-45c6-83f0-b6b757d4fc89": {
+        [Language.English]: `Drop us a mail to get your product registered`,
+        [Language.Hindi]: `?????`,
+    },
+    "86298c75-2db2-45aa-8b4d-67be07715e63": {
+        [Language.English]: `Email Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "16deb412-ea49-403d-9f2d-b8279dabd5a7": {
+        [Language.English]: `Reliable Service`,
+        [Language.Hindi]: `?????`,
+    },
+    "1156ca19-8b0c-4c06-bd91-23e394bdee5f": {
+        [Language.English]: `For Uninterrupted Power Supply`,
+        [Language.Hindi]: `?????`,
+    },
+    "51d7f3dd-6922-4a86-8934-2eaf5ec55433": {
+        [Language.English]: `Request A Service`,
+        [Language.Hindi]: `?????`,
+    },
+    "b4c42c87-1ee1-4f06-8cff-abe7751a025c": {
+        [Language.English]: `<span class="lg-text-highlighted">Register</span> In Minutes`,
+        [Language.Hindi]: `?????`,
+    },
+    "7ce4697b-82b4-47c3-944d-0c7edbcd1ccd": {
+        [Language.English]: `Your Contact Number`,
+        [Language.Hindi]: `?????`,
+    },
+    "74bef278-2e4e-4568-868b-7ce5d50df6e2": {
+        [Language.English]: `Enter Contact Number`,
+        [Language.Hindi]: `?????`,
+    },
+    "1e26fc77-d6ce-496f-8a43-b0ff4d3f1f7e": {
+        [Language.English]: `Your Email`,
+        [Language.Hindi]: `?????`,
+    },
+    "17b9c40e-9c7d-4a19-8202-b294967fdff8": {
+        [Language.English]: `Enter Email`,
+        [Language.Hindi]: `?????`,
+    },
+    "70c4b348-67de-4873-bb1e-8d060f7d98c8": {
+        [Language.English]: `Your Name`,
+        [Language.Hindi]: `?????`,
+    },
+    "5249c7c4-1840-410d-b6c7-f4c53ab8369a": {
+        [Language.English]: `Enter Name`,
+        [Language.Hindi]: `?????`,
+    },
+    "53927c84-bd54-4a11-b284-7f3844f30c4e": {
+        [Language.English]: `Your Pin Code`,
+        [Language.Hindi]: `?????`,
+    },
+    "a73f6868-bb95-4bc4-9911-aed2ae6cc695": {
+        [Language.English]: `Enter Pin Code`,
+        [Language.Hindi]: `?????`,
+    },
+    "5132b06f-9057-4e22-a21e-aca383247dda": {
+        [Language.English]: `Your City`,
+        [Language.Hindi]: `?????`,
+    },
+    "154d8f5a-9084-4860-b588-c17bb178226e": {
+        [Language.English]: `Enter City`,
+        [Language.Hindi]: `?????`,
+    },
+    "a677f88a-dabc-45d5-8542-9954d0c7535b": {
+        [Language.English]: `Your State`,
+        [Language.Hindi]: `?????`,
+    },
+    "9fdfab81-7e99-4e76-8fbb-d1c3b634a735": {
+        [Language.English]: `Enter State`,
+        [Language.Hindi]: `?????`,
+    },
+    "79acc43f-692e-439a-ae40-75f7f0e60c95": {
+        [Language.English]: `Next Step`,
+        [Language.Hindi]: `?????`,
+    },
+    "988b89be-d6ef-4008-9faf-c5b6cb3eea06": {
+        [Language.English]: `+ Add Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "3060b50b-5b8c-4feb-9abe-4d18a51e39e1": {
+        [Language.English]: `Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "69e30a83-d3d3-4ff3-bba7-b56849edd3c0": {
+        [Language.English]: `Product Type`,
+        [Language.Hindi]: `?????`,
+    },
+    "f0b96564-0f72-493f-8d69-11a797004751": {
+        [Language.English]: `Serial Number`,
+        [Language.Hindi]: `?????`,
+    },
+    "cc30e4da-6578-4fe7-8526-5ee7337a6515": {
+        [Language.English]: `Enter Serial Number`,
+        [Language.Hindi]: `?????`,
+    },
+    "a678f917-a247-4e95-99f2-303db4d122c9": {
+        [Language.English]: `Purchase Proof`,
+        [Language.Hindi]: `?????`,
+    },
+    "ae64dabe-c22a-429b-9868-5b19b57559a8": {
+        [Language.English]: `Choose Image`,
+        [Language.Hindi]: `?????`,
+    },
+    "a704f8f5-79db-437c-8f23-d64a634899a7": {
+        [Language.English]: `Supported file types for purchase proof are JPG, JPEG, PNG and maximum allowed size is 1MB.`,
+        [Language.Hindi]: `?????`,
+    },
+    "7c3fd7d9-651f-4e02-803e-a5bf1efdc519": {
+        [Language.English]: `Remove Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "46655054-3f4d-46b5-ad00-510a9f00de36": {
+        [Language.English]: `Remove Product`,
+        [Language.Hindi]: `?????`,
+    },
+    "b034be5d-2864-4ab3-bdac-d5a12e40e8d8": {
+        [Language.English]: `Date of Birth`,
+        [Language.Hindi]: `?????`,
+    },
+    "b680144d-0d44-4f46-af80-dcacabae78de": {
+        [Language.English]: `Date, Month, Year`,
+        [Language.Hindi]: `?????`,
+    },
+    "bf43b0f2-2e29-4290-a7a6-4fc1bb305c56": {
+        [Language.English]: `Till then, show some love to our <br /> Social Handles!`,
+        [Language.Hindi]: `तब तक हमारे सोशल मीडिया <br /> पर प्यार बरसाएँ`,
+    },
+    "cf74f848-853c-493e-acc9-fb054f374e63": {
+        [Language.English]: `Submit Date of Birth`,
+        [Language.Hindi]: `?????`,
+    },
+    "10fb7b8f-7d05-4bf3-9267-ea07410b3e49": {
+        [Language.English]: `Hang on, you'll receive a call from our team soon. Meanwhile, fill in your date of birth to unlock some additional deals and perks`,
+        [Language.Hindi]: `?????`,
+    },
+    "41bcbb30-f453-487a-be09-bdb22ac8e49c": {
+        [Language.English]: `We'll reach out to you with some exciting deals and offers soon`,
+        [Language.Hindi]: `?????`,
+    },
 };
