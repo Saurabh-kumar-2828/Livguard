@@ -4145,7 +4145,7 @@ export const allProductDetails: {[key: string]: {[key: string]: ProductDetails}}
                     text: "42 + 30* Months Warranty",
                 },
                 {
-                    icon: "livguard/icons/battery_capacity.png",
+                    icon: "/livguard/icons/capacity.png",
                     text: "110 Ah",
                 },
                 {

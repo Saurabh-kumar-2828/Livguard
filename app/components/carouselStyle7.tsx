@@ -14,6 +14,7 @@ export function CarouselStyle7({
     deselectedContainersClassName,
     chevronButtonsBelowCarousel,
     snapDotsDivisionFactor,
+    toggleMobileOnly,
 }: {
     items: Array<any>;
     className?: string;
@@ -22,15 +23,22 @@ export function CarouselStyle7({
     slidesContainerClassName?: string;
     chevronButtonsBelowCarousel?: boolean;
     snapDotsDivisionFactor?: number;
+    toggleMobileOnly?: boolean;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-w-full", className)}
+            className={concatenateNonNullStringsWithSpaces("tw-overflow-x-hidden tw-w-full tw-pb-4", className)}
             ref={emblaRef}
         >
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-auto-cols-[100%] md:tw-auto-cols-[50%] lg:tw-auto-cols-[28%]", slidesContainerClassName)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces(
+                    "tw-grid tw-grid-flow-col tw-auto-cols-[100%]",
+                    slidesContainerClassName,
+                    toggleMobileOnly ? "" : "md:tw-auto-cols-[50%] lg:tw-auto-cols-[28%]",
+                )}
+            >
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => {
@@ -43,9 +51,14 @@ export function CarouselStyle7({
                             >
                                 <div className={itemIndex !== selectedIndex ? deselectedContainersClassName : selectedContainerClassName}>
                                     <div
-                                        className={`tw-h-full tw-grid tw-grid-rows-[auto_0.75rem_auto_auto_1rem_auto_minmax(3.5rem,1fr)] lg:tw-grid-rows-[auto_0.75rem_auto_0.25rem_auto_1rem_auto_minmax(3.5rem,1fr)] tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-rounded-[0.625rem] tw-px-5 ${
-                                            isBackgroundPrimary ? "lg-about-us-leaders-bg-gradient !tw-text-secondary-900-dark" : "lg-bg-secondary-100 lg-text-secondary-900"
-                                        }`}
+                                        // className={`tw-h-full tw-grid tw-grid-rows-[auto_0.75rem_auto_auto_1rem_auto_minmax(3.5rem,1fr)] lg:tw-grid-rows-[auto_0.75rem_auto_0.25rem_auto_1rem_auto_minmax(3.5rem,1fr)] tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-rounded-[0.625rem] tw-px-5 ${
+                                        //     isBackgroundPrimary ? "lg-about-us-leaders-bg-gradient !tw-text-secondary-900-dark" : "lg-bg-secondary-100 lg-text-secondary-900"
+                                        // }`}
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "tw-h-full tw-grid tw-grid-rows-[auto_0.75rem_auto_auto_1rem_auto_minmax(3.5rem,1fr)] tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-rounded-[0.625rem] tw-px-5 tw-overflow-visible",
+                                            isBackgroundPrimary ? "lg-about-us-leaders-bg-gradient !tw-text-secondary-900-dark" : "lg-bg-secondary-100 lg-text-secondary-900 lg-csr-leaders-shadow",
+                                            toggleMobileOnly ? "" : "lg:tw-grid-rows-[auto_0.75rem_auto_0.25rem_auto_1rem_auto_minmax(3.5rem,1fr)]",
+                                        )}
                                     >
                                         <div className="tw-row-start-1 tw-col-start-1 tw-h-[8.3rem] tw-w-[8.3rem] tw-rounded-full tw-relative tw-bottom-6">
                                             <FullWidthImage relativePath={item.imageRelativePath} />
@@ -71,8 +84,17 @@ export function CarouselStyle7({
                                         )}
 
                                         <div className="tw-row-start-3 tw-col-start-1 tw-col-span-full lg-text-headline">{item.title}</div>
-                                        <div className="tw-row-start-4 lg:tw-row-start-5 tw-col-start-1 tw-col-span-full lg-text-title2">{item.position}</div>
-                                        <div className="tw-row-start-6 lg:tw-row-start-7 tw-col-start-1 tw-col-span-full">{item.description}</div>
+                                        <div
+                                            className={concatenateNonNullStringsWithSpaces(
+                                                "tw-row-start-4 tw-col-start-1 tw-col-span-full lg-text-title2",
+                                                toggleMobileOnly ? "" : "lg:tw-row-start-5",
+                                            )}
+                                        >
+                                            {item.position}
+                                        </div>
+                                        <div className={concatenateNonNullStringsWithSpaces("tw-row-start-6 tw-col-start-1 tw-col-span-full", toggleMobileOnly ? "" : "lg:tw-row-start-7")}>
+                                            {item.description}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -81,9 +103,9 @@ export function CarouselStyle7({
                 />
             </div>
 
-            <VerticalSpacer className="tw-h-4" />
+            <VerticalSpacer className={concatenateNonNullStringsWithSpaces("tw-h-4", toggleMobileOnly ? "lg:tw-hidden" : "")} />
 
-            {chevronButtonsBelowCarousel && (
+            {chevronButtonsBelowCarousel && !toggleMobileOnly && (
                 <div className="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center lg:tw-justify-center lg:tw-gap-10 lg-px-screen-edge-2">
                     <button
                         type="button"

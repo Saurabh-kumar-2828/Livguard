@@ -4391,10 +4391,52 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "L18zM#P:*0@e,*_LIA+000z.I97G",
         finalUrl: "/livguard/video-gallery/1/video-gallery-banner-mobile-a2febe.jpg",
     },
-    "/livguard/e-waste-management/5/Groupcartridge2.svg": {
-        width: 30,
-        height: 40,
-        finalUrl: "/livguard/e-waste-management/5/Groupcartridge2-4facde.svg",
+    "/livguard/csr/3/our-vision.svg": {
+        width: 50,
+        height: 50,
+        finalUrl: "/livguard/csr/3/our-vision-0cd33b.svg",
+    },
+    "/livguard/e-waste-management/1/hero-banner.png": {
+        width: 1280,
+        height: 516,
+        finalUrl: "/livguard/e-waste-management/1/hero-banner-a7e7e4.png",
+    },
+    "/livguard/e-waste-management/1/mobile-hero-banner.png": {
+        width: 360,
+        height: 429,
+        finalUrl: "/livguard/e-waste-management/1/mobile-hero-banner-f6276a.png",
+    },
+    "/livguard/e-waste-management/3/laptop-icon-1.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/e-waste-management/3/laptop-icon-1-f18d33.svg",
+    },
+    "/livguard/e-waste-management/3/smart-phone-2.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/e-waste-management/3/smart-phone-2-52c231.svg",
+    },
+    "/livguard/e-waste-management/4/3/smart-phone-2.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/e-waste-management/4/3/smart-phone-2-52c231.svg",
+    },
+    "/livguard/e-waste-management/4/delete-icon.svg": {
+        width: 84,
+        height: 84,
+        finalUrl: "/livguard/e-waste-management/4/delete-icon-00053a.svg",
+    },
+    "/livguard/e-waste-management/4/desktop-banner.jpg": {
+        width: 1071,
+        height: 253,
+        blurHash: "LeKe7n-;M_xu~qt7ayWBofofxuj[",
+        finalUrl: "/livguard/e-waste-management/4/desktop-banner-5305aa.jpg",
+    },
+    "/livguard/e-waste-management/4/mobile-banner.jpg": {
+        width: 360,
+        height: 230,
+        blurHash: "LDLh0v_300_3_NtRj[t7E1kCRjt6",
+        finalUrl: "/livguard/e-waste-management/4/mobile-banner-c2fb1a.jpg",
     },
     "/livguard/e-waste-management/5/computer3.svg": {
         width: 40,
@@ -4406,6 +4448,11 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 40,
         finalUrl: "/livguard/e-waste-management/5/data-destruction5-c635ae.svg",
     },
+    "/livguard/e-waste-management/5/cartridge2.svg": {
+        width: 30,
+        height: 40,
+        finalUrl: "/livguard/e-waste-management/5/cartridge2-4facde.svg",
+    },
     "/livguard/e-waste-management/5/hard-disk4.svg": {
         width: 40,
         height: 40,
@@ -4415,5 +4462,35 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         width: 41,
         height: 40,
         finalUrl: "/livguard/e-waste-management/5/symbol-of-three-arrows1-9a4f7e.svg",
+    },
+    "/livguard/e-waste-management/7/1.png": {
+        width: 453,
+        height: 294,
+        finalUrl: "/livguard/e-waste-management/7/1-cf6c1f.png",
+    },
+    "/livguard/e-waste-management/7/2.png": {
+        width: 453,
+        height: 294,
+        finalUrl: "/livguard/e-waste-management/7/2-6bdae5.png",
+    },
+    "/livguard/e-waste-management/7/3.png": {
+        width: 453,
+        height: 294,
+        finalUrl: "/livguard/e-waste-management/7/3-b13f62.png",
+    },
+    "/livguard/e-waste-management/8/testominal1.png": {
+        width: 76,
+        height: 76,
+        finalUrl: "/livguard/e-waste-management/8/testominal1-fd2d77.png",
+    },
+    "/livguard/e-waste-management/8/testominal2.png": {
+        width: 73,
+        height: 63,
+        finalUrl: "/livguard/e-waste-management/8/testominal2-7b152c.png",
+    },
+    "/livguard/e-waste-management/9/social-handles.png": {
+        width: 306,
+        height: 176,
+        finalUrl: "/livguard/e-waste-management/9/social-handles-65fd42.png",
     },
 };

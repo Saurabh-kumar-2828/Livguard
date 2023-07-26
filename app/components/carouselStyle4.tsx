@@ -65,23 +65,27 @@ export function CarouselStyle4({
                 <div className="tw-flex tw-flex-row tw-gap-x-2">
                     <ItemBuilder
                         items={chevronButtonsDivisionFactor == undefined ? items : items.slice(0, items.length / chevronButtonsDivisionFactor)}
-                        itemBuilder={(_, scrollSnapIndex) => (
-                            <React.Fragment key={scrollSnapIndex}>
-                                <div
-                                    className={concatenateNonNullStringsWithSpaces(
-                                        "tw-w-2 tw-h-2 tw-rounded-full",
-                                        scrollSnapIndex == selectedIndex ||
-                                            (chevronButtonsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (items.length / chevronButtonsDivisionFactor))
-                                            ? "lg-bg-secondary-900"
-                                            : "lg-bg-secondary-300",
-                                    )}
-                                    key={scrollSnapIndex}
-                                    onClick={() => {
-                                        emblaApi?.scrollTo(scrollSnapIndex);
-                                    }}
-                                />
-                            </React.Fragment>
-                        )}
+                        itemBuilder={(_, scrollSnapIndex) => {
+                            return (
+                                <React.Fragment key={scrollSnapIndex}>
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "tw-w-2 tw-h-2 tw-rounded-full",
+                                            scrollSnapIndex == selectedIndex ||
+                                                (chevronButtonsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (items.length / chevronButtonsDivisionFactor))
+                                                ? "lg-bg-secondary-900"
+                                                : "lg-bg-secondary-300",
+                                        )}
+                                        key={scrollSnapIndex}
+                                        onClick={() => {
+                                            if (scrollSnapIndex !== selectedIndex) {
+                                                emblaApi?.scrollTo(scrollSnapIndex);
+                                            }
+                                        }}
+                                    />
+                                </React.Fragment>
+                            );
+                        }}
                     />
                 </div>
 

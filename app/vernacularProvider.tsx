@@ -7298,4 +7298,973 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `100%  <br /> Data Destruction`,
         [Language.Hindi]: `?????`,
     },
+    //T&C Page Vernac strings start
+    "c20f3105-e059-40f5-8fbf-4f607adf08a9": {
+        [Language.English]: "Terms & Conditions",
+        [Language.Hindi]: "??????",
+    },
+    "8f4b0d15-62bd-48ed-afed-1ba749177561": {
+        [Language.English]: `<span class="lg-text-highlighted">Terms & Conditions</span>- Overview`,
+        [Language.Hindi]: `?????`,
+    },
+    "2dcaf5d9-964e-408d-9348-ac2a6f5aa28d": {
+        [Language.English]:
+            "This website is operated by Livguard Batteries Pvt. Ltd. Throughout the site, the terms “we”, “us” and “our” refer to Livguard Batteries Pvt. Ltd. Livguard Batteries Pvt. Ltd. offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.",
+        [Language.Hindi]: "??????????",
+    },
+    "2122f878-eff2-4af4-8510-94913a31665f": {
+        [Language.English]:
+            "By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content.",
+        [Language.Hindi]: "??????????",
+    },
+    "7936f9fd-37f1-462c-b128-a35148d65307": {
+        [Language.English]:
+            "Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.",
+        [Language.Hindi]: "??????????",
+    },
+    "f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079": {
+        [Language.English]:
+            "Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.",
+        [Language.Hindi]: "??????????",
+    },
+    "44121e27-31a6-4f36-b919-e897da7e6ff4": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Online Store Terms`,
+        [Language.Hindi]: "??????",
+    },
+    "b619e5ee-6ee2-4d16-910f-4c2889c941b0": {
+        [Language.English]:
+            "By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).You must not transmit any worms or viruses or any code of a destructive nature.A breach or violation of any of the Terms will result in an immediate termination of your Services.",
+        [Language.Hindi]: "???????",
+    },
+    "34f3e534-f601-41b4-b1a7-9e9a4d1e13e5": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>General Conditions`,
+        [Language.Hindi]: "??????",
+    },
+    "086f8701-8e5a-47bc-89b0-185ff2986841": {
+        [Language.English]:
+            " We reserve the right to refuse service to anyone for any reason at any time.You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. Credit card information is always encrypted during transfer over networks.You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the service is provided, without express written permission by us.The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.",
+        [Language.Hindi]: "???????",
+    },
+    "8cddd0be-4dd4-4bba-9ae0-69c0adee74b8": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Accuracy, Completeness and Timeliness of Information`,
+        [Language.Hindi]: "??????",
+    },
+    "f4d35c89-f150-4460-aca6-ce00dfb2d36a": {
+        [Language.English]:
+            "We are not responsible if information made available on this site is not accurate, complete or current. The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete or more timely sources of information. Any reliance on the material on this site is at your own risk.This site may contain certain historical information. Historical information, necessarily, is not current and is provided for your reference only. We reserve the right to modify the contents of this site at any time, but we have no obligation to update any information on our site. You agree that it is your responsibility to monitor changes to our site.",
+        [Language.Hindi]: "???????",
+    },
+    "c506fce1-6d8d-41a9-bfc2-7bb5cb2d954a": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span> Modifications to the Service and Prices`,
+        [Language.Hindi]: "??????",
+    },
+    "677f57ae-75b0-4440-aca1-3eb9cfe86407": {
+        [Language.English]: `Prices for our products are subject to change without notice.<br />
+        We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time. <br />
+        We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service.`,
+        [Language.Hindi]: "???????",
+    },
+    "e8c5a78d-46cd-405e-b3f8-fa1903a15a55": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Product of Services `,
+        [Language.Hindi]: "??????",
+    },
+    "04db7675-e412-4294-bfd0-24d54520d02c": {
+        [Language.English]: `Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy. <br />
+        We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate. <br />
+        We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or services that we offer. All descriptions of products or product pricing are subject to change at anytime without notice, at the sole discretion of us. We reserve the right to discontinue any product at any time. Any offer for any product or service made on this site is void where prohibited. <br />
+        We do not warrant that the quality of any products, services, information, or other material purchased or obtained by you will meet your expectations, or that any errors in the Service will be corrected.`,
+        [Language.Hindi]: "???????",
+    },
+    "8eb8744c-b87e-4fee-a31e-cb5cb0c05720": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Accuracy of Billing and Account information`,
+        [Language.Hindi]: "??????",
+    },
+    "da28284e-6a67-4d6b-ab94-88264a236dae": {
+        [Language.English]:
+            "We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household or per order. These restrictions may include orders placed by or under the same customer account, the same credit card, and/or orders that use the same billing and/or shipping address. In the event that we make a change to or cancel an order, we may attempt to notify you by contacting the e-mail and/or billing address/phone number provided at the time the order was made. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers or distributors.You agree to provide current, complete and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers and expiration dates, so that we can complete your transactions and contact you as needed.For more detail, please review our Returns Policy.",
+        [Language.Hindi]: "???????",
+    },
+    "a141932c-d082-4ea8-bd52-152d0172acff": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Optional Tools `,
+        [Language.Hindi]: "??????",
+    },
+    "85802f96-057c-4bda-bbab-41bcaa744eb0": {
+        [Language.English]:
+            "We may provide you with access to third-party tools over which we neither monitor nor have any control nor input.You acknowledge and agree that we provide access to such tools ”as is” and “as available” without any warranties, representations or conditions of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools.Any use by you of optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s).We may also, in the future, offer new services and/or features through the website (including, the release of new tools and resources). Such new features and/or services shall also be subject to these Terms of Service.",
+        [Language.Hindi]: "???????",
+    },
+
+    "8ba6e093-1965-478a-bebb-2ce8a976a7e4": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Third Party Links`,
+        [Language.Hindi]: "??????",
+    },
+    "f4b935d3-198d-4799-9e63-bb9862c62409": {
+        [Language.English]: `Certain content, products and services available via our Service may include materials from third-parties.Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties. <br />
+    We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party's  policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.`,
+        [Language.Hindi]: "???????",
+    },
+    "507846b5-9418-4892-b2b5-edff14a15c51": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Comments, Feedback and Other Submissions `,
+        [Language.Hindi]: "??????",
+    },
+    "1abda71d-9e0b-49d4-9966-49df5769e93e": {
+        [Language.English]:
+            "If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, 'comments'), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service.You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.",
+        [Language.Hindi]: "???????",
+    },
+    "ef253e42-d84f-44bf-9516-43ea3810563c": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Personal Information`,
+        [Language.Hindi]: "??????",
+    },
+    "e917e6fd-9d24-4031-bee1-68e7b19877f8": {
+        [Language.English]: "Your submission of personal information through the store is governed by our Privacy Policy.",
+        [Language.Hindi]: "?????",
+    },
+    "28f8227f-c1a6-4376-88e7-0bfff6a5a8db": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Errors, Inaccuracies and Omissions Errors`,
+        [Language.Hindi]: "??????",
+    },
+    "db22183d-e38b-4d36-9dbd-1e2235e09ee2": {
+        [Language.English]: `Occasionally there may be information on our site or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice (including after you have submitted your order).<br />
+    We undertake no obligation to update, amend or clarify information in the Service or on any related website, including without limitation, pricing information, except as required by law. No specified update or refresh date applied in the Service or on any related website, should be taken to indicate that all information in the Service or on any related website has been modified or updated.`,
+        [Language.Hindi]: "???????",
+    },
+    "a13e2f28-5049-4032-bb25-cb70035f7eb2": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Prohibited Uses`,
+        [Language.Hindi]: "??????",
+    },
+    "bce2466f-c797-4faa-b6d1-1837739aa55d": {
+        [Language.English]:
+            "In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the site or its content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability; (f) to submit false or misleading information; (g) to upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Service or of any related website, other websites, or the Internet; (h) to collect or track the personal information of others; (i) to spam, phish, pharm, pretext, spider, crawl, or scrape; (j) for any obscene or immoral purpose; or (k) to interfere with or circumvent the security features of the Service or any related website, other websites, or the Internet. We reserve the right to terminate your use of the Service or any related website for violating any of the prohibited uses.",
+        [Language.Hindi]: "?????",
+    },
+    "b0f9c01f-a82d-45a7-8546-685567cd7591": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>Disclaimer of Warranties; Limitations of Liability`,
+        [Language.Hindi]: "??????",
+    },
+    "7dba2dc9-b153-4216-bbf6-d965332c0e12": {
+        [Language.English]:
+            "We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free.We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable.You agree that from time to time we may remove the service for indefinite periods of time or cancel the service at any time, without notice to you.You expressly agree that your use of, or inability to use, the service is at your sole risk. The service and all products and services delivered to you through the service are (except as expressly stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement.In no case shall Livguard Batteries Pvt. Ltd., our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the service or any content (or product) posted, transmitted, or otherwise made available via the service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.",
+        [Language.Hindi]: "?????",
+    },
+    "3b74dadf-3333-4c76-acbd-5c1ecd7deb7f": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 14 </span>Indemnification`,
+        [Language.Hindi]: "??????",
+    },
+    "e3304f79-e46e-4eef-aebb-f57b637f2b14": {
+        [Language.English]:
+            "You agree to indemnify, defend and hold harmless Livguard Batteries Pvt. Ltd. and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.",
+        [Language.Hindi]: "?????",
+    },
+    "a7084225-0803-48c7-b01a-a4afbf547313": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 15 </span>Severability`,
+        [Language.Hindi]: "??????",
+    },
+    "e9700119-8143-4956-81dc-fa03ff519f80": {
+        [Language.English]:
+            "In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not affect the validity and enforceability of any other remaining provisions.",
+        [Language.Hindi]: "?????",
+    },
+    "5f5fc2cb-35c1-4f59-8974-5fcb014eb17f": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 16 </span>Termination`,
+        [Language.Hindi]: "??????",
+    },
+    "9394bd5d-8e93-41b3-ac77-993ceb0ded94": {
+        [Language.English]: `The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.<br />
+    These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no
+    longer wish to use our Services, or when you cease using our site.<br />
+    If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination; and/or accordingly may deny you access to our Services (or any part thereof).`,
+        [Language.Hindi]: "?????",
+    },
+    "c484926d-4b74-49b7-a48c-6de59678fdf6": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 17 </span>Entire Agreement`,
+        [Language.Hindi]: "??????",
+    },
+    "4519b623-bbc3-4576-a1b9-26c6254dd47e": {
+        [Language.English]: `The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute a waiver of such right or provision.<br />
+    These Terms of Service and any policies or operating rules posted by us on this site or in respect to The Service constitutes the entire agreement and understanding
+    between you and us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications and proposals, whether oral or written, between you and us (including, but not limited to, any prior versions of the Terms of Service).<br />
+    Any ambiguities in the interpretation of these Terms of Service shall not be construed against the drafting party.`,
+        [Language.Hindi]: "?????",
+    },
+    "1af3f0bb-75d3-4d8f-8661-a03e8d9c569d": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 18 </span>Governing LAW `,
+        [Language.Hindi]: "??????",
+    },
+    "c27d7e42-b4a3-4e93-8c2d-c7d12cd6010e": {
+        [Language.English]:
+            "These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of India and  jurisdiction of Jaipur, Rajasthan",
+        [Language.Hindi]: "?????",
+    },
+    "3f67f49f-92ab-434c-b9eb-8d4e9d75a115": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 19 </span>Changes to Terms of Service`,
+        [Language.Hindi]: "??????",
+    },
+    "34a39f63-6f7d-430d-9c6c-7eefe5e9bf33": {
+        [Language.English]: `You can review the most current version of the Terms of Service at any time at this page.<br />
+    We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting updates and changes to our website. It is your
+    responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes to these
+    Terms of Service constitutes acceptance of those changes.`,
+        [Language.Hindi]: "?????",
+    },
+    "508d2a70-f673-4119-8776-4405f6987780": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 20 </span>Contact Information`,
+        [Language.Hindi]: "??????",
+    },
+    "82ce1187-230a-4182-9090-a0a42cc54ef0": {
+        [Language.English]: "Questions about the Terms of Service should be sent to us at deepak.jha@heka.in.",
+        [Language.Hindi]: "?????",
+    },
+    //Privacy-policies Page Vernac strings start
+    "e1cd45c9-6258-4cfa-939f-92e24c409063": {
+        [Language.English]: "Privacy Policies",
+        [Language.Hindi]: "??????",
+    },
+    "5a6dd842-e7f2-4ad7-98de-fc9c76b42c80": {
+        [Language.English]: `<span class="lg-text-highlighted">Privacy Policies</span>- Overview`,
+        [Language.Hindi]: `?????`,
+    },
+    "58639d61-0980-400d-acca-4c01949569d3": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Privacy Policies - Introduction</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "c308c1f4-5547-42b0-9831-98ac935f3b58": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD is committed to ensuring privacy of the Users on its website (“Website”) and/or mobile application (“Mobile App”). In furtherance of the same, LIVGUARD has framed this Privacy Policy in accordance with the Information Technology Act, 2000 (“Act”) read with the applicable Rules thereunder. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "20189d26-c91f-46d9-acfc-a5ede3236b5e": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>The Privacy Policy is designed to familiarize Users of this Website / Mobile App with (a) the type of information that Users may share with LIVGUARD, or that
+    LIVGUARD will collect from the Users; (b) practices and policies of LIVGUARD relating to collection, storage, dealing, transfer, disclosure, transfer etc. of information pertaining to Users; (c) purpose of collection and usage of such information, and related matters. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "1b6394d4-0ef6-42b1-b8ef-f87cdd8b9d9f": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>This Privacy Policy forms part of the Terms of Use of the Website / Mobile App. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "77df2f43-d38d-4524-955c-812a42cf4809": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Important Terms</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "5b04d6ba-1efb-436a-aa96-86fbee88cd6b": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span> Please read the terms of this Privacy Policy carefully. This Privacy Policy, along with the “Terms of Use” constitute an “electronic record” in the form of an
+    “electronic contract” as defined under the Information Technology Act, 2000 between LIVGUARD and the User of this Website / Mobile App. This Privacy Policy does not require any physical, electronic or digital signature. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "c3d023fc-788c-448b-81c3-ece4db462805": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>This Privacy Policy forms an integral part of the “Terms of Use” of the Website / Mobile App. If You do not agree with the terms of this Privacy Policy, please do not use this Website / Mobile App. By visiting this Website / using the Mobile App, you (a) unconditionally accept, and agree to be bound by the “Terms of Use” of the Website/ Mobile App, read with this Privacy Policy; and (b) expressly consent to the collection, receipt, possession, storage, usage, dealing, handling or transfer of Your personal information by LIVGUARD in accordance with the terms of this Privacy Policy. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "77038f2c-5a09-4f29-82b9-350dc7744ded": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>The Privacy Policy can undergo a change at any time at the discretion of LIVGUARD. Therefore, it is suggested that You regularly check the Website / Mobile App tobe apprised of the latest changes made to the Privacy Policy.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "82fcfc12-378e-49e6-afbe-86ee7abdbf75": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Types of User Information</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "278c0506-592e-479f-9ad7-192639505c60": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>Collection of “Information”: LIVGUARD may request for, collect or gather such “Information” (which shall include data) as it deems necessary, relevant or incidental for rendering an improved shopping experience to Users and for other purposes as specified in Paragraph 6 below.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "86161cc4-6f3c-49fc-8ade-58f29afc2ebb": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>Personal Information: Such “Information” may include Personal Information relating to Users such as (a) User’s name, address, telephone number, e-mail address, postal address, delivery address (if different), gender, purchase history etc. (b) financial information such as bank account or credit or debit card information; (c) physical condition of User; (d) a description of the item requested or purchased; (e) the internet protocol (“IP”) address of User’s computer; (f) any other “sensitive personal data or information” relating to the User as defined under the applicable Rules under the Act. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "5dddbe4c-dd33-4b55-ae89-8ea142e13433": {
+        [Language.English]: `<div class=" tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>Non-personal Information LIVGUARD may also collect certain non-personal Information from the User, when the User visits and / or uses the Website / Mobile App. Such non-personal Information would include but not be limited to information such as geographical location of User, IP address, type of browser, operating system of User’s device, and details of usage of Website / Mobile App etc. Such non-personal Information is collected through various ways including “cookies”. Cookies are text files placed on Your computer, to help the Website / Mobile App analyse how You use the Website / Mobile App. Such information is not used to track information about individuals, but is used on an aggregate level to customize our site, improve the online experience of the User and plan advertising and promotions.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "47c69ab3-900c-4224-a43c-42b7f59021b8": {
+        [Language.English]: `<div class=" tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> d) </span>Cookies, Web Beacons and Tracking Codes: <br />
+    Cookies are small text files that a website downloads onto your computer or other internet-enabled devices (such as mobile phones and tablets) when you visit a website.<br />
+    The cookie will help the Website / Mobile App recognise your device the next time you visit.<br />
+    We may use both session cookies (disappear after you close your browser) and persistent cookies (remain after you close your browser and may be accessed every time you use or connect to our Website / Mobile App). We may collect information like user’s IP address, geographical location, browser/device type and version, operating system, referral source, device, length of visit, page views and website navigation paths, as well as information about the timing, frequency and pattern of user website use through "cookies".<br />
+    You can block cookies by activating the setting on your browser that allow you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies), you may not be able to access all or parts of our site, or they may not function properly.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "f99dd265-19b4-4c6c-9bdf-e821028a7f1c": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Modes of  Collection of User Information</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "cb8a9e2c-c122-4364-8df0-1ca85b2cdbce": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>The information referred to above may be collected or received by LIVGUARD (a) directly from the User, when the User either provides any specific information on the Website / Mobile App; or (b) from use of the Website / Mobile App by the User (including through IoT device placed in the Livguard product purchased by the User); or(c) from third parties who have collected any Information relating to the User, and who have shared it with LIVGUARD.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "aa9c3a7a-59e8-494c-8735-4412242f97c4": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>There are times when You may provide information to us voluntarily, otherwise than through use of the Website / Mobile App. This occurs when You provide Your feedback to us through e-mails, return forms, letters or telephone calls. We may use this information to respond to Your query and to keep track of feedback received from You.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "3ecc9b2a-3c63-474d-9030-b127f167e154": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span>Purpose of Collection and Usage of Information</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "5b343f4f-5f88-4052-a854-03625bd47d69": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD may collect, store and use Information for any purpose as may be permissible under Applicable Laws, including but limited to the following:</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "3c1e2baa-32d5-437c-ac0d-48759c0637dc": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To display the User’s business listing or Product offerings across the Website / Mobile App to fetch maximum business opportunities for the User; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "431f673d-7133-4b47-a4fc-0b5d1f785a31": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Facilitation of Your use of the Website / Mobile App, handling and execution of orders placed on the Website / Mobile App by the User, process payments,   </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "44c9b6f1-596d-48fe-b7d3-e56632034095": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>communication with User about orders etc.; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "56cfc5a2-3234-4102-914a-633ba422e01b": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Respond to any inquiries posed by the User;  </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "e8c1605b-6bce-4fd5-9169-c49e378fd4de": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Provide User with details of important schemes, offers, Product details, new Product launches, changes to terms of use of the Website / Mobile App, order details, delivery details and make other important announcements etc. ; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "8b853c2f-15aa-479e-965e-760dd491232e": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Maintain accounts of the User, display contents inputted by User such as User profile, User wishlist etc.;  </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "113f5a01-82e6-42de-93d5-dbe1f7d19b54": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Help recommend to the User merchandise and services that may be of interest to him / her; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "913a55de-32d2-4a5f-84bc-ddac36747d15": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Personalize User’s experience on the Website / Mobile App by presenting advertisements, Products and offers tailored to the User’s preferences; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "5b2b4664-0482-41ec-a0c7-444cfca27a37": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>  Customization, administration etc. of the Website / Mobile App, location of errors, Website / Mobile App testing, data analysis for the Website etc;</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "8337096b-9366-4d12-b39d-56e692bdaeaa": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div> Provision of various services on the Website / Mobile App; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "27d95f06-70f3-434b-a8df-b8e40aba21d5": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To protect integrity of the Website / Mobile App, improve our platform, prevent or detect fraud or abuse of our Website / Mobile App; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "7b050d8e-5836-4ea4-bc84-cac86bf0c9bc": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To conduct analytical studies on various aspects including User behaviour, User preferences etc. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "66726cd7-94c1-4ef5-8cb0-6acfb7848505": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Enable third parties to carry out technical, logistical or other functions on our behalf; </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "1c7c4aad-bddc-4773-9c22-7a276fead53c": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To permit employees of the Company to contact Users, and enable them to implement the orders placed by Users, resolve User queries, issues, grievances etc.;</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "7cf4347b-8a4a-4fca-9c02-3761202f2a27": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To further improve the product and/or services, to facilitate the servicing of User’s product and/or to give insight on User’s product experience. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "e6adca15-6dfb-48b7-8be7-dc52032ea71d": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>To trace computer resources of any person for the purposes of determining compliance with the provisions of the Information Technology Act, 2000 and / or any other law for the time being in force.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "d27c24dd-40a2-4373-99b3-eb71ccfc2b98": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Disclosure and Retention of User Information</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "cd391409-5d57-498e-9257-9ab02d05a788": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> a) </span>LIVGUARD considers the Information about its customers as an important part of its business. Accordingly, LIVGUARD shall not engage in sale of Information
+    relating to Users to third parties. However, LIVGUARD may share User information with third parties in the circumstances specified herein below, after reasonably assuring itself that such third parties have undertaken to maintain confidentiality of Personal Information relating to the Users:</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "96b82a04-2ff3-4ef9-8a0a-d26cc960b8b3": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Third Party Vendors / Service Providers etc.: Personal Information relating to Users may be made available to the third party Vendors, distributors etc. who sell their Products on the Website / Mobile App. Further, LIVGUARD may engage third party service providers to render various services, and perform various functions in relation to the business undertaken on the Website / Mobile App, and / or for the Purpose(s) discussed in Paragraph 6 above. For instance, LIVGUARD may engage third party service providers for maintenance of its Website / Mobile App, fulfilment of orders, delivery of packages, analysing data, providing marketing assistance, processing of credit card payments, provision of customer services etc. Such third party service providers / Vendors would have access to Personal Information of Users for the purpose of performing their functions / rendering their services etc.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "68d5e380-6f21-47fb-a843-c6aaa666dc73": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Business Transfers: LIVGUARD may transfer or otherwise share some or all of its assets, including Your Information in connection with a merger, acquisition, reorganization or sale of assets or business or in the event of bankruptcy. Should such a sale or transfer occur, LIVGUARD will reasonably ensure that the Information You have provided and which we have collected is stored and used by the transferee in a manner that is consistent with this Privacy Policy. Any third party to which LIVGUARD transfers or sells as aforesaid will have the right to continue to use the information that You provide to us or collected by us immediately prior to the transfer.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "9fa9be91-7380-451d-a225-69e8e2403635": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>Government Agency: LIVGUARD may share any Information relating to Users (i) with Government agencies mandated under the law to obtain Information relating to Users from LIVGUARD; (ii) any third party, when LIVGUARD is required to disclose the same under an order of a government or judicial authority under any law for the time being in force, or where such disclosure is necessary for the compliance of a legal obligation.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "6d1e570d-cc89-4de6-b652-19f51c77c8e2": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[0.5rem_1fr] tw-items-start tw-gap-2 tw-pl-[5rem]"><div class="tw-pt-[0.6rem]"><div class ="tw-rounded-full tw-w-1 tw-h-1 lg-bg-secondary-900 "></div></div>With User Consent: Without prejudice to the aforesaid, LIVGUARD may disclose Personal Information relating to the User with his / her / its consent. For this purpose, LIVGUARD may send a prior notice to the User before sharing Personal Information relating to the User with third parties. In case no objection or intimation is received from the User, LIVGUARD would presume that User has granted its consent for sharing of said Information with third parties. By using or visiting the Website / Mobile App and agreeing to the terms of this Privacy Policy, User shall be construed to have consented to, and accepted the disclosure of his Information to third parties as provided under this Privacy Policy. </div>`,
+        [Language.Hindi]: "??????",
+    },
+    "7efe0543-f56d-4a42-94e8-071960afb913": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> b) </span>LIVGUARD will share Your Personal Information internally with such persons who need it to complete Your purchase or carry out Your instructions regarding the receipt of marketing information.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "4598a898-04e1-4cd3-a35d-61d27bdf34d7": {
+        [Language.English]: `<div class="tw-grid tw-grid-cols-[2rem_1fr] tw-items-start tw-gap-2 tw-pl-[2.5rem]"><span class ="lg-text-title2 lg-text-primary-500 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-start tw-text-center"> c) </span>LIVGUARD shall keep sensitive personal data or information for only as long as the purposes for which the information may lawfully be used or is otherwise required under any other law for the time being in force. For those customers who have registered for the mailing list, their personal information is kept until we are notified that they no longer want their information stored.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "4300717a-09da-44b8-84fd-48618c687ec1": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Disclosure and Retention of User Information</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "fd29f53e-96c6-4038-8427-9115cb09ecc3": {
+        [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">In order to make every effort to ensure that Your experience on the Website / Mobile App is secure, we use encryption technology to protect You against the loss, misuse or alteration of Your personal information. When You fill out any contact forms or access Your account, a secure server encrypts all of Your information through the use of Secure Socket Layers (SSLs). 
+    To be sure You are browsing secure pages for transactions, check Your Web browser’s status bar (located at the bottom of the window) for the closed padlock icon. This icon appears in Your web browser to tell You that You are viewing a secure web page. Also, all browsers display an “s” after the “http” (https://) in the Web site address to indicate that You are in a secure environment.</div>`,
+        [Language.Hindi]: "????????",
+    },
+    "36b37274-7ff0-4d9f-bfb2-b2739985310d": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Accuracy and Protection of Personal Information</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "d4254721-b706-42b5-ad43-58078e4494cb": {
+        [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">LIVGUARD relies on Users to notify it of any changes in personal information. Should any inaccurate information come to LIVGUARD’s attention, it will investigate and correct the information and, if necessary, apprise the User of the change. Only those staff members who need the User’s personal information in order to respond to the User’s requests are given access to it. Employees are provided with training and information regarding the proper handling of personal information. All information stored in LIVGUARD’s computer system is protected from unauthorized access and information that is stored in document form is kept in secure locations to prevent access by unauthorized persons.</div>`,
+        [Language.Hindi]: "????????",
+    },
+    "02baf425-5186-4904-8021-9fdcddfb2866": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Discretion and the Choice to Opt 0ut</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "b331829c-16c8-4530-92b0-05dde534174c": {
+        [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">You can block cookies by activating the setting on your browser that allow you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies), you may not be able to access all or parts of our site, or they may not function properly. 
+    The Users have a choice to opt-out of receiving non-essential (promotional, marketing related) communications from us, after setting up an account. 
+    In order to remove Your contact information, please visit Unsubscribe.</div>`,
+        [Language.Hindi]: "????????",
+    },
+    "26a57e61-ba7d-4b5d-a6f5-37e2a942baae": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Grievance Officer</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "5af772f4-4767-4d8d-94be-d19bd8f09270": {
+        [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">In compliance with Information Technology Act, 2000 and rules made thereunder, the name and contact details of the Grievance Officer are provided below:<br />
+    Name : LIVGUARD ENERGY TECHNOLOGIES PRIVATE LIMITED <br />
+    Address : 221, PHASE – 1, UDYOG VIHAR, GURGAON, HARYANA – 122016 <br />
+    Phone : +91-124 403 5614 <br />
+    Email : grievance.officer@sar-group.com <br />
+    Time : 9:00 AM to 6:00 PM</div>`,
+        [Language.Hindi]: "????????",
+    },
+    "f9017529-2e06-448b-9fac-60b3ebe9f5f8": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Update to this Privacy Policy</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "8b508a55-0b04-4454-b098-e863009e45e4": {
+        [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">We may periodically update the Privacy Policy. Please refer the Updated on legend at the top of this page to see when this Privacy Policy was last revised. Any changes to this Privacy Policy will become effective when we post the revised Privacy Policy on our Website / Mobile App. Your use of the Website / Mobile App following these changes means that you accept the revised Privacy Policy.</div>`,
+        [Language.Hindi]: "????????",
+    },
+    "1827dab4-34e9-4f0f-97f3-e6e576aea81e": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Governing Law</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "86954c62-c133-43bf-8551-5799f57650e4": {
+        [Language.English]: `<div class="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">The Website and Mobile App are designed and targeted to users who reside in the Republic of India and is governed by and operated in accordance with the laws of the India. By accessing and/or providing personal information through the Website / Mobile App, you confirm that you meet the legal requirements for disclosure of personal information in your jurisdiction.</div>`,
+        [Language.Hindi]: "????????",
+    },
+    //Sales Return Policy
+    "661b01b0-1ac1-49ce-af95-39777ff6a99c": {
+        [Language.English]: "Sales Return Policy",
+        [Language.Hindi]: "??????",
+    },
+    "74cd145f-e021-4f2d-81e4-3bdd4cbcf891": {
+        [Language.English]: `Sales <span class="lg-text-highlighted">Return Policy </span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "d57d1a75-b578-4caa-8966-a13ab6146b20": {
+        [Language.English]: "The Buyer should verify the Product upon its receipt.",
+        [Language.Hindi]: "??????",
+    },
+    "f30c51d9-5f1c-429b-865a-adb5062e9d55": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Return of Product with Cause</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "559ec70e-f4ad-48ef-8fd0-31778c9ca07a": {
+        [Language.English]:
+            "The Buyer shall be permitted to return a Product with manufacturing defects/ tempered packaging provided the Buyer informs about the same within 3(Three) days of delivery by getting in touch with the Customer Care service team on their Toll free number for Livguard Installation & Service 18001025551 or on their e-mail id livserv@sar-group.com. In case the shipment/ manufacturer's packaging is tampered, then it is recommended that the same is not opened and should be returned in the same condition.",
+        [Language.Hindi]: "????",
+    },
+    "3a5323eb-1863-4778-af39-b75a7f027144": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Return of Product without Cause</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "56bba6ff-0903-41ab-8921-b7f9f178be2d": {
+        [Language.English]:
+            "The Buyer shall be permitted to return a Product with manufacturing defects/ tempered packaging provided the Buyer informs about the same within 3(Three) days of delivery by getting in touch with the Customer Care service team on their Toll free number for Livguard Installation & Service 18001025551 or on their e-mail id livserv@sar-group.com. In case the shipment/ manufacturer's packaging is tampered, then it is recommended that the same is not opened and should be returned in the same condition.",
+        [Language.Hindi]: "????",
+    },
+    "dfa7ddd9-0a82-4e34-bad3-5d007af442ab": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>The Products can be returned only before installation.</div>`,
+        [Language.Hindi]: "??????",
+    },
+    "e87b74a4-6ad4-4afb-9128-6c96107329f6": {
+        [Language.English]:
+            "In case a Product is delivered in the wrong quantity, colour, model and/or size or when the Product is significantly different from the description given on the Website, an endeavour shall be made to help the Buyer affect a return within 3(Three) days of the delivery of such a Product.",
+        [Language.Hindi]: "?????",
+    },
+    "c648db7a-2882-40b6-8bb4-c6f5e9a25ded": {
+        [Language.English]: "The Product shall not be allowed to be returned if the Product ID/Serial No. is tampered and/or when the original packaging of the product is not available.",
+        [Language.Hindi]: "??????",
+    },
+    "2f62912e-e64c-4b2d-bcb5-39c7647850f7": {
+        [Language.English]:
+            "Refund will be made to the Buyer once the return is accepted by Livguard. For pre-paid orders, the refund will be processed within 7(Seven) to 10(Ten) working days. For Cash-on-Delivery orders the refund shall be processed within 10(Ten) to 12(Twelve) working days.",
+        [Language.Hindi]: "??????",
+    },
+    // CSR Page Vernac strings start
+    "09b7690d-2117-461b-8a05-110dc4319240": {
+        [Language.English]: `Our <span class="lg-text-highlighted">CSR Initiatives</span>`,
+        [Language.Hindi]: "",
+    },
+    "b0e9add2-cb81-4ba8-a38b-ee9ac0734225": {
+        [Language.English]: `Corporate Social Responsibility (CSR) at Livguard underscores this commitment to our stakeholders - in the communities around our plants & offices and beyond geography if there is a need for intervention. Our aim is to transform the lives of people in our communities by contributing in <b> four major field of social development.</b>`,
+        [Language.Hindi]: "????????????",
+    },
+    "9b48da94-c77c-433d-a704-12c87673d23a": {
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">Promotion of Education</div>`,
+        [Language.Hindi]: "??????????",
+    },
+    "998c7be8-35d4-4f1e-ba7c-b1ead3af22ae": {
+        [Language.English]: "Lorem ipsum dolor sit amet. Aut perferendis assumenda rem molestiae expedita nam eius voluptas aut enim earum.",
+        [Language.Hindi]: "????",
+    },
+    "7ecc798a-b004-4363-b6c4-109b214a9c56": {
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">Promotion of Healthcare</div>`,
+        [Language.Hindi]: "??????????",
+    },
+    "714cb12b-e61e-45cc-8bf5-efe8f05313f6": {
+        [Language.English]: "Lorem ipsum dolor sit amet. Aut perferendis assumenda rem molestiae expedita nam eius voluptas aut enim earum.",
+        [Language.Hindi]: "????",
+    },
+    "69e2dcc3-d054-4201-91f2-0d615de566db": {
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">Promotion of Livelihood</div>`,
+        [Language.Hindi]: "??????????",
+    },
+    "4fdfc3c9-3c2d-4b98-9a6c-8da1a66b2c88": {
+        [Language.English]: "Lorem ipsum dolor sit amet. Aut perferendis assumenda rem molestiae expedita nam eius voluptas aut enim earum.",
+        [Language.Hindi]: "????",
+    },
+    "4415a7de-a118-45ab-beaf-095576d3d2dc": {
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold tw-text-center">Environmental Sustainability</div>`,
+        [Language.Hindi]: "??????????",
+    },
+    "06174709-99f2-4a5e-8db2-e499622975dc": {
+        [Language.English]: "Lorem ipsum dolor sit amet. Aut perferendis assumenda rem molestiae expedita nam eius voluptas aut enim earum.",
+        [Language.Hindi]: "????",
+    },
+    "8a7e10ee-cde7-461f-9392-22301c8474a1": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Vision</span>`,
+        [Language.Hindi]: "???????",
+    },
+    "d304550b-a5f6-41d8-8db6-8dae4f68b0af": {
+        [Language.English]:
+            "The CSR philosophy outlined above, defines the strategic approach and choices that Livguard is making to achieve its CSR vision. We identify four key areas where Livguard will strengthen its CSR efforts. These identified areas will be aligned across all its target locations as well as other needy areas to ensure common focus and synergy in efforts.",
+        [Language.Hindi]: "??????",
+    },
+    "423d9fb0-8f59-4a7c-94e6-6eae3e78ec46": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Projects</span>`,
+        [Language.Hindi]: "???????",
+    },
+    "9ffed122-9c1f-4e60-8d86-543812ebe4b5": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Aut perferendis assumenda rem molestiae <br /> expedita nam eius voluptas aut enim earum.`,
+        [Language.Hindi]: "??????",
+    },
+    "6ee5eb99-9c51-46fd-a08c-e940e31af061": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Aut perferendis assumenda rem molestiae expedita nam eius voluptas aut enim earum.`,
+        [Language.Hindi]: "??????",
+    },
+    "040d0fed-8daf-4463-bbb1-c732b22995ec": {
+        [Language.English]: "Project Svachhand ",
+        [Language.Hindi]: "????",
+    },
+    "3cf2dca9-b278-4047-888a-c7f950364512": {
+        [Language.English]: "Promotion of Education",
+        [Language.Hindi]: "??????",
+    },
+    "3f15697a-6dcf-48b5-b244-cb2337ea3e79": {
+        [Language.English]:
+            "Under Project Svachhand Livguard donated and installed sanitary napkin vending machines and incinerators in 100 Schools and colleges of Himachal Pradesh, which will benefit more than 6000 adolescent girls, and young college going women. Amid the rising concern over high school drop-out rate of girls due to menstrual hygiene issues and to promote safe and hygienic-sanitary practices among them, sanitary pad vending and incinerator machines are being installed in school premises of Solan and Una District of Himachal Pradesh.",
+        [Language.Hindi]: "??????",
+    },
+    "d1f7806b-96e5-4763-95e4-1904a3394ce8": {
+        [Language.English]: "COVID Response",
+        [Language.Hindi]: "?????????",
+    },
+    "d263a415-1139-4e5b-a809-09594a14f078": {
+        [Language.English]: "Promotion of Healthcare",
+        [Language.Hindi]: "?????????",
+    },
+    "759ad098-736a-4d83-8d5e-cd743006f1f9": {
+        [Language.English]:
+            "Under Project Svachhand Livguard donated and installed sanitary napkin vending machines and incinerators in 100 Schools and colleges of Himachal Pradesh, which will benefit more than 6000 adolescent girls, and young college going women. Amid the rising concern over high school drop-out rate of girls due to menstrual hygiene issues and to promote safe and hygienic-sanitary practices among them, sanitary pad vending and incinerator machines are being installed in school premises of Solan and Una District of Himachal Pradesh.",
+        [Language.Hindi]: "????????",
+    },
+    "1c5a01c5-fb13-4a79-a200-e80395fd302f": {
+        [Language.English]: "Swabhiman Skill Training Project",
+        [Language.Hindi]: "????????",
+    },
+    "67cd40f9-6d45-4005-84a0-b00e97de8c82": {
+        [Language.English]: "Promotion of Livelihood",
+        [Language.Hindi]: "????????",
+    },
+    "49372a39-5011-4426-abff-3ccd5bca1a1b": {
+        [Language.English]: `Livguard in partnership with NGO partner Nazariya Foundation, established “Swabiman-Skilling Centre” for economically marginalized and gender minority section ” to improve the livelihoods of 40 disadvantaged trans men ,trans women and other needy individuals from Delhi.Objective of the program is to enable the trainees to avail employment in organized sector with an aim to double the monthly income with increased knowledge and improved skills on trade/craftsmanship.
+    Under this program skill training is given in three trades, which are<br />
+    1. Retail and English<br />
+    2. Basic Computers<br />
+    3. Beauty and Wellness`,
+        [Language.Hindi]: "????????",
+    },
+    "871e1887-2b27-49b5-8dea-1dc093f8ca96": {
+        [Language.English]: "Green Campus Project",
+        [Language.Hindi]: "????????",
+    },
+    "a3aec8ec-b853-4a86-9cd4-dd09c7153b84": {
+        [Language.English]: "Environmental Sustainability",
+        [Language.Hindi]: "????????",
+    },
+    "71949a30-ffab-4c86-90b8-44a88b27d9df": {
+        [Language.English]: `The green campus initiative by Livguard aimed at creating awareness among school students on waste management and transforming school campuses to “Zero Waste Campus” in Baddi and Mubarikpur of Himachal Pradesh.<br />
+    Under this project Livguard in consultation of NGO“ Waste Warriors” transformed Govt. Senior Secondary School, Baddi and Govt. Model Senior Secondary School, Amb, Una to Green Campus. The project included establishing waste management system in school, assisting the school staff and students to shift operations and minds towards generating zero waste through source reduction, recycling, composting, and food recovery. The project impacted 1741 students and 80 school teachers/staffs.`,
+        [Language.Hindi]: "????????",
+    },
+    "0eeb2d2b-6dca-47bb-b5a8-05453bf8c91c": {
+        [Language.English]: `Livguard <span class="lg-text-highlighted">Energy Technologies</span> Pvt Ltd`,
+        [Language.Hindi]: "?????",
+    },
+    "fccd6c6b-9f47-4862-9464-4592c9a14c84": {
+        [Language.English]: `Composition of <span class="lg-text-highlighted">CSR committee</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "e1fa0021-2310-4c6a-a221-9025e3b35ed7": {
+        [Language.English]: "CSR Policy",
+        [Language.Hindi]: "?????",
+    },
+    "dd1fd5f5-12e4-4c37-b41d-969150aa721a": {
+        [Language.English]: `CSR project for F.Y. 2022-23`,
+        [Language.Hindi]: "?????",
+    },
+    "2b6ccacf-093d-48d2-b29c-e5d1c537f3c1": {
+        [Language.English]: `Livguard <span class="lg-text-highlighted">Batteries</span> Pvt Ltd`,
+        [Language.Hindi]: "?????",
+    },
+    //E-waste-Management Page Vernac strings start
+    "bda064ee-6cc6-43f7-a7cb-8f14d9e050d9": {
+        [Language.English]: `Choose Your Battery`,
+        [Language.Hindi]: "??????",
+    },
+    "4711d917-5e03-4150-bea9-3be3f51b8acf": {
+        [Language.English]: `Choose Your Battery`,
+        [Language.Hindi]: "???????",
+    },
+    "62e1fe47-ba14-4849-892b-f9443de6f1d7": {
+        [Language.English]: `Let us help you find the battery you need`,
+        [Language.Hindi]: "???????",
+    },
+    "d8fab0ad-803f-4cfc-85d3-bb2f2df4b102": {
+        [Language.English]: `Connect with Us`,
+        [Language.Hindi]: "??????????????",
+    },
+    "e7e9c51a-f71f-45dc-9607-93bd3236c6b5": {
+        [Language.English]: `Introduction`,
+        [Language.Hindi]: "???????",
+    },
+    "6df4af6d-4a94-4dd2-83a4-298ac4a56ac7": {
+        [Language.English]: `E-waste is a popular, informal name for electronic products nearing the end of their "useful life." Mobile Phones, Smart Phones, Feature phone, I Phones, Laptop, Desktop, Thin Clients, Air Conditioners,E-waste is a popular, informal name for electronic products nearing the end of their "useful life." Mobile Phones, Smart Phones, Feature phone, I Phones, Laptop, Desktop, Thin Clients,  See More`,
+        [Language.Hindi]: "???????",
+    },
+    "95949a19-e3c5-456c-8dc4-65bf020a58ee": {
+        [Language.English]: `Types of <span class="lg-text-highlighted">e-Waste Managed </span>By Us`,
+        [Language.Hindi]: "??????",
+    },
+    "cce6a0e8-c566-4750-beb3-1889378386c6": {
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">485,136</div>`,
+        [Language.Hindi]: "??????????",
+    },
+    "14f34bb4-d2a6-43c3-92a4-6020ef742ad2": {
+        [Language.English]: `Home Appliances Recycled <br/> as per 2023`,
+        [Language.Hindi]: "??????????",
+    },
+    "7fd3dd68-c99b-40f8-aca5-888de432b401": {
+        [Language.English]: `Mobiles Recycled <br/> as per 2023`,
+        [Language.Hindi]: "??????????",
+    },
+    "545363c7-0354-4597-a5b2-ae58de55c291": {
+        [Language.English]: `Laptops Recycled <br/> as per 2023`,
+        [Language.Hindi]: "??????????",
+    },
+    "b4cd4e9a-a140-4d32-8c0f-2c0d385a49fb": {
+        [Language.English]: `E-waste is a popular, informal name for electronic products nearing the end of their "useful life." Mobile Phones, Smart Phones, Feature phone, I Phones, Laptop, Desktop, Thin Clients, Air Conditioners, Televisions, Refrigerators, Washing Machines, VCDs, stereos, copiers, and fax machines are common electronic products. Many of these products can be reused, refurbished, or recycled.`,
+        [Language.Hindi]: "????????",
+    },
+    "e9a9e6b2-592c-4d32-9f03-350f5159ca4c": {
+        [Language.English]:
+            "E-waste has been one of the fastest growing waste streams in the world. While e-waste contains valuable materials such as aluminium, copper, gold, palladium and silver, it also contains harmful substances like cadmium, lead and mercury. In the absence of proper awareness, disposing e-waste in landfill can result in toxic emissions to the air, water and soil and pose a serious health and environmental hazards.",
+        [Language.Hindi]: "????????",
+    },
+    "8eb39f08-e6ac-49e8-b7cb-7b1b56a98891": {
+        [Language.English]: `Why E-waste management`,
+        [Language.Hindi]: "????????",
+    },
+    "91e2cda0-4afb-49e8-9772-8c4aa4cd246a": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Qui voluptates ipsum At harum voluptas in Quis adipisci eos odit nihil et pariatur culpa est iusto deleniti est provident vero? Lorem ipsum dolor sit amet. Qui voluptates ipsum.`,
+        [Language.Hindi]: "???????",
+    },
+    "0ed9d4ea-8be2-4402-9cc9-6d9a07e96c43": {
+        [Language.English]: `1`,
+        [Language.Hindi]: "??????",
+    },
+    "fc71fe6d-a26c-4873-beb5-a16fe8fc7174": {
+        [Language.English]: `Reason 1`,
+        [Language.Hindi]: "??????",
+    },
+    "b494b200-dfd0-406c-8256-b1f655ca9066": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Qui voluptates ipsum At harum voluptas in Quis adipisci eos odit nihil et pariatur culpa est iusto deleniti est provident vero? Lorem ipsum dolor sit amet. Qui voluptates ipsum.`,
+        [Language.Hindi]: "???????",
+    },
+    "b452610b-4e19-4d8a-a5c7-c42e7440a3e4": {
+        [Language.English]: `2`,
+        [Language.Hindi]: "??????",
+    },
+    "c67dd066-2f26-4073-af46-c66a4cdd21c5": {
+        [Language.English]: `Reason 2`,
+        [Language.Hindi]: "??????",
+    },
+    "17bc8148-f2ed-4026-8074-ce2ca1013b4d": {
+        [Language.English]: `3`,
+        [Language.Hindi]: "??????",
+    },
+    "06e30da0-63f4-43d6-beb5-8fe3b7af9a33": {
+        [Language.English]: `Reason 3`,
+        [Language.Hindi]: "??????",
+    },
+    "c0322003-0090-4b07-867b-e9a14cab8b06": {
+        [Language.English]: `<span class="lg-text-highlighted">Services</span> we provide`,
+        [Language.Hindi]: "???????",
+    },
+    "afc8a4c5-877d-4137-a2b0-97c9408eaded": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Qui voluptates ipsum At harum voluptas in Quis `,
+        [Language.Hindi]: "???????",
+    },
+    "6fa18bfe-40fb-42ec-b58c-654c4fc881da": {
+        [Language.English]: "70,932,314 kgs",
+        [Language.Hindi]: "????????????",
+    },
+    "d2d23cef-3bfc-45bf-916c-a3299a9d163c": {
+        [Language.English]: "e-Waste Recycled  as per 2023",
+        [Language.Hindi]: "?????????????????",
+    },
+    "1795f04a-f546-4230-80aa-e73f5020a68e": {
+        [Language.English]: `Recycling of <br /> E-Waste`,
+        [Language.Hindi]: "??????",
+    },
+    "e133c65a-9f38-4170-b96a-8b5ee5b4260f": {
+        [Language.English]: `Recycling of Toner <br /> Cartridge`,
+        [Language.Hindi]: "??????",
+    },
+
+    "51a87ae7-fadf-48b0-bc54-93000203a850": {
+        [Language.English]: `Refurbishing PC for Rural <br /> Areas and NGO’s`,
+        [Language.Hindi]: "??????",
+    },
+    "86f8e696-7719-4db9-9bc8-083b37380b39": {
+        [Language.English]: `Onsite Hard Disk Shredding/ <br /> Scraping`,
+        [Language.Hindi]: "??????",
+    },
+    "a023698b-d95f-4faf-abb9-9aaf92d3b1a9": {
+        [Language.English]: `100% <br /> Data Destruction`,
+        [Language.Hindi]: "????????",
+    },
+    "6c5422c4-c98a-4035-9e9d-7977366e50f3": {
+        [Language.English]: "Awareness Programs of Recycler EWRI",
+        [Language.Hindi]: "?????????",
+    },
+    "1eaa68c5-42b8-497e-bf30-220999dcc61a": {
+        [Language.English]: "Toll Free No. 18001025679 for End Consumer reach.",
+        [Language.Hindi]: "?????????",
+    },
+    "3f4e8b92-f79d-4e48-b731-98c0652e3ba0": {
+        [Language.English]: "Can we charge a dead car battery?",
+        [Language.Hindi]: "?????????",
+    },
+    "6adb43d6-0333-4b19-877e-4bfd6862d595": {
+        [Language.English]: "Does a car battery discharge in cold weather?",
+        [Language.Hindi]: "?????????",
+    },
+    "54bb62a0-38db-41ae-b7ab-d543f4b639f6": {
+        [Language.English]: "How do I choose a car battery?",
+        [Language.Hindi]: "?????????",
+    },
+    "188b174f-1232-4d35-9e61-c94f248a9b67": {
+        [Language.English]: "What is a maintenance-free Car battery?",
+        [Language.Hindi]: "?????????",
+    },
+    "4d08f061-a98a-4a15-8737-0c9c43a57fc3": {
+        [Language.English]: "What is the average life of a car battery? How to find the best car battery?",
+        [Language.Hindi]: "?????????",
+    },
+    "eba7b1df-230e-4a24-9af0-03d357c63bd7": {
+        [Language.English]: "Join Our 2 Crore ",
+        [Language.Hindi]: "???????",
+    },
+    "95604516-fdf0-40f3-b168-2e5c2d7dd976": {
+        [Language.English]: `<span class="lg-text-highlighted">Happy Users</span>`,
+        [Language.Hindi]: "???????",
+    },
+    "9d43b4fc-3438-4cf3-8f7d-2656d486846e": {
+        [Language.English]: `Find your nearest collection center`,
+        [Language.Hindi]: "???????",
+    },
+    "acf56d00-92b0-4408-baf5-7c6c4596d0dc": {
+        [Language.English]: "Enter Your State ",
+        [Language.Hindi]: "?????????????????",
+    },
+    "ad6b181f-0115-4496-a9f8-4fb7d7d6e990": {
+        [Language.English]: "Delhi ",
+        [Language.Hindi]: "?????????????????",
+    },
+    "91cb41a5-571d-4516-91fb-fc5e67266990": {
+        [Language.English]: "Enter Your City ",
+        [Language.Hindi]: "?????????????????",
+    },
+    "07ac43fc-8777-4379-81d5-8c80533d5e66": {
+        [Language.English]: "New Delhi ",
+        [Language.Hindi]: "?????????????????",
+    },
+    "5fc70a88-5ac0-4369-991c-354a4d48deed": {
+        [Language.English]: "Center Name",
+        [Language.Hindi]: "????????",
+    },
+    "3534a1d3-4422-4446-8489-05c211592c14": {
+        [Language.English]: `Dealer Address: <br /> Shop number, street name, landmark <br /> city, pincode`,
+        [Language.Hindi]: "????????",
+    },
+    "65c54ed1-3464-4a31-bb9c-d0aaefb33bfe": {
+        [Language.English]: "Enquire Now",
+        [Language.Hindi]: "????????",
+    },
+    "0a6730e2-c863-4fea-8ed7-b9944641304e": {
+        [Language.English]: "Get Direction",
+        [Language.Hindi]: "????????????",
+    },
+    "3a2ac2b6-a897-4d0a-ac7e-0abf6425ba24": {
+        [Language.English]: "Continue",
+        [Language.Hindi]: "????????????",
+    },
+    "4eb87934-841c-4c9f-898e-3bfbac44f2a2": {
+        [Language.English]: "Let us help you find the battery you need",
+        [Language.Hindi]: "????????????",
+    },
+    "320a319c-7aa8-4289-b46a-8d58e8542fb1": {
+        [Language.English]: "Connect with Us",
+        [Language.Hindi]: "????????",
+    },
+    "97498b14-b629-4e6e-81a3-6a480bdd6652": {
+        [Language.English]: `Lorem ipsum dolor sit amet. Qui voluptates ipsum At harum voluptas in Quis adipisci eos odit nihil et pariatur culpa est iusto deleniti est provident vero? Lorem ipsum dolor sit amet. Qui voluptates ipsum.`,
+        [Language.Hindi]: "???????",
+    },
+    "78317eea-9cd0-482b-988e-76272191a87d": {
+        [Language.English]: `<span class="lg-text-highlighted">Terms & Conditions</span> - Social Media Contest`,
+        [Language.Hindi]: `?????`,
+    },
+    "42beb18b-af8a-471c-bc79-4e227a144728": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Eligibility`,
+        [Language.Hindi]: "??????",
+    },
+    "396e58f7-ced3-4234-b823-ed5d1876acc9": {
+        [Language.English]:
+            "The Livguard Social Media Contest is open to all participants aged 18 and above, residing in India. Employees, affiliates, and immediate family members of Livguard are not eligible to participate.",
+        [Language.Hindi]: "???????",
+    },
+    "03a0d75d-4a8e-4467-8920-3dcd8754d532": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Entry Requirements`,
+        [Language.Hindi]: "??????",
+    },
+    "fc7cc648-ad54-41f7-97bd-a8d9436198b7": {
+        [Language.English]:
+            "To enter the contest, participants must follow the official Livguard social media account and like the contest post. They must then share the post on their own social media profile, tagging three friends and using the designated contest hashtag #LivQuest.",
+        [Language.Hindi]: "??????",
+    },
+    "4fd59896-0e7e-4941-9f45-533eee7d3d58": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Entry Deadline`,
+        [Language.Hindi]: "??????",
+    },
+    "a3c2f2c2-f763-4448-bde7-05df14f33b02": {
+        [Language.English]: "All entries must be submitted within 48 hours of publishing the contest (GMT+5:30) to be considered valid.",
+        [Language.Hindi]: "??????",
+    },
+    "afbb26d7-3eab-470d-93a7-09ebcbb9241b": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Prize Details`,
+        [Language.Hindi]: "??????",
+    },
+    "d5128079-075b-4e7b-9c09-c99ace37c173": {
+        [Language.English]:
+            "The contest will have 3 winners, each receiving Livguard goodies as rewards for the contest. The prizes are non-transferable and cannot be exchanged for cash or other products.",
+        [Language.Hindi]: "??????",
+    },
+    "1dcc125e-a230-4df4-93de-7729ac296b0a": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Winner Selection`,
+        [Language.Hindi]: "??????",
+    },
+    "344eda0b-5cba-4d61-b0b6-36f09b7b4b09": {
+        [Language.English]:
+            "The winners will be selected on the basis of the entries received. The first three participants to enter the correct answer will be chosen as the lucky winners for each contest.",
+        [Language.Hindi]: "??????",
+    },
+    "eedccb31-f56d-4745-9cf8-9d5a7596df5f": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> Winner Notification`,
+        [Language.Hindi]: "??????",
+    },
+    "f3fac268-6cf3-4e6f-b1af-69b32ed06748": {
+        [Language.English]:
+            "The winners will be notified via direct message on the social media platform through which they entered. They will be required to respond within 48 hours of notification to claim their prize.",
+        [Language.Hindi]: "??????",
+    },
+    "e98b6392-6416-4deb-a9d2-907d5e9085e9": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> Publicity and Content Usage`,
+        [Language.Hindi]: "??????",
+    },
+    "fbe27bfc-b4e6-415e-9da6-03f32b0fa49f": {
+        [Language.English]:
+            "By participating in the contest, participants grant Livguard permission to use their submitted content (including usernames, photos, and videos) for promotional purposes related to the contest or Livguard's products.",
+        [Language.Hindi]: "??????",
+    },
+    "903c88c4-6eee-42cb-85ab-d1b7e781d162": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> Compliance with Platform Rules`,
+        [Language.Hindi]: "??????",
+    },
+    "c0455240-1838-4886-9320-6e41ea6c7519": {
+        [Language.English]: "Participants must adhere to the rules and guidelines of the social media platform on which they are entering the contest.",
+        [Language.Hindi]: "??????",
+    },
+    "f63831d0-7292-4301-8c0d-0f5dc08dcad2": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> Compliance with Local Laws`,
+        [Language.Hindi]: "??????",
+    },
+    "4e308bc4-78ed-44d6-95a0-307d4cfee4e3": {
+        [Language.English]: "Participants must comply with all applicable laws and regulations in India.",
+        [Language.Hindi]: "??????",
+    },
+    "fc6abbbc-ea85-41ec-99bb-486c523c034b": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> Liability and Indemnification`,
+        [Language.Hindi]: "??????",
+    },
+    "83c6a3f5-0834-41e6-a3eb-42f2d9edffcf": {
+        [Language.English]:
+            "Livguard is not responsible for any issues related to the contest or the prizes. By entering the contest, participants agree to indemnify and hold Livguard harmless from any claims or liabilities.",
+        [Language.Hindi]: "??????",
+    },
+    "264cae06-3f7f-4ad5-8739-4fc63a6cc75e": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> Modification or Termination`,
+        [Language.Hindi]: "??????",
+    },
+    "e93e6803-0cca-43a1-938f-01a3532b85ca": {
+        [Language.English]: "Livguard reserves the right to modify, suspend, or terminate the contest at any time without prior notice.",
+        [Language.Hindi]: "??????",
+    },
+    "8d833cfb-bef1-4119-b0fc-7b0d7948ca89": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> Contact Information`,
+        [Language.Hindi]: "??????",
+    },
+    "15e2d1a3-ff2c-4d82-929a-7d8044d249b1": {
+        [Language.English]: "For any questions or concerns regarding the contest, participants can contact Livguard at marketing@livguard.com or send a DM as well.",
+        [Language.Hindi]: "??????",
+    },
+    "7552810b-bd7c-40ca-9136-c94ca1bedc0d": {
+        [Language.English]: "By participating in the Livguard Social Media Contest, participants agree to all the terms and conditions outlined above.",
+        [Language.Hindi]: "??????",
+    },
 };
