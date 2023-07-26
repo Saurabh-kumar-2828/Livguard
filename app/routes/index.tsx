@@ -17,6 +17,7 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {InTheNewsCarousel} from "~/components/inTheNewsCarousel";
 import {LeadersCarousel} from "~/components/leadersCarousel";
 import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -42,24 +43,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
-            // TODO: This contains a space, hindi version does not. Why?
-            title: "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
-            description: "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
-            "og:title": "Livguard : Buy inverter, batteries and all types of home energy storage solutions",
+            title: "Livguard Energy Storage Solutions for Inverters and Batteries ",
+            description: "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
+            "og:title": "Livguard Energy Storage Solutions for Inverters and Batteries ",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/",
-            "og:description": "Shop for the best range of inverters, batteries and energy storage solutions for your home with Livguard",
+            "og:description": "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
             "og:type": "website",
             "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "लिवगार्ड: इनवर्टर, बैटरी और सभी प्रकार के ऊर्जा संग्रहण समाधान खरीदें",
-            description: "लिवगार्ड के साथ अपने घर के लिए इनवर्टर, बैटरी और ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी की खरीदारी करें",
-            "og:title": "लिवगार्ड: इनवर्टर, बैटरी और सभी प्रकार के ऊर्जा संग्रहण समाधान खरीदें",
+            title: "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
+            description: "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
+            "og:title": "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/",
-            "og:description": "लिवगार्ड के साथ अपने घर के लिए इनवर्टर, बैटरी और ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी की खरीदारी करें",
+            "og:description": "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
             "og:type": "website",
             "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
         };
@@ -276,6 +276,11 @@ function HomePage({
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
                 className="tw-row-start-7 lg:tw-row-start-4 lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
+            />
+
+            <InTheNewsSection
+                userPreferences={userPreferences}
+                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <PowerfulPurposePowerfulImpact
@@ -1015,6 +1020,58 @@ export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, classNa
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
+            </div>
+        </div>
+    );
+}
+
+export function InTheNewsSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const newsArticles = [
+        {
+            imageRelativeUrl: "/livguard/home/12/logo-thehindu.png",
+            imageSurroundingColor: "#e7e7e7",
+            title: "Conquering Power Cuts: Livguard Inverter and Inverter Batteries, the Ultimate Smart Solution",
+            link: "https://www.thehindu.com/brandhub/conquering-power-cuts-livguard-inverter-and-inverter-batteries-the-ultimate-smart-solution/article67018979.ece",
+        },
+        {
+            imageRelativeUrl: "/livguard/home/12/logo-et.png",
+            imageSurroundingColor: "#e7e7e7",
+            title: "Breaking barriers: Livguard's inverter solutions pave the way for a power-cut-free India",
+            link: "https://economictimes.indiatimes.com/industry/cons-products/electronics/breaking-barriers-livguards-inverter-solutions-pave-the-way-for-a-power-cut-free-india/articleshow/101344909.cms",
+        },
+        {
+            imageRelativeUrl: "/livguard/home/12/logo-nbs.png",
+            imageSurroundingColor: "#FFF0F0",
+            title: "चाहे बिजली हो न हो, Livguard इन्वर्टर से घर में होगी रोशनी, आज ही ले आएं घर",
+            link: "https://navbharattimes.indiatimes.com/tech/gadgets-news/solving-power-cuts-with-livguard-inverters/articleshow/101343860.cms",
+        },
+        {
+            imageRelativeUrl: "/livguard/home/12/logo-toi.png",
+            imageSurroundingColor: "#e7e7e7",
+            title: "Unlocking India's Potential: Overcoming power cuts with innovative inverter solutions by Livguard - Times of India",
+            link: "https://m.timesofindia.com/spotlight/unlocking-indias-potential-overcoming-power-cuts-with-innovative-inverter-solutions-by-livguard/articleshow/100700838.cms",
+        },
+        {
+            imageRelativeUrl: "/livguard/home/12/logo-indiablooms.png",
+            imageSurroundingColor: "#FFF0F0",
+            title: "A New Era in Residential Power Backup: Inverter and Battery Combo | Indiablooms - First Portal on Digital News Management",
+            link: "https://www.indiablooms.com/life-details/L/7267/a-new-era-in-residential-power-backup-inverter-and-battery-combo.html",
+        },
+    ];
+
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+            <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg-text-headline tw-text-center">
+                <div dangerouslySetInnerHTML={{__html: getVernacularString("79c83c5f-5a33-4b6b-9b5f-789ee5d140a8", userPreferences.language)}} />
+            </div>
+
+            <VerticalSpacer className="tw-h-6 lg:tw-h-8" />
+
+            <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-[auto] lg:tw-grid-cols-1 tw-gap-y-4 lg:tw-gap-x-12 lg-bg-secondary-100 tw-px-4 lg:tw-pl-8 lg:tw-py-8 tw-py-4 lg:tw-items-center tw-rounded-lg">
+                <InTheNewsCarousel
+                    className=""
+                    items={newsArticles}
+                />
             </div>
         </div>
     );

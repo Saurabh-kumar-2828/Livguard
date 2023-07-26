@@ -276,11 +276,11 @@
     }
 
     .lg-stabilizers-best-seller-gradient {
-        background: linear-gradient(270deg, #F25F60 -106.84%, #EB2A2B 102.47%);
+        background: linear-gradient(270deg, #f25f60 -106.84%, #eb2a2b 102.47%);
     }
 
     .lg-about-us-who-we-are-bg-gradient-dark {
-        background: linear-gradient(171.42deg, #474546 -6.46%, #1F2022 71.76%);
+        background: linear-gradient(171.42deg, #474546 -6.46%, #1f2022 71.76%);
     }
 
     .lg-about-us-who-we-are-bg-gradient-light {
@@ -288,7 +288,15 @@
     }
 
     .lg-about-us-leaders-bg-gradient {
-        background: linear-gradient(270deg, #F25F60 -106.84%, #EB2A2B 102.47%);
+        background: linear-gradient(270deg, #f25f60 -106.84%, #eb2a2b 102.47%);
+    }
+
+    .lg-service-connect-bg-gradient-light {
+        background: linear-gradient(153deg, #b1b1b1 35.83%, #fcfcfc 81.14%);
+    }
+
+    .lg-service-connect-bg-gradient-dark {
+        background: linear-gradient(153deg, #474546 35.83%, #1F2022 81.14%);        
     }
 
     .lg-service-connect-bg-gradient-light {
@@ -493,5 +501,14 @@
     .lg-ops-pages-shadow {
         box-shadow: 0 0 #0d0d0d0d, 0 2px 12px #0d0d0d0d, 8px 10px 13px #0d0d0d0a;;
         
+    }
+    .lg-ewaste-management-box-shadow {
+        box-shadow: 0px 0px 0px 0px rgba(13, 13, 13, 0.05), 4px 10px 12px 0px rgba(13, 13, 13, 0.05), 16px 40px 23px 0px rgba(13, 13, 13, 0.04);
+    }
+    .lg-cta-button-gradient {
+        @apply tw-bg-gradient-to-r tw-from-[#EB2A2B] tw-to-[#F25F60];
+    }
+    .lg-scroll-bar-hidden::-webkit-scrollbar {
+        display: none;
     }
 }

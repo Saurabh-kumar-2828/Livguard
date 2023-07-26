@@ -10,6 +10,7 @@ export function CarouselStyle4({
     className,
     slidesContainerClassName,
     controlsContainerClassName,
+    chevronButtonsDivisionFactor,
     hideButtons,
     itemContainerClassName,
 }: {
@@ -17,6 +18,7 @@ export function CarouselStyle4({
     className?: string;
     slidesContainerClassName?: string;
     controlsContainerClassName?: string;
+    chevronButtonsDivisionFactor?: number;
     hideButtons?: boolean;
     itemContainerClassName?: string;
 }) {
@@ -62,11 +64,17 @@ export function CarouselStyle4({
 
                 <div className="tw-flex tw-flex-row tw-gap-x-2">
                     <ItemBuilder
-                        items={items}
+                        items={chevronButtonsDivisionFactor == undefined ? items : items.slice(0, items.length / chevronButtonsDivisionFactor)}
                         itemBuilder={(_, scrollSnapIndex) => (
                             <React.Fragment key={scrollSnapIndex}>
                                 <div
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-2 tw-h-2 tw-rounded-full",
+                                        scrollSnapIndex == selectedIndex ||
+                                            (chevronButtonsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (items.length / chevronButtonsDivisionFactor))
+                                            ? "lg-bg-secondary-900"
+                                            : "lg-bg-secondary-300",
+                                    )}
                                     key={scrollSnapIndex}
                                     onClick={() => {
                                         emblaApi?.scrollTo(scrollSnapIndex);

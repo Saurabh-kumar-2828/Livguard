@@ -35,23 +35,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
-            title: "Plan the power consumption requirements of your home",
-            description: "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
-            "og:title": "Plan the power consumption requirements of your home ",
+            title: "Plan Your Power Needs with Livguard Load Calculator",
+            description: "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
+            "og:title": "Plan Your Power Needs with Livguard Load Calculator",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/load-calculator",
-            "og:description": "With our easy to use power planner, calculate the energy requirements of your home along with suggested inverters and batteries",
+            "og:description": "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
             "og:type": "website",
             "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "अपने घर की बिजली खपत आवश्यकताओं की योजना बनाएं",
-            description: "हमारे आसानी से उपयोग में आने वाले पावर प्लानर के साथ अपने घर की ऊर्जा ज़रूरतों को निकालें और सुझाये गये इनवर्टर और बैटरी के साथ अपने घर को सशक्त बनाएँ।",
-            "og:title": "अपने घर की बिजली खपत आवश्यकताओं की योजना बनाएं",
+            title: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
+            description: "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
+            "og:title": "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/load-calculator",
-            "og:description": "हमारे आसानी से उपयोग में आने वाले पावर प्लानर के साथ अपने घर की ऊर्जा ज़रूरतों को निकालें और सुझाये गये इनवर्टर और बैटरी के साथ अपने घर को सशक्त बनाएँ।",
+            "og:description": "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
             "og:type": "product",
             "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
         };

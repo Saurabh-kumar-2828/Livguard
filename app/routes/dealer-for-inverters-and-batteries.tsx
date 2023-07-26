@@ -35,23 +35,23 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
-            title: "Dealer Locator | Find Livguard inverter battery shop near me",
-            description: "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
-            "og:title": "Dealer Locator | Find Livguard inverter battery shop near me",
+            title: "Dealer Locator | Find Livguard inverter battery shop near you",
+            description: "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
+            "og:title": "Dealer Locator | Find Livguard inverter battery shop near you",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-            "og:description": "Find dealers near you with ease. Buy Livguard Inverter, inverter battries for your home through our authorized dealers.",
+            "og:description": "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
             "og:type": "website",
             "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
             title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
-            description: "अपने आस-पास के डीलरों को आसानी से खोजें। खरीदें अपने घर के लिए लिवगार्ड इनवर्टर, इनवर्टर बैटरी हमारे अधिकृत डीलरों के माध्यम से।",
+            description: "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
             "og:title": "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-            "og:description": "अपने आस-पास के डीलरों को आसानी से खोजें। खरीदें अपने घर के लिए लिवगार्ड इनवर्टर, इनवर्टर बैटरी हमारे अधिकृत डीलरों के माध्यम से।",
+            "og:description": "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
             "og:type": "product",
             "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
         };

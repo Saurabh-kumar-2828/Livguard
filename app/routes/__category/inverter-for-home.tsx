@@ -29,9 +29,9 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = data.userPreferences;
     if (userPreferences.language == Language.English) {
         return {
-            title: "Buy Best Inverter for Home at the Lowest Price in India",
+            title: "Livguard Smart Inverters for an Uninterrupted Power Supply",
             description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
-            "og:title": "Buy Best Inverter for Home at the Lowest Price in India ",
+            "og:title": "Livguard Smart Inverters for an Uninterrupted Power Supply ",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/inverter-for-home",
             "og:description": "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
@@ -40,9 +40,9 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
         };
     } else if (userPreferences.language == Language.Hindi) {
         return {
-            title: "भारत में सबसे कम कीमत पर घर के लिए सर्वश्रेष्ठ इनवर्टर खरीदें",
+            title: "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
             description: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
-            "og:title": "भारत में सबसे कम कीमत पर घर के लिए सर्वश्रेष्ठ इनवर्टर खरीदें",
+            "og:title": "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
             "og:site_name": "Livguard",
             "og:url": "https://www.livguard.com/inverter-for-home",
             "og:description": "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",

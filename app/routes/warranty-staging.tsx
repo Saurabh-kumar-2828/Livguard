@@ -9,7 +9,6 @@ import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {insertWarrantyFormLeads, uploadFileToS3} from "~/backend/dealer.server";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {SocialMediaIcons} from "~/components/footerComponent";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
@@ -38,6 +37,7 @@ import {
     WarrantyFormStateInputs,
 } from "~/routes/warranty-form-state";
 import {getFormSelectProductItems} from "~/routes/contact-us";
+import {SocialMediaIcons} from "~/components/footers/common";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;

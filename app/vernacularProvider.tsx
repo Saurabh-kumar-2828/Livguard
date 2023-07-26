@@ -7197,4 +7197,105 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `We'll reach out to you with some exciting deals and offers soon`,
         [Language.Hindi]: `?????`,
     },
+
+    "79c83c5f-5a33-4b6b-9b5f-789ee5d140a8": {
+        [Language.English]: `In the <span class="lg-text-highlighted">News</span>`,
+        [Language.Hindi]: ``,
+    },
+    "f68e0a37-3c07-4c3e-b3ce-8b6fe60c826c": {
+        [Language.English]: `“Best Livguard Inverters in India for Power Supply During Power Cuts”`,
+        [Language.Hindi]: ``,
+    },
+    "89fb5c95-3b83-4a5a-8bc9-aa810d620ee9": {
+        [Language.English]: `Investors`,
+        [Language.Hindi]: `?????`,
+    },
+    "9119e503-aa95-4d61-8daa-323c666e9986": {
+        [Language.English]: `<span class="lg-text-highlighted">Financials</span> at a Glance`,
+        [Language.Hindi]: `?????`,
+    },
+    "6dbfd771-e134-4326-96d6-8c37b1827056": {
+        [Language.English]: `Download`,
+        [Language.Hindi]: `?????`,
+    },
+    "050b72f1-1e00-435b-a879-2c7da1cdabe0": {
+        [Language.English]: "Our Governance Principles",
+        [Language.Hindi]: `?????`,
+    },
+    "1f335371-269e-4a18-ab21-c8aa8eaee078": {
+        [Language.English]: `Empowering Communities:`,
+        [Language.Hindi]: `?????`,
+    },
+    "fbdf2119-fb17-4ea8-8407-e3e4594c934c": {
+        [Language.English]: `Our <span class="lg-text-highlighted">CSR Efforts</span>`,
+        [Language.Hindi]: "???????????",
+    },
+    "02044d34-919d-418c-8212-1293f03bcf2d": {
+        [Language.English]: `<span class="lg-text-highlighted">Responsible Recycling</span> :Our Services`,
+        [Language.Hindi]: `?????`,
+    },
+    "096664a2-a00d-44ac-bf4e-2af62103e246": {
+        [Language.English]: `Laptops Recycled as per 2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "970d1723-1133-49cb-a1e7-11184bc07147": {
+        [Language.English]: `Mobiles Recycled as per 2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "b212319f-f782-49c5-ba0c-44ff7d1ef792": {
+        [Language.English]: `Home Appliances Recycled as per 2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "ff437c78-89a4-4c66-85c1-ba93ae32fbe8": {
+        [Language.English]: `e-Waste Recycled as per 2023`,
+        [Language.Hindi]: `?????`,
+    },
+    "93410e83-2080-4748-b66c-bb3152e48b0e": {
+        [Language.English]: "Video Gallery",
+        [Language.Hindi]: `?????`,
+    },
+    "7b821e90-174f-45a4-ba42-97566a0a09ae": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Video Gallery</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "0465146e-0127-4109-9c83-f0fa9b81b878": {
+        [Language.English]: "All",
+        [Language.Hindi]: `?????`,
+    },
+    "b80ff1bf-5d72-41c4-b1b7-20376cd9e43c": {
+        [Language.English]: "Inverters",
+        [Language.Hindi]: `?????`,
+    },
+    "41c87e2b-3640-42ee-85e0-80aad377ee8a": {
+        [Language.English]: "Solar",
+        [Language.Hindi]: `?????`,
+    },
+    "d643ce5a-83e4-4026-9e9e-f1959175a6db": {
+        [Language.English]: "Automotive",
+        [Language.Hindi]: `?????`,
+    },
+    "ad195899-aa04-427f-b939-a88ecdb8650a": {
+        [Language.English]: "E-Rickshaw",
+        [Language.Hindi]: `?????`,
+    },
+    "210958fb-45d3-43f4-a010-f534cbc54902": {
+        [Language.English]: `Recycling of <br />E-Waste`,
+        [Language.Hindi]: `?????`,
+    },
+    "28b20452-b101-4bb4-a800-7339b456e839": {
+        [Language.English]: `Recycling of Toner <br /> Cartridge`,
+        [Language.Hindi]: `?????`,
+    },
+    "1ae89630-cb8e-437f-923a-65ee528b21b5": {
+        [Language.English]: `Refurbishing PC for Rural <br /> Areas and NGO’s`,
+        [Language.Hindi]: `?????`,
+    },
+    "ba38cd7d-da25-44cd-9ad4-6087039641c4": {
+        [Language.English]: `Onsite Hard Disk Shredding/<br />Scraping`,
+        [Language.Hindi]: `?????`,
+    },
+    "b5a929b6-92cc-4dbb-a59a-7243f3389f83": {
+        [Language.English]: `100%  <br /> Data Destruction`,
+        [Language.Hindi]: `?????`,
+    },
 };

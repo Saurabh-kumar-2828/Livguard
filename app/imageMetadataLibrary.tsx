@@ -4293,133 +4293,6 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         height: 493,
         finalUrl: "/livguard/products/inverters/lgs5000/thumbnail-78666c.png",
     },
-    "/livguard/international/header/logo-dark.svg": {
-        width: 150,
-        height: 37,
-        finalUrl: "/livguard/international/header/logo-dark-a8b7e5.svg",
-    },
-    "/livguard/international/header/logo-light.svg": {
-        width: 150,
-        height: 37,
-        finalUrl: "/livguard/international/header/logo-light-49e8f2.svg",
-    },
-    "/livguard/international/lebanon/1/banner-desktop.png": {
-        width: 1280,
-        height: 760,
-        finalUrl: "/livguard/international/lebanon/1/banner-desktop-4300ae.png",
-    },
-    "/livguard/international/lebanon/1/banner-mobile.png": {
-        width: 360,
-        height: 460,
-        finalUrl: "/livguard/international/lebanon/1/banner-mobile-ef8eb9.png",
-    },
-    "/livguard/international/lebanon/2/2-banner-desktop.png": {
-        width: 1280,
-        height: 508,
-        finalUrl: "/livguard/international/lebanon/2/2-banner-desktop-b332d9.png",
-    },
-    "/livguard/international/lebanon/2/2-banner-mobile.png": {
-        width: 360,
-        height: 503,
-        finalUrl: "/livguard/international/lebanon/2/2-banner-mobile-15af5a.png",
-    },
-    "/livguard/international/products/it100exst.png": {
-        width: 2429,
-        height: 1987,
-        finalUrl: "/livguard/international/products/it100exst-76c934.png",
-    },
-    "/livguard/international/products/it110exstt.png": {
-        width: 2429,
-        height: 1987,
-        finalUrl: "/livguard/international/products/it110exstt-7f1c2a.png",
-    },
-    "/livguard/international/products/it150extt.png": {
-        width: 2429,
-        height: 2012,
-        finalUrl: "/livguard/international/products/it150extt-3d2e30.png",
-    },
-    "/livguard/international/products/it160extt.png": {
-        width: 2429,
-        height: 1987,
-        finalUrl: "/livguard/international/products/it160extt-eda60b.png",
-    },
-    "/livguard/international/products/it180extt.png": {
-        width: 2429,
-        height: 2012,
-        finalUrl: "/livguard/international/products/it180extt-7f863f.png",
-    },
-    "/livguard/international/products/it200extt.png": {
-        width: 2429,
-        height: 2012,
-        finalUrl: "/livguard/international/products/it200extt-b8b7ac.png",
-    },
-    "/livguard/international/products/it230extt.png": {
-        width: 2429,
-        height: 1987,
-        finalUrl: "/livguard/international/products/it230extt-332d04.png",
-    },
-    "/livguard/international/products/it260extt.png": {
-        width: 2429,
-        height: 1987,
-        finalUrl: "/livguard/international/products/it260extt-f6c7b5.png",
-    },
-    "/livguard/international/products/ls18060pttex.png": {
-        width: 1920,
-        height: 1570,
-        finalUrl: "/livguard/international/products/ls18060pttex-8c4bee.png",
-    },
-    "/livguard/international/products/ls20060ttex.png": {
-        width: 1920,
-        height: 1570,
-        finalUrl: "/livguard/international/products/ls20060ttex-eb6aba.png",
-    },
-    "/livguard/international/products/ls24060ttex.png": {
-        width: 1920,
-        height: 1570,
-        finalUrl: "/livguard/international/products/ls24060ttex-71e67a.png",
-    },
-    "/livguard/international/icons/voltage.svg": {
-        width: 14,
-        height: 21,
-        finalUrl: "/livguard/international/icons/voltage-7c8d45.svg",
-    },
-    "/livguard/international/icons/warranty.svg": {
-        width: 19,
-        height: 23,
-        finalUrl: "/livguard/international/icons/warranty-d784c6.svg",
-    },
-    "/livguard/international/icons/excellence.svg": {
-        width: 586,
-        height: 586,
-        finalUrl: "/livguard/international/icons/excellence-ae4d05.svg",
-    },
-    "/livguard/international/icons/energy.svg": {
-        width: 612,
-        height: 612,
-        finalUrl: "/livguard/international/icons/energy-d3b0ad.svg",
-    },
-    "/livguard/international/icons/innovation.svg": {
-        width: 612,
-        height: 612,
-        finalUrl: "/livguard/international/icons/innovation-089649.svg",
-    },
-    "/livguard/international/icons/technology.svg": {
-        width: 612,
-        height: 612,
-        finalUrl: "/livguard/international/icons/technology-3824c5.svg",
-    },
-    "/livguard/international/lebanon/2/banner-desktop.jpg": {
-        width: 1280,
-        height: 588,
-        blurHash: "LDH[v|-Bfk-B}[ofbGoLnOjajZjZ",
-        finalUrl: "/livguard/international/lebanon/2/banner-desktop-99c7d3.jpg",
-    },
-    "/livguard/international/lebanon/2/banner-mobile.jpg": {
-        width: 360,
-        height: 650,
-        blurHash: "L6IBr|}Zbb}Z=|n*jGoLVsaybHbG",
-        finalUrl: "/livguard/international/lebanon/2/banner-mobile-be73cb.jpg",
-    },
     "/livguard/battery-finder/3/bottom-banner-desktop.jpg": {
         width: 1280,
         height: 498,
@@ -4432,118 +4305,115 @@ export const imageMetadataLibrary: {[relativePath: string]: ImageMetadata | unde
         blurHash: "LIATpC%MS2t7T#R*n$W=4nIUWBax",
         finalUrl: "/livguard/battery-finder/3/bottom-banner-mobile-b6a85f.jpg",
     },
-    "/livguard/india-ops/1/banner-desktop.jpg": {
-        width: 1280,
-        height: 648,
-        blurHash: "LKGlP1t6IA?b_NozRkWC9Yt7xuRQ",
-        finalUrl: "/livguard/india-ops/1/banner-desktop-7da6fa.jpg",
+    "/livguard/investor/1/banner-desktop.jpg": {
+        width: 1286,
+        height: 512,
+        blurHash: "LnODtY~qM{Rj_MV[IURjayWBRiWB",
+        finalUrl: "/livguard/investor/1/banner-desktop-f604ec.jpg",
     },
-    "/livguard/india-ops/1/banner-mobile.png": {
+    "/livguard/investor/1/banner-mobile.jpg": {
         width: 360,
-        height: 357,
-        finalUrl: "/livguard/india-ops/1/banner-mobile-83db98.png",
+        height: 432,
+        blurHash: "LVOzV$~qe:?b-;-;V@oL?vsoWAof",
+        finalUrl: "/livguard/investor/1/banner-mobile-13e820.jpg",
     },
-    "/livguard/india-ops/2/category-automotive.svg": {
-        width: 33,
-        height: 33,
-        finalUrl: "/livguard/india-ops/2/category-automotive-7325d1.svg",
+    "/livguard/investor/2/pdf-download-icon.svg": {
+        width: 72,
+        height: 80,
+        finalUrl: "/livguard/investor/2/pdf-download-icon-c4cd78.svg",
     },
-    "/livguard/india-ops/2/category-home-inverters.svg": {
-        width: 25,
-        height: 25,
-        finalUrl: "/livguard/india-ops/2/category-home-inverters-b44837.svg",
+    "/livguard/governance/1/recycle1.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/governance/1/recycle1-f89314.svg",
     },
-    "/livguard/india-ops/2/category-inverter-battery.svg": {
-        width: 25,
-        height: 25,
-        finalUrl: "/livguard/india-ops/2/category-inverter-battery-d658fa.svg",
+    "/livguard/governance/1/recycle2.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/governance/1/recycle2-7f7708.svg",
     },
-    "/livguard/india-ops/2/category-other.svg": {
-        width: 24,
-        height: 25,
-        finalUrl: "/livguard/india-ops/2/category-other-37117f.svg",
+    "/livguard/governance/1/recycle3.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/governance/1/recycle3-f481de.svg",
     },
-    "/livguard/india-ops/2/category-solar.svg": {
-        width: 24,
-        height: 25,
-        finalUrl: "/livguard/india-ops/2/category-solar-3ce527.svg",
+    "/livguard/governance/1/recycle4.svg": {
+        width: 48,
+        height: 48,
+        finalUrl: "/livguard/governance/1/recycle4-015752.svg",
     },
-    "/livguard/india-ops/4/head-office.png": {
-        width: 283,
-        height: 166,
-        finalUrl: "/livguard/india-ops/4/head-office-0ddee1.png",
-    },
-    "/livguard/india-ops/5/regional-office.png": {
-        width: 283,
-        height: 167,
-        finalUrl: "/livguard/india-ops/5/regional-office-84dc8e.png",
-    },
-    "/livguard/india-ops/7/latest.png": {
-        width: 283,
-        height: 166,
-        finalUrl: "/livguard/india-ops/7/latest-07c374.png",
-    },
-    "/livguard/global-ops/3/banner-desktop.jpg": {
-        width: 1116,
-        height: 462,
-        blurHash: "L26$ft$71a$Q||o2E|$Q62S2w{sA",
-        finalUrl: "/livguard/global-ops/3/banner-desktop-e00e44.jpg",
-    },
-    "/livguard/global-ops/3/banner-mobile.jpg": {
-        width: 360,
-        height: 202,
-        blurHash: "L26Y]*wz1t$Q||juE|w{1aSL=KWV",
-        finalUrl: "/livguard/global-ops/3/banner-mobile-852625.jpg",
-    },
-    "/livguard/global-ops/4/presence-desktop.jpg": {
-        width: 1162,
-        height: 527,
-        blurHash: "LBBCieeoTdjF00RjSgV@~qofoLs:",
-        finalUrl: "/livguard/global-ops/4/presence-desktop-e539ee.jpg",
-    },
-    "/livguard/global-ops/4/presence-mobile.jpg": {
-        width: 360,
-        height: 202,
-        blurHash: "L26Y]*wz1t$Q||juE|w{1aSL=KWV",
-        finalUrl: "/livguard/global-ops/4/presence-mobile-ea0b33.jpg",
-    },
-    "/livguard/warranty/1/warranty_banner_desktop.jpg": {
-        width: 1132,
-        height: 347,
-        blurHash: "L783x9zT}a=z^-ISxGtS%NM_j?o#",
-        finalUrl: "/livguard/warranty/1/warranty_banner_desktop-dee30e.jpg",
-    },
-    "/livguard/warranty/1/warranty_mobile_banner.jpg": {
-        width: 360,
-        height: 487,
-        blurHash: "LB97VC,mRNsl5u9YMwRj~X%1s+t7",
-        finalUrl: "/livguard/warranty/1/warranty_mobile_banner-86d7b9.jpg",
-    },
-    "/livguard/warranty/2/effortless-experience.svg": {
-        width: 32,
-        height: 32,
-        finalUrl: "/livguard/warranty/2/effortless-experience-517d98.svg",
-    },
-    "/livguard/warranty/2/paperless-warranty.svg": {
-        width: 32,
-        height: 32,
-        finalUrl: "/livguard/warranty/2/paperless-warranty-c9725d.svg",
-    },
-    "/livguard/warranty/2/quick-registration.svg": {
-        width: 32,
-        height: 32,
-        finalUrl: "/livguard/warranty/2/quick-registration-bda21c.svg",
-    },
-    "/livguard/warranty/5/banner-desktop.jpg": {
+    "/livguard/governance/1/governance-banner-desktop.jpg": {
         width: 1280,
         height: 422,
-        blurHash: "L9Duus{M[o+b_3oh$%RjOsI:xtWX",
-        finalUrl: "/livguard/warranty/5/banner-desktop-7d6519.jpg",
+        blurHash: "LDBCDa}Zn4-V-VxajZoLS2kCfkWV",
+        finalUrl: "/livguard/governance/1/governance-banner-desktop-93cc5f.jpg",
     },
-    "/livguard/warranty/5/banner-mobile.jpg": {
+    "/livguard/governance/1/governance-banner-mobile.jpg": {
         width: 360,
-        height: 456,
-        blurHash: "LUEn-c}Z,@%3M_o}o#RPS$WVoKt7",
-        finalUrl: "/livguard/warranty/5/banner-mobile-1d7ca0.jpg",
+        height: 365,
+        blurHash: "L2BCJp_30KMx2@IoRjEL009t^+xb",
+        finalUrl: "/livguard/governance/1/governance-banner-mobile-96d44d.jpg",
+    },
+    "/livguard/home/12/logo-et.png": {
+        width: 433,
+        height: 282,
+        finalUrl: "/livguard/home/12/logo-et-8b2213.png",
+    },
+    "/livguard/home/12/logo-indiablooms.png": {
+        width: 432,
+        height: 282,
+        finalUrl: "/livguard/home/12/logo-indiablooms-e61305.png",
+    },
+    "/livguard/home/12/logo-nbs.png": {
+        width: 432,
+        height: 281,
+        finalUrl: "/livguard/home/12/logo-nbs-795604.png",
+    },
+    "/livguard/home/12/logo-thehindu.png": {
+        width: 433,
+        height: 282,
+        finalUrl: "/livguard/home/12/logo-thehindu-90330c.png",
+    },
+    "/livguard/home/12/logo-toi.png": {
+        width: 433,
+        height: 280,
+        finalUrl: "/livguard/home/12/logo-toi-5a27b2.png",
+    },
+    "/livguard/video-gallery/1/video-gallery-banner-desktop.jpg": {
+        width: 1280,
+        height: 421,
+        blurHash: "L04Uyr^l00E0%gSgM|xb5PNFxcxv",
+        finalUrl: "/livguard/video-gallery/1/video-gallery-banner-desktop-477652.jpg",
+    },
+    "/livguard/video-gallery/1/video-gallery-banner-mobile.jpg": {
+        width: 360,
+        height: 448,
+        blurHash: "L18zM#P:*0@e,*_LIA+000z.I97G",
+        finalUrl: "/livguard/video-gallery/1/video-gallery-banner-mobile-a2febe.jpg",
+    },
+    "/livguard/e-waste-management/5/Groupcartridge2.svg": {
+        width: 30,
+        height: 40,
+        finalUrl: "/livguard/e-waste-management/5/Groupcartridge2-4facde.svg",
+    },
+    "/livguard/e-waste-management/5/computer3.svg": {
+        width: 40,
+        height: 40,
+        finalUrl: "/livguard/e-waste-management/5/computer3-8784ec.svg",
+    },
+    "/livguard/e-waste-management/5/data-destruction5.svg": {
+        width: 40,
+        height: 40,
+        finalUrl: "/livguard/e-waste-management/5/data-destruction5-c635ae.svg",
+    },
+    "/livguard/e-waste-management/5/hard-disk4.svg": {
+        width: 40,
+        height: 40,
+        finalUrl: "/livguard/e-waste-management/5/hard-disk4-38b881.svg",
+    },
+    "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg": {
+        width: 41,
+        height: 40,
+        finalUrl: "/livguard/e-waste-management/5/symbol-of-three-arrows1-9a4f7e.svg",
     },
 };
