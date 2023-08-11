@@ -45,6 +45,7 @@ export const links: LinksFunction = () => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -56,13 +57,14 @@ export const loader: LoaderFunction = async ({request}) => {
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
+        pageUrl: getUrlFromRequest(request),
     };
 
     return loaderData;
 };
 
 export default () => {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
     const utmSearchParameters = useUtmSearchParameters();
 
     return (
@@ -72,6 +74,7 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={
                     [
                         // {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
@@ -167,6 +170,13 @@ export default () => {
 
                 <VerticalSpacer className="tw-h-10" />
 
+                <PrivacyPolicy
+                    userPreferences={userPreferences}
+                    className="tw-max-w-7xl tw-mx-auto"
+                />
+
+                <VerticalSpacer className="tw-h-10" />
+
                 <ContactInformation
                     className="tw-max-w-7xl tw-mx-auto"
                     userPreferences={userPreferences}
@@ -221,11 +231,11 @@ function TermsAndConditionsPage({userPreferences, className}: {userPreferences: 
                 <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
                     <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2dcaf5d9-964e-408d-9348-ac2a6f5aa28d", userPreferences.language)}</div>
 
-                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2122f878-eff2-4af4-8510-94913a31665f", userPreferences.language)}</div>
+                    {/* <div className="lg-text-body lg-text-secondary-900">{getVernacularString("2122f878-eff2-4af4-8510-94913a31665f", userPreferences.language)}</div>
 
                     <div className="lg-text-body lg-text-secondary-900">{getVernacularString("7936f9fd-37f1-462c-b128-a35148d65307", userPreferences.language)}</div>
 
-                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079", userPreferences.language)}</div>
+                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079", userPreferences.language)}</div> */}
                 </div>
             </div>
         </div>
@@ -254,7 +264,10 @@ function EntryRequirements({userPreferences, className}: {userPreferences: UserP
                     className="lg-text-title1"
                     dangerouslySetInnerHTML={{__html: getVernacularString("03a0d75d-4a8e-4467-8920-3dcd8754d532", userPreferences.language)}}
                 ></div>
-                <div className="lg-text-body lg-text-secondary-900">{getVernacularString("fc7cc648-ad54-41f7-97bd-a8d9436198b7", userPreferences.language)}</div>
+                <div
+                    className="lg-text-body lg-text-secondary-900"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("fc7cc648-ad54-41f7-97bd-a8d9436198b7", userPreferences.language)}}
+                />
             </div>
         </div>
     );
@@ -392,6 +405,23 @@ function ModificationTermination({userPreferences, className}: {userPreferences:
                 <div
                     className="lg-text-body lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("e93e6803-0cca-43a1-938f-01a3532b85ca", userPreferences.language)}}
+                ></div>
+            </div>
+        </div>
+    );
+}
+
+function PrivacyPolicy({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
+            <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
+                <div
+                    className="lg-text-title1"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("2b476886-b220-48e5-a652-a57b1d8468eb", userPreferences.language)}}
+                ></div>
+                <div
+                    className="lg-text-body lg-text-secondary-900"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("248da7de-43d7-4119-b3fe-d6aad629490c", userPreferences.language)}}
                 ></div>
             </div>
         </div>

@@ -7301,7 +7301,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //T&C Page Vernac strings start
     "c20f3105-e059-40f5-8fbf-4f607adf08a9": {
         [Language.English]: "Terms & Conditions",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "नियम और शर्तें",
     },
     "8f4b0d15-62bd-48ed-afed-1ba749177561": {
         [Language.English]: `<span class="lg-text-highlighted">Terms & Conditions</span>- Overview`,
@@ -7309,24 +7309,25 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "2dcaf5d9-964e-408d-9348-ac2a6f5aa28d": {
         [Language.English]:
-            "This website is operated by Livguard Batteries Pvt. Ltd. Throughout the site, the terms “we”, “us” and “our” refer to Livguard Batteries Pvt. Ltd. Livguard Batteries Pvt. Ltd. offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.",
-        [Language.Hindi]: "??????????",
+            "The following terms and conditions are applicable for the Social Media Independence Day Quiz contest run by Livguard during the 12th, 13th, and 14th of August.  By participating in the contests, you agree to the said terms and conditions.",
+        [Language.Hindi]:
+            "12, 13 और 14 अगस्त के दौरान लिवगार्ड द्वारा संचालित सोशल मीडिया स्वतंत्रता दिवस क्विज़ प्रतियोगिता के लिए निम्नलिखित नियम और शर्तें लागू हैं। प्रतियोगिताओं में भाग लेकर, आप उक्त नियमों और शर्तों से सहमत होते हैं।",
     },
-    "2122f878-eff2-4af4-8510-94913a31665f": {
-        [Language.English]:
-            "By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content.",
-        [Language.Hindi]: "??????????",
-    },
-    "7936f9fd-37f1-462c-b128-a35148d65307": {
-        [Language.English]:
-            "Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.",
-        [Language.Hindi]: "??????????",
-    },
-    "f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079": {
-        [Language.English]:
-            "Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.",
-        [Language.Hindi]: "??????????",
-    },
+    // "2122f878-eff2-4af4-8510-94913a31665f": {
+    //     [Language.English]:
+    //         "By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content.",
+    //     [Language.Hindi]: "??????????",
+    // },
+    // "7936f9fd-37f1-462c-b128-a35148d65307": {
+    //     [Language.English]:
+    //         "Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.",
+    //     [Language.Hindi]: "??????????",
+    // },
+    // "f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079": {
+    //     [Language.English]:
+    //         "Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.",
+    //     [Language.Hindi]: "??????????",
+    // },
     "44121e27-31a6-4f36-b919-e897da7e6ff4": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Online Store Terms`,
         [Language.Hindi]: "??????",
@@ -8158,113 +8159,134 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "78317eea-9cd0-482b-988e-76272191a87d": {
         [Language.English]: `<span class="lg-text-highlighted">Terms & Conditions</span> - Social Media Contest`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">नियम और शर्तें</span> - सोशल मीडिया`,
     },
     "42beb18b-af8a-471c-bc79-4e227a144728": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Eligibility`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>योग्यता`,
     },
     "396e58f7-ced3-4234-b823-ed5d1876acc9": {
         [Language.English]:
-            "The Livguard Social Media Contest is open to all participants aged 18 and above, residing in India. Employees, affiliates, and immediate family members of Livguard are not eligible to participate.",
-        [Language.Hindi]: "???????",
+            "The Livguard Social Media Contest is open to all participants aged 18 and above, residing in India. Livguard reserves the right to request proof of a participant's eligibility if there is a doubt over his/her eligibility for the participation.",
+        [Language.Hindi]: "लिवगार्ड सोशल मीडिया प्रतियोगिता सभी 18 और उससे अधिक आयु वाले भारत में निवास करने वाले प्रतिभागियों के लिए खुली है। यदि किसी प्रतिभागी की पात्रता में संदेह होता है, ",
     },
     "03a0d75d-4a8e-4467-8920-3dcd8754d532": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Entry Requirements`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>प्रवेश आवश्यकताऎं`,
     },
     "fc7cc648-ad54-41f7-97bd-a8d9436198b7": {
-        [Language.English]:
-            "To enter the contest, participants must follow the official Livguard social media account and like the contest post. They must then share the post on their own social media profile, tagging three friends and using the designated contest hashtag #LivQuest.",
-        [Language.Hindi]: "??????",
+        [Language.English]: `To enter the contest, participants must do the following:<br>
+            - They must follow the official Livguard social media account.<br>
+            - They must like the post and comment on it, tag three friends and share the post as a story (this would be optional basis the type of contest) and tag Livguard using the designated contest with hashtags #ilovelivguard, and #LivQuest. <br>
+            - They must participate in the contest on the basis of the direction given through Caption, DM and comment or any other means.<br>
+            - If they are submitting answers on Twitter, they need to tag @LivguardEnergy in all answer submissions and are required to like and retweet the contest question along with the answer<br>
+            - Top three stories will be reshared on the official Livguard handles.`,
+        [Language.Hindi]: `प्रतियोगिता में प्रवेश करने के लिए, प्रतिभागियों को निम्नलिखित कार्य करने होंगे:<br>
+        - उन्हें आधिकारिक लिवगार्ड सोशल मीडिया अकाउंट को फॉलो करना होगा।<br>
+        - उन्हें पोस्ट को लाइक करना होगा और उसपर टिप्पणी करनी होगी। उन्हें तीन दोस्तों को टैग करना होगा और पोस्ट को अपनी स्टोरी पार लगाना होगा(यह प्रतियोगिता के प्रकार के आधार पर वैकल्पिक होगा)। प्रतियोगिता के हैशटैग #Livquest, और #ilovelivguard ज़रूर इस्तेमाल करना होगा।<br>
+        - उन्हें कैप्शन, डीएम और कमेंट या किसी अन्य माध्यम से दिए गए निर्देश के आधार पर प्रतियोगिता में भाग लेना होगा।<br>
+        - यदि वे ट्विटर पर उत्तर सबमिट कर रहे हैं, तो उन्हें सभी उत्तर सबमिशन में @LivguardEnergy को टैग करना होगा और उत्तर के साथ प्रतियोगिता प्रश्न को लाइक और रीट्वीट करना होगा।<br>
+        - शीर्ष तीन कहानियां आधिकारिक लिवगार्ड हैंडल पर दोबारा शेयर की जाएँगी।`,
     },
     "4fd59896-0e7e-4941-9f45-533eee7d3d58": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Entry Deadline`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>प्रवेश की अंतिम तिथि`,
     },
     "a3c2f2c2-f763-4448-bde7-05df14f33b02": {
-        [Language.English]: "All entries must be submitted within 48 hours of publishing the contest (GMT+5:30) to be considered valid.",
-        [Language.Hindi]: "??????",
+        [Language.English]: `All entries must be submitted within 48 hours of publishing the contest (GMT+5:30) to be considered valid.<br>
+        Entries received after the deadline set forth in the contest announcement are ineligible, null and void.`,
+        [Language.Hindi]: `सभी प्रविष्टियों को प्रकाशित प्रतियोगिता के 48 घंटे के भीतर प्रस्तुत किया जाना चाहिए ताकि वे मान्य माने जा सकें।<br>
+        प्रतियोगिता घोषणा में निर्धारित समयसीमा के बाद प्राप्त प्रविष्टियाँ अवैध, अमान्य और अनुकूल मानी जाएँगी।`,
     },
     "afbb26d7-3eab-470d-93a7-09ebcbb9241b": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Prize Details`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>पुरस्कार विवरण`,
     },
     "d5128079-075b-4e7b-9c09-c99ace37c173": {
-        [Language.English]:
-            "The contest will have 3 winners, each receiving Livguard goodies as rewards for the contest. The prizes are non-transferable and cannot be exchanged for cash or other products.",
-        [Language.Hindi]: "??????",
+        [Language.English]: `The contest will have 3 winners, each receiving Livguard's Akshay Kumar bobblehead figurines and Amazon vouchers worth Rs. 500 as rewards for the contest. The prizes are non-transferable and cannot be exchanged for cash or other products.<br>
+            If the specified gratification becomes unavailable for any reason, Livguard in its sole and absolute discretion to cancel the gratification. The gratification is non-transferable and non-refundable. If the specified gratification becomes unavailable for any reason, Livguard in its sole and absolute discretion to cancel the gratification, Livguard reserves the right to substitute either any part of gratification or whole gratification for similar gratification of equal or greater value.<br>
+            The winner of the contest will not be provided any transportation or reimbursement in lieu of it to travel to the event venue, if any proposed.`,
+        [Language.Hindi]: `प्रतियोगिता में 3 विजेता होंगे, प्रत्येक को लिवगार्ड की अक्षय कुमार बॉबलहेड मूर्तियाँ और 500 रुपए के अमेज़न वाउचर पुरस्कार के रूप में मिलेंगे। पुरस्कार गैर-हस्तांतरणीय हैं और इन्हें नकद या अन्य उत्पादों के बदले नहीं दिया जा सकता। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार होता है। परितुष्टि गैर-हस्तांतरणीय और गैर-वापसी है। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार रखता है, लिवगार्ड को अधिकाधिक मूल्यवान समान प्रतिपुष्टि के लिए किसी भाग को या पूरे प्रतिपुष्टि को समान मूल्यवान या उच्च मूल्यवान से प्रतिस्थानित करने का अधिकार है।`,
     },
     "1dcc125e-a230-4df4-93de-7729ac296b0a": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Winner Selection`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> विजेता चयन`,
     },
     "344eda0b-5cba-4d61-b0b6-36f09b7b4b09": {
-        [Language.English]:
-            "The winners will be selected on the basis of the entries received. The first three participants to enter the correct answer will be chosen as the lucky winners for each contest.",
-        [Language.Hindi]: "??????",
+        [Language.English]: `The selection of winners for any contest is up to the discretion of Livguard. The selection would solely be based on the participation of the audience in the contests and challenges held. Livguard will not be responsible for and will not consider incomplete or incorrect entries. Livguard is not responsible for entries that are sent to but not received by Livguard for any reason.`,
+        [Language.Hindi]: `किसी भी प्रतियोगिता के लिए विजेताओं का चयन लिवगार्ड के विवेक पर निर्भर है। चयन पूरी तरह से आयोजित प्रतियोगिताओं और चुनौतियों में दर्शकों की भागीदारी पर आधारित होगा। लिवगार्ड अपूर्ण या गलत प्रविष्टियों के लिए ज़िम्मेदार नहीं होगा और उन पर विचार नहीं करेगा। लिवगार्ड उन प्रविष्टियों के लिए ज़िम्मेदार नहीं है जो लिवगार्ड को भेजी गई हैं लेकिन किसी भी कारण से प्राप्त नहीं हुई हैं।`,
     },
     "eedccb31-f56d-4745-9cf8-9d5a7596df5f": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> Winner Notification`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> विजेता अधिसूचना`,
     },
     "f3fac268-6cf3-4e6f-b1af-69b32ed06748": {
         [Language.English]:
             "The winners will be notified via direct message on the social media platform through which they entered. They will be required to respond within 48 hours of notification to claim their prize.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "विजेताओं को सोशल मीडिया प्लेटफॉर्म पर सीधे संदेश के माध्यम से सूचित किया जाएगा। उन्हें अपने पुरस्कार का दावा करने के लिए अधिसूचना के 48 घंटों के भीतर जवाब देना होगा।",
     },
     "e98b6392-6416-4deb-a9d2-907d5e9085e9": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> Publicity and Content Usage`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> प्रचार और उपयोग`,
     },
     "fbe27bfc-b4e6-415e-9da6-03f32b0fa49f": {
         [Language.English]:
-            "By participating in the contest, participants grant Livguard permission to use their submitted content (including usernames, photos, and videos) for promotional purposes related to the contest or Livguard's products.",
-        [Language.Hindi]: "??????",
+            "By participating in the contest, participants grant Livguard permission to use their submitted content (including usernames, photos, and videos) for promotional purposes related to the contest or Livguard's products. Contestants acknowledge that comments or ratings that they disagree with or are unhappy about may be published or otherwise become associated with materials that they submit to Livguard. By submitting materials to Livguard, you waive any privacy expectations that you might have with respect to the materials.",
+        [Language.Hindi]:
+            "प्रतियोगिता में भाग लेकर, प्रतिभागी लिवगार्ड को प्रतियोगिता या लिवगार्ड के उत्पादों से संबंधित प्रचार उद्देश्यों के लिए अपनी सबमिट की गई सामग्री (उपयोगकर्ता नाम, फोटो और वीडियो सहित) का उपयोग करने की अनुमति देते हैं। प्रतियोगी स्वीकार करते हैं कि जिन टिप्पणियों या रेटिंग्स से वे असहमत हैं या जिनके बारे में नाखुश हैं, उन्हें प्रकाशित किया जा सकता है या अन्यथा उन सामग्रियों से संबद्ध किया जा सकता है जो वे लिवगार्ड को सबमिट करते हैं। लिवगार्ड को सामग्री सबमिट करके, आप सामग्री के संबंध में अपनी किसी भी गोपनीयता अपेक्षा को छोड़ देते हैं।",
     },
     "903c88c4-6eee-42cb-85ab-d1b7e781d162": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> Compliance with Platform Rules`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> प्लेटफ़ॉर्म नियमों का अनुपालन`,
     },
     "c0455240-1838-4886-9320-6e41ea6c7519": {
         [Language.English]: "Participants must adhere to the rules and guidelines of the social media platform on which they are entering the contest.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `प्रतिभागियों को उस सोशल मीडिया प्लेटफॉर्म के नियमों और दिशानिर्देशों का पालन करना होगा जिस पर वे प्रतियोगिता में प्रवेश कर रहे हैं।`,
     },
     "f63831d0-7292-4301-8c0d-0f5dc08dcad2": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> Compliance with Local Laws`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> स्थानीय कानूनों का अनुपालन`,
     },
     "4e308bc4-78ed-44d6-95a0-307d4cfee4e3": {
         [Language.English]: "Participants must comply with all applicable laws and regulations in India.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "प्रतिभागियों को भारत में सभी लागू कानूनों और विनियमों का पालन करना होगा।",
     },
     "fc6abbbc-ea85-41ec-99bb-486c523c034b": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> Liability and Indemnification`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> दायित्व और क्षतिपूर्ति`,
     },
     "83c6a3f5-0834-41e6-a3eb-42f2d9edffcf": {
         [Language.English]:
-            "Livguard is not responsible for any issues related to the contest or the prizes. By entering the contest, participants agree to indemnify and hold Livguard harmless from any claims or liabilities.",
-        [Language.Hindi]: "??????",
+            "Livguard is not responsible for any issues related to the contest or the prizes. By entering the contest, participants agree to indemnify and hold Livguard harmless from any claims or liabilities. Neither Livguard nor its officers, directors, employees, agents, successors or assigns shall be liable for any warranty, costs, damage, injury or any other claims incurred as a result of any winner’s use of the gratification. Livguard is not liable for any loss arising out of or in connection with any contest promoted by HCIL.",
+        [Language.Hindi]: `लिवगार्ड प्रतियोगिता या पुरस्कारों से संबंधित किसी भी मुद्दे के लिए ज़िम्मेदार नहीं है। प्रतियोगिता में प्रवेश करके, प्रतिभागी किसी भी दावे या देनदारियों से लिवगार्ड को हानिरहित रखने और क्षतिपूर्ति करने के लिए सहमत होते हैं। न तो लिवगार्ड और न ही उसके अधिकारी, निदेशक, कर्मचारी, एजेंट, उत्तराधिकारी या नियुक्त व्यक्ति किसी विजेता द्वारा संतुष्टि के उपयोग के परिणामस्वरूप होने वाली किसी भी वारंटी, लागत, क्षति, चोट या किसी अन्य दावे के लिए उत्तरदायी होंगे। HCIL द्वारा प्रचारित किसी भी प्रतियोगिता के संबंध में या उससे होने वाले किसी भी नुकसान के लिए लिवगार्ड उत्तरदायी नहीं है।`,
     },
     "264cae06-3f7f-4ad5-8739-4fc63a6cc75e": {
         [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> Modification or Termination`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> संशोधन या समाप्ति`,
     },
     "e93e6803-0cca-43a1-938f-01a3532b85ca": {
         [Language.English]: "Livguard reserves the right to modify, suspend, or terminate the contest at any time without prior notice.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `लिवगार्ड के पास बिना किसी पूर्व सूचना के किसी भी समय प्रतियोगिता को संशोधित करने, निलंबित करने या समाप्त करने का अधिकार सुरक्षित है।`,
+    },
+    "2b476886-b220-48e5-a652-a57b1d8468eb": {
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> Privacy Policy`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> गोपनीयता नीति`,
+    },
+    "248da7de-43d7-4119-b3fe-d6aad629490c": {
+        [Language.English]:
+            "When contestants participate in this contest, they have given their consent that their data (Name, Email id, Mobile No. etc.) will be processed for the purposes of promotion and market research conducted by Livguard.For further information on use of your information, you may visit: *Add privacy policy page link*",
+        [Language.Hindi]: `जब प्रतियोगी इस प्रतियोगिता में भाग लेते हैं, तो उन्होंने अपनी सहमति दी है कि उनका डेटा (नाम, ईमेल आईडी, मोबाइल नंबर आदि) लिवगार्ड द्वारा आयोजित प्रचार और बाजार अनुसंधान के उद्देश्यों के लिए संसाधित किया जाएगा। आपकी जानकारी के उपयोग के बारे में अधिक जानकारी के लिए , आप यहां जा सकते हैं: *गोपनीयता नीति पृष्ठ लिंक जोड़ें*`,
     },
     "8d833cfb-bef1-4119-b0fc-7b0d7948ca89": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> Contact Information`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span> Contact Information`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span> संपर्क जानकारी`,
     },
     "15e2d1a3-ff2c-4d82-929a-7d8044d249b1": {
         [Language.English]: "For any questions or concerns regarding the contest, participants can contact Livguard at marketing@livguard.com or send a DM as well.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "प्रतियोगिता के संबंध में किसी भी प्रश्न या चिंता के लिए, प्रतिभागी लिवगार्ड से marketing@livguard.com पर संपर्क कर सकते हैं या डीएम भी भेज सकते हैं।",
     },
     "7552810b-bd7c-40ca-9136-c94ca1bedc0d": {
         [Language.English]: "By participating in the Livguard Social Media Contest, participants agree to all the terms and conditions outlined above.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "लिवगार्ड सोशल मीडिया प्रतियोगिता में भाग लेने से, प्रतिभागी ऊपर उल्लिखित सभी नियमों और शर्तों से सहमत होते हैं।",
     },
 };
