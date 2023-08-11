@@ -3,5 +3,6 @@ Allow: /
 Disallow: /campaigns/inverter-and-battery-jodi/
 Disallow: /campaigns/energy-storage-solution
 Disallow: /campaigns/inverter-and-battery
+Disallow: /terms-and-conditions/social-media
 
 Sitemap: https://www.Livguard.com/sitemap.xml

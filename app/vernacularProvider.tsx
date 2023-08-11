@@ -8178,12 +8178,14 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `To enter the contest, participants must do the following:<br>
             - They must follow the official Livguard social media account.<br>
             - They must like the post and comment on it, tag three friends and share the post as a story (this would be optional basis the type of contest) and tag Livguard using the designated contest with hashtags #ilovelivguard, and #LivQuest. <br>
+            - They must answer all the questions posted during the quiz series.<br>
             - They must participate in the contest on the basis of the direction given through Caption, DM and comment or any other means.<br>
             - If they are submitting answers on Twitter, they need to tag @LivguardEnergy in all answer submissions and are required to like and retweet the contest question along with the answer<br>
             - Top three stories will be reshared on the official Livguard handles.`,
         [Language.Hindi]: `प्रतियोगिता में प्रवेश करने के लिए, प्रतिभागियों को निम्नलिखित कार्य करने होंगे:<br>
         - उन्हें आधिकारिक लिवगार्ड सोशल मीडिया अकाउंट को फॉलो करना होगा।<br>
         - उन्हें पोस्ट को लाइक करना होगा और उसपर टिप्पणी करनी होगी। उन्हें तीन दोस्तों को टैग करना होगा और पोस्ट को अपनी स्टोरी पार लगाना होगा(यह प्रतियोगिता के प्रकार के आधार पर वैकल्पिक होगा)। प्रतियोगिता के हैशटैग #Livquest, और #ilovelivguard ज़रूर इस्तेमाल करना होगा।<br>
+        - उन्हें प्रतियोगिता के दौरान पोस्ट किए गए सभी प्रश्नों का उत्तर देना होगा।<br>
         - उन्हें कैप्शन, डीएम और कमेंट या किसी अन्य माध्यम से दिए गए निर्देश के आधार पर प्रतियोगिता में भाग लेना होगा।<br>
         - यदि वे ट्विटर पर उत्तर सबमिट कर रहे हैं, तो उन्हें सभी उत्तर सबमिशन में @LivguardEnergy को टैग करना होगा और उत्तर के साथ प्रतियोगिता प्रश्न को लाइक और रीट्वीट करना होगा।<br>
         - शीर्ष तीन कहानियां आधिकारिक लिवगार्ड हैंडल पर दोबारा शेयर की जाएँगी।`,
