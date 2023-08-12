@@ -1,6 +1,6 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
-import {Form, Link, useActionData, useFetcher, useSubmit} from "@remix-run/react";
+import {Form, Link, useActionData, useFetcher, useSubmit, useTransition} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef} from "react";
 import {useState} from "react";
 import {Envelope, Telephone, Whatsapp, X} from "react-bootstrap-icons";
@@ -509,6 +509,8 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
 
     const otpValidateFetcher = useFetcher();
 
+    const transition = useTransition();
+
     useEffect(() => {
         if (otpFetcher.data == null) {
             return;
@@ -556,7 +558,6 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
         const data = new FormData();
         data.append("phoneNumber", warrantyFormState.contactNumber);
         data.append("otpSubmitted", warrantyFormState.otpSubmitted);
-        console.log(warrantyFormState.otpSubmitted);
         otpValidateFetcher.submit(data, {method: "post", action: "/warranty/validate-otp"});
     };
 
@@ -767,7 +768,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                 )}
                                                                 onClick={(e) => {
                                                                     if (warrantyFormState.name.length === 0) {
-                                                                        toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
+                                                                        toast.error("Name cannot be null! Error code: 5a262b97-40ca-4d1a-8d65-2751adeee7a6");
                                                                         return;
                                                                     }
                                                                     setShowOtpButton(false);
@@ -1016,6 +1017,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                     </div>
                                                     <button
                                                         type="button"
+                                                        disabled={transition.state != "idle"}
                                                         onClick={(event) => {
                                                             if (validateFormStep2()) {
                                                                 submit(submitRef.current != undefined ? submitRef.current : null);
@@ -1053,7 +1055,14 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                     readOnly
                                                     name="registerFormDetails"
                                                     className="tw-hidden"
-                                                    value={JSON.stringify({...warrantyFormState, nextInternalId: undefined})}
+                                                    value={JSON.stringify({
+                                                        ...warrantyFormState,
+                                                        products: warrantyFormState.products.map(product => ({
+                                                            ...product,
+                                                            internalId: undefined,
+                                                        })),
+                                                        nextInternalId: undefined,
+                                                    })}
                                                 />
 
                                                 <input

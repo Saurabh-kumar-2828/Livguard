@@ -1,4 +1,5 @@
-import {ActionFunction, json} from "@remix-run/node";
+import type {ActionFunction} from "@remix-run/node";
+import {json} from "@remix-run/node";
 import {sendOtp} from "~/backend/authentication.server";
 import {getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 
