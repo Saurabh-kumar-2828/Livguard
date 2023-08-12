@@ -21,12 +21,14 @@ export enum WarrantyFormFieldKeys {
     state = "state",
     products = "products",
     otpSubmitted = "otpSubmitted",
+    nextInternalId = "nextInternalId",
 }
 
 export type WarrantyProduct = {
     productType: string;
     serialNumber: string;
     purchaseProof: string;
+    internalId: number;
 };
 
 export interface WarrantyFormStateInputsAction {
@@ -43,6 +45,7 @@ export interface WarrantyFormStateInputs {
     [WarrantyFormFieldKeys.state]: string;
     [WarrantyFormFieldKeys.otpSubmitted]: string;
     [WarrantyFormFieldKeys.products]: Array<WarrantyProduct>;
+    [WarrantyFormFieldKeys.nextInternalId]: number;
 }
 
 export const warrantyFormInitialState: WarrantyFormStateInputs = {
@@ -58,8 +61,10 @@ export const warrantyFormInitialState: WarrantyFormStateInputs = {
             productType: "",
             serialNumber: "",
             purchaseProof: "",
+            internalId: 0,
         },
     ],
+    [WarrantyFormFieldKeys.nextInternalId]: 1,
 };
 
 export function WarrantyFormReducer(state: WarrantyFormStateInputs, action: WarrantyFormStateInputsAction): WarrantyFormStateInputs {
@@ -129,7 +134,10 @@ export function WarrantyFormReducer(state: WarrantyFormStateInputs, action: Warr
                     productType: "",
                     serialNumber: "",
                     purchaseProof: "",
+                    internalId: newState.nextInternalId,
                 });
+
+                newState.nextInternalId += 1;
                 return newState;
             }
 

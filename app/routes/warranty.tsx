@@ -1053,7 +1053,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                     readOnly
                                                     name="registerFormDetails"
                                                     className="tw-hidden"
-                                                    value={JSON.stringify(warrantyFormState)}
+                                                    value={JSON.stringify({...warrantyFormState, nextInternalId: undefined})}
                                                 />
 
                                                 <input
@@ -1206,6 +1206,7 @@ function RegisterFormProductInputFields({
                     accept="image/*"
                     name={`purchaseProof${index}`}
                     className="lg-text-input tw-col-start-1 tw-w-1/2 lg:tw-w-full"
+                    // value={warrantyFormState.products[index].purchaseProof}
                     onChange={(e) => {
                         if (e.target.files != null && e.target.files.length > 0) {
                             const action: WarrantyFormStateInputsAction = {
@@ -1220,6 +1221,7 @@ function RegisterFormProductInputFields({
                         }
                     }}
                     placeholder={getVernacularString("ae64dabe-c22a-429b-9868-5b19b57559a8", userPreferences.language)}
+                    key={warrantyFormState.products[index].internalId}
                 />
                 <p className="lg-text-secondary-900 lg-text-icon tw-row-start-3 tw-w-1/2 lg:tw-w-full">{getVernacularString("a704f8f5-79db-437c-8f23-d64a634899a7", userPreferences.language)}</p>
 
