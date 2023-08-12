@@ -11362,7 +11362,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lg2350ixl",
-                "title": "LG 2350 iXL",
+                "title": "Heavy Duty Inverters | 2000VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -11455,7 +11455,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lg2350ixl",
-                "title": "LG 2350 iXL",
+                "title": "Heavy Duty Inverters | 2000VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -11550,7 +11550,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs2500",
-                "title": "LGS 2500",
+                "title": "Heavy Duty Inverters | 2500VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -11643,7 +11643,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs2500",
-                "title": "LGS 2500",
+                "title": "Heavy Duty Inverters | 2500VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -11738,7 +11738,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs3000",
-                "title": "LGS 3000",
+                "title": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -11831,7 +11831,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs3000",
-                "title": "LGS 3000",
+                "title": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -11926,7 +11926,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lg3500",
-                "title": "LG 3500",
+                "title": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -12019,7 +12019,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lg3500",
-                "title": "LG 3500",
+                "title": "Heavy Duty Inverters | 3500VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -12114,7 +12114,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs4000",
-                "title": "LGS 4000",
+                "title": "Heavy Duty Inverters | 4000VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -12207,7 +12207,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs4000",
-                "title": "LGS 4000",
+                "title": "Heavy Duty Inverters | 4000VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -12302,7 +12302,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs5000",
-                "title": "LGS 5000",
+                "title": "Heavy Duty Inverters | 5000VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -12395,7 +12395,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgs5000",
-                "title": "LGS 5000",
+                "title": "Heavy Duty Inverters | 5000VA Capacity | 24 Months Warranty",
                 "description": "Livguard high capacity inverters can run heavy appliances with ease and have longer back-up time. Other features include an in-built battery gravity builder and battery deep discharge protection.",
                 "schema": ""
             },
@@ -13009,7 +13009,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/ze38b20l",
-                "title": "Zing Eterna ZE 38B20 L",
+                "title": "4W battery | 35Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13101,7 +13101,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/ze38b20l",
-                "title": "Zing Eterna ZE 38B20 L",
+                "title": "4W battery | 35Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13195,7 +13195,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/ze38b20r",
-                "title": "Zing Eterna ZE 38B20 R",
+                "title": "4W battery | 35Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13287,7 +13287,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/ze38b20r",
-                "title": "Zing Eterna ZE 38B20 R",
+                "title": "4W battery | 35Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13381,7 +13381,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/ze55b24lsl",
-                "title": "Zing Eterna ZE 55B24 LS L",
+                "title": "4W battery | 45Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13473,7 +13473,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/ze55b24lsl",
-                "title": "Zing Eterna ZE 55B24 LS L",
+                "title": "4W battery | 45Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13567,7 +13567,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu42b20l",
-                "title": "Zing Ultra ZU 42B20 L",
+                "title": "4W battery | 35Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13659,7 +13659,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu42b20l",
-                "title": "Zing Ultra ZU 42B20 L",
+                "title": "4W battery | 35Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13753,7 +13753,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu42b20r",
-                "title": "Zing Ultra ZU 42B20 R",
+                "title": "4W battery | 35Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13845,7 +13845,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu42b20r",
-                "title": "Zing Ultra ZU 42B20 R",
+                "title": "4W battery | 35Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -13939,7 +13939,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu42b20bhl",
-                "title": "Zing Ultra ZU 42B20BH L",
+                "title": "4W battery | 35Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14031,7 +14031,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu42b20bhl",
-                "title": "Zing Ultra ZU 42B20BH L",
+                "title": "4W battery | 35Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14125,7 +14125,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin44lhl",
-                "title": "Zing Ultra ZU DIN44 LH L",
+                "title": "4W battery | 44Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14217,7 +14217,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin44lhl",
-                "title": "Zing Ultra ZU DIN44 LH L",
+                "title": "4W battery | 44Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14311,7 +14311,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin50l",
-                "title": "Zing Ultra ZU DIN50 L",
+                "title": "4W battery | 50Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14403,7 +14403,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin50l",
-                "title": "Zing Ultra ZU DIN50 L",
+                "title": "4W battery | 50Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14497,7 +14497,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin55r",
-                "title": "Zing Ultra ZU DIN55 R",
+                "title": "4W battery | 55Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14589,7 +14589,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin55r",
-                "title": "Zing Ultra ZU DIN55 R",
+                "title": "4W battery | 55Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14683,7 +14683,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin60l",
-                "title": "Zing Ultra ZU DIN60 L",
+                "title": "4W battery | 60Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14775,7 +14775,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin60l",
-                "title": "Zing Ultra ZU DIN60 L",
+                "title": "4W battery | 60Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14869,7 +14869,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin65lhl",
-                "title": "Zing Ultra ZU DIN65 LH L",
+                "title": "4W battery | 65Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -14961,7 +14961,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zudin65lhl",
-                "title": "Zing Ultra ZU DIN65 LH L",
+                "title": "4W battery | 65Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15055,7 +15055,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu75d23bhl",
-                "title": "Zing Ultra ZU 75D23BH L",
+                "title": "4W battery | 68Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15147,7 +15147,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zu75d23bhl",
-                "title": "Zing Ultra ZU 75D23BH L",
+                "title": "4W battery | 68Ah Capacity | 60 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15236,7 +15236,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp38b20l",
-                "title": "Zing Primo ZP 38B20 L",
+                "title": "4W battery | 35Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15323,7 +15323,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp38b20l",
-                "title": "Zing Primo ZP 38B20 L",
+                "title": "4W battery | 35Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15412,7 +15412,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp38b20r",
-                "title": "Zing Primo ZP 38B20 R",
+                "title": "4W battery | 35Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15499,7 +15499,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp38b20r",
-                "title": "Zing Primo ZP 38B20 R",
+                "title": "4W battery | 35Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15588,7 +15588,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp70d26l",
-                "title": "Zing Primo ZP 70D26 L",
+                "title": "4W battery | 65Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15675,7 +15675,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp70d26l",
-                "title": "Zing Primo ZP 70D26 L",
+                "title": "4W battery | 65Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15764,7 +15764,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp70d26r",
-                "title": "Zing Primo ZP 70D26 R",
+                "title": "4W battery | 65Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15851,7 +15851,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zp70d26r",
-                "title": "Zing Primo ZP 70D26 R",
+                "title": "4W battery | 65Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Zing batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -15945,7 +15945,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/pc38b20l",
-                "title": "Pro CAB PC 38B20L",
+                "title": "Cab battery | 35Ah Capacity | 15 months Warranty",
                 "description": "Experience the resilience of Livguard Pro-Cab batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16037,7 +16037,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/pc38b20l",
-                "title": "Pro CAB PC 38B20L",
+                "title": "Cab battery | 35Ah Capacity | 15 months Warranty",
                 "description": "Experience the resilience of Livguard Pro-Cab batteries, uniquely crafted for four wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16131,7 +16131,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgbtx2.5l",
-                "title": "MoRide LGBTX 2.5L",
+                "title": "2W battery | 2.5Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16223,7 +16223,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgbtx2.5l",
-                "title": "MoRide LGBTX 2.5L",
+                "title": "2W battery | 2.5Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16317,7 +16317,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgbtx7l",
-                "title": "MoRide LGBTX 7L",
+                "title": "2W battery | 7Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16409,7 +16409,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgbtx7l",
-                "title": "MoRide LGBTX 7L",
+                "title": "2W battery | 7Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16503,7 +16503,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgbtx9l",
-                "title": "MoRide LGBTX 9L",
+                "title": "2W battery | 9Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16595,7 +16595,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgbtx9l",
-                "title": "MoRide LGBTX 9L",
+                "title": "2W battery | 9Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16689,7 +16689,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgzhhtx5",
-                "title": "MoRide LGZ HH TX5",
+                "title": "2W battery | 5Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16781,7 +16781,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgzhhtx5",
-                "title": "MoRide LGZ HH TX5",
+                "title": "2W battery | 5Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16875,7 +16875,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgzhhtz4",
-                "title": "MoRide LGZ HH TZ4",
+                "title": "2W battery | 3Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -16967,7 +16967,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgzhhtz4",
-                "title": "MoRide LGZ HH TZ4",
+                "title": "2W battery | 3Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17061,7 +17061,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgzhhtz5",
-                "title": "MoRide LGZ HH TZ5",
+                "title": "2W battery | 4Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17153,7 +17153,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 0,
             "metadata": {
                 "canonicalUrl": "/product/lgzhhtz5",
-                "title": "MoRide LGZ HH TZ5",
+                "title": "2W battery | 4Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard MoRide batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17247,7 +17247,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgb0erfp1500",
-                "title": "LG B0 ERFP1500",
+                "title": "E-Rickshaw battery | 100Ah Capacity | 6 Months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17339,7 +17339,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgb0erfp1500",
-                "title": "LG B0 ERFP1500",
+                "title": "E-Rickshaw battery | 100Ah Capacity | 6 Months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17433,7 +17433,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgc0ertu1800",
-                "title": "LG C0 ERTU1800",
+                "title": "E-Rickshaw battery | 110Ah Capacity | 9 Months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17525,7 +17525,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgc0ertu1800",
-                "title": "LG C0 ERTU1800",
+                "title": "E-Rickshaw battery | 110Ah Capacity | 9 Months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17619,7 +17619,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgd0ertu2300",
-                "title": "LG D0 ERTU2300",
+                "title": "E-Rickshaw battery | 130Ah Capacity | 12 months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17711,7 +17711,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgd0ertu2300",
-                "title": "LG D0 ERTU2300",
+                "title": "E-Rickshaw battery | 130Ah Capacity | 12 months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17805,7 +17805,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgd0ertu2500",
-                "title": "LG D0 ERTU2500",
+                "title": "E-Rickshaw battery | 140Ah Capacity | 15 months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17897,7 +17897,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 5,
             "metadata": {
                 "canonicalUrl": "/product/lgd0ertu2500",
-                "title": "LG D0 ERTU2500",
+                "title": "E-Rickshaw battery | 140Ah Capacity | 15 months Warranty",
                 "description": "Experience the resilience of Livguard E-Rickshaw batteries, uniquely crafted for two wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -17978,7 +17978,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     "slug": "lglff100h29r",
-                    "humanReadableModelNumber": "lglff100h29r",
+                    "humanReadableModelNumber": "Bus & Truck battery | 100Ah Capacity | 54 months Warranty",
                     "bestseller": true
                 },
                 {
@@ -17991,7 +17991,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff80r",
-                "title": "LGL FF 80 R",
+                "title": "Bus & Truck battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18070,7 +18070,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     "slug": "lglff100h29r",
-                    "humanReadableModelNumber": "lglff100h29r",
+                    "humanReadableModelNumber": "Bus & Truck battery | 100Ah Capacity | 36 months Warranty",
                     "bestseller": true
                 },
                 {
@@ -18083,7 +18083,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff80r",
-                "title": "LGL FF 80 R",
+                "title": "Bus & Truck battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18164,7 +18164,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     "slug": "lglff100h29r",
-                    "humanReadableModelNumber": "lglff100h29r",
+                    "humanReadableModelNumber": "Bus & Truck battery | 100Ah Capacity | 54 months Warranty",
                     "bestseller": true
                 },
                 {
@@ -18177,7 +18177,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff80l",
-                "title": "LGL FF 80 L",
+                "title": "Bus & Truck battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18256,7 +18256,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     "slug": "lglff100h29r",
-                    "humanReadableModelNumber": "lglff100h29r",
+                    "humanReadableModelNumber": "Bus & Truck battery | 100Ah Capacity | 36 months Warranty",
                     "bestseller": true
                 },
                 {
@@ -18269,7 +18269,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff80l",
-                "title": "LGL FF 80 L",
+                "title": "Bus & Truck battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18355,7 +18355,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     "slug": "lglff100h29r",
-                    "humanReadableModelNumber": "lglff100h29r",
+                    "humanReadableModelNumber": "Bus & Truck battery | 100Ah Capacity | 54 months Warranty",
                     "bestseller": false
                 }
             ],
@@ -18363,7 +18363,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff100l",
-                "title": "LGL FF 100 L",
+                "title": "Bus & Truck battery | 100Ah Capacity | 54 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18447,7 +18447,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
                 },
                 {
                     "slug": "lglff100h29r",
-                    "humanReadableModelNumber": "lglff100h29r",
+                    "humanReadableModelNumber": "Bus & Truck battery | 100Ah Capacity | 36 months Warranty",
                     "bestseller": false
                 }
             ],
@@ -18455,7 +18455,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff100l",
-                "title": "LGL FF 100 L",
+                "title": "Bus & Truck battery | 100Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18549,7 +18549,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglnff130r",
-                "title": "LGLN FF 130 R",
+                "title": "Bus & Truck battery | 130Ah Capacity | 54 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18641,7 +18641,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglnff130r",
-                "title": "LGLN FF 130 R",
+                "title": "Bus & Truck battery | 130Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18735,7 +18735,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff180r",
-                "title": "LGL FF 180 R",
+                "title": "Bus & Truck battery | 180Ah Capacity | 54 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18827,7 +18827,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglff180r",
-                "title": "LGL FF 180 R",
+                "title": "Bus & Truck battery | 180Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -18921,7 +18921,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglnhd150r",
-                "title": "LGLN HD 150 R",
+                "title": "Bus & Truck battery | 150Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19013,7 +19013,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lglnhd150r",
-                "title": "LGLN HD 150 R",
+                "title": "Bus & Truck battery | 150Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19107,7 +19107,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx8048r",
-                "title": "LGHX 8048 R",
+                "title": "Bus & Truck battery | 80Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19199,7 +19199,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx8048r",
-                "title": "LGHX 8048 R",
+                "title": "Bus & Truck battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19293,7 +19293,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx8048l",
-                "title": "LGHX 8048 L",
+                "title": "Bus & Truck battery | 80Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19385,7 +19385,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx8048l",
-                "title": "LGHX 8048 L",
+                "title": "Bus & Truck battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19479,7 +19479,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx10048l",
-                "title": "LGHX 10048 L",
+                "title": "Bus & Truck battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19571,7 +19571,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx10048l",
-                "title": "LGHX 10048 L",
+                "title": "Bus & Truck battery | 100Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19665,7 +19665,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx10048r",
-                "title": "LGHX 10048 R",
+                "title": "Bus & Truck battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19757,7 +19757,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx10048r",
-                "title": "LGHX 10048 R",
+                "title": "Bus & Truck battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19851,7 +19851,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx10048h29r",
-                "title": "LGHX 10048H29 R",
+                "title": "Bus & Truck battery | 100Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -19943,7 +19943,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 4,
             "metadata": {
                 "canonicalUrl": "/product/lghx10048h29r",
-                "title": "LGHX 10048H29 R",
+                "title": "Bus & Truck battery | 100Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Humraahi Xtralife batteries, uniquely crafted for commercial vehicles. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20032,7 +20032,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr800r",
-                "title": "LGP TR800 R",
+                "title": "Tractor battery | 80Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20119,7 +20119,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr800r",
-                "title": "LGP TR800 R",
+                "title": "Tractor battery | 80Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20208,7 +20208,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr900l",
-                "title": "LGP TR900 L",
+                "title": "Tractor battery | 90Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20295,7 +20295,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr900l",
-                "title": "LGP TR900 L",
+                "title": "Tractor battery | 90Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20384,7 +20384,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr1000l",
-                "title": "LGP TR1000 L",
+                "title": "Tractor battery | 100Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20471,7 +20471,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr1000l",
-                "title": "LGP TR1000 L",
+                "title": "Tractor battery | 100Ah Capacity | 36 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20560,7 +20560,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr1000r",
-                "title": "LGP TR1000 R",
+                "title": "Tractor battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20647,7 +20647,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgptr1000r",
-                "title": "LGP TR1000 R",
+                "title": "Tractor battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20741,7 +20741,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr8048r",
-                "title": "LGPX TR8048 R",
+                "title": "Tractor battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20833,7 +20833,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr8048r",
-                "title": "LGPX TR8048 R",
+                "title": "Tractor battery | 80Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -20927,7 +20927,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr9048l",
-                "title": "LGPX TR9048 L",
+                "title": "Tractor battery | 90Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21019,7 +21019,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr9048l",
-                "title": "LGPX TR9048 L",
+                "title": "Tractor battery | 90Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21113,7 +21113,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr9048r",
-                "title": "LGPX TR9048 R",
+                "title": "Tractor battery | 90Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21205,7 +21205,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr9048r",
-                "title": "LGPX TR9048 R",
+                "title": "Tractor battery | 90Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21299,7 +21299,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr10048l",
-                "title": "LGPX TR10048 L",
+                "title": "Tractor battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21391,7 +21391,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr10048l",
-                "title": "LGPX TR10048 L",
+                "title": "Tractor battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21485,7 +21485,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr10048r",
-                "title": "LGPX TR10048 R",
+                "title": "Tractor battery | 100Ah Capacity | 72 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21577,7 +21577,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr10048r",
-                "title": "LGPX TR10048 R",
+                "title": "Tractor battery | 100Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21671,7 +21671,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr9048h29l",
-                "title": "LGPX TR9048 H29 L",
+                "title": "Tractor battery | 90Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21763,7 +21763,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 3,
             "metadata": {
                 "canonicalUrl": "/product/lgpxtr9048h29l",
-                "title": "LGPX TR9048 H29 L",
+                "title": "Tractor battery | 90Ah Capacity | 48 months Warranty",
                 "description": "Experience the resilience of Livguard Pradhan Xtralife  batteries, uniquely crafted for tractors. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21847,7 +21847,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgmf0ar32r",
-                "title": "LGM F0 AR32 R",
+                "title": "3W battery | 32Ah Capacity | 18 months Warranty",
                 "description": "Experience the resilience of Livguard Autoz batteries, uniquely crafted for three-wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -21929,7 +21929,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgmf0ar32r",
-                "title": "LGM F0 AR32 R",
+                "title": "3W battery | 32Ah Capacity | 18 months Warranty",
                 "description": "Experience the resilience of Livguard Autoz batteries, uniquely crafted for three-wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -22013,7 +22013,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgmf0ar60l",
-                "title": "LGM F0 AR60 L",
+                "title": "3W battery | 60Ah Capacity | 24 months Warranty",
                 "description": "Experience the resilience of Livguard Autoz batteries, uniquely crafted for three-wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -22095,7 +22095,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 1,
             "metadata": {
                 "canonicalUrl": "/product/lgmf0ar60l",
-                "title": "LGM F0 AR60 L",
+                "title": "3W battery | 60Ah Capacity | 24 months Warranty",
                 "description": "Experience the resilience of Livguard Autoz batteries, uniquely crafted for three-wheelers. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -22179,7 +22179,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zx40b20l",
-                "title": "ZX 40B20 L",
+                "title": "4W battery | 35Ah Capacity | 55 months Warranty",
                 "description": "Experience the resilience of Livguard batteries, uniquely crafted for your needs. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -22261,7 +22261,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zx40b20l",
-                "title": "ZX 40B20 L",
+                "title": "4W battery | 35Ah Capacity | 55 months Warranty",
                 "description": "Experience the resilience of Livguard batteries, uniquely crafted for your needs. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -22345,7 +22345,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zx40b20r",
-                "title": "ZX 40B20 R",
+                "title": "4W battery | 35Ah Capacity | 55 months Warranty",
                 "description": "Experience the resilience of Livguard batteries, uniquely crafted for your needs. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
@@ -22427,7 +22427,7 @@ export const allProductDetails: {[productSlug: string]: {[language: string]: Pro
             "subType": 2,
             "metadata": {
                 "canonicalUrl": "/product/zx40b20r",
-                "title": "ZX 40B20 R",
+                "title": "4W battery | 35Ah Capacity | 55 months Warranty",
                 "description": "Experience the resilience of Livguard batteries, uniquely crafted for your needs. Power up your ride with efficient and limitless performance.",
                 "schema": ""
             },
