@@ -1,14 +1,13 @@
 import type {LoaderFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
-import {getDealersForHaptik, getSearchTermFrequencies, getSearchTermFrequenciesCount} from "~/backend/dealer.server";
+import {getDealersForHaptik} from "~/backend/dealer.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {getIntegerFromUnknown, getNumberFromUnknown, getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import type {Dealer, TermFrequency} from "~/typeDefinitions";
+import {getNumberFromUnknown, getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 
 export type DealerForHaptik = {
     dealerName: string;
     address: string;
-    phoneNumber: string
+    phoneNumber: string;
 };
 
 type LoaderData = {

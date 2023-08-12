@@ -315,7 +315,7 @@ export default function () {
             </div> */}
 
             <StickyBottomBar userPreferences={userPreferences} />
-            {/* 
+            {/*
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -2679,19 +2679,20 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
                     center={mapCenter}
                     zoom={zoomLevel}
                 >
-                    {/* {dealerList == null || dealerList.length == 0
-                        ? defaultDealerList.map((dealer, dealerIndex) => (
-                              <MarkerF
-                                  position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
-                                  key={dealerIndex}
-                              />
-                          ))
+                    {dealerList == null || dealerList.length == 0 ?
+                        // defaultDealerList.map((dealer, dealerIndex) => (
+                        //       <MarkerF
+                        //           position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
+                        //           key={dealerIndex}
+                        //       />
+                        //   ))
+                        null
                         : dealerList.map((dealer, dealerIndex) => (
                               <MarkerF
                                   position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
                                   key={dealerIndex}
                               />
-                          ))} */}
+                          ))}
 
                     {/* <Autocomplete
                         onLoad={()}
