@@ -1,4 +1,4 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -11,14 +11,14 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductType} from "~/productData";
+import {ProductType, allProductDetails} from "~/productData";
 import React, {useEffect, useState} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
@@ -28,6 +28,126 @@ import {StickyBottomBar} from "~/components/bottomBar";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullHeightImage} from "~/components/images/fullHeightImage";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {DealerLocator} from "~/routes";
+
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Find the Ideal Inverter trolley to Protect Your Power!",
+//             description: "Get the ideal inverter battery trolley from Livguard that combines style, strength, and stability for your inverter and inverter battery.",
+//             "og:title": "Find the Ideal Inverter trolley to Protect Your Power!",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/inverter-trolley",
+//             "og:description": "Get the ideal inverter battery trolley from Livguard that combines style, strength, and stability for your inverter and inverter battery.",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "अपनी ऊर्जा की सुरक्षा के लिए उत्तम इन्वर्टर ट्रॉली खोजें",
+//             description: "अपने इन्वर्टर और इन्वर्टर बैटरी के लिए लिवगार्ड से आदर्श इन्वर्टर बैटरी ट्रॉली प्राप्त करें जो स्टाइल, मजबूती और स्थिरता को संयोजित करती है।",
+//             "og:title": "अपनी ऊर्जा की सुरक्षा के लिए उत्तम इन्वर्टर ट्रॉली खोजें",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/inverter-trolley",
+//             "og:description": "अपने इन्वर्टर और इन्वर्टर बैटरी के लिए लिवगार्ड से आदर्श इन्वर्टर बैटरी ट्रॉली प्राप्त करें जो स्टाइल, मजबूती और स्थिरता को संयोजित करती है।",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/inverter-trolley"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/inverter-trolley",
+            },
+            {
+                title: "Find the Ideal Inverter trolley to Protect Your Power!",
+            },
+            {
+                name: "description",
+                content: "Get the ideal inverter battery trolley from Livguard that combines style, strength, and stability for your inverter and inverter battery.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/inverter-trolley",
+            },
+            {
+                property: "og:title",
+                content: "Find the Ideal Inverter trolley to Protect Your Power!",
+            },
+            {
+                property: "og:description",
+                content: "Get the ideal inverter battery trolley from Livguard that combines style, strength, and stability for your inverter and inverter battery.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/inverter-trolley",
+            },
+            {
+                title: "अपनी ऊर्जा की सुरक्षा के लिए उत्तम इन्वर्टर ट्रॉली खोजें",
+            },
+            {
+                name: "description",
+                content: "अपने इन्वर्टर और इन्वर्टर बैटरी के लिए लिवगार्ड से आदर्श इन्वर्टर बैटरी ट्रॉली प्राप्त करें जो स्टाइल, मजबूती और स्थिरता को संयोजित करती है।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/inverter-trolley",
+            },
+            {
+                property: "og:title",
+                content: "अपनी ऊर्जा की सुरक्षा के लिए उत्तम इन्वर्टर ट्रॉली खोजें",
+            },
+            {
+                property: "og:description",
+                content: "अपने इन्वर्टर और इन्वर्टर बैटरी के लिए लिवगार्ड से आदर्श इन्वर्टर बैटरी ट्रॉली प्राप्त करें जो स्टाइल, मजबूती और स्थिरता को संयोजित करती है।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -62,7 +182,11 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "6596ffc6-6377-4446-92b9-4cac254af278", link: "#"},
+                ]}
             >
                 <InverterTrolleyPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -102,7 +226,7 @@ function InverterTrolleyPage({userPreferences}: {userPreferences: UserPreference
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <WeAreEverywhere
+                    <DealerLocator
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
@@ -138,50 +262,37 @@ function InverterTrolleyPage({userPreferences}: {userPreferences: UserPreference
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_3.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_5.5rem] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto] lg:tw-grid-rows-[3rem_auto_auto_1rem_auto] lg:tw-grid-cols-[0_auto_minmax(0,1fr)] tw-text-center",
                 className,
             )}
-            ref={ref}
         >
-            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
-                {containerWidth == null || containerHeight == null ? null : (
-                    <>
-                        <CoverImage
-                            relativePath={
-                                containerHeight > containerWidth || containerWidth < 640
-                                    ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg"
-                                    : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"
-                            }
-                            key={
-                                containerHeight > containerWidth || containerWidth < 640
-                                    ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg"
-                                    : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"
-                            }
-                        />
-                    </>
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-fit">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/inverter-trolley/1/mobile-banner.jpg" : "/livguard/inverter-trolley/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/inverter-trolley/1/mobile-banner.jpg" : "/livguard/inverter-trolley/1/desktop-banner.jpg"}
+                    />
                 )}
             </div>
 
-            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-text-center">
-                    {getVernacularString("c8044356-0123-4e47-a1b9-a453d40c6f41", userPreferences.language)}
-                </div>
-            </DefaultTextAnimation>
+            <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2">
+                <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 tw-z-[2]">
+                    <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left">
+                        {getVernacularString("c8044356-0123-4e47-a1b9-a453d40c6f41", userPreferences.language)}
+                    </div>
+                </DefaultTextAnimation>
 
-            {/* <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
-                    {getVernacularString("f7ab7eb5-83ec-4ced-b179-c9ad29f8673e", userPreferences.language)}
-                </div>
-            </DefaultTextAnimation> */}
-
-            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2">
-                <div className="lg-text-body !tw-text-secondary-900-dark tw-text-center">{getVernacularString("a44c1ac7-94e3-4b5f-92a7-97d56aa17619", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 tw-z-[2]">
+                    <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left">
+                        {getVernacularString("a44c1ac7-94e3-4b5f-92a7-97d56aa17619", userPreferences.language)}
+                    </div>
+                </DefaultTextAnimation>
+            </div>
         </div>
     );
 }
@@ -191,7 +302,7 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-bg-secondary-100 tw-rounded-lg",
+                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-card tw-rounded-lg",
                 )}
             >
                 <div className="tw-row-start-2">
@@ -209,45 +320,49 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
         {
             titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
             bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+            imageRelativePath: "/livguard/inverter-trolley/2/stylish-curve-design.jpg",
+        },
+        {
+            titleTextContentPiece: "3a7552bb-96e1-4e59-b96c-8255ffe0166a",
+            bodyTextContentPiece: "121d0e61-b0a4-462c-a167-07fdb7408680",
+            imageRelativePath: "/livguard/inverter-trolley/2/wheel-tuffness.jpg",
+        },
+        {
+            titleTextContentPiece: "60dd74c4-1b24-496b-8629-802beabbf14e",
+            bodyTextContentPiece: "000ee25a-3c54-4f21-8df9-7f535b85c6c8",
+            imageRelativePath: "/livguard/inverter-trolley/2/easy-front-door-access.jpg",
         },
         {
             titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
             bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+            imageRelativePath: "/livguard/inverter-trolley/2/stylish-curve-design.jpg",
+        },
+        {
+            titleTextContentPiece: "3a7552bb-96e1-4e59-b96c-8255ffe0166a",
+            bodyTextContentPiece: "121d0e61-b0a4-462c-a167-07fdb7408680",
+            imageRelativePath: "/livguard/inverter-trolley/2/wheel-tuffness.jpg",
+        },
+        {
+            titleTextContentPiece: "60dd74c4-1b24-496b-8629-802beabbf14e",
+            bodyTextContentPiece: "000ee25a-3c54-4f21-8df9-7f535b85c6c8",
+            imageRelativePath: "/livguard/inverter-trolley/2/easy-front-door-access.jpg",
         },
         {
             titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
             bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+            imageRelativePath: "/livguard/inverter-trolley/2/stylish-curve-design.jpg",
         },
         {
-            titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
-            bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+            titleTextContentPiece: "3a7552bb-96e1-4e59-b96c-8255ffe0166a",
+            bodyTextContentPiece: "121d0e61-b0a4-462c-a167-07fdb7408680",
+            imageRelativePath: "/livguard/inverter-trolley/2/wheel-tuffness.jpg",
         },
         {
-            titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
-            bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
-        },
-        {
-            titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
-            bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
-        },
-        {
-            titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
-            bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
-        },
-        {
-            titleTextContentPiece: "656202ba-4d43-417e-ab8a-4d411da87ede",
-            bodyTextContentPiece: "b1860dae-087d-4b2e-b55e-72b0d91de418",
-            imageRelativePath: "/livguard/category/batteries/2/1.jpg",
+            titleTextContentPiece: "60dd74c4-1b24-496b-8629-802beabbf14e",
+            bodyTextContentPiece: "000ee25a-3c54-4f21-8df9-7f535b85c6c8",
+            imageRelativePath: "/livguard/inverter-trolley/2/easy-front-door-access.jpg",
         },
     ];
-
     return (
         <>
             <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
@@ -270,6 +385,7 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
                     className="tw-mx-auto"
                     deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
                     selectedContainerClassName="tw-h-full"
+                    snapDotsDivisionFactor={3}
                 />
             </div>
         </>
@@ -277,16 +393,19 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
 }
 
 function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const trolley = allProductDetails["trolley"][userPreferences.language];
+
     const trolleyData = {
-        batterySlug: "/",
-        imageRelativeUrl: "/livguard/inverter-trolley/3/trolley.png",
-        name: "6abe737b-e0b3-4b27-8d3e-45e0555ca4fd",
-        description: "a64d10d2-45b4-4263-8903-3b5ba891181f",
-        warranty: "965c45f7-f888-4d22-bd3a-cad183c42e7e",
-        capacity: "31f21f05-2ce7-46d8-9971-1102f33f1569",
-        grid: "0432ce29-748f-4de1-89b5-f80453c3c429",
-        dimensions: "0de3fa1c-d195-45dd-9670-155370379e7a",
+        batterySlug: "/product/trolley",
+        imageRelativeUrl: "/livguard/products/trolley/thumbnail.png",
+        name: "Livguard Trolley",
+        description: trolley.description,
+        warranty: trolley.specifications[1].value,
+        capacity: trolley.specifications[0].value,
+        grid: trolley.specifications[2].value,
+        dimensions: trolley.specifications[3].value,
     };
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row tw-rounded-lg lg-px-screen-edge-2", className)}>
             <div
@@ -301,12 +420,12 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                 userPreferences={userPreferences}
                 batterySlug={trolleyData.batterySlug}
                 imageRelativeUrl={trolleyData.imageRelativeUrl}
-                name={getVernacularString(trolleyData.name, userPreferences.language)}
-                description={getVernacularString(trolleyData.description, userPreferences.language)}
-                warranty={getVernacularString(trolleyData.warranty, userPreferences.language)}
-                capacity={getVernacularString(trolleyData.capacity, userPreferences.language)}
-                grid={getVernacularString(trolleyData.grid, userPreferences.language)}
-                dimensions={getVernacularString(trolleyData.dimensions, userPreferences.language)}
+                name={trolleyData.name}
+                description={trolleyData.description}
+                warranty={trolleyData.warranty}
+                capacity={trolleyData.capacity}
+                grid={trolleyData.grid}
+                dimensions={trolleyData.dimensions}
             />
 
             {/* <VerticalSpacer className="tw-h-4 lg:tw-h-10" /> */}
@@ -336,11 +455,16 @@ function InverterCard({
     dimensions: string;
 }) {
     return (
-        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:tw-gap-x-2 lg-bg-secondary-100 tw-rounded-lg tw-p-4 lg:tw-p-8">
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-p-4 lg:tw-p-8">
             <div className="tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div>
-                    <FullHeightImage relativePath={imageRelativeUrl} />
+                <div className="tw-h-full">
+                    <FullHeightImage
+                        relativePath={imageRelativeUrl}
+                        className="tw-h-full"
+                    />
                 </div>
+
+                <VerticalSpacer className="lg:tw-h-2" />
 
                 <Link
                     className="tw-hidden lg:tw-block"
@@ -364,44 +488,44 @@ function InverterCard({
                 <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4 tw-gap-y-8">
                     <div className="tw-row-start-1 tw-col-start-1 md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/4/4.warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-trolley/3/range.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("be198f94-415e-4384-87d4-3887e8cd8a2c", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("306e1020-9ae2-467a-b761-ad45d235b707", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{warranty}</div>
                         </div>
                     </div>
 
                     <div className="tw-row-start-1 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-2 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/4/4.capacity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-trolley/3/model.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("7ee64780-1190-49dc-a305-0f6e9551e8aa", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("713dcf1c-e56f-4cc8-8196-7cc7094baeb4", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{capacity}</div>
                         </div>
                     </div>
 
                     <div className="tw-row-start-2 tw-col-start-1 md:max-lg:tw-w-full md:max-lg:tw-row-start-3 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/4/4.grid-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-trolley/3/weight-with-wheels.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("94ba8c21-8088-4d61-a674-4f9d4ec28744", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("2f6077a8-553c-491d-967a-819dd2fd9a2a", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{grid}</div>
                         </div>
                     </div>
 
                     <div className="tw-row-start-2 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-4 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/4/4.dimensions.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-trolley/3/dimensions.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("781a0678-8e4b-4543-bda3-c80a5cf30176", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("989926cd-1e5a-45c0-bf0c-7b4a3048d3fb", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{dimensions}</div>
                         </div>
                     </div>
@@ -422,42 +546,6 @@ function InverterCard({
     );
 }
 
-function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function YourGuideToFindingTheRightInverter({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
@@ -468,47 +556,34 @@ function YourGuideToFindingTheRightInverter({userPreferences, className}: {userP
             />
             <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("6e9b8409-2e42-4c63-9d68-9be787e999ab", userPreferences.language)}</div>
 
-            <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-buying-guide.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("1f38d219-7fb1-4b45-84d8-d28ea3bd3a71", userPreferences.language)}
-                    </div>
-                </a>
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("fcb9e80f-e552-41af-81fc-6ade228105ab", userPreferences.language)}
-                    </div>
-                </a>
+            <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
+                <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
+                    <a
+                        href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
+                        download
+                        target="_blank"
+                        className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4"
+                    >
+                        <img
+                            className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                        />
+                        <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                        </div>
+                    </a>
+                    <Link
+                        to="/inverter-for-home"
+                        className="tw-h-full tw-w-full tw-grid tw-place-items-center"
+                    >
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
+                            {getVernacularString("a6db6f71-e1e6-4166-b5e0-9d2722918f17", userPreferences.language)}
+                        </div>
+                    </Link>
+                </div>
             </div>
 
-            <VerticalSpacer className="tw-row-start-8 tw-h-6" />
-
-            <Link
-                to="/load-calculator"
-                className="tw-row-start-9 tw-grid tw-place-items-center"
-            >
-                <div className="lg-cta-button tw-place-self-center">{getVernacularString("bfcd956a-49a7-4586-b645-b6b1a4e20a83", userPreferences.language)}</div>
-            </Link>
-
-            <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
+            <VerticalSpacer className="lg:tw-row-start-8 tw-hidden lg:tw-block lg:tw-h-12" />
         </div>
     );
 }
@@ -530,10 +605,6 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
         {
             question: "f9132ecf-4676-4cae-a86b-f754884b1caf",
             answer: "677ad117-00ce-425f-92f5-a2e879a907a8",
-        },
-        {
-            question: "036a4ed1-77f5-4a67-bc17-c3a2d364e21d",
-            answer: "c14fc130-2857-4951-a934-54186d7824b8",
         },
     ];
 

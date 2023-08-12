@@ -1,4 +1,4 @@
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, json} from "@remix-run/node";
+import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
 import {useActionData, useLoaderData, useSearchParams} from "@remix-run/react";
 import {insertServiceRequests} from "~/backend/dealer.server";
 import {HeaderComponent} from "~/components/headerComponent";
@@ -14,6 +14,8 @@ import {CoverImage} from "~/components/images/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {useResizeDetector} from "react-resize-detector";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;
@@ -37,6 +39,90 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 //         throw Error(`Undefined language ${userPreferences.language}`);
 //     }
 // };
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "http://localhost:3050/privacy-policy",
+            },
+            {
+                title: "Privacy Policy | Livguard",
+            },
+            {
+                name: "description",
+                content: "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
+            },
+            {
+                property: "og:url",
+                content: "http://localhost:3050/privacy-policy",
+            },
+            {
+                property: "og:title",
+                content: "Privacy Policy | Livguard",
+            },
+            {
+                property: "og:description",
+                content: "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "http://localhost:3050/privacy-policy"
+            },
+            {
+                title: "????????",
+            },
+            {
+                name: "description",
+                content: "???????????",
+            },
+            {
+                property: "og:url",
+                content: "http://localhost:3050/privacy-policy",
+            },
+            {
+                property: "og:title",
+                content: "??????????",
+            },
+            {
+                property: "og:description",
+                content: "?????????",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.livguard.com/term-and-condition"}];
@@ -78,8 +164,8 @@ export default () => {
                 pageUrl={pageUrl}
                 breadcrumbs={
                     [
-                        // {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                        // {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
+                        {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                        {contentId: "eea36080-325b-43d9-a29a-84e5bb4e3612", link: "#"},
                     ]
                 }
             >
@@ -94,7 +180,7 @@ function PrivacyPolicyPage({userPreferences}: {userPreferences: UserPreferences}
         <div>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="lg:tw-h-20 tw-h-10" />
+            <VerticalSpacer className="tw-h-10" />
 
             <PrivacyPolicies
                 className="tw-max-w-7xl tw-mx-auto"
@@ -178,31 +264,37 @@ function PrivacyPolicyPage({userPreferences}: {userPreferences: UserPreferences}
                 userPreferences={userPreferences}
             />
 
+            <VerticalSpacer className="lg:tw-h-12 tw-h-6" />
+
+            <WhatsAppPrivacyPolicy
+                className="tw-max-w-7xl tw-mx-auto"
+                userPreferences={userPreferences}
+            />
+
             <VerticalSpacer className="tw-h-20" />
         </div>
     );
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/privacy-policies/1/banner-mobile.jpg" : "/livguard/privacy-policies/1/banner-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/privacy-policies/1/banner-mobile.jpg" : "/livguard/privacy-policies/1/banner-desktop.jpg"}
-                />
-            )}
-
-            <DefaultTextAnimation className="lg:tw-row-start-2 tw-row-start-5 tw-col-start-1">
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/privacy-policies/1/mobile-banner.jpg" : "/livguard/privacy-policies/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/privacy-policies/1/mobile-banner.jpg" : "/livguard/privacy-policies/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("e1cd45c9-6258-4cfa-939f-92e24c409063", userPreferences.language)}
                 </div>
@@ -543,6 +635,71 @@ function GoverningLaw({userPreferences, className}: {userPreferences: UserPrefer
                     className=""
                     dangerouslySetInnerHTML={{__html: getVernacularString("86954c62-c133-43bf-8551-5799f57650e4", userPreferences.language)}}
                 ></div>
+            </div>
+        </div>
+    );
+}
+
+function WhatsAppPrivacyPolicy({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
+            <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
+                <div
+                    className=""
+                    dangerouslySetInnerHTML={{__html: getVernacularString("51d356d0-fd9e-4821-9d40-e4b5941a347d", userPreferences.language)}}
+                ></div>
+                <div
+                    className=""
+                    dangerouslySetInnerHTML={{__html: getVernacularString("21b9fed2-0f6c-4f09-8558-a9ceeadb82b5", userPreferences.language)}}
+                ></div>
+                <div className="">
+                    <div
+                        className="lg-text-title2"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("cf616cbc-4f39-47ef-96ce-34ce5d7bac0c", userPreferences.language)}}
+                    ></div>
+
+                    <div
+                        className="tw-pl-[3rem]"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("92511aa0-4496-4329-801a-e584523f43d3", userPreferences.language)}}
+                    ></div>
+                </div>
+                <div className="">
+                    <div
+                        className="lg-text-title2"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("68324170-b75f-47cc-9aaa-a476e21b39d2", userPreferences.language)}}
+                    ></div>
+
+                    <div
+                        className="tw-pl-[3rem]"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("41a34384-a068-4c8d-b5c5-6445391e5cde", userPreferences.language)}}
+                    ></div>
+                </div>
+                <div className="">
+                    <div
+                        className="lg-text-title2"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("94a1d750-46d5-44d6-a7bb-b3c618d5c3d3", userPreferences.language)}}
+                    ></div>
+
+                    <div
+                        className="tw-pl-[3rem]"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("f640f948-c51f-4108-9a2d-819ac11a4dc1", userPreferences.language)}}
+                    ></div>
+                </div>
+                <div className="">
+                    <div
+                        className="lg-text-title2"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("f53f571a-74d1-4104-b9da-1820dbff78be", userPreferences.language)}}
+                    ></div>
+
+                    <div
+                        className="tw-pl-[3rem]"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("91471559-ce87-4196-b5de-2187d80cccb2", userPreferences.language)}}
+                    ></div>
+                    <div
+                        className="tw-pl-[3rem]"
+                        dangerouslySetInnerHTML={{__html: getVernacularString("14bec3cc-b2cf-44f3-9443-835bd126bf0a", userPreferences.language)}}
+                    ></div>
+                </div>
             </div>
         </div>
     );

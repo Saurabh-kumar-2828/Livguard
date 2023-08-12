@@ -9,5 +9,6 @@ module.exports = {
     tailwind: true,
     future: {
         v2_errorBoundary: true,
+        v2_meta: true,
     },
 };

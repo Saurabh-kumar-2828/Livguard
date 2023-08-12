@@ -42,11 +42,16 @@ export function OtpVerificationDialog({
     const otpFetcher = useFetcher();
     const [invalidOtp, setInvalidOtp] = useState(false);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
         if (resendTimeOut > 0) {
-            setTimeout(() => {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
                 setResendTimeOut(resendTimeOut - 1);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [resendTimeOut]);
 

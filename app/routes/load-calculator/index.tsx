@@ -1,6 +1,6 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
-import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
@@ -31,37 +31,163 @@ import {Language} from "~/typeDefinitions";
 import {enumFromStringValue, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Plan Your Power Needs with Livguard Load Calculator",
+//             description: "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
+//             "og:title": "Plan Your Power Needs with Livguard Load Calculator",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/load-calculator",
+//             "og:description": "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
+//             "og:type": "website",
+//             "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
+//             description: "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
+//             "og:title": "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/load-calculator",
+//             "og:description": "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
+//             "og:type": "product",
+//             "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/load-calculator/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Plan Your Power Needs with Livguard Load Calculator",
-            description: "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
-            "og:title": "Plan Your Power Needs with Livguard Load Calculator",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/load-calculator",
-            "og:description": "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
-            "og:type": "website",
-            "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/load-calculator/",
+            },
+            {
+                title: "Plan Your Power Needs with Livguard Load Calculator",
+            },
+            {
+                name: "description",
+                content: "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/load-calculator",
+            },
+            {
+                property: "og:title",
+                content: "Plan Your Power Needs with Livguard Load Calculator",
+            },
+            {
+                property: "og:description",
+                content: "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
+            },
+            {
+                "script:ld+json":
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "LivGuard",
+                            "item": "https://www.livguard.com/",
+                            "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            "image": [
+                                " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            ]
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Load Calculator",
+                            "item": "https://www.livguard.com/load-calculator",
+                            "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            "name": "Livguard",
+                            "url": "https://www.livguard.com/",
+                            "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            "image": [
+                                "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                            ]
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            "name": "Load Calculator",
+                            "url": "https://www.livguard.com/load-calculator",
+                            "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
+                        }
+                    ]
+                }
+            }
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
-            description: "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
-            "og:title": "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/load-calculator",
-            "og:description": "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
-            "og:type": "product",
-            "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/load-calculator/"
+            },
+            {
+                title: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/load-calculator",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/load-calculator/"}];
 };
 
 type ActionData = {
@@ -142,7 +268,7 @@ export default function () {
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>
-
+{/*
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -187,7 +313,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </>
     );
 }
@@ -342,7 +468,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-w-full tw-row-start-[8] tw-col-start-1">
                 <div className="tw-w-3/5 tw-max-w-xl tw-mx-auto">
-                    <FullWidthImage relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png" />
+                    <FullWidthImage relativePath="/livguard/products/super-life-combo/thumbnail.png" />
                 </div>
             </div>
 
@@ -368,7 +494,7 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
 
                 <DefaultImageAnimation className="tw-hidden lg:tw-block">
                     <FixedWidthImage
-                        relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png"
+                        relativePath="/livguard/products/super-life-combo/thumbnail.png"
                         width="20rem"
                     />
                 </DefaultImageAnimation>
@@ -401,7 +527,7 @@ export function PowerPlannerTeaser({userPreferences, className}: {userPreference
 export function MiniPowerPlannerTeaser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={className}>
-            <div className="tw-h-full lg:lg-bg-secondary-100 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-6 tw-rounded-lg">
+            <div className="tw-h-full lg:lg-card tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center tw-p-6 tw-rounded-lg">
                 <h2 className="tw-flex tw-flex-col [@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2 tw-text-center tw-whitespace-nowrap">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("c4c839c0-582d-4f53-be91-6730977f87aa", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("aab3e140-baaf-46ce-a405-be90c45ef157", userPreferences.language)}} />
@@ -415,7 +541,7 @@ export function MiniPowerPlannerTeaser({userPreferences, className}: {userPrefer
 
                 <DefaultImageAnimation className="">
                     <FixedWidthImage
-                        relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png"
+                        relativePath="/livguard/products/super-life-combo/thumbnail.png"
                         width="10rem"
                     />
                 </DefaultImageAnimation>
@@ -549,7 +675,7 @@ function PowerPlannerIntroduction({userPreferences, className}: {userPreferences
 
             <DefaultImageAnimation className="tw-block lg:tw-hidden">
                 <FixedWidthImage
-                    relativePath="/livguard/products/jodis/super-life-jodi/thumbnail.png"
+                    relativePath="/livguard/products/super-life-combo/thumbnail.png"
                     width="10rem"
                 />
             </DefaultImageAnimation>

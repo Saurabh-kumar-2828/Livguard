@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -18,6 +18,7 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {ProductDetailsRecommendedProduct} from "~/productData";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
@@ -25,37 +26,162 @@ import {InverterType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Livguard Smart Inverters for an Uninterrupted Power Supply",
+//             description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+//             "og:title": "Livguard Smart Inverters for an Uninterrupted Power Supply ",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/inverter-for-home",
+//             "og:description": "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+//             "og:type": "product",
+//             "og:image": "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
+//             description: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+//             "og:title": "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/inverter-for-home",
+//             "og:description": "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+//             "og:type": "product",
+//             "og:image": "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/inverter-for-home/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Livguard Smart Inverters for an Uninterrupted Power Supply",
-            description: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
-            "og:title": "Livguard Smart Inverters for an Uninterrupted Power Supply ",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/inverter-for-home",
-            "og:description": "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
-            "og:type": "product",
-            "og:image": "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/inverter-for-home/",
+            },
+            {
+                title: "Livguard Smart Inverters for an Uninterrupted Power Supply",
+            },
+            {
+                name: "description",
+                content: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/inverter-for-home",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Smart Inverters for an Uninterrupted Power Supply",
+            },
+            {
+                property: "og:description",
+                content: "Livguard offers the best range of inverters for home. Experience unlimited energy with inverters made with the finest materials",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    itemListElement: [
+                        {
+                            "@type": "ListItem",
+                            position: 1,
+                            name: "LivGuard",
+                            item: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "ListItem",
+                            position: 2,
+                            name: "Inverters",
+                            item: "https://www.livguard.com/inverter-for-home",
+                            description: "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                            image: ["https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Livguard",
+                            url: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Inverters",
+                            url: "https://www.livguard.com/inverter-for-home",
+                            description: "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                            image: ["https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"],
+                        },
+                    ],
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
-            description: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
-            "og:title": "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/inverter-for-home",
-            "og:description": "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
-            "og:type": "product",
-            "og:image": "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/inverter-for-home/",
+            },
+            {
+                title: "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/inverter-for-home",
+            },
+            {
+                property: "og:title",
+                content: "बिना रुकावत ऊर्जा की आपूर्ति के लिए लिवगार्ड स्मार्ट इनवर्टर",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड आपके घर के लिए इनवर्टर की सर्वोत्तम रेंज पेश करता है। बेहतरीन सामग्री से बने इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/inverter-for-home/"}];
 };
 
 type LoaderData = {
@@ -109,7 +235,7 @@ export default function () {
                 pageUrl={pageUrl}
             />
 
-            <script
+            {/* <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -159,7 +285,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </>
     );
 }
@@ -203,7 +329,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center tw-max-w-7xl tw-mx-auto">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
@@ -277,7 +403,7 @@ function HeroSection({userPreferences}: {userPreferences: UserPreferences}) {
 
 export function OurInvertersSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-cente", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-center", className)}>
             <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryInvertersS3T1", userPreferences.language))}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryInvertersS3T2", userPreferences.language)}} />
@@ -296,9 +422,9 @@ export function OurInvertersSectionInternal({userPreferences}: {userPreferences:
             <div className="lg-px-screen-edge tw-grid tw-grid-rows-[repeat(7,auto)] tw-grid-cols-[4.5rem_minmax(0,1fr)_minmax(0,1fr)] lg:tw-grid-cols-[4.5rem_22rem_22rem] tw-gap-x-2">
                 {/* <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-w-full tw-h-full tw-bg-gradient-to-l tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-lg" /> */}
 
-                <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-bg-secondary-100 tw-rounded-lg" />
+                <div className="tw-row-start-1 tw-col-start-2 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-card lg-bg-secondary-100 tw-rounded-lg" />
 
-                <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-bg-secondary-300 tw-rounded-lg" />
+                <div className="tw-row-start-1 tw-col-start-3 tw-row-span-full tw-w-full tw-h-full tw-py-3 lg-card lg-bg-secondary-300 tw-rounded-lg" />
 
                 <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
@@ -410,13 +536,14 @@ export function InvertersAreMeantToLast({userPreferences, className}: {userPrefe
             <CategoryCarousel1
                 userPreferences={userPreferences}
                 items={sectionData}
+                className="tw-max-w-7xl tw-mx-auto"
             />
         </div>
     );
 }
 
 export function OurSuggestionsSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const [secledtedInverterType, setsecledtedInverterType] = useState(InverterType.sine);
+    const [selectedInverterType, setSelectedInverterType] = useState(InverterType.sine);
 
     const sectionData: Array<{
         heading: string;
@@ -455,7 +582,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imagesRelativePath: "/livguard/products/inverters/",
+            imagesRelativePath: "/livguard/products/",
             link: "/product/lgs1100i",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
@@ -487,7 +614,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imagesRelativePath: "/livguard/products/inverters/",
+            imagesRelativePath: "/livguard/products/",
             link: "/product/lg1550i",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryInvertersS4RelatedProductsHeading", userPreferences.language),
@@ -515,47 +642,53 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
 
                 <VerticalSpacer className="tw-h-6" />
 
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-4">
-                    <DefaultElementAnimation>
-                        <button
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full tw-min-w-[10rem] tw-col-start-1 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                                `${secledtedInverterType == InverterType.sine ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
+                <DefaultElementAnimation>
+                    <div className="tw-w-full tw-grid tw-grid-cols-2 tw-gap-4 tw-items-center">
+                        <ItemBuilder
+                            items={[
+                                {
+                                    textContentId: "categoryInvertersS4BTFlat",
+                                    icon: "/livguard/icons/sineWave.png",
+                                    inverterType: InverterType.sine,
+                                },
+                                {
+                                    textContentId: "categoryInvertersS4BTTubular",
+                                    icon: "/livguard/icons/squareWave.png",
+                                    inverterType: InverterType.square,
+                                },
+                            ]}
+                            itemBuilder={(item, itemIndex) => (
+                                <button
+                                    type="button"
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-full tw-min-w-[10rem] tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-card",
+                                        `${selectedInverterType == item.inverterType ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                                    )}
+                                    onClick={() => setSelectedInverterType(item.inverterType)}
+                                    key={itemIndex}
+                                >
+                                    <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2 lg-card">
+                                        <FullWidthImage relativePath={item.icon} />
+                                    </div>
+                                    <div className="tw-text-body">{getVernacularString(item.textContentId, userPreferences.language)}</div>
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "tw-text-body tw-text-center",
+                                            `${selectedInverterType == item.inverterType ? "tw-text-secondary-900-dark" : "lg-text-secondary-900"}`,
+                                        )}
+                                    ></div>
+                                </button>
                             )}
-                            onClick={() => setsecledtedInverterType(InverterType.sine)}
-                        >
-                            <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
-                                <FullWidthImage relativePath="/livguard/icons/sineWave.png" />
-                            </div>
-                            <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.sine ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
-                                {getVernacularString("categoryInvertersS4BTFlat", userPreferences.language)}
-                            </div>
-                        </button>
-                    </DefaultElementAnimation>
-
-                    <DefaultElementAnimation>
-                        <button
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full tw-min-w-[10rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                                `${secledtedInverterType == InverterType.square ? "lg-bg-primary-500 lg-text-secondary-900" : "lg-bg-secondary-700 lg-text-secondary-100"} `,
-                            )}
-                            onClick={() => setsecledtedInverterType(InverterType.square)}
-                        >
-                            <div className="tw-h-8 tw-w-8 tw-bg-secondary-900-dark tw-rounded-full tw-p-2">
-                                <FullWidthImage relativePath="/livguard/icons/squareWave.png" />
-                            </div>
-                            <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${secledtedInverterType == InverterType.square ? "lg-text-secondary-900" : "lg-text-secondary-100"}`)}>
-                                {getVernacularString("categoryInvertersS4BTTubular", userPreferences.language)}
-                            </div>
-                        </button>
-                    </DefaultElementAnimation>
-                </div>
+                        />
+                    </div>
+                </DefaultElementAnimation>
 
                 <VerticalSpacer className="tw-h-4" />
 
                 <OurSuggestionsComponent
-                    vernacularContent={secledtedInverterType == InverterType.sine ? sectionData[0] : sectionData[1]}
-                    // backgroundColor={secledtedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
+                    vernacularContent={selectedInverterType == InverterType.sine ? sectionData[0] : sectionData[1]}
+                    // backgroundColor={selectedInverterType == InverterType.sine ? "primary-500" : "secondary-100"}
+                    userPreferences={userPreferences}
                     className={"lg-bg-secondary-100"}
                 />
             </div>
@@ -688,45 +821,31 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
 }
 
 export function SuggestedComboSection({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const combosData: Array<{
-        title: string;
-        imageRelativePath: string;
-        buttonText: string;
-        bestseller: boolean;
-        link: string;
-    }> = [
+    const combosData: Array<ProductDetailsRecommendedProduct> = [
         {
-            title: `${getVernacularString("categoryInvertersS6Combo1Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
+            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo1Title", userPreferences.language),
+            slug: "urban-combo",
             bestseller: false,
-            link: "/product/urban-combo",
         },
         {
-            title: `${getVernacularString("categoryInvertersS6Combo2Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
+            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo2Title", userPreferences.language),
+            slug: "peace-of-mind-combo",
             bestseller: true,
-            link: "/product/peace-of-mind-combo",
         },
         {
-            title: `${getVernacularString("categoryInvertersS6Combo3Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/super-life-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
+            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo3Title", userPreferences.language),
+            slug: "super-life-combo",
             bestseller: true,
-            link: "/product/super-life-combo",
         },
         {
-            title: `${getVernacularString("categoryInvertersS6Combo4Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/hi-power-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
-            bestseller: false,
-            link: "/product/hi-power-combo",
+            humanReadableModelNumber: getVernacularString("categoryInvertersS6Combo4Title", userPreferences.language),
+            slug: "hi-power-combo",
+            bestseller: true,
         },
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col adasdasdas tw-max-w-7xl tw-mx-auto", className)}>
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -740,14 +859,14 @@ export function SuggestedComboSection({userPreferences, className}: {userPrefere
             <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
                 <ItemBuilder
                     items={combosData}
-                    itemBuilder={(combo, comboIndex) => (
+                    itemBuilder={(recommendedProduct, recommendedProductIndex) => (
                         <div
                             className={`lg-bg-secondary-100 tw-rounded-lg`}
-                            key={comboIndex}
+                            key={recommendedProductIndex}
                         >
                             <ProductCardComponent
-                                vernacularContent={combo}
-                                key={comboIndex}
+                                recommendedProduct={recommendedProduct}
+                                ctaTextId="categoryViewComboButtontext"
                                 userPreferences={userPreferences}
                             />
                         </div>

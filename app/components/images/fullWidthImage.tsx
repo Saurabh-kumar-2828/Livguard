@@ -3,7 +3,7 @@ import {FullWidthImageInternal} from "~/global-common-typescript/components/imag
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {getMetadataForImage} from "~/utilities";
 
-export function FullWidthImage({relativePath, className, loading}: {relativePath: string; className?: string, loading?: "eager" | "lazy"}) {
+export function FullWidthImage({relativePath, className, loading}: {relativePath: string; className?: string; loading?: "eager" | "lazy"}) {
     const websiteConfiguration = useContext(WebsiteConfigurationContext);
 
     const imageMetadata = getMetadataForImage(relativePath);
@@ -15,6 +15,7 @@ export function FullWidthImage({relativePath, className, loading}: {relativePath
             loading={loading}
             imageMetadata={imageMetadata}
             imageCdnProvider={websiteConfiguration.imageCdnProvider}
+            resolutionMultiplier={1.5}
         />
     );
 }

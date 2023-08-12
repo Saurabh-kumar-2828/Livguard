@@ -1,13 +1,14 @@
 import {Dialog, Transition} from "@headlessui/react";
-import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
-import {Form, Link, useActionData} from "@remix-run/react";
-import React, {useEffect, useState} from "react";
+import {Form, Link, useActionData, useFetcher} from "@remix-run/react";
+import React, {useEffect, useRef, useState} from "react";
 import {StarFill, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
-import {insertContactFormLeads} from "~/backend/dealer.server";
+import {getDealersForPinCode, insertContactFormLeads} from "~/backend/dealer.server";
+import {sendEmail} from "~/backend/email.server";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {SocialMediaIcons} from "~/components/footers/common";
 import {CoverImage} from "~/components/images/coverImage";
@@ -18,44 +19,160 @@ import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpac
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
+import {emailIdValidationPattern, indianPhoneNumberValidationPattern, pinCodeValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type {UserPreferences} from "~/typeDefinitions";
-import {Language} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import type {Dealer, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme} from "~/typeDefinitions";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import type {DealerActionData} from "~/routes/contact-us/get-dealers-for-pin-code";
+import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
+import {Oval} from "react-loader-spinner";
+import {FancySearchableSelect} from "~/components/scratchpad";
+import {verifyOtp} from "~/backend/authentication.server";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Get in Touch with Livguard: Contact Us Today",
+//             description: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+//             "og:title": "Get in Touch with Livguard: Contact Us Today",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/contact-us",
+//             "og:description": "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+//             "og:type": "Website",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
+//             description: " ग्राहक सहायता  नंबर पर संपर्क करें और लिवगार्ड से जुड़ें। समर्थन और समाधान के लिए हमारे टोल-फ्री नंबर पर कॉल करें।",
+//             "og:title": "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/contact-us",
+//             "og:description": " ग्राहक सहायता  नंबर पर संपर्क करें और लिवगार्ड से जुड़ें। समर्थन और समाधान के लिए हमारे टोल-फ्री नंबर पर कॉल करें।",
+//             "og:type": "website",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/contact-us"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Get in Touch with Livguard: Contact Us Today",
-            description: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
-            "og:title": "Get in Touch with Livguard: Contact Us Today",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/contact-us",
-            "og:description": "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
-            "og:type": "website",
-            "og:image": "",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/contact-us",
+            },
+            {
+                title: "Get in Touch with Livguard: Contact Us Today",
+            },
+            {
+                name: "description",
+                content: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/contact-us",
+            },
+            {
+                property: "og:title",
+                content: "Get in Touch with Livguard: Contact Us Today",
+            },
+            {
+                property: "og:description",
+                content: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+            {
+                "script:ld+json": {
+                    "@type": "SiteNavigationElement",
+                    name: "Contact Us",
+                    url: "https://www.livguard.com/contact-us",
+                    telephone: "+919205667999",
+                    contactType: "",
+                    streetAddress: "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                    addressLocality: "Gurugram",
+                    addressRegion: "Haryana",
+                    postalCode: "122016",
+                    addressCountry: "India",
+                    "E-mail": "marketing@livguard.com, export@sar-group.com",
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
-            description: "?????",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/contact-us",
+            },
+            {
+                title: "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
+            },
+            {
+                name: "description",
+                content: "ग्राहक सहायता  नंबर पर संपर्क करें और लिवगार्ड से जुड़ें। समर्थन और समाधान के लिए हमारे टोल-फ्री नंबर पर कॉल करें।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/contact-us",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
+            },
+            {
+                property: "og:description",
+                content: "ग्राहक सहायता  नंबर पर संपर्क करें और लिवगार्ड से जुड़ें। समर्थन और समाधान के लिए हमारे टोल-फ्री नंबर पर कॉल करें।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
 };
 
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/contact-us/"}];
-};
-
 export type ActionData = {
     error: string | null;
     formType: string | null;
+    isInvalidOtp?: boolean;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -67,17 +184,37 @@ export const action: ActionFunction = async ({request, params}) => {
     const formType = safeParse(getStringFromUnknown, body.get("formType"));
     const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
     const details = safeParse(getStringFromUnknown, body.get("queryDetails"));
-    let phoneNumber: string | null = "";
+    const phoneNumber = safeParse(getStringFromUnknown, body.get("phoneNumber"));
+    const otpSubmitted = safeParse(getStringFromUnknown, body.get("otpSubmitted"));
     let product: string | null = "";
     let rating: string | null = "";
     let complaintType: string | null = "";
+    let selectedDealerCode: string | null = "";
+
+    const otpVerificationResult = await verifyOtp(phoneNumber, otpSubmitted);
 
     if (formType == "complaintForm") {
-        phoneNumber = safeParse(getStringFromUnknown, body.get("phoneNumber"));
+        if (!otpVerificationResult.success) {
+            const actionData: ActionData = {
+                error: "Please enter valid otp! Error code: c07a58df-5019-4f01-8edf-6f75d62b644c",
+                formType: "complaintForm",
+                isInvalidOtp: true,
+            };
+            return json(actionData);
+        }
         complaintType = safeParse(getStringFromUnknown, body.get("complaintOption"));
+        selectedDealerCode = safeParse(getStringFromUnknown, body.get("selectedDealerCode"));
     }
 
     if (formType == "feedbackForm") {
+        if (!otpVerificationResult.success) {
+            const actionData: ActionData = {
+                error: "Please enter valid otp! Error code: c905c37c-bb49-4ede-8886-15ed59d433ef",
+                formType: "feedbackForm",
+                isInvalidOtp: true,
+            };
+            return json(actionData);
+        }
         product = safeParse(getStringFromUnknown, body.get("product"));
         rating = safeParse(getStringFromUnknown, body.get("rating"));
     }
@@ -109,7 +246,7 @@ export const action: ActionFunction = async ({request, params}) => {
             emailId: emailId,
             product: product,
             rating: rating,
-            detials: details,
+            details: details,
             formType: formType,
             utmParameters: utmParametersDecoded,
             termsAndConditionsChecked: termsAndConditionsChecked,
@@ -121,13 +258,38 @@ export const action: ActionFunction = async ({request, params}) => {
             };
             return json(actionData);
         }
+
+        const emailResult = await sendEmail(
+            JSON.stringify({
+                name: name,
+                emailId: emailId,
+                phoneNumber: phoneNumber,
+                complaintType: complaintType,
+                details: details,
+                formType: formType,
+                utmParameters: utmParameters,
+                termsAndConditionsChecked: termsAndConditionsChecked,
+            }),
+            ["livserv@sar-group.com", "shobheet.gupta@livguard.com"],
+            "Contact Us Page Lead Submitted",
+            ["developers@growthjockey.com"], //CC Added temporarily for testing purposes
+        );
+
+        if (emailResult instanceof Error) {
+            const actionData: ActionData = {
+                error: "Error in sending email! Error code: d7218e0d-fbac-4f77-a1cf-c596a1297f56",
+                formType: formType,
+            };
+            return actionData;
+        }
     } else {
         const insertResult = await insertContactFormLeads(generateUuid(), {
             name: name,
             emailId: emailId,
             phoneNumber: phoneNumber,
+            selectedDealerCode: selectedDealerCode,
             complaintType: complaintType,
-            detials: details,
+            details: details,
             formType: formType,
             utmParameters: utmParametersDecoded,
             termsAndConditionsChecked: termsAndConditionsChecked,
@@ -138,6 +300,31 @@ export const action: ActionFunction = async ({request, params}) => {
                 formType: formType,
             };
             return json(actionData);
+        }
+
+        const emailResult = await sendEmail(
+            JSON.stringify({
+                name: name,
+                emailId: emailId,
+                phoneNumber: phoneNumber,
+                selectedDealerCode: selectedDealerCode,
+                complaintType: complaintType,
+                details: details,
+                formType: formType,
+                utmParameters: utmParameters,
+                termsAndConditionsChecked: termsAndConditionsChecked,
+            }),
+            ["livserv@sar-group.com", "shobheet.gupta@livguard.com"],
+            "Contact Us Page Lead Submitted",
+            ["developers@growthjockey.com"], //CC Added temporarily for testing purposes
+        );
+
+        if (emailResult instanceof Error) {
+            const actionData: ActionData = {
+                error: "Error in sending email! Error code: eca6f639-b169-43db-a953-8a7267b2acd9",
+                formType: formType,
+            };
+            return actionData;
         }
     }
 
@@ -197,7 +384,7 @@ export default function () {
                 />
             </PageScaffold>
 
-            {
+            {/* {
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -218,7 +405,7 @@ export default function () {
                         `,
                     }}
                 ></script>
-            }
+            } */}
 
             {/* <ProductAndCategoryBottomBar
                 userPreferences={userPreferences}
@@ -291,7 +478,7 @@ function ContactPage({userPreferences, utmParameters, actionData}: {userPreferen
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto">
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto tw-w-full">
                 <WeAreListening
                     userPreferences={userPreferences}
                     className="tw-row-start-3 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-max-w-2xl lg:tw-justify-self-end"
@@ -311,11 +498,12 @@ function ContactPage({userPreferences, utmParameters, actionData}: {userPreferen
             <OurPresence
                 userPreferences={userPreferences}
                 className="tw-row-start-7 lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full"
+                headingTextContentId="contactUsS4H"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
-            {/*
-            <ExploreCareers
+
+            {/* <ExploreCareers
                 userPreferences={userPreferences}
                 className="tw-row-start-[9] lg:tw-row-start-7 tw-col-start-1 lg:tw-col-span-full"
             />
@@ -326,54 +514,23 @@ function ContactPage({userPreferences, utmParameters, actionData}: {userPreferen
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
-            ref={ref}
         >
-            {/* <CoverImage
-                relativePath="/livguard/category/batteries/1/1.jpg"
-                className="tw-row-[1/span_12] tw-col-start-1"
-                alt="Inverter battery"
-            /> */}
-
-            {/* {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? userPreferences.language == Language.English
-                                ? "/livguard/category/batteries/1/desktop_hero.jpg"
-                                : "/livguard/category/batteries/1/.jpg"
-                            : userPreferences.language == Language.English
-                            ? "/livguard/category/batteries/1/.jpg"
-                            : "/livguard/category/batteries/1/.jpg"
-                    }
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? userPreferences.language == Language.English
-                                ? "/livguard/category/batteries/1/.jpg"
-                                : "/livguard/category/batteries/1/.jpg"
-                            : userPreferences.language == Language.English
-                            ? "/livguard/category/batteries/1/.jpg"
-                            : "/livguard/category/batteries/1/.jpg"
-                    }
-                />
-            )} */}
-
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contact-us/1/mobile_hero.jpg" : "/livguard/contact-us/1/desktop_hero.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contact-us/1/mobile_hero.jpg" : "/livguard/contact-us/1/desktop_hero.jpg"}
-                />
-            )}
-
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/contact-us/1/mobile-banner.jpg" : "/livguard/contact-us/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/contact-us/1/mobile-banner.jpg" : "/livguard/contact-us/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("contactFormS1T1", userPreferences.language)}
@@ -406,9 +563,15 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
     useEffect(() => {
         if (actionData != null) {
             if (actionData.error != null) {
-                toast.error("Error in submitting form");
+                toast.error(actionData.error);
+                if (actionData.isInvalidOtp != null && actionData.isInvalidOtp == true) {
+                    setInvalidOtp(true);
+                }
+                setIsFeedbackFormButtonDisabled(false);
+                setIsComplaintFormButtonDisabled(false);
                 return;
             }
+            setInvalidOtp(false);
 
             if (actionData.formType != null) {
                 if (actionData.formType == "feedbackForm") {
@@ -419,6 +582,89 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
             }
         }
     }, [actionData]);
+
+    const [isFeedbackFormButtonDisabled, setIsFeedbackFormButtonDisabled] = useState(false);
+    const [isComplaintFormButtonDisabled, setIsComplaintFormButtonDisabled] = useState(false);
+
+    const [pinCode, setPinCode] = useState("");
+    const [dealers, setDealers] = useState<Array<Dealer> | null>(null);
+    const dealerFetcher = useFetcher();
+    const [selectedDealerIndex, setSelectedDealerIndex] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (dealerFetcher.data != null) {
+            if (dealerFetcher.data.error != null) {
+                toast.error("Error in finding dealer. Error Code: ed6784ce-3439-4b89-8ac5-8bee47d59a40");
+                return;
+            }
+            if (dealerFetcher.data.dealers.length === 0) {
+                toast.error("No dealers found for this pincode");
+            }
+
+            setDealers(dealerFetcher.data.dealers);
+        }
+    }, [dealerFetcher.data]);
+
+    const [showOtpField, setShowOtpField] = useState(false);
+    const [showOtpButton, setShowOtpButton] = useState(false);
+    const [resendTimeOut, setResendTimeOut] = useState(0);
+    const [invalidOtp, setInvalidOtp] = useState(false);
+    const [isOtpResent, setIsOtpResent] = useState(false);
+    const phoneNumberRef = useRef<HTMLInputElement | null>(null);
+    const otpFieldRef = useRef<HTMLInputElement | null>(null);
+    const [complaintFormPhoneNumber, setComplaintFormPhoneNumber] = useState("");
+    const [complaintFormName, setComplaintFormName] = useState("");
+
+    const [feedbackFormPhoneNumber, setFeedbackFormPhoneNumber] = useState("");
+    const [feedbackFormName, setFeedbackFormName] = useState("");
+
+    const [otpSubmitted, setIsOtpSubmitted] = useState(false);
+    const otpFetcher = useFetcher();
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (isOtpResent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0 && showOtpField) {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
+                console.log("action dispatching", resendTimeOut);
+                // const action: FormStateInputsAction = {
+                //     actionType: FormStateInputsActionType.SetResendTimeOut,
+                //     payload: formStateInputs.resendTimeOut - 1,
+                // };
+                // dispatch(action);
+                setResendTimeOut((prev) => prev - 1);
+            }, 1000);
+            setTimeoutId(timeout);
+        }
+    }, [resendTimeOut]);
+
+    const resetOtpState = () => {
+        setShowOtpButton(false);
+        setShowOtpField(false);
+        setInvalidOtp(false);
+        setIsOtpResent(false);
+        setResendTimeOut(0);
+        setFeedbackFormName("");
+        setFeedbackFormPhoneNumber("");
+        setComplaintFormName("");
+        setComplaintFormPhoneNumber("");
+    };
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_1rem_auto_1.5rem_minmax(0,1fr)] tw-w-full", className)}>
@@ -432,9 +678,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                 <div
                     className={concatenateNonNullStringsWithSpaces(
                         "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-1 hover:tw-cursor-pointer",
-                        `${selectedIndex == 0 ? "tw-bg-primary-500-light" : "lg-bg-secondary-100"}`,
+                        `${selectedIndex == 0 ? "tw-bg-primary-500-light" : "lg-card"}`,
                     )}
-                    onClick={() => setSelectedIndex(0)}
+                    onClick={() => {
+                        setSelectedIndex(0);
+                        resetOtpState();
+                    }}
                 >
                     <div className={`lg-text-body tw-font-bold tw-px-6 ${selectedIndex === 0 ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}>
                         {getVernacularString("contactUsS3Feedback", userPreferences.language)}
@@ -444,9 +693,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                 <div
                     className={concatenateNonNullStringsWithSpaces(
                         "tw-max-w-fit tw-p-4 tw-rounded-md tw-grid tw-items-center tw-justify-center tw-col-start-3 hover:tw-cursor-pointer",
-                        `${selectedIndex == 1 ? "tw-bg-primary-500-light" : "lg-bg-secondary-100"}`,
+                        `${selectedIndex == 1 ? "tw-bg-primary-500-light" : "lg-card"}`,
                     )}
-                    onClick={() => setSelectedIndex(1)}
+                    onClick={() => {
+                        setSelectedIndex(1);
+                        resetOtpState();
+                    }}
                 >
                     <div className={`lg-text-body tw-font-bold tw-px-6 ${selectedIndex === 1 ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900"}`}>
                         {getVernacularString("contactUsS3Complaint", userPreferences.language)}
@@ -462,9 +714,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                         !isFeedbackFormSubmitted ? (
                             <Form
                                 method="post"
-                                className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2 tw-place-self-start"
+                                className="tw-grid tw-grid-flow-row tw-gap-x-4 lg:tw-px-2 tw-place-self-start"
+                                onSubmit={() => {
+                                    setIsFeedbackFormButtonDisabled(true);
+                                }}
                             >
-                                <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-justify-start tw-gap-2">
+                                <div className="tw-grid tw-grid-flow-row tw-justify-start tw-gap-2">
                                     <div className="tw-row-start-1">
                                         <div className="lg-text-body lg-text-secondary-900 tw-text-left">{getVernacularString("contactUsS3FeedbackFormT1", userPreferences.language)}</div>
                                     </div>
@@ -487,7 +742,9 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     </div>
                                 </div>
 
-                                <div className="tw-row-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                <div className="tw-grid tw-grid-flow-row tw-gap-2">
                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
 
                                     <input
@@ -500,19 +757,159 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     />
                                 </div>
 
-                                <div className="tw-row-start-3 tw-grid tw-grid-flow-row tw-gap-2">
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                <div className="tw-grid tw-grid-flow-row tw-gap-2">
                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
 
                                     <input
                                         type="text"
                                         name="name"
+                                        onChange={(e) => {
+                                            setFeedbackFormName(e.target.value);
+                                        }}
+                                        value={feedbackFormName}
                                         className="lg-text-input"
                                         placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
                                         required
                                     />
                                 </div>
 
-                                <div className="tw-grid tw-row-start-4 tw-grid-flow-row tw-gap-2">
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row tw-gap-2">
+                                    {!showOtpField ? (
+                                        <div className="lg-text-secondary-900">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+                                    ) : (
+                                        <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
+                                            <div
+                                                className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
+                                                onClick={(e) => {
+                                                    setShowOtpField(false);
+                                                    setResendTimeOut(0);
+                                                    if (phoneNumberRef.current != null) {
+                                                        phoneNumberRef.current.focus();
+                                                    }
+                                                }}
+                                            >
+                                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                            </div>
+                                            <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{feedbackFormPhoneNumber}</div>
+                                        </div>
+                                    )}
+
+                                    {!showOtpField ? (
+                                        <div className="tw-relative tw-w-full tw-items-center tw-grid">
+                                            <input
+                                                type="text"
+                                                name="phoneNumber"
+                                                pattern={indianPhoneNumberValidationPattern}
+                                                placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                                required
+                                                className="lg-text-input tw-w-full"
+                                                disabled={showOtpField}
+                                                defaultValue={feedbackFormPhoneNumber}
+                                                ref={phoneNumberRef}
+                                                onChange={(e) => {
+                                                    setFeedbackFormPhoneNumber(e.target.value);
+                                                    if (e.target.value.length == 10) {
+                                                        setShowOtpButton(true);
+                                                    } else {
+                                                        setShowOtpButton(false);
+                                                    }
+                                                }}
+                                                onBlur={(e) => {
+                                                    if (feedbackFormPhoneNumber.length == 10) {
+                                                        setShowOtpButton(true);
+                                                    }
+                                                }}
+                                                onFocus={(e) => {
+                                                    if (feedbackFormPhoneNumber.length == 10) {
+                                                        setShowOtpButton(true);
+                                                    }
+                                                }}
+                                            />
+                                            <div
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                                    showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-10 tw-duration-100",
+                                                )}
+                                                onClick={(e) => {
+                                                    if (feedbackFormName.length === 0) {
+                                                        toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
+                                                        return;
+                                                    }
+                                                    setShowOtpButton(false);
+                                                    setShowOtpField(true);
+                                                    setResendTimeOut(60);
+
+                                                    if (otpFieldRef.current != null) {
+                                                        otpFieldRef.current.focus();
+                                                    }
+                                                    const data = new FormData();
+                                                    data.append("phoneNumber", feedbackFormName);
+                                                    data.append("name", feedbackFormPhoneNumber);
+                                                    otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                                }}
+                                            >
+                                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div
+                                            className={concatenateNonNullStringsWithSpaces(
+                                                "tw-w-full",
+                                                showOtpField ? "tw-flex tw-flex-col tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                            )}
+                                        >
+                                            <div className="tw-relative">
+                                                <input
+                                                    type="text"
+                                                    name="otpSubmitted"
+                                                    className="lg-text-input"
+                                                    required
+                                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                    ref={otpFieldRef}
+                                                    onChange={(e) => {
+                                                        setIsOtpSubmitted(true);
+                                                    }}
+                                                />
+                                                {invalidOtp && (
+                                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-full tw-px-3 lg:tw-col-start-1",
+                                        showOtpField ? "tw-flex tw-flex-row tw-justify-between tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                    )}
+                                >
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                                        onClick={() => {
+                                            setIsOtpResent(true);
+                                            setResendTimeOut(60);
+
+                                            const data = new FormData();
+                                            data.append("phoneNumber", feedbackFormPhoneNumber);
+                                            data.append("name", feedbackFormName);
+                                            otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                        }}
+                                    >
+                                        {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                    </div>
+                                    <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                                </div>
+
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                <div className="tw-grid tw-grid-flow-row tw-gap-2">
                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormProductText", userPreferences.language)}</div>
 
                                     <div className="tw-row-start-2">
@@ -528,7 +925,9 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     </div>
                                 </div>
 
-                                <div className="tw-grid tw-row-start-5 tw-grid-flow-row tw-gap-2">
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                <div className="tw-grid tw-grid-flow-row tw-gap-2">
                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FeedbackFormDetailText", userPreferences.language)}</div>
 
                                     <textarea
@@ -539,7 +938,9 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     />
                                 </div>
 
-                                <div className="tw-grid tw-row-start-6 tw-grid-flow-col tw-gap-4 tw-items-start">
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                <div className="tw-grid tw-grid-flow-col tw-gap-4 tw-items-start">
                                     <input
                                         type="checkbox"
                                         name="termsAndConditionsChecked"
@@ -589,10 +990,17 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     value={feedbackFormSelectedProduct == null ? "" : productItems[feedbackFormSelectedProduct]}
                                 />
 
+                                <HiddenFormField
+                                    name="phoneNumber"
+                                    value={feedbackFormPhoneNumber}
+                                />
+
+                                <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
                                 <button
                                     type="submit"
-                                    className="tw-row-start-7 lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
-                                    disabled={rating == 0}
+                                    className="lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start"
+                                    disabled={rating == 0 || isFeedbackFormButtonDisabled || otpFetcher.data == null || !otpSubmitted}
                                 >
                                     {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
                                 </button>
@@ -636,9 +1044,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                     ) : !isComplaintFormSubmitted ? (
                         <Form
                             method="post"
-                            className="tw-grid tw-grid-flow-row tw-gap-4 lg:tw-px-2  tw-place-self-center"
+                            className="tw-grid tw-grid-flow-row lg:tw-grid-cols-2 lg:tw-gap-x-4 lg:tw-px-2 tw-place-self-center"
+                            onSubmit={() => {
+                                setIsComplaintFormButtonDisabled(true);
+                            }}
                         >
-                            <div className="tw-grid tw-row-start-1 tw-grid-flow-row tw-gap-2">
+                            <div className="tw-grid tw-grid-flow-row tw-gap-2 lg:tw-col-span-full">
                                 <div className="lg-text-body lg-text-secondary-900 tw-row-start-1 tw-text-left">
                                     {getVernacularString("contactUsS3ComplaintFormRadioText", userPreferences.language)}
                                 </div>
@@ -678,7 +1089,9 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 </div>
                             </div>
 
-                            <div className="tw-grid tw-row-start-2 tw-grid-flow-row tw-gap-2">
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="tw-grid tw-grid-flow-row tw-gap-2 lg:tw-col-span-full">
                                 <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3ComplaintFormDetailText", userPreferences.language)}</div>
 
                                 <textarea
@@ -690,47 +1103,27 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 />
                             </div>
 
-                            <div className="tw-grid tw-row-start-3 tw-grid-flow-row tw-gap-2">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
 
                                 <input
                                     type="text"
-                                    name="phoneNumber"
-                                    className="lg-text-input tw-row-start-2"
-                                    pattern={indianPhoneNumberValidationPattern}
-                                    placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                    name="name"
+                                    onChange={(e) => {
+                                        setComplaintFormName(e.target.value);
+                                    }}
+                                    value={complaintFormName}
+                                    className="lg-text-input"
+                                    placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
                                     required
                                 />
                             </div>
 
-                            {/* <div className="tw-grid tw-row-start-4 tw-grid-cols-2 tw-gap-2">
-                                <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
+                            <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
-                                    <input
-                                        type="text"
-                                        name="emailId"
-                                        className="lg-text-input"
-                                        pattern={emailIdValidationPattern}
-                                        placeholder={getVernacularString("contactUsS3FormEmailPlaceholder", userPreferences.language)}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
-                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
-
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        className="lg-text-input"
-                                        placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
-                                        required
-                                    />
-                                </div>
-                            </div> */}
-
-                            <div className="tw-row-start-4 tw-grid tw-grid-flow-row tw-gap-2">
+                            <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
                                 <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormEmailText", userPreferences.language)}</div>
 
                                 <input
@@ -743,19 +1136,272 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 />
                             </div>
 
-                            <div className="tw-row-start-5 tw-grid tw-grid-flow-row tw-gap-2">
-                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNameText", userPreferences.language)}</div>
+                            <VerticalSpacer className="tw-h-4" />
+
+                            <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row tw-gap-2">
+                                {!showOtpField ? (
+                                    <div className="lg-text-secondary-900">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
+                                ) : (
+                                    <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
+                                        <div
+                                            className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
+                                            onClick={(e) => {
+                                                setShowOtpField(false);
+                                                setResendTimeOut(0);
+                                                if (phoneNumberRef.current != null) {
+                                                    phoneNumberRef.current.focus();
+                                                }
+                                            }}
+                                        >
+                                            {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                        </div>
+                                        <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{complaintFormPhoneNumber}</div>
+                                    </div>
+                                )}
+
+                                {!showOtpField ? (
+                                    <div className="tw-relative tw-w-full tw-items-center tw-grid">
+                                        <input
+                                            type="text"
+                                            name="phoneNumber"
+                                            pattern={indianPhoneNumberValidationPattern}
+                                            placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
+                                            required
+                                            className="lg-text-input tw-w-full"
+                                            disabled={showOtpField}
+                                            defaultValue={complaintFormPhoneNumber}
+                                            ref={phoneNumberRef}
+                                            onChange={(e) => {
+                                                setComplaintFormPhoneNumber(e.target.value);
+                                                if (e.target.value.length == 10) {
+                                                    setShowOtpButton(true);
+                                                } else {
+                                                    setShowOtpButton(false);
+                                                }
+                                            }}
+                                            onBlur={(e) => {
+                                                if (complaintFormPhoneNumber.length == 10) {
+                                                    setShowOtpButton(true);
+                                                }
+                                            }}
+                                            onFocus={(e) => {
+                                                if (complaintFormPhoneNumber.length == 10) {
+                                                    setShowOtpButton(true);
+                                                }
+                                            }}
+                                        />
+                                        <div
+                                            className={concatenateNonNullStringsWithSpaces(
+                                                "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                                showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-10 tw-duration-100",
+                                            )}
+                                            onClick={(e) => {
+                                                if (complaintFormName.length === 0) {
+                                                    toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
+                                                    return;
+                                                }
+                                                setShowOtpButton(false);
+                                                setShowOtpField(true);
+                                                setResendTimeOut(60);
+
+                                                if (otpFieldRef.current != null) {
+                                                    otpFieldRef.current.focus();
+                                                }
+                                                const data = new FormData();
+                                                data.append("phoneNumber", complaintFormPhoneNumber);
+                                                data.append("name", complaintFormName);
+                                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                            }}
+                                        >
+                                            {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "tw-w-full",
+                                            showOtpField ? "tw-flex tw-flex-col tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                        )}
+                                    >
+                                        <div className="tw-relative">
+                                            <input
+                                                type="text"
+                                                name="otpSubmitted"
+                                                className="lg-text-input"
+                                                required
+                                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                ref={otpFieldRef}
+                                                onChange={(e) => {
+                                                    setIsOtpSubmitted(true);
+                                                }}
+                                            />
+                                            {invalidOtp && (
+                                                <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-w-full tw-px-3 lg:tw-col-start-1 lg:tw-hidden",
+                                    showOtpField ? "tw-flex tw-flex-row tw-justify-between tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                )}
+                            >
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                                    onClick={() => {
+                                        setIsOtpResent(true);
+                                        setResendTimeOut(60);
+
+                                        const data = new FormData();
+                                        data.append("phoneNumber", complaintFormPhoneNumber);
+                                        data.append("name", complaintFormName);
+                                        otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                    }}
+                                >
+                                    {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                </div>
+                                <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                            </div>
+
+                            <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+
+                            <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("10cb3115-ba0a-4e30-af0b-de71d6240f73", userPreferences.language)}</div>
 
                                 <input
                                     type="text"
-                                    name="name"
+                                    name="pincode"
+                                    pattern={pinCodeValidationPattern}
+                                    value={pinCode}
+                                    onChange={async (e) => {
+                                        setPinCode(e.target.value);
+                                        if (e.target.value.length < 6) {
+                                            setDealers(null);
+                                            return;
+                                        }
+                                        if (e.target.value.length == 6) {
+                                            const data = new FormData();
+                                            data.append("pincode", e.target.value);
+                                            dealerFetcher.submit(data, {method: "post", action: "/contact-us/get-dealers-for-pin-code"});
+                                        }
+                                    }}
+                                    maxLength={6}
                                     className="lg-text-input"
-                                    placeholder={getVernacularString("contactUsS3FormNamePlaceholder", userPreferences.language)}
+                                    placeholder={getVernacularString("de42afeb-0e61-47c6-917f-db597603506a", userPreferences.language)}
                                     required
                                 />
                             </div>
 
-                            <div className="tw-grid tw-row-start-6 tw-grid-flow-col tw-gap-4 tw-items-start">
+                            <div
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "max-lg:tw-hidden tw-w-full tw-px-3 lg:tw-col-start-1",
+                                    showOtpField ? "tw-flex tw-flex-row tw-justify-between tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                )}
+                            >
+                                <div
+                                    className={concatenateNonNullStringsWithSpaces("lg-text-secondary-700 tw-text-[12px]", `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`)}
+                                    onClick={() => {
+                                        setIsOtpResent(true);
+                                        setResendTimeOut(60);
+
+                                        const data = new FormData();
+                                        data.append("phoneNumber", complaintFormPhoneNumber);
+                                        data.append("name", complaintFormName);
+                                        otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                    }}
+                                >
+                                    {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                </div>
+                                <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                            </div>
+
+                            <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                            {dealerFetcher.state !== "idle" ? (
+                                <Oval
+                                    height={40}
+                                    width={40}
+                                    color={userPreferences.theme === Theme.Light ? "#1F2022" : "#F2F2F2"}
+                                    wrapperStyle={{}}
+                                    wrapperClass="lg:tw-col-span-full tw-justify-self-center"
+                                    ariaLabel="oval-loading"
+                                    secondaryColor={userPreferences.theme === Theme.Light ? "#474546" : "#F2F2F280"}
+                                    strokeWidth={4}
+                                    strokeWidthSecondary={4}
+                                />
+                            ) : (
+                                <div className="tw-grid tw-gap-2 lg:tw-col-span-full">
+                                    <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("76bb0c30-c244-4815-b68d-a1780f8c697e", userPreferences.language)}</div>
+
+                                    {/* <FancySearchableSelect
+                                        items={
+                                            dealers == null
+                                                ? []
+                                                : dealers.map((dealer, dealerIndex) => {
+                                                      return {
+                                                          name: dealer.name,
+                                                          area: dealer.area,
+                                                          index: dealerIndex,
+                                                      };
+                                                  })
+                                        }
+                                        selectedItem={dealers == null || selectedDealerIndex == null ? null : `${dealers[selectedDealerIndex].name} - ${dealers[selectedDealerIndex].area}`}
+                                        placeholder={getVernacularString("11eba4f7-13aa-45bd-93bd-31d98b72531a", userPreferences.language)}
+                                        setSelectedItem={(dealer) => setSelectedDealerIndex(dealer.index)}
+                                        filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
+                                        renderFunction={(item) => {
+                                            if (item == null) return null;
+                                            return `${item.name} - ${item.area}`;
+                                        }}
+                                        disabled={dealers == null}
+                                        inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
+                                    /> */}
+
+                                    <FormSelectComponent
+                                        items={
+                                            dealers == null
+                                                ? []
+                                                : dealers?.map((dealer, dealerIndex) => {
+                                                      return {
+                                                          name: dealer.name,
+                                                          area: dealer.area,
+                                                          address: dealer.address,
+                                                          index: dealerIndex,
+                                                      };
+                                                  })
+                                        }
+                                        itemBuilder={(dealer) => {
+                                            return dealer == null
+                                                ? getVernacularString("11eba4f7-13aa-45bd-93bd-31d98b72531a", userPreferences.language)
+                                                : `
+                                                <div
+                                                    className="tw-m-4 tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-grid-flow-row"
+                                                >
+                                                    ${dealer.name == "" ? "Select Dealer" : `<div className="lg-text-body-bold">${dealer?.name} - ${dealer?.area}</div>`}
+                                                    
+                                                </div>
+                                            `;
+                                        }}
+                                        value={
+                                            selectedDealerIndex == null
+                                                ? {name: "", area: "", index: -1}
+                                                : {name: dealers[selectedDealerIndex].name, area: dealers[selectedDealerIndex].area, index: selectedDealerIndex}
+                                        }
+                                        setValue={(dealer) => setSelectedDealerIndex(dealer?.index)}
+                                        buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
+                                        disabled={dealers == null}
+                                    />
+                                </div>
+                            )}
+
+                            <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-col tw-gap-4 tw-items-start lg:tw-col-span-full")}>
                                 <input
                                     type="checkbox"
                                     name="termsAndConditionsChecked"
@@ -773,6 +1419,8 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                     className="tw-flex-1"
                                 />
                             </div>
+
+                            <VerticalSpacer className="tw-h-4" />
 
                             <input
                                 name="utmParameters"
@@ -793,10 +1441,23 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 value={isComplaintFormTermsAndConditionsChecked ? "True" : "False"}
                             />
 
+                            <HiddenFormField
+                                name="selectedDealerCode"
+                                value={selectedDealerIndex == null || dealers == null ? "" : dealers[selectedDealerIndex].dealerCode}
+                            />
+
+                            <HiddenFormField
+                                name="phoneNumber"
+                                value={complaintFormPhoneNumber}
+                            />
+
                             <button
                                 type="submit"
-                                className="tw-row-start-7 lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start"
-                                disabled={complaintFormOption === 0}
+                                className={concatenateNonNullStringsWithSpaces(
+                                    // dealerFetcher.state === "submitting" || (dealers != null && dealers.length > 0) ? "tw-row-start-9 lg:tw-row-start-7" : "tw-row-start-8 lg:tw-row-start-6",
+                                    "lg:tw-col-span-full lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-max-w-fit tw-place-self-center lg:tw-place-self-start",
+                                )}
+                                disabled={complaintFormOption === 0 || isComplaintFormButtonDisabled || otpFetcher.data == null || !otpSubmitted}
                             >
                                 {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
                             </button>
@@ -834,8 +1495,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function CallUsCard() {
         return (
-            <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-1 lg:lg-card lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
                         src="https://files.growthjockey.com/livguard/icons/contact-us/call-us.svg"
@@ -865,8 +1526,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function WhatsappUsCard() {
         return (
-            <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-1 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-2 lg:lg-card lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/contact-us/whatsapp-us.svg"
@@ -894,8 +1555,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function EmailUsCard() {
         return (
-            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:lg-card lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4 tw-h-full">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/contact-us/email-us.svg"
@@ -923,8 +1584,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function RequestAServiceCard() {
         return (
-            <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-bg-secondary-300 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-3 tw-col-start-3 lg:tw-col-span-full lg:tw-row-start-4 lg:lg-card lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-cols-[auto_1.5rem_minmax(0,1fr)] tw-items-center lg:tw-px-4 lg:tw-py-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 tw-rounded-full lg-card tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/contact-us/request-service.svg"
@@ -1130,61 +1791,63 @@ function ContactUsDialog({
     );
 }
 
-function OurPresence({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+export function OurPresence({userPreferences, className, headingTextContentId}: {userPreferences: UserPreferences; className?: string; headingTextContentId: string}) {
+    const presenceData = [
+        {
+            imageUrl: "/livguard/contact-us/3/India.png",
+            title: "contactUsS4Option1Heading",
+            description: "contactUsS4Option1Text",
+            buttonText: "contactUsS4ButtonText",
+            buttonLink: "/india-ops",
+        },
+        {
+            imageUrl: "/livguard/contact-us/3/International.png",
+            title: "contactUsS4Option2Heading",
+            description: "contactUsS4Option2Text",
+            buttonText: "contactUsS4ButtonText",
+            buttonLink: "/global-ops",
+        },
+    ];
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
-                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS4H", userPreferences.language))}} />
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString(headingTextContentId, userPreferences.language))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
 
-            <div className="tw-row-start-3 tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-grid-cols-2 lg:tw-grid-rows-1 tw-gap-x-16 tw-gap-y-8">
-                <div className="tw-row-start-1 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-6 tw-py-10 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start !tw-self-center">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/contact-us/india.svg"
-                            alt="india-operations"
-                            className="tw-w-[3.5rem] tw-h-[3.5rem] "
-                        />
-                    </div>
-
-                    <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto]">
-                        <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option1Heading", userPreferences.language)}</div>
-
-                        <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option1Text", userPreferences.language)}</div>
-
-                        {/* <Link
-                            to="/"
-                            className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
+            <div className="tw-row-start-3 tw-grid tw-grid-cols-1 tw-grid-rows-2 tw-grid-flow-row lg:tw-grid-cols-2 lg:tw-grid-rows-1 lg:tw-grid-flow-col tw-gap-x-4 tw-gap-y-8">
+                {presenceData.map((presence, presenceIndex) => {
+                    return (
+                        <div
+                            className="lg-card tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-rounded-lg"
+                            key={presenceIndex}
                         >
-                            {getVernacularString("contactUsS4ButtonText", userPreferences.language)}
-                        </Link> */}
-                    </div>
-                </div>
+                            <div className="tw-row-start-1 tw-w-[calc(100%+1px)] tw-h-full lg:tw-w-full lg:tw-h-[calc(100%+2px)] tw-px-4 tw-py-3 lg-bg-secondary-300 tw-bg-opacity-30 tw-rounded-t-lg lg:tw-rounded-tl-lg lg:tw-rounded-bl-lg lg:tw-rounded-t-none lg:tw-grid lg:tw-items-center">
+                                <div className="tw-w-full tw-py-4 tw-rounded-lg tw-grid tw-justify-items-center lg-bg-secondary-100 lg:tw-h-full lg:tw-p-4 lg:tw-grid lg:tw-items-center">
+                                    <img
+                                        src={getAbsolutePathForRelativePath(getMetadataForImage(presence.imageUrl).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                        className="tw-w-[6.25rem] tw-h-[6.25rem]"
+                                    />
+                                </div>
+                            </div>
 
-                <div className="tw-row-start-2 tw-col-start-1 tw-rounded-lg tw-border lg-border-secondary-900 tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-px-6 tw-py-10 tw-items-center">
-                    <div className="tw-col-start-1 tw-row-start-1 tw-rounded-full lg-bg-secondary-100 tw-h-[6.25rem] tw-w-[6.25rem] tw-grid tw-items-center tw-justify-center tw-place-self-center lg:tw-place-self-start !tw-self-center">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/contact-us/international.svg"
-                            alt="international-operations"
-                            className="tw-w-[3.5rem] tw-h-[3.5rem] tw-self-center"
-                        />
-                    </div>
+                            <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto_1rem] tw-px-6 tw-py-2">
+                                <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString(presence.title, userPreferences.language)}</div>
 
-                    <div className="tw-col-start-1 tw-row-start-3 lg:tw-col-start-3 lg:tw-row-start-1 tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)_0.5rem_auto]">
-                        <div className="lg-text-body tw-font-bold tw-row-start-1 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option2Heading", userPreferences.language)}</div>
+                                <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString(presence.description, userPreferences.language)}</div>
 
-                        <div className="lg-text-body tw-row-start-3 tw-text-center lg:tw-text-left">{getVernacularString("contactUsS4Option2Text", userPreferences.language)}</div>
-
-                        {/* <Link
-                            to="/"
-                            className="lg-cta-outline-button tw-max-w-fit tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
-                        >
-                            {getVernacularString("contactUsS4ButtonText", userPreferences.language)}
-                        </Link> */}
-                    </div>
-                </div>
+                                <Link
+                                    to={presence.buttonLink}
+                                    className="lg-cta-outline-button lg-cta-outline-button-transition hover:tw-px-[3.125rem] tw-row-start-5 tw-place-self-center lg:tw-place-self-start"
+                                >
+                                    {getVernacularString(presence.buttonText, userPreferences.language)}
+                                </Link>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

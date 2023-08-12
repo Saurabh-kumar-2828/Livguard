@@ -1,4 +1,4 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -11,7 +11,7 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
@@ -21,6 +21,125 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {ProductType} from "~/productData";
 import {useState} from "react";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {DealerLocator} from "~/routes";
+
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Empower Your Home with Livguard Stabilizers",
+//             description: "Experience seamless and steady energy with high-quality, feature-led solutions for AC, TV, and more with Livguard voltage stabilizers.",
+//             "og:title": "Empower Your Home with Livguard Stabilizers",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/stabilizer",
+//             "og:description": "Experience seamless and steady energy with high-quality, feature-led solutions for AC, TV, and more with Livguard voltage stabilizers.",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
+//             description: "लिवगार्ड वोल्टेज स्टेबलाइजर्स के साथ एसी, टीवी और अन्य के लिए उच्च-गुणवत्ता, फीचर-आधारित समाधानों के साथ निर्बाध और स्थिर ऊर्जा का अनुभव करें।",
+//             "og:title": "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/stabilizer",
+//             "og:description": "लिवगार्ड वोल्टेज स्टेबलाइजर्स के साथ एसी, टीवी और अन्य के लिए उच्च-गुणवत्ता, फीचर-आधारित समाधानों के साथ निर्बाध और स्थिर ऊर्जा का अनुभव करें।",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/stabilizer"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/stabilizer",
+            },
+            {
+                title: "Empower Your Home with Livguard Stabilizers",
+            },
+            {
+                name: "description",
+                content: "Experience seamless and steady energy with high-quality, feature-led solutions for AC, TV, and more with Livguard voltage stabilizers.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/stabilizer",
+            },
+            {
+                property: "og:title",
+                content: "Empower Your Home with Livguard Stabilizers",
+            },
+            {
+                property: "og:description",
+                content: "Experience seamless and steady energy with high-quality, feature-led solutions for AC, TV, and more with Livguard voltage stabilizers.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/stabilizer"
+            },
+            {
+                title: "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड वोल्टेज स्टेबलाइजर्स के साथ एसी, टीवी और अन्य के लिए उच्च-गुणवत्ता, फीचर-आधारित समाधानों के साथ निर्बाध और स्थिर ऊर्जा का अनुभव करें।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/stabilizer",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड वोल्टेज स्टेबलाइजर्स के साथ एसी, टीवी और अन्य के लिए उच्च-गुणवत्ता, फीचर-आधारित समाधानों के साथ निर्बाध और स्थिर ऊर्जा का अनुभव करें।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -63,7 +182,10 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
-                breadcrumbs={[]}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "273b847e-61e5-4a66-8c6d-a0539da153e2", link: "#"},
+                ]}
             >
                 <StabilizerPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -103,7 +225,7 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <WeAreEverywhere
+                    <DealerLocator
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
@@ -583,7 +705,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
 
                 <div className="tw-p-4">
                     <FullWidthImage
-                        relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
+                        relativePath={`/livguard/products/${slug}/thumbnail.png`}
                     />
 
                     <div className="tw-w-full tw-capitalize tw-text-center lg-text-body-bold lg-text-secondary-900">{ProductType[`${productType}`]}</div>
@@ -671,42 +793,6 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                                 key={featuredProductIndex}
                             />
                         ))}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2 tw-text-center">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
-                            </Link>
-                        </>
-                    )}
                 </div>
             </div>
         </div>

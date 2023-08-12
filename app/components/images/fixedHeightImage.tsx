@@ -16,6 +16,7 @@ export function FixedHeightImage({relativePath, height, className, loading}: {re
             loading={loading}
             imageMetadata={imageMetadata}
             imageCdnProvider={websiteConfiguration.imageCdnProvider}
+            resolutionMultiplier={1.5}
         />
     );
 }

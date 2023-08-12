@@ -1,4 +1,4 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -13,23 +13,139 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {ProductType, allProductDetails} from "~/productData";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
-import {CarouselStyle4} from "~/components/carouselStyle4";
-import {FullHeightImage} from "~/components/images/fullHeightImage";
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {DealerLocator} from "~/routes";
+
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Unleash Tractor Power with the Pradhan of Batteries",
+//             description: "Empower India's agriculture segment with our power-packed tractor battery choices. Keep moving forward with Livguard's Pradhan of All Batteries.",
+//             "og:title": "Unleash Tractor Power with the Pradhan of Batteries",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/tractor-batteries",
+//             "og:description": "Empower India's agriculture segment with our power-packed tractor battery choices. Keep moving forward with Livguard's Pradhan of All Batteries.",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "बैटरियों के प्रधान के साथ ट्रैक्टर की शक्ति को उजागर करें",
+//             description: "हमारे पावर-पैक्ड ट्रैक्टर बैटरी विकल्पों के साथ भारत के कृषि क्षेत्र को सशक्त बनाएं। लिवगार्ड के सभी बैटरियों के प्रधान के साथ आगे बढ़ते रहें।",
+//             "og:title": "बैटरियों के प्रधान के साथ ट्रैक्टर की शक्ति को उजागर करें",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/tractor-batteries",
+//             "og:description": "हमारे पावर-पैक्ड ट्रैक्टर बैटरी विकल्पों के साथ भारत के कृषि क्षेत्र को सशक्त बनाएं। लिवगार्ड के सभी बैटरियों के प्रधान के साथ आगे बढ़ते रहें।",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/tractor-batteries"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/tractor-batteries",
+            },
+            {
+                title: "Unleash Tractor Power with the Pradhan of Batteries",
+            },
+            {
+                name: "description",
+                content: "Empower India's agriculture segment with our power-packed tractor battery choices. Keep moving forward with Livguard's Pradhan of All Batteries.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/tractor-batteries",
+            },
+            {
+                property: "og:title",
+                content: "Unleash Tractor Power with the Pradhan of Batteries",
+            },
+            {
+                property: "og:description",
+                content: "Empower India's agriculture segment with our power-packed tractor battery choices. Keep moving forward with Livguard's Pradhan of All Batteries.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/tractor-batteries",
+            },
+            {
+                title: "बैटरियों के प्रधान के साथ ट्रैक्टर की शक्ति को उजागर करें",
+            },
+            {
+                name: "description",
+                content: "हमारे पावर-पैक्ड ट्रैक्टर बैटरी विकल्पों के साथ भारत के कृषि क्षेत्र को सशक्त बनाएं। लिवगार्ड के सभी बैटरियों के प्रधान के साथ आगे बढ़ते रहें।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/tractor-batteries",
+            },
+            {
+                property: "og:title",
+                content: "बैटरियों के प्रधान के साथ ट्रैक्टर की शक्ति को उजागर करें",
+            },
+            {
+                property: "og:description",
+                content: "हमारे पावर-पैक्ड ट्रैक्टर बैटरी विकल्पों के साथ भारत के कृषि क्षेत्र को सशक्त बनाएं। लिवगार्ड के सभी बैटरियों के प्रधान के साथ आगे बढ़ते रहें।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -64,7 +180,11 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "5a1d25fa-a3af-4cab-9cdf-43b6f0675973", link: "#"},
+                ]}
             >
                 <TractorBatteriesPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -111,7 +231,7 @@ function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferenc
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <WeAreEverywhere
+                    <DealerLocator
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
@@ -119,7 +239,7 @@ function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferenc
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
 
-                    <ChooseYourIdealTwoWheelerBattery
+                    <ChooseYourIdealTractorBattery
                         userPreferences={userPreferences}
                         className="tw-row-start-7 lg:tw-row-start-5 lg:tw-col-start-2"
                     />
@@ -147,40 +267,33 @@ function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferenc
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto] lg:tw-grid-rows-[3rem_auto_auto_1rem_auto] lg:tw-grid-cols-[0_auto_minmax(0,1fr)] tw-text-center",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto] lg:tw-grid-rows-[3rem_auto_auto_1rem_auto] lg:tw-grid-cols-[0_auto_minmax(0,1fr)] tw-text-center",
                 className,
             )}
-            ref={ref}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-fit">
-                {containerWidth == null || containerHeight == null ? null : (
-                    // <CoverImage
-                    // relativePath={containerHeight > containerWidth || containerWidth < 1024 ? "/livguard/tractor/1/banner-mobile.jpg" : "/livguard/tractor/1/banner-desktop.jpg"}
-                    // className="tw-row-start-1 tw-col-start-1 tw-row-span-full lg:tw-col-span-full"
-                    // key={containerHeight > containerWidth || containerWidth < 1024 ? "/livguard/tractor/1/banner-mobile.jpg" : "/livguard/tractor/1/banner-desktop.jpg"}
-                    // />
-
+                {isScreenSizeBelow == null ? null : (
                     <FullWidthImage
-                        relativePath={containerHeight > containerWidth || containerWidth < 1024 ? "/livguard/tractor/1/banner-mobile.jpg" : "/livguard/tractor/1/banner-desktop.png"}
-                        key={containerHeight > containerWidth || containerWidth < 1024 ? "/livguard/tractor/1/banner-mobile.jpg" : "/livguard/tractor/1/banner-desktop.png"}
+                        relativePath={isScreenSizeBelow ? "/livguard/tractor/1/mobile-banner.jpg" : "/livguard/tractor/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/tractor/1/mobile-banner.jpg" : "/livguard/tractor/1/desktop-banner.jpg"}
                     />
                 )}
             </div>
 
-            <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2">
-                <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
-                    <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
+            <div className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2">
+                <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 tw-z-[2]">
+                    <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left">
                         {getVernacularString("1ff75fcb-01bd-4946-84bc-f759d4dad669", userPreferences.language)}
                     </div>
                 </DefaultTextAnimation>
 
-                <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
-                    <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
+                <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 tw-z-[2]">
+                    <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start lg:tw-text-left">
                         {getVernacularString("d11c39cc-f5a5-412e-acfa-a08385f2fd26", userPreferences.language)}
                     </div>
                 </DefaultTextAnimation>
@@ -194,16 +307,19 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-bg-secondary-100 tw-rounded-lg",
+                    "tw-place-self-center tw-grid tw-grid-rows-[auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-card tw-rounded-lg",
                 )}
             >
-                <div className="tw-row-start-2">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                <div className="tw-row-start-1">
+                    <FullWidthImage
+                        relativePath={imageRelativePath}
+                        className="tw-rounded-lg"
+                    />
                 </div>
 
-                <div className="tw-row-start-4 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
 
-                <div className="tw-row-start-6 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
             </div>
         );
     };
@@ -212,32 +328,32 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
         {
             titleTextContentPiece: "054be978-134a-4185-9c1c-af2e2115a679",
             bodyTextContentPiece: "52f9b679-cbea-492f-be72-97980bbd8f4f",
-            imageRelativePath: "/livguard/tractor/2/2.1.png",
+            imageRelativePath: "/livguard/tractor/2/cranking.jpg",
         },
         {
             titleTextContentPiece: "55d766c4-1a47-4ba3-bb6f-299997cb27ee",
             bodyTextContentPiece: "3d8116d8-57fd-461c-916d-060537ceda59",
-            imageRelativePath: "/livguard/tractor/2/2.2.png",
+            imageRelativePath: "/livguard/tractor/2/long-battery-life.jpg",
         },
         {
             titleTextContentPiece: "2e1d6311-034a-4ee3-8f50-bee164a05906",
             bodyTextContentPiece: "141b0934-353a-4b48-ba96-69afbe2bc115",
-            imageRelativePath: "/livguard/tractor/2/2.3.png",
+            imageRelativePath: "/livguard/tractor/2/all-weather-performance.jpg",
         },
         {
             titleTextContentPiece: "054be978-134a-4185-9c1c-af2e2115a679",
             bodyTextContentPiece: "52f9b679-cbea-492f-be72-97980bbd8f4f",
-            imageRelativePath: "/livguard/tractor/2/2.1.png",
+            imageRelativePath: "/livguard/tractor/2/cranking.jpg",
         },
         {
             titleTextContentPiece: "55d766c4-1a47-4ba3-bb6f-299997cb27ee",
             bodyTextContentPiece: "3d8116d8-57fd-461c-916d-060537ceda59",
-            imageRelativePath: "/livguard/tractor/2/2.2.png",
+            imageRelativePath: "/livguard/tractor/2/long-battery-life.jpg",
         },
         {
             titleTextContentPiece: "2e1d6311-034a-4ee3-8f50-bee164a05906",
             bodyTextContentPiece: "141b0934-353a-4b48-ba96-69afbe2bc115",
-            imageRelativePath: "/livguard/tractor/2/2.3.png",
+            imageRelativePath: "/livguard/tractor/2/all-weather-performance.jpg",
         },
     ];
 
@@ -252,6 +368,7 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
                 <CarouselStyle5
+                    snapDotsDivisionFactor={2}
                     items={batteriesData.map((batteryData, batteryDataIndex) => (
                         <BatteryCard
                             title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
@@ -263,6 +380,7 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
                     className="tw-mx-auto"
                     deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
                     selectedContainerClassName="tw-h-full"
+                    itemContainerClassName="lg:tw-px-0"
                 />
             </div>
         </>
@@ -274,74 +392,94 @@ function TractorBatteriesCarousel({userPreferences, className}: {userPreferences
         allProductDetails["lgptr800r"][userPreferences.language],
         allProductDetails["lgptr900l"][userPreferences.language],
         allProductDetails["lgptr1000l"][userPreferences.language],
+        allProductDetails["lgptr1000r"][userPreferences.language],
         allProductDetails["lgpxtr8048r"][userPreferences.language],
         allProductDetails["lgpxtr9048l"][userPreferences.language],
         allProductDetails["lgpxtr10048l"][userPreferences.language],
+        allProductDetails["lgpxtr10048r"][userPreferences.language],
         allProductDetails["lgpxtr9048h29l"][userPreferences.language],
     ];
     const brandBatteries = [
         {
             batterySlug: "lgptr800r",
-            name: "LGP TR800 R",
+            name: products[0].humanReadableModelNumber,
             description: products[0].description,
             warranty: products[0].specifications[1].value,
             capacity: products[0].specifications[2].value,
-            grid: "", //Add when data is available
-            dimensions: "",
+            polarity: products[0].specifications[3].value,
+            dimensions: products[0].specifications[4].value,
         },
         {
             batterySlug: "lgptr900l",
-            name: "LGP TR900 L",
+            name: products[1].humanReadableModelNumber,
             description: products[1].description,
             warranty: products[1].specifications[1].value,
             capacity: products[1].specifications[2].value,
-            grid: "",
-            dimensions: "",
+            polarity: products[1].specifications[3].value,
+            dimensions: products[1].specifications[4].value,
         },
         {
             batterySlug: "lgptr1000l",
-            name: "LGP TR1000 L",
+            name: products[2].humanReadableModelNumber,
             description: products[2].description,
             warranty: products[2].specifications[1].value,
             capacity: products[2].specifications[2].value,
-            grid: "",
-            dimensions: "",
+            polarity: products[2].specifications[3].value,
+            dimensions: products[2].specifications[4].value,
         },
         {
-            batterySlug: "lgpxtr8048r",
-            name: "LGPX TR8048 R",
+            batterySlug: "lgptr1000r",
+            name: products[3].humanReadableModelNumber,
             description: products[3].description,
             warranty: products[3].specifications[1].value,
             capacity: products[3].specifications[2].value,
-            grid: "",
-            dimensions: "",
+            polarity: products[3].specifications[3].value,
+            dimensions: products[3].specifications[4].value,
         },
         {
-            batterySlug: "lgpxtr9048l",
-            name: "LGPX TR9048 L",
+            batterySlug: "lgpxtr8048r",
+            name: products[4].humanReadableModelNumber,
             description: products[4].description,
             warranty: products[4].specifications[1].value,
             capacity: products[4].specifications[2].value,
-            grid: "",
-            dimensions: "",
+            polarity: products[4].specifications[3].value,
+            dimensions: products[4].specifications[4].value,
         },
         {
-            batterySlug: "lgpxtr10048l",
-            name: "LGPX TR10048 L",
+            batterySlug: "lgpxtr9048l",
+            name: products[5].humanReadableModelNumber,
             description: products[5].description,
             warranty: products[5].specifications[1].value,
             capacity: products[5].specifications[2].value,
-            grid: "",
-            dimensions: "",
+            polarity: products[5].specifications[3].value,
+            dimensions: products[5].specifications[4].value,
         },
         {
-            batterySlug: "lgpxtr9048h29l",
-            name: "LGPX TR9048H29 L",
+            batterySlug: "lgpxtr10048l",
+            name: products[6].humanReadableModelNumber,
             description: products[6].description,
             warranty: products[6].specifications[1].value,
             capacity: products[6].specifications[2].value,
-            grid: "",
-            dimensions: "",
+            polarity: products[6].specifications[3].value,
+            dimensions: products[6].specifications[4].value,
+        },
+        {
+            batterySlug: "lgpxtr10048r",
+            name: products[7].humanReadableModelNumber,
+            description: products[7].description,
+            warranty: products[7].specifications[1].value,
+            capacity: products[7].specifications[2].value,
+            polarity: products[7].specifications[3].value,
+            dimensions: products[7].specifications[4].value,
+        },
+        {
+            batterySlug: "lgpxtr9048h29l",
+            name: products[8].humanReadableModelNumber,
+            description: products[8].description,
+            warranty: products[8].specifications[1].value,
+            capacity: products[8].specifications[2].value,
+            polarity: products[8].specifications[3].value,
+            dimensions: products[8].specifications[4].value,
         },
     ];
 
@@ -370,7 +508,7 @@ function TractorBatteriesCarousel({userPreferences, className}: {userPreferences
                             description={battery.description}
                             capacity={`${battery.capacity} ${getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}`}
                             warranty={`${battery.warranty} ${getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}`}
-                            grid={battery.grid}
+                            polarity={battery.polarity}
                             dimensions={battery.dimensions}
                             key={batteryIndex}
                         />
@@ -379,6 +517,7 @@ function TractorBatteriesCarousel({userPreferences, className}: {userPreferences
                 slidesContainerClassName="!tw-auto-cols-[100%] lg:!tw-auto-cols-max tw-place-self-center tw-items-center"
                 selectedContainerClassName="tw-h-full"
                 deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
+                autoplayDelay={null}
             />
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-10" />
@@ -393,7 +532,7 @@ function CarouselBatteryCard({
     description,
     warranty,
     capacity,
-    grid,
+    polarity,
     dimensions,
 }: {
     userPreferences: UserPreferences;
@@ -402,22 +541,22 @@ function CarouselBatteryCard({
     description: string;
     warranty: string;
     capacity: string;
-    grid: string;
+    polarity: string;
     dimensions: string;
 }) {
     return (
-        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-our-suggestions-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8 tw-w-full tw-max-w-3xl tw-mx-auto">
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8 tw-w-full tw-max-w-3xl tw-mx-auto">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
                 <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("4f1b53b9-36a8-4a0e-b693-4f92e8a1b32b", userPreferences.language)}</div>
-                <div>{/* <FullWidthImage relativePath={`product/automotive-batteries/${batterySlug}`} /> */}</div>
+                <div className="tw-w-full tw-h-full">
+                    <FullWidthImage relativePath={`/livguard/products/${batterySlug}/thumbnail.png`} />
+                </div>
 
                 <Link
                     className="tw-hidden lg:tw-block"
-                    to="#"
-                    //Add slug when products are available
-                    // to={batterySlug}
+                    to={`/product/${batterySlug}`}
                 >
-                    <button className="lg-cta-button">{getVernacularString("d7631d6c-a568-464f-8411-e1840750556a", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
                 </Link>
             </div>
 
@@ -460,7 +599,7 @@ function CarouselBatteryCard({
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
                             <div className="tw-row-start-2">{getVernacularString("d71a4882-3a3c-4e2d-a884-071523e265d1", userPreferences.language)}</div>
-                            <div className="tw-row-start-3">{grid}</div>
+                            <div className="tw-row-start-3">{polarity}</div>
                         </div>
                     </div>
 
@@ -482,7 +621,7 @@ function CarouselBatteryCard({
                     className="tw-place-self-center lg:tw-hidden"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{getVernacularString("d7631d6c-a568-464f-8411-e1840750556a", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
@@ -496,82 +635,100 @@ function TopTractorBatteryPicks({userPreferences, className}: {userPreferences: 
         allProductDetails["lgptr800r"][userPreferences.language],
         allProductDetails["lgptr900l"][userPreferences.language],
         allProductDetails["lgptr1000l"][userPreferences.language],
+        allProductDetails["lgptr1000r"][userPreferences.language],
     ];
     const xtralifeProducts = [
         allProductDetails["lgpxtr8048r"][userPreferences.language],
         allProductDetails["lgpxtr9048l"][userPreferences.language],
         allProductDetails["lgpxtr10048l"][userPreferences.language],
+        allProductDetails["lgpxtr10048r"][userPreferences.language],
         allProductDetails["lgpxtr9048h29l"][userPreferences.language],
     ];
 
     const featuredProducts = {
         Pradhaan: {
             title: "3daf8d68-a883-4175-b8b5-6dca9724201a",
-            vehicleImageRelativeUrl: "/livguard/tractor/3/pradhan-tractor.png",
-            productImageRelativeUrl: "/livguard/tractor/3/pradhan-battery.png",
+            vehicleImageRelativeUrl: "/livguard/tractor/3/tractor-1-new.png",
+            productImageRelativeUrl: "/livguard/products/lgptr800r/thumbnail.png",
             products: [
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGP TR800 R",
+                    name: pradhaanProducts[0].humanReadableModelNumber,
                     slug: "lgptr800r",
                     capacity: pradhaanProducts[0].specifications[2].value,
                     warranty: pradhaanProducts[0].specifications[1].value,
-                    price: "XXXXX",
+                    price: pradhaanProducts[0].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGP TR900 L",
+                    name: pradhaanProducts[1].humanReadableModelNumber,
                     slug: "lgptr900l",
                     capacity: pradhaanProducts[1].specifications[2].value,
                     warranty: pradhaanProducts[1].specifications[1].value,
-                    price: "XXXXX",
+                    price: pradhaanProducts[1].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGP TR1000 L",
+                    name: pradhaanProducts[2].humanReadableModelNumber,
                     slug: "lgptr1000l",
                     capacity: pradhaanProducts[2].specifications[2].value,
                     warranty: pradhaanProducts[2].specifications[1].value,
-                    price: "XXXXX",
+                    price: pradhaanProducts[2].price,
+                },
+                {
+                    productType: ProductType.automotiveBattery,
+                    name: pradhaanProducts[3].humanReadableModelNumber,
+                    slug: "lgptr1000r",
+                    capacity: pradhaanProducts[3].specifications[2].value,
+                    warranty: pradhaanProducts[3].specifications[1].value,
+                    price: pradhaanProducts[3].price,
                 },
             ],
         },
         "Pradhaan Xtralife": {
             title: "e2420ef0-f6c0-48df-b14f-e801d8273618",
-            vehicleImageRelativeUrl: "/livguard/tractor/3/humraahi-tractor.png",
-            productImageRelativeUrl: "/livguard/tractor/3/humraahi-battery.png",
+            vehicleImageRelativeUrl: "/livguard/tractor/3/tractor-2-new.png",
+            productImageRelativeUrl: "/livguard/tractor/3/battery-2.png",
             products: [
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGPX TR8048 R",
+                    name: xtralifeProducts[0].humanReadableModelNumber,
                     slug: "lgpxtr8048r",
                     capacity: xtralifeProducts[0].specifications[2].value,
                     warranty: xtralifeProducts[0].specifications[1].value,
-                    price: "XXXXX",
+                    price: xtralifeProducts[0].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGPX TR9048 L",
+                    name: xtralifeProducts[1].humanReadableModelNumber,
                     slug: "lgpxtr9048l",
                     capacity: xtralifeProducts[1].specifications[2].value,
                     warranty: xtralifeProducts[1].specifications[1].value,
-                    price: "XXXXX",
+                    price: xtralifeProducts[1].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGPX TR10048 L",
+                    name: xtralifeProducts[2].humanReadableModelNumber,
                     slug: "lgpxtr10048l",
                     capacity: xtralifeProducts[2].specifications[2].value,
                     warranty: xtralifeProducts[2].specifications[1].value,
-                    price: "XXXXX",
+                    price: xtralifeProducts[2].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGPX TR9048H29 L",
-                    slug: "lgpxtr9048h29l",
+                    name: xtralifeProducts[3].humanReadableModelNumber,
+                    slug: "lgpxtr10048r",
                     capacity: xtralifeProducts[3].specifications[2].value,
                     warranty: xtralifeProducts[3].specifications[1].value,
-                    price: "XXXXX",
+                    price: xtralifeProducts[3].price,
+                },
+                {
+                    productType: ProductType.automotiveBattery,
+                    name: xtralifeProducts[4].humanReadableModelNumber,
+                    slug: "lgpxtr9048h29l",
+                    capacity: xtralifeProducts[4].specifications[2].value,
+                    warranty: xtralifeProducts[4].specifications[1].value,
+                    price: xtralifeProducts[4].price,
                 },
             ],
         },
@@ -739,121 +896,7 @@ function TopTractorBatteryPicks({userPreferences, className}: {userPreferences: 
     );
 }
 
-function BatteryCard({
-    slug,
-    productType,
-    userPreferences,
-    isBestSeller,
-    imageRelativeUrl,
-    productName,
-    productPrice,
-    capacity,
-    warranty,
-}: {
-    slug: string;
-    productType: ProductType;
-    userPreferences: UserPreferences;
-    isBestSeller?: boolean;
-    imageRelativeUrl: string;
-    productName: string;
-    productPrice: string;
-    capacity: string;
-    warranty: string;
-}) {
-    return (
-        <Link
-            to={`/product/${slug}`}
-            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg"
-        >
-            {isBestSeller != null && isBestSeller === true ? (
-                <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
-                    <span>{getVernacularString("14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f", userPreferences.language)}</span>
-                </div>
-            ) : (
-                <VerticalSpacer className="tw-h-[1.5rem]" />
-            )}
-
-            <div className="tw-p-4 tw-grid tw-grid-flow-row">
-                <FullWidthImage relativePath={imageRelativeUrl} />
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900 tw-whitespace-nowrap">{productName}</div>
-
-                <VerticalSpacer className="tw-h-2" />
-
-                <div className="tw-place-self-center tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center tw-w-full">
-                    <img
-                        className="tw-col-start-2 tw-invert dark:tw-invert-0"
-                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/car-and-suv/4/capacity.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                    />
-                    <span className="tw-col-start-4 tw-text-center lg-text-icon lg:lg-text-body lg:!lg-text-secondary-900">{capacity}</span>
-                </div>
-
-                <VerticalSpacer className="tw-h-2" />
-
-                <div className="tw-place-self-center tw-grid tw-grid-cols-[minmax(0,1fr)_auto_0.5rem_70%_minmax(0,1fr)] tw-items-center tw-w-full">
-                    <img
-                        className="tw-col-start-2 tw-invert dark:tw-invert-0"
-                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/car-and-suv/4/warranty.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                    />
-                    <span className="tw-col-start-4 tw-text-center lg-text-icon lg:lg-text-body lg:!lg-text-secondary-900">{warranty}</span>
-                </div>
-
-                <VerticalSpacer className="tw-h-6" />
-
-                <div className="tw-w-full tw-text-center lg-text-secondary-700">
-                    {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${productPrice}${getVernacularString(
-                        "0044b486-6eca-4e3a-abf0-102eede6e10c",
-                        userPreferences.language,
-                    )}`}
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <button className="lg-cta-button tw-w-full tw-text-center tw-px-1">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
-            </div>
-        </Link>
-    );
-}
-
-function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function ChooseYourIdealTwoWheelerBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function ChooseYourIdealTractorBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
             <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("27518d22-a27d-4519-b01a-18d1fed070ed", userPreferences.language)}</div>
@@ -863,48 +906,34 @@ function ChooseYourIdealTwoWheelerBattery({userPreferences, className}: {userPre
             />
             <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("c92fa811-4140-4bef-86a4-6034b9ad2cf9", userPreferences.language)}</div>
 
-            <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-buying-guide.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("ec0d9e43-a1e3-414a-b6fe-01114e016fd3", userPreferences.language)}
-                    </div>
-                </a>
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("b0b06e47-de82-4dba-acc2-90e3b74df96b", userPreferences.language)}
-                    </div>
-                </a>
+            <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
+                <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
+                    <a
+                        href="https://www.livguard.com/static-assets/leaflet-tractor.pdf"
+                        download
+                        target="_blank"
+                        className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4"
+                    >
+                        <img
+                            className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                        />
+                        <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                        </div>
+                    </a>
+                    <Link
+                        to="/battery-finder"
+                        className="tw-h-full tw-w-full tw-grid tw-place-items-center"
+                    >
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
+                            {getVernacularString("1271cac7-693c-48bc-850f-16199416dd0e", userPreferences.language)}
+                        </div>
+                    </Link>
+                </div>
             </div>
 
-            <VerticalSpacer className="tw-row-start-8 tw-h-6" />
-
-            <a
-                href="/battery-finder.php"
-                target="_blank"
-                className="tw-row-start-9 tw-grid tw-place-items-center"
-            >
-                <div className="lg-cta-button tw-place-self-center">{getVernacularString("734ba5fc-030e-4c78-a3c3-b31ae30e1f51", userPreferences.language)}</div>
-            </a>
-
-            <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
+            <VerticalSpacer className="lg:tw-row-start-8 tw-hidden lg:tw-block lg:tw-h-12" />
         </div>
     );
 }

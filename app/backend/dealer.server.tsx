@@ -2,7 +2,7 @@ import AWS from "aws-sdk";
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
-import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getStringFromUnknown, getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 import {DealerForHaptik} from "~/routes/api/haptik/dealer-locator";
 import type {ContactUsLead, Dealer, TermFrequency} from "~/typeDefinitions";
@@ -48,7 +48,8 @@ function rowToDealerInformation(row: any): Dealer {
         city: row.city,
         latitude: row.latitude,
         longitude: row.longitude,
-        stateCode: row.state_code,
+        // stateCode: row.state_code,
+        area: row.area,
     };
 
     return dealer;
@@ -611,4 +612,47 @@ export async function uploadFileToS3(file: {fileBlob: any; name: any}): Promise<
     }
 
     return result.Location;
+}
+
+export async function getDealersForPinCode(pinCode: string): Promise<Array<Dealer> | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            SELECT
+                *
+            FROM
+                livguard.dealer
+            WHERE
+                pin_code = $1
+            ORDER BY
+                dealer_name 
+        `,
+        [pinCode],
+    );
+
+    if (result instanceof Error) {
+        return result;
+    }
+
+    return result.rows.map((row) => rowToDealerInformation(row));
+}
+
+export async function verifyGoogleRecaptcha(token: string): Promise<Error | void> {
+    const secretKey = getStringFromUnknown(getRequiredEnvironmentVariableNew("GOOGLE_RECAPTCHA_SECRET_KEY"));
+
+    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        body: JSON.stringify({
+            secret: secretKey,
+            response: token,
+        }),
+    });
+
+    if (response instanceof Error) {
+        return response;
+    }
 }

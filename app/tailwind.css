@@ -207,6 +207,81 @@
         @apply tw-bg-secondary-900-light dark:tw-bg-secondary-900-dark;
     }
 
+    .lg-bg-new-background-500 {
+        @apply tw-bg-new-background-500-light dark:tw-bg-new-background-500-dark;
+    }
+
+    .lg-text-new-background-500 {
+        @apply tw-text-new-background-500-light dark:tw-text-new-background-500-dark;
+    }
+
+    .lg-card {
+        @apply tw-text-new-foreground-500-light dark:tw-text-new-foreground-500-dark tw-border tw-border-solid tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-rounded-lg;
+        box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03);
+    }
+
+    .lg\:lg-card {
+        @apply tw-text-new-foreground-500-light dark:tw-text-new-foreground-500-dark lg:tw-border lg:tw-border-solid lg:tw-border-new-background-border-500-light lg:dark:tw-border-new-background-border-500-dark tw-rounded-lg max-lg:!tw-shadow-none;
+        box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03);
+    }
+
+    .max-lg\:lg-card {
+        @apply tw-text-new-foreground-500-light dark:tw-text-new-foreground-500-dark max-lg:tw-border max-lg:tw-border-solid max-lg:tw-border-new-background-border-500-light max-lg:dark:tw-border-new-background-border-500-dark tw-rounded-lg lg:!tw-shadow-none;
+        box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03);
+    }
+
+    .lg-card-shadow-hack {
+        @apply tw-pb-6;
+    }
+
+    .lg\:lg-card-shadow-hack {
+        @apply lg:tw-pb-6;
+    }
+
+    .max-lg\:lg-card-shadow-hack {
+        @apply max-lg:tw-pb-6;
+    }
+
+    .lg-bg-new-foreground-500 {
+        @apply tw-bg-new-foreground-500-light dark:tw-bg-new-foreground-500-dark;
+    }
+
+    .lg-text-new-foreground-500 {
+        @apply tw-text-new-foreground-500-light dark:tw-text-new-foreground-500-dark;
+    }
+
+    .lg-bg-new-foreground-700 {
+        @apply tw-bg-new-foreground-700-light dark:tw-bg-new-foreground-700-dark;
+    }
+
+    .lg-text-new-foreground-700 {
+        @apply tw-text-new-foreground-700-light dark:tw-text-new-foreground-700-dark;
+    }
+
+    .lg-bg-new-primary-500 {
+        @apply tw-bg-new-primary-500-light dark:tw-bg-new-primary-500-dark;
+    }
+
+    .lg-text-new-primary-500 {
+        @apply tw-text-new-primary-500-light dark:tw-text-new-primary-500-dark;
+    }
+
+    .lg-bg-background-500 {
+        @apply tw-bg-background-500-light dark:tw-bg-background-500-dark;
+    }
+
+    .lg-bg-background-500 {
+        @apply tw-bg-background-500-light dark:tw-bg-background-500-dark;
+    }
+
+    .lg-bg-background-500 {
+        @apply tw-bg-background-500-light dark:tw-bg-background-500-dark;
+    }
+
+    .lg-bg-background-500 {
+        @apply tw-bg-background-500-light dark:tw-bg-background-500-dark;
+    }
+
     .lg-text-secondary-900 {
         @apply tw-text-secondary-900-light dark:tw-text-secondary-900-dark;
     }
@@ -277,9 +352,11 @@
 
     .lg-stabilizers-best-seller-gradient {
         background: linear-gradient(270deg, #f25f60 -106.84%, #eb2a2b 102.47%);
+        background: linear-gradient(270deg, #f25f60 -106.84%, #eb2a2b 102.47%);
     }
 
     .lg-about-us-who-we-are-bg-gradient-dark {
+        background: linear-gradient(171.42deg, #474546 -6.46%, #1f2022 71.76%);
         background: linear-gradient(171.42deg, #474546 -6.46%, #1f2022 71.76%);
     }
 
@@ -296,7 +373,7 @@
     }
 
     .lg-service-connect-bg-gradient-dark {
-        background: linear-gradient(153deg, #474546 35.83%, #1F2022 81.14%);        
+        background: linear-gradient(153deg, #474546 35.83%, #1f2022 81.14%);
     }
 
     .lg-service-connect-bg-gradient-light {
@@ -304,7 +381,7 @@
     }
 
     .lg-service-connect-bg-gradient-dark {
-        background: linear-gradient(153deg, #474546 35.83%, #1F2022 81.14%);        
+        background: linear-gradient(153deg, #474546 35.83%, #1f2022 81.14%);
     }
 
     /* @keyframes animation-text-baseline {
@@ -323,11 +400,11 @@
         animation: animation-text-baseline 200ms forwards ease-in;
     } */
 
-    ::file-selector-button{
+    ::file-selector-button {
         display: none;
     }
 
-    ::-webkit-file-upload-button{
+    ::-webkit-file-upload-button {
         display: none;
     }
 
@@ -378,18 +455,18 @@
 
     .lg-international-shadow {
         box-shadow: 0 0 #0d0d0d0d, 0 2px 12px #0d0d0d0d, 8px 10px 13px #0d0d0d0a;
-	}
+    }
 
     .lg-bg-our-suggestions {
-        @apply tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark
+        @apply tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark;
     }
 
     .lg-bg-our-suggestions-card {
-        @apply tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark
+        @apply tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark;
     }
 
     .lg-lithium-shadow {
-        box-shadow: 0px 0px 0px 0px #0D0D0D0D, 4px 0px 12px 0px #0D0D0D0D, 16px 40px 23px 0px #0D0D0D0A;
+        box-shadow: 0px 0px 0px 0px #0d0d0d0d, 4px 0px 12px 0px #0d0d0d0d, 16px 40px 23px 0px #0d0d0d0a;
     }
 
     .lg-cta-outline-button-transition {
@@ -399,20 +476,20 @@
 
     .lg-cta-outline-button-transition:hover {
         border: 2px solid transparent;
-        background: linear-gradient(90deg, #F25F60 0%, #EB2A2B 100%);
-        color: #FCFCFC;
+        background: linear-gradient(90deg, #f25f60 0%, #eb2a2b 100%);
+        color: #fcfcfc;
     }
 
     .lg-automotive-bg-gradient-right-to-left-dark {
-        background: conic-gradient(from 15deg at 55% 100%,  rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83)  100%);
+        background: conic-gradient(from 15deg at 55% 100%, rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83) 100%);
     }
 
     .lg-automotive-bg-gradient-left-to-right-light {
-        background: conic-gradient(from 345deg at 45% 100%, #F2F2F2 0%, #FFFFFF 100%);
+        background: conic-gradient(from 345deg at 45% 100%, #f2f2f2 0%, #ffffff 100%);
     }
 
     .lg-automotive-bg-gradient-right-to-left-light {
-        background: conic-gradient(from 15deg at 55% 100%,  #FFFFFF 0%, #F2F2F2 100%);
+        background: conic-gradient(from 15deg at 55% 100%, #ffffff 0%, #f2f2f2 100%);
     }
 
     .lg-automotive-bg-gradient-left-to-right-dark {
@@ -428,15 +505,15 @@
     }
 
     .lg-automotive-bg-gradient-right-to-left-vertical-light {
-        background: conic-gradient(from 252deg at 100% 20%, #FFFFFF 0%, #F2F2F2 100%);
+        background: conic-gradient(from 252deg at 100% 20%, #ffffff 0%, #f2f2f2 100%);
     }
 
     .lg-automotive-bg-gradient-left-to-right-vertical-light {
-        background: conic-gradient(from 108deg at 0% 20%, #F2F2F2 0%, #FFFFFF 100%);
+        background: conic-gradient(from 108deg at 0% 20%, #f2f2f2 0%, #ffffff 100%);
     }
 
     .lg-automotive-tractor-bg-gradient-right-to-left-dark {
-        background: conic-gradient(from 15deg at 62% 100%,  rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83)  100%);
+        background: conic-gradient(from 15deg at 62% 100%, rgba(31, 32, 34, 1) 0%, rgba(24, 26, 28, 0.83) 100%);
     }
 
     .lg-automotive-tractor-bg-gradient-left-to-right-dark {
@@ -444,11 +521,11 @@
     }
 
     .lg-automotive-tractor-bg-gradient-right-to-left-light {
-        background: conic-gradient(from 15deg at 62% 100%, #FFFFFF 0%, #F2F2F2  100%);
+        background: conic-gradient(from 15deg at 62% 100%, #ffffff 0%, #f2f2f2 100%);
     }
 
     .lg-automotive-tractor-bg-gradient-left-to-right-light {
-        background: conic-gradient(from 345deg at 38% 100%, #F2F2F2 0%, #FFFFFF 100%);
+        background: conic-gradient(from 345deg at 38% 100%, #f2f2f2 0%, #ffffff 100%);
     }
 
     .lg-automotive-tractor-bg-gradient-right-to-left-vertical-dark {
@@ -460,19 +537,11 @@
     }
 
     .lg-automotive-tractor-bg-gradient-right-to-left-vertical-light {
-        background: conic-gradient(from 252deg at 100% 20%, #FFFFFF 0%, #F2F2F2 100%);
+        background: conic-gradient(from 252deg at 100% 20%, #ffffff 0%, #f2f2f2 100%);
     }
 
     .lg-automotive-tractor-bg-gradient-left-to-right-vertical-light {
-        background: conic-gradient(from 108deg at 0% 20%, #F2F2F2 0%, #FFFFFF 100%);
-    }
-
-    .lg-bg-our-suggestions {
-        @apply tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark
-    }
-
-    .lg-bg-our-suggestions-card {
-        @apply tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark
+        background: conic-gradient(from 108deg at 0% 20%, #f2f2f2 0%, #ffffff 100%);
     }
 
     .lg-cta-outline-button-transition {
@@ -481,9 +550,13 @@
     }
 
     .lg-cta-outline-button-transition:hover {
-        border: 2px solid transparent;
-        background: linear-gradient(90deg, #F25F60 0%, #EB2A2B 100%);
-        color: #FCFCFC;
+        /* border: 2px solid transparent; */
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        border-left: 0px solid transparent;
+        border-right: 0px solid transparent;
+        background: linear-gradient(90deg, #f25f60 0%, #eb2a2b 100%);
+        color: #fcfcfc;
     }
 
     .lg-cta-outline-button-category-section-transition {
@@ -495,31 +568,56 @@
     .lg-cta-outline-button-category-section-transition:hover {
         padding: 14px 18px;
         border: 0px;
-        background: linear-gradient(90deg, #F25F60 0%, #EB2A2B 100%);
+        background: linear-gradient(90deg, #f25f60 0%, #eb2a2b 100%);
     }
-    
+
     .lg-ops-pages-shadow {
-        box-shadow: 0 0 #0d0d0d0d, 0 2px 12px #0d0d0d0d, 8px 10px 13px #0d0d0d0a;;
-        
+        box-shadow: 0 0 #0d0d0d0d, 0 2px 12px #0d0d0d0d, 8px 10px 13px #0d0d0d0a;
     }
+
+    /* TODO: Remove */
     .lg-card-shadow {
-        box-shadow: 0px 0px 0px 0px rgba(13, 13, 13, 0.05), 4px 10px 12px 0px rgba(13, 13, 13, 0.05), 16px 40px 23px 0px rgba(13, 13, 13, 0.04);
+        box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03)
     }
+
+    /* TODO: Remove */
     .lg-e-waste-management-banner-card-bg {
         border-radius: 8px;
-        background: linear-gradient(132deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.20) 100%);
+        background: linear-gradient(132deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
         box-shadow: 0px 0px 0px 0px rgba(13, 13, 13, 0.05), 4px 10px 12px 0px rgba(13, 13, 13, 0.05), 16px 40px 23px 0px rgba(13, 13, 13, 0.04);
     }
+
+    /* TODO: Remove? */
+    /* TODO: Remove all unnecessary classes */
     .lg-csr-leaders-shadow {
         box-shadow: 0 0 #0d0d0d0d, 0 2px 12px #0d0d0d0d, 8px 10px 13px #0d0d0d0a;
     }
+
     .lg-ewaste-management-box-shadow {
         box-shadow: 0px 0px 0px 0px rgba(13, 13, 13, 0.05), 4px 10px 12px 0px rgba(13, 13, 13, 0.05), 16px 40px 23px 0px rgba(13, 13, 13, 0.04);
     }
+
     .lg-cta-button-gradient {
         @apply tw-bg-gradient-to-r tw-from-[#EB2A2B] tw-to-[#F25F60];
     }
+
     .lg-scroll-bar-hidden::-webkit-scrollbar {
         display: none;
+    }
+
+    .lg-about-us-banner-text-gradient {
+        background: linear-gradient(88deg, rgba(24, 26, 28, 0.83) 0%, rgba(24, 26, 28, 0) 100%);
+    }
+    
+    .lg-cta-outline-button-category-section-transition-ops {
+        background: transparent;
+        transition: background 0.2s linear;
+        color: rgb(71 69 70 / var(--tw-text-opacity));
+    }
+
+    .lg-cta-outline-button-category-section-transition-ops:hover {
+        padding: 12px 16px;
+        border: 2px 0px;
+        background: linear-gradient(90deg, #f25f60 0%, #eb2a2b 100%);
     }
 }

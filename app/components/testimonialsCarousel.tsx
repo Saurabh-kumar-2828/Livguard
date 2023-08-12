@@ -19,7 +19,7 @@ export function TestimonialsCarousel({
     return (
         <div>
             <div
-                className="tw-overflow-hidden"
+                className="tw-overflow-hidden lg-card-shadow-hack"
                 ref={emblaRef}
             >
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[35rem] tw-h-full tw-min-h-[15rem]">
@@ -27,10 +27,10 @@ export function TestimonialsCarousel({
                         items={testimonials}
                         itemBuilder={(testimonial, testimonialIndex) => (
                             <div
-                                className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", `lg:tw-mr-4`)}
+                                className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", "lg:tw-mr-4")}
                                 key={testimonialIndex}
                             >
-                                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:tw-min-w-[23rem] lg:tw-max-w-[35rem] tw-grid-rows-[auto,auto,minmax(0,1fr)] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-bg-secondary-100 tw-rounded-lg tw-h-full tw-w-full">
+                                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:tw-min-w-[23rem] lg:tw-max-w-[35rem] tw-grid-rows-[auto,auto,minmax(0,1fr)] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-card tw-h-full tw-w-full">
                                     {testimonial.video ? (
                                         <div className="tw-col-start-1 tw-row-start-1 tw-col-span-full">{testimonial.video}</div>
                                     ) : (

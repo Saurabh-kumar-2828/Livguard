@@ -1,23 +1,109 @@
-import {LoaderFunction} from "@remix-run/node";
+import {Menu} from "@headlessui/react";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useResizeDetector} from "react-resize-detector";
+import {CarouselStyle4} from "~/components/carouselStyle4";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {CarouselStyle4} from "~/components/carouselStyle4";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {Menu} from "@headlessui/react";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {ContactUsCta, DealerLocator} from "~/routes";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/india-ops",
+            },
+            {
+                title: "Livguard's Indian Operations: Powering a Bright Tomorrow",
+            },
+            {
+                name: "description",
+                content: "Explore Livguard's Indian operations page to discover how we are shaping a brighter future through innovation, reliability, and commitment.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/india-ops",
+            },
+            {
+                property: "og:title",
+                content: "Livguard's Indian Operations: Powering a Bright Tomorrow",
+            },
+            {
+                property: "og:description",
+                content: "Explore Livguard's Indian operations page to discover how we are shaping a brighter future through innovation, reliability, and commitment.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/india-ops",
+            },
+            {
+                title: "Livguard's Indian Operations: Powering a Bright Tomorrow",
+            },
+            {
+                name: "description",
+                content: "Explore Livguard's Indian operations page to discover how we are shaping a brighter future through innovation, reliability, and commitment.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/india-ops",
+            },
+            {
+                property: "og:title",
+                content: "Livguard's Indian Operations: Powering a Bright Tomorrow",
+            },
+            {
+                property: "og:description",
+                content: "Explore Livguard's Indian operations page to discover how we are shaping a brighter future through innovation, reliability, and commitment.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -52,43 +138,34 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "3d7d661c-5848-4670-a0bb-3990374c7303", link: "#"},
+                ]}
                 pageUrl={pageUrl}
             >
-                <IndiaOpsPage userPreferences={userPreferences} />
+                <IndiaOpsPage
+                    userPreferences={userPreferences}
+                    pageUrl={pageUrl}
+                />
             </PageScaffold>
         </>
     );
 };
 
-function IndiaOpsPage({userPreferences}: {userPreferences: UserPreferences}) {
+function IndiaOpsPage({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center tw-bg-secondary-100-light dark:tw-bg-background-500-dark">
                 <HeroSection
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+                    pageUrl={pageUrl}
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-4 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto tw-grid tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-cols-2 lg:tw-gap-x-20 lg:lg-px-screen-edge-2">
-                    <EnergySolutions
-                        userPreferences={userPreferences}
-                        className="tw-row-start-1 tw-col-start-1 tw-w-full"
-                    />
-
-                    <VerticalSpacer className="tw-h-10 lg:tw-hidden tw-row-start-2 tw-col-start-1" />
-
-                    <WhyLivguard
-                        userPreferences={userPreferences}
-                        className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 tw-w-full tw-max-w-7xl tw-mx-auto"
-                    />
-                </div>
-
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
-
-                <div className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto lg:lg-px-screen-edge-2 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-grid-flow-row lg:tw-gap-x-20">
+                <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto lg:lg-px-screen-edge-2 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-grid-flow-row lg:tw-gap-x-20">
                     <HeadOffice
                         userPreferences={userPreferences}
                         className="tw-row-start-1 tw-col-start-1"
@@ -99,6 +176,22 @@ function IndiaOpsPage({userPreferences}: {userPreferences: UserPreferences}) {
                     <RegionalOffices
                         userPreferences={userPreferences}
                         className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 tw-w-full"
+                    />
+                </div>
+
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+
+                <div className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto tw-grid tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-cols-2 lg:tw-gap-x-20 lg:lg-px-screen-edge-2">
+                    <EnergySolutions
+                        userPreferences={userPreferences}
+                        className="tw-row-start-1 tw-col-start-1 tw-w-full"
+                    />
+
+                    <VerticalSpacer className="tw-h-10 lg:tw-hidden tw-row-start-2 tw-col-start-1" />
+
+                    <WhyLivguard
+                        userPreferences={userPreferences}
+                        className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-2 tw-w-full tw-max-w-7xl tw-mx-auto"
                     />
                 </div>
 
@@ -115,7 +208,7 @@ function IndiaOpsPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                     <VerticalSpacer className="tw-h-4" />
 
-                    <WeAreEverywhere
+                    <DealerLocator
                         userPreferences={userPreferences}
                         className="lg:tw-row-[span_3_/_span_5]s lg:tw-col-start-1 lg-ops-pages-shadow"
                         showCtaButton={true}
@@ -126,6 +219,7 @@ function IndiaOpsPage({userPreferences}: {userPreferences: UserPreferences}) {
                     <ChooseTheRightInverter
                         userPreferences={userPreferences}
                         className="lg:tw-row-start-4 lg:tw-col-start-2"
+                        pageUrl={pageUrl}
                     />
                 </div>
 
@@ -135,27 +229,88 @@ function IndiaOpsPage({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-
+function HeroSection({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
+    const utmParameters = useUtmSearchParameters();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
+        // <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}>
+        //     <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full">
+        //         {isScreenSizeBelow == null ? null : (
+        //             <FullWidthImage
+        //                 relativePath={isScreenSizeBelow ? "/livguard/india-ops/1/mobile-banner.jpg" : "/livguard/india-ops/1/desktop-banner.jpg"}
+        //                 key={isScreenSizeBelow ? "/livguard/india-ops/1/mobile-banner.jpg" : "/livguard/india-ops/1/desktop-banner.jpg"}
+        //             />
+        //         )}
+        //     </div>
+
+        //     <div className="tw-col-start-1 lg:tw-row-start-3 tw-row-start-2 tw-row-span-2 tw-grid tw-items-center">
+        //         <PowerThatEmpowersLives
+        //             userPreferences={userPreferences}
+        //             utmParameters={utmParameters}
+        //             pageUrl={pageUrl}
+        //         />
+        //     </div>
+        // </div>
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}
-            ref={ref}
-        >
-            {containerWidth == null || containerHeight == null ? null : (
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full">
-                    <CoverImage
-                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/india-ops/1/banner-mobile.png" : "/livguard/india-ops/1/banner-desktop.jpg"}
-                        className="tw-w-full tw-h-full lg:tw-max-h-[70vh]"
-                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/india-ops/1/banner-mobile.png" : "/livguard/india-ops/1/banner-desktop.jpg"}
-                    />
-                </div>
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-cols-1 lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-rows-[auto_1rem_auto] tw-items-center tw-text-center",
+                className,
             )}
+        >
+            <div className="tw-row-start-1 lg:tw-row-span-full tw-row-span-2 tw-col-start-1 tw-col-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <>
+                        <FullWidthImage
+                            relativePath={isScreenSizeBelow ? "/livguard/india-ops/1/mobile-banner.jpg" : "/livguard/india-ops/1/desktop-banner.jpg"}
+                            key={isScreenSizeBelow ? "/livguard/india-ops/1/mobile-banner.jpg" : "/livguard/india-ops/1/desktop-banner.jpg"}
+                        />
+                    </>
+                )}
+            </div>
+            <div className="tw-col-start-1 lg:tw-row-start-3 tw-row-start-2 tw-row-span-2 tw-grid tw-items-center">
+                <PowerThatEmpowersLives
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
+                />
+            </div>
 
-            <VerticalSpacer className="tw-h-4 lg:tw-h-10" />
+            {/* <VerticalSpacer className="tw-h-4 lg:tw-h-10" /> */}
 
-            <div className="lg-px-screen-edge-2 lg:tw-text-left tw-w-full tw-max-w-7xl tw-mx-auto">{getVernacularString("434a3b79-cd9d-47e9-8284-f23b7d677d97", userPreferences.language)}</div>
+            {/* <div className="lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto">{getVernacularString("434a3b79-cd9d-47e9-8284-f23b7d677d97", userPreferences.language)}</div> */}
+        </div>
+    );
+}
+
+function PowerThatEmpowersLives({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+}) {
+    return (
+        <div className="tw-w-4/5 lg:tw-w-full tw-place-self-center tw-relative tw-bottom-4 tw-z-[2] tw-p-4 tw-rounded-lg tw-row-start-2 tw-col-start-1 tw-bg-secondary-100-light dark:tw-bg-secondary-100-dark lg:!tw-bg-transparent tw-grid tw-grid-rows-[repeat(4,auto)] max-lg:lg-ops-pages-shadow">
+            <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-z-[2] lg:tw-justify-self-start lg:tw-ml-20 lg-text-headline lg:tw-text-secondary-900-dark">
+                {getVernacularString("d1c50aa6-1529-4fe4-8e3b-b526888ec7e9", userPreferences.language)}
+            </div>
+            <div className="lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-z-[2] lg:tw-justify-self-start lg:tw-ml-20 lg-text-title2 lg:tw-text-secondary-900-dark">
+                {getVernacularString("ac1d1b59-b34e-4bad-8b06-bf9de7999447", userPreferences.language)}
+            </div>
+
+            <VerticalSpacer className="lg:tw-row-start-3 tw-h-4" />
+
+            <ContactUsCta
+                userPreferences={userPreferences}
+                textVernacId="2c463782-52de-4cf3-b55d-93bfce4e1ec1"
+                className="lg:tw-row-start-4 lg:tw-col-start-1 lg:tw-z-[2] tw-justify-self-center lg:tw-justify-self-start lg:tw-ml-20 lg-text-headline lg:tw-text-secondary-900-dark"
+                utmParameters={utmParameters}
+                pageUrl={pageUrl}
+            />
         </div>
     );
 }
@@ -243,8 +398,8 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                             {
                                 image: "/livguard/home/3/2.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab2HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
+                                headingContent2: `${getVernacularString("32f80d9c-f431-45c9-9791-4fae42e9a37d", userPreferences.language)}`,
+                                content: `${getVernacularString("a8d7b8ac-859d-4c52-ab5f-3dbc5e310af9", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
                                 buttonLink: "/inverter-for-home",
                                 target: null,
@@ -253,7 +408,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                                 image: "/livguard/home/3/3.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab3HC1", userPreferences.language)}`,
                                 headingContent2: `${getVernacularString("homeS3Tab3HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab3C", userPreferences.language)}`,
+                                content: `${getVernacularString("9c7f2168-03a6-4d44-8a52-829135aab8fb", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab3BT", userPreferences.language)}`,
                                 buttonLink: "/inverter-batteries",
                                 target: null,
@@ -262,16 +417,16 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                                 image: "/livguard/home/3/1.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab1HC1", userPreferences.language)}`,
                                 headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
+                                content: `${getVernacularString("81c86672-33a4-4aae-80e8-da18b67ecdbc", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
-                                buttonLink: "/automotive-batteries.php",
-                                target: "_blank",
+                                buttonLink: "/battery-finder",
+                                target: null,
                             },
                             {
                                 image: "/livguard/home/3/4.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab4HC1", userPreferences.language)}`,
                                 headingContent2: `${getVernacularString("homeS3Tab4HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab4C", userPreferences.language)}`,
+                                content: `${getVernacularString("164717a3-598c-477c-99b9-cf2f40646026", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab4BT", userPreferences.language)}`,
                                 buttonLink: "https://www.livguardsolar.com/",
                                 target: "_blank",
@@ -280,7 +435,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                                 image: "/livguard/home/3/5.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab5HC1", userPreferences.language)}`,
                                 headingContent2: `${getVernacularString("homeS3Tab5HC2", userPreferences.language)}`,
-                                content: `${getVernacularString("homeS3Tab5C", userPreferences.language)}`,
+                                content: `${getVernacularString("ef976dde-0707-440e-b576-c3722ca507a2", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab5BT", userPreferences.language)}`,
                                 buttonLink: "/lg-trolley-category/",
                                 target: "_blank",
@@ -406,7 +561,7 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
                 <div className="tw-grid tw-grid-flow-row tw-px-3 tw-rounded-lg">
                     <div>
                         <FullWidthImage
-                            relativePath="/livguard/india-ops/4/head-office.png"
+                            relativePath="/livguard/india-ops/4/head-office.jpg"
                             className="tw-rounded-lg"
                         />
                     </div>
@@ -430,19 +585,19 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
 function RegionalOffices({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const offices = [
         {
-            imageRelativeUrl: "/livguard/india-ops/5/regional-office.png",
+            imageRelativeUrl: "/livguard/india-ops/5/1.jpg",
             titleTextContentPiece: "49784df9-4213-42cb-b013-6360553d726b",
-            descriptionTextContentPiece: "8feca67b-7fe9-4672-a4cc-cf958dc8fdf8",
+            descriptionTextContentPiece: "0fc1ad43-da71-4c4b-b96d-dae763f48bf8",
         },
         {
-            imageRelativeUrl: "/livguard/india-ops/5/regional-office.png",
+            imageRelativeUrl: "/livguard/india-ops/5/2.jpg",
             titleTextContentPiece: "49784df9-4213-42cb-b013-6360553d726b",
-            descriptionTextContentPiece: "8feca67b-7fe9-4672-a4cc-cf958dc8fdf8",
+            descriptionTextContentPiece: "c39eae4e-012c-45cc-aaf9-7bc683670209",
         },
         {
-            imageRelativeUrl: "/livguard/india-ops/5/regional-office.png",
+            imageRelativeUrl: "/livguard/india-ops/5/3.jpg",
             titleTextContentPiece: "49784df9-4213-42cb-b013-6360553d726b",
-            descriptionTextContentPiece: "8feca67b-7fe9-4672-a4cc-cf958dc8fdf8",
+            descriptionTextContentPiece: "e086e9d3-e71a-433c-809e-7a85951631d9",
         },
     ];
 
@@ -492,43 +647,8 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
     );
 }
 
-function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-[31.25rem]">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function ChooseTheRightInverter({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
+    const utmParameters = useUtmSearchParameters();
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_auto_minmax(0,1fr)]", className)}>
             <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("56fb901a-105b-41f6-9f28-5352624665ea", userPreferences.language)}</div>
@@ -540,10 +660,47 @@ function ChooseTheRightInverter({userPreferences, className}: {userPreferences: 
 
             <VerticalSpacer className="tw-row-start-6 tw-h-6" />
 
-            <DownloadCatalogueButton
-                userPreferences={userPreferences}
-                className="tw-row-start-7 tw-place-self-center tw-w-full tw-grid tw-justify-items-center"
-            />
+            {/* <div className="tw-row-start-7 tw-place-self-center tw-w-full tw-grid lg:tw-grid-cols-2 lg:tw-gap-x-4">
+                <button className="tw-row-start-7 tw-place-self-center tw-w-full tw-grid tw-justify-items-center lg-cta-outline-button lg-cta-outline-button-transition">Download Catalogue</button>
+
+                <ContactUsCta
+                    userPreferences={userPreferences}
+                    textVernacId="d0a88af5-fba8-43cd-bda5-813e7363db53"
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
+                    className="tw-row-start-7"
+                />
+            </div> */}
+            <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
+                <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
+                    {/* <a
+                        href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
+                        download
+                        target="_blank"
+                        className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4"
+                    >
+                        <img
+                            className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                        />
+                        <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                        </div>
+                    </a> */}
+                    <DownloadCatalogueButton
+                        userPreferences={userPreferences}
+                        className=""
+                    />
+                    <ContactUsCta
+                        userPreferences={userPreferences}
+                        textVernacId="d0a88af5-fba8-43cd-bda5-813e7363db53"
+                        utmParameters={utmParameters}
+                        pageUrl={pageUrl}
+                        className="tw-h-full tw-w-full tw-grid tw-place-items-center"
+                        buttonClassName="tw-w-full tw-h-full"
+                    />
+                </div>
+            </div>
         </div>
     );
 }
@@ -554,12 +711,23 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
             as="div"
             className={concatenateNonNullStringsWithSpaces("tw-relative tw-z-[2]", className)}
         >
-            <Menu.Button className="lg-cta-button tw-w-fit">{getVernacularString("47f28213-0a21-4782-b006-cf696dec0758", userPreferences.language)}</Menu.Button>
+            {/* <Menu.Button className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-w-fit">
+                {getVernacularString("47f28213-0a21-4782-b006-cf696dec0758", userPreferences.language)}
+            </Menu.Button> */}
+            <Menu.Button className="lg-cta-outline-button lg-cta-outline-button-category-section-transition-ops tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4">
+                <img
+                    className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                    src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                />
+                <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                    {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                </div>
+            </Menu.Button>
 
-            <Menu.Items className="tw-absolute tw-top-12 tw-left-0 lg-bg-background-500 tw-border-2 tw-border-solid tw-border-primary-500-light tw-rounded-lg tw-grid tw-grid-cols-1 tw-w-full tw-px-4">
+            <Menu.Items className="tw-absolute tw-top-12 tw-left-0 lg-bg-secondary-100 tw-border-2 tw-border-solid tw-border-primary-500-light tw-rounded-lg tw-grid tw-grid-cols-1 tw-w-full tw-px-4">
                 <Menu.Item>
                     <a
-                        href="/dummy"
+                        href="https://www.livguard.com/static-assets/leaflet-automotive.pdf"
                         download
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
@@ -572,7 +740,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
 
                 <Menu.Item>
                     <a
-                        href="/dummy"
+                        href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
                         download
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
@@ -585,12 +753,12 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
 
                 <Menu.Item>
                     <a
-                        href="/dummy"
+                        href="https://www.livguard.com/static-assets/leaflet-hkva.pdf"
                         download
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
                     >
-                        {getVernacularString("d82b18b5-075b-40f8-a295-142db690894b", userPreferences.language)}
+                        {getVernacularString("cbff5c39-b943-438a-b015-e71287f37b93", userPreferences.language)}
                     </a>
                 </Menu.Item>
 
@@ -598,7 +766,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
 
                 <Menu.Item>
                     <a
-                        href="/dummy"
+                        href="https://www.livguard.com/static-assets/international-business/livguard-solar.pdf"
                         download
                         className="tw-w-fit tw-py-2 lg-text-primary-500"
                         target="_blank"
@@ -609,7 +777,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
 
                 <div className="tw-w-full tw-h-px lg-bg-secondary-300" />
 
-                <Menu.Item>
+                {/* <Menu.Item>
                     <a
                         href="/dummy"
                         download
@@ -618,7 +786,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
                     >
                         {getVernacularString("d1aa9371-f547-41b6-9d8a-650971f771f8", userPreferences.language)}
                     </a>
-                </Menu.Item>
+                </Menu.Item> */}
             </Menu.Items>
         </Menu>
     );

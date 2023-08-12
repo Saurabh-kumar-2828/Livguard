@@ -1,19 +1,16 @@
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, json} from "@remix-run/node";
-import {useActionData, useLoaderData, useSearchParams} from "@remix-run/react";
-import {insertServiceRequests} from "~/backend/dealer.server";
-import {HeaderComponent} from "~/components/headerComponent";
+import type {LinksFunction, LoaderFunction} from "@remix-run/node";
+import {useLoaderData} from "@remix-run/react";
+import {useResizeDetector} from "react-resize-detector";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {CoverImage} from "~/components/images/coverImage";
 import {PageScaffold} from "~/components/pageScaffold";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {CoverImage} from "~/components/images/coverImage";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {useResizeDetector} from "react-resize-detector";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;
@@ -442,124 +439,3 @@ function ContactInformation({userPreferences, className}: {userPreferences: User
         </div>
     );
 }
-
-// function DisclaimerOfWarranties({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("b0f9c01f-a82d-45a7-8546-685567cd7591", userPreferences.language)}}
-//                 ></div>
-//                 <div className="lg-text-body lg-text-secondary-900">{getVernacularString("7dba2dc9-b153-4216-bbf6-d965332c0e12", userPreferences.language)}</div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function Indemnification({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("3b74dadf-3333-4c76-acbd-5c1ecd7deb7f", userPreferences.language)}}
-//                 ></div>
-//                 <div className="lg-text-body lg-text-secondary-900">{getVernacularString("e3304f79-e46e-4eef-aebb-f57b637f2b14", userPreferences.language)}</div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function Severability({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("a7084225-0803-48c7-b01a-a4afbf547313", userPreferences.language)}}
-//                 ></div>
-//                 <div className="lg-text-body lg-text-secondary-900">{getVernacularString("e9700119-8143-4956-81dc-fa03ff519f80", userPreferences.language)}</div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function Termination({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("5f5fc2cb-35c1-4f59-8974-5fcb014eb17f", userPreferences.language)}}
-//                 ></div>
-//                 <div
-//                     className="lg-text-body lg-text-secondary-900"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("9394bd5d-8e93-41b3-ac77-993ceb0ded94", userPreferences.language)}}
-//                 ></div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function EntireAgreement({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("c484926d-4b74-49b7-a48c-6de59678fdf6", userPreferences.language)}}
-//                 ></div>
-//                 <div
-//                     className="lg-text-body lg-text-secondary-900"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("4519b623-bbc3-4576-a1b9-26c6254dd47e", userPreferences.language)}}
-//                 ></div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function GoverningLaw({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("1af3f0bb-75d3-4d8f-8661-a03e8d9c569d", userPreferences.language)}}
-//                 ></div>
-//                 <div className="lg-text-body lg-text-secondary-900">{getVernacularString("c27d7e42-b4a3-4e93-8c2d-c7d12cd6010e", userPreferences.language)}</div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function ChangesToTerms({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("3f67f49f-92ab-434c-b9eb-8d4e9d75a115", userPreferences.language)}}
-//                 ></div>
-//                 <div
-//                     className="lg-text-body lg-text-secondary-900"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("34a39f63-6f7d-430d-9c6c-7eefe5e9bf33", userPreferences.language)}}
-//                 ></div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function ContactInformaton({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-//     return (
-//         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-//             <div className="tw-grid tw-grid-flow-row tw-gap-[1rem]">
-//                 <div
-//                     className="lg-text-title1"
-//                     dangerouslySetInnerHTML={{__html: getVernacularString("508d2a70-f673-4119-8776-4405f6987780", userPreferences.language)}}
-//                 ></div>
-//                 <div className="lg-text-body lg-text-secondary-900">{getVernacularString("82ce1187-230a-4182-9090-a0a42cc54ef0", userPreferences.language)}</div>
-//             </div>
-//         </div>
-//     );
-// }

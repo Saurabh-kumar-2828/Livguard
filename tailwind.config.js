@@ -32,7 +32,27 @@ module.exports = {
                 "secondary-900": {
                     light: "#1f2022",
                     dark: "#fcfcfc",
-                },  
+                },
+                "new-background-500": {
+                    light: "#fcfcfc",
+                    dark: "#191919",
+                },
+                "new-background-border-500": {
+                    light: "#f2f2f2",
+                    dark: "#1f2022",
+                },
+                "new-foreground-500": {
+                    light: "#474546",
+                    dark: "#f2f2f2",
+                },
+                "new-foreground-700": {
+                    light: "#1f2022",
+                    dark: "#fcfcfc",
+                },
+                "new-primary-500": {
+                    light: "#eb2a2b",
+                    dark: "#eb2a2b",
+                },
             },
             gridColumnStart: {
                 8: "8",

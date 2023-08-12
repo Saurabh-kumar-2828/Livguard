@@ -1,4 +1,4 @@
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import type {ShouldRevalidateFunction} from "@remix-run/react";
 import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse, useLoaderData, useRouteError} from "@remix-run/react";
@@ -7,7 +7,7 @@ import {useEffect} from "react";
 import {ToastContainer} from "react-toastify";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
 import {DynamicLinks} from "remix-utils";
-import {ErrorHeaderComponent} from "~/components/errorHeaderComponent copy";
+import {ErrorHeaderComponent} from "~/components/errorHeaderComponent";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
@@ -74,11 +74,19 @@ export const shouldRevalidate: ShouldRevalidateFunction = () => {
     return true;
 };
 
-export const meta: MetaFunction = () => ({
-    charset: "utf-8",
-    title: "Livguard",
-    viewport: "width=device-width,initial-scale=1",
-});
+export const meta: V2_MetaFunction = ({data: loaderData}) => {
+    return [
+        {
+            name: "viewport",
+            content: "width=device-width,initial-scale=1",
+        },
+        {
+            title: "Livguard",
+        },
+        // TODO: Complete this
+        //     title: "Livguard",
+    ];
+};
 
 export const links: LinksFunction = () => [
     {rel: "stylesheet", href: tailwindStylesheet},
@@ -193,6 +201,10 @@ export default function Root() {
 
                     {/* Site Verification */}
                     <meta
+                        name="viewport"
+                        content="width=device-width,initial-scale=1"
+                    />
+                    <meta
                         name="google-site-verification"
                         content="kBcFXIhI8Fo0WubHw2RPr_SmmpuizSmpkWqmJdsl3g0"
                     />
@@ -227,7 +239,7 @@ export default function Root() {
                     {/* /FOUC hack */}
                 </head>
 
-                <body className="lg-bg-background-500 lg-text-secondary-900 lg-text-body">
+                <body className="lg-bg-new-background-500 lg-text-new-foreground-500 lg-text-body">
                     <Outlet />
 
                     <ToastContainer

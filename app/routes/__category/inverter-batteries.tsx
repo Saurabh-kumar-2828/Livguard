@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {useState} from "react";
 import {Clock, HandThumbsUpFill, Lightning, Wallet} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
@@ -20,44 +20,170 @@ import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
 import {DealerLocator} from "~/routes";
+import {SuggestedComboSection} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getDownloadCatalogueLink, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Empower your home with Livguard strong Inverter Batteries",
+//             description: "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
+//             "og:title": "Empower your home with Livguard strong Inverter Batteries",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/inverter-batteries/",
+//             "og:description": "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
+//             "og:type": "product",
+//             "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
+//             description: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
+//             "og:title": "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/inverter-batteries/",
+//             "og:description": "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
+//             "og:type": "product",
+//             "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/inverter-batteries/"}];
+// };
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Empower your home with Livguard strong Inverter Batteries",
-            description: "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
-            "og:title": "Empower your home with Livguard strong Inverter Batteries",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/inverter-batteries/",
-            "og:description": "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
-            "og:type": "product",
-            "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/inverter-batteries/",
+            },
+            {
+                title: "Empower your home with Livguard strong Inverter Batteries",
+            },
+            {
+                name: "description",
+                content: "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/inverter-batteries/",
+            },
+            {
+                property: "og:title",
+                content: "Empower your home with Livguard strong Inverter Batteries",
+            },
+            {
+                property: "og:description",
+                content: "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    itemListElement: [
+                        {
+                            "@type": "ListItem",
+                            position: 1,
+                            name: "LivGuard",
+                            item: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "ListItem",
+                            position: 2,
+                            name: "Inverters Batteries",
+                            item: "https://www.livguard.com/inverter-batteries",
+                            description: " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                            image: ["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Livguard",
+                            url: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Inverters Batteries",
+                            url: "https://www.livguard.com/inverter-batteries",
+                            description: "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                            image: ["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"],
+                        },
+                    ],
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
-            description: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
-            "og:title": "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/inverter-batteries/",
-            "og:description": "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
-            "og:type": "product",
-            "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/inverter-batteries/",
+            },
+            {
+                title: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/inverter-batteries/",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/inverter-batteries/"}];
 };
 
 type LoaderData = {
@@ -205,7 +331,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10 llg:tw-h-20" />
 
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px]">
+            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
@@ -429,10 +555,10 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
 
 export function OurBatteriesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const highlightedBatteries = [
-        {name: "Tall Tubular", image: "/livguard/products/batteries/it1584tt/thumbnail.png"},
-        {name: "Short Tubular", image: "/livguard/products/batteries/it1048st/thumbnail.png"},
-        {name: "Short Tall Tubular", image: "/livguard/products/batteries/it1560stt/thumbnail.png"},
-        {name: "Short Tubular Jumbo", image: "/livguard/products/batteries/it1636stj/thumbnail.png"},
+        {name: "Tall Tubular", image: "/livguard/products/it1584tt/thumbnail.png"},
+        {name: "Short Tubular", image: "/livguard/products/it1048st/thumbnail.png"},
+        {name: "Short Tall Tubular", image: "/livguard/products/it1560stt/thumbnail.png"},
+        {name: "Short Tubular Jumbo", image: "/livguard/products/it1636stj/thumbnail.png"},
     ];
 
     return (
@@ -453,7 +579,7 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
 
                 {/* 31ca68bd-891d-47f3-b0ef-32b21bd9017f: Temporary hack until we can get a proper cropped-thumbnail image for each product */}
                 <div className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-row-span-2 tw-w-full tw-aspect-[4/3] tw-justify-self-center tw-self-start tw-max-w-[30rem]">
-                    <CoverImage relativePath="/livguard/products/batteries/it1560stt/thumbnail.png" />
+                    <CoverImage relativePath="/livguard/products/it1560stt/thumbnail.png" />
                 </div>
                 {/* /31ca68bd-891d-47f3-b0ef-32b21bd9017f */}
 
@@ -563,11 +689,11 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
 
                 <div className="tw-row-start-1 tw-col-start-2 tw-px-5">
                     <div className="tw-flex lg:tw-hidden tw-justify-center tw-items-center">
-                        <FullWidthImage relativePath="/livguard/products/batteries/it1584tt/thumbnail.png" />
+                        <FullWidthImage relativePath="/livguard/products/it1584tt/thumbnail.png" />
                     </div>
                     <div className="tw-hidden lg:tw-flex tw-justify-center tw-items-center">
                         <FixedWidthImage
-                            relativePath="/livguard/products/batteries/it1584tt/thumbnail.png"
+                            relativePath="/livguard/products/it1584tt/thumbnail.png"
                             width="10rem"
                         />
                     </div>
@@ -679,7 +805,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imagesRelativePath: "/livguard/products/batteries/",
+            imagesRelativePath: "/livguard/products/",
             link: "/product/it1584tt",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
@@ -712,7 +838,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imagesRelativePath: "/livguard/products/batteries/",
+            imagesRelativePath: "/livguard/products/",
             link: "/product/it1048st",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
@@ -745,7 +871,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                     keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
                 },
             ],
-            imagesRelativePath: "/livguard/products/batteries/",
+            imagesRelativePath: "/livguard/products/",
             link: "/product/it1560stt",
             exploreButton: getVernacularString("categoryBatteriesS4BT", userPreferences.language),
             relatedProductsHeading: getVernacularString("categoryBatteriesS4RelatedProductsHeading", userPreferences.language),
@@ -811,6 +937,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 <OurSuggestionsComponent
                     vernacularContent={sectionData[selectedBatteryTypeIndex]}
                     // className={selectedBatteryType == BatteryType.flat ? "lg-bg-secondary-300" : "lg-bg-secondary-100"}
+                    userPreferences={userPreferences}
                     className="lg-bg-secondary-100"
                 />
             </div>
@@ -942,80 +1069,19 @@ export function SideBySideOverviewSection({userPreferences, className}: {userPre
     );
 }
 
-export function SuggestedComboSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const combosData: Array<{
-        title: string;
-        imageRelativePath: string;
-        buttonText: string;
-        bestseller: boolean;
-        link: string;
-    }> = [
-        {
-            title: `${getVernacularString("categoryBatteriesS6Combo1Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
-            bestseller: false,
-            link: `/product/urban-combo`,
-        },
-        {
-            title: `${getVernacularString("categoryBatteriesS6Combo2Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
-            bestseller: true,
-            link: `/product/peace-of-mind-combo`,
-        },
-        {
-            title: `${getVernacularString("categoryBatteriesS6Combo3Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/super-life-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
-            bestseller: true,
-            link: `/product/super-life-combo`,
-        },
-        {
-            title: `${getVernacularString("categoryBatteriesS6Combo4Title", userPreferences.language)}`,
-            imageRelativePath: "/livguard/products/jodis/hi-power-jodi/thumbnail.png",
-            buttonText: "categoryViewComboButtontext",
-            bestseller: false,
-            link: `/product/hi-power-combo`,
-        },
-    ];
-
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex tw-flex-col", className)}>
-            <div className="tw-flex tw-flex-col">
-                <div className="lg-text-headline tw-text-center">
-                    <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS6HT1", userPreferences.language)}} />
-                    </DefaultTextAnimation>
-                </div>
-            </div>
-
-            <VerticalSpacer className="tw-h-10" />
-
-            <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-4 tw-gap-x-2 lg:tw-gap-x-4 tw-gap-y-10">
-                <ItemBuilder
-                    items={combosData}
-                    itemBuilder={(combo, comboIndex) => (
-                        <div
-                            className={`lg-bg-secondary-100 tw-rounded-lg`}
-                            key={comboIndex}
-                        >
-                            <ProductCardComponent
-                                vernacularContent={combo}
-                                key={comboIndex}
-                                userPreferences={userPreferences}
-                            />
-                        </div>
-                    )}
-                />
-            </div>
-
-            <VerticalSpacer className="tw-h-4" />
-        </div>
-    );
-}
-
-export function ChooseBestInverterBattery({userPreferences, utmParameters, className}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; className?: string}) {
+export function ChooseBestInverterBattery({
+    userPreferences,
+    utmParameters,
+    className,
+    productType,
+    productSubType,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {[searchParameter: string]: string};
+    className?: string;
+    productType?: ProductType;
+    productSubType?: InverterSubType | BatterySubType | ComboSubType | AutomotiveSubType | AccessoriesSubType;
+}) {
     const sectionData: {
         description: string;
         downloadButtons: Array<{iconRelativePath: string; text: string; downloadLink: string; popup: boolean}>;
@@ -1032,7 +1098,7 @@ export function ChooseBestInverterBattery({userPreferences, utmParameters, class
             {
                 iconRelativePath: "/livguard/icons/downloadCatalogue.png",
                 text: `${getVernacularString("categoryBatteriesS8B2T", userPreferences.language)}`,
-                downloadLink: "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf",
+                downloadLink: getDownloadCatalogueLink(productType, productSubType),
                 popup: false,
             },
         ],

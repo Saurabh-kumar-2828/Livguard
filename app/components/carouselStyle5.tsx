@@ -12,6 +12,9 @@ export function CarouselStyle5({
     selectedContainerClassName,
     deselectedContainersClassName,
     disabledChevronClassName,
+    snapDotsDivisionFactor,
+    itemContainerClassName,
+    autoplayDelay = 8000,
 }: {
     items: Array<any>;
     className?: string;
@@ -19,8 +22,11 @@ export function CarouselStyle5({
     deselectedContainersClassName?: string;
     slidesContainerClassName?: string;
     disabledChevronClassName?: string;
+    snapDotsDivisionFactor?: number;
+    itemContainerClassName?: string;
+    autoplayDelay?: number | null;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, autoplayDelay);
 
     return (
         <div
@@ -33,7 +39,10 @@ export function CarouselStyle5({
                     itemBuilder={(item, itemIndex) => (
                         // Non selected items are dimmed
                         <div
-                            className={`tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 tw-h-full ${itemIndex !== selectedIndex ? "tw-opacity-50" : ""}`}
+                            className={concatenateNonNullStringsWithSpaces(
+                                `tw-px-3 tw-transition-[height] tw-ease-linear tw-delay-200 tw-h-full ${itemIndex !== selectedIndex ? "tw-opacity-50" : ""}`,
+                                itemContainerClassName,
+                            )}
                             key={itemIndex}
                         >
                             {/* {itemIndex !== selectedIndex ? <div className={deselectedContainersClassName}>{item}</div> : <div className={selectedContainerClassName}>{item}</div>} */}
@@ -59,11 +68,16 @@ export function CarouselStyle5({
 
                 <div className="tw-flex tw-flex-row tw-gap-x-2">
                     <ItemBuilder
-                        items={items}
+                        items={snapDotsDivisionFactor == undefined ? items : items.slice(0, items.length / snapDotsDivisionFactor)}
                         itemBuilder={(_, scrollSnapIndex) => (
                             <React.Fragment key={scrollSnapIndex}>
                                 <div
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                    className={concatenateNonNullStringsWithSpaces(
+                                        "tw-w-2 tw-h-2 tw-rounded-full",
+                                        scrollSnapIndex == selectedIndex || (snapDotsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (items.length / snapDotsDivisionFactor))
+                                            ? "lg-bg-secondary-900"
+                                            : "lg-bg-secondary-300",
+                                    )}
                                     key={scrollSnapIndex}
                                     onClick={() => {
                                         if (scrollSnapIndex !== selectedIndex) {

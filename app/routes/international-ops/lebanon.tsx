@@ -1,8 +1,8 @@
 import {Dialog, Menu, Transition} from "@headlessui/react";
-import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
-import React, {Ref, useEffect, useRef, useState} from "react";
+import React, {LegacyRef, Ref, useCallback, useEffect, useRef, useState} from "react";
 import {ArrowRight, ChevronDown, ChevronRight, Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -29,41 +29,130 @@ import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {InternationalPageScaffold} from "~/routes/international-ops/internationalPageScaffold.component";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
-import {Language} from "~/typeDefinitions";
+import {Language, Theme} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import ReCAPTCHA from "react-google-recaptcha";
+import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
+import {GoogleReCaptcha, GoogleReCaptchaProvider, useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Your Energy Partners in Global Markets | Livguard Experts",
+//             description: "Contact Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, 35+ countries presence. Explore our product categories.",
+//             "og:title": "",
+//             "og:site_name": "",
+//             "og:url": "",
+//             "og:description": "",
+//             "og:type": "",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "شركاء طاقتك في الأسواق العالمية | خبراء ليفجار",
+//             description: "اتصل بخبراء ليفجارد للحصول على حلول طاقة لا حدود لها في الأسواق العالمية. بتراث يمتد لـ 35 عامًا وتواجد في أكثر من 35 دولة. استكشف فئات منتجاتنا.",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/international/lebanon"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Your Energy Partners in Global Markets | Livguard Experts",
-            description: "Contact Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, 35+ countries presence. Explore our product categories.",
-            "og:title": "",
-            "og:site_name": "",
-            "og:url": "",
-            "og:description": "",
-            "og:type": "",
-            "og:image": "",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/international/lebanon",
+            },
+            {
+                title: "Your Energy Partners in Global Markets | Livguard Experts",
+            },
+            {
+                name: "description",
+                content: "Contact Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, 35+ countries presence. Explore our product categories.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/international/lebanon",
+            },
+            {
+                property: "og:title",
+                content: "Your Energy Partners in Global Markets | Livguard Experts",
+            },
+            {
+                property: "og:description",
+                content: "Contact Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, 35+ countries presence. Explore our product categories.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "شركاء طاقتك في الأسواق العالمية | خبراء ليفجار",
-            description: "اتصل بخبراء ليفجارد للحصول على حلول طاقة لا حدود لها في الأسواق العالمية. بتراث يمتد لـ 35 عامًا وتواجد في أكثر من 35 دولة. استكشف فئات منتجاتنا.",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/international/lebanon"
+            },
+            {
+                title: "شركاء طاقتك في الأسواق العالمية | خبراء ليفجار",
+            },
+            {
+                name: "description",
+                content: "اتصل بخبراء ليفجارد للحصول على حلول طاقة لا حدود لها في الأسواق العالمية. بتراث يمتد لـ 35 عامًا وتواجد في أكثر من 35 دولة. استكشف فئات منتجاتنا.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/international/lebanon",
+            },
+            {
+                property: "og:title",
+                content: "شركاء طاقتك في الأسواق العالمية | خبراء ليفجار",
+            },
+            {
+                property: "og:description",
+                content: "اتصل بخبراء ليفجارد للحصول على حلول طاقة لا حدود لها في الأسواق العالمية. بتراث يمتد لـ 35 عامًا وتواجد في أكثر من 35 دولة. استكشف فئات منتجاتنا.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/international/lebanon"}];
 };
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    recaptchaSiteKey: string;
 };
 
 type ActionData = {
@@ -109,28 +198,29 @@ export const action: ActionFunction = async ({request, params}) => {
         return actionData;
     }
 
-    // TODO: Enable when email template and recipient list clarity is provided
-    // const emailResult = await sendEmail(
-    //     JSON.stringify({
-    //         name: name,
-    //         phoneNumber: phoneNumber,
-    //         email: email,
-    //         batteryQuantity: batteryQuantity,
-    //         city: city,
-    //         pinCode: pinCode,
-    //         termsAndConditionsChecked: termsAndConditionsChecked,
-    //         utmParameters: utmParameters,
-    //         pageUrl: pageUrl,
-    //     }),
-    //     ["taranpreet.singh@growthjockey.com"],
-    // );
+    const emailResult = await sendEmail(
+        JSON.stringify({
+            name: name,
+            phoneNumber: phoneNumber,
+            email: email,
+            batteryQuantity: batteryQuantity,
+            city: city,
+            pinCode: pinCode,
+            termsAndConditionsChecked: termsAndConditionsChecked,
+            utmParameters: utmParameters,
+            pageUrl: pageUrl,
+        }),
+        ["info@gescolb.com", "khushboo.sethi@sar-group.com", "export@sar-group.com"],
+        "International Page Lead Submitted",
+        ["developers@growthjockey.com"], //Added temporarily for testing purposes
+    );
 
-    // if (emailResult instanceof Error) {
-    //     const actionData: ActionData = {
-    //         error: "Error in sending email! Error code: 3ec643f2-ffdb-4f6c-8b5e-070f96a13653",
-    //     };
-    //     return actionData;
-    // }
+    if (emailResult instanceof Error) {
+        const actionData: ActionData = {
+            error: "Error in sending email! Error code: 3ec643f2-ffdb-4f6c-8b5e-070f96a13653",
+        };
+        return actionData;
+    }
 
     const actionData: ActionData = {
         error: null,
@@ -149,13 +239,14 @@ export const loader: LoaderFunction = async ({request}) => {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        recaptchaSiteKey: getStringFromUnknown(getRequiredEnvironmentVariableNew("GOOGLE_RECAPTCHA_SITE_KEY")),
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, recaptchaSiteKey} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -194,6 +285,7 @@ export default function () {
                     setSelectedCategoryIndex={setSelectedCategoryIndex}
                     selectedSubCategoryIndex={selectedSubCategoryIndex}
                     setSelectedSubCategoryIndex={setSelectedSubCategoryIndex}
+                    recaptchaSiteKey={recaptchaSiteKey}
                 />
             </InternationalPageScaffold>
 
@@ -231,6 +323,7 @@ function InternationalPageLebanon({
     setSelectedCategoryIndex,
     selectedSubCategoryIndex,
     setSelectedSubCategoryIndex,
+    recaptchaSiteKey,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -241,6 +334,7 @@ function InternationalPageLebanon({
     setSelectedCategoryIndex: React.Dispatch<number>;
     selectedSubCategoryIndex: number;
     setSelectedSubCategoryIndex: React.Dispatch<number>;
+    recaptchaSiteKey: string;
 }) {
     const fetcher = useFetcher();
 
@@ -263,6 +357,9 @@ function InternationalPageLebanon({
             toast.error(fetcher.data.error);
             return;
         }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({event: "submit"});
 
         setFormSuccessfullySubmitted(true);
     }, [fetcher.data]);
@@ -291,6 +388,7 @@ function InternationalPageLebanon({
                 setTermsAndConditionsChecked={setTermsAndConditionsChecked}
                 formSuccessfullySubmitted={formSuccessfullySubmitted}
                 setFormSuccessfullySubmitted={setFormSuccessfullySubmitted}
+                recaptchaSiteKey={recaptchaSiteKey}
             />
 
             <div className="tw-block lg:tw-hidden tw-z-10">
@@ -316,6 +414,7 @@ function InternationalPageLebanon({
                         setTermsAndConditionsChecked={setTermsAndConditionsChecked}
                         formSuccessfullySubmitted={formSuccessfullySubmitted}
                         setFormSuccessfullySubmitted={setFormSuccessfullySubmitted}
+                        recaptchaSiteKey={recaptchaSiteKey}
                     />
                 ) : (
                     <InternationalBusinessContactFormSuccess userPreferences={userPreferences} />
@@ -365,6 +464,7 @@ function HeroSection({
     setTermsAndConditionsChecked,
     formSuccessfullySubmitted,
     setFormSuccessfullySubmitted,
+    recaptchaSiteKey,
 }: {
     userPreferences: UserPreferences;
     className?: string;
@@ -389,6 +489,7 @@ function HeroSection({
     setTermsAndConditionsChecked: React.Dispatch<boolean>;
     formSuccessfullySubmitted: boolean;
     setFormSuccessfullySubmitted: React.Dispatch<boolean>;
+    recaptchaSiteKey: string;
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
@@ -449,6 +550,7 @@ function HeroSection({
                         setTermsAndConditionsChecked={setTermsAndConditionsChecked}
                         formSuccessfullySubmitted={formSuccessfullySubmitted}
                         setFormSuccessfullySubmitted={setFormSuccessfullySubmitted}
+                        recaptchaSiteKey={recaptchaSiteKey}
                     />
                 ) : (
                     <InternationalBusinessContactFormSuccess userPreferences={userPreferences} />
@@ -1188,16 +1290,12 @@ function GetInTouchWithUsSection({userPreferences}: {userPreferences: UserPrefer
                 <div className="tw-row-start-3 tw-grid tw-grid-flow-row tw-gap-4 tw-h-full">
                     <div className="lg-text-body tw-row-start-1 tw-place-self-center tw-text-center">{getVernacularString("4dbd6d59-b14a-43e7-968a-04b44513e509", userPreferences.language)}</div>
 
-                    <button
-                        type="button"
-                        className="lg-cta-button tw-w-full tw-place-self-center tw-self-end tw-row-start-2 !tw-px-[0] tw-max-w-[12rem]"
-                        onClick={() => {
-                            setDialogOptions({dialogType: "call-us", headerTextContentId: "310ebdda-7d6d-4ff3-bdab-d8be5722b5f3"});
-                            setIsContactUsDialogOpen(true);
-                        }}
+                    <a
+                        className="lg-cta-button tw-w-full tw-place-self-center tw-self-end tw-row-start-2 !tw-px-[0] tw-max-w-[12rem] tw-text-center"
+                        href="tel:+961-79-312446"
                     >
                         {getVernacularString("310ebdda-7d6d-4ff3-bdab-d8be5722b5f3", userPreferences.language)}
-                    </button>
+                    </a>
                 </div>
             </div>
         );
@@ -1422,6 +1520,7 @@ export function InternationalBusinessContactForm({
     setTermsAndConditionsChecked,
     formSuccessfullySubmitted,
     setFormSuccessfullySubmitted,
+    recaptchaSiteKey,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -1446,25 +1545,65 @@ export function InternationalBusinessContactForm({
     setTermsAndConditionsChecked: React.Dispatch<boolean>;
     formSuccessfullySubmitted: boolean;
     setFormSuccessfullySubmitted: React.Dispatch<boolean>;
+    recaptchaSiteKey: string;
 }) {
     const [step, setStep] = useState(0);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+    const {executeRecaptcha} = useGoogleReCaptcha();
+
+    const verifyRecaptchaFetcher = useFetcher();
+
+    // Create an event handler so you can call the verification on button click event or form submit
+    const handleReCaptchaVerify = useCallback(async () => {
+        // TODO: Look into backend validation of the token if needed
+        if (!executeRecaptcha) {
+            console.log("Execute recaptcha not yet available");
+            return;
+        }
+
+        const token = await executeRecaptcha("formSubmit");
+        // dealerFetcher.submit(data, {method: "post", action: "/contact-us/get-dealers-for-pin-code"});
+        const data = new FormData();
+        data.append("recaptchaToken", token);
+        verifyRecaptchaFetcher.submit(data, {method: "post", action: "/international-ops/verify-recaptcha"});
+        // Do whatever you want with the token
+        // We can call this function to verify recaptcha whenever we need to
+    }, [executeRecaptcha]);
+
+    useEffect(() => {
+        if (verifyRecaptchaFetcher.data != null) {
+            if (verifyRecaptchaFetcher.data.error != null) {
+                toast.error("Error in verifying recaptcha. Error Code: 81117d9e-46e2-4353-91cb-fc774d2ed302");
+                return;
+            }
+        }
+    }, [verifyRecaptchaFetcher.data]);
+
+    // You can use useEffect to trigger the verification as soon as the component being loaded
+    useEffect(() => {
+        handleReCaptchaVerify();
+    }, [handleReCaptchaVerify]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-z-[70] tw-isolate", className)}>
-            <fetcher.Form
-                className="tw-w-full lg:tw-rounded-[0.8rem] tw-grid tw-grid-rows-[2rem_auto_2rem_auto_1rem_auto_1rem_auto_1rem_auto_2.25rem_auto_0.15rem_auto_3rem] tw-relative tw-overflow-visible"
-                method="post"
-                onSubmit={(e) => {
-                    if (step == 0) {
-                        e.preventDefault();
+        <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-z-[70] tw-isolate", className)}>
+                <fetcher.Form
+                    className="tw-w-full lg:tw-rounded-[0.8rem] tw-grid tw-grid-rows-[2rem_auto_2rem_auto_1rem_auto_1rem_auto_1rem_auto_1rem_auto_2.25rem_auto_0.15rem_auto_3rem] tw-relative tw-overflow-visible"
+                    method="post"
+                    onSubmit={(e) => {
+                        if (step == 0) {
+                            e.preventDefault();
 
-                        setStep(1);
+                            setStep(1);
 
-                        return;
-                    }
-                }}
-            >
-                {/* <div
+                            return;
+                        }
+                        setIsButtonDisabled(true);
+                        handleReCaptchaVerify();
+                    }}
+                >
+                    {/* <div
                     className="tw-absolute -tw-top-4 tw-left-0 tw-right-0 lg-lead-form-top-gradient tw-h-[4rem] tw-z-10"
                     style={{clipPath: "ellipse(50% 100% at 50% 0%)"}}
                 />
@@ -1484,176 +1623,189 @@ export function InternationalBusinessContactForm({
                     </div>
                 </div> */}
 
-                <div className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-hidden tw-bg-[#e9e9e9] tw-opacity-80 tw-z-8" />
+                    <div className="tw-absolute tw-w-full tw-h-full tw-inset-0 tw-rounded-lg tw-overflow-hidden tw-bg-[#e9e9e9] tw-opacity-80 tw-z-8" />
 
-                <div className="tw-row-start-2 tw-w-full tw-text-[1.5rem] !tw-text-black tw-text-center tw-z-10">
-                    {getVernacularString("39eabaec-19d2-45df-9abd-d45e783cfdcc", userPreferences.language)}
-                </div>
+                    <div className="tw-row-start-2 tw-w-full tw-text-[1.5rem] !tw-text-black tw-text-center tw-z-10">
+                        {getVernacularString("39eabaec-19d2-45df-9abd-d45e783cfdcc", userPreferences.language)}
+                    </div>
 
-                {step == 0 ? (
-                    <>
-                        <div className="tw-row-start-4 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("ca8542ad-35b6-46bc-bb66-6f133efda660", userPreferences.language)}</div>
+                    {step == 0 ? (
+                        <>
+                            <div className="tw-row-start-4 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("ca8542ad-35b6-46bc-bb66-6f133efda660", userPreferences.language)}</div>
 
-                            <VerticalSpacer className="tw-h-1" />
+                                <VerticalSpacer className="tw-h-1" />
 
-                            <input
-                                type="text"
+                                <input
+                                    type="text"
+                                    name="name"
+                                    className="lg-text-input dark:!tw-border-black"
+                                    required
+                                    placeholder={getVernacularString("d2147fbf-37be-4867-b05a-5d955232d4ae", userPreferences.language)}
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="tw-row-start-6 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("a7dca451-3b2d-4c5a-a3f0-60d50765e7ae", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-1" />
+
+                                <input
+                                    type="text"
+                                    name="phoneNumber"
+                                    className="lg-text-input dark:!tw-border-black"
+                                    pattern={phoneNumberValidationPattern}
+                                    required
+                                    placeholder={getVernacularString("4cc79e16-057f-4d9a-a485-5ede1ac4bec6", userPreferences.language)}
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("03692181-3b16-4c29-a125-37832d186f8b", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-1" />
+
+                                <input
+                                    type="text"
+                                    name="emailId"
+                                    className="lg-text-input dark:!tw-border-black"
+                                    pattern={emailIdValidationPattern}
+                                    required
+                                    placeholder={getVernacularString("ab22c1ba-35c8-4435-8d2a-1d978582abc8", userPreferences.language)}
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-20">
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("7fcce52e-a757-41ee-92e7-d6e54fc3d8a9", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-1" />
+
+                                <FormSelectComponent
+                                    items={["1", "2", "5", "10", "More than 10"]}
+                                    itemBuilder={(item) => (item == null ? `${getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language)}` : `<div class="">${item}</div>`)}
+                                    value={batteryQuantity}
+                                    setValue={(item) => setBatteryQuantity(item)}
+                                    key={userPreferences.language}
+                                    buttonClassName="!tw-rounded-full tw-px-4 dark:!tw-border-black"
+                                />
+                            </div>
+
+                            <div className="tw-row-start-[12] tw-w-full tw-flex tw-flex-row tw-gap-x-2 tw-justify-center tw-items-center lg-px-screen-edge tw-z-10">
+                                <input
+                                    type="checkbox"
+                                    name="termsAndConditionsChecked"
+                                    style={{accentColor: `${termsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
+                                    checked={termsAndConditionsChecked}
+                                    required
+                                    onChange={(e) => setTermsAndConditionsChecked(e.target.checked)}
+                                />
+
+                                <div
+                                    dangerouslySetInnerHTML={{__html: getVernacularString("bb6ae191-31a7-4cdc-8654-f1f4c3c9f4f5", userPreferences.language)}}
+                                    className="!tw-text-black"
+                                />
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="tw-row-start-4 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("edf58613-1a70-43ea-abaa-5bc822f90ced", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-1" />
+
+                                <input
+                                    type="text"
+                                    name="city"
+                                    className="lg-text-input dark:!tw-border-black"
+                                    required
+                                    placeholder={getVernacularString("9ff2ffc9-633e-482a-b720-c015f9c4aea4", userPreferences.language)}
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="tw-row-start-6 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                                <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("0819dd0a-c836-4176-a121-888513e3bc8a", userPreferences.language)}</div>
+
+                                <VerticalSpacer className="tw-h-1" />
+
+                                <input
+                                    type="text"
+                                    name="pinCode"
+                                    className="lg-text-input dark:!tw-border-black"
+                                    // TODO: Ensure this works for international pages
+                                    // pattern={pinCodeValidationPattern}
+                                    required
+                                    placeholder={getVernacularString("4c2ec5ee-e69d-477a-a882-cf4e3254a6e0", userPreferences.language)}
+                                    value={pinCode}
+                                    onChange={(e) => setPinCode(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="tw-row-start-8 tw-w-full tw-h-fit tw-z-10 tw-grid tw-justify-center">
+                                {/* <ReCAPTCHA
+                                sitekey={recaptchaSiteKey}
+                                className=""
+                                theme={userPreferences.theme === Theme.Dark ? "dark" : "light"}
+                                ref={captchaRef}
+                            /> */}
+
+                                <GoogleReCaptcha onVerify={handleReCaptchaVerify} />
+
+                                {/* <VerticalSpacer className="tw-h-6" /> */}
+                            </div>
+
+                            <HiddenFormField
                                 name="name"
-                                className="lg-text-input dark:!tw-border-black"
-                                required
-                                placeholder={getVernacularString("d2147fbf-37be-4867-b05a-5d955232d4ae", userPreferences.language)}
                                 value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                required={true}
                             />
-                        </div>
 
-                        <div className="tw-row-start-6 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("a7dca451-3b2d-4c5a-a3f0-60d50765e7ae", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="phoneNumber"
-                                className="lg-text-input dark:!tw-border-black"
-                                pattern={phoneNumberValidationPattern}
-                                required
-                                placeholder={getVernacularString("4cc79e16-057f-4d9a-a485-5ede1ac4bec6", userPreferences.language)}
-                                value={phoneNumber}
-                                onChange={(e) => setPhoneNumber(e.target.value)}
-                            />
-                        </div>
-
-                        <div className="tw-row-start-[8] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("03692181-3b16-4c29-a125-37832d186f8b", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="emailId"
-                                className="lg-text-input dark:!tw-border-black"
-                                pattern={emailIdValidationPattern}
-                                required
-                                placeholder={getVernacularString("ab22c1ba-35c8-4435-8d2a-1d978582abc8", userPreferences.language)}
+                            <HiddenFormField
+                                name="email"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                required={true}
+                                pattern={emailIdValidationPattern}
                             />
-                        </div>
 
-                        <div className="tw-row-start-[10] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-20">
-                            <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("7fcce52e-a757-41ee-92e7-d6e54fc3d8a9", userPreferences.language)}</div>
+                            <HiddenFormField
+                                name="phoneNumber"
+                                value={phoneNumber}
+                                required={true}
+                                pattern={phoneNumberValidationPattern}
+                            />
 
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <FormSelectComponent
-                                items={["1", "2", "5", "10", "More than 10"]}
-                                itemBuilder={(item) => (item == null ? `${getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language)}` : `<div class="">${item}</div>`)}
+                            <HiddenFormField
+                                name="batteryQuantity"
                                 value={batteryQuantity}
-                                setValue={(item) => setBatteryQuantity(item)}
-                                key={userPreferences.language}
-                                buttonClassName="!tw-rounded-full tw-px-4 dark:!tw-border-black"
+                                required={true}
                             />
-                        </div>
 
-                        <div className="tw-row-start-[12] tw-w-full tw-flex tw-flex-row tw-gap-x-2 tw-justify-center tw-items-center lg-px-screen-edge tw-z-10">
-                            <input
-                                type="checkbox"
+                            <HiddenFormField
                                 name="termsAndConditionsChecked"
-                                style={{accentColor: `${termsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
-                                checked={termsAndConditionsChecked}
-                                required
-                                onChange={(e) => setTermsAndConditionsChecked(e.target.checked)}
+                                value={termsAndConditionsChecked ? "on" : "off"}
+                                required={true}
                             />
 
-                            <div
-                                dangerouslySetInnerHTML={{__html: getVernacularString("bb6ae191-31a7-4cdc-8654-f1f4c3c9f4f5", userPreferences.language)}}
-                                className="!tw-text-black"
+                            <HiddenFormField
+                                name="utmParameters"
+                                value={JSON.stringify(utmParameters)}
+                                required={true}
                             />
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <div className="tw-row-start-4 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("edf58613-1a70-43ea-abaa-5bc822f90ced", userPreferences.language)}</div>
 
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="city"
-                                className="lg-text-input dark:!tw-border-black"
-                                required
-                                placeholder={getVernacularString("9ff2ffc9-633e-482a-b720-c015f9c4aea4", userPreferences.language)}
-                                value={city}
-                                onChange={(e) => setCity(e.target.value)}
+                            <HiddenFormField
+                                name="pageUrl"
+                                value={pageUrl}
+                                required={true}
                             />
-                        </div>
 
-                        <div className="tw-row-start-6 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                            <div className="lg-text-body-bold tw-pl-3 !tw-text-black">{getVernacularString("0819dd0a-c836-4176-a121-888513e3bc8a", userPreferences.language)}</div>
-
-                            <VerticalSpacer className="tw-h-1" />
-
-                            <input
-                                type="text"
-                                name="pinCode"
-                                className="lg-text-input dark:!tw-border-black"
-                                // TODO: Ensure this works for international pages
-                                // pattern={pinCodeValidationPattern}
-                                required
-                                placeholder={getVernacularString("4c2ec5ee-e69d-477a-a882-cf4e3254a6e0", userPreferences.language)}
-                                value={pinCode}
-                                onChange={(e) => setPinCode(e.target.value)}
-                            />
-                        </div>
-
-                        <HiddenFormField
-                            name="name"
-                            value={name}
-                            required={true}
-                        />
-
-                        <HiddenFormField
-                            name="email"
-                            value={email}
-                            required={true}
-                            pattern={emailIdValidationPattern}
-                        />
-
-                        <HiddenFormField
-                            name="phoneNumber"
-                            value={phoneNumber}
-                            required={true}
-                            pattern={phoneNumberValidationPattern}
-                        />
-
-                        <HiddenFormField
-                            name="batteryQuantity"
-                            value={batteryQuantity}
-                            required={true}
-                        />
-
-                        <HiddenFormField
-                            name="termsAndConditionsChecked"
-                            value={termsAndConditionsChecked ? "on" : "off"}
-                            required={true}
-                        />
-
-                        <HiddenFormField
-                            name="utmParameters"
-                            value={JSON.stringify(utmParameters)}
-                            required={true}
-                        />
-
-                        <HiddenFormField
-                            name="pageUrl"
-                            value={pageUrl}
-                            required={true}
-                        />
-
-                        {/* <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
+                            {/* <div className="tw-row-start-6 tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
                             <div className="lg-text-body-bold tw-pl-3 tw-text-white">{getVernacularString("contactUsT4", userPreferences.language)}</div>
 
                             <VerticalSpacer className="tw-h-1" />
@@ -1669,27 +1821,31 @@ export function InternationalBusinessContactForm({
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div> */}
-                    </>
-                )}
+                        </>
+                    )}
 
-                <div className="tw-row-start-[14] tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10">
-                    <button
-                        type="submit"
-                        className="lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-[#474546] tw-px-4 tw-self-center tw-w-60 !tw-text-white"
-                        // disabled={fetcher.state != "idle" || name == "" || email == "" || phoneNumber == ""}
-                        disabled={
-                            name === "" ||
-                            phoneNumber === "" ||
-                            email === "" ||
-                            batteryQuantity === getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language) ||
-                            termsAndConditionsChecked == false
-                        }
-                    >
-                        {getVernacularString("779190ac-85b3-4bb2-b02a-bd3932455bf1", userPreferences.language)}
-                    </button>
-                </div>
-            </fetcher.Form>
-        </div>
+                    <div className={concatenateNonNullStringsWithSpaces(step == 0 ? "tw-row-start-[14]" : "tw-row-start-10", "tw-col-start-1 tw-flex tw-flex-col tw-w-full lg-px-screen-edge tw-z-10")}>
+                        <button
+                            type="submit"
+                            className="lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-[#474546] tw-px-4 tw-self-center tw-w-60 !tw-text-white"
+                            // disabled={fetcher.state != "idle" || name == "" || email == "" || phoneNumber == ""}
+                            disabled={
+                                (step == 0 &&
+                                    (name === "" ||
+                                        phoneNumber === "" ||
+                                        email === "" ||
+                                        batteryQuantity === getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language) ||
+                                        termsAndConditionsChecked == false)) ||
+                                (step == 1 && (city == "" || pinCode == "")) ||
+                                isButtonDisabled
+                            }
+                        >
+                            {getVernacularString("779190ac-85b3-4bb2-b02a-bd3932455bf1", userPreferences.language)}
+                        </button>
+                    </div>
+                </fetcher.Form>
+            </div>
+        </GoogleReCaptchaProvider>
     );
 }
 

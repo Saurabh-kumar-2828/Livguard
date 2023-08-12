@@ -15,6 +15,7 @@ export function FullHeightImage({relativePath, className, loading}: {relativePat
             loading={loading}
             imageMetadata={imageMetadata}
             imageCdnProvider={websiteConfiguration.imageCdnProvider}
+            resolutionMultiplier={1.5}
         />
     );
 }

@@ -117,7 +117,7 @@ export function CarouselStyle7({
 
                     <div className="tw-flex tw-flex-row tw-gap-x-2">
                         <ItemBuilder
-                            items={snapDotsDivisionFactor == undefined ? items : items.slice(0, items.length / 2)}
+                            items={snapDotsDivisionFactor == undefined ? items : items.slice(0, items.length / snapDotsDivisionFactor)}
                             itemBuilder={(_, scrollSnapIndex) => (
                                 <React.Fragment key={scrollSnapIndex}>
                                     <div

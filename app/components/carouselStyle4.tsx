@@ -13,6 +13,7 @@ export function CarouselStyle4({
     chevronButtonsDivisionFactor,
     hideButtons,
     itemContainerClassName,
+    emblaAlignProp,
 }: {
     items: Array<any>;
     className?: string;
@@ -21,8 +22,9 @@ export function CarouselStyle4({
     chevronButtonsDivisionFactor?: number;
     hideButtons?: boolean;
     itemContainerClassName?: string;
+    emblaAlignProp?: string;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: "start"}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true, align: emblaAlignProp == null ? "center" : emblaAlignProp}, 8000);
 
     return (
         <div

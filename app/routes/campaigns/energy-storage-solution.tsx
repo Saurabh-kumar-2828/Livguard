@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
 import {useEffect, useReducer, useRef, useState} from "react";
@@ -32,25 +32,120 @@ import {FormType, Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Take charge of your energy with livguard home inverters and inverter batteries",
+//             description: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड होम इनवर्टर और इनवर्टर बैटरी के साथ अपनी ऊर्जा का जिम्मेदारी लें",
+//             description: "लिवगार्ड के इनवर्टर, इनवर्टर बैटरी और अन्य ऊर्जा संग्रहण समाधानों की विस्तृत श्रृंखला के माध्यम से असीमित ऊर्जा से सशक्त बनें।",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Take charge of your energy with livguard home inverters and inverter batteries",
-            description: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/campaigns/energy-storage-solution/",
+            },
+            {
+                title: "Take charge of your energy with livguard home inverters and inverter batteries",
+            },
+            {
+                name: "description",
+                content: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/campaigns/energy-storage-solution/",
+            },
+            {
+                property: "og:title",
+                content: "Take charge of your energy with livguard home inverters and inverter batteries",
+            },
+            {
+                property: "og:description",
+                content: "Empowering India with Unlimited Energy through Livguard's wide range of energy storage solutions of inverters, inverter batteries and more.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    name: "Energy Storage Solution",
+                    url: "https://www.livguard.com/campaigns/energy-storage-solution",
+                    logo: "",
+                    sameAs: "",
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड होम इनवर्टर और इनवर्टर बैटरी के साथ अपनी ऊर्जा का जिम्मेदारी लें",
-            description: "लिवगार्ड के इनवर्टर, इनवर्टर बैटरी और अन्य ऊर्जा संग्रहण समाधानों की विस्तृत श्रृंखला के माध्यम से असीमित ऊर्जा से सशक्त बनें।",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/campaigns/energy-storage-solution/",
+            },
+            {
+                title: "लिवगार्ड होम इनवर्टर और इनवर्टर बैटरी के साथ अपनी ऊर्जा का जिम्मेदारी लें",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड के इनवर्टर, इनवर्टर बैटरी और अन्य ऊर्जा संग्रहण समाधानों की विस्तृत श्रृंखला के माध्यम से असीमित ऊर्जा से सशक्त बनें।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/campaigns/energy-storage-solution/",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड होम इनवर्टर और इनवर्टर बैटरी के साथ अपनी ऊर्जा का जिम्मेदारी लें",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड के इनवर्टर, इनवर्टर बैटरी और अन्य ऊर्जा संग्रहण समाधानों की विस्तृत श्रृंखला के माध्यम से असीमित ऊर्जा से सशक्त बनें।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/energy-storage-solution/"}];
 };
 
 type LoaderData = {
@@ -97,7 +192,7 @@ export default function () {
 
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
 
-            <script
+            {/* <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -111,7 +206,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </>
     );
 }
@@ -162,15 +257,20 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
         }
     }, [otpFetcher.data]);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
-            setTimeout(() => {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,
                 };
                 dispatch(action);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [formStateInputs.resendTimeOut]);
 

@@ -20,7 +20,7 @@ export function InTheNewsCarousel({
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
     return (
-        <div className="tw-grid tw-grid-rows-[max-content,auto] lg:tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] tw-gap-x-12 tw-px-4 lg:tw-px-10 tw-py-6">
+        <div className="tw-grid tw-grid-rows-[max-content,auto] lg:tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] tw-gap-x-12 tw-px-4 lg:tw-px-10 tw-py-6 lg-card">
             <div
                 className="tw-hidden lg:tw-grid tw-row-start-1 lg:tw-col-start-1 tw-justify-center tw-items-center tw-rounded-lg"
                 style={{
@@ -63,7 +63,7 @@ export function InTheNewsCarousel({
                                     href={item.link}
                                     target="_blank"
                                 >
-                                    {item.title}
+                                    "{item.title}"
                                 </a>
                             </div>
                         )}

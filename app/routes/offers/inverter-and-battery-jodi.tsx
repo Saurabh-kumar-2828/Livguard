@@ -1,5 +1,5 @@
 import {Dialog, Transition} from "@headlessui/react";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {useFetcher, useLoaderData} from "@remix-run/react";
 import React, {useReducer, useRef} from "react";
 import {useEffect, useState} from "react";
@@ -27,25 +27,110 @@ import {FormType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
+//             description: "Experience an uninterrupted summer with Livguard Inverter and Battery Combos and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड इन्वर्टर बैटरी कॉम्बो खरीदें और रुपये 1500 तक कैशबैक जीतें। ",
+//             description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-and-battery-jodi"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
-            description: "Experience an uninterrupted summer with Livguard Inverter and Battery Combos and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/offers/inverter-and-battery-jodi",
+            },
+            {
+                title: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
+            },
+            {
+                name: "description",
+                content: "Experience an uninterrupted summer with Livguard Inverter and Battery Combos and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/offers/inverter-and-battery-jodi",
+            },
+            {
+                property: "og:title",
+                content: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
+            },
+            {
+                property: "og:description",
+                content: "Experience an uninterrupted summer with Livguard Inverter and Battery Combos and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड इन्वर्टर बैटरी कॉम्बो खरीदें और रुपये 1500 तक कैशबैक जीतें। ",
-            description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/offers/inverter-and-battery-jodi",
+            },
+            {
+                title: "लिवगार्ड इन्वर्टर बैटरी कॉम्बो खरीदें और रुपये 1500 तक कैशबैक जीतें।",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/offers/inverter-and-battery-jodi",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड इन्वर्टर बैटरी कॉम्बो खरीदें और रुपये 1500 तक कैशबैक जीतें।",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-and-battery-jodi"}];
 };
 
 type LoaderData = {
@@ -422,15 +507,20 @@ export function OfferContactUsDialog({
         }
     }, [otpFetcher.data]);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
-            setTimeout(() => {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,
                 };
                 dispatch(action);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [formStateInputs.resendTimeOut]);
 

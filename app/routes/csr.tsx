@@ -1,48 +1,109 @@
-import {LinksFunction, LoaderFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
-import {PageScaffold} from "~/components/pageScaffold";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {UserPreferences} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
-import {CoverImage} from "~/components/images/coverImage";
-import {useResizeDetector} from "react-resize-detector";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {useState} from "react";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {CarouselStyle5} from "~/components/carouselStyle5";
 import {CarouselStyle7} from "~/components/carouselStyle7";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {CoverImage} from "~/components/images/coverImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/terms-and-condition",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "?????",
-//             description: "?????",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/term-and-condition"}];
-// };
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/csr",
+            },
+            {
+                title: "Corporate Social Responsibility (CSR) Initiatives | Livguard",
+            },
+            {
+                name: "description",
+                content: "All CSR activities are being implemented through Sita Devi Malhotra Charitable Trust (SDMC TRUST)",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/csr",
+            },
+            {
+                property: "og:title",
+                content: "Corporate Social Responsibility (CSR) Initiatives | Livguard",
+            },
+            {
+                property: "og:description",
+                content: "All CSR activities are being implemented through Sita Devi Malhotra Charitable Trust (SDMC TRUST)",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/csr",
+            },
+            {
+                title: "Corporate Social Responsibility (CSR) Initiatives | Livguard",
+            },
+            {
+                name: "description",
+                content: "All CSR activities are being implemented through Sita Devi Malhotra Charitable Trust (SDMC TRUST)",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/csr",
+            },
+            {
+                property: "og:title",
+                content: "Corporate Social Responsibility (CSR) Initiatives | Livguard",
+            },
+            {
+                property: "og:description",
+                content: "All CSR activities are being implemented through Sita Devi Malhotra Charitable Trust (SDMC TRUST)",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -78,12 +139,10 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
-                breadcrumbs={
-                    [
-                        // {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                        // {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
-                    ]
-                }
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "5888e217-c7c5-4951-9e72-7527c0702882", link: "#"},
+                ]}
             >
                 <CsrPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -99,7 +158,7 @@ function CsrPage({userPreferences}: {userPreferences: UserPreferences}) {
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurCsrInitiative
-                className="tw-max-w-7xl tw-mx-auto"
+                className=""
                 userPreferences={userPreferences}
             />
 
@@ -135,30 +194,72 @@ function CsrPage({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
+                "tw-aspect-square lg:tw-aspect-[1280/380]  tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/csr/1/banner-mobile.jpg" : "/livguard/csr/1/banner-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/csr/1/banner-mobile.jpg" : "/livguard/csr/1/banner-desktop.jpg"}
-                />
-            )}
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/csr/1/mobile-banner.jpg" : "/livguard/csr/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/csr/1/mobile-banner.jpg" : "/livguard/csr/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
         </div>
     );
 }
 
 function OurCsrInitiative({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const items = [
+        {
+            svgIcon: "/livguard/csr/2/education.svg",
+            title: "9b48da94-c77c-433d-a704-12c87673d23a",
+            text: "998c7be8-35d4-4f1e-ba7c-b1ead3af22ae",
+        },
+        {
+            svgIcon: "/livguard/csr/2/promotion-healthcare.svg",
+            title: "7ecc798a-b004-4363-b6c4-109b214a9c56",
+            text: "714cb12b-e61e-45cc-8bf5-efe8f05313f6",
+        },
+        {
+            svgIcon: "/livguard/csr/2/promotion-livelihood.svg",
+            title: "69e2dcc3-d054-4201-91f2-0d615de566db",
+            text: "4fdfc3c9-3c2d-4b98-9a6c-8da1a66b2c88",
+        },
+        {
+            svgIcon: "/livguard/csr/2/sustainability.svg",
+            title: "4415a7de-a118-45ab-beaf-095576d3d2dc",
+            text: "06174709-99f2-4a5e-8db2-e499622975dc",
+        },
+        {
+            svgIcon: "/livguard/csr/2/education.svg",
+            title: "9b48da94-c77c-433d-a704-12c87673d23a",
+            text: "998c7be8-35d4-4f1e-ba7c-b1ead3af22ae",
+        },
+        {
+            svgIcon: "/livguard/csr/2/promotion-healthcare.svg",
+            title: "7ecc798a-b004-4363-b6c4-109b214a9c56",
+            text: "714cb12b-e61e-45cc-8bf5-efe8f05313f6",
+        },
+        {
+            svgIcon: "/livguard/csr/2/promotion-livelihood.svg",
+            title: "69e2dcc3-d054-4201-91f2-0d615de566db",
+            text: "4fdfc3c9-3c2d-4b98-9a6c-8da1a66b2c88",
+        },
+        {
+            svgIcon: "/livguard/csr/2/sustainability.svg",
+            title: "4415a7de-a118-45ab-beaf-095576d3d2dc",
+            text: "06174709-99f2-4a5e-8db2-e499622975dc",
+        },
+    ];
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}>
             <div
                 className="lg-text-headline tw-text-center"
                 dangerouslySetInnerHTML={{__html: getVernacularString("09b7690d-2117-461b-8a05-110dc4319240", userPreferences.language)}}
@@ -169,71 +270,48 @@ function OurCsrInitiative({userPreferences, className}: {userPreferences: UserPr
                 dangerouslySetInnerHTML={{__html: getVernacularString("b0e9add2-cb81-4ba8-a38b-ee9ac0734225", userPreferences.language)}}
             ></div>
             <VerticalSpacer className="tw-h-[1.5rem]" />
-            <div className="tw-grid lg:tw-grid-cols-4 lg:tw-grid-rows-1 md:tw-grid-cols-2 md:tw-grid-rows-2 tw-grid-rows-4 tw-grid-cols-1 tw-gap-[1.5rem] tw-items-center tw-justify-center ">
-                <ItemBuilder
-                    items={[
-                        {
-                            svgIcone: "/livguard/csr/2/education.svg",
-                            title: "9b48da94-c77c-433d-a704-12c87673d23a",
-                            text: "998c7be8-35d4-4f1e-ba7c-b1ead3af22ae",
-                        },
-                        {
-                            svgIcone: "/livguard/csr/2/promotion-healthcare.svg",
-                            title: "7ecc798a-b004-4363-b6c4-109b214a9c56",
-                            text: "714cb12b-e61e-45cc-8bf5-efe8f05313f6",
-                        },
-                        {
-                            svgIcone: "/livguard/csr/2/promotion-livelihood.svg",
-                            title: "69e2dcc3-d054-4201-91f2-0d615de566db",
-                            text: "4fdfc3c9-3c2d-4b98-9a6c-8da1a66b2c88",
-                        },
-                        {
-                            svgIcone: "/livguard/csr/2/sustainability.svg",
-                            title: "4415a7de-a118-45ab-beaf-095576d3d2dc",
-                            text: "06174709-99f2-4a5e-8db2-e499622975dc",
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
+            {/* <div className="tw-grid lg:tw-grid-cols-4 lg:tw-grid-rows-1 md:tw-grid-cols-2 md:tw-grid-rows-2 tw-grid-rows-4 tw-grid-cols-1 tw-gap-[1.5rem] tw-items-center tw-justify-center"> */}
+
+            <CarouselStyle5
+                snapDotsDivisionFactor={2}
+                items={items.map((item, itemIndex) => {
+                    return (
                         <div
-                            className="tw-h-full tw-grid lg:tw-grid-rows-[minmax(0,1fr)_0.5rem_auto_0.5rem_minmax(0,1fr)] tw-grid-rows-[auto_0.2rem_minmax(0,1fr)] lg:tw-grid-cols-1 tw-grid-cols-[1fr_3fr] lg-card-shadow tw-justify-items-start lg:tw-justify-items-center lg:tw-px-1 tw-rounded-md tw-items-center lg:tw-py-[1.5rem] tw-py-[1rem] tw-px-[1rem]  tw-border-secondary-100-light dark:tw-border-secondary-100-dark tw-border lg-bg-secondary-100 tw-gap-x-5"
+                            className="tw-h-full tw-grid tw-grid-rows-[auto_1rem_auto_1rem_minmax(0,1fr)] tw-grid-cols-1 lg-card tw-justify-items-center tw-px-[1rem] tw-rounded-md tw-py-[1.5rem] tw-max-w-[19.5rem] lg:tw-max-w-[23rem]"
                             key={itemIndex}
                         >
-                            <div className="tw-col-start-1 tw-row-start-1 lg:tw-row-end-2 tw-row-end-4 tw-w-[5rem] tw-h-[5rem] tw-rounded-full tw-grid tw-items-center tw-justify-center tw-border-secondary-100-light dark:tw-border-secondary-100-dark tw-border lg-card-shadow dark:tw-bg-secondary-300-dark">
-                                {/* <img
-                                    src={`https://growthjockey.imgix.net${item.svgIcone}`}
-                                    className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 dark:tw-invert ")}
-                                /> */}
+                            <div className="tw-col-start-1 tw-row-start-1 tw-row-end-2 tw-w-[5rem] tw-h-[5rem] tw-rounded-full tw-grid tw-items-center tw-justify-center lg-card">
                                 <img
-                                    src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcone).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcon).finalUrl, ImageCdnProvider.Bunny, null, null)}
                                     className={concatenateNonNullStringsWithSpaces("dark:tw-invert")}
                                 />
                             </div>
                             <div
-                                className="lg:tw-col-start-1 tw-col-start-2 lg:tw-row-start-3 tw-row-start-1"
+                                className="tw-col-start-1 tw-row-start-3"
                                 dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
                             />
-                            <div className="lg:tw-col-start-1 tw-col-start-2 lg:tw-row-start-5 tw-row-start-3 lg-text-body lg-text-secondary-900 lg:tw-text-center">
-                                {getVernacularString(item.text, userPreferences.language)}
-                            </div>
+                            <div className="tw-col-start-1 tw-row-start-5 lg-text-body lg-text-secondary-900 tw-text-center">{getVernacularString(item.text, userPreferences.language)}</div>
                         </div>
-                    )}
-                />
-            </div>
+                    );
+                })}
+                className="tw-mx-auto"
+                deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
+                selectedContainerClassName="tw-h-full"
+                itemContainerClassName="lg:tw-px-0"
+                slidesContainerClassName="!tw-auto-cols-max"
+            />
+
+            {/* </div> */}
         </div>
     );
 }
 
 function OurVision({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div
-            className={concatenateNonNullStringsWithSpaces(
-                "tw-bg-[#F2F2F2] dark:tw-bg-secondary-100-dark lg:tw-bg-secondary-100-light dark:lg:tw-bg-background-500-dark lg-px-screen-edge-2 tw-w-full",
-                className,
-            )}
-        >
-            <div className="lg:tw-bg-[#F2F2F2] lg:dark:tw-bg-secondary-100-dark tw-w-full tw-h-full tw-py-6 lg:tw-py-10">
+        <div className={concatenateNonNullStringsWithSpaces("lg-card lg-px-screen-edge-2 tw-w-full", className)}>
+            <div className="tw-w-full tw-h-full tw-py-6 lg:tw-py-10">
                 <div className="tw-grid tw-justify-center tw-items-center tw-gap-4">
-                    <div className="tw-h-[4rem] tw-w-[4rem] tw-bg-secondary-100-light dark:tw-bg-secondary-300-dark tw-rounded-full tw-grid tw-justify-center tw-justify-self-center tw-items-center">
+                    <div className="lg-card tw-h-[4rem] tw-w-[4rem] tw-rounded-full tw-grid tw-justify-center tw-justify-self-center tw-items-center">
                         <img
                             src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/csr/3/our-vision.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
                             className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 tw-invert dark:tw-invert-0")}
@@ -253,6 +331,40 @@ function OurVision({userPreferences, className}: {userPreferences: UserPreferenc
 }
 
 function OurProjectsDesktop({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const [isViewMore, setIsViewMore] = useState(false);
+    const items = [
+        {
+            image: "/livguard/csr/4/education.jpg",
+            title: "a122d087-2b57-483a-b339-5b04e6cc1008",
+            buttontext: "3cf2dca9-b278-4047-888a-c7f950364512",
+            text: "c4f4e7d8-b77b-4019-95cb-4561d220092b",
+        },
+        {
+            image: "/livguard/csr/4/health.jpg",
+            title: "8f25886f-84c1-4103-84d9-5dcd0a966da7",
+            buttontext: "d4c20c34-f47f-4fbf-bdfb-b04c242d6b6d",
+            text: "d2c06ff7-d1a4-4f67-85fe-d7e8cd2bce5b",
+        },
+        {
+            image: "/livguard/csr/4/health.jpg",
+            title: "8d6883c0-0ca6-47b8-bf07-8c18a2187e9c",
+            buttontext: "d4c20c34-f47f-4fbf-bdfb-b04c242d6b6d",
+            text: "5c6965a4-2d78-49b3-b6d7-037baed79001",
+        },
+        {
+            image: "/livguard/csr/4/livelihood.jpg",
+            title: "0e69eb5a-a6eb-412e-a3b4-3462849b30ce",
+            buttontext: "f4dc779b-6680-4c34-8e60-5283b21a8ab5",
+            text: "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc",
+        },
+        {
+            image: "/livguard/csr/4/livelihood.jpg",
+            title: "0e69eb5a-a6eb-412e-a3b4-3462849b30ce",
+            buttontext: "f4dc779b-6680-4c34-8e60-5283b21a8ab5",
+            text: "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc",
+        },
+    ];
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}>
             <div
@@ -260,64 +372,70 @@ function OurProjectsDesktop({userPreferences, className}: {userPreferences: User
                 dangerouslySetInnerHTML={{__html: getVernacularString("423d9fb0-8f59-4a7c-94e6-6eae3e78ec46", userPreferences.language)}}
             />
             <VerticalSpacer className="tw-h-[1.5rem]" />
-
             <div
                 className="lg-text-body lg-text-secondary-900 tw-text-center"
                 dangerouslySetInnerHTML={{__html: getVernacularString("9ffed122-9c1f-4e60-8d86-543812ebe4b5", userPreferences.language)}}
             ></div>
             <VerticalSpacer className="tw-h-[1.5rem]" />
-            <div className="tw-grid lg:tw-grid-cols-2 lg:tw-grid-rows-2 tw-grid-cols-1 tw-grid-rows-4 tw-gap-[1.5rem]">
-                <ItemBuilder
-                    items={[
-                        {
-                            image: "/livguard/csr/4/1.png",
-                            title: "040d0fed-8daf-4463-bbb1-c732b22995ec",
-                            buttontext: "3cf2dca9-b278-4047-888a-c7f950364512",
-                            text: "3f15697a-6dcf-48b5-b244-cb2337ea3e79",
-                        },
-                        {
-                            image: "/livguard/csr/4/2.png",
-                            title: "d1f7806b-96e5-4763-95e4-1904a3394ce8",
-                            buttontext: "d263a415-1139-4e5b-a809-09594a14f078",
-                            text: "759ad098-736a-4d83-8d5e-cd743006f1f9",
-                        },
-                        {
-                            image: "/livguard/csr/4/3.png",
-                            title: "1c5a01c5-fb13-4a79-a200-e80395fd302f",
-                            buttontext: "67cd40f9-6d45-4005-84a0-b00e97de8c82",
-                            text: "49372a39-5011-4426-abff-3ccd5bca1a1b",
-                        },
-                        {
-                            image: "/livguard/csr/4/2.png",
-                            title: "871e1887-2b27-49b5-8dea-1dc093f8ca96",
-                            buttontext: "a3aec8ec-b853-4a86-9cd4-dd09c7153b84",
-                            text: "71949a30-ffab-4c86-90b8-44a88b27d9df",
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => {
-                        return (
-                            <div
-                                className={`tw-grid tw-grid-rows-[0,minmax(0,1fr)] tw-relative tw-group tw-rounded-lg`}
-                                key={itemIndex}
-                            >
-                                <CoverImage
-                                    relativePath={item.image}
-                                    className="tw-col-start-1 tw-col-span-full tw-row-start-1 tw-row-span-full"
-                                />
-                                <div className="tw-row-start-2 tw-col-start-1 tw-absolute tw-transition-all tw-duration-300 tw-bottom-0 tw-ease-in tw-pb-1 group-hover:tw-pb-2 tw-w-full tw-px-4  tw-rounded-lg tw-bg-[#00000066] tw-backdrop-opacity-[2px] tw-overflow-y-auto">
-                                    <div
-                                        className="lg-text-title2 tw-col-start-1 tw-row-start-1 tw-text-[#FFFFFF] tw-py-2 tw-grid tw-items-center"
-                                        dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
-                                    ></div>
-                                    <div
-                                        className="lg-text-body tw-row-start-2 tw-col-start-1 tw-col-end-3 !tw-text-[#FFFFFF] tw-hidden tw-transition-all tw-ease-in tw-duration-300 group-hover:tw-block"
-                                        dangerouslySetInnerHTML={{__html: getVernacularString(item.text, userPreferences.language)}}
-                                    ></div>
-                                </div>
+            <div className="tw-grid tw-grid-cols-2 tw-gap-[1.5rem]">
+                {!isViewMore &&
+                    items.slice(0, 4).map((item, itemIndex) => (
+                        <div
+                            className={`tw-grid tw-grid-rows-[0,minmax(0,1fr)] tw-relative tw-group`}
+                            key={itemIndex}
+                        >
+                            <CoverImage
+                                relativePath={item.image}
+                                className="tw-col-start-1 tw-col-span-full tw-row-start-1 tw-row-span-full tw-rounded-lg"
+                                imageClassName="tw-rounded-lg"
+                            />
+                            <div className="tw-row-start-2 tw-col-start-1 tw-absolute tw-transition-all tw-duration-200 tw-bottom-0 tw-ease-in tw-pb-1 group-hover:tw-pb-2 tw-w-full tw-px-4  tw-rounded-lg tw-bg-[#00000066] tw-backdrop-opacity-[2px] tw-overflow-y-auto">
+                                <div
+                                    className="lg-text-title2 tw-col-start-1 tw-row-start-1 tw-text-[#FFFFFF] tw-py-2 tw-grid tw-items-center"
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
+                                ></div>
+                                <div
+                                    className="lg-text-body tw-row-start-2 tw-col-start-1 tw-col-end-3 !tw-text-[#FFFFFF] tw-hidden tw-transition-all tw-ease-in tw-duration-200 group-hover:tw-block"
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.text, userPreferences.language)}}
+                                ></div>
                             </div>
-                        );
-                    }}
-                />
+                        </div>
+                    ))}
+
+                {isViewMore &&
+                    items.map((item, itemIndex) => (
+                        <div
+                            className={`tw-grid tw-grid-rows-[0,minmax(0,1fr)] tw-relative tw-group`}
+                            key={itemIndex}
+                        >
+                            <CoverImage
+                                relativePath={item.image}
+                                className="tw-col-start-1 tw-col-span-full tw-row-start-1 tw-row-span-full tw-rounded-lg"
+                                imageClassName="tw-rounded-lg"
+                            />
+                            <div className="tw-row-start-2 tw-col-start-1 tw-absolute tw-transition-all tw-duration-200 tw-bottom-0 tw-ease-in tw-pb-1 group-hover:tw-pb-2 tw-w-full tw-px-4  tw-rounded-lg tw-bg-[#00000066] tw-backdrop-opacity-[2px] tw-overflow-y-auto">
+                                <div
+                                    className="lg-text-title2 tw-col-start-1 tw-row-start-1 tw-text-[#FFFFFF] tw-py-2 tw-grid tw-items-center"
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
+                                ></div>
+                                <div
+                                    className="lg-text-body tw-row-start-2 tw-col-start-1 tw-col-end-3 !tw-text-[#FFFFFF] tw-hidden tw-transition-all tw-ease-in tw-duration-200 group-hover:tw-block"
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.text, userPreferences.language)}}
+                                ></div>
+                            </div>
+                        </div>
+                    ))}
+            </div>
+            <VerticalSpacer className="tw-h-6" />
+            <div className="tw-grid tw-justify-items-center">
+                <button
+                    className="lg-cta-button tw-grid tw-place-self-center"
+                    onClick={() => setIsViewMore((prev) => !prev)}
+                >
+                    {isViewMore
+                        ? getVernacularString("ac9a30fb-5654-4692-9995-84c2dbe8301b", userPreferences.language)
+                        : getVernacularString("8993dcbc-2216-4dd2-954e-e8145571049f", userPreferences.language)}
+                </button>
             </div>
         </div>
     );
@@ -335,48 +453,55 @@ function OurProjectsMobile({userPreferences, className}: {userPreferences: UserP
 
             <div
                 className="lg-text-body lg-text-secondary-900 tw-text-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("6ee5eb99-9c51-46fd-a08c-e940e31af061", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: getVernacularString("9ffed122-9c1f-4e60-8d86-543812ebe4b5", userPreferences.language)}}
             ></div>
             <VerticalSpacer className="tw-h-[1.5rem]" />
-            <div className="tw-grid tw-grid-cols-1 tw-grid-rows-4 tw-gap-[1.5rem]">
+            <div className="tw-grid tw-grid-flow-row tw-grid-cols-1 tw-gap-[1.5rem]">
                 <ItemBuilder
                     items={[
                         {
-                            image: "/livguard/csr/4/1-mobile.png",
-                            title: "040d0fed-8daf-4463-bbb1-c732b22995ec",
+                            image: "/livguard/csr/4/education.jpg",
+                            title: "a122d087-2b57-483a-b339-5b04e6cc1008",
                             buttontext: "3cf2dca9-b278-4047-888a-c7f950364512",
-                            text: "3f15697a-6dcf-48b5-b244-cb2337ea3e79",
+                            text: "c4f4e7d8-b77b-4019-95cb-4561d220092b",
                         },
                         {
-                            image: "/livguard/csr/4/2-mobile.png",
-                            title: "d1f7806b-96e5-4763-95e4-1904a3394ce8",
-                            buttontext: "d263a415-1139-4e5b-a809-09594a14f078",
-                            text: "759ad098-736a-4d83-8d5e-cd743006f1f9",
+                            image: "/livguard/csr/4/health.jpg",
+                            title: "8f25886f-84c1-4103-84d9-5dcd0a966da7",
+                            buttontext: "d4c20c34-f47f-4fbf-bdfb-b04c242d6b6d",
+                            text: "d2c06ff7-d1a4-4f67-85fe-d7e8cd2bce5b",
                         },
                         {
-                            image: "/livguard/csr/4/3-mobile.png",
-                            title: "1c5a01c5-fb13-4a79-a200-e80395fd302f",
-                            buttontext: "67cd40f9-6d45-4005-84a0-b00e97de8c82",
-                            text: "49372a39-5011-4426-abff-3ccd5bca1a1b",
+                            image: "/livguard/csr/4/health.jpg",
+                            title: "8d6883c0-0ca6-47b8-bf07-8c18a2187e9c",
+                            buttontext: "d4c20c34-f47f-4fbf-bdfb-b04c242d6b6d",
+                            text: "5c6965a4-2d78-49b3-b6d7-037baed79001",
                         },
                         {
-                            image: "/livguard/csr/4/4-mobile.png",
-                            title: "871e1887-2b27-49b5-8dea-1dc093f8ca96",
-                            buttontext: "a3aec8ec-b853-4a86-9cd4-dd09c7153b84",
-                            text: "71949a30-ffab-4c86-90b8-44a88b27d9df",
+                            image: "/livguard/csr/4/livelihood.jpg",
+                            title: "0e69eb5a-a6eb-412e-a3b4-3462849b30ce",
+                            buttontext: "f4dc779b-6680-4c34-8e60-5283b21a8ab5",
+                            text: "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc",
+                        },
+                        {
+                            image: "/livguard/csr/4/environment.jpg",
+                            title: "705025d8-3bd7-44fa-9ab6-26d4c002d7fd",
+                            buttontext: "9d9729a9-368b-4ffd-be0b-af85eaec59bf",
+                            text: "4796d842-e26d-4ea1-9cd6-f6686b5458ad",
                         },
                     ]}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="tw-grid tw-grid-rows-[0,minmax(0,1fr)] tw-relative tw-group tw-rounded-lg"
+                            className="tw-grid tw-grid-rows-[0,minmax(0,1fr)] tw-relative tw-group"
                             key={itemIndex}
                         >
                             <CoverImage
                                 relativePath={item.image}
                                 className="tw-col-start-1 tw-col-span-full tw-row-start-1 tw-row-span-full"
+                                imageClassName="tw-rounded-lg"
                             />
-                            <div className="tw-row-start-2 tw-col-start-1 tw-absolute tw-transition-all tw-duration-300 tw-bottom-0 tw-ease-in tw-pb-1 group-hover:tw-pb-2 tw-w-full tw-px-2 tw-rounded-lg tw-bg-[#00000066] tw-backdrop-opacity-[2px] tw-max-h-[calc(100%-2rem)] tw-overflow-y-auto">
-                                <div className="tw-flex tw-flex-wrap tw-justify-between">
+                            <div className="tw-row-start-2 tw-col-start-1 tw-absolute tw-transition-all tw-duration-200 tw-bottom-0 tw-ease-in tw-pb-1 group-hover:tw-pb-2 tw-w-full tw-px-2 tw-rounded-lg tw-bg-[#00000066] tw-backdrop-opacity-[2px] tw-max-h-[calc(100%-2rem)] tw-overflow-y-auto">
+                                <div className="tw-grid tw-grid-flow-row tw-justify-items-start">
                                     <div
                                         className="lg-text-title2 tw-col-start-1 tw-row-start-1 tw-text-[#FFFFFF] tw-py-2 tw-grid tw-items-center"
                                         dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
@@ -397,7 +522,7 @@ function OurProjectsMobile({userPreferences, className}: {userPreferences: UserP
                                 </div>
                                 {imgText && (
                                     <div
-                                        className="lg-text-body tw-row-start-2 tw-col-start-1 tw-col-end-3 !tw-text-[#FFFFFF] tw-hidden tw-transition-all tw-ease-in tw-duration-300 group-hover:tw-block "
+                                        className="lg-text-body tw-row-start-2 tw-col-start-1 tw-col-end-3 !tw-text-[#FFFFFF] tw-hidden tw-transition-all tw-ease-in tw-duration-200 group-hover:tw-block "
                                         dangerouslySetInnerHTML={{__html: getVernacularString(item.text, userPreferences.language)}}
                                     ></div>
                                 )}
@@ -482,7 +607,7 @@ function CompositionOfCsrCommittee({userPreferences, className}: {userPreference
                         deselectedContainersClassName="tw-pt-6 md:tw-pt-12 tw-h-full lg-px-screen-edge-2 lg:tw-px-0"
                         selectedContainerClassName="tw-pt-6 tw-h-full lg-px-screen-edge-2 lg:tw-px-0"
                         chevronButtonsBelowCarousel={false}
-                        chevronButtonsDivisionFactor={2}
+                        snapDotsDivisionFactor={2}
                         toggleMobileOnly={true}
                     />
 
@@ -492,7 +617,7 @@ function CompositionOfCsrCommittee({userPreferences, className}: {userPreference
                         userPreferences={userPreferences}
                         content={{
                             headingTextContentId: "2b6ccacf-093d-48d2-b29c-e5d1c537f3c1",
-                            descriptionTextContentId: "97498b14-b629-4e6e-81a3-6a480bdd6652",
+                            descriptionTextContentId: "528dd262-635a-43cf-ab1e-e6a7fc5a052b",
                             ctaButton1TextContentId: "e1fa0021-2310-4c6a-a221-9025e3b35ed7",
                             ctaButton1Link: "",
                             ctaButton2TextContentId: "dd1fd5f5-12e4-4c37-b41d-969150aa721a",
@@ -526,7 +651,7 @@ function CompositionCard({
         <div className={className}>
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-grid tw-grid-rows-[repeat(3,auto)_minmax(3rem,1fr)_auto] lg:tw-grid-rows-[minmax(0,1fr)_repeat(3,auto)_minmax(3rem,1fr)_auto_minmax(0,1fr)] tw-py-6 lg:tw-py-10 tw-px-4 tw-justify-items-center tw-rounded-lg lg-bg-secondary-100 lg-csr-leaders-shadow lg:tw-h-[calc(100%-1rem)]",
+                    "tw-grid tw-grid-rows-[repeat(3,auto)_minmax(3rem,1fr)_auto] lg:tw-grid-rows-[minmax(0,1fr)_repeat(3,auto)_minmax(3rem,1fr)_auto_minmax(0,1fr)] tw-py-6 lg:tw-py-10 tw-px-4 tw-justify-items-center lg-card lg:tw-h-[calc(100%-1rem)]",
                 )}
             >
                 <div

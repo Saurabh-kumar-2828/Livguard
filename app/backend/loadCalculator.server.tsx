@@ -71,8 +71,8 @@ export type LoadCalculatorOutputs = {
     totalWatts: number;
     averageWatts: number;
     ah: number;
-    recommendedInverters: Array<{model: string; score: number; humanfriendlystring: string; nbatteries: integer; capacity: number; warranty: integer}> | null;
-    recommendedBatteries: Array<{model: string; score: number; humanfriendlystring: string; nbatteries: integer; capacity: number; warranty: integer}> | null;
+    recommendedInverters: Array<{model: string; score: number; humanFriendlyString: string; nBatteries: Integer; capacity: number; warranty: Integer}> | null;
+    recommendedBatteries: Array<{model: string; score: number; humanFriendlyString: string; nBatteries: Integer; capacity: number; warranty: Integer}> | null;
 };
 
 export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): Promise<LoadCalculatorOutputs> {

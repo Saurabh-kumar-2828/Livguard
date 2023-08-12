@@ -13,13 +13,22 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-export async function sendEmail(data: string, recepients: Array<string>): Promise<void | Error> {
+export async function sendEmail(data: string, recepients: Array<string>, subject: string, ccList?: Array<string>): Promise<void | Error> {
+    const parsedData = JSON.parse(data);
+    let emailHtml = Object.keys(parsedData)
+        .map((key) => {
+            return `${key}: ${parsedData[key]}`;
+        })
+        .join("<br>");
+
+    emailHtml += "<br><br><br>";
+
     const result = await transporter.sendMail({
         from: getStringFromUnknown(getRequiredEnvironmentVariableNew("SMTP_FROM_EMAIL")), // sender address
         to: recepients.join(","), // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
+        cc: ccList,
+        subject: subject, // Subject line
+        html: emailHtml,
     });
 
     if (result instanceof Error) {

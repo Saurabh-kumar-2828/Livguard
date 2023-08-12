@@ -1,4 +1,4 @@
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
@@ -17,44 +17,118 @@ import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
-import {ProductType} from "~/productData";
+import {ProductDetails, ProductType, allProductDetails} from "~/productData";
 import {ContactUsDialog, DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
-            description: "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
-            "og:title": "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/offer-page",
-            "og:description": "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
-            "og:type": "website",
-            "og:image": "",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/offers",
+            },
+            {
+                title: "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
+            },
+            {
+                name: "description",
+                content: "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/offers",
+            },
+            {
+                property: "og:title",
+                content: "Exciting Livguard Offers: Buy Inverters, Batteries, and More at Unbeatable Prices!",
+            },
+            {
+                property: "og:description",
+                content: "Get the best deals on Livguard batteries and inverters. Power up your life with reliable and long-lasting solutions. Hurry, limited time offer!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+            {
+                "script:ld+json": {
+                    "@type": "SiteNavigationElement",
+                    name: "Offer Page",
+                    url: "https://www.livguard.com/contact-us",
+                    telephone: "+91 92056-67999",
+                    contactType: "",
+                    streetAddress: "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                    addressLocality: "Gurugram",
+                    addressRegion: "Haryana",
+                    postalCode: "122016",
+                    addressCountry: "India",
+                    "E-mail": "marketing@livguard.com, export@sar-group.com",
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड के रोमांचक ऑफर: इनवर्टर, बैटरी और बहुत कुछ कम कीमतों पर खरीदें!",
-            description: "?????",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/offers",
+            },
+            {
+                title: "लिवगार्ड के रोमांचक ऑफर: इनवर्टर, बैटरी और बहुत कुछ कम कीमतों पर खरीदें!",
+            },
+            {
+                name: "description",
+                content: "पाएं लिवगार्ड बैटरी और इनवर्टर पर सबसे अच्छे सौदे। विश्वसनीय और टिकाऊ समाधानों के साथ अपने जीवन को ऊर्जा से संचालित करें। जल्दी करें, सीमित समय का प्रस्ताव!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/offers",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड के रोमांचक ऑफर: इनवर्टर, बैटरी और बहुत कुछ कम कीमतों पर खरीदें!",
+            },
+            {
+                property: "og:description",
+                content: "पाएं लिवगार्ड बैटरी और इनवर्टर पर सबसे अच्छे सौदे। विश्वसनीय और टिकाऊ समाधानों के साथ अपने जीवन को ऊर्जा से संचालित करें। जल्दी करें, सीमित समय का प्रस्ताव!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/offer-page"}];
 };
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    featuredProducts: Array<ProductDetails>;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -63,17 +137,29 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const featuredProducts = [
+        allProductDetails["lg700e"][userPreferences.language],
+        allProductDetails["lgs1100i"][userPreferences.language],
+        allProductDetails["it1548tt"][userPreferences.language],
+        allProductDetails["it2272tt"][userPreferences.language],
+        allProductDetails["lg1950i"][userPreferences.language],
+        allProductDetails["lgs1700"][userPreferences.language],
+        allProductDetails["it1584tt"][userPreferences.language],
+        allProductDetails["it1578tt"][userPreferences.language],
+    ];
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        featuredProducts: featuredProducts,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, featuredProducts} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -94,10 +180,34 @@ export default function () {
                     userPreferences={userPreferences}
                     utmParameters={utmSearchParameters}
                     pageUrl={pageUrl}
+                    featuredProducts={featuredProducts}
                 />
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
+
+            {/* {
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            {
+
+                                "@type": "SiteNavigationElement",
+                                "name": "Offer Page",
+                                "url": "https://www.livguard.com/contact-us",
+                                "telephone": "+91 92056-67999",
+                                "contactType": "",
+                                "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                                "addressLocality": "Gurugram",
+                                "addressRegion": "Haryana",
+                                "postalCode": "122016",
+                                "addressCountry": "India",
+                                "E-mail": "marketing@livguard.com, export@sar-group.com"
+                            }`,
+                        }}
+                    ></script>
+                } */}
         </>
     );
 }
@@ -106,12 +216,14 @@ function OffersPage({
     userPreferences,
     utmParameters,
     pageUrl,
+    featuredProducts,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    featuredProducts: Array<ProductDetails>;
 }) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
@@ -140,6 +252,7 @@ function OffersPage({
 
             <FeaturedProducts
                 userPreferences={userPreferences}
+                featuredProducts={featuredProducts}
                 className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
@@ -248,8 +361,6 @@ export function BestOffers({
     pageUrl: string;
     className?: string;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
-
     const offers = [
         [
             {
@@ -272,7 +383,7 @@ export function BestOffers({
                     },
                 ],
                 emptyOfferButtonTextPiece: "cf35b042-9f06-44d4-b0c3-f7ed9399e400",
-                emptyOfferButtonLink: "/automotive-batteries.php",
+                emptyOfferButtonLink: "/battery-finder",
             },
         ],
         [
@@ -366,7 +477,7 @@ export function BestOffers({
             </div>
 
             <div
-                className="tw-overflow-hidden tw-col-start-1 tw-col-span-full tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-2"
+                className="tw-overflow-hidden tw-col-start-1 tw-col-span-full tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-2 lg-card-shadow-hack"
                 // ref={emblaRef}
             >
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
@@ -407,67 +518,67 @@ export function BestOffers({
     );
 }
 
-function FeaturedProducts({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const featuredProducts = [
-        {
-            type: ProductType.inverter,
-            warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
-            capacity: "fac6f9bf-7f72-487d-b802-4e2e9a1d520f",
-            slug: "lg700e",
-            price: "4,699",
-        },
-        {
-            type: ProductType.inverter,
-            warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
-            capacity: "ede80aa8-51b8-4695-adb7-0fd148def188",
-            slug: "lgs1100i",
-            isBestSeller: true,
-            price: "6,999",
-        },
-        {
-            type: ProductType.battery,
-            capacity: "68195aa4-ec44-46ec-8b74-51e341e4ed66",
-            warranty: "9d144768-a8e3-49be-8b89-b27300a9769a",
-            slug: "it1548tt",
-            isBestSeller: true,
-            price: "14,440",
-        },
-        {
-            type: ProductType.battery,
-            capacity: "e42d6d5a-4b06-45de-b675-cc467d47d4b4",
-            warranty: "33862866-bbdb-46ad-a797-f7fbd07df131",
-            slug: "it2272tt",
-            price: "19,499",
-        },
-        {
-            type: ProductType.inverter,
-            warranty: "9c479fcb-3f9a-47e2-a882-bd8f7d0a07c0",
-            capacity: "20184ae3-2f4e-467f-b440-e446ae611331",
-            slug: "lg1950i",
-            price: "7,699",
-        },
-        {
-            type: ProductType.inverter,
-            warranty: "81bdfd50-fab0-419b-a8d3-2116c190ba9f",
-            capacity: "05b5a3d3-5023-4549-b8af-87c5e284b022",
-            slug: "lgs1700",
-            price: "9,499",
-        },
-        {
-            type: ProductType.battery,
-            capacity: "c41f16ec-4789-43a2-81cd-74852fa07169",
-            warranty: "7b2dc937-de7d-4c76-9f7a-6a804267562e",
-            slug: "it1584tt",
-            price: "15,999",
-        },
-        {
-            type: ProductType.battery,
-            capacity: "0224e287-af94-47fa-8ca4-410424c8861c",
-            warranty: "d997eb4d-3ffc-4b1a-a4f5-e88ae9aabcee",
-            slug: "it1578tt",
-            price: "15,199",
-        },
-    ];
+function FeaturedProducts({userPreferences, featuredProducts, className}: {userPreferences: UserPreferences; featuredProducts: Array<ProductDetails>; className?: string}) {
+    // const featuredProducts = [
+    //     {
+    //         type: ProductType.inverter,
+    //         warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
+    //         capacity: "fac6f9bf-7f72-487d-b802-4e2e9a1d520f",
+    //         slug: "lg700e",
+    //         price: "4,699",
+    //     },
+    //     {
+    //         type: ProductType.inverter,
+    //         warranty: "a8de768d-be36-4746-b3d4-ee72e6dbe3a6",
+    //         capacity: "ede80aa8-51b8-4695-adb7-0fd148def188",
+    //         slug: "lgs1100i",
+    //         isBestSeller: true,
+    //         price: "6,999",
+    //     },
+    //     {
+    //         type: ProductType.battery,
+    //         capacity: "68195aa4-ec44-46ec-8b74-51e341e4ed66",
+    //         warranty: "9d144768-a8e3-49be-8b89-b27300a9769a",
+    //         slug: "it1548tt",
+    //         isBestSeller: true,
+    //         price: "14,440",
+    //     },
+    //     {
+    //         type: ProductType.battery,
+    //         capacity: "e42d6d5a-4b06-45de-b675-cc467d47d4b4",
+    //         warranty: "33862866-bbdb-46ad-a797-f7fbd07df131",
+    //         slug: "it2272tt",
+    //         price: "19,499",
+    //     },
+    //     {
+    //         type: ProductType.inverter,
+    //         warranty: "9c479fcb-3f9a-47e2-a882-bd8f7d0a07c0",
+    //         capacity: "20184ae3-2f4e-467f-b440-e446ae611331",
+    //         slug: "lg1950i",
+    //         price: "7,699",
+    //     },
+    //     {
+    //         type: ProductType.inverter,
+    //         warranty: "81bdfd50-fab0-419b-a8d3-2116c190ba9f",
+    //         capacity: "05b5a3d3-5023-4549-b8af-87c5e284b022",
+    //         slug: "lgs1700",
+    //         price: "9,499",
+    //     },
+    //     {
+    //         type: ProductType.battery,
+    //         capacity: "c41f16ec-4789-43a2-81cd-74852fa07169",
+    //         warranty: "7b2dc937-de7d-4c76-9f7a-6a804267562e",
+    //         slug: "it1584tt",
+    //         price: "15,999",
+    //     },
+    //     {
+    //         type: ProductType.battery,
+    //         capacity: "0224e287-af94-47fa-8ca4-410424c8861c",
+    //         warranty: "d997eb4d-3ffc-4b1a-a4f5-e88ae9aabcee",
+    //         slug: "it1578tt",
+    //         price: "15,199",
+    //     },
+    // ];
 
     return (
         <div className={className}>
@@ -485,12 +596,13 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
                             <RecommendationCard
                                 slug={featuredProduct.slug}
                                 productType={featuredProduct.type}
-                                capacity={getVernacularString(featuredProduct.capacity, userPreferences.language)}
-                                warranty={getVernacularString(featuredProduct.warranty, userPreferences.language)}
+                                capacity={featuredProduct.productIcons[0].text}
+                                warranty={featuredProduct.productIcons[1].text}
                                 userPreferences={userPreferences}
                                 key={featuredProductIndex}
-                                isBestSeller={featuredProduct.isBestSeller}
-                                price={featuredProduct.price}
+                                isBestSeller={featuredProductIndex == 2 || featuredProductIndex == 3}
+                                price={featuredProduct.price == null ? undefined : featuredProduct.price.toString()}
+                                humanReadableModelNumber={featuredProduct.humanReadableModelNumber}
                             />
                         ))}
                     slidesContainerClassName="tw-auto-cols-[min(100%,15rem)]"
@@ -503,12 +615,14 @@ function FeaturedProducts({userPreferences, className}: {userPreferences: UserPr
 
 function RecommendationCard({
     slug,
+    // TODO: Check if this can be removed now
     productType,
     userPreferences,
     isBestSeller,
     capacity,
     warranty,
     price,
+    humanReadableModelNumber,
 }: {
     slug: string;
     productType: ProductType;
@@ -516,12 +630,13 @@ function RecommendationCard({
     isBestSeller?: boolean;
     capacity: string;
     warranty: string;
-    price: string;
+    price?: string;
+    humanReadableModelNumber: string;
 }) {
     return (
         <Link
             to={`/product/${slug}`}
-            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 tw-grid-rows-[1.5rem_auto] lg-bg-secondary-100 tw-rounded-lg"
+            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 tw-grid-rows-[1.5rem_auto] lg-card"
         >
             {isBestSeller != null && isBestSeller === true ? (
                 <div className="tw-row-start-1 tw-h-full lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
@@ -532,12 +647,10 @@ function RecommendationCard({
             )}
 
             <div className="tw-p-4 tw-grid tw-grid-flow-row tw-grid-rows-[repeat(6,auto)_minmax(0,1fr)_repeat(4,auto)]">
-                <FullWidthImage
-                    relativePath={`/livguard/products/${productType == ProductType.battery ? "batteries" : productType == ProductType.inverter ? "inverters" : "jodis"}/${slug}/thumbnail.png`}
-                />
+                <FullWidthImage relativePath={`/livguard/products/${slug}/thumbnail.png`} />
 
                 <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">
-                    {convertProductInternalNameToPublicName(slug)}
+                    {humanReadableModelNumber}
                     {/* {name} */}
                 </div>
 
@@ -564,7 +677,7 @@ function RecommendationCard({
                 <VerticalSpacer className="tw-h-6" />
 
                 <div className="tw-w-full tw-text-center lg-text-secondary-700 tw-row-start-8">
-                    {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${price}${getVernacularString(
+                    {price == null ? "Price under updation" : `${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${price}${getVernacularString(
                         "0044b486-6eca-4e3a-abf0-102eede6e10c",
                         userPreferences.language,
                     )}`}
@@ -573,7 +686,7 @@ function RecommendationCard({
                 <VerticalSpacer className="tw-h-4 tw-row-start-10" />
 
                 <button className="lg-cta-button-product-card tw-w-full tw-text-center tw-px-1 tw-row-start-11">
-                    {getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}
+                    {getVernacularString("042883e9-36eb-4803-ae55-4a0e495a8752", userPreferences.language)}
                 </button>
             </div>
         </Link>
@@ -605,7 +718,7 @@ function EmptyOfferCard({userPreferences, buttonText, buttonLink}: {userPreferen
 
 function OfferCard({offer, tryToOpenContactUsDialog, userPreferences, className}: {offer; tryToOpenContactUsDialog; userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto] tw-gap-x-2 lg-bg-secondary-100 tw-rounded-lg tw-pb-2", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto] tw-gap-x-2 lg-card tw-rounded-lg", className)}>
             <div className="lg:tw-col-span-2">
                 <FullWidthImage
                     relativePath={`/livguard/offers/2/offer-${offer.name}-${userPreferences.language}.png`}

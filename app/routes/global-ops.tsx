@@ -1,25 +1,108 @@
-import {LoaderFunction} from "@remix-run/node";
-import {Link, useLoaderData} from "@remix-run/react";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
+import {CarouselStyle4} from "~/components/carouselStyle4";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {CarouselStyle4} from "~/components/carouselStyle4";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {ContactUsCta} from "~/routes/index";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import {Language, type UserPreferences} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/global-ops",
+            },
+            {
+                title: "Energy Solutions in Global Markets | Livguard Experts",
+            },
+            {
+                name: "description",
+                content: "Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, in 35+ countries presence.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/global-ops",
+            },
+            {
+                property: "og:title",
+                content: "Energy Solutions in Global Markets | Livguard Experts",
+            },
+            {
+                property: "og:description",
+                content: "Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, in 35+ countries presence.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/global-ops",
+            },
+            {
+                title: "Energy Solutions in Global Markets | Livguard Experts",
+            },
+            {
+                name: "description",
+                content: "Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, in 35+ countries presence.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/global-ops",
+            },
+            {
+                property: "og:title",
+                content: "Energy Solutions in Global Markets | Livguard Experts",
+            },
+            {
+                property: "og:description",
+                content: "Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, in 35+ countries presence.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -54,7 +137,11 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "b7f2abd0-ae79-46a6-b8bb-72224f16ad05", link: "#"},
+                ]}
             >
                 <GlobalOpsPage
                     userPreferences={userPreferences}
@@ -151,32 +238,36 @@ function HeroSection({
     };
     pageUrl: string;
 }) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
-            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}
-            ref={ref}
-        >
-            {containerWidth == null || containerHeight == null ? null : (
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_2.5rem]">
-                    <CoverImage
-                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/india-ops/1/banner-mobile.png" : "/livguard/india-ops/1/banner-desktop.jpg"}
-                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-max-h-[40vh] lg:tw-max-h-[60vh]"
-                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/india-ops/1/banner-mobile.png" : "/livguard/india-ops/1/banner-desktop.jpg"}
-                    />
-
-                    <PowerThatEmpowersLives
-                        userPreferences={userPreferences}
-                        utmParameters={utmParameters}
-                        pageUrl={pageUrl}
-                    />
-                </div>
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-cols-1 lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-rows-[auto_1rem_auto] tw-items-center tw-text-center",
+                className,
             )}
+        >
+            <div className="tw-row-start-1 lg:tw-row-span-full tw-row-span-2 tw-col-start-1 tw-col-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <>
+                        <FullWidthImage
+                            relativePath={isScreenSizeBelow ? "/livguard/global-ops/1/mobile-banner.jpg" : "/livguard/global-ops/1/desktop-banner.jpg"}
+                            key={isScreenSizeBelow ? "/livguard/global-ops/1/mobile-banner.jpg" : "/livguard/global-ops/1/desktop-banner.jpg"}
+                        />
+                    </>
+                )}
+            </div>
+            <div className="tw-col-start-1 lg:tw-row-start-3 tw-row-start-2 tw-row-span-2 tw-grid tw-items-center">
+                <PowerThatEmpowersLives
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
+                />
+            </div>
 
-            <VerticalSpacer className="tw-h-4 lg:tw-h-10" />
+            {/* <VerticalSpacer className="tw-h-4 lg:tw-h-10" /> */}
 
-            <div className="lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto">{getVernacularString("434a3b79-cd9d-47e9-8284-f23b7d677d97", userPreferences.language)}</div>
+            {/* <div className="lg-px-screen-edge-2 tw-w-full tw-max-w-7xl tw-mx-auto">{getVernacularString("434a3b79-cd9d-47e9-8284-f23b7d677d97", userPreferences.language)}</div> */}
         </div>
     );
 }
@@ -263,7 +354,7 @@ function WhyLivguard({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function InternationalPresence({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     const presenceData = [
         {
@@ -283,10 +374,9 @@ function InternationalPresence({userPreferences, className}: {userPreferences: U
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[70vh] lg:tw-h-[40vh] tw-grid tw-grid-rows-[repeat(4,auto)_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[repeat(4,auto)_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
-            ref={ref}
         >
             <DefaultTextAnimation className="lg:tw-hidden tw-row-start-1 tw-col-start-1 tw-justify-self-center">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start tw-text-center">
@@ -300,28 +390,34 @@ function InternationalPresence({userPreferences, className}: {userPreferences: U
                 {presenceData.map((presence, presenceIndex) => {
                     return (
                         <div
-                            className="tw-grid tw-grid-flow-row tw-gap-y-2 lg-bg-secondary-100 tw-px-4 tw-py-3 tw-w-full tw-rounded-lg lg-ops-pages-shadow"
+                            className="tw-grid tw-grid-flow-row tw-gap-y-2 lg-bg-secondary-100 tw-px-0 tw-py-3 tw-w-full tw-rounded-lg lg-ops-pages-shadow"
                             key={presenceIndex}
                         >
-                            <div className="lg-text-primary-500 lg-text-title1 tw-text-center">{getVernacularString(presence.numberContentPiece, userPreferences.language)}</div>
-                            <div className="lg-text-secondary-900 lg-text-title2 tw-text-center">{getVernacularString(presence.textContentPiece, userPreferences.language)}</div>
+                            <div
+                                dangerouslySetInnerHTML={{__html: getVernacularString(presence.numberContentPiece, userPreferences.language)}}
+                                className="lg-text-primary-500 lg-text-title1 tw-text-center"
+                            />
+                            <div
+                                dangerouslySetInnerHTML={{__html: getVernacularString(presence.textContentPiece, userPreferences.language)}}
+                                className="lg-text-secondary-900 lg-text-title2 tw-text-center"
+                            />
                         </div>
                     );
                 })}
             </div>
 
             <VerticalSpacer className="tw-row-start-4 tw-h-6" />
-
-            {containerWidth == null || containerHeight == null ? null : (
-                <>
-                    <CoverImage
-                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/global-ops/3/banner-mobile.jpg" : "/livguard/global-ops/3/banner-desktop.jpg"}
-                        className="tw-row-start-5 lg:tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
-                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/global-ops/3/banner-mobile.jpg" : "/livguard/global-ops/3/banner-desktop.jpg"}
-                        imageClassName="lg:tw-rounded-lg"
-                    />
-                </>
-            )}
+            <div className="tw-row-start-5 lg:tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <>
+                        <FullWidthImage
+                            relativePath={isScreenSizeBelow ? "/livguard/global-ops/3/banner-mobile.jpg" : "/livguard/global-ops/3/banner-desktop.jpg"}
+                            className="lg:tw-rounded-lg"
+                            key={isScreenSizeBelow ? "/livguard/global-ops/3/banner-mobile.jpg" : "/livguard/global-ops/3/banner-desktop.jpg"}
+                        />
+                    </>
+                )}
+            </div>
 
             <DefaultTextAnimation className="tw-hidden lg:tw-block lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-justify-self-center">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-text-center">
@@ -329,15 +425,21 @@ function InternationalPresence({userPreferences, className}: {userPreferences: U
                 </div>
             </DefaultTextAnimation>
 
-            <div className="tw-hidden lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2 tw-justify-self-center lg:tw-grid lg:tw-grid-flow-col lg:tw-grid-cols-3 lg:tw-gap-x-6 lg:tw-justify-center lg:tw-justify-items-center">
+            <div className="tw-hidden lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full lg:tw-px-60 tw-justify-self-center lg:tw-grid lg:tw-grid-flow-col lg:tw-grid-cols-3 lg:tw-gap-x-6 lg:tw-justify-center lg:tw-content-center lg:tw-justify-items-center">
                 {presenceData.map((presence, presenceIndex) => {
                     return (
                         <div
-                            className="tw-grid tw-grid-flow-row tw-gap-y-2 tw-bg-secondary-100-light tw-px-8 tw-py-4 tw-w-full tw-rounded-lg lg-ops-pages-shadow"
+                            className="tw-grid tw-grid-flow-row tw-grid-rows-[max-content,max-content] tw-gap-y-2 tw-bg-secondary-100-light tw-px-8 tw-py-4 tw-w-full tw-rounded-lg lg-ops-pages-shadow"
                             key={presenceIndex}
                         >
-                            <div className="lg-text-primary-500 lg-text-title1 tw-text-center">{getVernacularString(presence.numberContentPiece, userPreferences.language)}</div>
-                            <div className="tw-text-secondary-900-light lg-text-title2 tw-text-center">{getVernacularString(presence.textContentPiece, userPreferences.language)}</div>
+                            <div
+                                dangerouslySetInnerHTML={{__html: getVernacularString(presence.numberContentPiece, userPreferences.language)}}
+                                className="lg-text-primary-500 lg-text-title1 tw-text-center"
+                            />
+                            <div
+                                dangerouslySetInnerHTML={{__html: getVernacularString(presence.textContentPiece, userPreferences.language)}}
+                                className="tw-text-secondary-900-light lg-text-title2 tw-text-center"
+                            />
                         </div>
                     );
                 })}
@@ -424,7 +526,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                             {
                                 image: "/livguard/home/3/2.jpg",
                                 headingContent1: `${getVernacularString("homeS3Tab2HC1", userPreferences.language)}`,
-                                headingContent2: `${getVernacularString("homeS3Tab2HC2", userPreferences.language)}`,
+                                headingContent2: `${getVernacularString("cc8f5274-ab27-4dd9-9958-9be9d1b58a4b", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab2C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab2BT", userPreferences.language)}`,
                                 buttonLink: "/inverter-for-home",
@@ -445,7 +547,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                                 headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
-                                buttonLink: "/automotive-batteries.php",
+                                buttonLink: "/battery-finder",
                                 target: "_blank",
                             },
                             {
@@ -529,24 +631,29 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
 function InnovationSolution({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const carouselItems = [
         {
-            imageRelativeUrl: "/livguard/home/3/2.jpg",
-            titleContentPiece: "06daee92-6429-4732-996c-adc4de0153a5",
-            descriptionContentPiece: "5c6e3030-2ce7-4f27-8f39-e75490428d22",
+            imageRelativeUrl: "/livguard/global-ops/5/ai-charging.jpg",
+            titleContentPiece: "38190d9c-d8b4-4694-abd5-8a1b2a907644",
+            descriptionContentPiece: "968f95c6-391c-4752-8f0a-6a130d7247d3",
         },
         {
-            imageRelativeUrl: "/livguard/home/3/2.jpg",
-            titleContentPiece: "06daee92-6429-4732-996c-adc4de0153a5",
-            descriptionContentPiece: "5c6e3030-2ce7-4f27-8f39-e75490428d22",
+            imageRelativeUrl: "/livguard/global-ops/5/cnt-technology.jpg",
+            titleContentPiece: "819dd6dc-90d2-4bfd-a73a-6904481af9ad",
+            descriptionContentPiece: "df905ecc-8efa-412a-bb7b-930aaef64ffe",
         },
         {
-            imageRelativeUrl: "/livguard/home/3/2.jpg",
-            titleContentPiece: "06daee92-6429-4732-996c-adc4de0153a5",
-            descriptionContentPiece: "5c6e3030-2ce7-4f27-8f39-e75490428d22",
+            imageRelativeUrl: "/livguard/global-ops/5/best-in-class-warranty.jpg",
+            titleContentPiece: "b3226570-cafa-42c9-8b1c-8f3affdf73f7",
+            descriptionContentPiece: "bd4bfc08-3225-4aaa-b04f-a0d1285aac7a",
         },
         {
-            imageRelativeUrl: "/livguard/home/3/2.jpg",
-            titleContentPiece: "06daee92-6429-4732-996c-adc4de0153a5",
-            descriptionContentPiece: "5c6e3030-2ce7-4f27-8f39-e75490428d22",
+            imageRelativeUrl: "/livguard/global-ops/5/6-wheel-tuffness.jpg",
+            titleContentPiece: "964dbdf4-8b00-4471-9227-29d5d218d156",
+            descriptionContentPiece: "1dbef3f7-a5f0-4ea4-859a-4c2e90bcfbe1",
+        },
+        {
+            imageRelativeUrl: "/livguard/global-ops/5/solar-rooftop-solution.jpg",
+            titleContentPiece: "f7a491bf-8c0a-45d3-88bb-af15728d30e7",
+            descriptionContentPiece: "ca9d5613-8878-48e3-9bf3-bf7b2d09f52c",
         },
     ];
 
@@ -602,24 +709,28 @@ function LegacyAndHeritage({userPreferences, className}: {userPreferences: UserP
             yearTextContentPiece: "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8",
         },
         {
-            descriptionTextContentPiece: "8c6d06ec-e5a5-42d4-af83-67c9719cb313",
-            yearTextContentPiece: "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8",
+            descriptionTextContentPiece: "7f9e5d13-7aee-4b3d-a437-b56d3c5cd17c",
+            yearTextContentPiece: "67726d9d-17c5-47a8-8257-749c0a9d9d2f",
         },
         {
-            descriptionTextContentPiece: "8c6d06ec-e5a5-42d4-af83-67c9719cb313",
-            yearTextContentPiece: "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8",
+            descriptionTextContentPiece: "7fe6ddc2-67d3-4e35-bec2-56961675498f",
+            yearTextContentPiece: "f28f2dd3-2dc5-469e-ae81-da74f6d140ed",
         },
         {
-            descriptionTextContentPiece: "8c6d06ec-e5a5-42d4-af83-67c9719cb313",
-            yearTextContentPiece: "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8",
+            descriptionTextContentPiece: "3edfb06c-0460-493f-97da-bc9ff21a78f7",
+            yearTextContentPiece: "95bc00f0-d599-44dc-a807-6b4bc9338a73",
         },
         {
-            descriptionTextContentPiece: "8c6d06ec-e5a5-42d4-af83-67c9719cb313",
-            yearTextContentPiece: "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8",
+            descriptionTextContentPiece: "925184da-5c67-4e32-a491-5b2b1f214c47",
+            yearTextContentPiece: "47f1ef98-3b15-423b-b190-8a46bfa4d8f3",
         },
         {
-            descriptionTextContentPiece: "8c6d06ec-e5a5-42d4-af83-67c9719cb313",
-            yearTextContentPiece: "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8",
+            descriptionTextContentPiece: "87c78964-385a-4113-83c0-20b588fc6674",
+            yearTextContentPiece: "5d614c09-822d-4e0a-a81e-bf55e607b656",
+        },
+        {
+            descriptionTextContentPiece: "e356d80b-8513-41c9-9c60-ab3a11e07cbf",
+            yearTextContentPiece: "4354e23a-20cb-4e51-9555-5d0b4de88dbb",
         },
     ];
 
@@ -628,6 +739,15 @@ function LegacyAndHeritage({userPreferences, className}: {userPreferences: UserP
             className={concatenateNonNullStringsWithSpaces("tw-w-full", className)}
             ref={ref}
         >
+            <DefaultTextAnimation className="tw-grid tw-justify-center">
+                <div
+                    className="lg-text-headline"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("90fd7093-85d7-4ad6-841f-292c5f387777", userPreferences.language)}}
+                />
+            </DefaultTextAnimation>
+
+            <VerticalSpacer className="tw-h-4 lg:tw-h-10" />
+
             {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
                 <TimelineMobile
                     cards={timelineCards}
@@ -657,7 +777,7 @@ function TimelineMobile({cards, userPreferences}: {cards: Array<{descriptionText
                             <Line orientation="vertical" />
                         </div>
 
-                        {index < cards.length - 1 && <Line />}
+                        {index < cards.length - 1 && <Line orientation="vertical" />}
                     </div>
                 );
             })}
@@ -674,7 +794,7 @@ function TimelineMobile({cards, userPreferences}: {cards: Array<{descriptionText
             })}
 
             <div
-                style={{gridRowStart: 6, gridColumnStart: 1}}
+                style={{gridRowStart: 7, gridColumnStart: 1}}
                 className="tw-grid tw-grid-flow-row tw-gap-y-[1px] tw-items-end"
             >
                 <Line
@@ -704,7 +824,7 @@ function TimelineMobile({cards, userPreferences}: {cards: Array<{descriptionText
 
 function TimelineDesktop({cards, userPreferences}: {cards: Array<{descriptionTextContentPiece: string; yearTextContentPiece: string}>; userPreferences: UserPreferences}) {
     return (
-        <div className="tw-w-full tw-grid tw-grid-rows-[repeat(3,auto)] tw-grid-flow-col tw-grid-cols-[auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)]">
+        <div className="tw-w-full tw-grid tw-grid-rows-[repeat(3,auto)] tw-grid-flow-col tw-grid-cols-[auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)_2rem_auto_minmax(0,1fr)] tw-overflow-x-auto">
             {cards.map((card, cardIndex) => {
                 const cardColStart = 3 * (cardIndex + 1) - 2;
                 const circleColStart = 3 * (cardIndex + 1) - 2;
@@ -721,7 +841,10 @@ function TimelineDesktop({cards, userPreferences}: {cards: Array<{descriptionTex
                             </div>
                         )}
 
-                        <div style={{gridColumnStart: cardColStart, gridColumnEnd: cardColStart + 5, gridRowStart: cardIndex % 2 === 0 ? "1" : "3"}}>
+                        <div
+                            className="tw-grid tw-items-end"
+                            style={{gridColumnStart: cardColStart, gridColumnEnd: cardColStart + 5, gridRowStart: cardIndex % 2 === 0 ? "1" : "3"}}
+                        >
                             <TimelineCard
                                 descriptionText={getVernacularString(card.descriptionTextContentPiece, userPreferences.language)}
                                 yearText={getVernacularString(card.yearTextContentPiece, userPreferences.language)}
@@ -736,7 +859,7 @@ function TimelineDesktop({cards, userPreferences}: {cards: Array<{descriptionTex
             </div>
 
             <div
-                style={{gridRowStart: 2, gridColumnStart: 20, gridColumnEnd: 21}}
+                style={{gridRowStart: 2, gridColumnStart: 20, gridColumnEnd: 24}}
                 className="tw-grid tw-grid-flow-col tw-gap-x-[1px] tw-justify-items-end"
             >
                 <Line
@@ -745,7 +868,15 @@ function TimelineDesktop({cards, userPreferences}: {cards: Array<{descriptionTex
                 />
                 <Line
                     orientation="horizontal"
+                    className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-90 dark:!tw-border-opacity-90`}
+                />
+                <Line
+                    orientation="horizontal"
                     className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-80 dark:!tw-border-opacity-80`}
+                />
+                <Line
+                    orientation="horizontal"
+                    className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-70 dark:!tw-border-opacity-70`}
                 />
                 <Line
                     orientation="horizontal"
@@ -753,11 +884,23 @@ function TimelineDesktop({cards, userPreferences}: {cards: Array<{descriptionTex
                 />
                 <Line
                     orientation="horizontal"
+                    className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-50 dark:!tw-border-opacity-50`}
+                />
+                <Line
+                    orientation="horizontal"
                     className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-40 dark:!tw-border-opacity-40`}
                 />
                 <Line
                     orientation="horizontal"
+                    className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-30 dark:!tw-border-opacity-30`}
+                />
+                <Line
+                    orientation="horizontal"
                     className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-20 dark:!tw-border-opacity-20`}
+                />
+                <Line
+                    orientation="horizontal"
+                    className={`!tw-w-[40%] !tw-border-t-2 !tw-border-b-0 !tw-border-opacity-10 dark:!tw-border-opacity-10`}
                 />
             </div>
 

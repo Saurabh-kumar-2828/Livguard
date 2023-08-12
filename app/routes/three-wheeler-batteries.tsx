@@ -1,4 +1,4 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -11,21 +11,141 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import React from "react";
+import {ProductType, allProductDetails} from "~/productData";
+import React, {useEffect, useState} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import LivguardDialog from "~/components/livguardDialog";
 import {StickyBottomBar} from "~/components/bottomBar";
-import {ProductType, allProductDetails} from "~/productData";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {DealerLocator} from "~/routes";
+
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Power on Wheels with Livguard's Three Wheeler Batteries",
+//             description: "Experience the reliability of Livguard Three Wheeler batteries, delivering better cranking power, easy maintenance, long battery life, and high performance ",
+//             "og:title": "Power on Wheels with Livguard's Three Wheeler Batteries",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/three-wheeler-batteries",
+//             "og:description": "Experience the reliability of Livguard Three Wheeler batteries, delivering better cranking power, easy maintenance, long battery life, and high performance ",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड के तीन पहिया बैटरी के साथ सशक्त यात्रा",
+//             description: "बेहतर क्रैंकिंग पावर, आसान रखरखाव, लंबी बैटरी लाइफ और उच्च प्रदर्शन प्रदान करने वाली लिवगार्ड थ्री व्हीलर बैटरियों की विश्वसनीयता का अनुभव करें",
+//             "og:title": "लिवगार्ड के तीन पहिया बैटरी के साथ सशक्त यात्रा",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/three-wheeler-batteries",
+//             "og:description": "बेहतर क्रैंकिंग पावर, आसान रखरखाव, लंबी बैटरी लाइफ और उच्च प्रदर्शन प्रदान करने वाली लिवगार्ड थ्री व्हीलर बैटरियों की विश्वसनीयता का अनुभव करें",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/three-wheeler-batteries"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/three-wheeler-batteries",
+            },
+            {
+                title: "Power on Wheels with Livguard's Three Wheeler Batteries",
+            },
+            {
+                name: "description",
+                content: "Experience the reliability of Livguard Three Wheeler batteries, delivering better cranking power, easy maintenance, long battery life, and high performance",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/three-wheeler-batteries",
+            },
+            {
+                property: "og:title",
+                content: "Power on Wheels with Livguard's Three Wheeler Batteries",
+            },
+            {
+                property: "og:description",
+                content: "Experience the reliability of Livguard Three Wheeler batteries, delivering better cranking power, easy maintenance, long battery life, and high performance",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/three-wheeler-batteries",
+            },
+            {
+                title: "लिवगार्ड के तीन पहिया बैटरी के साथ सशक्त यात्रा",
+            },
+            {
+                name: "description",
+                content: "बेहतर क्रैंकिंग पावर, आसान रखरखाव, लंबी बैटरी लाइफ और उच्च प्रदर्शन प्रदान करने वाली लिवगार्ड थ्री व्हीलर बैटरियों की विश्वसनीयता का अनुभव करें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/three-wheeler-batteries",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड के तीन पहिया बैटरी के साथ सशक्त यात्रा",
+            },
+            {
+                property: "og:description",
+                content: "बेहतर क्रैंकिंग पावर, आसान रखरखाव, लंबी बैटरी लाइफ और उच्च प्रदर्शन प्रदान करने वाली लिवगार्ड थ्री व्हीलर बैटरियों की विश्वसनीयता का अनुभव करें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -60,9 +180,13 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "5ec9401e-43ed-47cd-a0f9-3ef981780ca1", link: "#"},
+                ]}
             >
-                <ERickshawBatteriesPage userPreferences={userPreferences} />
+                <ThreeWheelerBatteriesPage userPreferences={userPreferences} />
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -74,7 +198,7 @@ export default () => {
     );
 };
 
-function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPreferences}) {
+function ThreeWheelerBatteriesPage({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -85,29 +209,22 @@ function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPrefere
 
                 <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-                <SuperiorFeatures
+                <ReliabilityYouCanExperience
                     userPreferences={userPreferences}
                     className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
-                <OurSuggestionsBasedOnYourChoice
+                <ThreeWheelerBatteriesForUnmatchedPower
                     userPreferences={userPreferences}
                     className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-w-full"
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
-                <DiscoverMore
-                    userPreferences={userPreferences}
-                    className="tw-row-start-7 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
-                />
-
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
-
-                <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <WeAreEverywhere
+                <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
+                    <DealerLocator
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
@@ -115,148 +232,142 @@ function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPrefere
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
 
-                    <ChooseTheRightBattery
+                    <FindTheRightBattery
                         userPreferences={userPreferences}
                         className="tw-row-start-7 lg:tw-row-start-5 lg:tw-col-start-2"
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full" />
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
+                    className="tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] tw-col-start-1 lg:tw-col-span-full" />
 
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[5.5rem_auto_auto_1rem_auto_3.5rem_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
-            ref={ref}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
-                {containerWidth == null || containerHeight == null ? null : (
+                {isScreenSizeBelow == null ? null : (
                     <>
-                        {/* TODO: Update banner, pending from design team */}
-                        <CoverImage
-                            relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/two-wheeler/1/banner-mobile.jpg" : "/livguard/two-wheeler/1/banner-desktop.jpg"}
-                            key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/two-wheeler/1/banner-mobile.jpg" : "/livguard/two-wheeler/1/banner-desktop.jpg"}
-                        />
-
-                        <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/1/products.png").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                            alt="Batteries"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute ",
-                                containerWidth < 1024 ? "tw-bottom-2 tw-inset-x-0 tw-mx-auto tw-h-1/4" : "tw-bottom-2 tw-left-[4rem] tw-h-2/5",
-                            )}
+                        <FullWidthImage
+                            relativePath={isScreenSizeBelow ? "/livguard/three-wheeler/1/banner-mobile.jpg" : "/livguard/three-wheeler/1/banner-desktop.jpg"}
+                            key={isScreenSizeBelow ? "/livguard/three-wheeler/1/banner-mobile.jpg" : "/livguard/three-wheeler/1/banner-desktop.jpg"}
                         />
                     </>
                 )}
             </div>
 
-            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2 tw-place-self-center">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-text-center">{getVernacularString("67f761e4-5c9d-4ef7-87fa-df19fc2b92aa", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2 tw-text-center lg:tw-text-left tw-z-[2]">
+                <div className="lg-text-banner tw-text-secondary-900-dark">{getVernacularString("aa7c13b1-5476-452b-aa90-6d19bf361db4", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2 tw-place-self-center">
-                <div className="lg-text-banner tw-text-secondary-900-dark tw-text-center">{getVernacularString("45e0486f-a7d7-407a-82d2-7435396fde97", userPreferences.language)}</div>
-            </DefaultTextAnimation>
-
-            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2 tw-place-self-center">
-                <div className="lg-text-body !tw-text-secondary-900-dark tw-text-center">{getVernacularString("91c8d137-eccb-4a0f-9799-3e2340ac54f7", userPreferences.language)}</div>
+            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg-px-screen-edge-2 tw-text-center lg:tw-text-left tw-z-[2]">
+                <div className="lg-text-banner tw-text-secondary-900-dark">{getVernacularString("fc06f9c9-c5a3-4631-a62b-3884075b1aa2", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
 
-function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+function ReliabilityYouCanExperience({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const BatteryCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-bg-secondary-100 tw-rounded-lg",
+                    "tw-place-self-center tw-grid tw-grid-rows-[auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-card tw-rounded-lg",
                 )}
             >
-                <div className="tw-row-start-2">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                <div className="tw-row-start-1">
+                    <FullWidthImage
+                        relativePath={imageRelativePath}
+                        className="tw-rounded-lg"
+                    />
                 </div>
 
-                <div className="tw-row-start-4 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
 
-                <div className="tw-row-start-6 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
             </div>
         );
     };
 
     const batteriesData: Array<{titleTextContentPiece: string; bodyTextContentPiece: string; imageRelativePath: string}> = [
         {
-            titleTextContentPiece: "75c8e077-526b-4517-a52a-36a858dbb06e",
-            bodyTextContentPiece: "61b03b16-b490-4ae2-95ff-ffd4ef994b9b",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.1.png",
+            titleTextContentPiece: "c9209f83-6335-404e-ad8e-491d010741d3",
+            bodyTextContentPiece: "267f262c-3030-43e4-bae7-b778518d7ee2",
+            imageRelativePath: "/livguard/three-wheeler/2/cranking.jpg",
         },
         {
-            titleTextContentPiece: "d660f7e7-4945-4d60-ac65-ee35d44644c4",
-            bodyTextContentPiece: "ea91df06-eee3-4f24-bac2-b4d0484c9c26",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.2.png",
+            titleTextContentPiece: "22d2b329-b855-4127-9e99-edb36347d88b",
+            bodyTextContentPiece: "adf2ff19-2a54-4ca7-9b4d-d2881ad856fc",
+            imageRelativePath: "/livguard/three-wheeler/2/maintainence-free.jpg",
         },
         {
-            titleTextContentPiece: "bbdf4cee-9f7c-475a-a464-ef1ef26204b8",
-            bodyTextContentPiece: "24233427-5ce6-4924-bea6-56eef727ef86",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.3.png",
+            titleTextContentPiece: "c31a4732-aa1f-4973-b2fd-f3b0371c2895",
+            bodyTextContentPiece: "3b7b22d2-54c3-4ad6-9a7d-e8fede699840",
+            imageRelativePath: "/livguard/three-wheeler/2/best-in-class-warranty.jpg",
         },
         {
-            titleTextContentPiece: "8a8c6ad0-848e-4cdc-8570-3fc2d05abf5e",
-            bodyTextContentPiece: "2dd6ceca-eaa9-4b31-89a2-60d1b54a1237",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.1.png",
+            titleTextContentPiece: "8575720d-0268-4a7d-8516-1edbe2d3ea83",
+            bodyTextContentPiece: "a5df81a6-2f1a-4547-b08f-b5732df96e88",
+            imageRelativePath: "/livguard/three-wheeler/2/long-battery-life.jpg",
         },
         {
-            titleTextContentPiece: "8b08775f-905e-4826-a595-9001b888bead",
-            bodyTextContentPiece: "48127946-a89e-46bc-95ec-1baf8e68b072",
-            imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.1.png",
+            titleTextContentPiece: "c9209f83-6335-404e-ad8e-491d010741d3",
+            bodyTextContentPiece: "267f262c-3030-43e4-bae7-b778518d7ee2",
+            imageRelativePath: "/livguard/three-wheeler/2/cranking.jpg",
         },
-        // {
-        //     titleTextContentPiece: "d660f7e7-4945-4d60-ac65-ee35d44644c4",
-        //     bodyTextContentPiece: "ea91df06-eee3-4f24-bac2-b4d0484c9c26",
-        //     imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.2.png",
-        // },
-        // {
-        //     titleTextContentPiece: "bbdf4cee-9f7c-475a-a464-ef1ef26204b8",
-        //     bodyTextContentPiece: "24233427-5ce6-4924-bea6-56eef727ef86",
-        //     imageRelativePath: "/livguard/e-rickshaw-batteries/2/2.3.png",
-        // },
+        {
+            titleTextContentPiece: "22d2b329-b855-4127-9e99-edb36347d88b",
+            bodyTextContentPiece: "adf2ff19-2a54-4ca7-9b4d-d2881ad856fc",
+            imageRelativePath: "/livguard/three-wheeler/2/maintainence-free.jpg",
+        },
+        {
+            titleTextContentPiece: "c31a4732-aa1f-4973-b2fd-f3b0371c2895",
+            bodyTextContentPiece: "3b7b22d2-54c3-4ad6-9a7d-e8fede699840",
+            imageRelativePath: "/livguard/three-wheeler/2/best-in-class-warranty.jpg",
+        },
+        {
+            titleTextContentPiece: "8575720d-0268-4a7d-8516-1edbe2d3ea83",
+            bodyTextContentPiece: "a5df81a6-2f1a-4547-b08f-b5732df96e88",
+            imageRelativePath: "/livguard/three-wheeler/2/long-battery-life.jpg",
+        },
     ];
 
     return (
         <>
             <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("3e08230a-fc5d-4191-abfa-6b6be76e983f", userPreferences.language)}} />
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("eb77dfed-047e-4fb7-bfb2-bbe06d128a93", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("75dfe585-c7bc-4497-a8a7-23bb1ed11625", userPreferences.language)}} />
+                    <div dangerouslySetInnerHTML={{__html: getVernacularString("942ecb94-3de6-477e-9dea-5079f62a04c3", userPreferences.language)}} />
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
                 <CarouselStyle5
+                    snapDotsDivisionFactor={2}
                     items={batteriesData.map((batteryData, batteryDataIndex) => (
                         <BatteryCard
                             title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
@@ -268,60 +379,33 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                     className="tw-mx-auto"
                     deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
                     selectedContainerClassName="tw-h-full"
+                    itemContainerClassName="lg:tw-px-0"
                 />
             </div>
         </>
     );
 }
 
-function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const products = [
-        allProductDetails["lgb0erfp1500"][userPreferences.language],
-        allProductDetails["lgc0ertu1800"][userPreferences.language],
-        allProductDetails["lgd0ertu2300"][userPreferences.language],
-        allProductDetails["lgd0ertu2500"][userPreferences.language],
-    ];
-
-    const batteriesData = [
+function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const products = [allProductDetails["lgmf0ar32r"][userPreferences.language], allProductDetails["lgmf0ar60l"][userPreferences.language]];
+    const brandBatteries = [
         {
-            batterySlug: "lgb0erfp1500",
-            name: products[0].specifications[0].value,
+            batterySlug: "lgmf0ar32r",
+            name: products[0].humanReadableModelNumber,
             description: products[0].description,
             warranty: products[0].specifications[1].value,
             capacity: products[0].specifications[2].value,
-            grid: "",
-            dimensions: "",
-            productType: ProductType.automotiveBattery,
+            polarity: products[0].specifications[3].value,
+            dimensions: products[0].specifications[4].value,
         },
         {
-            batterySlug: "lgc0ertu1800",
-            name: products[1].specifications[0].value,
+            batterySlug: "lgmf0ar60l",
+            name: products[1].humanReadableModelNumber,
             description: products[1].description,
             warranty: products[1].specifications[1].value,
             capacity: products[1].specifications[2].value,
-            grid: "",
-            dimensions: "",
-            productType: ProductType.automotiveBattery,
-        },
-        {
-            batterySlug: "lgd0ertu2300",
-            name: products[2].specifications[0].value,
-            description: products[2].description,
-            warranty: products[2].specifications[1].value,
-            capacity: products[2].specifications[2].value,
-            grid: "",
-            dimensions: "",
-            productType: ProductType.automotiveBattery,
-        },
-        {
-            batterySlug: "lgd0ertu2500",
-            name: products[3].specifications[0].value,
-            description: products[3].description,
-            warranty: products[3].specifications[1].value,
-            capacity: products[3].specifications[2].value,
-            grid: "",
-            dimensions: "",
-            productType: ProductType.automotiveBattery,
+            polarity: products[1].specifications[3].value,
+            dimensions: products[1].specifications[4].value,
         },
     ];
 
@@ -331,25 +415,26 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
 
             <div
                 className="lg-text-headline tw-place-self-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("368be9b9-37b1-4c94-9b54-9c7b8bbea351", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: getVernacularString("baedfb58-af7c-4126-baa3-63f5ad0ce156", userPreferences.language)}}
             />
-            <div className="lg-text-headline tw-place-self-center">{getVernacularString("e102bc0e-f831-4631-abb2-60f166440bbe", userPreferences.language)}</div>
+            <div className="lg-text-headline tw-place-self-center">{getVernacularString("836d0f37-0171-4ac9-b4c8-79bd9aaf0afc", userPreferences.language)}</div>
+
+            <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-6" />
 
             <CarouselStyle5
                 // @ts-ignore
-                items={batteriesData.map((battery, batteryIndex) => {
+                items={brandBatteries.map((battery, batteryIndex) => {
                     return (
                         <BatteryCard
                             userPreferences={userPreferences}
                             batterySlug={battery.batterySlug}
-                            imageRelativeUrl={`/product/${battery.batterySlug}`}
                             name={battery.name}
                             description={battery.description}
                             warranty={battery.warranty}
                             capacity={battery.capacity}
-                            grid={battery.grid}
+                            polarity={battery.polarity}
                             dimensions={battery.dimensions}
                             key={batteryIndex}
                         />
@@ -358,6 +443,8 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
                 slidesContainerClassName="!tw-auto-cols-[100%] lg:!tw-auto-cols-max tw-place-self-center tw-items-center"
                 selectedContainerClassName="tw-h-full"
                 deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
+                disabledChevronClassName="tw-opacity-[0.3]"
+                autoplayDelay={null}
             />
 
             <VerticalSpacer className="tw-h-4 lg:tw-h-10" />
@@ -368,39 +455,35 @@ function OurSuggestionsBasedOnYourChoice({userPreferences, className}: {userPref
 function BatteryCard({
     userPreferences,
     batterySlug,
-    imageRelativeUrl,
     name,
     description,
     warranty,
     capacity,
-    grid,
+    polarity,
     dimensions,
-    productType,
 }: {
     userPreferences: UserPreferences;
     batterySlug: string;
-    imageRelativeUrl: string;
     name: string;
     description: string;
     warranty: string;
     capacity: string;
-    grid: string;
+    polarity: string;
     dimensions: string;
-    productType: string;
 }) {
     return (
-        <div className="tw-max-w-3xl tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-our-suggestions-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8">
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8 tw-w-full tw-max-w-3xl tw-mx-auto">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("3ae8e96f-5ed1-4f8c-8e2f-194f16674982", userPreferences.language)}</div>
-                <div>{/* <FullWidthImage relativePath={`/product/${productType}/${batterySlug}/thumbnail.png`} /> */}</div>
+                <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("4f1b53b9-36a8-4a0e-b693-4f92e8a1b32b", userPreferences.language)}</div>
+                <div className="tw-h-full tw-w-full">
+                    <FullWidthImage relativePath={`/livguard/products/${batterySlug}/thumbnail.png`} />
+                </div>
 
                 <Link
                     className="tw-hidden lg:tw-block"
-                    to="#"
-                    //Add slug when products are available
-                    // to={`/product/${batterySlug}`}
+                    to={`/product/${batterySlug}`}
                 >
-                    <button className="lg-cta-button">{getVernacularString("ecd16719-acbe-4e6a-860b-7918b8f22367", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
                 </Link>
             </div>
 
@@ -416,44 +499,44 @@ function BatteryCard({
                 <div className="tw-grid tw-grid-rows-[auto_auto_minmax(0,1fr)] md:max-lg:tw-grid-cols-1 md:max-lg:tw-grid-flow-row md:max-lg:tw-place-items-center md:max-lg:tw-place-self-center md:max-lg:tw-w-fit tw-grid-cols-2 tw-gap-x-4 tw-gap-y-8">
                     <div className="tw-row-start-1 tw-col-start-1 md:max-lg:tw-w-full tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2 lg:tw-place-self-start">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/3/3.warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/three-wheeler/3/3.warranty-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("b384b853-774d-4227-b7e5-03dd24f5f1aa", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("8ef7eb7a-a46a-46b2-9479-cb31ce29ea98", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{warranty}</div>
                         </div>
                     </div>
 
                     <div className="tw-row-start-1 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-2 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/3/3.capacity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/three-wheeler/3/3.capacity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("b6a49b1c-fa41-4958-a2ed-79f87707416c", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("28225ecc-5c09-4c69-a82a-0614dc248123", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{capacity}</div>
                         </div>
                     </div>
 
                     <div className="tw-row-start-2 tw-col-start-1 md:max-lg:tw-w-full md:max-lg:tw-row-start-3 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/3/3.grid-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/three-wheeler/3/3.polarity-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("2d4c7020-d295-4227-a8bf-c4ba7e047228", userPreferences.language)}</div>
-                            <div className="tw-row-start-3">{grid}</div>
+                            <div className="tw-row-start-2">{getVernacularString("d71a4882-3a3c-4e2d-a884-071523e265d1", userPreferences.language)}</div>
+                            <div className="tw-row-start-3">{polarity}</div>
                         </div>
                     </div>
 
                     <div className="tw-row-start-2 tw-col-start-2 md:max-lg:tw-w-full md:max-lg:tw-row-start-4 md:max-lg:tw-col-start-1 tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-x-2">
                         <div className="tw-place-self-center tw-row-start-1 tw-col-start-1 tw-h-10 tw-w-10 lg-bg-primary-500 tw-rounded-full tw-flex tw-justify-center tw-items-center tw-p-1">
-                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/3/3.dimensions-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/three-wheeler/3/3.dimensions-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
 
                         <div className="tw-row-start-1 tw-col-start-2 tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)]">
-                            <div className="tw-row-start-2">{getVernacularString("151dfac3-66f4-4aa0-be1a-d92228015ee2", userPreferences.language)}</div>
+                            <div className="tw-row-start-2">{getVernacularString("ff09f4be-754d-49ed-95bb-9223ab5d383e", userPreferences.language)}</div>
                             <div className="tw-row-start-3">{dimensions}</div>
                         </div>
                     </div>
@@ -465,7 +548,7 @@ function BatteryCard({
                     className="tw-place-self-center lg:tw-hidden"
                     to={batterySlug}
                 >
-                    <button className="lg-cta-button">{getVernacularString("d7631d6c-a568-464f-8411-e1840750556a", userPreferences.language)}</button>
+                    <button className="lg-cta-button">{getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}</button>
                 </Link>
 
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
@@ -474,119 +557,47 @@ function BatteryCard({
     );
 }
 
-function DiscoverMore({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2", className)}>
-            <DefaultTextAnimation className="tw-place-self-center">
-                <div className="lg-text-headline">{getVernacularString("98c90c88-6fc4-4786-b130-a52ce614d5d0", userPreferences.language)}</div>
-            </DefaultTextAnimation>
-            <DefaultTextAnimation className="tw-place-self-center">
-                <div
-                    className="lg-text-headline"
-                    dangerouslySetInnerHTML={{__html: getVernacularString("73095405-033a-4718-b6de-e4d0b6dbc0f6", userPreferences.language)}}
-                />
-            </DefaultTextAnimation>
-
-            <VerticalSpacer className="tw-h-6" />
-
-            <EmbeddedYoutubeVideo
-                id="GYrIEB_WpBw"
-                style={{aspectRatio: "560/315", borderRadius: "0.5rem"}}
-            />
-        </div>
-    );
-}
-
-function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function ChooseTheRightBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function FindTheRightBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
             <div
                 className="tw-row-start-2 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("c52ecf6e-bc7d-4934-88d1-43660af8fe2d", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: getVernacularString("d06ea4a8-87f2-40b0-a235-bfae5e318be3", userPreferences.language)}}
             />
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
-                dangerouslySetInnerHTML={{__html: getVernacularString("bdd593f6-18f6-47d2-af26-af2a71693731", userPreferences.language)}}
+                dangerouslySetInnerHTML={{__html: getVernacularString("976354a4-d9b7-414f-a717-dcffa9018f98", userPreferences.language)}}
             />
-            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("66e82d76-b469-46b4-87fe-0e2b1a73118e", userPreferences.language)}</div>
+            <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("b568d9fc-34b7-48ba-adaf-0c05c9e24168", userPreferences.language)}</div>
 
-            <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-buying-guide.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("c20eb3fa-8458-41e1-bd97-43b2fffd0d41", userPreferences.language)}
-                    </div>
-                </a>
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("b49dbc60-f847-409f-bb7d-5af0301d3136", userPreferences.language)}
-                    </div>
-                </a>
+            <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
+                <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
+                    <a
+                        href="https://www.livguard.com/static-assets/leaflet-three-wheeler.pdf"
+                        download
+                        target="_blank"
+                        className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4"
+                    >
+                        <img
+                            className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                        />
+                        <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                        </div>
+                    </a>
+                    <Link
+                        to="/battery-finder"
+                        className="tw-h-full tw-w-full tw-grid tw-place-items-center"
+                    >
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
+                            {getVernacularString("1271cac7-693c-48bc-850f-16199416dd0e", userPreferences.language)}
+                        </div>
+                    </Link>
+                </div>
             </div>
 
-            <VerticalSpacer className="tw-row-start-8 tw-h-6" />
-
-            <Link
-                to="/battery-finder"
-                className="tw-row-start-9 tw-grid tw-place-items-center"
-            >
-                <div className="lg-cta-button tw-place-self-center">{getVernacularString("eab21892-bbf3-4c28-9d48-b98ff57f3f55", userPreferences.language)}</div>
-            </Link>
-
-            <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
+            <VerticalSpacer className="lg:tw-row-start-8 tw-hidden lg:tw-block lg:tw-h-12" />
         </div>
     );
 }
@@ -594,24 +605,24 @@ function ChooseTheRightBattery({userPreferences, className}: {userPreferences: U
 function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const faqs = [
         {
-            question: "16052fa6-9c46-49f5-b3dc-a90ba4a0cd64",
-            answer: "276a2fc2-4ad5-46b1-8e1a-898f4ad48ac2",
+            question: "af9ad542-bdcc-4eb4-aa38-c87d36ec9bda",
+            answer: "d1db1197-f5ee-4126-9fc2-a554820c24b4",
         },
         {
-            question: "d172e8a9-1a56-44ac-9624-f6909bc7ab64",
-            answer: "1b7d7fa0-ce6b-455f-8f4c-a042dea09650",
+            question: "adddec59-1e50-4af6-a40f-a0b1144464d1",
+            answer: "03ed45bf-cd92-4800-b855-c88e8b73e543",
         },
         {
-            question: "6d7b3095-b837-47c2-a733-55d13c7cbe32",
-            answer: "b9a59c4c-1212-4d95-9127-5cd030d7b940",
+            question: "87a69e85-3480-486c-babf-fb05e6936a76",
+            answer: "18fced89-0dde-4bef-a1ec-7b3929eb9434",
         },
         {
-            question: "a5d60a5a-54f8-41aa-a381-fa75ff5d1b0c",
-            answer: "0479936a-0406-42b9-a22a-985b38cc4179",
+            question: "c442cd80-c2c3-4c56-91a9-30530b22d5e6",
+            answer: "77fa3233-d479-405c-9984-052c8fb751bc",
         },
         {
-            question: "da71434e-3e83-47b4-bce6-087f5e55e293",
-            answer: "db980c86-e5b7-4a2e-bb2c-f3cbbd6a952d",
+            question: "d760e95e-4074-4ec7-af0e-9c296cf4d41d",
+            answer: "83afccfb-5c2b-4cd8-893c-4a9757b630f6",
         },
     ];
 

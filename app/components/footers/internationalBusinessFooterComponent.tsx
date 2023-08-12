@@ -55,17 +55,17 @@ export function InternationalBusinessFooterComponent({
         },
         {
             title: `${getVernacularString("f396f200-9afb-4408-85c2-fe7ed011e288", userPreferences.language)}`,
-            link: "/global-reach.php",
+            link: "/global-ops",
             target: true,
         },
         {
             title: `${getVernacularString("3646d35c-629c-47af-902a-5ccc2941a5e5", userPreferences.language)}`,
-            link: "/privacy-policy.php",
+            link: "/privacy-policy",
             target: true,
         },
         {
             title: `${getVernacularString("70e9b582-ab5a-492a-a426-5552a796bc6d", userPreferences.language)}`,
-            link: "/csr-initiatives.php",
+            link: "/csr",
             target: true,
         },
     ];
@@ -94,17 +94,17 @@ export function InternationalBusinessFooterComponent({
         // },
         // {
         //     title: `${getVernacularString("70e9b582-ab5a-492a-a426-5552a796bc6d", userPreferences.language)}`,
-        //     link: "/global-reach.php",
+        //     link: "/global-ops",
         //     target: true,
         // },
         // {
         //     title: `${getVernacularString("35fe95ed-b847-4ac1-a6f6-5878d1a183ea", userPreferences.language)}`,
-        //     link: "/privacy-policy.php",
+        //     link: "/privacy-policy",
         //     target: true,
         // },
         {
             title: `${getVernacularString("13a52500-50ab-4649-9811-a670bc78df8a", userPreferences.language)}`,
-            link: "/e-waste-management.php",
+            link: "/e-waste-management",
             target: true,
         },
     ];

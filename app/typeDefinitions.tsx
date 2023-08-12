@@ -129,7 +129,8 @@ export type Dealer = {
     city: string;
     latitude: number;
     longitude: number;
-    stateCode: string;
+    // stateCode: string;
+    area: string;
 };
 
 export type ContactUsLead = {

@@ -1,5 +1,5 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useFetcher} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
@@ -39,37 +39,202 @@ import {FormType, Language, Theme} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Livguard Energy Storage Solutions for Inverters and Batteries ",
+//             description: "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
+//             "og:title": "Livguard Energy Storage Solutions for Inverters and Batteries ",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/",
+//             "og:description": "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
+//             "og:type": "website",
+//             "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
+//             description: "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
+//             "og:title": "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/",
+//             "og:description": "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
+//             "og:type": "website",
+//             "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Livguard Energy Storage Solutions for Inverters and Batteries ",
-            description: "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
-            "og:title": "Livguard Energy Storage Solutions for Inverters and Batteries ",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/",
-            "og:description": "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
-            "og:type": "website",
-            "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/",
+            },
+            {
+                title: "Livguard Energy Storage Solutions for Inverters and Batteries ",
+            },
+            {
+                name: "description",
+                content: "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Energy Storage Solutions for Inverters and Batteries",
+            },
+            {
+                property: "og:description",
+                content: "Livguard's best range of energy storage solutions for your home, including inverters, batteries, automotive batteries and solar power solutions.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    itemListElement: [
+                        {
+                            "@type": "ListItem",
+                            position: 1,
+                            name: "LivGuard",
+                            item: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "ListItem",
+                            position: 2,
+                            name: "Inverters",
+                            item: "https://www.livguard.com/inverter-for-home",
+                            description: "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                            image: ["https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "ListItem",
+                            position: 3,
+                            name: "Inverters Batteries",
+                            item: "https://www.livguard.com/inverter-batteries",
+                            description: " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                            image: ["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Livguard",
+                            url: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Inverters",
+                            url: "https://www.livguard.com/inverter-for-home",
+                            description: "Inverters made with high quality materials to ensure a unlimited flow of energy for you",
+                            image: ["https://growthjockey.imgix.net/livguard/category/inverters/2/new_age_design.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Inverters Batteries",
+                            url: "https://www.livguard.com/inverter-batteries",
+                            description: "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                            image: ["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "Organization",
+                            legalName: "Livguard Energy Technologies Private Limited",
+                            url: "https://www.livguard.com/",
+                            logo: "https://files.growthjockey.com/livguard/icons/logo-dark.svg",
+                            contactPoint: {
+                                "@type": "ContactPoint",
+                                telephone: "+91-124-4987 400",
+                            },
+                            address: {
+                                "@type": "PostalAddress",
+                                streetAddress: "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                                addressLocality: "Gurugram",
+                                addressRegion: "Haryana",
+                                postalCode: "122016",
+                                addressCountry: "India",
+                            },
+                            sameAs: [
+                                "https://www.facebook.com/LivguardEnergy/",
+                                "https://twitter.com/LivguardEnergy",
+                                "https://www.instagram.com/livguardenergy/",
+                                "https://www.linkedin.com/company/livguard-energy/",
+                                "https://www.youtube.com/@LivguardEnergy",
+                            ],
+                        },
+                    ],
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
-            description: "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
-            "og:title": "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/",
-            "og:description": "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
-            "og:type": "website",
-            "og:image": "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/",
+            },
+            {
+                title: "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
+            },
+            {
+                name: "description",
+                content: "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/",
+            },
+            {
+                property: "og:title",
+                content: "इनवर्टर और बैटरी के लिए लिवगार्ड ऊर्जा संग्रहण समाधान",
+            },
+            {
+                property: "og:description",
+                content: "अपने घर के लिए लिवगार्ड के ऊर्जा संग्रहण समाधानों की सर्वोत्तम श्रेणी देखे, जिसमें इनवर्टर, बैटरी, ऑटोमोटिव बैटरी, सौर ऊर्जा और स्टेबलाइजर्स शामिल हैं",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/"}];
 };
 
 type LoaderData = {
@@ -117,7 +282,7 @@ export default function () {
 
             <StickyBottomBar userPreferences={userPreferences} />
 
-            <script
+            {/* <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -211,7 +376,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </>
     );
 }
@@ -236,56 +401,56 @@ function HomePage({
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
 
-            <EnergyStorageSolutions
+            {/* <EnergyStorageSolutions
                 userPreferences={userPreferences}
                 className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
+            /> */}
 
             <EnergySolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-2 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg:tw-col-span-3 lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
             <MiniPowerPlannerTeaser
                 userPreferences={userPreferences}
-                className="tw-row-start-5 lg:tw-row-start-4 lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
+                className="tw-row-start-4 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-col-span-2 lg:tw-self-end lg:tw-pl-[40px] xl:tw-pl-[120px] tw-h-full"
             />
 
             <DealerLocator
                 userPreferences={userPreferences}
                 showCtaButton={true}
-                className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-3 lg:tw-col-span-2 lg:tw-self-end lg:tw-h-full"
             />
 
             <WeAreOneOfAKind
                 userPreferences={userPreferences}
-                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-4 lg:tw-col-span-3 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-8 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-7 lg:tw-row-start-4 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-9 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-8 lg:tw-row-start-5 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <ShowerSomeLoveOnSocialHandles
                 userPreferences={userPreferences}
                 heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
-                className="tw-row-start-7 lg:tw-row-start-4 lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
+                className="tw-row-start-6 lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-col-span-2 lg:tw-self-end lg:tw-pr-[40px] xl:tw-pr-[120px] lg:tw-h-full"
             />
 
             <InTheNewsSection
                 userPreferences={userPreferences}
-                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
             <PowerfulPurposePowerfulImpact
                 userPreferences={userPreferences}
-                className="tw-row-start-11 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-10 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
         </div>
     );
@@ -587,7 +752,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
                                 headingContent2: `${getVernacularString("homeS3Tab1HC2", userPreferences.language)}`,
                                 content: `${getVernacularString("homeS3Tab1C", userPreferences.language)}`,
                                 buttontext: `${getVernacularString("homeS3Tab1BT", userPreferences.language)}`,
-                                buttonLink: "/automotive-batteries.php",
+                                buttonLink: "/battery-finder",
                                 target: "_blank",
                             },
                             {
@@ -671,7 +836,7 @@ export function EnergySolutions({userPreferences, className}: {userPreferences: 
 export function WeAreOneOfAKind({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-secondary-100-light tw-to-background-500-light dark:tw-from-secondary-100-dark dark:tw-to-background-500-dark tw-px-4 tw-pt-6 tw-rounded-lg">
+            <div className="tw-flex tw-flex-col lg-card tw-px-4 tw-py-6 tw-rounded-lg">
                 <VerticalSpacer className="tw-h-4" />
 
                 <DefaultTextAnimation>
@@ -743,7 +908,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review1State", userPreferences.language)}`,
                         message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+                        productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
                         productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                     },
                     {
@@ -757,7 +922,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review2State", userPreferences.language)}`,
                         message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+                        productImage: "/livguard/products/urban-combo/thumbnail.png",
                         productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                     },
                     {
@@ -765,7 +930,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 5,
                         state: `${getVernacularString("review3State", userPreferences.language)}`,
                         message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+                        productImage: "/livguard/products/lgs1100i/thumbnail.png",
                         productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                     },
                     {
@@ -773,7 +938,7 @@ export function TransformingLives({userPreferences, className}: {userPreferences
                         rating: 4,
                         state: `${getVernacularString("review4State", userPreferences.language)}`,
                         message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                        productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+                        productImage: "/livguard/products/urban-combo/thumbnail.png",
                         productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
                     },
                 ]}
@@ -912,7 +1077,7 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
 export function DealerLocator({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
+            <div className="tw-relative lg-card tw-h-[21.875rem] tw-overflow-hidden lg:tw-h-full lg:tw-min-h-[31.25rem] lg:tw-px-2">
                 <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
                     <div className="tw-absolute tw-inset-0">
                         <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
@@ -948,7 +1113,7 @@ export function DealerLocator({userPreferences, showCtaButton, className}: {user
 export function ShowerSomeLoveOnSocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge lg:tw-h-full", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-h-full lg:tw-justify-center lg:tw-items-center lg:tw-py-4">
+            <div className="tw-flex tw-flex-col lg-card tw-text-center lg-px-screen-edge lg:tw-h-full lg:tw-justify-center lg:tw-items-center lg:tw-py-4">
                 <VerticalSpacer className="tw-h-4" />
 
                 <h2 className="[@media(max-width:1024px)]:lg-text-headline lg:lg-text-title2">
@@ -1029,25 +1194,25 @@ export function InTheNewsSection({userPreferences, className}: {userPreferences:
     const newsArticles = [
         {
             imageRelativeUrl: "/livguard/home/12/logo-thehindu.png",
-            imageSurroundingColor: "#e7e7e7",
+            imageSurroundingColor: "#FFF0F0",
             title: "Conquering Power Cuts: Livguard Inverter and Inverter Batteries, the Ultimate Smart Solution",
             link: "https://www.thehindu.com/brandhub/conquering-power-cuts-livguard-inverter-and-inverter-batteries-the-ultimate-smart-solution/article67018979.ece",
         },
         {
             imageRelativeUrl: "/livguard/home/12/logo-et.png",
-            imageSurroundingColor: "#e7e7e7",
+            imageSurroundingColor: "#FFF0F0",
             title: "Breaking barriers: Livguard's inverter solutions pave the way for a power-cut-free India",
             link: "https://economictimes.indiatimes.com/industry/cons-products/electronics/breaking-barriers-livguards-inverter-solutions-pave-the-way-for-a-power-cut-free-india/articleshow/101344909.cms",
         },
         {
-            imageRelativeUrl: "/livguard/home/12/logo-nbs.png",
+            imageRelativeUrl: "/livguard/home/12/logo-nbt.png",
             imageSurroundingColor: "#FFF0F0",
             title: "चाहे बिजली हो न हो, Livguard इन्वर्टर से घर में होगी रोशनी, आज ही ले आएं घर",
             link: "https://navbharattimes.indiatimes.com/tech/gadgets-news/solving-power-cuts-with-livguard-inverters/articleshow/101343860.cms",
         },
         {
             imageRelativeUrl: "/livguard/home/12/logo-toi.png",
-            imageSurroundingColor: "#e7e7e7",
+            imageSurroundingColor: "#FFF0F0",
             title: "Unlocking India's Potential: Overcoming power cuts with innovative inverter solutions by Livguard - Times of India",
             link: "https://m.timesofindia.com/spotlight/unlocking-indias-potential-overcoming-power-cuts-with-innovative-inverter-solutions-by-livguard/articleshow/100700838.cms",
         },
@@ -1065,9 +1230,9 @@ export function InTheNewsSection({userPreferences, className}: {userPreferences:
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("79c83c5f-5a33-4b6b-9b5f-789ee5d140a8", userPreferences.language)}} />
             </div>
 
-            <VerticalSpacer className="tw-h-6 lg:tw-h-8" />
+            <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
-            <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-[auto] lg:tw-grid-cols-1 tw-gap-y-4 lg:tw-gap-x-12 lg-bg-secondary-100 tw-px-4 lg:tw-pl-8 lg:tw-py-8 tw-py-4 lg:tw-items-center tw-rounded-lg">
+            <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-[auto] lg:tw-grid-cols-1 tw-gap-y-4 lg:tw-gap-x-12 lg:tw-pb-8 tw-pb-4 lg:tw-items-center tw-rounded-lg">
                 <InTheNewsCarousel
                     className=""
                     items={newsArticles}
@@ -1080,7 +1245,7 @@ export function InTheNewsSection({userPreferences, className}: {userPreferences:
 export function PowerfulPurposePowerfulImpact({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
-            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-bg-secondary-100 tw-px-4 lg:tw-pl-8 tw-py-4 tw-rounded-lg">
+            <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-card tw-px-4 lg:tw-pl-8 tw-py-4 tw-rounded-lg">
                 <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-headline">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
@@ -1121,12 +1286,12 @@ export function PowerfulPurposePowerfulImpact({userPreferences, className}: {use
                     ]}
                 />
 
-                <a
-                    href="/csr-initiatives.php"
+                <Link
+                    to="/csr"
                     className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-start-1 lg-cta-button tw-justify-self-center lg:tw-justify-self-start"
                 >
                     {getVernacularString("homeS12T4", userPreferences.language)}
-                </a>
+                </Link>
             </div>
         </div>
     );
@@ -1138,12 +1303,14 @@ export function ContactUsCta({
     utmParameters,
     className,
     pageUrl,
+    buttonClassName,
 }: {
     userPreferences: UserPreferences;
     textVernacId: string;
     utmParameters: {[searchParameter: string]: string};
     className?: string;
     pageUrl: string;
+    buttonClassName?: string;
 }) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
@@ -1155,7 +1322,7 @@ export function ContactUsCta({
         <div className={className}>
             <button
                 type="button"
-                className="lg-cta-button"
+                className={concatenateNonNullStringsWithSpaces("lg-cta-button", buttonClassName)}
                 onClick={tryToOpenContactUsDialog}
             >
                 {getVernacularString(textVernacId, userPreferences.language)}
@@ -1233,9 +1400,13 @@ export function ContactUsDialog({
         }
     }, [otpFetcher.data]);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
-            setTimeout(() => {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
                 console.log("action dispatching", formStateInputs.resendTimeOut);
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
@@ -1243,6 +1414,7 @@ export function ContactUsDialog({
                 };
                 dispatch(action);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [formStateInputs.resendTimeOut]);
 

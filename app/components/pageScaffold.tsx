@@ -42,7 +42,7 @@ export function PageScaffold({
                 <div className="tw-flex-grow" />
 
                 {breadcrumbs == null ? null : (
-                    <div className="lg-px-screen-edge tw-bg-[#b1b1b140] tw-flex tw-flex-row tw-items-center tw-py-1">
+                    <div className="lg-px-screen-edge lg-card tw-flex tw-flex-row tw-items-center tw-py-1">
                         <ItemBuilder
                             items={breadcrumbs}
                             itemBuilder={(item, itemIndex) => (

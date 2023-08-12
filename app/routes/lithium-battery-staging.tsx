@@ -53,9 +53,10 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "849dabf7-0fa6-47e6-a1f8-e4f544306f7c", link: "/"},
-                    {contentId: "6d164881-cc49-4447-8460-d6fa6cf7a14f", link: "#"},
+                    {contentId: "14ea2ec8-f4b9-4b8a-8aff-384750bc010a", link: "#"},
                 ]}
             >
                 <AboutUsPage

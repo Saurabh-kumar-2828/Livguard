@@ -1,5 +1,6 @@
 import type {ImageMetadata} from "~/global-common-typescript/typeDefinitions";
 import {imageMetadataLibrary} from "~/imageMetadataLibrary";
+import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
 
 //TODO: replace this with production url correctly
 export function getUrlFromRequest(request: Request) {
@@ -71,4 +72,58 @@ export function getExtensionFromFilename(filename: string): string | null {
     }
 
     return `.${extension}`;
+}
+
+export function getDownloadCatalogueLink(type: ProductType | null, subType: InverterSubType | BatterySubType | ComboSubType | AutomotiveSubType | AccessoriesSubType | null): string {
+    if (type == null) {
+        return "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf";
+    }
+
+    if (type === ProductType.inverter) {
+        if (subType === InverterSubType.home) {
+            return "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf";
+        }
+        if (subType === InverterSubType.hkva) {
+            return "https://www.livguard.com/static-assets/leaflet-hkva.pdf";
+        }
+    }
+
+    if (type === ProductType.battery || type === ProductType.combo) {
+        return "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf";
+    }
+
+    if (type === ProductType.automotiveBattery) {
+        if (subType === AutomotiveSubType.twoWheeler) {
+            return "https://www.livguard.com/static-assets/leaflet-two-wheeler.pdf";
+        }
+
+        if (subType === AutomotiveSubType.threeWheeler) {
+            return "https://www.livguard.com/static-assets/leaflet-three-wheeler.pdf";
+        }
+        if (subType === AutomotiveSubType.carNSuv) {
+            return "https://www.livguard.com/static-assets/leaflet-car-n-suv.pdf";
+        }
+        if (subType === AutomotiveSubType.commercial) {
+            return "https://www.livguard.com/static-assets/leaflet-commercial-vehicles.pdf";
+        }
+        if (subType === AutomotiveSubType.tractor) {
+            return "https://www.livguard.com/static-assets/leaflet-tractor.pdf";
+        }
+        if (subType === AutomotiveSubType.eRickshaw) {
+            return "https://www.livguard.com/static-assets/leaflet-e-rickshaw.pdf";
+        }
+    }
+
+    if (type === ProductType.accessories) {
+        if (subType === AccessoriesSubType.trolley) {
+            return "";
+        }
+
+        if (subType === AccessoriesSubType.eRickshawCharger) {
+            return "https://www.livguard.com/static-assets/leaflet-e-rickshaw.pdf";
+        }
+    }
+
+    // TODO: Fix this later, left it as default return for now. An edge case should never come unless our data is wrong
+    return "https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf";
 }

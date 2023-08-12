@@ -1,4 +1,4 @@
-import {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
 import {useState} from "react";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -9,25 +9,110 @@ import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/util
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Buy Inverter & Inverter Battery Combo from Livguard and get Cashback",
+//             description: "Experience an uninterrupted summer with Livguard Inverter and Battery combo and get cashback of up to Rs. 1500 with some easy steps. Limited Period Offer!!",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
+//             description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और रुपये 1500 तक का कैशबैक प्राप्त करें कुछ आसान चरणों के साथ। सीमित अवधि का ऑफर!!",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-battery-combo-cashback"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Buy Inverter & Inverter Battery Combo from Livguard and get Cashback",
-            description: "Experience an uninterrupted summer with Livguard Inverter and Battery combo and get cashback of up to Rs. 1500 with some easy steps. Limited Period Offer!!",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/offers/inverter-battery-combo-cashback",
+            },
+            {
+                title: "Buy Inverter & Inverter Battery Combo from Livguard and get Cashback",
+            },
+            {
+                name: "description",
+                content: "Experience an uninterrupted summer with Livguard Inverter and Battery combo and get cashback of up to Rs. 1500 with some easy steps. Limited Period Offer!!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/offers/inverter-battery-combo-cashback",
+            },
+            {
+                property: "og:title",
+                content: "Buy Inverter & Inverter Battery Combo from Livguard and get Cashback",
+            },
+            {
+                property: "og:description",
+                content: "Experience an uninterrupted summer with Livguard Inverter and Battery combo and get cashback of up to Rs. 1500 with some easy steps. Limited Period Offer!!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
-            description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और रुपये 1500 तक का कैशबैक प्राप्त करें कुछ आसान चरणों के साथ। सीमित अवधि का ऑफर!!",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/offers/inverter-battery-combo-cashback"
+            },
+            {
+                title: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और रुपये 1500 तक का कैशबैक प्राप्त करें कुछ आसान चरणों के साथ। सीमित अवधि का ऑफर!!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/offers/inverter-battery-combo-cashback",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और रुपये 1500 तक का कैशबैक प्राप्त करें कुछ आसान चरणों के साथ। सीमित अवधि का ऑफर!!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-battery-combo-cashback"}];
 };
 
 type LoaderData = {

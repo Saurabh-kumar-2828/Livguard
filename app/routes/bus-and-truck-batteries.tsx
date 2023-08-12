@@ -1,32 +1,147 @@
-import {LoaderFunction} from "@remix-run/node";
+import {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useResizeDetector} from "react-resize-detector";
-import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import React, {useRef, useState} from "react";
+import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
+import {CarouselStyle5} from "~/components/carouselStyle5";
+import {SocialHandles} from "~/components/category/common";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FaqSectionInternal} from "~/components/faqs";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
+import LivguardDialog from "~/components/livguardDialog";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {CarouselStyle5} from "~/components/carouselStyle5";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {CarouselStyle3} from "~/components/carouselStyle3";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductType, allProductDetails} from "~/productData";
-import React, {useEffect, useRef, useState} from "react";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import LivguardDialog from "~/components/livguardDialog";
-import {StickyBottomBar} from "~/components/bottomBar";
-import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
-import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
+import {ProductType, allProductDetails} from "~/productData";
+import {DealerLocator} from "~/routes";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
+
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Limitless Journeys with Livguard's Robust Bus and Truck Batteries",
+//             description: "Unleash uninterrupted journeys with dependable power! Explore our robust bus and truck batteries, designed for excellence every time",
+//             "og:title": "Limitless Journeys with Livguard's Robust Bus and Truck Batteries",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/bus-and-truck-batteries",
+//             "og:description": "Unleash uninterrupted journeys with dependable power! Explore our robust bus and truck batteries, designed for excellence every time",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड की मजबूत बस और ट्रक बैटरियों के साथ असीमित यात्राएँ",
+//             description: "भरोसेमंद शक्ति के साथ निर्बाध यात्राएँ शुरू करें! हर बार उत्कृष्टता के लिए डिज़ाइन की गई हमारी मजबूत बस और ट्रक बैटरियों का अन्वेषण करें",
+//             "og:title": "लिवगार्ड की मजबूत बस और ट्रक बैटरियों के साथ असीमित यात्राएँ",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/bus-and-truck-batteries",
+//             "og:description": "भरोसेमंद शक्ति के साथ निर्बाध यात्राएँ शुरू करें! हर बार उत्कृष्टता के लिए डिज़ाइन की गई हमारी मजबूत बस और ट्रक बैटरियों का अन्वेषण करें",
+//             "og:type": "Product",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/bus-and-truck-batteries"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/bus-and-truck-batteries",
+            },
+            {
+                title: "Limitless Journeys with Livguard's Robust Bus and Truck Batteries",
+            },
+            {
+                name: "description",
+                content: "Unleash uninterrupted journeys with dependable power! Explore our robust bus and truck batteries, designed for excellence every time",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/bus-and-truck-batteries",
+            },
+            {
+                property: "og:title",
+                content: "Limitless Journeys with Livguard's Robust Bus and Truck Batteries",
+            },
+            {
+                property: "og:description",
+                content: "Unleash uninterrupted journeys with dependable power! Explore our robust bus and truck batteries, designed for excellence every time",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/bus-and-truck-batteries",
+            },
+            {
+                title: "लिवगार्ड की मजबूत बस और ट्रक बैटरियों के साथ असीमित यात्राएँ",
+            },
+            {
+                name: "description",
+                content: "भरोसेमंद शक्ति के साथ निर्बाध यात्राएँ शुरू करें! हर बार उत्कृष्टता के लिए डिज़ाइन की गई हमारी मजबूत बस और ट्रक बैटरियों का अन्वेषण करें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/bus-and-truck-batteries",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड की मजबूत बस और ट्रक बैटरियों के साथ असीमित यात्राएँ",
+            },
+            {
+                property: "og:description",
+                content: "भरोसेमंद शक्ति के साथ निर्बाध यात्राएँ शुरू करें! हर बार उत्कृष्टता के लिए डिज़ाइन की गई हमारी मजबूत बस और ट्रक बैटरियों का अन्वेषण करें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Product",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -61,7 +176,11 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "530f4898-7fd2-474b-809b-905a2b722d83", link: "#"},
+                ]}
             >
                 <BusAndTruckBatteriesPage userPreferences={userPreferences} />
             </PageScaffold>
@@ -101,7 +220,7 @@ function BusAndTruckBatteriesPage({userPreferences}: {userPreferences: UserPrefe
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <WeAreEverywhere
+                    <DealerLocator
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
                         showCtaButton={true}
@@ -137,51 +256,36 @@ function BusAndTruckBatteriesPage({userPreferences}: {userPreferences: UserPrefe
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[5.5rem_auto_auto_1rem_auto_3.5rem_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[4rem_auto_auto_1rem_auto_3.5rem_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
-            ref={ref}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
-                {containerWidth == null || containerHeight == null ? null : (
+                {isScreenSizeBelow == null ? null : (
                     <>
-                        {/* TODO: Banners update pending from design team */}
-                        <CoverImage
-                            relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/two-wheeler/1/banner-mobile.jpg" : "/livguard/two-wheeler/1/banner-desktop.jpg"}
-                            key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/two-wheeler/1/banner-mobile.jpg" : "/livguard/two-wheeler/1/banner-desktop.jpg"}
-                        />
-
-                        <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/two-wheeler/1/products.png").finalUrl, ImageCdnProvider.Bunny, null, null)}
-                            alt="Batteries"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute ",
-                                containerWidth < 1024 ? "tw-bottom-2 tw-inset-x-0 tw-mx-auto tw-h-1/4" : "tw-bottom-2 tw-left-[4rem] tw-h-2/5",
-                            )}
+                        <FullWidthImage
+                            relativePath={isScreenSizeBelow ? "/livguard/bus-and-truck/1/banner-mobile.jpg" : "/livguard/bus-and-truck/1/banner-desktop.jpg"}
+                            key={isScreenSizeBelow ? "/livguard/bus-and-truck/1/banner-mobile.jpg" : "/livguard/bus-and-truck/1/banner-desktop.jpg"}
                         />
                     </>
                 )}
             </div>
 
-            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2">
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2 tw-z-[2]">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("67dd15a8-c016-43f0-8715-e7ba18ca5c38", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2">
+            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 tw-z-[2]">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("7853d640-7e57-4678-af5d-8631f2ec6cf7", userPreferences.language)}
                 </div>
-            </DefaultTextAnimation>
-
-            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1 lg-px-screen-edge-2">
-                <div className="lg-text-body !tw-text-secondary-900-dark">{getVernacularString("cc5f0cf2-f523-4726-83b6-e950d6007ef4", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
@@ -192,16 +296,19 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         return (
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-place-self-center tw-grid tw-grid-rows-[1rem_auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-bg-secondary-100 tw-rounded-lg",
+                    "tw-place-self-center tw-grid tw-grid-rows-[auto_1rem_auto_1rem_auto_minmax(1rem,1fr)] tw-cols-[auto] tw-w-full tw-h-full tw-px-4 tw-py-4 lg-card tw-rounded-lg",
                 )}
             >
-                <div className="tw-row-start-2">
-                    <FullWidthImage relativePath={imageRelativePath} />
+                <div className="tw-row-start-1">
+                    <FullWidthImage
+                        relativePath={imageRelativePath}
+                        className="tw-rounded-lg"
+                    />
                 </div>
 
-                <div className="tw-row-start-4 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
 
-                <div className="tw-row-start-6 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
             </div>
         );
     };
@@ -210,32 +317,42 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
         {
             titleTextContentPiece: "70f2a04d-bc31-4848-9509-f77f40137e84",
             bodyTextContentPiece: "fbba1481-db00-4e47-8a74-8382af5b4ac4",
-            imageRelativePath: "/livguard/bus-and-truck/2/2.1.png",
+            imageRelativePath: "/livguard/bus-and-truck/2/maintainence-free.jpg",
         },
         {
             titleTextContentPiece: "75c7f633-bbb4-4a79-bdcb-5b817da7c076",
             bodyTextContentPiece: "c5bf4b2a-a0a8-4d43-9b84-c25c048dd079",
-            imageRelativePath: "/livguard/bus-and-truck/2/2.2.png",
+            imageRelativePath: "/livguard/bus-and-truck/2/cranking.jpg",
         },
         {
             titleTextContentPiece: "3bed811b-de77-40ab-8181-86efbf684059",
             bodyTextContentPiece: "fc26240d-32c8-47bc-a2bf-c29c0a25e6af",
-            imageRelativePath: "/livguard/bus-and-truck/2/2.3.png",
+            imageRelativePath: "/livguard/bus-and-truck/2/long-battery-life.jpg",
+        },
+        {
+            titleTextContentPiece: "6fe5a9f6-4817-4100-90ad-b05fefd330f5",
+            bodyTextContentPiece: "2c278f68-8047-4a91-b53d-fe7c4e592781",
+            imageRelativePath: "/livguard/bus-and-truck/2/all-weather-performance.jpg",
         },
         {
             titleTextContentPiece: "70f2a04d-bc31-4848-9509-f77f40137e84",
             bodyTextContentPiece: "fbba1481-db00-4e47-8a74-8382af5b4ac4",
-            imageRelativePath: "/livguard/bus-and-truck/2/2.1.png",
+            imageRelativePath: "/livguard/bus-and-truck/2/maintainence-free.jpg",
         },
         {
             titleTextContentPiece: "75c7f633-bbb4-4a79-bdcb-5b817da7c076",
             bodyTextContentPiece: "c5bf4b2a-a0a8-4d43-9b84-c25c048dd079",
-            imageRelativePath: "/livguard/bus-and-truck/2/2.2.png",
+            imageRelativePath: "/livguard/bus-and-truck/2/cranking.jpg",
         },
         {
             titleTextContentPiece: "3bed811b-de77-40ab-8181-86efbf684059",
             bodyTextContentPiece: "fc26240d-32c8-47bc-a2bf-c29c0a25e6af",
-            imageRelativePath: "/livguard/bus-and-truck/2/2.3.png",
+            imageRelativePath: "/livguard/bus-and-truck/2/long-battery-life.jpg",
+        },
+        {
+            titleTextContentPiece: "6fe5a9f6-4817-4100-90ad-b05fefd330f5",
+            bodyTextContentPiece: "2c278f68-8047-4a91-b53d-fe7c4e592781",
+            imageRelativePath: "/livguard/bus-and-truck/2/all-weather-performance.jpg",
         },
     ];
 
@@ -250,6 +367,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                 <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
 
                 <CarouselStyle5
+                    snapDotsDivisionFactor={2}
                     items={batteriesData.map((batteryData, batteryDataIndex) => (
                         <BatteryCard
                             title={getVernacularString(batteryData.titleTextContentPiece, userPreferences.language)}
@@ -261,6 +379,7 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                     className="tw-mx-auto"
                     deselectedContainersClassName="tw-scale-[0.9] tw-h-full"
                     selectedContainerClassName="tw-h-full"
+                    itemContainerClassName="lg:tw-px-0"
                 />
             </div>
         </>
@@ -268,130 +387,143 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
 }
 
 function ExploreOurBusAndTruckBatteries({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const products = [
+    const humraahiProducts = [
         allProductDetails["lglff80r"][userPreferences.language],
         allProductDetails["lglff80l"][userPreferences.language],
-        allProductDetails["lglff100h29r"][userPreferences.language],
         allProductDetails["lglff100l"][userPreferences.language],
+        allProductDetails["lglff100h29r"][userPreferences.language],
         allProductDetails["lglnff130r"][userPreferences.language],
-        allProductDetails["lglff180r"][userPreferences.language],
         allProductDetails["lglnhd150r"][userPreferences.language],
+        allProductDetails["lglff180r"][userPreferences.language],
+    ];
+
+    const xtralifeProducts = [
         allProductDetails["lghx8048r"][userPreferences.language],
         allProductDetails["lghx8048l"][userPreferences.language],
         allProductDetails["lghx10048l"][userPreferences.language],
+        allProductDetails["lghx10048r"][userPreferences.language],
         allProductDetails["lghx10048h29r"][userPreferences.language],
     ];
 
     const featuredProducts = {
         Humraahi: {
             title: "a504cf0b-8c7c-4afe-b5e2-925f9576d1c0",
-            vehicleImageRelativeUrl: "/livguard/bus-and-truck/3/vehicle-1.png",
-            productImageRelativeUrl: "/livguard/bus-and-truck/3/product-1.png",
+            vehicleImageRelativeUrl: "/livguard/bus-and-truck/3/truck.png",
+            productImageRelativeUrl: "/livguard/bus-and-truck/3/truck-battery.png",
             products: [
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGL FF 80 R",
+                    name: humraahiProducts[0].humanReadableModelNumber,
                     slug: "lglff80r",
-                    capacity: products[0].specifications[2].value,
-                    warranty: products[0].specifications[1].value,
-                    price: "XXXXX",
+                    capacity: humraahiProducts[0].specifications[2].value,
+                    warranty: humraahiProducts[0].specifications[1].value,
+                    price: humraahiProducts[0].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGL FF 80 L",
+                    name: humraahiProducts[1].humanReadableModelNumber,
                     slug: "lglff80l",
-                    capacity: products[1].specifications[2].value,
-                    warranty: products[1].specifications[1].value,
-                    price: "XXXXX",
+                    capacity: humraahiProducts[1].specifications[2].value,
+                    warranty: humraahiProducts[1].specifications[1].value,
+                    price: humraahiProducts[1].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGL FF 100H29 R",
-                    slug: "lglff100h29r",
-                    capacity: products[2].specifications[2].value,
-                    warranty: products[2].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: "XXXXX",
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: "LGL FF 100 L",
+                    name: humraahiProducts[2].humanReadableModelNumber,
                     slug: "lglff100l",
-                    capacity: products[3].specifications[2].value,
-                    warranty: products[3].specifications[1].value,
+                    capacity: humraahiProducts[2].specifications[2].value,
+                    warranty: humraahiProducts[2].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: "XXXXX",
+                    price: humraahiProducts[2].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGLN FF 130 R",
+                    name: humraahiProducts[3].humanReadableModelNumber,
+                    slug: "lglff100h29r",
+                    capacity: humraahiProducts[3].specifications[2].value,
+                    warranty: humraahiProducts[3].specifications[1].value,
+                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
+                    price: humraahiProducts[3].price,
+                },
+                {
+                    productType: ProductType.automotiveBattery,
+                    name: humraahiProducts[4].humanReadableModelNumber,
                     slug: "lglnff130r",
                     isBestSeller: true,
-                    capacity: products[4].specifications[2].value,
-                    warranty: products[4].specifications[1].value,
+                    capacity: humraahiProducts[4].specifications[2].value,
+                    warranty: humraahiProducts[4].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
-                    price: "XXXXX",
+                    price: humraahiProducts[4].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGL FF 180 R",
-                    slug: "lglff180r",
-                    capacity: products[5].specifications[2].value,
-                    warranty: products[5].specifications[1].value,
-                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
-                    price: "XXXXX",
-                },
-                {
-                    productType: ProductType.automotiveBattery,
-                    name: "LGLN HD 150 R",
+                    name: humraahiProducts[5].humanReadableModelNumber,
                     slug: "lglnhd150r",
-                    capacity: products[6].specifications[2].value,
-                    warranty: products[6].specifications[1].value,
+                    capacity: humraahiProducts[5].specifications[2].value,
+                    warranty: humraahiProducts[5].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.4.png",
-                    price: "XXXXX",
+                    price: humraahiProducts[5].price,
+                },
+                {
+                    productType: ProductType.automotiveBattery,
+                    name: humraahiProducts[6].humanReadableModelNumber,
+                    slug: "lglff180r",
+                    capacity: humraahiProducts[6].specifications[2].value,
+                    warranty: humraahiProducts[6].specifications[1].value,
+                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.3.png",
+                    price: humraahiProducts[6].price,
                 },
             ],
         },
         "Humraahi Xtralife": {
             title: "da25b231-d277-41c9-bd06-494ce7b53ae7",
-            vehicleImageRelativeUrl: "/livguard/bus-and-truck/3/vehicle-2.png",
-            productImageRelativeUrl: "/livguard/bus-and-truck/3/product-2.png",
+            vehicleImageRelativeUrl: "/livguard/bus-and-truck/3/bus.png",
+            productImageRelativeUrl: "/livguard/bus-and-truck/3/bus-battery.png",
             products: [
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGHX 8048 R",
+                    name: xtralifeProducts[0].humanReadableModelNumber,
                     slug: "lghx8048r",
-                    capacity: products[7].specifications[2].value,
-                    warranty: products[7].specifications[1].value,
+                    capacity: xtralifeProducts[0].specifications[2].value,
+                    warranty: xtralifeProducts[0].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.4.png",
-                    price: "XXXXX",
+                    price: xtralifeProducts[0].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGHX 8048 L",
+                    name: xtralifeProducts[1].humanReadableModelNumber,
                     slug: "lghx8048l",
-                    capacity: products[8].specifications[2].value,
-                    warranty: products[8].specifications[1].value,
+                    capacity: xtralifeProducts[1].specifications[2].value,
+                    warranty: xtralifeProducts[1].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.1.png",
-                    price: "XXXXX",
+                    price: xtralifeProducts[1].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGHX 10048 L",
+                    name: xtralifeProducts[2].humanReadableModelNumber,
                     slug: "lghx10048l",
-                    capacity: products[9].specifications[2].value,
-                    warranty: products[9].specifications[1].value,
+                    capacity: xtralifeProducts[2].specifications[2].value,
+                    warranty: xtralifeProducts[2].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: "XXXXX",
+                    price: xtralifeProducts[2].price,
                 },
                 {
                     productType: ProductType.automotiveBattery,
-                    name: "LGHX 10048H29 R",
-                    slug: "lghx10048h29r",
-                    capacity: products[10].specifications[2].value,
-                    warranty: products[10].specifications[1].value,
+                    name: xtralifeProducts[3].humanReadableModelNumber,
+                    slug: "lghx10048r",
+                    capacity: xtralifeProducts[3].specifications[2].value,
+                    warranty: xtralifeProducts[3].specifications[1].value,
                     imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
-                    price: "XXXXX",
+                    price: xtralifeProducts[3].price,
+                },
+                {
+                    productType: ProductType.automotiveBattery,
+                    name: xtralifeProducts[4].humanReadableModelNumber,
+                    slug: "lghx10048h29r",
+                    capacity: xtralifeProducts[4].specifications[2].value,
+                    warranty: xtralifeProducts[4].specifications[1].value,
+                    imageRelativeUrl: "/livguard/bus-and-truck/3/3.2.png",
+                    price: xtralifeProducts[4].price,
                 },
             ],
         },
@@ -500,48 +632,6 @@ function ExploreOurBusAndTruckBatteries({userPreferences, className}: {userPrefe
 
                 <VerticalSpacer className="tw-h-6 lg:tw-h-12" />
 
-                {/* <div className="tw-grid tw-grid-cols-[repeat(2,minmax(0,1fr))] lg:tw-grid-cols-[repeat(auto-fill,14.5rem)] lg:tw-grid-flow-row-dense lg:tw-justify-center tw-gap-4 lg:tw-gap-8">
-                    {!isViewMore &&
-                        featuredProducts.slice(0, 4).map((featuredProduct, featuredProductIndex) => (
-                            <BatteryCard
-                                slug={featuredProduct.slug}
-                                productType={featuredProduct.productType}
-                                productName={featuredProduct.name}
-                                productPrice={featuredProduct.price}
-                                capacity={`${featuredProduct.capacity} Capacity`}
-                                warranty={`${featuredProduct.warranty} Warranty`}
-                                userPreferences={userPreferences}
-                                isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
-                                key={featuredProductIndex}
-                            />
-                        ))}
-
-                    {isViewMore &&
-                        featuredProducts.map((featuredProduct, featuredProductIndex) => (
-                            <BatteryCard
-                                slug={featuredProduct.slug}
-                                productType={featuredProduct.productType}
-                                productName={featuredProduct.name}
-                                productPrice={featuredProduct.price}
-                                capacity={`${featuredProduct.capacity} Capacity`}
-                                warranty={`${featuredProduct.warranty} Warranty`}
-                                userPreferences={userPreferences}
-                                isBestSeller={featuredProduct.isBestSeller != null ? featuredProduct.isBestSeller : false}
-                                key={featuredProductIndex}
-                            />
-                        ))}
-                </div>
-
-                <VerticalSpacer className="tw-h-4 lg:tw-h-8" />
-
-                <button
-                    className="lg-cta-button tw-place-self-center"
-                    onClick={() => setIsViewMore((prev) => !prev)}
-                >
-                    {isViewMore
-                        ? getVernacularString("ac9a30fb-5654-4692-9995-84c2dbe8301b", userPreferences.language)
-                        : getVernacularString("8993dcbc-2216-4dd2-954e-e8145571049f", userPreferences.language)}
-                </button> */}
                 <SubCategoryProductsInternal
                     userPreferences={userPreferences}
                     refs={refs}
@@ -560,42 +650,6 @@ function ExploreOurBusAndTruckBatteries({userPreferences, className}: {userPrefe
     );
 }
 
-function WeAreEverywhere({userPreferences, showCtaButton, className}: {userPreferences: UserPreferences; showCtaButton: boolean; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge", className)}>
-            <div className="tw-relative lg-bg-secondary-100 tw-rounded-lg tw-h-[350px] tw-overflow-hidden lg:tw-h-full lg:tw-px-2">
-                <div className="tw-flex tw-flex-col tw-absolute tw-m-auto tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-justify-center tw-items-center">
-                    <div className="tw-absolute tw-inset-0">
-                        <CoverImage relativePath={userPreferences.theme == Theme.Dark ? "/livguard/home/10/1-dark.jpg" : "/livguard/home/10/1-light.jpg"} />
-                    </div>
-
-                    <div className="tw-z-10 lg-text-headline tw-text-center">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("92897a67-ff1d-4e6c-804f-4f69dd03db4d", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("53b219cb-fdee-4ea2-aff4-858f5c63aed0", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-1" />
-
-                    <div className="tw-z-10 lg-text-title2">{getVernacularString("24bb85a9-42af-4302-b21b-dece9f9d0d21", userPreferences.language)}</div>
-
-                    {showCtaButton && (
-                        <>
-                            <VerticalSpacer className="tw-h-6" />
-
-                            <Link
-                                to="/dealer-for-inverters-and-batteries"
-                                className="tw-z-10 lg-cta-button"
-                            >
-                                {getVernacularString("db232019-b302-4eb7-a10c-05b17e72a800", userPreferences.language)}
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function ChooseYourIdealBusAndTruckBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
@@ -606,47 +660,34 @@ function ChooseYourIdealBusAndTruckBattery({userPreferences, className}: {userPr
             />
             <div className="tw-row-start-5 tw-text-center lg-px-screen-edge-2">{getVernacularString("13754e87-5d5e-46f4-9f02-6f84770a8ec8", userPreferences.language)}</div>
 
-            <div className="tw-row-start-7 tw-w-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-p-4 tw-gap-4">
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-buying-guide.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/buying-guide.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("b0a19244-9a60-4fd6-93a7-d0224c9d95d5", userPreferences.language)}
-                    </div>
-                </a>
-                <a
-                    href="https://www.livguard.com/static-assets/livguard-ib-leaflet.pdf"
-                    download
-                    target="_blank"
-                    className="lg-bg-secondary-100 tw-py-4 tw-rounded-lg tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-h-full tw-p-4"
-                >
-                    <img
-                        className="tw-row-start-1 tw-col-start-1 tw-place-self-center"
-                        src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
-                    />
-                    <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body">
-                        {getVernacularString("f28967c2-99fe-44dc-96cb-6d926c5ea4df", userPreferences.language)}
-                    </div>
-                </a>
+            <div className="tw-row-start-7 tw-grid tw-p-4 tw-justify-center tw-w-full">
+                <div className="tw-w-fit tw-grid tw-grid-rows-2 lg:tw-grid-rows-1 lg:tw-grid-cols-2 tw-gap-4 tw-grid-flow-col">
+                    <a
+                        href="https://www.livguard.com/static-assets/leaflet-commercial-vehicles.pdf"
+                        download
+                        target="_blank"
+                        className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4"
+                    >
+                        <img
+                            className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                            src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
+                        />
+                        <div className="tw-row-start-1 tw-col-start-3 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                            {getVernacularString("51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26", userPreferences.language)}
+                        </div>
+                    </a>
+                    <Link
+                        to="/battery-finder"
+                        className="tw-h-full tw-w-full tw-grid tw-place-items-center"
+                    >
+                        <div className="tw-h-full tw-w-full tw-grid tw-items-center lg-cta-button tw-place-self-center">
+                            {getVernacularString("1271cac7-693c-48bc-850f-16199416dd0e", userPreferences.language)}
+                        </div>
+                    </Link>
+                </div>
             </div>
 
-            <VerticalSpacer className="tw-row-start-8 tw-h-6" />
-
-            <Link
-                to="/battery-finder"
-                className="tw-row-start-9 tw-grid tw-place-items-center"
-            >
-                <div className="lg-cta-button tw-place-self-center">{getVernacularString("2c8b3327-a317-4ad0-9c09-d6dbb0846c5c", userPreferences.language)}</div>
-            </Link>
-
-            <VerticalSpacer className="lg:tw-row-start-10 tw-hidden lg:tw-block lg:tw-h-12" />
+            <VerticalSpacer className="lg:tw-row-start-8 tw-hidden lg:tw-block lg:tw-h-12" />
         </div>
     );
 }
@@ -681,145 +722,6 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
             userPreferences={userPreferences}
             className={className}
         />
-    );
-}
-
-function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
-    const embeddedVideos = [
-        <EmbeddedYoutubeVideo
-            id="b6gqLXTnZnw"
-            style={{aspectRatio: "560/315"}}
-        />,
-        <EmbeddedYoutubeVideo
-            id="CRabeGp9800"
-            style={{aspectRatio: "560/315"}}
-        />,
-        <EmbeddedYoutubeVideo
-            id="tFj9GJcjq6s"
-            style={{aspectRatio: "560/315"}}
-        />,
-    ];
-
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
-                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
-
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
-
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <CarouselStyle3 items={embeddedVideos} />
-
-                <VerticalSpacer className="tw-h-4" />
-
-                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
-
-                <VerticalSpacer className="tw-h-2" />
-
-                <div className="tw-flex tw-justify-evenly">
-                    <a
-                        href="https://www.facebook.com/LivguardEnergy/"
-                        target="_blank"
-                    >
-                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                    </a>
-                    <a
-                        href="https://twitter.com/LivguardEnergy"
-                        target="_blank"
-                    >
-                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                    </a>
-                    <a
-                        href="https://www.instagram.com/livguardenergy/"
-                        target="_blank"
-                    >
-                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/company/livguard-energy/"
-                        target="_blank"
-                    >
-                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                    </a>
-                    <a
-                        href="https://www.youtube.com/@LivguardEnergy"
-                        target="_blank"
-                    >
-                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                    </a>
-                </div>
-
-                <VerticalSpacer className="tw-h-4" />
-            </div>
-
-            <div className="tw-hidden lg:tw-flex tw-flex-col tw-justify-center tw-text-center">
-                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
-
-                <div className="lg-text-headline">
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text1, userPreferences.language)}} />
-
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString(heading.text2, userPreferences.language)}} />
-                </div>
-
-                <VerticalSpacer className="tw-h-8" />
-
-                <div className="tw-grid tw-grid-cols-3 tw-gap-4">
-                    <ItemBuilder
-                        items={embeddedVideos}
-                        itemBuilder={(video, videoIndex) => (
-                            <div
-                                className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-pb-4 tw-overflow-hidden"
-                                key={videoIndex}
-                            >
-                                {video}
-
-                                <VerticalSpacer className="tw-h-2" />
-
-                                <div className="lg-text-body">{getVernacularString("homeS11T2", userPreferences.language)}</div>
-
-                                <div className="tw-flex tw-justify-evenly">
-                                    <a
-                                        href="https://www.facebook.com/LivguardEnergy/"
-                                        target="_blank"
-                                    >
-                                        <Facebook className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                                    </a>
-                                    <a
-                                        href="https://twitter.com/LivguardEnergy"
-                                        target="_blank"
-                                    >
-                                        <Twitter className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                                    </a>
-                                    <a
-                                        href="https://www.instagram.com/livguardenergy/"
-                                        target="_blank"
-                                    >
-                                        <Instagram className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                                    </a>
-                                    <a
-                                        href="https://www.linkedin.com/company/livguard-energy/"
-                                        target="_blank"
-                                    >
-                                        <Linkedin className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                                    </a>
-                                    <a
-                                        href="https://www.youtube.com/@LivguardEnergy"
-                                        target="_blank"
-                                    >
-                                        <Youtube className="tw-w-6 tw-h-6 hover:lg-text-primary-500 lg-text-secondary-700 tw-mt-[6px] tw-duration-200" />
-                                    </a>
-                                </div>
-                            </div>
-                        )}
-                    />
-                </div>
-            </div>
-        </div>
     );
 }
 

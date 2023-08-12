@@ -1,57 +1,145 @@
+import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import {useLoaderData} from "@remix-run/react";
+import {StarFill} from "react-bootstrap-icons";
+import {useResizeDetector} from "react-resize-detector";
+import {CarouselStyle4} from "~/components/carouselStyle4";
+import {SocialHandles} from "~/components/category/common";
+import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FaqSectionInternal} from "~/components/faqs";
+import {CoverImage} from "~/components/images/coverImage";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
-import {concatenateNonNullStringsWithSpaces, generateUuid, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {CoverImage} from "~/components/images/coverImage";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {useResizeDetector} from "react-resize-detector";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {LinksFunction, LoaderFunction} from "@remix-run/node";
-import {useLoaderData} from "@remix-run/react";
-import {parseClassName} from "react-toastify/dist/utils";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
-import {FaqSectionInternal} from "~/components/faqs";
-import {CarouselStyle3} from "~/components/carouselStyle3";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {Facebook, Icon0Circle, Instagram, Linkedin, StarFill, Twitter, Youtube} from "react-bootstrap-icons";
-import {SocialHandles} from "~/components/category/common";
-import {CarouselStyle4} from "~/components/carouselStyle4";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
-import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {ContactUsCta} from ".";
-import {string} from "zod";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;
 //     if (userPreferences.language == Language.English) {
 //         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
+//             title: "Leading the Charge in E-Waste Management | Livguard",
+//             description: "Discover Livguard's innovative approach to e-waste management. Reclaiming valuable resources and creating a positive impact on the environment",
+//             "og:title": "Leading the Charge in E-Waste Management | Livguard",
 //             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/terms-and-condition",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
+//             "og:url": "https://www.livguard.com/e-waste-management",
+//             "og:description": "Discover Livguard's innovative approach to e-waste management. Reclaiming valuable resources and creating a positive impact on the environment",
+//             "og:type": "Website",
 //             "og:image": "",
 //         };
 //     } else if (userPreferences.language == Language.Hindi) {
 //         return {
-//             title: "?????",
-//             description: "?????",
+//             title: "ई-वेस्ट प्रबंधन में अग्रणी | लिवगार्ड",
+//             description: "लिवगार्ड के ई-वेस्ट प्रबंधन के नए और अभिनवीय प्रस्तावना की खोज करें। मूल्यवान संसाधनों को पुनर्प्राप्ति करके और पर्यावरण पर सकारात्मक प्रभाव बनाकर।",
+//             "og:title": "ई-वेस्ट प्रबंधन में अग्रणी | लिवगार्ड",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/e-waste-management",
+//             "og:description": "लिवगार्ड के ई-वेस्ट प्रबंधन के नए और अभिनवीय प्रस्तावना की खोज करें। मूल्यवान संसाधनों को पुनर्प्राप्ति करके और पर्यावरण पर सकारात्मक प्रभाव बनाकर।",
+//             "og:type": "website",
+//             "og:image": "",
 //         };
 //     } else {
 //         throw Error(`Undefined language ${userPreferences.language}`);
 //     }
 // };
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/sales-return-policy"}];
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/e-waste-management"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/e-waste-management",
+            },
+            {
+                title: "Leading the Charge in E-Waste Management | Livguard",
+            },
+            {
+                name: "description",
+                content: "Discover Livguard's innovative approach to e-waste management. Reclaiming valuable resources and creating a positive impact on the environment",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/e-waste-management",
+            },
+            {
+                property: "og:title",
+                content: "Leading the Charge in E-Waste Management | Livguard",
+            },
+            {
+                property: "og:description",
+                content: "Discover Livguard's innovative approach to e-waste management. Reclaiming valuable resources and creating a positive impact on the environment",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/e-waste-management",
+            },
+            {
+                title: "ई-वेस्ट प्रबंधन में अग्रणी | लिवगार्ड",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड के ई-वेस्ट प्रबंधन के नए और अभिनवीय प्रस्तावना की खोज करें। मूल्यवान संसाधनों को पुनर्प्राप्ति करके और पर्यावरण पर सकारात्मक प्रभाव बनाकर।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/e-waste-management",
+            },
+            {
+                property: "og:title",
+                content: "ई-वेस्ट प्रबंधन में अग्रणी | लिवगार्ड",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड के ई-वेस्ट प्रबंधन के नए और अभिनवीय प्रस्तावना की खोज करें। मूल्यवान संसाधनों को पुनर्प्राप्ति करके और पर्यावरण पर सकारात्मक प्रभाव बनाकर।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
 };
 
 type LoaderData = {
@@ -88,12 +176,10 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
-                breadcrumbs={
-                    [
-                        // {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                        // {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
-                    ]
-                }
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "873561ca-02f7-45e3-8b98-80df5f7de86d", link: "#"},
+                ]}
             >
                 <EwasteManagementPage
                     userPreferences={userPreferences}
@@ -133,13 +219,6 @@ function EwasteManagementPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <TypesOfEwastes
-                className="tw-max-w-7xl tw-mx-auto"
-                userPreferences={userPreferences}
-            />
-
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
-
             <WhyEwaste
                 className="tw-max-w-7xl tw-mx-auto"
                 userPreferences={userPreferences}
@@ -147,19 +226,19 @@ function EwasteManagementPage({
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <ServicesProvide
+            {/* <ServicesProvide
                 className=""
                 userPreferences={userPreferences}
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" /> */}
 
-            <NearestCollectionCenter
+            {/* <NearestCollectionCenter
                 className="tw-max-w-7xl tw-mx-auto"
                 userPreferences={userPreferences}
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20" /> */}
 
             <AwarenessPrograms userPreferences={userPreferences} />
 
@@ -203,24 +282,24 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center tw-relative",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center md:tw-items-start tw-relative",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/e-waste-management/1/mobile-hero-banner.png" : "/livguard/e-waste-management/1/hero-banner.png"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/e-waste-management/1/mobile-hero-banner.png" : "/livguard/e-waste-management/1/hero-banner.png"}
-                />
-            )}
-            <h2 className="lg:tw-row-start-2 tw-row-start-5 tw-col-start-1 lg:lg-px-screen-edge-2">
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/e-waste-management/1/mobile-banner.jpg" : "/livguard/e-waste-management/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/e-waste-management/1/mobile-banner.jpg" : "/livguard/e-waste-management/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
+            <h2 className="tw-row-start-2 tw-col-start-1 lg:lg-px-screen-edge-2">
                 <DefaultTextAnimation>
                     <div className="lg-text-banner lg-text-secondary-100 !tw-text-secondary-100-light">
                         {appendSpaceToString(getVernacularString("bda064ee-6cc6-43f7-a7cb-8f14d9e050d9", userPreferences.language))}
@@ -231,7 +310,7 @@ function HeroSection({
                     <div className="lg-text-title1 lg-text-secondary-100 !tw-text-secondary-100-light">{getVernacularString("4eb87934-841c-4c9f-898e-3bfbac44f2a2", userPreferences.language)}</div>
                 </DefaultTextAnimation>
                 <VerticalSpacer className="tw-h-6" />
-                <DefaultElementAnimation className="tw-grid tw-justify-center lg:tw-justify-start tw-z-10">
+                {/* <DefaultElementAnimation className="tw-grid tw-justify-center lg:tw-justify-start tw-z-10">
                     <ContactUsCta
                         userPreferences={userPreferences}
                         textVernacId="320a319c-7aa8-4289-b46a-8d58e8542fb1"
@@ -239,7 +318,7 @@ function HeroSection({
                         utmParameters={utmParameters}
                         pageUrl={pageUrl}
                     />
-                </DefaultElementAnimation>
+                </DefaultElementAnimation> */}
             </h2>
         </div>
     );
@@ -250,66 +329,13 @@ function Introduction({userPreferences, className}: {userPreferences: UserPrefer
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="lg-text-headline tw-text-center">{getVernacularString("e7e9c51a-f71f-45dc-9607-93bd3236c6b5", userPreferences.language)}</div>
             <VerticalSpacer className="tw-h-[1rem]" />
-            <div className="lg-text-body tw-block lg:tw-hidden">{getVernacularString("6df4af6d-4a94-4dd2-83a4-298ac4a56ac7", userPreferences.language)}</div>
-            <div className="lg-text-body tw-hidden lg:tw-block">{getVernacularString("b4cd4e9a-a140-4d32-8c0f-2c0d385a49fb", userPreferences.language)}</div>
-            <VerticalSpacer className="tw-h-4 tw-hidden lg:tw-block" />
-            <div className="lg-text-body tw-hidden lg:tw-block">{getVernacularString("e9a9e6b2-592c-4d32-9f03-350f5159ca4c", userPreferences.language)}</div>
-        </div>
-    );
-}
-
-function TypesOfEwastes({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
-            <div
-                className="lg-text-title1 tw-text-center"
-                dangerouslySetInnerHTML={{__html: getVernacularString("95949a19-e3c5-456c-8dc4-65bf020a58ee", userPreferences.language)}}
-            ></div>
-
-            <VerticalSpacer className="tw-h-[1.5rem]" />
-
-            <div className="tw-grid tw-grid-rows-3 lg:tw-grid-rows-1 lg:tw-grid-cols-3 tw-grid-cols-1 tw-gap-[1.5rem] tw-items-center tw-justify-center ">
-                <ItemBuilder
-                    items={[
-                        {
-                            svgIcone: "/livguard/e-waste-management/3/laptop-icon-1.svg",
-                            title: "cce6a0e8-c566-4750-beb3-1889378386c6",
-                            text: "14f34bb4-d2a6-43c3-92a4-6020ef742ad2",
-                        },
-                        {
-                            svgIcone: "/livguard/e-waste-management/3/smart-phone-2.svg",
-                            title: "cce6a0e8-c566-4750-beb3-1889378386c6",
-                            text: "7fd3dd68-c99b-40f8-aca5-888de432b401",
-                        },
-                        {
-                            svgIcone: "/livguard/e-waste-management/3/laptop-icon-1.svg",
-                            title: "cce6a0e8-c566-4750-beb3-1889378386c6",
-                            text: "545363c7-0354-4597-a5b2-ae58de55c291",
-                        },
-                    ]}
-                    itemBuilder={(item, itemIndex) => (
-                        <div
-                            className="tw-h-full tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-grid-cols-[1fr_3fr] lg-card-shadow tw-justify-items-start tw-rounded-md tw-items-center tw-p-[1.5rem] tw-border-secondary-100-light dark:tw-border-secondary-100-dark tw-border lg-bg-secondary-100 tw-gap-x-4"
-                            key={itemIndex}
-                        >
-                            <div className="tw-col-start-1 tw-row-start-1 tw-row-end-4 tw-w-[5rem] tw-h-[5rem] tw-rounded-full tw-grid tw-items-center tw-justify-center tw-border-secondary-100-light dark:tw-border-secondary-100-dark tw-border lg-card-shadow dark:tw-bg-secondary-300-dark">
-                                <img
-                                    src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcone).finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                    className={concatenateNonNullStringsWithSpaces("dark:tw-invert")}
-                                />
-                            </div>
-                            <div
-                                className=" tw-col-start-2 tw-row-start-1"
-                                dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
-                            />
-                            <div
-                                className=" tw-col-start-2 tw-row-start-2 lg-text-body-bold lg-text-secondary-900"
-                                dangerouslySetInnerHTML={{__html: getVernacularString(item.text, userPreferences.language)}}
-                            ></div>
-                        </div>
-                    )}
-                />
-            </div>
+            <div className="lg-text-body ">{getVernacularString("edc62a50-a3c7-4f6f-b5dc-e7fbad46a0aa", userPreferences.language)}</div>
+            <VerticalSpacer className="tw-h-4" />
+            <div className="lg-text-body">{getVernacularString("d86ceedf-2c18-4e72-bd6e-f680b3aa3e24", userPreferences.language)}</div>
+            <VerticalSpacer className="tw-h-4" />
+            <div className="lg-text-body">{getVernacularString("41446f5c-546d-4b87-b68f-09909f0ac67d", userPreferences.language)}</div>
+            <VerticalSpacer className="tw-h-4" />
+            <div className="lg-text-body">{getVernacularString("c26dd37a-78dc-46b8-8fd9-5a7f5b9c9e54", userPreferences.language)}</div>
         </div>
     );
 }
@@ -336,7 +362,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                             />
                         )}
                     </div>
-                    <div className="tw-grid tw-col-start-1 tw-max-h-[13rem] tw-grid-cols-[auto_minmax(0,1fr)] tw-row-start-2 tw-mx-[2rem] lg:tw-py-8 tw-py-8 md:tw-py-2 tw-px-4 tw-justify-center tw-items-center tw-gap-[1.5rem] lg-e-waste-management-banner-card-bg">
+                    <div className="tw-invisible tw-grid tw-col-start-1 tw-max-h-[13rem] tw-grid-cols-[auto_minmax(0,1fr)] tw-row-start-2 tw-mx-[2rem] lg:tw-py-8 tw-py-8 md:tw-py-2 tw-px-4 tw-justify-center tw-items-center tw-gap-[1.5rem] lg-e-waste-management-banner-card-bg">
                         <div className="lg:tw-h-[9rem] lg:tw-w-[9rem] tw-h-[6rem] tw-w-[6rem] lg-bg-secondary-100 tw-row-start-1 tw-col-start-1 tw-rounded-full tw-p-[2rem]">
                             <img
                                 src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-waste-management/4/delete-icon.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}
@@ -374,7 +400,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                     <div className="tw-grid tw-gap-2">
                         <div>
                             <div className="lg-text-title2 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1">
-                                <span className="lg-bg-secondary-100 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
+                                <span className="lg-card tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
                                     {getVernacularString("0ed9d4ea-8be2-4402-9cc9-6d9a07e96c43", userPreferences.language)}
                                 </span>
                                 {getVernacularString("fc71fe6d-a26c-4873-beb5-a16fe8fc7174", userPreferences.language)}
@@ -388,7 +414,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                     <div className="tw-grid tw-gap-2">
                         <div>
                             <div className="lg-text-title2 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1">
-                                <span className="lg-bg-secondary-100 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
+                                <span className="lg-card tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
                                     {getVernacularString("b452610b-4e19-4d8a-a5c7-c42e7440a3e4", userPreferences.language)}
                                 </span>
                                 {getVernacularString("c67dd066-2f26-4073-af46-c66a4cdd21c5", userPreferences.language)}
@@ -396,13 +422,13 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                         </div>
                         <div
                             className="lg-text-body"
-                            dangerouslySetInnerHTML={{__html: getVernacularString("b494b200-dfd0-406c-8256-b1f655ca9066", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: getVernacularString("d2f89a76-0b86-4232-bea7-4c289826a2c1", userPreferences.language)}}
                         ></div>
                     </div>
                     <div className="tw-grid tw-gap-2">
                         <div>
                             <div className="lg-text-title2 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1">
-                                <span className="lg-bg-secondary-100 tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
+                                <span className="lg-card tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center">
                                     {getVernacularString("17bc8148-f2ed-4026-8074-ce2ca1013b4d", userPreferences.language)}
                                 </span>
                                 {getVernacularString("06e30da0-63f4-43d6-beb5-8fe3b7af9a33", userPreferences.language)}
@@ -410,7 +436,7 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
                         </div>
                         <div
                             className="lg-text-body"
-                            dangerouslySetInnerHTML={{__html: getVernacularString("b494b200-dfd0-406c-8256-b1f655ca9066", userPreferences.language)}}
+                            dangerouslySetInnerHTML={{__html: getVernacularString("24b72e2e-abdd-48ae-ba2b-f60489dedf5e", userPreferences.language)}}
                         ></div>
                     </div>
                 </div>
@@ -420,10 +446,98 @@ function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferenc
 }
 
 function ServicesProvide({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const items = Array(15).fill({
-        svgIcone: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
-        title: "1795f04a-f546-4230-80aa-e73f5020a68e",
-    });
+    const items = [
+        {
+            svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
+            title: "1795f04a-f546-4230-80aa-e73f5020a68e",
+            content: "ba3ccca0-b314-460f-9656-72dbbd7c069b",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/cartridge2.svg",
+            title: "e133c65a-9f38-4170-b96a-8b5ee5b4260f",
+            content: "eef3b063-0d53-4230-a41a-2f3e943f2312",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/computer3.svg",
+            title: "51a87ae7-fadf-48b0-bc54-93000203a850",
+            content: "76beb53f-bb59-4fe8-a9e2-7fd1e68c2800",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/hard-disk4.svg",
+            title: "86f8e696-7719-4db9-9bc8-083b37380b39",
+            content: "c8ba9381-6e76-4625-90a5-fff915a4be4c",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-destruction5.svg",
+            title: "a023698b-d95f-4faf-abb9-9aaf92d3b1a9",
+            content: "335063e8-3c69-4cb3-8753-b60b2947a6fe",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-cleaning.svg",
+            title: "46300379-6d5d-49d3-90af-e1b6510e2f18",
+            content: "5d071bd5-7d7c-4b61-9050-6b5e65f1df8c",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
+            title: "1795f04a-f546-4230-80aa-e73f5020a68e",
+            content: "ba3ccca0-b314-460f-9656-72dbbd7c069b",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/cartridge2.svg",
+            title: "e133c65a-9f38-4170-b96a-8b5ee5b4260f",
+            content: "eef3b063-0d53-4230-a41a-2f3e943f2312",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/computer3.svg",
+            title: "51a87ae7-fadf-48b0-bc54-93000203a850",
+            content: "76beb53f-bb59-4fe8-a9e2-7fd1e68c2800",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/hard-disk4.svg",
+            title: "86f8e696-7719-4db9-9bc8-083b37380b39",
+            content: "c8ba9381-6e76-4625-90a5-fff915a4be4c",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-destruction5.svg",
+            title: "a023698b-d95f-4faf-abb9-9aaf92d3b1a9",
+            content: "335063e8-3c69-4cb3-8753-b60b2947a6fe",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-cleaning.svg",
+            title: "46300379-6d5d-49d3-90af-e1b6510e2f18",
+            content: "5d071bd5-7d7c-4b61-9050-6b5e65f1df8c",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
+            title: "1795f04a-f546-4230-80aa-e73f5020a68e",
+            content: "ba3ccca0-b314-460f-9656-72dbbd7c069b",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/cartridge2.svg",
+            title: "e133c65a-9f38-4170-b96a-8b5ee5b4260f",
+            content: "eef3b063-0d53-4230-a41a-2f3e943f2312",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/computer3.svg",
+            title: "51a87ae7-fadf-48b0-bc54-93000203a850",
+            content: "76beb53f-bb59-4fe8-a9e2-7fd1e68c2800",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/hard-disk4.svg",
+            title: "86f8e696-7719-4db9-9bc8-083b37380b39",
+            content: "c8ba9381-6e76-4625-90a5-fff915a4be4c",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-destruction5.svg",
+            title: "a023698b-d95f-4faf-abb9-9aaf92d3b1a9",
+            content: "335063e8-3c69-4cb3-8753-b60b2947a6fe",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-cleaning.svg",
+            title: "46300379-6d5d-49d3-90af-e1b6510e2f18",
+            content: "5d071bd5-7d7c-4b61-9050-6b5e65f1df8c",
+        },
+    ];
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full", className)}>
             <div
@@ -441,23 +555,29 @@ function ServicesProvide({userPreferences, className}: {userPreferences: UserPre
                 items={items.map((item, itemIndex) => {
                     return (
                         <div
-                            className="tw-h-full tw-grid tw-gap-2 tw-p-5 tw-border tw-border-[#474546] tw-justify-center tw-items-center tw-rounded-lg tw-justify-items-center tw-max-w-[14rem]"
+                            className="tw-h-full tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)] tw-gap-2 tw-p-5 lg-card tw-justify-items-center tw-max-w-[14rem]"
                             key={itemIndex}
                         >
-                            <div className="tw-h-[4.5rem] tw-w-[4.5rem] tw-rounded-full lg-bg-secondary-100 tw-grid tw-justify-center tw-items-center">
+                            <div className="tw-row-start-1 tw-h-[4.5rem] tw-w-[4.5rem] lg-card tw-rounded-full tw-grid tw-justify-center tw-items-center">
                                 <img
-                                    src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcone).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                    src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcon).finalUrl, ImageCdnProvider.Bunny, null, null)}
                                     className={concatenateNonNullStringsWithSpaces("dark:tw-invert")}
                                 />
                             </div>
-                            <div
-                                className="lg-text-body-bold tw-text-center"
-                                dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
-                            />
+                            <div className="tw-row-start-3">
+                                <div
+                                    className="lg-text-body-bold tw-text-center"
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
+                                />
+                                <div
+                                    className="lg-text-body tw-text-center"
+                                    dangerouslySetInnerHTML={{__html: getVernacularString(item.content, userPreferences.language)}}
+                                />
+                            </div>
                         </div>
                     );
                 })}
-                slidesContainerClassName="lg:tw-auto-cols-[18%] tw-auto-cols-[60%] md:tw-auto-cols-[24%] 2xl:!tw-auto-cols-[10%] sm:tw-auto-cols-[37%]"
+                slidesContainerClassName="tw-auto-cols-max"
                 controlsContainerClassName="!tw-justify-center !tw-gap-x-4"
             />
         </div>
@@ -531,7 +651,7 @@ function NearestCollectionCenter({userPreferences, className}: {userPreferences:
                     ]}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="tw-grid tw-grid-rows-[minmax(0,2fr)_1.5rem_minmax(0,1fr)] lg-bg-secondary-100 tw-rounded-lg tw-px-6 tw-pt-4 tw-pb-2"
+                            className="tw-grid tw-grid-rows-[minmax(0,2fr)_1.5rem_minmax(0,1fr)] lg-card tw-px-6 tw-pt-4 tw-pb-2"
                             key={itemIndex}
                         >
                             <div className="tw-row-start-1 tw-col-start-1 ">
@@ -560,31 +680,31 @@ function NearestCollectionCenter({userPreferences, className}: {userPreferences:
 function AwarenessPrograms({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const items = [
         {
-            Image: "/livguard/e-waste-management/7/1.png",
+            image: "/livguard/e-waste-management/7/1.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/2.png",
+            image: "/livguard/e-waste-management/7/2.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/3.png",
+            image: "/livguard/e-waste-management/7/3.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/1.png",
+            image: "/livguard/e-waste-management/7/1.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/2.png",
+            image: "/livguard/e-waste-management/7/2.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/3.png",
+            image: "/livguard/e-waste-management/7/3.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/1.png",
+            image: "/livguard/e-waste-management/7/1.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/2.png",
+            image: "/livguard/e-waste-management/7/2.png",
         },
         {
-            Image: "/livguard/e-waste-management/7/3.png",
+            image: "/livguard/e-waste-management/7/3.png",
         },
     ];
     return (
@@ -597,17 +717,14 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
                 items={items.map((item, itemIndex) => {
                     return (
                         <div
-                            className=""
+                            className="tw-w-full lg:tw-max-w-[31rem] tw-max-w-[19rem]"
                             key={itemIndex}
                         >
-                            <FullWidthImage
-                                relativePath={item.Image}
-                                className="tw-rounded-lg tw-max-w-[31rem]"
-                            />
+                            <img src={getAbsolutePathForRelativePath(getMetadataForImage(item.image).finalUrl, ImageCdnProvider.Bunny, null, null)} />
                         </div>
                     );
                 })}
-                slidesContainerClassName="tw-auto-cols-[100%] lg:tw-auto-cols-[25%] 2xl:tw-auto-cols-[10%]"
+                slidesContainerClassName="!tw-auto-cols-max"
                 controlsContainerClassName="!tw-justify-center !tw-gap-x-4"
             />
         </div>
@@ -615,86 +732,86 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
 }
 
 export function HappyUser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const testimonialss = [
+    const testimonials = [
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review1Name", userPreferences.language)}`,
             rating: 5,
             state: `${getVernacularString("review1State", userPreferences.language)}`,
             message: `${getVernacularString("review1Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+            productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
             productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review2Name", userPreferences.language)}`,
             rating: 5,
             state: `${getVernacularString("review2State", userPreferences.language)}`,
             message: `${getVernacularString("review2Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            productImage: "/livguard/products/urban-combo/thumbnail.png",
             productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review3Name", userPreferences.language)}`,
             rating: 5,
             state: `${getVernacularString("review3State", userPreferences.language)}`,
             message: `${getVernacularString("review3Message", userPreferences.language)}`,
-            productImage: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+            productImage: "/livguard/products/lgs1100i/thumbnail.png",
             productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review4Name", userPreferences.language)}`,
             rating: 4,
             state: `${getVernacularString("review4State", userPreferences.language)}`,
             message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            productImage: "/livguard/products/urban-combo/thumbnaill.png",
             productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review1Name", userPreferences.language)}`,
             rating: 5,
             state: `${getVernacularString("review1State", userPreferences.language)}`,
             message: `${getVernacularString("review1Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+            productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
             productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review2Name", userPreferences.language)}`,
             rating: 5,
             state: `${getVernacularString("review2State", userPreferences.language)}`,
             message: `${getVernacularString("review2Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            productImage: "/livguard/products/urban-combo/thumbnaill.png",
             productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review3Name", userPreferences.language)}`,
             rating: 5,
             state: `${getVernacularString("review3State", userPreferences.language)}`,
             message: `${getVernacularString("review3Message", userPreferences.language)}`,
-            productImage: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+            productImage: "/livguard/products/lgs1100i/thumbnail.png",
             productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review4Name", userPreferences.language)}`,
             rating: 4,
             state: `${getVernacularString("review4State", userPreferences.language)}`,
             message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            productImage: "/livguard/products/urban-combo/thumbnail.png",
             productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
         },
         {
-            svgIcone: "/livguard/e-waste-management/8/testominal1.png",
+            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
             name: `${getVernacularString("review4Name", userPreferences.language)}`,
             rating: 4,
             state: `${getVernacularString("review4State", userPreferences.language)}`,
             message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            productImage: "/livguard/products/urban-combo/thumbnail.png",
             productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
         },
     ];
@@ -712,20 +829,22 @@ export function HappyUser({userPreferences, className}: {userPreferences: UserPr
             <VerticalSpacer className="tw-h-8" />
             <CarouselStyle4
                 chevronButtonsDivisionFactor={3}
-                items={testimonialss.map((testimonials, testimonialsIndex) => {
+                items={testimonials.map((testimonials, testimonialsIndex) => {
                     return (
                         <div
                             className="tw-h-full tw-max-w-[21rem]"
                             key={testimonialsIndex}
                         >
-                            <div className="tw-grid tw-grid-cols-[minmax(0,3fr),minmax(0,1fr)] tw-grid-rows-[auto,auto,minmax(0,1fr)] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-bg-secondary-100 tw-rounded-lg tw-h-full !tw-w-max-[20rem]">
-                                <div className="tw-col-start-1 tw-row-start-2 tw-flex tw-flex-col tw-gap-1 tw-justify-start">
-                                    <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-8">
-                                        <img
-                                            src={getAbsolutePathForRelativePath(getMetadataForImage(testimonials.svgIcone).finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                            className={concatenateNonNullStringsWithSpaces("")}
-                                        />
-                                        <div className="">
+                            <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-grid-rows-[auto_minmax(0,1fr)] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-card tw-h-full !tw-w-max-[20rem]">
+                                <div className="tw-col-start-1 tw-row-start-1 tw-flex tw-flex-col tw-gap-1 tw-justify-start">
+                                    <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4">
+                                        <div className="tw-col-start-1">
+                                            <img
+                                                src={getAbsolutePathForRelativePath(getMetadataForImage(testimonials.svgIcon).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                                className={concatenateNonNullStringsWithSpaces("")}
+                                            />
+                                        </div>
+                                        <div className="tw-col-start-2">
                                             <div className="lg-text-title1">{testimonials.name}</div>
                                             <div className="lg-text-body-bold">{testimonials.state}</div>
                                             <div className="tw-flex tw-flex-row tw-gap-[2px] ">
@@ -745,22 +864,20 @@ export function HappyUser({userPreferences, className}: {userPreferences: UserPr
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="tw-col-start-2 tw-row-start-2 tw-justify-end tw-flex">
+                                <div className="tw-col-start-2 tw-row-start-1 tw-justify-end tw-flex">
                                     <FixedWidthImage
                                         relativePath={testimonials.productImage}
                                         width="100px"
                                     />
                                 </div>
-
-                                <div className="tw-col-start-1 tw-col-span-full tw-row-start-3 tw-h-full tw-w-full ">
+                                <div className="tw-col-start-1 tw-col-span-2 tw-row-start-2 tw-h-full tw-w-full ">
                                     <div className="lg-text-body tw-text-left tw-flex-1">{testimonials.message}</div>
                                 </div>
                             </div>
                         </div>
                     );
                 })}
-                slidesContainerClassName="lg:!tw-auto-cols-[29%] !tw-auto-cols-[100%] md:!tw-auto-cols-[50%] !tw-gap-0"
+                slidesContainerClassName="tw-auto-cols-max"
                 controlsContainerClassName="!tw-justify-center !tw-gap-x-4"
             />
         </div>
@@ -770,24 +887,24 @@ export function HappyUser({userPreferences, className}: {userPreferences: UserPr
 export function FaqQuestion({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const faqs = [
         {
-            question: "3f4e8b92-f79d-4e48-b731-98c0652e3ba0",
-            answer: "homeS9Q1A",
+            question: "0b25ac7a-871b-4b2e-931e-c1d1164b7cbd",
+            answer: "1ba46bef-05f1-4822-b635-55f50b3cc38c",
         },
         {
-            question: "6adb43d6-0333-4b19-877e-4bfd6862d595",
-            answer: "homeS9Q2A",
+            question: "788de904-c62e-4e0a-af30-5da5d0286361",
+            answer: "ffe8fb10-e2ab-475f-8e91-efed3cc2ca8a",
         },
         {
-            question: "54bb62a0-38db-41ae-b7ab-d543f4b639f6",
-            answer: "homeS9Q3A",
+            question: "ae97ad8d-44e1-465d-b6f1-aa2867de6a99",
+            answer: "9490b60b-7dd9-4ddf-b052-105b0f267a0c",
         },
         {
-            question: "188b174f-1232-4d35-9e61-c94f248a9b67",
-            answer: "homeS9Q4A",
+            question: "040a3fb1-bc00-422c-8169-36017f5108dd",
+            answer: "98756773-9cd8-47e2-973f-9dbe2bffff71",
         },
         {
-            question: "4d08f061-a98a-4a15-8737-0c9c43a57fc3",
-            answer: "homeS9Q5A",
+            question: "d063752e-9fed-44f2-bed3-5c128b955ced",
+            answer: "1dd8e8a8-f9ac-42de-bbf6-dff02440d916",
         },
     ];
 

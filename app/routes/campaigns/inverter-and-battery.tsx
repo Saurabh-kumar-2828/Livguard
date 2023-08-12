@@ -1,5 +1,5 @@
 import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
 import {useEffect, useReducer, useRef, useState} from "react";
@@ -15,7 +15,6 @@ import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {ComboCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {OtpVerificationForm} from "~/components/otpVerificationForm";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import type {Uuid} from "~/global-common-typescript/typeDefinitions";
@@ -33,25 +32,120 @@ import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Best in Class Livgaurd Home Inverters and Batteries",
+//             description: "Power up your home with long-lasting Livguard smart inverters and inverter batteries. Explore our wide range of energy storage solutions",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "श्रेणी में सर्वश्रेष्ठ लिवगर्ड होम इनवर्टर और बैटरी देखे",
+//             description: "लंबे समय तक चलने वाले लिवगार्ड स्मार्ट इनवर्टर और इनवर्टर बैटरी से अपने घर को ऊर्जा दें। ऊर्जा संग्रहण समाधानों की हमारी विस्तृत श्रृंखला का अन्वेषण करें",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Best in Class Livgaurd Home Inverters and Batteries",
-            description: "Power up your home with long-lasting Livguard smart inverters and inverter batteries. Explore our wide range of energy storage solutions",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/campaigns/inverter-and-battery/",
+            },
+            {
+                title: "Best in Class Livgaurd Home Inverters and Batteries",
+            },
+            {
+                name: "description",
+                content: "Power up your home with long-lasting Livguard smart inverters and inverter batteries. Explore our wide range of energy storage solutions",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/campaigns/inverter-and-battery/",
+            },
+            {
+                property: "og:title",
+                content: "Best in Class Livgaurd Home Inverters and Batteries",
+            },
+            {
+                property: "og:description",
+                content: "Power up your home with long-lasting Livguard smart inverters and inverter batteries. Explore our wide range of energy storage solutions",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    name: "Inverter and Battery Combo",
+                    url: "https://www.livguard.com/campaigns/inverter-and-battery-jodi/",
+                    logo: "",
+                    sameAs: "",
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "श्रेणी में सर्वश्रेष्ठ लिवगर्ड होम इनवर्टर और बैटरी देखे",
-            description: "लंबे समय तक चलने वाले लिवगार्ड स्मार्ट इनवर्टर और इनवर्टर बैटरी से अपने घर को ऊर्जा दें। ऊर्जा संग्रहण समाधानों की हमारी विस्तृत श्रृंखला का अन्वेषण करें",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/campaigns/inverter-and-battery/",
+            },
+            {
+                title: "श्रेणी में सर्वश्रेष्ठ लिवगर्ड होम इनवर्टर और बैटरी देखे",
+            },
+            {
+                name: "description",
+                content: "लंबे समय तक चलने वाले लिवगार्ड स्मार्ट इनवर्टर और इनवर्टर बैटरी से अपने घर को ऊर्जा दें। ऊर्जा संग्रहण समाधानों की हमारी विस्तृत श्रृंखला का अन्वेषण करें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/campaigns/inverter-and-battery/",
+            },
+            {
+                property: "og:title",
+                content: "श्रेणी में सर्वश्रेष्ठ लिवगर्ड होम इनवर्टर और बैटरी देखे",
+            },
+            {
+                property: "og:description",
+                content: "लंबे समय तक चलने वाले लिवगार्ड स्मार्ट इनवर्टर और इनवर्टर बैटरी से अपने घर को ऊर्जा दें। ऊर्जा संग्रहण समाधानों की हमारी विस्तृत श्रृंखला का अन्वेषण करें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
 };
 
 type LoaderData = {
@@ -89,6 +183,7 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 showContactCtaButton={false}
                 showSearchOption={true}
+                pageUrl={pageUrl}
             >
                 <LandingPage
                     userPreferences={userPreferences}
@@ -98,7 +193,7 @@ export default function () {
 
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
 
-            <script
+            {/* <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -112,7 +207,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </>
     );
 }
@@ -163,15 +258,20 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
         }
     }, [otpFetcher.data]);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
-            setTimeout(() => {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,
                 };
                 dispatch(action);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [formStateInputs.resendTimeOut]);
 
@@ -398,7 +498,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            comboImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/urban-combo/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J2Title", userPreferences.language)}`,
@@ -421,7 +521,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            comboImageRelativePath: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/peace-of-mind-combo/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J3Title", userPreferences.language)}`,
@@ -444,7 +544,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/products/combos/super-life-jodi/thumbnail.png",
+            jodiImageRelativePath: "/livguard/products/super-life-combo/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
@@ -467,7 +567,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            comboImageRelativePath: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/urban-combo/thumbnail.png",
         },
     ];
 
@@ -497,7 +597,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
 export function WhyLivguardCombo({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const sectionData = [
         {
-            image: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+            image: "/livguard/products/urban-combo/thumbnail.png",
             title: `${getVernacularString("landingPage2S5LivH", userPreferences.language)}`,
             content1: `${getVernacularString("landingPage2S5T1", userPreferences.language)}`,
             content2: `${getVernacularString("landingPage2S5T2", userPreferences.language)}`,
@@ -608,22 +708,22 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
     const sectionData = [
         {
             title: "LG700E",
-            image: "/livguard/products/inverters/lg700e/thumbnail.png",
+            image: "/livguard/products/lg700e/thumbnail.png",
             bestSeller: true,
         },
         {
             title: "LGS1100i",
-            image: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+            image: "/livguard/products/lgs1100i/thumbnail.png",
             bestSeller: false,
         },
         {
             title: "IT1550TT",
-            image: "/livguard/products/batteries/it1550tt/thumbnail.png",
+            image: "/livguard/products/it1550tt/thumbnail.png",
             bestSeller: false,
         },
         {
             title: "IT2060TT",
-            image: "/livguard/products/batteries/it2060tt/thumbnail.png",
+            image: "/livguard/products/it2060tt/thumbnail.png",
             bestSeller: true,
         },
     ];

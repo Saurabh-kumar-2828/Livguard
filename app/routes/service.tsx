@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, json} from "@remix-run/node";
-import {Form, Link, useActionData, useLoaderData} from "@remix-run/react";
+import React, {useEffect, useRef, useState} from "react";
+import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
+import {Form, Link, useActionData, useFetcher, useLoaderData} from "@remix-run/react";
 import {Dialog, Transition} from "@headlessui/react";
 import {toast} from "react-toastify";
 import {useResizeDetector} from "react-resize-detector";
@@ -20,36 +20,146 @@ import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
 import {FaqSectionInternal} from "~/components/faqs";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getFormSelectProductItems} from "~/routes/contact-us";
+import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
+import {verifyOtp} from "~/backend/authentication.server";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
+//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
+//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/service",
+//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
+//             "og:type": "website",
+//             "og:image": "",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
+//             description: "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
+//             "og:title": "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/service",
+//             "og:description": "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
+//             "og:type": "website",
+//             "og:image": "",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/service"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Livguard Services - Reliable Solutions for Your Power Needs",
-            description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-            "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/service",
-            "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-            "og:type": "website",
-            "og:image": "",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/service",
+            },
+            {
+                title: "Livguard Services - Reliable Solutions for Your Power Needs",
+            },
+            {
+                name: "description",
+                content: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/service",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Services - Reliable Solutions for Your Power Needs",
+            },
+            {
+                property: "og:description",
+                content: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+            {
+                "script:ld+json": {
+                    "@type": "SiteNavigationElement",
+                    name: "Service",
+                    url: "https://www.livguard.com/contact-us",
+                    telephone: "+91 92056-67999",
+                    contactType: "",
+                    streetAddress: "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                    addressLocality: "Gurugram",
+                    addressRegion: "Haryana",
+                    postalCode: "122016",
+                    addressCountry: "India",
+                    "E-mail": "marketing@livguard.com, export@sar-group.com",
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
-            description: "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/service",
+            },
+            {
+                title: "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/service",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/service"}];
 };
 
 type LoaderData = {
@@ -75,6 +185,7 @@ export const loader: LoaderFunction = async ({request}) => {
 
 export type ActionData = {
     error: string | null;
+    isInvalidOtp?: boolean;
 };
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -91,6 +202,17 @@ export const action: ActionFunction = async ({request, params}) => {
     const termsAndConditionsChecked = safeParse(getStringFromUnknown, body.get("termsAndConditionsChecked"));
     const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
     const product = safeParse(getStringFromUnknown, body.get("product"));
+    const otpSubmitted = safeParse(getStringFromUnknown, body.get("otpSubmitted"));
+
+    const otpVerificationResult = await verifyOtp(contactNumber, otpSubmitted);
+
+    if (!otpVerificationResult.success) {
+        const actionData: ActionData = {
+            error: "Please enter valid otp! Error code: bfed12fa-bdd7-4b4d-b4ff-fc779dd7f788",
+            isInvalidOtp: true,
+        };
+        return json(actionData);
+    }
 
     if (
         issueDetails == null ||
@@ -164,6 +286,29 @@ export default () => {
                     actionData={actionData}
                 />
             </PageScaffold>
+
+            {/* {
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            {
+
+                                "@type": "SiteNavigationElement",
+                                "name": "Service",
+                                "url": "https://www.livguard.com/contact-us",
+                                "telephone": "+91 92056-67999",
+                                "contactType": "",
+                                "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
+                                "addressLocality": "Gurugram",
+                                "addressRegion": "Haryana",
+                                "postalCode": "122016",
+                                "addressCountry": "India",
+                                "E-mail": "marketing@livguard.com, export@sar-group.com"
+                            }`,
+                    }}
+                ></script>
+            } */}
         </>
     );
 };
@@ -207,54 +352,49 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
                 />
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
-                {/* 
+
                 <WarrantyBanner
                     userPreferences={userPreferences}
                     className="lg:lg-px-screen-edge-2 tw-row-start-11 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" /> */}
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
 
                 {/* TODO: Change row numbers when WarrantyBanner is enabled */}
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="lg:lg-px-screen-edge-2 tw-row-start-11 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                    className="lg:lg-px-screen-edge-2 tw-row-start-13 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-14 tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_5rem_2rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/1/banner-mobile.jpg" : "/livguard/service/1/banner-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/1/banner-mobile.jpg" : "/livguard/service/1/banner-desktop.jpg"}
-                />
-            )}
-
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/service/1/mobile-banner.jpg" : "/livguard/service/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/service/1/mobile-banner.jpg" : "/livguard/service/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("1f489840-705d-44b1-a18a-73a2645594de", userPreferences.language)}
                 </div>
-            </DefaultTextAnimation>
-
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{getVernacularString("5a7fe2d5-9f46-4bb4-814e-7f075f8ca843", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
@@ -293,7 +433,7 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
         return (
             <>
                 <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-items-center tw-justify-center lg:tw-flex-row tw-px-2", className)}>
-                    <div className="tw-rounded-full tw-w-16 tw-h-16 lg-bg-secondary-100 tw-mb-2 lg:tw-mr-2 lg:tw-mb-0 tw-flex tw-justify-center tw-items-center">
+                    <div className="tw-rounded-full tw-w-16 tw-h-16 lg-card tw-mb-2 lg:tw-mr-2 lg:tw-mb-0 tw-flex tw-justify-center tw-items-center">
                         <img
                             src={iconUrl}
                             alt=""
@@ -353,7 +493,7 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
     );
 }
 
-function RequestAService({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: {error: string | null}}) {
+function RequestAService({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
     const utmSearchParameters = useUtmSearchParameters();
 
     const [isServiceRequestFormSubmitted, setIsServiceRequestFormSubmitted] = useState(false);
@@ -365,6 +505,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
     useEffect(() => {
         if (actionData != null) {
             if (actionData.error != null) {
+                if (actionData.isInvalidOtp) {
+                    toast.error("Please enter valid OTP. Error code: 7729ab93-6723-468b-9510-705891533cce");
+                    setInvalidOtp(true);
+                    return;
+                }
+                setInvalidOtp(false);
                 toast.error("ERROR in submitting form");
                 return;
             }
@@ -372,6 +518,58 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
             setIsServiceRequestFormSubmitted(true);
         }
     }, [actionData]);
+
+    const [showOtpField, setShowOtpField] = useState(false);
+    const [showOtpButton, setShowOtpButton] = useState(false);
+    const [resendTimeOut, setResendTimeOut] = useState(0);
+    const [invalidOtp, setInvalidOtp] = useState(false);
+    const [isOtpResent, setIsOtpResent] = useState(false);
+    const phoneNumberRef = useRef<HTMLInputElement | null>(null);
+    const otpFieldRef = useRef<HTMLInputElement | null>(null);
+
+    const [name, setName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+
+    const [otpSubmitted, setIsOtpSubmitted] = useState(false);
+    const otpFetcher = useFetcher();
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (isOtpResent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0 && showOtpField) {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
+                console.log("action dispatching", resendTimeOut);
+                setResendTimeOut((prev) => prev - 1);
+            }, 1000);
+            setTimeoutId(timeout);
+        }
+    }, [resendTimeOut]);
+
+    const resetOtpState = () => {
+        setShowOtpButton(false);
+        setShowOtpField(false);
+        setInvalidOtp(false);
+        setIsOtpResent(false);
+        setResendTimeOut(0);
+        setName("");
+        setPhoneNumber("");
+    };
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left tw-h-full", className)}>
@@ -388,9 +586,9 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                             {!isServiceRequestFormSubmitted ? (
                                 <Form
                                     method="post"
-                                    className="tw-grid tw-grid-flow-row tw-gap-4"
+                                    className="tw-grid tw-grid-flow-row tw-gap-x-4"
                                 >
-                                    <div className="tw-grid tw-row-start-1 tw-grid-flow-col tw-gap-2">
+                                    <div className="tw-grid tw-grid-flow-col tw-gap-2">
                                         <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("1cc00f3b-4b94-4e16-bc4f-a0337877d25e", userPreferences.language)}</div>
 
                                         <textarea
@@ -402,7 +600,9 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         />
                                     </div>
 
-                                    <div className="tw-grid tw-row-start-2 lg:tw-grid-cols-2 tw-gap-2">
+                                    <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("43e7ced0-33d1-46a2-ab06-4e50dae64256", userPreferences.language)}
@@ -423,23 +623,6 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                         <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                {getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}
-                                            </div>
-
-                                            <input
-                                                type="text"
-                                                name="contactNumber"
-                                                className="lg-text-input"
-                                                pattern={indianPhoneNumberValidationPattern}
-                                                placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="tw-grid tw-row-start-3 lg:tw-grid-cols-2 tw-gap-2">
-                                        <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("7de002e7-afeb-40d5-8bf5-6f2cd2be88ea", userPreferences.language)}
                                             </div>
 
@@ -452,8 +635,12 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                 required
                                             />
                                         </div>
+                                    </div>
 
-                                        <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                    <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2">
+                                        <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("6a37e3ee-a8a6-4999-9494-80465aaad48d", userPreferences.language)}
                                             </div>
@@ -461,14 +648,169 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                             <input
                                                 type="text"
                                                 name="name"
+                                                value={name}
+                                                onChange={(e) => {
+                                                    setName(e.target.value);
+                                                }}
                                                 className="lg-text-input"
                                                 placeholder={getVernacularString("a0d68490-ad84-47fb-863c-2a9c812feaec", userPreferences.language)}
                                                 required
                                             />
                                         </div>
+
+                                        <div className="lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                            {/* <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
+                                                {getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}
+                                            </div>
+
+                                            <input
+                                                type="text"
+                                                name="contactNumber"
+                                                className="lg-text-input"
+                                                pattern={indianPhoneNumberValidationPattern}
+                                                placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
+                                                required
+                                            /> */}
+                                            <div className="tw-grid lg:tw-col-start-1 tw-grid-flow-row tw-gap-2">
+                                                {!showOtpField ? (
+                                                    <div className="lg-text-secondary-900">{getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}</div>
+                                                ) : (
+                                                    <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
+                                                        <div
+                                                            className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
+                                                            onClick={(e) => {
+                                                                setShowOtpField(false);
+                                                                setResendTimeOut(0);
+                                                                if (phoneNumberRef.current != null) {
+                                                                    phoneNumberRef.current.focus();
+                                                                }
+                                                            }}
+                                                        >
+                                                            {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                                        </div>
+                                                        <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{phoneNumber}</div>
+                                                    </div>
+                                                )}
+
+                                                {!showOtpField ? (
+                                                    <div className="tw-relative tw-w-full tw-items-center tw-grid">
+                                                        <input
+                                                            type="text"
+                                                            name="phoneNumber"
+                                                            pattern={indianPhoneNumberValidationPattern}
+                                                            placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
+                                                            required
+                                                            className="lg-text-input tw-w-full"
+                                                            disabled={showOtpField}
+                                                            defaultValue={phoneNumber}
+                                                            ref={phoneNumberRef}
+                                                            onChange={(e) => {
+                                                                setPhoneNumber(e.target.value);
+                                                                if (e.target.value.length == 10) {
+                                                                    setShowOtpButton(true);
+                                                                } else {
+                                                                    setShowOtpButton(false);
+                                                                }
+                                                            }}
+                                                            onBlur={(e) => {
+                                                                if (phoneNumber.length == 10) {
+                                                                    setShowOtpButton(true);
+                                                                }
+                                                            }}
+                                                            onFocus={(e) => {
+                                                                if (phoneNumber.length == 10) {
+                                                                    setShowOtpButton(true);
+                                                                }
+                                                            }}
+                                                        />
+                                                        <div
+                                                            className={concatenateNonNullStringsWithSpaces(
+                                                                "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                                                showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-10 tw-duration-100",
+                                                            )}
+                                                            onClick={(e) => {
+                                                                if (name.length === 0) {
+                                                                    toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
+                                                                    return;
+                                                                }
+                                                                setShowOtpButton(false);
+                                                                setShowOtpField(true);
+                                                                setResendTimeOut(60);
+
+                                                                if (otpFieldRef.current != null) {
+                                                                    otpFieldRef.current.focus();
+                                                                }
+                                                                const data = new FormData();
+                                                                data.append("phoneNumber", name);
+                                                                data.append("name", phoneNumber);
+                                                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                                            }}
+                                                        >
+                                                            {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div
+                                                        className={concatenateNonNullStringsWithSpaces(
+                                                            "tw-w-full",
+                                                            showOtpField ? "tw-flex tw-flex-col tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                                        )}
+                                                    >
+                                                        <div className="tw-relative">
+                                                            <input
+                                                                type="text"
+                                                                name="otpSubmitted"
+                                                                className="lg-text-input"
+                                                                required
+                                                                placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                                ref={otpFieldRef}
+                                                                onChange={(e) => {
+                                                                    setIsOtpSubmitted(true);
+                                                                }}
+                                                            />
+                                                            {invalidOtp && (
+                                                                <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                                                    {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div className="tw-grid tw-row-start-4 lg:tw-grid-cols-2 tw-gap-2 tw-items-start">
+                                    <div className="tw-grid lg:tw-grid-cols-2">
+                                        <div
+                                            className={concatenateNonNullStringsWithSpaces(
+                                                "tw-w-full tw-px-3 lg:tw-col-start-2",
+                                                showOtpField ? "tw-flex tw-flex-row tw-justify-between tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                            )}
+                                        >
+                                            <div
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "lg-text-secondary-700 tw-text-[12px]",
+                                                    `${resendTimeOut > 0 ? "undefined" : "hover:tw-cursor-pointer"}`,
+                                                )}
+                                                onClick={() => {
+                                                    setIsOtpResent(true);
+                                                    setResendTimeOut(60);
+
+                                                    const data = new FormData();
+                                                    data.append("phoneNumber", phoneNumber);
+                                                    data.append("name", name);
+                                                    otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                                }}
+                                            >
+                                                {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                            </div>
+                                            <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                                        </div>
+                                    </div>
+
+                                    <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2 tw-items-start">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("31241b10-2784-43df-a2ea-a614c9ef7468", userPreferences.language)}
@@ -499,7 +841,9 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         </div>
                                     </div>
 
-                                    <div className="tw-grid tw-row-start-5 lg:tw-grid-cols-2 tw-gap-2 tw-items-start">
+                                    <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2 tw-items-start">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("d8a55222-554d-48c5-a638-118f37baf66b", userPreferences.language)}
@@ -528,7 +872,9 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         </div>
                                     </div>
 
-                                    <div className="tw-grid tw-row-start-6 tw-grid-flow-col tw-gap-4 tw-items-start tw-my-3 lg:tw-mt-0 lg:tw-mb-3">
+                                    <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
+
+                                    <div className="tw-grid tw-grid-flow-col tw-gap-4 tw-items-start tw-my-3 lg:tw-mt-0 lg:tw-mb-3">
                                         <input
                                             type="checkbox"
                                             name="termsAndConditionsChecked"
@@ -542,6 +888,8 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                         <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
                                     </div>
+
+                                    <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
                                     <input
                                         name="utmParameters"
@@ -562,10 +910,15 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                         value={serviceRequestFormSelectedProduct == null ? "" : productItems[serviceRequestFormSelectedProduct]}
                                     />
 
+                                    <HiddenFormField
+                                        name="contactNumber"
+                                        value={phoneNumber}
+                                    />
+
                                     <button
                                         type="submit"
-                                        className="tw-row-start-7 tw-self-stretch lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-place-self-stretch lg:tw-place-self-center"
-                                        disabled={serviceRequestFormSelectedProduct == null}
+                                        className="tw-self-stretch lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-place-self-stretch lg:tw-place-self-center"
+                                        disabled={serviceRequestFormSelectedProduct == null || otpFetcher.data == null || !otpSubmitted}
                                     >
                                         {getVernacularString("0bc7a8cd-72d0-4f85-ab9d-39abdb269e6a", userPreferences.language)}
                                     </button>
@@ -604,8 +957,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function CallUsCard() {
         return (
-            <div className="tw-row-start-5 lg:tw-row-start-1 lg:tw-w-full lg:tw-col-start-1 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4 lg:tw-p-0">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-rounded-full lg-bg-secondary-100 lg:lg-service-connect-bg-gradient-light lg:dark:lg-service-connect-bg-gradient-dark tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-5 lg:tw-row-start-1 lg:tw-w-full lg:tw-col-start-1 lg-card tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg-card tw-rounded-full tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className={"tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"}
                         src="https://files.growthjockey.com/livguard/icons/service/call-us.svg"
@@ -635,8 +988,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function WhatsappUsCard() {
         return (
-            <div className="tw-row-start-7 lg:tw-row-start-1 lg:tw-col-start-2 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4 lg:tw-p-0">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-rounded-full lg-bg-secondary-100 lg:lg-service-connect-bg-gradient-light lg:dark:lg-service-connect-bg-gradient-dark tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-7 lg:tw-row-start-1 lg:tw-col-start-2 lg-card tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg-card tw-rounded-full tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/service/whatsapp-us.svg"
@@ -664,8 +1017,8 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
     function EmailUsCard() {
         return (
-            <div className="tw-row-start-[9] lg:tw-row-start-1 lg:tw-col-start-3 lg-text-secondary-900 tw-rounded-lg tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4 lg:tw-p-0">
-                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full tw-rounded-full lg-bg-secondary-100 lg:lg-service-connect-bg-gradient-light lg:dark:lg-service-connect-bg-gradient-dark tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
+            <div className="tw-row-start-[9] lg:tw-row-start-1 lg:tw-col-start-3 lg-card tw-grid tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-items-center tw-p-4">
+                <div className="tw-row-start-1 tw-col-start-2 lg:tw-col-start-1 lg:tw-col-span-full lg-card tw-rounded-full tw-h-16 tw-w-16 lg:tw-h-20 lg:tw-w-20 tw-grid tw-items-center tw-justify-center tw-place-self-center">
                     <img
                         className="tw-w-8 tw-h-8 lg:tw-w-10 lg:tw-h-10 tw-invert dark:tw-invert-0"
                         src="https://files.growthjockey.com/livguard/icons/service/email-us.svg"
@@ -699,14 +1052,14 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
 
             <VerticalSpacer className="tw-h-2 lg:tw-h-4 tw-row-start-2" />
 
-            <div className="lg:tw-grid lg:tw-grid-cols-[minmax(0,7fr)_minmax(0,3fr)] lg:lg-bg-secondary-100 lg:tw-rounded-lg lg:tw-py-6">
-                <DefaultTextAnimation className="tw-row-start-3 lg-text-headline tw-text-center lg:tw-text-left lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full lg:tw-place-self-center lg:tw-px-16">
+            <div className="lg:tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,7fr)_minmax(0,3fr)] lg:lg-bg-secondary-100 lg:tw-rounded-lg lg:tw-py-6">
+                <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-2 lg-text-headline tw-text-center lg:tw-text-left lg:tw-place-self-center lg:tw-px-16">
                     <div className="lg-text-body lg:tw-text-center">{getVernacularString("contactUsS2HText", userPreferences.language)}</div>
                 </DefaultTextAnimation>
 
                 <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-4 lg:tw-hidden" />
 
-                <div className="lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-border-r-2 lg:tw-border-[#B1B1B1] lg:tw-grid lg:tw-auto-cols-[minmax(0,1fr)] lg:tw-gap-x-12 lg:tw-py-5 lg:tw-px-12">
+                <div className="lg:tw-row-span-full lg:tw-col-start-1 lg:tw-border-r-2 lg:tw-border-[#B1B1B1] lg:tw-grid lg:tw-auto-cols-[minmax(0,1fr)] lg:tw-gap-x-12 lg:tw-py-5 lg:tw-px-12">
                     <CallUsCard />
 
                     <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-6 lg:tw-hidden" />
@@ -716,6 +1069,20 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                     <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-[8] lg:tw-hidden" />
 
                     <EmailUsCard />
+                </div>
+
+                <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-3 lg:tw-hidden" />
+
+                <div className="lg:tw-row-start-4 lg:tw-col-start-2 tw-w-full tw-max-w-[10rem] lg:tw-max-w-[unset] tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[4rem_8rem] tw-justify-center lg:tw-items-center tw-gap-x-4 tw-gap-y-4">
+                    <FullWidthImage
+                        relativePath={`/livguard/service/3/1-${userPreferences.theme == Theme.Light ? "light" : "dark"}.png`}
+                    />
+
+                    <a href="https://play.google.com/store/apps/details?id=com.sar.mylivserv">
+                        <FullWidthImage
+                            relativePath={`/livguard/service/3/2-${userPreferences.theme == Theme.Light ? "light" : "dark"}.png`}
+                        />
+                    </a>
                 </div>
             </div>
 
@@ -903,7 +1270,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             rating: 5,
                             state: `${getVernacularString("review1State", userPreferences.language)}`,
                             message: `${getVernacularString("review1Message", userPreferences.language)}`,
-                            productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+                            productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
                             productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
                         },
                         // {
@@ -917,7 +1284,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                         //     rating: 5,
                         //     state: `${getVernacularString("review2State", userPreferences.language)}`,
                         //     message: `${getVernacularString("review2Message", userPreferences.language)}`,
-                        //     productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+                        //     productImage: "/livguard/products/urban-combo/thumbnail.png",
                         //     productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
                         // },
                         {
@@ -925,7 +1292,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             rating: 5,
                             state: `${getVernacularString("review3State", userPreferences.language)}`,
                             message: `${getVernacularString("review3Message", userPreferences.language)}`,
-                            productImage: "/livguard/products/inverters/lgs1100i/thumbnail.png",
+                            productImage: "/livguard/products/lgs1100i/thumbnail.png",
                             productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
                         },
                         {
@@ -933,7 +1300,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                             rating: 4,
                             state: `${getVernacularString("review4State", userPreferences.language)}`,
                             message: `${getVernacularString("review4Message", userPreferences.language)}`,
-                            productImage: "/livguard/products/jodis/urban-jodi/thumbnail.png",
+                            productImage: "/livguard/products/urban-combo/thumbnail.png",
                             productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
                         },
                     ]}
@@ -944,24 +1311,24 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
 }
 
 function WarrantyBanner({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[60vh] lg:tw-h-[40vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/6/warranty-mobile-banner.jpg" : "/livguard/service/6/warranty-banner-desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/service/6/warranty-mobile-banner.jpg" : "/livguard/service/6/warranty-banner-desktop.jpg"}
-                    imageClassName="tw-rounded-lg"
-                />
-            )}
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full ">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/service/6/warranty-mobile-banner.jpg" : "/livguard/service/6/warranty-desktop-banner.jpg"}
+                        className="lg:tw-rounded-lg"
+                        key={isScreenSizeBelow ? "/livguard/service/6/warranty-mobile-banner.jpg" : "/livguard/service/6/warranty-desktop-banner.jpg"}
+                    />
+                )}
+            </div>
 
             <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-text-center">
@@ -975,9 +1342,8 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg-px-screen-edge-2">
-                {/* Redirecting to existing page for now */}
-                <Link to={`https://stage.livguard.com/register-and-warranty-for-inverters.php`}>
+            <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg-px-screen-edge-2 tw-z-10">
+                <Link to="/warranty">
                     <button className="lg-text-body tw-px-16 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-center tw-text-center">
                         {getVernacularString("d1030527-97b8-4772-9810-e98c5c0b30c3", userPreferences.language)}
                     </button>

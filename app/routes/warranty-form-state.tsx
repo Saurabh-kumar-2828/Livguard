@@ -7,6 +7,7 @@ export enum WarrantyFormActionTypes {
     SetPincode,
     SetCity,
     SetState,
+    SetOtpSubmitted,
     SetProducts,
     RemoveProductFromIndex,
 }
@@ -19,6 +20,7 @@ export enum WarrantyFormFieldKeys {
     city = "city",
     state = "state",
     products = "products",
+    otpSubmitted = "otpSubmitted",
 }
 
 export type WarrantyProduct = {
@@ -39,6 +41,7 @@ export interface WarrantyFormStateInputs {
     [WarrantyFormFieldKeys.pincode]: string;
     [WarrantyFormFieldKeys.city]: string;
     [WarrantyFormFieldKeys.state]: string;
+    [WarrantyFormFieldKeys.otpSubmitted]: string;
     [WarrantyFormFieldKeys.products]: Array<WarrantyProduct>;
 }
 
@@ -49,6 +52,7 @@ export const warrantyFormInitialState: WarrantyFormStateInputs = {
     [WarrantyFormFieldKeys.pincode]: "",
     [WarrantyFormFieldKeys.city]: "",
     [WarrantyFormFieldKeys.state]: "",
+    [WarrantyFormFieldKeys.otpSubmitted]: "",
     [WarrantyFormFieldKeys.products]: [
         {
             productType: "",
@@ -105,6 +109,14 @@ export function WarrantyFormReducer(state: WarrantyFormStateInputs, action: Warr
             const newState: WarrantyFormStateInputs = structuredClone(state);
 
             newState[WarrantyFormFieldKeys.state] = userState;
+
+            return newState;
+        }
+        case WarrantyFormActionTypes.SetOtpSubmitted: {
+            const otp = action.payload;
+            const newState: WarrantyFormStateInputs = structuredClone(state);
+
+            newState[WarrantyFormFieldKeys.otpSubmitted] = otp;
 
             return newState;
         }

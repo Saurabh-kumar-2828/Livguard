@@ -1,6 +1,5 @@
 import {Disclosure, Transition} from "@headlessui/react";
 import {MinusIcon, PlusIcon} from "@heroicons/react/20/solid";
-import {useEffect, useRef} from "react";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 
 export function Accordion({
@@ -19,10 +18,10 @@ export function Accordion({
     return (
         <Disclosure defaultOpen={defaultOpen ?? false}>
             {({open}) => (
-                <div className={className}>
+                <div className={concatenateNonNullStringsWithSpaces("lg-card", className)}>
                     <Disclosure.Button
                         className={concatenateNonNullStringsWithSpaces(
-                            "tw-text-left tw-p-5 tw-flex tw-justify-between tw-items-center tw-w-full lg-bg-secondary-100 tw-gap-x-4",
+                            "tw-text-left tw-p-5 tw-flex tw-justify-between tw-items-center tw-w-full tw-gap-x-4",
                             `${open ? "tw-rounded-t-lg" : "tw-rounded-lg"}`,
                         )}
                     >
@@ -41,7 +40,7 @@ export function Accordion({
                     >
                         <Disclosure.Panel
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-p-5 tw-rounded-b-lg lg-bg-secondary-100 tw-border-t tw-border-secondary-300 tw-flex tw-flex-col tw-gap-6",
+                                "tw-p-5 tw-rounded-b-lg tw-border-t tw-border-secondary-300 tw-flex tw-flex-col tw-gap-6",
                                 accordionPanelClassName,
                             )}
                         >

@@ -20,7 +20,7 @@ export function CarouselStyle1Video({
 
     return (
         <div
-            className="tw-overflow-hidden"
+            className="tw-overflow-hidden max-lg:lg-card-shadow-hack"
             ref={emblaRef}
         >
             <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%]">
@@ -32,7 +32,7 @@ export function CarouselStyle1Video({
                             key={itemIndex}
                         >
                             <div
-                                className="tw-w-full tw-h-full lg-bg-secondary-100 lg:lg-bg-background-500 tw-p-4 tw-grid tw-grid-rows-[auto_auto_auto] tw-grid-cols-1 lg:tw-grid-rows-[auto_auto] lg:tw-grid-cols-2 tw-gap-x-12 tw-gap-y-4 tw-rounded-lg tw-items-center tw-text-center lg:tw-text-left"
+                                className="tw-w-full tw-h-full max-lg:lg-card tw-p-4 tw-grid tw-grid-rows-[auto_auto_auto] tw-grid-cols-1 lg:tw-grid-rows-[auto_auto] lg:tw-grid-cols-2 tw-gap-x-12 tw-gap-y-4 tw-rounded-lg tw-items-center tw-text-center lg:tw-text-left"
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-w-full">
@@ -60,7 +60,7 @@ export function CarouselStyle1Video({
                                         className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
                                         onClick={() => emblaApi?.scrollPrev()}
                                     >
-                                        <ChevronLeftIcon className="tw-w-6 tw-h-6" />
+                                        <ChevronLeftIcon className="tw-w-6 tw-h-6 lg-text-new-foreground-500" />
                                     </button>
 
                                     <div className="tw-flex tw-flex-row tw-gap-x-2">
@@ -83,7 +83,7 @@ export function CarouselStyle1Video({
                                         className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
                                         onClick={() => emblaApi?.scrollNext()}
                                     >
-                                        <ChevronRightIcon className="tw-w-6 tw-h-6" />
+                                        <ChevronRightIcon className="tw-w-6 tw-h-6 lg-text-new-foreground-500" />
                                     </button>
                                 </div>
                             </div>

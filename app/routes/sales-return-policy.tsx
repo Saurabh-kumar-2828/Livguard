@@ -9,9 +9,11 @@ import {CoverImage} from "~/components/images/coverImage";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {useResizeDetector} from "react-resize-detector";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {LinksFunction, LoaderFunction} from "@remix-run/node";
+import {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
 import {parseClassName} from "react-toastify/dist/utils";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import { FullWidthImage } from "~/components/images/fullWidthImage";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;
@@ -35,6 +37,91 @@ import {parseClassName} from "react-toastify/dist/utils";
 //         throw Error(`Undefined language ${userPreferences.language}`);
 //     }
 // };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "http://localhost:3050/sales-return-policy",
+            },
+            {
+                title: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard",
+            },
+            {
+                name: "description",
+                content: "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
+            },
+            {
+                property: "og:url",
+                content: "http://localhost:3050/sales-return-policy",
+            },
+            {
+                property: "og:title",
+                content: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard",
+            },
+            {
+                property: "og:description",
+                content: "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "http://localhost:3050/sales-return-policy"
+            },
+            {
+                title: "??????????",
+            },
+            {
+                name: "description",
+                content: "?????????",
+            },
+            {
+                property: "og:url",
+                content: "http://localhost:3050/sales-return-policy",
+            },
+            {
+                property: "og:title",
+                content: "",
+            },
+            {
+                property: "og:description",
+                content: "????????????????",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
+};
 
 export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.livguard.com/sales-return-policy"}];
@@ -76,8 +163,8 @@ export default () => {
                 pageUrl={pageUrl}
                 breadcrumbs={
                     [
-                        // {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                        // {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
+                        {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                        {contentId: "43953acd-0fe3-40a8-a307-297f4bb7124b", link: "#"},
                     ]
                 }
             >
@@ -92,7 +179,7 @@ function SalesReturnPolicypage({userPreferences}: {userPreferences: UserPreferen
         <div>
             <HeroSection userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+            <VerticalSpacer className="tw-h-10" />
 
             <SalesReturnPolicy
                 className="tw-max-w-7xl tw-mx-auto"
@@ -105,33 +192,24 @@ function SalesReturnPolicypage({userPreferences}: {userPreferences: UserPreferen
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_3.4rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? "/livguard/sales-return-policy/1/banner-mobile-sales.png"
-                            : "/livguard/sales-return-policy/1/banner-desktop-sales.png"
-                    }
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={
-                        containerHeight > containerWidth || containerWidth < 640
-                            ? "/livguard/sales-return-policy/1/banner-mobile-sales.png"
-                            : "/livguard/sales-return-policy/1/banner-desktop-sales.png"
-                    }
-                />
-            )}
-
-            <DefaultTextAnimation className="lg:tw-row-start-2 tw-row-start-5 tw-col-start-1">
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/sales-return-policy/1/mobile-banner.jpg" : "/livguard/sales-return-policy/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/sales-return-policy/1/mobile-banner.jpg" : "/livguard/sales-return-policy/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("661b01b0-1ac1-49ce-af95-39777ff6a99c", userPreferences.language)}
                 </div>

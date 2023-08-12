@@ -1,32 +1,71 @@
-import type {LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Response} from "@remix-run/node";
 import React, {useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
-import type {DynamicLinksFunction} from "remix-utils";
 import {ProductCardComponent, SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
-import {PageScaffold} from "~/components/pageScaffold";
-import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {ProductInfoCarousel} from "~/components/productInfoCarousel";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import type {ProductDetails} from "~/productData";
-import {allProductDetails, ProductType} from "~/productData";
+import type {ProductDetails, ProductDetailsRecommendedProduct} from "~/productData";
+import {ProductType, allProductDetails} from "~/productData";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {addVernacularString, getVernacularString} from "~/vernacularProvider";
-import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    return [
+        {
+            tagName: "link",
+            rel: "canonical",
+            href: loaderData.productData.metadata.canonicalUrl,
+        },
+        {
+            title: loaderData.productData.metadata.title,
+        },
+        {
+            name: "description",
+            content: loaderData.productData.metadata.description,
+        },
+        {
+            property: "og:url",
+            content: `https://www.livguard.com/products/${loaderData.productData.slug}`,
+        },
+        {
+            property: "og:title",
+            content: loaderData.productData.metadata.title,
+        },
+        {
+            property: "og:description",
+            content: loaderData.productData.metadata.description,
+        },
+        {
+            property: "og:site_name",
+            content: "Livguard",
+        },
+        {
+            property: "og:type",
+            content: "website",
+        },
+        {
+            property: "og:image",
+            content: getMetadataForImage(`/livguard/products/${loaderData.productData.slug}/thumbnail.png`).finalUrl,
+        },
+    ];
+};
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -58,29 +97,6 @@ export const loader: LoaderFunction = async ({request, params}) => {
     return loaderData;
 };
 
-export const dynamicLinks: DynamicLinksFunction = ({data: loaderData}: {data: LoaderData}) => {
-    if (loaderData == null) {
-        return [];
-    }
-
-    return [{rel: "canonical", href: loaderData.productData.metadata.canonicalUrl}];
-};
-
-export const handle = {
-    dynamicLinks: dynamicLinks,
-};
-
-export const meta: MetaFunction = ({data: loaderData}: {data?: LoaderData}) => {
-    if (loaderData == null) {
-        return {};
-    }
-
-    return {
-        title: loaderData.productData.metadata.title,
-        description: loaderData.productData.metadata.description,
-    };
-};
-
 export default function () {
     const {userPreferences, redirectTo, productData, pageUrl} = useLoaderData() as LoaderData;
 
@@ -89,19 +105,13 @@ export default function () {
     // Hack 48af9f18-d006-44b5-88fc-bf514c7d4b67
     // TODO: This is a very ugly hack, see if there is some other way around this
     let breadcrumbLastContentId;
-    const modelNumber = getSingletonValue(
-        productData.specifications.filter((specification) => specification.title == (userPreferences.language == Language.Hindi ? "मॉडल संख्या" : "Model Number")),
-    )?.value;
-    if (modelNumber == null) {
-        breadcrumbLastContentId = "7f1b0663-3535-464c-86c9-78967d00dcc8";
-    } else {
-        breadcrumbLastContentId = "a3c3f514-2bf9-401e-9351-d921d4f1cbe4";
-        addVernacularString(breadcrumbLastContentId, {
-            [Language.English]: modelNumber,
-            [Language.Hindi]: modelNumber,
-            [Language.Marathi]: modelNumber,
-        });
-    }
+    const modelNumber = productData.humanReadableModelNumber;
+
+    breadcrumbLastContentId = "a3c3f514-2bf9-401e-9351-d921d4f1cbe4";
+    addVernacularString(breadcrumbLastContentId, {
+        [Language.English]: modelNumber,
+        [Language.Hindi]: modelNumber,
+    });
     // /Hack
 
     return (
@@ -179,7 +189,7 @@ function ProductPage({
 
             <ProductSpecifications
                 userPreferences={userPreferences}
-                ProductDetails={productData}
+                productDetails={productData}
                 className="lg:tw-px-[72px] xl:tw-px-[120px] tw-w-full tw-max-w-7xl tw-mx-auto"
             />
 
@@ -191,13 +201,13 @@ function ProductPage({
                 className="lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+            {/* <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <ProductRating
                 userPreferences={userPreferences}
                 reviews={productData.reviews}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
+            /> */}
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
@@ -219,6 +229,8 @@ function ProductPage({
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}
                     className="tw-row-start-2 lg:tw-col-start-2 lg:tw-row-start-1"
+                    productType={productData.type}
+                    productSubType={productData.subType}
                 />
             </div>
 
@@ -348,51 +360,70 @@ function ProductInfo({
     );
 }
 
-function ProductSpecifications({userPreferences, ProductDetails, className}: {userPreferences: UserPreferences; ProductDetails: ProductDetails; className: string}) {
+function ProductSpecifications({userPreferences, productDetails, className}: {userPreferences: UserPreferences; productDetails: ProductDetails; className: string}) {
     const [selectedTab, setSelectedTab] = useState("specifications");
 
     const getDataFromProductDetails = (tab: string) => {
         if (tab == "specifications") {
-            return ProductDetails.specifications;
+            return productDetails.specifications;
         } else if (tab == "features") {
-            return ProductDetails.features;
+            return productDetails.features;
         } else if (tab == "additionalInfo") {
-            return ProductDetails.additionalInfo;
+            return productDetails.additionalInfo;
         } else {
             throw Error("value not found");
         }
     };
 
+    const visibleTabs = [];
+    if (productDetails.specifications.length > 0) {
+        visibleTabs.push({
+            title: `${getVernacularString("productPageSpecifications", userPreferences.language)}`,
+            value: "specifications",
+        });
+    }
+    if (productDetails.features.length > 0) {
+        visibleTabs.push({
+            title: `${getVernacularString("productPageFeatures", userPreferences.language)}`,
+            value: "features",
+        });
+    }
+    if (productDetails.additionalInfo.length > 0) {
+        visibleTabs.push({
+            title: `${getVernacularString("productPageAdditionalInfo", userPreferences.language)}`,
+            value: "additionalInfo",
+        });
+    }
+
     return (
         <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-gap-4", className)}>
             <div className="lg-px-screen-edge">
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr)] tw-gap-2 tw-border-b tw-py-2">
+                <div
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-grid tw-gap-2 tw-border-b tw-py-2",
+                        visibleTabs.length == 1
+                            ? "tw-grid-cols-[minmax(0,1fr)"
+                            : visibleTabs.length == 2
+                            ? "tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr)]"
+                            : "tw-grid-cols-[minmax(0,1fr),auto,minmax(0,1fr),auto,minmax(0,1fr)]",
+                    )}
+                >
                     <ItemBuilder
-                        items={[
-                            {
-                                title: `${getVernacularString("productPageSpecifications", userPreferences.language)}`,
-                                value: "specifications",
-                            },
-                            {
-                                title: `${getVernacularString("productPageFeatures", userPreferences.language)}`,
-                                value: "features",
-                            },
-                            {
-                                title: `${getVernacularString("productPageAdditionalInfo", userPreferences.language)}`,
-                                value: "additionalInfo",
-                            },
-                        ]}
+                        items={visibleTabs}
                         itemBuilder={(item, itemIndex) => (
-                            <React.Fragment key={itemIndex}>
-                                <div
-                                    className="tw-flex tw-flex-col tw-gap-1 tw-justify-center tw-items-center"
-                                    onClick={() => setSelectedTab(item.value)}
-                                >
-                                    <div className={`tw-cursor-pointer ${item.value == selectedTab ? "tw-underline tw-underline-offset-4" : "lg-text-secondary-700"}`}>{item.title}</div>
-                                </div>
-
-                                {itemIndex < 3 - 1 && <div className="tw-w-full tw-border"></div>}
-                            </React.Fragment>
+                            <div
+                                className="tw-flex tw-flex-col tw-gap-1 tw-justify-center tw-items-center"
+                                onClick={() => setSelectedTab(item.value)}
+                                key={itemIndex}
+                            >
+                                <div className={`tw-cursor-pointer ${item.value == selectedTab ? "tw-underline tw-underline-offset-4" : "lg-text-secondary-700"}`}>{item.title}</div>
+                            </div>
+                        )}
+                        spaceBuilder={(spaceIndex) => (
+                            <div
+                                className="tw-w-full tw-border"
+                                key={spaceIndex}
+                            />
                         )}
                     />
                 </div>
@@ -403,10 +434,15 @@ function ProductSpecifications({userPreferences, ProductDetails, className}: {us
                     items={getDataFromProductDetails(selectedTab)}
                     itemBuilder={(item, itemIndex) => (
                         <React.Fragment key={itemIndex}>
-                            {selectedTab == "features" ? (
-                                <div className={`lg-px-screen-edge tw-flex tw-flex-row tw-py-2 tw-items-center tw-gap-1 tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-300" : ""}`}>
+                            {selectedTab == "specifications" ? (
+                                <div className={`tw-grid tw-grid-cols-2 lg-px-screen-edge tw-py-2 tw-items-center tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-300" : ""}`}>
+                                    <div className="tw-col-start-1 tw-font-bold">{item.title}</div>
+                                    <div className="tw-col-start-2">{item.value}</div>
+                                </div>
+                            ) : selectedTab == "features" ? (
+                                <div className={`lg-px-screen-edge tw-flex tw-flex-row tw-py-2 tw-items-center tw-gap-2 tw-text-left ${itemIndex % 2 == 0 ? "lg-bg-secondary-300" : ""}`}>
                                     <div className="tw-w-2">
-                                        <CircleFill className="tw-w-2 tw-h-2 lg-bg-secondary-100 tw-rounded-full" />
+                                        <CircleFill className="tw-w-1.5 tw-h-1.5 lg-bg-secondary-100 tw-rounded-full" />
                                     </div>
 
                                     <div>{item.value}</div>
@@ -435,7 +471,7 @@ function ProductDescription({
     className: string;
 }) {
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-flex-tw-flex-col", className)}>
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge tw-flex-tw-flex-col", className)}>
             <div className="lg-text-headline tw-text-center">{getVernacularString("productPageProductDescription", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-6" />
@@ -467,7 +503,7 @@ function ProductDescription({
                 </div>
             ) : (
                 productDescription.images.length === 1 && (
-                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[45%] tw-justify-center">
+                    <div className="tw-hidden lg:tw-grid lg:tw-grid-flow-col lg:tw-auto-cols-[45%] lg:tw-justify-center">
                         <div className="tw-rounded-lg tw-w-full">
                             <FullWidthImage
                                 relativePath={productDescription.images[0].image}
@@ -550,21 +586,7 @@ function ProductRating({userPreferences, reviews, className}: {userPreferences: 
     );
 }
 
-function SuggestedProducts({
-    userPreferences,
-    recommendedProducts,
-    className,
-}: {
-    userPreferences: UserPreferences;
-    recommendedProducts: Array<{
-        title: string;
-        imageRelativePath: string;
-        buttonText: string;
-        bestseller: boolean;
-        link: string;
-    }>;
-    className: string;
-}) {
+function SuggestedProducts({userPreferences, recommendedProducts, className}: {userPreferences: UserPreferences; recommendedProducts: Array<ProductDetailsRecommendedProduct>; className: string}) {
     return (
         <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
             <div className="tw-flex tw-flex-col">
@@ -580,14 +602,14 @@ function SuggestedProducts({
             <div className="tw-grid max-lg:tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr),minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-flow-col lg:tw-auto-cols-[15.875rem] lg:tw-justify-center tw-gap-x-3 tw-gap-y-10">
                 <ItemBuilder
                     items={recommendedProducts}
-                    itemBuilder={(combo, comboIndex) => (
+                    itemBuilder={(recommendedProduct, recommendedProductIndex) => (
                         <div
                             className={`lg-bg-secondary-100 tw-rounded-lg`}
-                            key={comboIndex}
+                            key={recommendedProductIndex}
                         >
                             <ProductCardComponent
-                                vernacularContent={combo}
-                                key={comboIndex}
+                                recommendedProduct={recommendedProduct}
+                                key={recommendedProductIndex}
                                 userPreferences={userPreferences}
                             />
                         </div>

@@ -1,9 +1,6 @@
 import {Combobox, Transition} from "@headlessui/react";
 import {CheckIcon, ChevronUpDownIcon} from "@heroicons/react/20/solid";
-import React, {useRef} from "react";
-import {useState} from "react";
-import {ChevronDown, RecordCircle} from "react-bootstrap-icons";
-import {Uuid} from "~/global-common-typescript/typeDefinitions";
+import React, {useState} from "react";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
@@ -16,6 +13,8 @@ export function FancySearchableSelect<T extends string>({
     renderFunction,
     placeholder,
     className,
+    disabled,
+    inputClassName,
 }: {
     items: Array<T>;
     selectedItem: T | null;
@@ -24,6 +23,8 @@ export function FancySearchableSelect<T extends string>({
     renderFunction: (item: T) => string;
     placeholder: string;
     className?: string;
+    disabled?: boolean;
+    inputClassName?: string;
 }) {
     const [query, setQuery] = useState("");
     // const [isOpen, setIsOpen] = useState(false);
@@ -35,11 +36,12 @@ export function FancySearchableSelect<T extends string>({
             <Combobox
                 value={selectedItem}
                 onChange={setSelectedItem}
+                disabled={disabled}
             >
                 <div className="tw-relative">
                     <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_2.875rem]">
                         <Combobox.Input
-                            className="tw-row-start-1 tw-col-start-1 tw-col-span-2 lg-text-input tw-w-full"
+                            className={concatenateNonNullStringsWithSpaces("tw-row-start-1 tw-col-start-1 tw-col-span-2 lg-text-input tw-w-full", inputClassName)}
                             displayValue={renderFunction}
                             placeholder={placeholder}
                             onChange={(event) => {
@@ -54,9 +56,7 @@ export function FancySearchableSelect<T extends string>({
                             // }}
                         />
 
-                        <Combobox.Button
-                            className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center"
-                        >
+                        <Combobox.Button className="tw-row-start-1 tw-col-start-2 tw-grid tw-place-items-center">
                             <ChevronUpDownIcon className="tw-h-4 tw-w-4" />
                         </Combobox.Button>
                     </div>
@@ -72,8 +72,10 @@ export function FancySearchableSelect<T extends string>({
                             // static={isOpen}
                             className="tw-absolute tw-z-40 tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm"
                         >
-                            {filteredItems.length == 0 && query != "" ? (
-                                <div className="tw-relative tw-cursor-default tw-select-none tw-py-2 tw-px-4 tw-text-gray-700">Nothing found.</div>
+                            {items.length == 0 ? (
+                                <div className="tw-relative tw-cursor-default tw-select-none tw-py-2 tw-px-4 tw-text-gray-700">No results</div>
+                            ) : filteredItems.length == 0 && query != "" ? (
+                                <div className="tw-relative tw-cursor-default tw-select-none tw-py-2 tw-px-4 tw-text-gray-700">Nothing found</div>
                             ) : (
                                 filteredItems.map((item, itemIndex) => (
                                     <Combobox.Option
@@ -182,6 +184,37 @@ export function FancySearchableSelect<T extends string>({
     // );
 }
 
+export function ChipButtonWithText({
+    isSelected,
+    onClick,
+    contentId,
+    userPreferences,
+    className,
+}: {
+    isSelected: boolean;
+    onClick: () => void;
+    contentId: string;
+    userPreferences: UserPreferences;
+    className?: string;
+}) {
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-grid tw-grid-cols-1 tw-place-items-center lg-card tw-rounded-lg tw-px-4 tw-py-2 tw-duration-200 tw-cursor-pointer tw-w-max",
+                isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
+                className,
+            )}
+            onClick={onClick}
+        >
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-whitespace-nowrap", isSelected ? "!tw-text-secondary-900-dark" : "lg-text-secondary-900")}
+                dangerouslySetInnerHTML={{__html: getVernacularString(contentId, userPreferences.language)}}
+            />
+        </div>
+    );
+}
+
+// TODO: Rename to ChipButtonWithIconAndText
 export function ButtonWithIconAndText({
     isSelected,
     iconRelativePath,
@@ -198,19 +231,19 @@ export function ButtonWithIconAndText({
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-place-items-center tw-rounded-lg tw-py-2 tw-transition-colors tw-duration-200 tw-cursor-pointer",
+                "lg-card tw-grid tw-grid-cols-[1rem_auto_0.5rem_auto_minmax(1rem,1fr)] tw-place-items-center tw-rounded-lg tw-py-2 tw-transition-colors tw-duration-200 tw-cursor-pointer",
                 isSelected ? "lg-bg-primary-500" : "lg-bg-secondary-100",
             )}
             onClick={onClick}
         >
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "tw-col-start-2 tw-w-[2rem] tw-h-[2rem] tw-rounded-full tw-flex tw-flex-row tw-justify-center tw-items-center tw-shadow-[0px_4px_4px_0px_#00000040]",
-                    isSelected ? "tw-bg-white" : "tw-bg-secondary-500-light",
+                    "tw-col-start-2 tw-w-[2rem] tw-h-[2rem] tw-rounded-full tw-flex tw-flex-row tw-justify-center tw-items-center lg-card",
+                    isSelected ? "!tw-bg-secondary-100-light" : null,
                 )}
             >
                 <img
-                    className={isSelected ? "tw-invert" : ""}
+                    className={isSelected ? "tw-brightness-0" : ""}
                     src={iconRelativePath}
                 />
             </div>

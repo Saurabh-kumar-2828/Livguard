@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
         loadCalculatorOutputs.recommendedBatteries = loadCalculatorOutputs.recommendedBatteries.map((battery) => {
             return {
                 ...battery,
-                imageUrl: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/batteries/${battery.model}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
+                imageUrl: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/${battery.model}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
             };
         });
     }
@@ -48,7 +48,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
         loadCalculatorOutputs.recommendedInverters = loadCalculatorOutputs.recommendedInverters.map((inverter) => {
             return {
                 ...inverter,
-                imageUrl: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/inverters/${inverter.model}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
+                imageUrl: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/${inverter.model}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
             };
         });
     }

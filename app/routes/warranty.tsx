@@ -1,5 +1,5 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {ActionFunction, LinksFunction, LoaderFunction, json} from "@remix-run/node";
+import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
 import {Form, Link, useActionData, useFetcher, useSubmit} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef} from "react";
 import {useState} from "react";
@@ -16,7 +16,7 @@ import {getAbsolutePathForRelativePath} from "~/global-common-typescript/compone
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {getStringFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getObjectFromUnknown, getStringFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern, pinCodeValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
@@ -24,7 +24,7 @@ import {FaqSectionInternal} from "~/components/faqs";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import type {UserPreferences} from "~/typeDefinitions";
+import {Language, type UserPreferences} from "~/typeDefinitions";
 import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {
@@ -38,26 +38,126 @@ import {
 } from "~/routes/warranty-form-state";
 import {getFormSelectProductItems} from "~/routes/contact-us";
 import {SocialMediaIcons} from "~/components/footers/common";
+import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;
 //     if (userPreferences.language == Language.English) {
 //         return {
-//             title: "Buy Inverter Battery Online at Best Prices In India",
-//             description: "Invest in the best inverter batteries for your home with Livguard. Experience efficiency and comfort with the battery's long life",
+//             title: "Livguard Warranty: Protect Your Investment Today",
+//             description: "Comprehensive Livguard warranty protects your purchases with reliable coverage and peace of mind. Explore now!",
+//             "og:title": "Livguard Warranty: Protect Your Investment Today",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/warranty",
+//             "og:description": "Comprehensive Livguard warranty protects your purchases with reliable coverage and peace of mind. Explore now!",
+//             "og:type": "Website",
+//             "og:image": "",
 //         };
 //     } else if (userPreferences.language == Language.Hindi) {
 //         return {
-//             title: "भारत में सर्वोत्तम मूल्य पर इनवर्टर बैटरी ऑनलाइन खरीदें",
-//             description: "लिवगार्ड के साथ अपने घर के लिए सर्वश्रेष्ठ इनवर्टर बैटरी में निवेश करें। बैटरी के लंबे जीवन के साथ क्षमता और आराम का अनुभव करें",
+//             title: "लिवगार्ड वारंटी: आज ही अपने निवेश को सुरक्षित करें।",
+//             description: "लिवगार्ड की व्यापक वारंटी आपकी खरीदारी की प्रमुखता के साथ विश्वसनीय कवरेज और चिंता मुक्ति प्रदान करती है। अभी खोजें!",
+//             "og:title": "लिवगार्ड वारंटी: आज ही अपने निवेश को सुरक्षित करें।",
+//             "og:site_name": "लिवगार्ड",
+//             "og:url": "https://www.livguard.com/warranty",
+//             "og:description": "Livguard की व्यापक वारंटी आपकी खरीदारी की प्रमुखता के साथ विश्वसनीय कवरेज और चिंता मुक्ति प्रदान करती है। अभी खोजें!",
+//             "og:type": "website",
+//             "og:image": "",
 //         };
 //     } else {
 //         throw Error(`Undefined language ${userPreferences.language}`);
 //     }
 // };
 
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/contact-us/"}];
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/warranty"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
+    if (userPreferences.language == Language.English) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/warranty",
+            },
+            {
+                title: "Livguard Warranty: Protect Your Investment Today",
+            },
+            {
+                name: "description",
+                content: "Comprehensive Livguard warranty protects your purchases with reliable coverage and peace of mind. Explore now!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/warranty",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Warranty: Protect Your Investment Today",
+            },
+            {
+                property: "og:description",
+                content: "Comprehensive Livguard warranty protects your purchases with reliable coverage and peace of mind. Explore now!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
+    } else if (userPreferences.language == Language.Hindi) {
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/warranty",
+            },
+            {
+                title: "लिवगार्ड वारंटी: आज ही अपने निवेश को सुरक्षित करें।",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड की व्यापक वारंटी आपकी खरीदारी की प्रमुखता के साथ विश्वसनीय कवरेज और चिंता मुक्ति प्रदान करती है। अभी खोजें!",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/warranty",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड वारंटी: आज ही अपने निवेश को सुरक्षित करें।",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड की व्यापक वारंटी आपकी खरीदारी की प्रमुखता के साथ विश्वसनीय कवरेज और चिंता मुक्ति प्रदान करती है। अभी खोजें!",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "लिवगार्ड",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
+    } else {
+        throw Error(`Undefined language ${userPreferences.language}`);
+    }
 };
 
 export type ActionData = {
@@ -74,12 +174,12 @@ export const action: ActionFunction = async ({request, params}) => {
 
         if (jsonDataParsed != null) {
             const contactNumber = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
-            const email = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
-            const name = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
-            const pincode = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
-            const city = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
-            const state = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
-            const products = safeParse(getStringFromUnknown, jsonDataParsed.contactNumber);
+            const email = safeParse(getStringFromUnknown, jsonDataParsed.email);
+            const name = safeParse(getStringFromUnknown, jsonDataParsed.name);
+            const pincode = safeParse(getStringFromUnknown, jsonDataParsed.pincode);
+            const city = safeParse(getStringFromUnknown, jsonDataParsed.city);
+            const state = safeParse(getStringFromUnknown, jsonDataParsed.state);
+            const products = jsonDataParsed.products;
 
             if (contactNumber == null || email == null || name == null || pincode == null || city == null || state == null || products == null || uuid == null) {
                 const actionData: ActionData = {
@@ -164,9 +264,10 @@ export default function () {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
+                pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "#"},
+                    {contentId: "237533ce-d6ab-4735-8064-14567ca50a48", link: "#"},
                 ]}
             >
                 <WarrantyRegistrationPage
@@ -213,7 +314,7 @@ function WarrantyRegistrationPage({userPreferences, utmParameters, actionData}: 
 
             <RequestAServiceBanner
                 userPreferences={userPreferences}
-                className="tw-row-start-9 tw-max-w-7xl tw-mx-auto lg-px-screen-edge-2"
+                className="tw-row-start-9 tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10" />
@@ -229,23 +330,24 @@ function WarrantyRegistrationPage({userPreferences, utmParameters, actionData}: 
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(3.5rem,1fr)_auto_auto_1rem_auto_3rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-grid-cols-2",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(3.5rem,1fr)_auto_auto_1rem_auto_3rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_minmax(0,1fr)] lg:tw-text-start tw-text-center lg:tw-grid-cols-2",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/warranty/1/warranty_mobile_banner.jpg" : "/livguard/warranty/1/warranty_banner_desktop.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-col-span-full tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/contact-us/1/mobile_hero.jpg" : "/livguard/contact-us/1/desktop_hero.jpg"}
-                />
-            )}
+            <div className="tw-row-start-1 tw-col-start-1 tw-col-span-full tw-row-span-full">
+                {useIsScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/warranty/1/mobile-banner.jpg" : "/livguard/warranty/1/desktop-banner.jpg"}
+                        className=""
+                        key={isScreenSizeBelow ? "/livguard/warranty/1/mobile-banner.jpg" : "/livguard/warranty/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
                 <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
@@ -259,9 +361,9 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1">
+            {/* <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1">
                 <div className="lg-text-body lg-px-screen-edge-2 !tw-text-secondary-900-dark">{getVernacularString("e631b621-5214-4ef4-a2d6-1b6126137c00", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+            </DefaultTextAnimation> */}
         </div>
     );
 }
@@ -309,7 +411,7 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
         return (
             <>
                 <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-items-center tw-justify-center lg:tw-flex-row tw-px-2", className)}>
-                    <div className="tw-rounded-full tw-w-16 tw-h-16 lg-bg-secondary-100 tw-mb-2 lg:tw-mr-2 lg:tw-mb-0 tw-flex tw-justify-center tw-items-center">
+                    <div className="tw-w-16 tw-h-16 lg-card tw-rounded-full tw-mb-2 lg:tw-mr-2 lg:tw-mb-0 tw-flex tw-justify-center tw-items-center">
                         <img
                             src={getAbsolutePathForRelativePath(getMetadataForImage(iconUrl).finalUrl, ImageCdnProvider.Bunny, null, null)}
                             alt=""
@@ -339,7 +441,7 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_2rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}>
+            <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_2rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}>
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("4c465a92-fb45-41f3-9fc5-dfed80962b12", userPreferences.language)}}
                     className="tw-row-start-1 lg-text-headline tw-text-center tw-mb-1"
@@ -393,6 +495,47 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
     const [warrantyDateOfBirthSubmitted, setWarrantyDateOfBirthSubmitted] = useState(false);
     const fetcher = useFetcher();
 
+    const [showOtpField, setShowOtpField] = useState(false);
+    const [showOtpButton, setShowOtpButton] = useState(false);
+    const [resendTimeOut, setResendTimeOut] = useState(0);
+    const [invalidOtp, setInvalidOtp] = useState(false);
+    const [isOtpResent, setIsOtpResent] = useState(false);
+    const phoneNumberRef = useRef<HTMLInputElement | null>(null);
+    const otpFieldRef = useRef<HTMLInputElement | null>(null);
+
+    const [otpSubmitted, setIsOtpSubmitted] = useState(false);
+    const otpFetcher = useFetcher();
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
+
+    const otpValidateFetcher = useFetcher();
+
+    useEffect(() => {
+        if (otpFetcher.data == null) {
+            return;
+        } else if (otpFetcher.data.error != null) {
+            toast.error(otpFetcher.data.error);
+            return;
+        }
+        if (isOtpResent) {
+            toast.success("OTP resent successfully");
+        } else {
+            toast.success("OTP sent successfully");
+        }
+    }, [otpFetcher.data]);
+
+    useEffect(() => {
+        if (resendTimeOut > 0 && showOtpField) {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
+                console.log("action dispatching", resendTimeOut);
+                setResendTimeOut((prev) => prev - 1);
+            }, 1000);
+            setTimeoutId(timeout);
+        }
+    }, [resendTimeOut]);
+
     useEffect(() => {
         if (fetcher.data == null) {
             return;
@@ -409,29 +552,53 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
     }, [fetcher.data]);
 
     const validateFormStep1 = () => {
-        // Checking if any field is either empty or invalid based on the provided pattern
-        return Object.keys(warrantyFormState).every((key) => {
-            const enumKey: keyof typeof WarrantyFormFieldKeys = key as WarrantyFormFieldKeys;
-            if (warrantyFormState[enumKey] == null || warrantyFormState[enumKey] === "") {
-                toast.error(warrantyFormErrorMessages[enumKey].emptyMessage);
-                return false;
+        // Validating OTP
+        const data = new FormData();
+        data.append("phoneNumber", warrantyFormState.contactNumber);
+        data.append("otpSubmitted", warrantyFormState.otpSubmitted);
+        console.log(warrantyFormState.otpSubmitted);
+        otpValidateFetcher.submit(data, {method: "post", action: "/warranty/validate-otp"});
+    };
+
+    useEffect(() => {
+        if (otpValidateFetcher.data != null) {
+            const data = otpValidateFetcher.data;
+
+            if (data.error != null) {
+                toast.error(data.error);
+                return;
             }
 
-            // Checking if a pattern has been provided for this key
-            if (Object.keys(warrantyFormErrorMessages[enumKey]).includes("pattern") && warrantyFormErrorMessages[enumKey].pattern !== "") {
-                // Since products are stored in an array, their validation has to be handled slightly differently
-                if (key !== WarrantyFormFieldKeys.products) {
-                    // Since there is only one non string key in WarrantyFormFieldKeys enum, we have already filtered that, so we can safely use ts-ignore for this error
-                    if (!warrantyFormState[enumKey].match(warrantyFormErrorMessages[enumKey].pattern)) {
-                        // If pattern doesn't match, show invalid message
-                        toast.error(warrantyFormErrorMessages[enumKey].invalidMessage);
-                        return false;
+            if (data.isInvalidOtp != null && data.isInvalidOtp) {
+                setInvalidOtp(true);
+                return;
+            }
+
+            // Checking if any field is either empty or invalid based on the provided pattern
+            Object.keys(warrantyFormState).every((key) => {
+                const enumKey: keyof typeof WarrantyFormFieldKeys = key as WarrantyFormFieldKeys;
+                if (warrantyFormState[enumKey] == null || warrantyFormState[enumKey] === "") {
+                    toast.error(warrantyFormErrorMessages[enumKey].emptyMessage);
+                    return;
+                }
+
+                // Checking if a pattern has been provided for this key
+                if (Object.keys(warrantyFormErrorMessages[enumKey]).includes("pattern") && warrantyFormErrorMessages[enumKey].pattern !== "") {
+                    // Since products are stored in an array, their validation has to be handled slightly differently
+                    if (key !== WarrantyFormFieldKeys.products) {
+                        // Since there is only one non string key in WarrantyFormFieldKeys enum, we have already filtered that, so we can safely use ts-ignore for this error
+                        if (!warrantyFormState[enumKey].match(warrantyFormErrorMessages[enumKey].pattern)) {
+                            // If pattern doesn't match, show invalid message
+                            toast.error(warrantyFormErrorMessages[enumKey].invalidMessage);
+                            return;
+                        }
                     }
                 }
-            }
-            return true;
-        });
-    };
+                // setIsStep1Valid(true);
+                setRegisterFormStepNumber(2);
+            });
+        }
+    }, [otpValidateFetcher.data]);
 
     const validateFormStep2 = () => {
         return warrantyFormState.products.every((product, productIndex) => {
@@ -456,7 +623,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
     useEffect(() => {
         if (actionData != null) {
             if (actionData.error != null) {
-                toast.error("Error in submitting form! Error code: 8893a658-1ab9-43e3-8998-2031d9a00672");
+                toast.error(actionData.error);
                 return;
             }
 
@@ -480,36 +647,9 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
 
             <VerticalSpacer className="tw-h-6 tw-row-start-2" />
 
-            {/* <div className="tw-grid tw-row-start-3 tw-grid-cols-2 tw-gap-2 tw-items-center tw-px-2">
-                <button
-                    className={`tw-rounded tw-flex-none sm:tw-flex tw-max-w-fit tw-p-3 tw-gap-2  ${selectedIndex == 0 ? "lg-bg-gradient-dark" : "tw-bg-black"}`}
-                    onClick={() => emblaApi?.scrollTo(0)}
-                >
-                    <div className="lg-bg-secondary-100 tw-max-w-fit  tw-m-auto sm:tw-m-2 tw-p-3 tw-aspect-square tw-w-20 tw-rounded-full tw-flex tw-justify-center tw-items-center">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/warranty/register-product.svg"
-                            alt=""
-                        />
-                    </div>
-                    <p className="tw-self-center tw-text-center">{getVernacularString("headerMenuS1T7", userPreferences.language)}</p>
-                </button>
-                <button
-                    className={`tw-rounded tw-flex-none sm:tw-flex tw-p-3 tw-max-w-fit tw-gap-2  ${selectedIndex == 1 ? "lg-bg-gradient-dark" : "tw-bg-black"} `}
-                    onClick={() => emblaApi?.scrollTo(1)}
-                >
-                    <div className="lg-bg-secondary-100 tw-m-auto sm:tw-m-2 tw-p-3 tw-max-w-fit tw-aspect-square tw-w-20 tw-rounded-full tw-flex tw-justify-center tw-items-center">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/warranty/register-product.svg"
-                            alt=""
-                        />
-                    </div>
-                    <p className="tw-self-center tw-text-center">{getVernacularString("13c626bb-768d-46c7-917e-bff245315f64", userPreferences.language)}</p>
-                </button>
-            </div> */}
-
             <div className="tw-row-start-3 tw-col-span-full tw-w-full">
                 <div
-                    className="tw-overflow-hidden tw-w-full"
+                    className="tw-overflow-hidden tw-w-full tw-px-3"
                     // ref={emblaRef}
                 >
                     <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-gap-2 tw-w-full">
@@ -523,8 +663,26 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                 >
                                     {registerFormStepNumber === 1 ? (
                                         <>
-                                            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4 lg:tw-gap-2">
-                                                <div className="tw-row-start-1 tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-4 lg:tw-gap-x-2">
+                                                <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
+                                                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("70c4b348-67de-4873-bb1e-8d060f7d98c8", userPreferences.language)}</div>
+
+                                                    <input
+                                                        type="text"
+                                                        name="name"
+                                                        className="lg-text-input"
+                                                        placeholder={getVernacularString("5249c7c4-1840-410d-b6c7-f4c53ab8369a", userPreferences.language)}
+                                                        value={warrantyFormState.name}
+                                                        onChange={(e) => {
+                                                            const action: WarrantyFormStateInputsAction = {
+                                                                type: WarrantyFormActionTypes.SetName,
+                                                                payload: e.target.value,
+                                                            };
+                                                            dispatchWarrantyFormAction(action);
+                                                        }}
+                                                    />
+                                                </div>
+                                                {/* <div className="tw-row-start-1 tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                         {getVernacularString("7ce4697b-82b4-47c3-944d-0c7edbcd1ccd", userPreferences.language)}
                                                     </div>
@@ -544,9 +702,156 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                             dispatchWarrantyFormAction(action);
                                                         }}
                                                     />
+                                                </div> */}
+                                                <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
+
+                                                <div className="tw-grid tw-grid-cols-1 lg:tw-col-start-2 tw-gap-4 lg:tw-gap-2">
+                                                    {!showOtpField ? (
+                                                        <div className="lg-text-secondary-900">{getVernacularString("17cfa283-6fcc-4a49-9dfe-a392e0310b27", userPreferences.language)}</div>
+                                                    ) : (
+                                                        <div className="tw-grid tw-w-full tw-items-center tw-grid-cols-[auto_0.5rem_minmax(0,1fr)] tw-pl-3">
+                                                            <div
+                                                                className="tw-col-start-1 tw-text-primary-500-light hover:tw-cursor-pointer lg-text-body-bold"
+                                                                onClick={(e) => {
+                                                                    setShowOtpField(false);
+                                                                    setResendTimeOut(0);
+                                                                    if (phoneNumberRef.current != null) {
+                                                                        phoneNumberRef.current.focus();
+                                                                    }
+                                                                }}
+                                                            >
+                                                                {getVernacularString("phoneNumberChnage", userPreferences.language)}
+                                                            </div>
+                                                            <div className="tw-col-start-3 lg-text-secondary-900 lg-text-body-bold">{warrantyFormState.contactNumber}</div>
+                                                        </div>
+                                                    )}
+
+                                                    {!showOtpField ? (
+                                                        <div className="tw-relative tw-w-full tw-items-center tw-grid">
+                                                            <input
+                                                                type="text"
+                                                                name="phone"
+                                                                pattern={indianPhoneNumberValidationPattern}
+                                                                placeholder={getVernacularString("1e90dca7-b78f-4231-b2df-644a3b0322d1", userPreferences.language)}
+                                                                required
+                                                                className="lg-text-input tw-w-full"
+                                                                disabled={showOtpField}
+                                                                defaultValue={warrantyFormState.contactNumber}
+                                                                ref={phoneNumberRef}
+                                                                onChange={(e) => {
+                                                                    dispatchWarrantyFormAction({
+                                                                        type: WarrantyFormActionTypes.SetContactNumber,
+                                                                        payload: e.target.value,
+                                                                    });
+                                                                    if (e.target.value.length == 10) {
+                                                                        setShowOtpButton(true);
+                                                                    } else {
+                                                                        setShowOtpButton(false);
+                                                                    }
+                                                                }}
+                                                                onBlur={(e) => {
+                                                                    if (warrantyFormState.contactNumber.length == 10) {
+                                                                        setShowOtpButton(true);
+                                                                    }
+                                                                }}
+                                                                onFocus={(e) => {
+                                                                    if (warrantyFormState.contactNumber.length == 10) {
+                                                                        setShowOtpButton(true);
+                                                                    }
+                                                                }}
+                                                            />
+                                                            <div
+                                                                className={concatenateNonNullStringsWithSpaces(
+                                                                    "tw-absolute tw-right-2 tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-full tw-px-2 tw-py-1 tw-items-center tw-text-secondary-100-light hover:tw-cursor-pointer",
+                                                                    showOtpButton ? "tw-opacity-100 tw-duration-100 tw-z-10" : "tw-opacity-0 -tw-z-10 tw-duration-100",
+                                                                )}
+                                                                onClick={(e) => {
+                                                                    if (warrantyFormState.name.length === 0) {
+                                                                        toast.error("Name cannot be null! Error code: 3b08d311-0e27-477e-b2dc-38eb172db2f7");
+                                                                        return;
+                                                                    }
+                                                                    setShowOtpButton(false);
+                                                                    setShowOtpField(true);
+                                                                    setResendTimeOut(60);
+
+                                                                    if (otpFieldRef.current != null) {
+                                                                        otpFieldRef.current.focus();
+                                                                    }
+                                                                    const data = new FormData();
+                                                                    data.append("phoneNumber", warrantyFormState.contactNumber);
+                                                                    data.append("name", warrantyFormState.name);
+                                                                    otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                                                }}
+                                                            >
+                                                                {getVernacularString("OfferFormGetOTP", userPreferences.language)}
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                        <div
+                                                            className={concatenateNonNullStringsWithSpaces(
+                                                                "tw-w-full",
+                                                                showOtpField ? "tw-flex tw-flex-col tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                                            )}
+                                                        >
+                                                            <div className="tw-relative">
+                                                                <input
+                                                                    type="text"
+                                                                    name="otpSubmitted"
+                                                                    className="lg-text-input"
+                                                                    required
+                                                                    placeholder={getVernacularString("contactUsOTPT3E", userPreferences.language)}
+                                                                    ref={otpFieldRef}
+                                                                    value={warrantyFormState.otpSubmitted}
+                                                                    onChange={(e) => {
+                                                                        if (e.target.value.length > 0) {
+                                                                            setIsOtpSubmitted(true);
+                                                                        }
+                                                                        dispatchWarrantyFormAction({
+                                                                            type: WarrantyFormActionTypes.SetOtpSubmitted,
+                                                                            payload: e.target.value,
+                                                                        });
+                                                                    }}
+                                                                />
+                                                                {invalidOtp && (
+                                                                    <div className="lg-text-primary-500 tw-absolute lg-text-icon tw-right-2 tw-top-0 tw-bottom-0 tw-pt-[18px]">
+                                                                        {getVernacularString("OfferInvalidOTP", userPreferences.language)}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    )}
                                                 </div>
 
-                                                <div className="tw-row-start-2 lg:tw-row-start-1 tw-col-start-1 lg:tw-col-start-2 tw-grid tw-grid-flow-row tw-gap-2">
+                                                <div className="tw-grid lg:tw-col-start-2">
+                                                    <div
+                                                        className={concatenateNonNullStringsWithSpaces(
+                                                            "tw-w-full tw-px-3",
+                                                            showOtpField ? "tw-flex tw-flex-row tw-justify-between tw-opacity-100 tw-duration-100 tw-z-10" : "tw-hidden tw-opacity-0 -tw-z-100",
+                                                        )}
+                                                    >
+                                                        <div
+                                                            className={concatenateNonNullStringsWithSpaces(
+                                                                "lg-text-secondary-700 tw-text-[12px]",
+                                                                `${resendTimeOut > 0 ? undefined : "hover:tw-cursor-pointer"}`,
+                                                            )}
+                                                            onClick={() => {
+                                                                setIsOtpResent(true);
+                                                                setResendTimeOut(60);
+
+                                                                const data = new FormData();
+                                                                data.append("phoneNumber", warrantyFormState.contactNumber);
+                                                                data.append("name", warrantyFormState.name);
+                                                                otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
+                                                            }}
+                                                        >
+                                                            {getVernacularString("OfferResendOTP", userPreferences.language)}
+                                                        </div>
+                                                        <div className="lg-text-secondary-700 tw-text-[12px]">{`00:${resendTimeOut}`}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4 lg:tw-gap-2">
+                                                <div className="tw-row-start-2 lg:tw-row-start-1 tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                                     <div className="lg-text-body lg-text-secondary-900">{getVernacularString("1e26fc77-d6ce-496f-8a43-b0ff4d3f1f7e", userPreferences.language)}</div>
 
                                                     <input
@@ -559,26 +864,6 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                         onChange={(e) => {
                                                             const action: WarrantyFormStateInputsAction = {
                                                                 type: WarrantyFormActionTypes.SetEmail,
-                                                                payload: e.target.value,
-                                                            };
-                                                            dispatchWarrantyFormAction(action);
-                                                        }}
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4 lg:tw-gap-2">
-                                                <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
-                                                    <div className="lg-text-body lg-text-secondary-900">{getVernacularString("70c4b348-67de-4873-bb1e-8d060f7d98c8", userPreferences.language)}</div>
-
-                                                    <input
-                                                        type="text"
-                                                        name="name"
-                                                        className="lg-text-input"
-                                                        placeholder={getVernacularString("5249c7c4-1840-410d-b6c7-f4c53ab8369a", userPreferences.language)}
-                                                        value={warrantyFormState.name}
-                                                        onChange={(e) => {
-                                                            const action: WarrantyFormStateInputsAction = {
-                                                                type: WarrantyFormActionTypes.SetName,
                                                                 payload: e.target.value,
                                                             };
                                                             dispatchWarrantyFormAction(action);
@@ -654,16 +939,20 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                             <div className="tw-place-self-center tw-w-full tw-mt-2 tw-grid tw-justify-items-center">
                                                 <button
                                                     type="button"
-                                                    className="tw-w-full lg-cta-button lg:tw-w-1/2"
+                                                    className="tw-w-full lg-cta-button lg:tw-w-1/2 disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                                                     onClick={() => {
-                                                        if (validateFormStep1()) {
-                                                            setRegisterFormStepNumber(2);
-                                                        }
+                                                        validateFormStep1();
                                                     }}
+                                                    disabled={otpFetcher.data == null || !otpSubmitted}
                                                 >
                                                     {getVernacularString("79acc43f-692e-439a-ae40-75f7f0e60c95", userPreferences.language)}
                                                 </button>
                                             </div>
+
+                                            <HiddenFormField
+                                                name="phone"
+                                                value={warrantyFormState.contactNumber}
+                                            />
                                         </>
                                     ) : (
                                         registerFormStepNumber === 2 && (
@@ -735,7 +1024,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                                 return false;
                                                             }
                                                         }}
-                                                        className="tw-cursor-pointer tw-row-start-4 lg:tw-row-start-3 tw-col-start-1 tw-col-span-2 lg:tw-col-span-1 tw-my-3 tw-w-full lg-text-body lg-cta-button !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-rounded-full tw-p-3"
+                                                        className="tw-cursor-pointer tw-row-start-4 lg:tw-row-start-3 tw-col-start-1 tw-col-span-2 lg:tw-col-span-1 tw-my-3 tw-w-full lg-text-body lg-cta-button !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-rounded-full tw-p-3 disabled:!tw-bg-none disabled:!tw-bg-secondary-300-light disabled:dark:!tw-bg-secondary-300-dark disabled:!tw-text-secondary-700-light disabled:dark:!tw-text-secondary-700-dark"
                                                     >
                                                         {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
                                                     </button>
@@ -841,137 +1130,9 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                         dangerouslySetInnerHTML={{__html: getVernacularString("bf43b0f2-2e29-4290-a7a6-4fc1bb305c56", userPreferences.language)}}
                                         className="tw-row-start-12 tw-text-center lg-text-body"
                                     />
-
-                                    {/* {rating <div 3 ? (
-                                        <div
-                                            dangerouslySetInnerHTML={{ __html: getVernacularString("contactPageFeedbackSuccessLowRatingMessage", userPreferences.language) }}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    ) : (
-                                        <div
-                                            dangerouslySetInnerHTML={{ __html: getVernacularString("contactPageFeedbackSuccessHighRatingMessage", userPreferences.language) }}
-                                            className="lg-text-body tw-row-start-6 tw-text-center"
-                                        />
-                                    )} */}
                                 </div>
                             )}
                         </div>
-
-                        {/* <div className="tw-grid tw-grid-flow-row">
-                            {!isViewProductFormSubmitted ? (
-                                <Form
-                                    method="post"
-                                    className="tw-grid  tw-gap-3 lg:tw-px-2"
-                                >
-
-                                    <div className="tw-grid tw-gap-6 tw-row-start-1">
-                                        <VerticalSpacer className="tw-h-2 tw-row-start-1" />
-                                        <div className="tw-grid tw-row-start-2">
-                                            <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("contactUsS3FormNumberText", userPreferences.language)}</div>
-
-                                            <input
-                                                type="text"
-                                                name="phone"
-                                                className="lg-text-input tw-row-start-2"
-                                                pattern={indianPhoneNumberValidationPattern}
-                                                placeholder={getVernacularString("contactUsS3FormNumberPlaceholder", userPreferences.language)}
-                                            />
-                                        </div>
-
-                                        <div className="tw-flex tw-row-start-3 tw-col-start-1 tw-overflow-hidden tw-w-11/12 tw-justify-center tw-items-center">
-                                            <p>..................................................................................................................</p>
-                                            <span className="tw-text-white">OR</span>
-                                            <span>............................................................................................................</span>
-                                        </div>
-
-                                        <div className="tw-grid tw-row-start-4">
-                                            <div className="tw-col-start-1 tw-grid ">
-                                                <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
-                                                    {getVernacularString("f0b96564-0f72-493f-8d69-11a797004751", userPreferences.language)}
-                                                </div>
-
-                                                <input
-                                                    type="text"
-                                                    name="serialNumber"
-                                                    className="lg-text-input"
-                                                    placeholder={getVernacularString("cc30e4da-6578-4fe7-8526-5ee7337a6515", userPreferences.language)}
-                                                    required
-                                                />
-                                            </div>
-
-                                            
-                                        </div>
-
-                                        <div className="tw-grid tw-row-start-5 tw-grid-flow-col tw-items-center tw-gap-2">
-                                            <input
-                                                type="checkbox"
-                                                name="termsAndConditionsCheckedCheckbox"
-                                                style={{accentColor: `${isViewProductFormTermsAndConditionsChecked ? "#eb2a2b" : "white"}`}}
-                                                defaultChecked={isViewProductFormTermsAndConditionsChecked}
-                                                required
-                                                onChange={(e) => {
-                                                    setIsViewProductFormTermsAndConditionsChecked(!isViewProductFormTermsAndConditionsChecked);
-                                                }}
-                                            />
-
-                                            <div dangerouslySetInnerHTML={{__html: getVernacularString("contactUsTermsAndConditionsCheckboxtext", userPreferences.language)}} />
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            className="tw-row-start- lg-text-body tw-px-10 tw-py-4 lg-cta-button !tw-text-secondary-900-dark tw-w-1/2 tw-place-self-center lg:tw-place-self-start"
-                                        >
-                                            {getVernacularString("contactUsS3FormButtonText", userPreferences.language)}
-                                        </button>
-                                    </div>
-                                    <div className="tw-row-start-2">
-                                        <input
-                                            name="utmParameters"
-                                            className="tw-hidden"
-                                            readOnly
-                                            value={JSON.stringify(utmSearchParameters)}
-                                        />
-                                        <input
-                                            readOnly
-                                            className="tw-hidden"
-                                            value="viewProductForm"
-                                            name="formType"
-                                        />
-                                        <input
-                                            readOnly
-                                            name="termsAndConditionsChecked"
-                                            className="tw-hidden"
-                                            value={isViewProductFormTermsAndConditionsChecked ? "True" : "False"}
-                                        />
-                                    </div>
-                                </Form>
-                            ) : (
-                                <div className="tw-grid tw-grid-rows-[3.5rem_auto_2rem_auto_1.5rem_auto_1.5rem_auto_1.5rem_auto_minmax(0,1fr)] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center">
-                                    <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
-                                        <FixedWidthImage
-                                            relativePath="/livguard/icons/confirmation.png"
-                                            width="10rem"
-                                        />
-                                    </div>
-
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPagesuccessT1", userPreferences.language)}}
-                                        className="lg-text-banner tw-row-start-4 tw-text-center"
-                                    />
-
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("contactPageComplaintSuccessMessage", userPreferences.language)}}
-                                        className="lg-text-body tw-row-start-6 tw-text-center"
-                                    />
-
-                                    <SocialMediaIcons className="tw-row-start-[8] tw-w-full tw-justify-center" />
-
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: getVernacularString("successT3", userPreferences.language)}}
-                                        className="lg-text-icon tw-row-start-[10] tw-text-center"
-                                    />
-                                </div>
-                            )}
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -1231,7 +1392,7 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
         return (
             <div className="tw-grid tw-grid-rows-[auto_minmax(1rem,1fr)_min-content_1rem_auto] lg:tw-border lg:tw-rounded-lg lg:lg-border-secondary-100 lg:tw-px-10 lg:tw-py-6">
                 <div className="tw-flex tw-justify-center tw-row-start-1">
-                    <div className="tw-flex tw-rounded-full lg-bg-secondary-100 tw-h-20 tw-w-20 tw-items-center tw-justify-center">
+                    <div className="tw-flex lg-card tw-rounded-full tw-h-20 tw-w-20 tw-items-center tw-justify-center">
                         <img
                             src={iconUrl}
                             alt=""
@@ -1301,40 +1462,36 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
 }
 
 function RequestAServiceBanner({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[60vh] lg:tw-h-[40vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_0.5rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
+                "tw-aspect-squre lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_0.5rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <>
-                    <CoverImage
-                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/warranty/5/banner-mobile.jpg" : "/livguard/warranty/5/banner-desktop.jpg"}
-                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full"
-                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/warranty/5/banner-mobile.jpg" : "/livguard/warranty/5/banner-desktop.jpg"}
-                        imageClassName="tw-rounded-lg lg:tw-rounded-[1.25rem]"
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/service/1/mobile-banner.jpg" : "/livguard/service/1/desktop-banner.jpg"}
+                        className="lg:tw-rounded-lg"
+                        key={isScreenSizeBelow ? "/livguard/service/1/mobile-banner.jpg" : "/livguard/service/1/desktop-banner.jpg"}
                     />
-                </>
-            )}
+                )}
+            </div>
 
-            <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge-2 tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-text-center">
+            <DefaultTextAnimation className="tw-row-start-3 lg:tw-row-start-2 tw-col-start-1 lg-px-screen-edge-2">
+                <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start tw-text-center">
                     {getVernacularString("16deb412-ea49-403d-9f2d-b8279dabd5a7", userPreferences.language)}
                 </div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-4 lg:tw-row-start-3 tw-col-start-1">
-                <div className="lg-text-body lg-px-screen-edge-2 !tw-text-secondary-900-dark tw-text-center">
-                    {getVernacularString("1156ca19-8b0c-4c06-bd91-23e394bdee5f", userPreferences.language)}
-                </div>
+            <DefaultTextAnimation className="tw-row-start-4 lg:tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2">
+                <div className="lg-text-body !tw-text-secondary-900-dark tw-text-center">{getVernacularString("1156ca19-8b0c-4c06-bd91-23e394bdee5f", userPreferences.language)}</div>
             </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg-px-screen-edge-2">
+            <DefaultTextAnimation className="tw-flex tw-justify-center tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 tw-z-10">
                 <Link to="/service">
                     <button className="lg-text-body tw-px-10 tw-py-4 lg-cta-button tw-max-w-fit !tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-center tw-text-center">
                         {getVernacularString("51d7f3dd-6922-4a86-8934-2eaf5ec55433", userPreferences.language)}
@@ -1348,24 +1505,24 @@ function RequestAServiceBanner({userPreferences, className}: {userPreferences: U
 function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const faqs = [
         {
-            question: "homeS9Q1Q",
-            answer: "homeS9Q1A",
+            question: "6c28b053-fb02-4e4f-8a8c-c12e13b26a6b",
+            answer: "193ae870-2a1b-43dc-8976-c8d1ffac716e",
         },
         {
-            question: "homeS9Q2Q",
-            answer: "homeS9Q2A",
+            question: "117094f1-4ea2-4f22-9bf6-b20b644a6564",
+            answer: "09563cfb-01e9-42a4-b0e7-231b595c71c0",
         },
         {
-            question: "homeS9Q3Q",
-            answer: "homeS9Q3A",
+            question: "c202866a-f6b2-4896-8f6c-9c5031e19a3c",
+            answer: "daddd312-ee59-4332-a260-1650057bbc98",
         },
         {
-            question: "homeS9Q4Q",
-            answer: "homeS9Q4A",
+            question: "1b52a6be-e8ae-415a-913a-ec5c882e70d3",
+            answer: "8d2ef3a8-7ebf-4e1d-9d3e-35e69168d3ab",
         },
         {
-            question: "homeS9Q5Q",
-            answer: "homeS9Q5A",
+            question: "f87ac2d7-a88e-4183-9b63-eabf706a7bce",
+            answer: "3fbca4dc-48bf-44df-836c-ff8f24e08063",
         },
     ];
 

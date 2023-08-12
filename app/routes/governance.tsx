@@ -1,36 +1,21 @@
-import React, {useEffect, useState} from "react";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, json} from "@remix-run/node";
-import {Form, Link, useActionData, useLoaderData} from "@remix-run/react";
-import {Dialog, Transition} from "@headlessui/react";
-import {toast} from "react-toastify";
-import {useResizeDetector} from "react-resize-detector";
-import {X} from "react-bootstrap-icons";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {insertServiceRequests} from "~/backend/dealer.server";
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
+import type {LoaderFunction} from "@remix-run/node";
+import {Link, useLoaderData} from "@remix-run/react";
 import {CarouselStyle3} from "~/components/carouselStyle3";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductCardComponent} from "~/components/category/common";
-import {FinancialStatements} from "~/routes/investors-staging";
 import {CarouselStyle4} from "~/components/carouselStyle4";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {FinancialStatements} from "~/routes/investors";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 // export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 //     const userPreferences: UserPreferences = data.userPreferences;
@@ -81,7 +66,7 @@ export const loader: LoaderFunction = async ({request}) => {
 };
 
 export default () => {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     return (
@@ -91,7 +76,11 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "59cc9aaf-ed88-4639-9fb4-634aeac22825", link: "#"},
+                ]}
             >
                 <GovernancePage userPreferences={userPreferences} />
             </PageScaffold>
@@ -116,12 +105,12 @@ function GovernancePage({userPreferences}: {userPreferences: UserPreferences}) {
                 />
                 <VerticalSpacer className="tw-h-14 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
-                <ResponsibleRecycling
+                {/* <ResponsibleRecycling
                     userPreferences={userPreferences}
                     className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" /> */}
 
                 <FinancialStatements
                     userPreferences={userPreferences}
@@ -135,27 +124,30 @@ function GovernancePage({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_4rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_4rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/governance/1/governance-banner-mobile.jpg" : "/livguard/governance/1/governance-banner-desktop.jpg"
-                    }
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/governance/1/governance-banner-mobile.jpg" : "/livguard/governance/1/governance-banner-desktop.jpg"}
-                />
-            )}
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/governance/1/mobile-banner.jpg" : "/livguard/governance/1/desktop-banner.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/governance/1/mobile-banner.jpg" : "/livguard/governance/1/desktop-banner.jpg"}
+                    />
+                )}
+            </div>
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1">
+                <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start">
+                    {getVernacularString("a8b4f849-32eb-4bc1-b25e-69450d63cf61", userPreferences.language)}
+                </div>
+            </DefaultTextAnimation>
+            <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1">
                 <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2 tw-place-self-center lg:tw-place-self-start">
                     {getVernacularString("050b72f1-1e00-435b-a879-2c7da1cdabe0", userPreferences.language)}
                 </div>
@@ -182,7 +174,7 @@ function CsrInitiative({userPreferences, className}: {userPreferences: UserPrefe
             <VerticalSpacer className="tw-h-10" />
 
             <div className={concatenateNonNullStringsWithSpaces("tw-w-full")}>
-                <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 lg-bg-secondary-100 tw-px-4 lg:tw-pl-8 tw-py-4 tw-rounded-lg">
+                <div className="tw-grid tw-grid-rows-[repeat(5,auto)] tw-grid-cols-1 lg:tw-grid-rows-[1fr_repeat(4,auto)_1fr] lg:tw-grid-cols-2 tw-gap-y-4 tw-px-4 lg:tw-pl-8 tw-py-4 lg-bg-new-background-500 lg-card tw-rounded-lg">
                     <div className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-headline">
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T1", userPreferences.language)}} />
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS12H1T2", userPreferences.language)}} />
@@ -238,64 +230,76 @@ function CsrInitiative({userPreferences, className}: {userPreferences: UserPrefe
 function ResponsibleRecycling({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const items = [
         {
-            svgIcone: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
-            title: "210958fb-45d3-43f4-a010-f534cbc54902",
+            svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
+            title: "1795f04a-f546-4230-80aa-e73f5020a68e",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/Groupcartridge2.svg",
-            title: "28b20452-b101-4bb4-a800-7339b456e839",
+            svgIcon: "/livguard/e-waste-management/5/cartridge2.svg",
+            title: "e133c65a-9f38-4170-b96a-8b5ee5b4260f",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/computer3.svg",
-            title: "1ae89630-cb8e-437f-923a-65ee528b21b5",
+            svgIcon: "/livguard/e-waste-management/5/computer3.svg",
+            title: "51a87ae7-fadf-48b0-bc54-93000203a850",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/data-destruction5.svg",
-            title: "ba38cd7d-da25-44cd-9ad4-6087039641c4",
+            svgIcon: "/livguard/e-waste-management/5/hard-disk4.svg",
+            title: "86f8e696-7719-4db9-9bc8-083b37380b39",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/hard-disk4.svg",
-            title: "b5a929b6-92cc-4dbb-a59a-7243f3389f83",
+            svgIcon: "/livguard/e-waste-management/5/data-destruction5.svg",
+            title: "a023698b-d95f-4faf-abb9-9aaf92d3b1a9",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
-            title: "210958fb-45d3-43f4-a010-f534cbc54902",
+            svgIcon: "/livguard/e-waste-management/5/data-cleaning.svg",
+            title: "46300379-6d5d-49d3-90af-e1b6510e2f18",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/Groupcartridge2.svg",
-            title: "28b20452-b101-4bb4-a800-7339b456e839",
+            svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
+            title: "1795f04a-f546-4230-80aa-e73f5020a68e",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/computer3.svg",
-            title: "1ae89630-cb8e-437f-923a-65ee528b21b5",
+            svgIcon: "/livguard/e-waste-management/5/cartridge2.svg",
+            title: "e133c65a-9f38-4170-b96a-8b5ee5b4260f",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/data-destruction5.svg",
-            title: "ba38cd7d-da25-44cd-9ad4-6087039641c4",
+            svgIcon: "/livguard/e-waste-management/5/computer3.svg",
+            title: "51a87ae7-fadf-48b0-bc54-93000203a850",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/hard-disk4.svg",
-            title: "b5a929b6-92cc-4dbb-a59a-7243f3389f83",
+            svgIcon: "/livguard/e-waste-management/5/hard-disk4.svg",
+            title: "86f8e696-7719-4db9-9bc8-083b37380b39",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
-            title: "210958fb-45d3-43f4-a010-f534cbc54902",
+            svgIcon: "/livguard/e-waste-management/5/data-destruction5.svg",
+            title: "a023698b-d95f-4faf-abb9-9aaf92d3b1a9",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/Groupcartridge2.svg",
-            title: "28b20452-b101-4bb4-a800-7339b456e839",
+            svgIcon: "/livguard/e-waste-management/5/data-cleaning.svg",
+            title: "46300379-6d5d-49d3-90af-e1b6510e2f18",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/computer3.svg",
-            title: "1ae89630-cb8e-437f-923a-65ee528b21b5",
+            svgIcon: "/livguard/e-waste-management/5/symbol-of-three-arrows1.svg",
+            title: "1795f04a-f546-4230-80aa-e73f5020a68e",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/data-destruction5.svg",
-            title: "ba38cd7d-da25-44cd-9ad4-6087039641c4",
+            svgIcon: "/livguard/e-waste-management/5/cartridge2.svg",
+            title: "e133c65a-9f38-4170-b96a-8b5ee5b4260f",
         },
         {
-            svgIcone: "/livguard/e-waste-management/5/hard-disk4.svg",
-            title: "b5a929b6-92cc-4dbb-a59a-7243f3389f83",
+            svgIcon: "/livguard/e-waste-management/5/computer3.svg",
+            title: "51a87ae7-fadf-48b0-bc54-93000203a850",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/hard-disk4.svg",
+            title: "86f8e696-7719-4db9-9bc8-083b37380b39",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-destruction5.svg",
+            title: "a023698b-d95f-4faf-abb9-9aaf92d3b1a9",
+        },
+        {
+            svgIcon: "/livguard/e-waste-management/5/data-cleaning.svg",
+            title: "46300379-6d5d-49d3-90af-e1b6510e2f18",
         },
     ];
     return (
@@ -315,29 +319,29 @@ function ResponsibleRecycling({userPreferences, className}: {userPreferences: Us
                     items={items.map((item, itemIndex) => {
                         return (
                             <div
-                                className="tw-h-full tw-grid tw-gap-2 tw-p-5 tw-border tw-border-[#474546] tw-justify-center tw-items-center tw-rounded-lg tw-justify-items-center tw-max-w-[14rem]"
+                                className="tw-w-full tw-h-full tw-grid tw-grid-rows-[auto_0.5rem_minmax(0,1fr)] tw-gap-2 tw-p-5 tw-border tw-border-[#474546]  tw-rounded-lg tw-justify-items-center"
                                 key={itemIndex}
                             >
-                                <div className="tw-h-[4.5rem] tw-w-[4.5rem] tw-rounded-full lg-bg-secondary-100 tw-grid tw-justify-center tw-items-center">
+                                <div className="tw-row-start-1 tw-h-[4.5rem] tw-w-[4.5rem] tw-rounded-full lg-bg-secondary-100 tw-grid tw-justify-center tw-items-center">
                                     <img
-                                        src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcone).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                        src={getAbsolutePathForRelativePath(getMetadataForImage(item.svgIcon).finalUrl, ImageCdnProvider.Bunny, null, null)}
                                         className={concatenateNonNullStringsWithSpaces("dark:tw-invert")}
                                     />
                                 </div>
                                 <div
-                                    className="lg-text-body-bold tw-text-center"
+                                    className="lg-text-body-bold tw-text-center tw-justify-start tw-row-start-3"
                                     dangerouslySetInnerHTML={{__html: getVernacularString(item.title, userPreferences.language)}}
                                 />
                             </div>
                         );
                     })}
-                    slidesContainerClassName="lg:tw-auto-cols-[18%] tw-auto-cols-[60%] md:tw-auto-cols-[24%] 2xl:!tw-grid-cols-[repeat(auto-fill,14rem)] sm:tw-auto-cols-[37%]"
+                    slidesContainerClassName="!tw-auto-cols-[14rem]"
                     controlsContainerClassName="!tw-justify-center !tw-gap-x-4"
                 />
                 <VerticalSpacer className="tw-h-10" />
                 <div className="tw-grid tw-justify-self-center">
                     <a
-                        href="/e-waste-management.php"
+                        href="/e-waste-management"
                         target="_blank"
                     >
                         <button className="lg-cta-button">Read More</button>

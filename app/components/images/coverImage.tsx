@@ -16,6 +16,7 @@ export function CoverImage({relativePath, className, loading, imageClassName}: {
             imageMetadata={imageMetadata}
             imageCdnProvider={websiteConfiguration.imageCdnProvider}
             imageClassName={imageClassName}
+            resolutionMultiplier={1.5}
         />
     );
 }

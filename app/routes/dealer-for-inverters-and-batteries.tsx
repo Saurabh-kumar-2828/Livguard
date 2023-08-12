@@ -1,5 +1,5 @@
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
-import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {Form, useActionData, useFetcher, useTransition} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
@@ -31,37 +31,160 @@ import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {StickyBottomBar} from "~/components/bottomBar";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Dealer Locator | Find Livguard inverter battery shop near you",
+//             description: "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
+//             "og:title": "Dealer Locator | Find Livguard inverter battery shop near you",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
+//             "og:description": "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
+//             "og:type": "website",
+//             "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
+//             description: "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
+//             "og:title": "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
+//             "og:site_name": "Livguard",
+//             "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
+//             "og:description": "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
+//             "og:type": "product",
+//             "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.livguard.com/dealer-for-inverters-and-batteries/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Dealer Locator | Find Livguard inverter battery shop near you",
-            description: "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
-            "og:title": "Dealer Locator | Find Livguard inverter battery shop near you",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-            "og:description": "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
-            "og:type": "website",
-            "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/dealer-for-inverters-and-batteries/",
+            },
+            {
+                title: "Dealer Locator | Find Livguard inverter battery shop near you",
+            },
+            {
+                name: "description",
+                content: "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/dealer-for-inverters-and-batteries/",
+            },
+            {
+                property: "og:title",
+                content: "Dealer Locator | Find Livguard inverter battery shop near you",
+            },
+            {
+                property: "og:description",
+                content: "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://files.growthjockey.com/livguard/icons/logo-light.svg",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    itemListElement: [
+                        {
+                            "@type": "ListItem",
+                            position: 1,
+                            name: "LivGuard",
+                            item: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "ListItem",
+                            position: 2,
+                            name: "Dealer Locator",
+                            item: "https://www.livguard.com/inverter-batteries",
+                            description: "Find the Livguard dealer near you",
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Livguard",
+                            url: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Dealer Locator",
+                            url: "https://www.livguard.com/inverter-batteries",
+                            description: "Find the Livguard dealer near you",
+                        },
+                    ],
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
-            description: "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
-            "og:title": "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-            "og:description": "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
-            "og:type": "product",
-            "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "",
+            },
+            {
+                title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
+            },
+            {
+                name: "description",
+                content: "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/dealer-for-inverters-and-batteries/",
+            },
+            {
+                property: "og:title",
+                content: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
+            },
+            {
+                property: "og:description",
+                content: "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://files.growthjockey.com/livguard/icons/logo-light.svg",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/dealer-for-inverters-and-batteries/"}];
 };
 
 type DealerLocatorActionData = {
@@ -192,7 +315,7 @@ export default function () {
             </div> */}
 
             <StickyBottomBar userPreferences={userPreferences} />
-
+            {/* 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -237,7 +360,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </div>
     );
 }
@@ -390,7 +513,7 @@ export function DealerLocatorPage({
                             id="dealer-list"
                         >
                             <div className="tw-flex tw-flex-col tw-gap-1">
-                                <div className="lg-text-banner tw-text-center">{salutations[dealerList[0].stateCode][userPreferences.language]}</div>
+                                <div className="lg-text-banner tw-text-center">{userPreferences.language === Language.Hindi ? "नमस्ते!" : "Namaste"}</div>
                                 <div className="lg-text-headline tw-text-center tw-py-1">{getVernacularString("dealerLocatorHighlightedText", userPreferences.language)}</div>
                                 {/* <div className="lg-text-title2 tw-text-center">{dealerList[0].city}</div> */}
                             </div>
@@ -2746,15 +2869,20 @@ export function ApplyNowForDealerDialog({
         }
     }, [otpFetcher.data]);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
-            setTimeout(() => {
+            if (timeoutId != null) {
+                clearTimeout(timeoutId);
+            }
+            let timeout = setTimeout(() => {
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,
                 };
                 dispatch(action);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [formStateInputs.resendTimeOut]);
 
@@ -3293,40 +3421,40 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     );
 }
 
-const salutations: {[key: string]: {[Language.English]: string; [Language.Hindi]: string}} = {
-    AN: {[Language.English]: "Namaste", [Language.Hindi]: "नमस्ते!"},
-    AD: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    AP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    AS: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    BR: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    CG: {[Language.English]: "Sat sri akal!", [Language.Hindi]: "सत् श्री अकाल!"},
-    CH: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    DNHDD: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
-    DL: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    GA: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    GJ: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
-    HR: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
-    HP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    JK: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    JH: {[Language.English]: "Pranaam!", [Language.Hindi]: "प्रणाम!"},
-    KA: {[Language.English]: "Namaskara!", [Language.Hindi]: "नमस्कारा!"},
-    KL: {[Language.English]: "Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
-    LD: {[Language.English]: "Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
-    MP: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    MH: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    MN: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    ML: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    MZ: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    NL: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    OD: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    PY: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
-    PB: {[Language.English]: "Sat sri akal!", [Language.Hindi]: "सत् श्री, अकाल"},
-    RJ: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    SK: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    TN: {[Language.English]: "Vanakkam!", [Language.Hindi]: "वनक्कम!"},
-    TS: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    TR: {[Language.English]: "Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
-    UP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    UK: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
-    WB: {[Language.English]: "Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
-};
+// const salutations: {[key: string]: {[Language.English]: string; [Language.Hindi]: string}} = {
+//     AN: {[Language.English]: "Namaste", [Language.Hindi]: "नमस्ते!"},
+//     AD: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     AP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     AS: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+//     BR: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+//     CG: {[Language.English]: "Sat sri akal!", [Language.Hindi]: "सत् श्री अकाल!"},
+//     CH: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+//     DNHDD: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
+//     DL: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+//     GA: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+//     GJ: {[Language.English]: "Kem Chho!", [Language.Hindi]: "केम छो!"},
+//     HR: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!!"},
+//     HP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     JK: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+//     JH: {[Language.English]: "Pranaam!", [Language.Hindi]: "प्रणाम!"},
+//     KA: {[Language.English]: "Namaskara!", [Language.Hindi]: "नमस्कारा!"},
+//     KL: {[Language.English]: "Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
+//     LD: {[Language.English]: "Namaskaram!", [Language.Hindi]: "नमस्कराम!"},
+//     MP: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+//     MH: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+//     MN: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     ML: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     MZ: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     NL: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     OD: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+//     PY: {[Language.English]: "Namaskar!", [Language.Hindi]: "नमस्कार!"},
+//     PB: {[Language.English]: "Sat sri akal!", [Language.Hindi]: "सत् श्री, अकाल"},
+//     RJ: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     SK: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     TN: {[Language.English]: "Vanakkam!", [Language.Hindi]: "वनक्कम!"},
+//     TS: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     TR: {[Language.English]: "Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
+//     UP: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     UK: {[Language.English]: "Namaste!", [Language.Hindi]: "नमस्ते!"},
+//     WB: {[Language.English]: "Kemon acho!", [Language.Hindi]: "केमोन आछो!"},
+// };

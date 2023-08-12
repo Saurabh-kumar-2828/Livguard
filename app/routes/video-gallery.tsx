@@ -1,63 +1,104 @@
-import React, {useEffect, useState} from "react";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, json} from "@remix-run/node";
-import {Form, Link, useActionData, useLoaderData} from "@remix-run/react";
-import {Dialog, Transition} from "@headlessui/react";
-import {toast} from "react-toastify";
-import {useResizeDetector} from "react-resize-detector";
-import {X} from "react-bootstrap-icons";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {emailIdValidationPattern, indianPhoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {insertServiceRequests} from "~/backend/dealer.server";
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {InverterType, Language, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {PowerfulPurposePowerfulImpact} from ".";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {CarouselStyle3} from "~/components/carouselStyle3";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductCardComponent} from "~/components/category/common";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {useLoaderData} from "@remix-run/react";
+import {useEffect, useState} from "react";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
-import {InfiniteHorizontalScroller, HorizontalScrollDirection} from "~/livguard-common-typescript/infiniteHorizontalScroller";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Livguard Services - Reliable Solutions for Your Power Needs",
-            description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-            "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-            "og:site_name": "Livguard",
-            "og:url": "https://www.livguard.com/service",
-            "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-            "og:type": "website",
-            "og:image": "",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/video-gallery",
+            },
+            {
+                title: "Livguard Video Gallery: Exploring Innovation and Inspiration",
+            },
+            {
+                name: "description",
+                content: "Immerse yourself in Livguard's video gallery, discover insightful videos showcasing our products, technologies, and stories that inspire.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/video-gallery",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Video Gallery: Exploring Innovation and Inspiration",
+            },
+            {
+                property: "og:description",
+                content: "Immerse yourself in Livguard's video gallery, discover insightful videos showcasing our products, technologies, and stories that inspire.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "?????",
-            description: "?????",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.livguard.com/video-gallery",
+            },
+            {
+                title: "Livguard Video Gallery: Exploring Innovation and Inspiration",
+            },
+            {
+                name: "description",
+                content: "Immerse yourself in Livguard's video gallery, discover insightful videos showcasing our products, technologies, and stories that inspire.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.livguard.com/video-gallery",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Video Gallery: Exploring Innovation and Inspiration",
+            },
+            {
+                property: "og:description",
+                content: "Immerse yourself in Livguard's video gallery, discover insightful videos showcasing our products, technologies, and stories that inspire.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "website",
+            },
+            {
+                property: "og:image",
+                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.livguard.com/service"}];
 };
 
 type LoaderData = {
@@ -82,7 +123,7 @@ export const loader: LoaderFunction = async ({request}) => {
 };
 
 export default () => {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
     return (
@@ -92,7 +133,11 @@ export default () => {
                 redirectTo={redirectTo}
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
-                breadcrumbs={[]}
+                pageUrl={pageUrl}
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "da7484cc-f689-4649-8a7a-5c4fab3b0a0f", link: "#"},
+                ]}
             >
                 <VideoGallery userPreferences={userPreferences} />
             </PageScaffold>
@@ -103,7 +148,7 @@ export default () => {
 function VideoGallery({userPreferences}: {userPreferences: UserPreferences}) {
     return (
         <>
-            <div className="tw-grid tw-grid-cols-1  tw-gap-x-16 tw-items-start tw-justify-center">
+            <div className="tw-grid tw-grid-cols-1 tw-gap-x-16 tw-items-start tw-justify-center">
                 <HeroSection
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
@@ -122,115 +167,100 @@ function VideoGallery({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-3rem)] tw-grid tw-grid-rows-[auto_auto_4rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-text-center",
+                "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-rows-[minmax(0,1fr)_auto_2rem_2rem_auto]",
                 className,
             )}
-            ref={ref}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-overflow-hidden">
-                    <CoverImage
-                        relativePath={
-                            containerHeight > containerWidth || containerWidth < 640
-                                ? "/livguard/video-gallery/1/video-gallery-banner-mobile.jpg"
-                                : "/livguard/video-gallery/1/video-gallery-banner-desktop.jpg"
-                        }
+            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
+                {isScreenSizeBelow == null ? null : (
+                    <FullWidthImage
+                        relativePath={isScreenSizeBelow ? "/livguard/video-gallery/1/mobile-banner.jpg" : "/livguard/video-gallery/1/desktop-banner.jpg"}
                         className="tw-w-full tw-h-full"
-                        key={
-                            containerHeight > containerWidth || containerWidth < 640
-                                ? "/livguard/video-gallery/1/video-gallery-banner-mobile.jpg"
-                                : "/livguard/video-gallery/1/video-gallery-banner-desktop.jpg"
-                        }
+                        key={isScreenSizeBelow ? "/livguard/video-gallery/1/mobile-banner.jpg" : "/livguard/video-gallery/1/desktop-banner.jpg"}
                     />
-                </div>
-            )}
+                )}
+            </div>
 
-            <DefaultTextAnimation className="tw-row-start-1 tw-col-start-1 tw-pt-4">
-                <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2 tw-place-self-center">
-                    {getVernacularString("93410e83-2080-4748-b66c-bb3152e48b0e", userPreferences.language)}
-                </div>
+            <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 tw-text-center lg:tw-text-start">
+                <div className="lg-text-banner tw-text-secondary-900-dark lg-px-screen-edge-2">{getVernacularString("93410e83-2080-4748-b66c-bb3152e48b0e", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
 }
+
 enum ProductType {
     all = "All",
     inverter = "Inverter",
     solar = "Solar",
     automotive = "Automotive",
     erickshaw = "E-rickshaw",
+    testimonials = "Testimonials",
 }
 
 const videoTypeData = [
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "ZtywGUDhzqw",
         productType: ProductType.inverter,
-        heading: "Livguard Inverter & Battery Unboxing, Review & Latest Price 2020",
+        heading: "Livguard i-verter for noiseless performance | Sine wave technology",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "0pDKs9nC7rs",
         productType: ProductType.inverter,
-        heading: "sdsdddddddddddsdsdddddddddd",
+        heading: "Experience Uninterrupted Power with Livguard Inverter and Inverter Battery | The Perfect Combo",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "b6gqLXTnZnw",
         productType: ProductType.inverter,
-        heading: "sdsdddsdaaddddddddddddddddd",
+        heading: "Livguard | Inverter & Inverter Battery | Smart and Strong Chale Lifelong",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
-        productType: ProductType.inverter,
-        heading: "sdsddddddddaaaadddddddddddd",
-    },
-    {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "0wbz7bSgNq0",
         productType: ProductType.erickshaw,
-        heading: "sdsddddddd3333ddddddddddddd",
+        heading: "Livguard E-Shakti E-Rickshaw Batteries | Baniye Aatmanirbhar | Hindi",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "9Ew1VxZf-6o",
         productType: ProductType.solar,
-        heading: "sdsddddddrbrbdddddddddddddd",
+        heading: "Discover Livguard's Integrated Smart Solar Solutions for Your Home",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "tFj9GJcjq6s",
         productType: ProductType.solar,
-        heading: "sdsdddddddd3u83dddddddddddd",
+        heading: "Livguard Solar | Expert Ko Bulao Asani Se Lagao | EnergyUnlimited",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "PwNzzjXxjZU",
         productType: ProductType.automotive,
-        heading: "sdsddddddddddd338383ddddddddd",
+        heading: "Livguard - Rough India ki Tough Battery",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
+        id: "GVlcxY7-RZ0",
         productType: ProductType.automotive,
-        heading: "sdsddddddddddd23232ddddddddd",
+        heading: "The making of Livguard - Rough India Ki Tough Battery",
     },
     {
-        id: "cRwkU-znJt8",
-        productImage: "/livguard/products/jodis/peace-of-mind-jodi/thumbnail.png",
-        productType: ProductType.inverter,
-        heading: "sdsdddddddddd23e2e2e2dddddddddd",
+        id: "N4sI0nyvtr4",
+        productType: ProductType.automotive,
+        heading: "Livguard Automotive Batteries - Manufacturing",
+    },
+    {
+        id: "rVC-ncTBhls",
+        productType: ProductType.testimonials,
+        heading: "Watch How Rehan gained limitless energy with Livguard",
+    },
+    {
+        id: "pNMTMVDWtiU",
+        productType: ProductType.testimonials,
+        heading: "How Livguard Empowered Rishab with Unlimited Energy",
     },
 ];
 
 function OurVideoGallery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const [selectedProductType, setSelectedProductType] = useState(ProductType.all);
     const [videoTypeDataArr, setVideoTypeDataArr] = useState(videoTypeData);
     const [selectedVideo, setSelectedVideo] = useState(videoTypeData?.[0]);
@@ -258,11 +288,12 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                     <DefaultElementAnimation>
                         <button
                             className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full tw-min-w-[6rem] tw-col-start-1 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
+                                "tw-w-full tw-min-w-[6rem] tw-col-start-1 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow tw-transition-colors tw-duration-200",
                                 `${selectedProductType == ProductType.all ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.all);
+                                setSelectedVideo(videoTypeData[0]);
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.all ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
@@ -278,6 +309,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.inverter);
+                                setSelectedVideo(videoTypeData.filter((item) => item.productType === ProductType.inverter)[0]);
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.inverter ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
@@ -293,6 +325,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.solar);
+                                setSelectedVideo(videoTypeData.filter((item) => item.productType === ProductType.solar)[0]);
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.solar ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
@@ -308,6 +341,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.automotive);
+                                setSelectedVideo(videoTypeData.filter((item) => item.productType === ProductType.automotive)[0]);
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.automotive ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
@@ -323,6 +357,7 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             )}
                             onClick={() => {
                                 setSelectedProductType(ProductType.erickshaw);
+                                setSelectedVideo(videoTypeData.filter((item) => item.productType === ProductType.erickshaw)[0]);
                             }}
                         >
                             <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.erickshaw ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
@@ -330,11 +365,33 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                             </div>
                         </button>
                     </DefaultElementAnimation>
+                    <DefaultElementAnimation>
+                        <button
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-w-full tw-min-w-[6rem] tw-col-start-2 tw-flex tw-flex-row tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2 lg-ewaste-management-box-shadow",
+                                `${selectedProductType == ProductType.testimonials ? "lg-cta-button-gradient lg-text-secondary-900" : "lg-bg-secondary-100 lg-text-secondary-900"} `,
+                            )}
+                            onClick={() => {
+                                setSelectedProductType(ProductType.testimonials);
+                                setSelectedVideo(videoTypeData.filter((item) => item.productType === ProductType.testimonials)[0]);
+                            }}
+                        >
+                            <div className={concatenateNonNullStringsWithSpaces("tw-text-body", `${selectedProductType == ProductType.testimonials ? "tw-text-secondary-100-light" : "lg-text-body"}`)}>
+                                {getVernacularString("2d8630fa-9bd5-4ca7-aa34-aeaa48f79a49", userPreferences.language)}
+                            </div>
+                        </button>
+                    </DefaultElementAnimation>
                 </div>
                 <VerticalSpacer className="tw-h-8" />
 
                 <div className="lg-text-title2 lg-px-screen-edge-2">
-                    {selectedVideo?.heading} - <span className="lg-text-primary-500 lg-text-title1">{selectedVideo?.productType}</span>
+                    {selectedProductType == ProductType.all ? (
+                        <>
+                            {selectedVideo?.heading} - <span className="lg-text-primary-500 lg-text-title1">{selectedVideo?.productType}</span>
+                        </>
+                    ) : (
+                        selectedVideo?.heading
+                    )}
                 </div>
                 <VerticalSpacer className="tw-h-2" />
                 <div className="tw-grid tw-grid-rows-[auto_auto] lg:tw-grid-rows-[auto] lg:tw-grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] lg:tw-grid-flow-col lg:tw-gap-2 tw-relative lg-px-screen-edge-2">
@@ -351,38 +408,44 @@ function OurVideoGallery({userPreferences, className}: {userPreferences: UserPre
                                 {videoTypeDataArr?.map((item, index) => (
                                     <div
                                         className={concatenateNonNullStringsWithSpaces(
-                                            "tw-grid tw-grid-cols-[4rem_minmax(0,1fr)] tw-gap-x-2",
+                                            "tw-grid tw-grid-cols-[4rem_minmax(0,1fr)] tw-gap-x-2 tw-items-center tw-pr-2",
                                             `${videoTypeDataArr.length - 1 === index && "tw-pb-[2.5rem]"}`,
                                         )}
                                         key={`selected-${index}`}
                                     >
                                         <div
                                             className={concatenateNonNullStringsWithSpaces(
-                                                "tw-rounded-md",
+                                                "tw-rounded-md tw-h-fit tw-w-fit",
                                                 `${selectedVideo?.heading === item?.heading && "tw-border-solid tw-border-2 tw-border-red-500"}`,
                                             )}
                                         >
                                             <div
-                                                className="tw-aspect-video"
+                                                className=""
                                                 onClick={() => setSelectedVideo(item)}
                                             >
-                                                <FullWidthImage
-                                                    relativePath={selectedVideo?.productImage}
+                                                <img
                                                     className=""
-                                                ></FullWidthImage>
+                                                    src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
+                                                />
                                             </div>
                                         </div>
                                         <div
                                             onClick={() => setSelectedVideo(item)}
-                                            className={concatenateNonNullStringsWithSpaces("lg-text-body tw-py-2", `${selectedVideo?.heading === item?.heading && "tw-font-bold"}`)}
+                                            className={concatenateNonNullStringsWithSpaces("lg-text-body tw-py-2 tw-cursor-pointer", `${selectedVideo?.heading === item?.heading && "tw-font-bold"}`)}
                                         >
-                                            {item.heading}- <span className="lg-text-primary-500">{item.productType}</span>
+                                            {selectedProductType == ProductType.all ? (
+                                                <>
+                                                    {item.heading}- <span className="lg-text-primary-500">{item.productType}</span>
+                                                </>
+                                            ) : (
+                                                item.heading
+                                            )}
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <div className="tw-h-[3rem] tw-bg-gradient-to-b tw-from-transparent tw-to-white tw-w-full tw-absolute tw-left-0 tw-bottom-0 tw-right-0"></div>
+                        <div className="tw-h-[3rem] tw-bg-gradient-to-b tw-from-transparent tw-to-white tw-w-full tw-absolute tw-left-0 tw-bottom-0 tw-right-0 tw-pointer-events-none"></div>
                     </div>
                 </div>
             </div>

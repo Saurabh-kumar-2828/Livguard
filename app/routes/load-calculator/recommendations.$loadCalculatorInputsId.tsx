@@ -482,7 +482,7 @@ function HorizontalInverterRecommendationCard({
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-gap-x-4">
                     <FixedWidthImage
-                        relativePath={`/livguard/products/inverters/${recommendation.model}/thumbnail.png`}
+                        relativePath={`/livguard/products/${recommendation.model}/thumbnail.png`}
                         width="6rem"
                     />
 
@@ -563,7 +563,7 @@ function HorizontalBatteryRecommendationCard({
 
                 <div className="tw-w-full tw-px-4 tw-flex tw-flex-row tw-justify-center tw-gap-x-4">
                     <FixedWidthImage
-                        relativePath={`/livguard/products/batteries/${recommendation.model}/thumbnail.png`}
+                        relativePath={`/livguard/products/${recommendation.model}/thumbnail.png`}
                         width="6rem"
                     />
 
@@ -683,11 +683,11 @@ function VerticalInverterRecommendationCard({
                 <VerticalSpacer className="tw-h-4" />
 
                 {/* TODO: Temp hack, remove once we fix product image! */}
-                <FullWidthImage relativePath={`/livguard/products/inverters/${recommendation.model}/thumbnail.png`} />
+                <FullWidthImage relativePath={`/livguard/products/${recommendation.model}/thumbnail.png`} />
 
                 {/* <div className="tw-w-full tw-aspect-[5/3]">
                     <CoverImage
-                        relativePath={`/livguard/products/inverters/${recommendation.model}/thumbnail.png`}
+                        relativePath={`/livguard/products/${recommendation.model}/thumbnail.png`}
                     />
                 </div> */}
 
@@ -776,7 +776,7 @@ function VerticalBatteryRecommendationCard({
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <FullWidthImage relativePath={`/livguard/products/batteries/${recommendation.model}/thumbnail.png`} />
+                <FullWidthImage relativePath={`/livguard/products/${recommendation.model}/thumbnail.png`} />
 
                 <EmptyFlexFiller />
 

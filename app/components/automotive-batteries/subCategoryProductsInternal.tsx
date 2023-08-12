@@ -1,14 +1,14 @@
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {getVernacularString} from "~/vernacularProvider";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {getMetadataForImage} from "~/utilities";
-import {ProductType} from "~/productData";
-import {Language, UserPreferences} from "~/typeDefinitions";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {Link} from "@remix-run/react";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {CarouselStyle4} from "~/components/carouselStyle4";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import type {ProductType} from "~/productData";
+import type {UserPreferences} from "~/typeDefinitions";
+import {getMetadataForImage} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export function SubCategoryProductsInternal({
     userPreferences,
@@ -35,7 +35,7 @@ export function SubCategoryProductsInternal({
                 slug: string;
                 capacity: string;
                 warranty: string;
-                price: string;
+                price: string | number | null;
             }>;
         };
     };
@@ -56,7 +56,7 @@ export function SubCategoryProductsInternal({
                     {refs.map((ref, refIndex) => {
                         return (
                             <div
-                                className="lg:tw-w-fit lg-bg-secondary-100 tw-py-2 tw-px-4 lg:tw-px-8 tw-text-center tw-rounded-lg tw-cursor-pointer"
+                                className="lg:tw-w-fit lg-card tw-py-2 tw-px-4 lg:tw-px-8 tw-text-center tw-rounded-lg tw-cursor-pointer"
                                 onClick={() => {
                                     ref.current?.scrollIntoView();
                                 }}
@@ -124,15 +124,15 @@ export function SubCategoryProductsInternal({
 
                                 {category.products.length > 1 ? (
                                     <CarouselStyle4
-                                        items={category.products.map((product, productIndex) => {
+                                        items={(category.products.length == 2 ? [...category.products, ...category.products] : category.products).map((product, productIndex) => {
                                             return (
                                                 <BatteryCard
                                                     userPreferences={userPreferences}
                                                     productName={product.name}
                                                     productPrice={product.price}
                                                     slug={product.slug}
-                                                    capacity={`${product.capacity} ${userPreferences.language === Language.English ? "Capacity" : "?????"}`}
-                                                    warranty={`${product.warranty} ${userPreferences.language === Language.English ? "Warranty" : "?????"}`}
+                                                    capacity={`${product.capacity} ${getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}`}
+                                                    warranty={`${product.warranty} ${getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}`}
                                                     productType={product.productType}
                                                     // isBestSeller={product.isBestSeller}
                                                     imageRelativeUrl={category.productImageRelativeUrl}
@@ -147,11 +147,13 @@ export function SubCategoryProductsInternal({
                                             "lg:tw-row-start-1 lg:tw-row-span-full lg:tw-py-4",
                                             orientation === "left" ? "lg:tw-col-start-2" : "lg:tw-col-start-1",
                                         )}
+                                        emblaAlignProp="start"
+                                        chevronButtonsDivisionFactor={category.products.length == 2 ? 2 : 1}
                                     />
-                                ) : (
+                                ) : category.products.length == 2 ? (
                                     <div
                                         className={concatenateNonNullStringsWithSpaces(
-                                            "lg:tw-row-start-1 lg:tw-row-span-full lg:tw-py-4 tw-grid tw-grid-flow-col tw-justify-center !tw-auto-cols-[min(100%,15rem)] lg:!tw-auto-cols-[50%]",
+                                            "lg:tw-row-start-1 lg:tw-row-span-full lg:tw-py-4 tw-grid tw-justify-center !tw-auto-cols-[min(100%,15rem)] lg:!tw-auto-cols-[50%]",
                                             orientation === "left" ? "lg:tw-col-start-2" : "lg:tw-col-start-1",
                                         )}
                                     >
@@ -175,6 +177,38 @@ export function SubCategoryProductsInternal({
                                                 </div>
                                             );
                                         })}
+
+                                        <VerticalSpacer className="tw-h-4" />
+                                    </div>
+                                ) : (
+                                    <div
+                                        className={concatenateNonNullStringsWithSpaces(
+                                            "lg:tw-row-start-1 lg:tw-row-span-full lg:tw-py-4 tw-grid tw-justify-center !tw-auto-cols-[min(100%,15rem)] lg:!tw-auto-cols-[50%]",
+                                            orientation === "left" ? "lg:tw-col-start-2" : "lg:tw-col-start-1",
+                                        )}
+                                    >
+                                        {category.products.map((product, productIndex) => {
+                                            return (
+                                                <div
+                                                    className="tw-px-3"
+                                                    key={productIndex}
+                                                >
+                                                    <BatteryCard
+                                                        userPreferences={userPreferences}
+                                                        productName={product.name}
+                                                        productPrice={product.price}
+                                                        slug={product.slug}
+                                                        capacity={`${product.capacity} ${getVernacularString("c4c53678-fb9a-41c2-8782-de0690cffdd4", userPreferences.language)}`}
+                                                        warranty={`${product.warranty} ${getVernacularString("95a938d7-dd71-46de-80b0-a417845dfb4d", userPreferences.language)}`}
+                                                        productType={product.productType}
+                                                        // isBestSeller={product.isBestSeller}
+                                                        imageRelativeUrl={category.productImageRelativeUrl}
+                                                    />
+                                                </div>
+                                            );
+                                        })}
+
+                                        <VerticalSpacer className="tw-h-4" />
                                     </div>
                                 )}
                             </div>
@@ -203,14 +237,14 @@ function BatteryCard({
     isBestSeller?: boolean;
     imageRelativeUrl: string;
     productName: string;
-    productPrice: string;
+    productPrice: string | number | null;
     capacity: string;
     warranty: string;
 }) {
     return (
         <Link
             to={`/product/${slug}`}
-            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-bg-secondary-100 tw-rounded-lg"
+            className="tw-w-full tw-h-full tw-grid tw-grid-cols-1 lg-card lg-bg-secondary-100 tw-rounded-lg"
         >
             {isBestSeller != null && isBestSeller === true ? (
                 <div className="tw-row-start-1 tw-h-1rem lg-stabilizers-best-seller-gradient tw-rounded-tr-lg tw-place-self-end tw-text-xs tw-px-3 tw-py-1 lg:tw-px-4 tw-flex tw-flex-row tw-items-center !tw-text-secondary-900-dark">
@@ -221,9 +255,9 @@ function BatteryCard({
             )}
 
             <div className="tw-p-4 tw-grid tw-grid-flow-row">
-                <FullWidthImage relativePath={`/livguard/products/automotive-batteries/${slug}/thumbnail.png`} />
+                <FullWidthImage relativePath={`/livguard/products/${slug}/thumbnail.png`} />
 
-                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900 tw-whitespace-nowrap">{productName}</div>
+                <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{productName}</div>
 
                 <VerticalSpacer className="tw-h-2" />
 
@@ -248,15 +282,17 @@ function BatteryCard({
                 <VerticalSpacer className="tw-h-6" />
 
                 <div className="tw-w-full tw-text-center lg-text-secondary-700">
-                    {`${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${productPrice}${getVernacularString(
-                        "0044b486-6eca-4e3a-abf0-102eede6e10c",
-                        userPreferences.language,
-                    )}`}
+                    {productPrice == null
+                        ? getVernacularString("ccfce5e6-08ac-44b9-84ad-ef7891d7661b", userPreferences.language)
+                        : `${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${productPrice}${getVernacularString(
+                              "0044b486-6eca-4e3a-abf0-102eede6e10c",
+                              userPreferences.language,
+                          )}`}
                 </div>
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <button className="lg-cta-outline-button lg-cta-outline-button-transition tw-w-full tw-text-center tw-px-1">
+                <button className="lg-cta-outline-button lg-cta-outline-button-transition tw-text-primary-500-light dark:tw-text-secondary-100-light tw-w-full tw-text-center tw-px-1">
                     {getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}
                 </button>
             </div>

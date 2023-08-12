@@ -10,11 +10,14 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {UserPreferences} from "~/typeDefinitions";
-import {convertProductInternalNameToPublicName} from "~/utilities";
+import {allProductDetails, type ProductDetailsRecommendedProduct} from "~/productData";
+import type {UserPreferences} from "~/typeDefinitions";
+import {convertProductInternalNameToPublicName, getMetadataForImage} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferences: UserPreferences; item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}}) {
@@ -45,6 +48,7 @@ export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferenc
 
 export function OurSuggestionsComponent({
     vernacularContent,
+    userPreferences,
     className,
 }: {
     vernacularContent: {
@@ -58,13 +62,14 @@ export function OurSuggestionsComponent({
         relatedProductsHeading: string;
         relatedProducts: Array<string>;
     };
+    userPreferences: UserPreferences;
     className?: string;
 }) {
     return (
         <div>
             <div
                 className={concatenateNonNullStringsWithSpaces(
-                    "lg-px-screen-edge tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-rows-[2rem,auto,2rem] lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-rounded-lg tw-w-full tw-items-center",
+                    "lg-px-screen-edge tw-grid tw-grid-rows-1 tw-grid-cols-1 tw-grid-flow-row lg:tw-grid-rows-[2rem,auto,2rem] lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] lg-card tw-rounded-lg tw-w-full tw-items-center",
                     className,
                 )}
             >
@@ -157,7 +162,7 @@ export function OurSuggestionsComponent({
                                     className="lg-bg-secondary-300 tw-rounded-lg tw-flex lg:tw-max-w-[200px] tw-flex-col tw-p-4 tw-gap-y-2 lg:tw-justify-center lg:tw-items-center"
                                     key={relatedProductIndex}
                                 >
-                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{convertProductInternalNameToPublicName(relatedProduct)}</div>
+                                    <div className="tw-w-full lg-text-body-bold tw-text-center">{allProductDetails[relatedProduct][userPreferences.language].humanReadableModelNumber}</div>
                                     <FullWidthImage relativePath={`${vernacularContent.imagesRelativePath}${relatedProduct}/thumbnail.png`} />
                                 </Link>
                             ))}
@@ -188,36 +193,24 @@ export function OurSuggestionsComponent({
     );
 }
 
-export function ProductCardComponent({
-    vernacularContent,
-    userPreferences,
-}: {
-    vernacularContent: {
-        title: string;
-        imageRelativePath: string;
-        buttonText: string;
-        bestseller: boolean;
-        link: string;
-    };
-    userPreferences: UserPreferences;
-}) {
+export function ProductCardComponent({recommendedProduct, ctaTextId, userPreferences}: {recommendedProduct: ProductDetailsRecommendedProduct; ctaTextId?: string; userPreferences: UserPreferences}) {
     return (
-        <div className="tw-h-full tw-grid tw-grid-rows-[repeat(2,auto)_minmax(0,1fr)_repeat(2,auto)] tw-grid-flow-row tw-justify-between tw-relative tw-px-3 tw-rounded-lg lg-bg-secondary-100">
-            {vernacularContent.bestseller && (
+        <div className="tw-w-full tw-h-full tw-grid tw-grid-rows-[repeat(2,auto)_minmax(0,1fr)_repeat(2,auto)] tw-grid-flow-row tw-justify-stretch tw-relative tw-px-3 lg-card tw-rounded-lg">
+            {recommendedProduct.bestseller && (
                 <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 lg-text-secondary-900 tw-text-white tw-pt-[2px]"> Best Seller </div>
             )}
 
             <VerticalSpacer className="tw-h-8" />
 
             <DefaultTextAnimation>
-                <div className="tw-text-body tw-text-center">{vernacularContent.title}</div>
+                <div className="tw-text-body tw-text-center">{recommendedProduct.humanReadableModelNumber}</div>
             </DefaultTextAnimation>
 
             {/* <VerticalSpacer className="tw-h-4" /> */}
 
             <DefaultImageAnimation className="tw-row-start-4">
                 <div className="tw-px-4 tw-rounded-lg">
-                    <FullWidthImage relativePath={vernacularContent.imageRelativePath} />
+                    <FullWidthImage relativePath={`/livguard/products/${recommendedProduct.slug}/thumbnail.png`} />
                 </div>
             </DefaultImageAnimation>
 
@@ -225,10 +218,10 @@ export function ProductCardComponent({
 
             <DefaultElementAnimation className="tw-row-start-6">
                 <Link
-                    to={vernacularContent.link}
+                    to={`/product/${recommendedProduct.slug}`}
                     className="lg-cta-button tw-translate-y-4 tw-px-4 tw-text-center tw-items-center"
                 >
-                    {getVernacularString(vernacularContent.buttonText, userPreferences.language)}
+                    {getVernacularString(ctaTextId ?? "categoryViewProductButtontext", userPreferences.language)}
                 </Link>
             </DefaultElementAnimation>
         </div>
@@ -256,52 +249,71 @@ export function WhatsBestForYouComponent({
 
             <VerticalSpacer className="tw-h-4" />
 
-            <DefaultElementAnimation>
-                <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3 tw-h-full">
-                    <ItemBuilder
-                        items={vernacularContent.downloadButtons}
-                        itemBuilder={(downloadButton, downloadButtonIndex) => (
-                            <React.Fragment key={downloadButtonIndex}>
-                                {downloadButton.popup ? (
-                                    <DownloadCta
-                                        userPreferences={userPreferences}
-                                        textVernacId="categoryInvertersS8B2T"
-                                        className="tw-z-10 hover:tw-cursor-pointer"
-                                        utmParameters={utmParameters}
-                                    />
-                                ) : (
-                                    <a
-                                        href={downloadButton.downloadLink}
-                                        key={downloadButtonIndex}
-                                        download
-                                        target={"_blank"}
-                                        className="tw-h-full"
-                                    >
-                                        <div
-                                            className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-bg-secondary-100 tw-rounded-lg ${
-                                                downloadButtonIndex == 1 ? "tw-p-2 lg:tw-p-4" : "tw-p-4"
-                                            } tw-justify-start tw-items-center tw-gap-3 tw-h-full`}
+            <div className="max-lg:tw-w-fit tw-grid">
+                <DefaultElementAnimation className="max-lg:tw-w-full">
+                    <div className="tw-grid tw-grid-flow-row tw-w-full lg:tw-w-fit lg:tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-3 tw-h-full">
+                        <ItemBuilder
+                            items={vernacularContent.downloadButtons}
+                            itemBuilder={(downloadButton, downloadButtonIndex) => (
+                                <React.Fragment key={downloadButtonIndex}>
+                                    {downloadButton.popup ? (
+                                        <DownloadCta
+                                            userPreferences={userPreferences}
+                                            textVernacId="categoryInvertersS8B2T"
+                                            className="tw-z-10 hover:tw-cursor-pointer"
+                                            utmParameters={utmParameters}
+                                        />
+                                    ) : (
+                                        // <a
+                                        //     href={downloadButton.downloadLink}
+                                        //     key={downloadButtonIndex}
+                                        //     download
+                                        //     target={"_blank"}
+                                        //     className="tw-h-full"
+                                        // >
+                                        //     <div
+                                        //         className={`tw-col-start-${downloadButtonIndex + 1} tw-flex tw-flex-row lg-card tw-rounded-lg lg-cta-outline-button lg-cta-outline-button-transition ${
+                                        //             downloadButtonIndex == 1 ? "tw-p-2 lg:tw-p-4" : "tw-p-4"
+                                        //         } tw-justify-start tw-items-center tw-gap-3 tw-h-full`}
+                                        //     >
+                                        //         <div className="tw-h-8 tw-min-w-[32px]">
+                                        //             <FullWidthImage relativePath={downloadButton.iconRelativePath} />
+                                        //         </div>
+                                        //         <div className="lg-text-title2">{downloadButton.text}</div>
+                                        //     </div>
+                                        // </a>
+                                        <a
+                                            href={downloadButton.downloadLink}
+                                            download
+                                            target="_blank"
+                                            className="tw-w-full lg:tw-w-fit lg-cta-outline-button lg-cta-outline-button-category-section-transition-ops tw-py-3 tw-rounded-full tw-grid tw-justify-items-center tw-grid-cols-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4"
                                         >
-                                            <div className="tw-h-8 tw-min-w-[32px]">
-                                                <FullWidthImage relativePath={downloadButton.iconRelativePath} />
+                                            <img
+                                                className="tw-row-start-1 tw-col-start-2 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                                                src={getAbsolutePathForRelativePath(getMetadataForImage(downloadButton.iconRelativePath).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                            />
+                                            <div className="tw-row-start-1 tw-col-start-4 tw-flex tw-flex-row tw-items-center lg-text-body group-hover:!tw-text-secondary-100-light tw-transition-colors tw-duration-200">
+                                                {downloadButton.text}
                                             </div>
-                                            <div className="lg-text-title2">{downloadButton.text}</div>
-                                        </div>
-                                    </a>
-                                )}
-                            </React.Fragment>
-                        )}
-                    />
-                </div>
-            </DefaultElementAnimation>
+                                        </a>
+                                    )}
+                                </React.Fragment>
+                            )}
+                        />
+                    </div>
+                </DefaultElementAnimation>
 
-            <VerticalSpacer className="tw-h-4" />
+                <VerticalSpacer className="tw-h-4" />
 
-            <DefaultElementAnimation>
-                <Link to="/load-calculator">
-                    <div className="lg-cta-button">{vernacularContent.buttonText}</div>
-                </Link>
-            </DefaultElementAnimation>
+                <DefaultElementAnimation className="tw-w-full lg:tw-w-fit tw-justify-self-center">
+                    <Link
+                        to="/load-calculator"
+                        className="tw-w-full lg:tw-w-fit"
+                    >
+                        <div className="lg-cta-button tw-w-full lg:tw-w-fit tw-text-center">{vernacularContent.buttonText}</div>
+                    </Link>
+                </DefaultElementAnimation>
+            </div>
         </div>
     );
 }
@@ -667,7 +679,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
 
     return (
         <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
-            <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
+            <div className="tw-flex tw-flex-col tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
                 <div className="lg-text-headline">
@@ -738,7 +750,7 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
                         items={embeddedVideos}
                         itemBuilder={(video, videoIndex) => (
                             <div
-                                className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-pb-4 tw-overflow-hidden"
+                                className="tw-flex tw-flex-col lg-card tw-rounded-lg tw-pb-4 tw-overflow-hidden"
                                 key={videoIndex}
                             >
                                 {video}

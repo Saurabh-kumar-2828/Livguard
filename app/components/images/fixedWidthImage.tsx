@@ -16,6 +16,7 @@ export function FixedWidthImage({relativePath, width, className, loading}: {rela
             loading={loading}
             imageMetadata={imageMetadata}
             imageCdnProvider={websiteConfiguration.imageCdnProvider}
+            resolutionMultiplier={1.5}
         />
     );
 }

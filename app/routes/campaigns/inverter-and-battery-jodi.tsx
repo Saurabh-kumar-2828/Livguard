@@ -1,8 +1,8 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
-import {useEffect, useReducer, useRef} from "react";
+import {useEffect, useReducer, useRef, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -35,25 +35,120 @@ import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-    const userPreferences: UserPreferences = data.userPreferences;
+// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+//     const userPreferences: UserPreferences = data.userPreferences;
+//     if (userPreferences.language == Language.English) {
+//         return {
+//             title: "Livguard Smart & Strong Inverter and Battery Combos",
+//             description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
+//         };
+//     } else if (userPreferences.language == Language.Hindi) {
+//         return {
+//             title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी देखे",
+//             description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
+//         };
+//     } else {
+//         throw Error(`Undefined language ${userPreferences.language}`);
+//     }
+// };
+
+// export const links: LinksFunction = () => {
+//     return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
+// };
+
+export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
+    const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
-        return {
-            title: "Livguard Smart & Strong Inverter and Battery Combos",
-            description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+            },
+            {
+                title: "Livguard Smart & Strong Inverter and Battery Combos",
+            },
+            {
+                name: "description",
+                content: "Empower your home with Livguard smart inverter and battery combos to compliment your home's energy needs.",
+            },
+            {
+                property: "og:url",
+                content: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+            },
+            {
+                property: "og:title",
+                content: "Livguard Smart & Strong Inverter and Battery Combos",
+            },
+            {
+                property: "og:description",
+                content: "Empower your home with Livguard smart inverter and battery combos to compliment your home's energy needs.",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    name: "Inverter and Battery",
+                    url: "https://www.livguard.com/campaigns/inverter-and-battery/",
+                    logo: "",
+                    sameAs: "",
+                },
+            },
+        ];
     } else if (userPreferences.language == Language.Hindi) {
-        return {
-            title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी देखे",
-            description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
-        };
+        return [
+            {
+                tagName: "link",
+                rel: "canonical",
+                href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+            },
+            {
+                title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी देखे",
+            },
+            {
+                name: "description",
+                content: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
+            },
+            {
+                property: "og:url",
+                content: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/",
+            },
+            {
+                property: "og:title",
+                content: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी देखे",
+            },
+            {
+                property: "og:description",
+                content: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
+            },
+            {
+                property: "og:site_name",
+                content: "Livguard",
+            },
+            {
+                property: "og:type",
+                content: "Website",
+            },
+            {
+                property: "og:image",
+                content: "",
+            },
+        ];
     } else {
         throw Error(`Undefined language ${userPreferences.language}`);
     }
-};
-
-export const links: LinksFunction = () => {
-    return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
 };
 
 type LoaderData = {
@@ -105,7 +200,7 @@ export default function () {
                 pageUrl={pageUrl}
             />
 
-            <script
+            {/* <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -119,7 +214,7 @@ export default function () {
                         }
                     `,
                 }}
-            />
+            /> */}
         </>
     );
 }
@@ -180,15 +275,20 @@ function LandingPage({
         }
     }, [otpFetcher.data]);
 
+    const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
     useEffect(() => {
+        if (timeoutId != null) {
+            clearTimeout(timeoutId);
+        }
         if (formStateInputs.resendTimeOut > 0 && formStateInputs.showOtpField) {
-            setTimeout(() => {
+            let timeout = setTimeout(() => {
                 const action: FormStateInputsAction = {
                     actionType: FormStateInputsActionType.SetResendTimeOut,
                     payload: formStateInputs.resendTimeOut - 1,
                 };
                 dispatch(action);
             }, 1000);
+            setTimeoutId(timeout);
         }
     }, [formStateInputs.resendTimeOut]);
 

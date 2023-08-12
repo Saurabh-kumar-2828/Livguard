@@ -48,7 +48,7 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure1T2", userPreferences.language)}`,
-            link: "/global-reach.php",
+            link: "/global-ops",
             target: true,
         },
         {
@@ -58,27 +58,27 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure1T4", userPreferences.language)}`,
-            link: "/privacy-policy.php",
+            link: "/privacy-policy/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T5", userPreferences.language)}`,
-            link: "/sales-return-policy.php",
+            link: "/sales-return-policy/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T6", userPreferences.language)}`,
-            link: "/terms-and-conditions.php",
+            link: "/terms-and-conditions/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T7", userPreferences.language)}`,
-            link: "/csr-initiatives.php",
+            link: "/csr/",
             target: true,
         },
         {
             title: `${getVernacularString("footerDisclosure1T8", userPreferences.language)}`,
-            link: "/video-gallery.php",
+            link: "/video-gallery/",
             target: true,
         },
         {
@@ -101,8 +101,8 @@ export function FooterComponent({
         },
         {
             title: `${getVernacularString("footerDisclosure2T3", userPreferences.language)}`,
-            link: "/high-capacity-inverters",
-            target: true,
+            link: "/high-capacity-inverters/",
+            target: false,
         },
     ];
 
@@ -177,18 +177,18 @@ export function FooterComponent({
         },
     ];
 
-    const stabelizersAccordianList = [
-        {
-            title: `${getVernacularString("footerDisclosure5T1", userPreferences.language)}`,
-            link: "/stabilizer-for-AC-and-TV.php",
-            target: true,
-        },
-    ];
+    // const stabelizersAccordianList = [
+    //     {
+    //         title: `${getVernacularString("footerDisclosure5T1", userPreferences.language)}`,
+    //         link: "/stabilizer-for-AC-and-TV.php",
+    //         target: true,
+    //     },
+    // ];
 
     const howCanWehelpAccordianList = [
         {
             title: `${getVernacularString("footerDisclosure6T1", userPreferences.language)}`,
-            link: "/battery-finder.php",
+            link: "/battery-finder/",
             target: true,
         },
         {
@@ -196,20 +196,20 @@ export function FooterComponent({
             link: "/dealer-for-inverters-and-batteries",
             target: false,
         },
-        {
-            title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,
-            link: "/bmhr.php",
-            target: true,
-        },
+        // {
+        //     title: `${getVernacularString("footerDisclosure6T3", userPreferences.language)}`,
+        //     link: "/bmhr.php",
+        //     target: true,
+        // },
         {
             title: `${getVernacularString("footerDisclosure6T4", userPreferences.language)}`,
-            link: "/register-and-warranty-for-inverters.php",
-            target: true,
+            link: "/warranty/",
+            target: false,
         },
         {
             title: `${getVernacularString("footerDisclosure6T5", userPreferences.language)}`,
-            link: "/contact.php",
-            target: true,
+            link: "/service/",
+            target: false,
         },
     ];
 
@@ -431,7 +431,7 @@ export function FooterComponent({
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
                 />
 
-                <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
+                {/* <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
                 <Accordion
                     title={getVernacularString("footerDisclosure5H", userPreferences.language)}
@@ -456,7 +456,7 @@ export function FooterComponent({
                     className="lg:tw-hidden"
                     // openDisclosureTitle={openDisclosureTitle}
                     // setOpenDisclosureTitle={setOpenDisclosureTitle}
-                />
+                /> */}
 
                 <VerticalSpacer className="tw-h-3 lg:tw-hidden" />
 
@@ -706,7 +706,7 @@ export function FooterComponent({
                 </div>
 
                 <div className="tw-hidden lg:tw-flex lg:tw-flex-col lg:tw-row-start-3 lg:tw-col-start-5 lg:tw-row-span-3">
-                    <div className="tw-flex tw-flex-col">
+                    {/* <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure5H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
                         <ItemBuilder
@@ -732,7 +732,7 @@ export function FooterComponent({
                             )}
                         />
                     </div>
-                    <VerticalSpacer className="tw-h-8" />
+                    <VerticalSpacer className="tw-h-8" /> */}
                     <div className="tw-flex tw-flex-col">
                         <div className="lg-text-body-bold">{getVernacularString("footerDisclosure7H", userPreferences.language)}</div>
                         <VerticalSpacer className="tw-h-1" />
