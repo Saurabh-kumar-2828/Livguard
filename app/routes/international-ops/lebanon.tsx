@@ -1,9 +1,10 @@
 import {Dialog, Menu, Transition} from "@headlessui/react";
-import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
-import React, {LegacyRef, Ref, useCallback, useEffect, useRef, useState} from "react";
-import {ArrowRight, ChevronDown, ChevronRight, Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import React, {useCallback, useEffect, useRef, useState} from "react";
+import {ChevronDown, Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
+import {GoogleReCaptcha, GoogleReCaptchaProvider, useGoogleReCaptcha} from "react-google-recaptcha-v3";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -18,50 +19,20 @@ import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormF
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-import useIsMobile from "~/hooks/useIsScreenSizeBelow";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {InternationalPageScaffold} from "~/routes/international-ops/internationalPageScaffold.component";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
-import {Language, Theme} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import ReCAPTCHA from "react-google-recaptcha";
-import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {GoogleReCaptcha, GoogleReCaptchaProvider, useGoogleReCaptcha} from "react-google-recaptcha-v3";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Your Energy Partners in Global Markets | Livguard Experts",
-//             description: "Contact Livguard Experts for limitless energy solutions in global markets. With 35 years of legacy, 35+ countries presence. Explore our product categories.",
-//             "og:title": "",
-//             "og:site_name": "",
-//             "og:url": "",
-//             "og:description": "",
-//             "og:type": "",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "شركاء طاقتك في الأسواق العالمية | خبراء ليفجار",
-//             description: "اتصل بخبراء ليفجارد للحصول على حلول طاقة لا حدود لها في الأسواق العالمية. بتراث يمتد لـ 35 عامًا وتواجد في أكثر من 35 دولة. استكشف فئات منتجاتنا.",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/international/lebanon"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -101,7 +72,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/international/internation-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -109,7 +80,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "https://www.livguard.com/international/lebanon"
+                href: "https://www.livguard.com/international/lebanon",
             },
             {
                 title: "شركاء طاقتك في الأسواق العالمية | خبراء ليفجار",
@@ -140,7 +111,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/international/internation-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -245,6 +216,11 @@ export const loader: LoaderFunction = async ({request}) => {
     return loaderData;
 };
 
+type BatteryQuantity = {
+    innerValue: string;
+    contentId: string;
+};
+
 export default function () {
     const {userPreferences, redirectTo, pageUrl, recaptchaSiteKey} = useLoaderData() as LoaderData;
 
@@ -288,29 +264,6 @@ export default function () {
                     recaptchaSiteKey={recaptchaSiteKey}
                 />
             </InternationalPageScaffold>
-
-            {/* {
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        {
-                            "@type": "SiteNavigationElement",
-                            "name": "Contact Us",
-                            "url": "https://www.livguard.com/contact-us",
-                            "telephone": "+919205667999",
-                            "contactType": "",
-                            "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
-                            "addressLocality": "Gurugram",
-                            "addressRegion": "Haryana",
-                            "postalCode": "122016",
-                            "addressCountry": "India",
-                            "E-mail": "marketing@livguard.com, export@sar-group.com"
-                          }
-                        `,
-                    }}
-                ></script>
-            } */}
         </>
     );
 }
@@ -341,7 +294,7 @@ function InternationalPageLebanon({
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
-    const [batteryQuantity, setBatteryQuantity] = useState(getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language));
+    const [batteryQuantity, setBatteryQuantity] = useState<BatteryQuantity | null>(null);
     const [city, setCity] = useState("");
     const [pinCode, setPinCode] = useState("");
     const [termsAndConditionsChecked, setTermsAndConditionsChecked] = useState(true);
@@ -479,8 +432,8 @@ function HeroSection({
     setPhoneNumber: React.Dispatch<string>;
     email: string;
     setEmail: React.Dispatch<string>;
-    batteryQuantity: string;
-    setBatteryQuantity: React.Dispatch<string>;
+    batteryQuantity: BatteryQuantity | null;
+    setBatteryQuantity: React.Dispatch<BatteryQuantity | null>;
     city: string;
     setCity: React.Dispatch<string>;
     pinCode: string;
@@ -1535,8 +1488,8 @@ export function InternationalBusinessContactForm({
     setPhoneNumber: React.Dispatch<string>;
     email: string;
     setEmail: React.Dispatch<string>;
-    batteryQuantity: string;
-    setBatteryQuantity: React.Dispatch<string>;
+    batteryQuantity: BatteryQuantity | null;
+    setBatteryQuantity: React.Dispatch<BatteryQuantity | null>;
     city: string;
     setCity: React.Dispatch<string>;
     pinCode: string;
@@ -1579,6 +1532,14 @@ export function InternationalBusinessContactForm({
             }
         }
     }, [verifyRecaptchaFetcher.data]);
+
+    const formSelectItemsArray: BatteryQuantity[] = [
+        {innerValue: "1", contentId: "5294b3b5-0c9b-4b7e-b1dd-2211b7388427"},
+        {innerValue: "2", contentId: "9b364e60-b83d-4ebf-8c1e-10c0d63de03c"},
+        {innerValue: "5", contentId: "e5dcc665-3df9-4e74-96d0-01664c689ffa"},
+        {innerValue: "10", contentId: "56f3e816-8f56-4efa-9cf8-1d4c39907d17"},
+        {innerValue: "More than 10", contentId: "b2037dcf-e83b-4859-ab52-9d2b846c6696"},
+    ];
 
     // You can use useEffect to trigger the verification as soon as the component being loaded
     useEffect(() => {
@@ -1687,10 +1648,19 @@ export function InternationalBusinessContactForm({
                                 <VerticalSpacer className="tw-h-1" />
 
                                 <FormSelectComponent
-                                    items={["1", "2", "5", "10", "More than 10"]}
-                                    itemBuilder={(item) => (item == null ? `${getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language)}` : `<div class="">${item}</div>`)}
-                                    value={batteryQuantity}
-                                    setValue={(item) => setBatteryQuantity(item)}
+                                    items={formSelectItemsArray}
+                                    itemBuilder={(item) =>
+                                        item == null
+                                            ? `${getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language)}`
+                                            : `<div class="">${getVernacularString(item.contentId, userPreferences.language)}</div>`
+                                    }
+                                    value={batteryQuantity == null ? null : batteryQuantity}
+                                    setValue={(item) => {
+                                        if (item == null) {
+                                            return;
+                                        }
+                                        setBatteryQuantity(item);
+                                    }}
                                     key={userPreferences.language}
                                     buttonClassName="!tw-rounded-full tw-px-4 dark:!tw-border-black"
                                 />
@@ -1783,7 +1753,7 @@ export function InternationalBusinessContactForm({
 
                             <HiddenFormField
                                 name="batteryQuantity"
-                                value={batteryQuantity}
+                                value={batteryQuantity.innerValue}
                                 required={true}
                             />
 
@@ -1830,12 +1800,7 @@ export function InternationalBusinessContactForm({
                             className="lg-cta-button disabled:!tw-bg-none disabled:!tw-bg-[#474546] tw-px-4 tw-self-center tw-w-60 !tw-text-white"
                             // disabled={fetcher.state != "idle" || name == "" || email == "" || phoneNumber == ""}
                             disabled={
-                                (step == 0 &&
-                                    (name === "" ||
-                                        phoneNumber === "" ||
-                                        email === "" ||
-                                        batteryQuantity === getVernacularString("a6eb5ef2-e65b-4d52-ba90-e07f86b7390e", userPreferences.language) ||
-                                        termsAndConditionsChecked == false)) ||
+                                (step == 0 && (name === "" || phoneNumber === "" || email === "" || batteryQuantity === null || termsAndConditionsChecked == false)) ||
                                 (step == 1 && (city == "" || pinCode == "")) ||
                                 isButtonDisabled
                             }

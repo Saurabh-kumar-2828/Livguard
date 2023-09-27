@@ -30,9 +30,7 @@ export function CarouselStyle1({userPreferences, items}: {userPreferences: UserP
                                 key={itemIndex}
                             >
                                 <DefaultImageAnimation>
-                                    <FullWidthImage
-                                        relativePath={item.imageRelativePath}
-                                    />
+                                    <FullWidthImage relativePath={item.imageRelativePath} />
                                 </DefaultImageAnimation>
 
                                 <VerticalSpacer className="tw-h-4" />
@@ -53,7 +51,9 @@ export function CarouselStyle1({userPreferences, items}: {userPreferences: UserP
                                     <button
                                         type="button"
                                         className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollPrev()}
+                                        onClick={() => {
+                                            emblaApi?.scrollPrev();
+                                        }}
                                     >
                                         <ChevronLeftIcon className="tw-w-6 tw-h-6" />
                                     </button>
@@ -75,8 +75,10 @@ export function CarouselStyle1({userPreferences, items}: {userPreferences: UserP
 
                                     <button
                                         type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollNext()}
+                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light tw-mt-[0.4px]"
+                                        onClick={() => {
+                                            emblaApi?.scrollNext();
+                                        }}
                                     >
                                         <ChevronRightIcon className="tw-w-6 tw-h-6" />
                                     </button>

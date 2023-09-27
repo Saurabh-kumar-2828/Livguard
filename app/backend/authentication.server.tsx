@@ -19,6 +19,9 @@ export async function sendOtp(phoneNumber: string, name: string) {
         otp: otp,
         issuedAt: currentTimestamp,
     };
+    if (process.env.NODE_ENV === "development") {
+        console.log(otp);
+    }
 
     const normalizedPhoneNumber = `+91${phoneNumber}`;
 

@@ -6,14 +6,16 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import { getAbsolutePathForRelativePath } from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import { ImageCdnProvider } from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -54,7 +56,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/video-gallery/video-gallery-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -93,7 +95,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/video-gallery/video-gallery-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {

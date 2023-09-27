@@ -1,6 +1,7 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link} from "@remix-run/react";
-import {useState} from "react";
+import {useEffect, useState, useContext} from "react";
+import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {StickyBottomBar} from "~/components/bottomBar";
@@ -10,6 +11,8 @@ import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -17,11 +20,13 @@ import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {ProductDetails, ProductType, allProductDetails} from "~/productData";
 import {ContactUsDialog, DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -62,7 +67,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/offer-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -116,7 +121,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/offer-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -162,6 +167,7 @@ export default function () {
     const {userPreferences, redirectTo, pageUrl, featuredProducts} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -171,43 +177,24 @@ export default function () {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
+                secondaryNavigationController={secondaryNavigationController}
                 breadcrumbs={[
                     {contentId: "d502b3fa-3677-4a4a-add3-05647aed0690", link: "/"},
                     {contentId: "af3ba663-53b9-4e18-b3ca-9ea9f80d5134", link: "#"},
                 ]}
             >
-                <OffersPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                    featuredProducts={featuredProducts}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <OffersPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        featuredProducts={featuredProducts}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <StickyBottomBar userPreferences={userPreferences} />
-
-            {/* {
-                    <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            {
-
-                                "@type": "SiteNavigationElement",
-                                "name": "Offer Page",
-                                "url": "https://www.livguard.com/contact-us",
-                                "telephone": "+91 92056-67999",
-                                "contactType": "",
-                                "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
-                                "addressLocality": "Gurugram",
-                                "addressRegion": "Haryana",
-                                "postalCode": "122016",
-                                "addressCountry": "India",
-                                "E-mail": "marketing@livguard.com, export@sar-group.com"
-                            }`,
-                        }}
-                    ></script>
-                } */}
         </>
     );
 }
@@ -217,6 +204,7 @@ function OffersPage({
     utmParameters,
     pageUrl,
     featuredProducts,
+    secondaryNavigationController,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
@@ -224,21 +212,25 @@ function OffersPage({
     };
     pageUrl: string;
     featuredProducts: Array<ProductDetails>;
+    secondaryNavigationController?: SecondaryNavigationController;
 }) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
 
     function tryToOpenContactUsDialog() {
         setIsContactUsDialogOpen(true);
     }
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-6 tw-gap-x-8 tw-align-stretch tw-pb-10 lg:tw-pb-20">
             <HeroSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 lg:tw-col-span-full" />
 
             <BestOffers
                 userPreferences={userPreferences}
@@ -247,16 +239,19 @@ function OffersPage({
                 isContactUsDialogOpen={isContactUsDialogOpen}
                 setIsContactUsDialogOpen={setIsContactUsDialogOpen}
                 pageUrl={pageUrl}
-                className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-w-full lg-px-screen-edge-2 lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-w-full lg-px-screen-edge-2 lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 lg:tw-col-span-full" />
 
             <FeaturedProducts
                 userPreferences={userPreferences}
                 featuredProducts={featuredProducts}
-                className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-span-full" />
 
-            <div className="tw-row-start-4 tw-col-start-1 tw-col-span-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center tw-w-full tw-max-w-7xl tw-mx-auto">
+            <div className="tw-row-start-7 tw-col-start-1 tw-col-span-full tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] lg:tw-items-center tw-w-full tw-max-w-7xl tw-mx-auto">
                 <DealerLocator
                     userPreferences={userPreferences}
                     showCtaButton={true}
@@ -286,7 +281,19 @@ function HeroSection({
     className?: string;
     pageUrl: string;
 }) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <div
@@ -294,35 +301,34 @@ function HeroSection({
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-7rem)] tw-grid tw-grid-rows-[0_2.5rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] lg:tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,3fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate tw-overflow-hidden",
                 className,
             )}
-            ref={ref}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10 tw-isolate">
-                {containerWidth == null || containerHeight == null ? null : (
-                    <>
-                        <CoverImage
-                            relativePath={containerWidth > containerHeight ? "/livguard/offers/1/bg-banner-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
-                            key={containerWidth > containerHeight ? "/livguard/offers/1/bg-banner-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
-                        />
+                <>
+                    <CoverImage
+                        relativePath={isScreenSizeBelow ? "/livguard/offers/1/bg-banner-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
+                        key={isScreenSizeBelow ? "/livguard/offers/1/bg-banner-desktop.jpg" : "/livguard/offers/1/bg-banner-mobile.jpg"}
+                    />
 
-                        <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
-                            alt="Akshay Kumar"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute",
-                                containerWidth < 1024 ? "tw-bottom-8 tw-inset-x-0 tw-mx-auto tw-h-3/5 md:tw-h-2/3" : "tw-bottom-[calc(10%+2rem)] tw-right-[20%] tw-h-3/4",
-                            )}
-                        />
+                    <img
+                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
+                        alt="Akshay Kumar"
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-absolute",
+                            isScreenSizeBelow ? "tw-bottom-8 tw-inset-x-0 tw-mx-auto tw-h-3/5 md:tw-h-2/3" : "tw-bottom-[calc(10%+2rem)] tw-right-[20%] tw-h-3/4",
+                        )}
+                    />
 
-                        <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/1/all-products.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
-                            alt="Livguard inverter-battery combo"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute",
-                                containerWidth < 1024 ? "tw-bottom-8 tw-inset-x-0 tw-mx-auto tw-w-[90%] md:tw-w-[60%]" : "tw-bottom-8 tw-right-0 tw-h-1/2",
-                            )}
-                        />
-                    </>
-                )}
+                    <img
+                        src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/offers/1/all-products.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
+                        alt="Livguard inverter-battery combo"
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-absolute",
+                            isScreenSizeBelow ? "tw-bottom-8 tw-inset-x-0 tw-mx-auto tw-w-[90%] md:tw-w-[60%]" : "tw-bottom-8 tw-right-0 tw-h-1/2",
+                        )}
+                    />
+                </>
             </div>
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
@@ -361,7 +367,7 @@ export function BestOffers({
     pageUrl: string;
     className?: string;
 }) {
-    const offers = [
+    const offers: Array<Array<{offers: Array<{name: string; validTill: string}>; emptyOfferButtonTextPiece: string; emptyOfferButtonLink: string; target?: boolean}>> = [
         [
             {
                 offers: [
@@ -386,22 +392,22 @@ export function BestOffers({
                 emptyOfferButtonLink: "/battery-finder",
             },
         ],
-        [
-            {
-                offers: [
-                    {
-                        name: "solar",
-                        validTill: "June 31, 2023",
-                    },
-                ],
-                emptyOfferButtonTextPiece: "1945f91a-ddb2-42ab-99d0-f094a02094b0",
-                emptyOfferButtonLink: "https://www.livguardsolar.com/",
-            },
-        ],
-        [{offers: [], emptyOfferButtonTextPiece: "15f8008f-5fa5-4b55-9876-916ff55cf323", emptyOfferButtonLink: "/lg-trolley-category"}],
+        [{offers: [], emptyOfferButtonTextPiece: "1945f91a-ddb2-42ab-99d0-f094a02094b0", emptyOfferButtonLink: "https://www.livguardsolar.com/", target: true}],
+        [{offers: [], emptyOfferButtonTextPiece: "15f8008f-5fa5-4b55-9876-916ff55cf323", emptyOfferButtonLink: "/inverter-trolley"}],
     ];
 
     const [selectedCategoryIndex, setSelectedCategoryIndex] = useState<number>(0);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "best-offers": {
+                humanReadableName: getVernacularString("c7712522-8ed0-4081-b015-bad7c20015a1", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -410,6 +416,7 @@ export function BestOffers({
                 className,
             )}
             id="best-offers"
+            ref={sectionRef}
         >
             <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-full">
                 <DefaultTextAnimation>
@@ -486,6 +493,7 @@ export function BestOffers({
                             userPreferences={userPreferences}
                             buttonText={getVernacularString(offers[selectedCategoryIndex][0].emptyOfferButtonTextPiece, userPreferences.language)}
                             buttonLink={offers[selectedCategoryIndex][0].emptyOfferButtonLink}
+                            target={offers[selectedCategoryIndex][0].target}
                         />
                     ) : (
                         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-4 tw-gap-y-4 tw-px-2">
@@ -519,6 +527,17 @@ export function BestOffers({
 }
 
 function FeaturedProducts({userPreferences, featuredProducts, className}: {userPreferences: UserPreferences; featuredProducts: Array<ProductDetails>; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "featured-products": {
+                humanReadableName: getVernacularString("86aa4572-0487-4dcd-a8fd-bcf887b6e296", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     // const featuredProducts = [
     //     {
     //         type: ProductType.inverter,
@@ -581,7 +600,11 @@ function FeaturedProducts({userPreferences, featuredProducts, className}: {userP
     // ];
 
     return (
-        <div className={className}>
+        <div
+            className={className}
+            id="featured-products"
+            ref={sectionRef}
+        >
             <div className="tw-grid tw-grid-cols-1">
                 <h2 className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("5ac20616-07fb-44f4-bf6f-c5e16b272eb8", userPreferences.language)}} />
@@ -677,10 +700,12 @@ function RecommendationCard({
                 <VerticalSpacer className="tw-h-6" />
 
                 <div className="tw-w-full tw-text-center lg-text-secondary-700 tw-row-start-8">
-                    {price == null ? "Price under updation" : `${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${price}${getVernacularString(
-                        "0044b486-6eca-4e3a-abf0-102eede6e10c",
-                        userPreferences.language,
-                    )}`}
+                    {price == null
+                        ? "Price under updation"
+                        : `${getVernacularString("abce92ec-fd9a-4578-ab56-ddfd9fdafe72", userPreferences.language)}${price}${getVernacularString(
+                              "0044b486-6eca-4e3a-abf0-102eede6e10c",
+                              userPreferences.language,
+                          )}`}
                 </div>
 
                 <VerticalSpacer className="tw-h-4 tw-row-start-10" />
@@ -693,7 +718,7 @@ function RecommendationCard({
     );
 }
 
-function EmptyOfferCard({userPreferences, buttonText, buttonLink}: {userPreferences: UserPreferences; buttonText?: string; buttonLink?: string}) {
+function EmptyOfferCard({userPreferences, buttonText, buttonLink, target}: {userPreferences: UserPreferences; buttonText?: string; buttonLink?: string; target?: boolean}) {
     return (
         <div className="tw-w-full tw-h-full tw-min-h-[8rem] tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-grid-rows-[minmax(0,5fr)_2rem_auto_minmax(0,1fr)] tw-justify-items-center tw-items-start lg:tw-place-items-center">
             <div className="lg:tw-col-span-2 lg:tw-row-start-1 tw-w-1/2">
@@ -708,7 +733,10 @@ function EmptyOfferCard({userPreferences, buttonText, buttonLink}: {userPreferen
 
                 <VerticalSpacer className="tw-h-4" />
 
-                <Link to={buttonLink}>
+                <Link
+                    to={buttonLink}
+                    target={target === true ? "_blank" : undefined}
+                >
                     <button className="lg-cta-button tw-px-6 tw-py-4">{buttonText}</button>
                 </Link>
             </div>

@@ -1,41 +1,21 @@
 import {Dialog, Disclosure, Listbox, Popover, Transition} from "@headlessui/react";
 import {Bars3Icon, ChevronRightIcon} from "@heroicons/react/20/solid";
-import {Form, Link, useFetcher, useNavigate, useSubmit} from "@remix-run/react";
-import React, {useEffect, useRef, useState} from "react";
-import {ArrowLeftShort, ArrowLeftShort, BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
-import {useResizeDetector} from "react-resize-detector";
+import {Form, Link, useFetcher, useSubmit} from "@remix-run/react";
+import React, {createRef, useEffect, useRef, useState} from "react";
+import {BrightnessHighFill, Check2, ChevronDown, MoonStarsFill, Search, Telephone, X} from "react-bootstrap-icons";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {HorizontalSpacer} from "~/global-common-typescript/components/horizontalSpacer";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
+import {setHaptikLanguage} from "~/root";
 import {OfferContactUsCta} from "~/routes/offers/inverter-and-battery-jodi";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language, Theme, languageToHumanFriendlyString, languageToShortHumanFriendlyFormat, themeToHumanFriendlyString} from "~/typeDefinitions";
 import {getMetadataForImage} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {ContactUsDialog as ContactUsLeadFormDialog} from "~/routes";
-import {FixedHeightImage} from "~/components/images/fixedHeightImage";
-
-enum MenuState {
-    Closed,
-    Transitioning,
-    Open,
-}
-
-enum SubMenu {
-    Inverters,
-    Batteries,
-    AutomotiveBatteries,
-    Solar,
-    AccessoriesAndotherBatteries,
-    DealerLocator,
-    RegisterYourBrand,
-    More,
-}
 
 export function HeaderComponent({
     userPreferences,
@@ -57,11 +37,11 @@ export function HeaderComponent({
     return (
         <>
             <div className="tw-flex tw-flex-col tw-items-stretch tw-sticky tw-top-0 tw-z-[60]">
-                <FirstBar
+                {/* <FirstBar
                     showContactDetails={showContactDetails}
                     userPreferences={userPreferences}
                     redirectTo={redirectTo}
-                />
+                /> */}
 
                 <SecondBar
                     showMobileMenuIcon={showMobileMenuIcon}
@@ -69,6 +49,7 @@ export function HeaderComponent({
                     showContactCtaButton={showContactCtaButton}
                     pageUrl={pageUrl}
                     userPreferences={userPreferences}
+                    redirectTo={redirectTo}
                 />
             </div>
         </>
@@ -90,6 +71,7 @@ function FirstBar({showContactDetails, userPreferences, redirectTo}: {showContac
         if (selectedLanguage != previousLanguage.current) {
             submit(languageFormRef.current, {replace: true});
             previousLanguage.current = selectedLanguage;
+            setHaptikLanguage(selectedLanguage);
         }
     }, [selectedLanguage]);
 
@@ -326,40 +308,20 @@ function SecondBar({
     showContactCtaButton,
     pageUrl,
     userPreferences,
+    redirectTo,
 }: {
     showMobileMenuIcon: boolean;
     showSearchOption: boolean;
     showContactCtaButton: boolean;
     pageUrl: string;
     userPreferences: UserPreferences;
+    redirectTo: string;
 }) {
-    const isMobile = useIsScreenSizeBelow(1024);
-
+    const submit = useSubmit();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const menuState = useRef<MenuState>(MenuState.Closed);
 
     function tryToOpenMenu() {
-        if (menuState.current == MenuState.Closed) {
-            setIsMenuOpen(true);
-        }
-    }
-
-    const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
-
-    const utmParameters = useUtmSearchParameters();
-
-    const [currentlyOpenSubMenu, setCurrentlyOpenSubMenu] = useState<SubMenu | null>(null);
-    const subMenuState = useRef<MenuState>(MenuState.Closed);
-
-    function tryToOpenSubMenu(subMenu: SubMenu) {
-        if (subMenuState.current == MenuState.Closed) {
-            setCurrentlyOpenSubMenu(subMenu);
-            setIsMenuOpen(false);
-        }
-    }
-
-    function tryToOpenContactUsDialog() {
-        setIsContactUsDialogOpen(true);
+        setIsMenuOpen(true);
     }
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -368,264 +330,86 @@ function SecondBar({
         setIsSearchOpen(true);
     }
 
-    const [isContactUsLeadFormDialogOpen, setIsContactUsLeadFormDialogOpen] = useState(false);
-    function tryToOpenContactUsLeadFormDialog() {
-        setIsContactUsLeadFormDialogOpen(true);
-    }
-    const {width: containerWidth, ref: resizeRef} = useResizeDetector();
+    const languageOptions = [Language.English, Language.Hindi];
+    const [selectedLanguage, setSelectedLanguage] = useState(userPreferences.language);
+    const languageFormRef = useRef<HTMLFormElement>(null);
+    const previousLanguage = useRef(userPreferences.language);
+
+    useEffect(() => {
+        // Used to safegaurd against sending a language change request the moment a user enters the page
+        if (selectedLanguage != previousLanguage.current) {
+            submit(languageFormRef.current, {replace: true});
+            previousLanguage.current = selectedLanguage;
+            setHaptikLanguage(selectedLanguage);
+        }
+    }, [selectedLanguage]);
 
     return (
-        // <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-        //     {showMobileMenuIcon && isMobile != null && isMobile == true && (
-        //         <div className="tw-flex tw-flex-row">
-        //             <button
-        //                 type="button"
-        //                 onClick={tryToOpenMenu}
-        //             >
-        //                 <Bars3Icon className="tw-w-6 tw-h-6" />
-        //             </button>
+        // TODO: Resolve this custom media query some other way
+        <div className="lg-px-screen-edge [@media(max-width:1080px)]:!tw-px-2 tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
+            <div className="tw-flex lg:tw-hidden tw-flex-row">
+                <button
+                    type="button"
+                    onClick={tryToOpenMenu}
+                >
+                    <Bars3Icon className="tw-w-6 tw-h-6" />
+                </button>
 
-        //             <HorizontalSpacer className="tw-w-2" />
-        //         </div>
-        //     )}
-
-        //     <Link to="/">
-        //         <img
-        //             src={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
-        //             width={385}
-        //             height={96}
-        //             className="tw-w-auto tw-h-6"
-        //             key={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
-        //         />
-        //     </Link>
-
-        //     {showMobileMenuIcon && isMobile != null && isMobile == false && (
-        //         <>
-        //             <div className="tw-w-8" />
-
-        //             <MenuDialogDesktop userPreferences={userPreferences} />
-        //         </>
-        //     )}
-
-        //     <div className="tw-flex-1" />
-
-        //     {showSearchOption && (
-        //         <button
-        //             type="button"
-        //             onClick={tryToOpenSearch}
-        //             className="tw-flex tw-flex-row tw-items-center"
-        //         >
-        //             <Search className="tw-w-6 tw-h-6" />
-        //             <HorizontalSpacer className="tw-w-2" />
-        //             <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
-        //         </button>
-        //     )}
-
-        //     {/* <Link
-        //         to={"/load-calculator"}
-        //         className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
-        //     >
-        //         {getVernacularString("headerLoadCalculator", userPreferences.language)}
-        //     </Link> */}
-
-        //     {showContactCtaButton && (
-        //         <OfferContactUsCta
-        //             userPreferences={userPreferences}
-        //             textVernacId="offerPageCta"
-        //             className="tw-z-10 tw-hidden lg:tw-block"
-        //             pageUrl={pageUrl}
-        //         />
-        //     )}
-
-        //     <MenuDialogMobile
-        //         userPreferences={userPreferences}
-        //         isMenuOpen={isMenuOpen}
-        //         setIsMenuOpen={setIsMenuOpen}
-        //         menuState={menuState}
-        //     />
-
-        //     <SearchDialog
-        //         userPreferences={userPreferences}
-        //         isSearchOpen={isSearchOpen}
-        //         setIsSearchOpen={setIsSearchOpen}
-        //     />
-        // </div>
-        <>
-            <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
-                {showMobileMenuIcon && (
-                    <div className="tw-flex tw-flex-row lg:tw-hidden">
-                        <button
-                            type="button"
-                            onClick={tryToOpenMenu}
-                        >
-                            <Bars3Icon className="tw-w-6 tw-h-6" />
-                        </button>
-
-                        <HorizontalSpacer className="tw-w-2" />
-                    </div>
-                )}
-
-                <Link to="/">
-                    <div className="tw-block dark:tw-hidden">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6"
-                        />
-                    </div>
-
-                    <div className="dark:tw-block tw-hidden">
-                        <img
-                            src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            width={385}
-                            height={96}
-                            className="tw-w-auto tw-h-6"
-                        />
-                    </div>
-                </Link>
-
-                <div className="tw-w-8 tw-hidden lg:tw-flex" />
-
-                {showMobileMenuIcon && (
-                    <div className="tw-hidden [@media(min-width:1075px)]:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.Inverters);
-                            }}
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T1", userPreferences.language)}
-                        </button>
-
-                        <Link
-                            to="/inverter-batteries"
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T2", userPreferences.language)}
-                        </Link>
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
-                            }}
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T3", userPreferences.language)}
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.Solar);
-                            }}
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T4", userPreferences.language)}
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.AccessoriesAndotherBatteries);
-                            }}
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T5", userPreferences.language)}
-                        </button>
-
-                        <Link
-                            to="/dealer-for-inverters-and-batteries"
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T6", userPreferences.language)}
-                        </Link>
-
-                        {/* <a
-                            href="/register-and-warranty-for-inverters.php"
-                        >
-                            {getVernacularString("headerMenuS1T7", userPreferences.language)}
-                        </a> */}
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                tryToOpenSubMenu(SubMenu.More);
-                            }}
-                            className="tw-transition tw-duration-200 hover:lg-text-primary-500"
-                        >
-                            {getVernacularString("headerMenuS1T8", userPreferences.language)}
-                        </button>
-
-                        <Link
-                            to={"/load-calculator"}
-                            className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
-                        >
-                            {getVernacularString("headerLoadCalculator", userPreferences.language)}
-                        </Link>
-                    </div>
-                )}
-
-                <div className="tw-flex-1" />
-
-                {showSearchOption && (
-                    <button
-                        type="button"
-                        onClick={tryToOpenSearch}
-                        className="tw-flex tw-flex-row tw-items-center"
-                    >
-                        <Search className="tw-w-6 tw-h-6" />
-                        <HorizontalSpacer className="tw-w-2" />
-                        <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
-                    </button>
-                )}
-                {showContactCtaButton && (
-                    <OfferContactUsCta
-                        userPreferences={userPreferences}
-                        textVernacId="offerPageCta"
-                        className="tw-z-10 tw-hidden lg:tw-block"
-                        pageUrl={pageUrl}
-                    />
-                )}
+                <HorizontalSpacer className="tw-w-2" />
             </div>
 
-            <ContactUsDialog
+            <Link to="/">
+                <img
+                    src={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                    width={385}
+                    height={96}
+                    className="tw-w-auto tw-h-6 lg:tw-h-[2.2rem]"
+                    key={userPreferences.theme == Theme.Dark ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg" : "https://files.growthjockey.com/livguard/icons/logo-light.svg"}
+                    alt="livguard-logo"
+                />
+            </Link>
+
+            <div className="tw-w-6 tw-hidden lg:tw-flex" />
+
+            <MenuDialogDesktop
                 userPreferences={userPreferences}
-                isContactUsDialogOpen={isContactUsDialogOpen}
-                setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+                className="tw-hidden lg:tw-flex"
             />
 
-            <MenuDialog
+            <div className="tw-flex-1" />
+
+            {showSearchOption && (
+                <button
+                    type="button"
+                    onClick={tryToOpenSearch}
+                    className="tw-flex tw-flex-row tw-items-center"
+                >
+                    <Search className="tw-w-6 tw-h-6" />
+                    <HorizontalSpacer className="tw-w-4" />
+                    {/* <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div> */}
+                </button>
+            )}
+
+            {/* <Link
+                to={"/load-calculator"}
+                className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
+            >
+                {getVernacularString("headerLoadCalculator", userPreferences.language)}
+            </Link> */}
+
+            {showContactCtaButton && (
+                <OfferContactUsCta
+                    userPreferences={userPreferences}
+                    textVernacId="offerPageCta"
+                    className="tw-z-10 tw-hidden lg:tw-block"
+                    pageUrl={pageUrl}
+                />
+            )}
+
+            <MenuDialogMobile
                 userPreferences={userPreferences}
                 isMenuOpen={isMenuOpen}
                 setIsMenuOpen={setIsMenuOpen}
-                menuState={menuState}
-                currentlyOpenSubMenu={currentlyOpenSubMenu}
-                setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
-                subMenuState={subMenuState}
-                tryToOpenSubMenu={tryToOpenSubMenu}
-                tryToOpenContactUsLeadFormDialog={tryToOpenContactUsLeadFormDialog}
-            />
-
-            <SubMenuDialog
-                userPreferences={userPreferences}
-                currentlyOpenSubMenu={currentlyOpenSubMenu}
-                setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
-                subMenuState={subMenuState}
-                utmParameters={utmParameters}
-                pageUrl={pageUrl}
-                setIsMenuOpen={setIsMenuOpen}
-                tryToOpenContactUsLeadFormDialog={tryToOpenContactUsLeadFormDialog}
-            />
-
-            <ContactUsLeadFormDialog
-                userPreferences={userPreferences}
-                isContactUsDialogOpen={isContactUsLeadFormDialogOpen}
-                setIsContactUsDialogOpen={setIsContactUsLeadFormDialogOpen}
-                utmParameters={utmParameters}
-                pageUrl={pageUrl}
             />
 
             <SearchDialog
@@ -633,814 +417,441 @@ function SecondBar({
                 isSearchOpen={isSearchOpen}
                 setIsSearchOpen={setIsSearchOpen}
             />
-        </>
-    );
-}
 
-function MenuDialog({
-    userPreferences,
-    isMenuOpen,
-    setIsMenuOpen,
-    menuState,
-    currentlyOpenSubMenu,
-    setCurrentlyOpenSubMenu,
-    tryToOpenSubMenu,
-    tryToOpenContactUsLeadFormDialog,
-}: {
-    userPreferences: UserPreferences;
-    isMenuOpen: boolean;
-    setIsMenuOpen: React.Dispatch<boolean>;
-    menuState: React.MutableRefObject<MenuState>;
-    currentlyOpenSubMenu: SubMenu | null;
-    setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
-    subMenuState: React.MutableRefObject<MenuState>;
-    tryToOpenSubMenu: (subMenu: SubMenu) => void;
-    tryToOpenContactUsLeadFormDialog: () => void;
-}) {
-    const navigate = useNavigate();
-
-    function tryToCloseMenu() {
-        if (menuState.current == MenuState.Open) {
-            setIsMenuOpen(false);
-            setCurrentlyOpenSubMenu(null);
-        }
-    }
-
-    return (
-        <Transition
-            show={isMenuOpen}
-            as={React.Fragment}
-            beforeEnter={() => (menuState.current = MenuState.Transitioning)}
-            afterEnter={() => (menuState.current = MenuState.Open)}
-            beforeLeave={() => (menuState.current = MenuState.Transitioning)}
-            afterLeave={() => (menuState.current = MenuState.Closed)}
-        >
-            <Dialog
-                as="div"
-                className="tw-relative tw-z-[60]"
-                onClose={tryToCloseMenu}
+            <Form
+                method="post"
+                action="/set-language"
+                ref={languageFormRef}
+                className="tw-relative"
             >
-                <Transition.Child
-                    as={React.Fragment}
-                    enter="tw-ease-out tw-transition-all tw-duration-200"
-                    enterFrom="tw-opacity-0"
-                    enterTo="tw-opacity-100"
-                    leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                    leaveFrom="tw-opacity-100"
-                    leaveTo="tw-opacity-0"
+                <Listbox
+                    value={selectedLanguage}
+                    onChange={setSelectedLanguage}
                 >
-                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
-                </Transition.Child>
+                    <Listbox.Button className="lg-text-secondary-900 tw-grid tw-grid-cols-[1rem_1rem] tw-gap-x-2 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+                        {languageToShortHumanFriendlyFormat(selectedLanguage)}
+                        <ChevronDown className="tw-w-4 tw-h-4" />
+                    </Listbox.Button>
 
-                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-top-6 lg:tw-top-[unset] tw-bottom-0 tw-max-w-lg tw-overflow-hidden tw-grid tw-grid-cols-1 tw-grid-rows-[auto_auto_minmax(0,1fr)]">
-                    <Transition.Child
-                        as={React.Fragment}
-                        enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-scale-0 tw-rotate-180"
-                        enterTo="tw-scale-100 tw-rotate-0"
-                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                        leaveFrom="tw-scale-100 tw-rotate-0"
-                        leaveTo="tw-scale-0 tw-rotate-180"
-                    >
-                        <button
-                            type="button"
-                            className="tw-justify-self-center tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-full"
-                            onClick={tryToCloseMenu}
-                        >
-                            <X className="tw-w-10 tw-h-10 lg-text-secondary-700" />
-                        </button>
-                    </Transition.Child>
-
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="tw-w-full tw-h-full lg:tw-max-h-[40rem] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-1 tw-justify-items-center tw-relative">
-                        <Transition.Child
-                            as={React.Fragment}
-                            enter="tw-ease-out tw-transition-all tw-duration-200"
-                            enterFrom="tw-translate-y-full"
-                            enterTo="tw-translate-y-0"
-                            leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                            leaveFrom="tw-translate-y-0"
-                            leaveTo="tw-translate-y-full"
-                        >
-                            <div className="tw-absolute tw-inset-0 tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-t-lg -tw-z-10" />
-                        </Transition.Child>
-
-                        <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-gap-y-4 tw-items-stretch">
-                            <ItemBuilder
-                                items={[
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T1",
-                                        enterClassName: "tw-delay-[250ms]",
-                                        subMenu: SubMenu.Inverters,
-                                        link: null,
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T2",
-                                        enterClassName: "tw-delay-[300ms]",
-                                        subMenu: null,
-                                        link: "/inverter-batteries",
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T3",
-                                        enterClassName: "tw-delay-[350ms]",
-                                        subMenu: SubMenu.AutomotiveBatteries,
-                                        link: null,
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T4",
-                                        enterClassName: "tw-delay-[400ms]",
-                                        subMenu: SubMenu.Solar,
-                                        link: null,
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T5",
-                                        enterClassName: "tw-delay-[450ms]",
-                                        subMenu: SubMenu.AccessoriesAndotherBatteries,
-                                        link: null,
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T6",
-                                        enterClassName: "tw-delay-[500ms]",
-                                        subMenu: null,
-                                        link: "/dealer-for-inverters-and-batteries",
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T7",
-                                        enterClassName: "tw-delay-[550ms]",
-                                        subMenu: null,
-                                        link: "/warranty",
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "headerMenuS1T8",
-                                        enterClassName: "tw-delay-[600ms]",
-                                        subMenu: SubMenu.More,
-                                        link: null,
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "9316f275-c395-4344-99d7-895d162602c0",
-                                        enterClassName: "tw-delay-[650ms]",
-                                        subMenu: null,
-                                        link: "/offers",
-                                    },
-                                    {
-                                        linkTextTextContentPiece: "0d7eacab-de68-49a3-a0d2-c25eba53a1e3",
-                                        enterClassName: "tw-delay-[700ms]",
-                                        subMenu: null,
-                                        link: "/e-waste-management",
-                                    },
-                                ]}
-                                itemBuilder={(item, itemIndex) => (
-                                    <button
-                                        className="tw-flex tw-flex-row tw-text-left"
-                                        key={itemIndex}
-                                        onClick={() => {
-                                            if (item.subMenu != null) {
-                                                tryToOpenSubMenu(item.subMenu);
-                                            } else {
-                                                if (item.link.startsWith("/")) {
-                                                    // TODO: This will break if the link is from the old website! Use with caution!
-                                                    navigate(item.link);
-                                                } else {
-                                                    window.open(item.link, "_blank");
-                                                }
-                                                tryToCloseMenu();
-                                            }
-                                        }}
-                                    >
-                                        <Transition.Child
-                                            as={React.Fragment}
-                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
-                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                            enterTo="tw-translate-y-0 tw-opacity-full"
-                                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                                        >
-                                            <div className="tw-flex-1 lg-text-title2">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
-                                        </Transition.Child>
-
-                                        <Transition.Child
-                                            as={React.Fragment}
-                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
-                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                            enterTo="tw-translate-y-0 tw-opacity-full"
-                                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                                        >
-                                            <div className="tw-flex-none tw-w-7 tw-h-7 tw-bg-secondary-300-light dark:tw-bg-secondary-500-dark tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center">
-                                                <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                                            </div>
-                                        </Transition.Child>
-                                    </button>
-                                )}
-                            />
-                        </div>
-
-                        <VerticalSpacer className="tw-h-[3.625rem]" />
-
-                        {/* Removed Akshay to add Get Offers and E-Waste Management links to Mobile Menu */}
-                        {/* <Transition.Child
-                            as="div"
-                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
-                            enterFrom="tw-opacity-0"
-                            enterTo="tw-opacity-full"
-                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                            leaveFrom="tw-opacity-full"
-                            leaveTo="tw-opacity-0"
-                        >
-                            <FixedHeightImage
-                                relativePath="/livguard/header/akshay.png"
-                                height="13.75rem"
-                            />
-                        </Transition.Child> */}
-
-                        {/* <Transition.Child
-                            as={React.Fragment}
-                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
-                            enterFrom="tw-opacity-0"
-                            enterTo="tw-opacity-full"
-                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                            leaveFrom="tw-opacity-full"
-                            leaveTo="tw-opacity-0"
-                        >
-                            <button
-                                className="lg-cta-button tw-px-4 tw-z-10"
-                                onClick={() => {
-                                    tryToCloseMenu();
-                                    tryToOpenContactUsLeadFormDialog();
-                                }}
-                            >
-                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem] tw-items-center">
-                                    <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
-                                    <div className="tw-col-start-3">{getVernacularString("360f578c-4a1f-49a7-baf8-ee0680fb3301", userPreferences.language)}</div>
-                                </div>
-                            </button>
-                        </Transition.Child> */}
-                    </div>
-                </Dialog.Panel>
-            </Dialog>
-        </Transition>
-    );
-}
-
-function SubMenuDialog({
-    userPreferences,
-    currentlyOpenSubMenu,
-    setCurrentlyOpenSubMenu,
-    subMenuState,
-    setIsMenuOpen,
-    tryToOpenContactUsLeadFormDialog,
-}: {
-    userPreferences: UserPreferences;
-    currentlyOpenSubMenu: SubMenu | null;
-    setCurrentlyOpenSubMenu: React.Dispatch<SubMenu | null>;
-    subMenuState: React.MutableRefObject<MenuState>;
-    utmParameters: {[searchParameter: string]: string};
-    pageUrl: string;
-    setIsMenuOpen: React.Dispatch<boolean>;
-    tryToOpenContactUsLeadFormDialog: () => void;
-}) {
-    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
-    function tryToCloseSubMenu() {
-        if (subMenuState.current == MenuState.Open) {
-            setCurrentlyOpenSubMenu(null);
-            if (isScreenSizeBelow) {
-                setIsMenuOpen(true);
-            }
-        }
-    }
-
-    return (
-        <Transition
-            show={currentlyOpenSubMenu != null}
-            as={React.Fragment}
-            beforeEnter={() => (subMenuState.current = MenuState.Transitioning)}
-            afterEnter={() => (subMenuState.current = MenuState.Open)}
-            beforeLeave={() => (subMenuState.current = MenuState.Transitioning)}
-            afterLeave={() => (subMenuState.current = MenuState.Closed)}
-        >
-            <Dialog
-                as="div"
-                className="tw-relative tw-z-[60]"
-                onClose={tryToCloseSubMenu}
-            >
-                <Transition.Child
-                    as={React.Fragment}
-                    enter="tw-ease-out tw-transition-all tw-duration-200"
-                    enterFrom="tw-opacity-0"
-                    enterTo="tw-opacity-100"
-                    leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                    leaveFrom="tw-opacity-100"
-                    leaveTo="tw-opacity-0"
-                >
-                    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur" />
-                </Transition.Child>
-
-                <Dialog.Panel className="tw-fixed tw-left-6 tw-right-6 tw-top-6 lg:tw-top-[unset] tw-bottom-0 tw-max-w-lg tw-overflow-hidden tw-grid tw-grid-cols-1 tw-grid-rows-[auto_auto_minmax(0,1fr)]">
-                    <Transition.Child
-                        as={React.Fragment}
-                        enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-scale-0 tw-rotate-180"
-                        enterTo="tw-scale-100 tw-rotate-0"
-                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                        leaveFrom="tw-scale-100 tw-rotate-0"
-                        leaveTo="tw-scale-0 tw-rotate-180"
-                    >
-                        <button
-                            type="button"
-                            className="tw-justify-self-center tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-full"
-                            onClick={tryToCloseSubMenu}
-                        >
-                            <ArrowLeftShort className="tw-w-10 tw-h-10 lg-text-secondary-700" />
-                        </button>
-                    </Transition.Child>
-
-                    <VerticalSpacer className="tw-h-6" />
-
-                    <div className="tw-w-full tw-h-full lg:tw-h-[40rem] tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-1 tw-justify-items-center tw-relative">
-                        <Transition.Child
-                            as={React.Fragment}
-                            enter="tw-ease-out tw-transition-all tw-duration-200"
-                            enterFrom="tw-translate-x-full"
-                            enterTo="tw-translate-x-0"
-                            leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                            leaveFrom="tw-translate-x-0"
-                            leaveTo="tw-translate-x-full"
-                        >
-                            <div className="tw-absolute tw-inset-0 tw-bg-background-500-light dark:tw-bg-secondary-300-dark tw-rounded-t-lg -tw-z-10" />
-                        </Transition.Child>
-
-                        <div
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-w-full tw-h-full tw-flex tw-flex-col tw-gap-y-4 tw-items-stretch",
-                                currentlyOpenSubMenu === SubMenu.More ? "tw-overflow-y-scroll" : "",
-                            )}
-                        >
-                            <Transition.Child
-                                as={React.Fragment}
-                                // enter="tw-ease-out tw-transition-all tw-delay-[200ms]"
-                                // enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                // enterTo="tw-translate-y-0 tw-opacity-full"
-                                // leave="tw-ease-in tw-transition-all tw-duration-200"
-                                // leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                // leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                                leave="tw-ease-in tw-transition-all tw-duration-200"
-                                leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                            >
-                                <div
-                                    className="tw-w-fit tw-flex tw-flex-row tw-items-center tw-gap-x-2"
-                                    onClick={tryToCloseSubMenu}
+                    <Listbox.Options className="tw-absolute tw-z-[60] tw-top-12 tw-right-0 lg-text-secondary-900 tw-rounded-lg tw-overflow-hidden tw-w-max">
+                        <ItemBuilder
+                            items={languageOptions}
+                            itemBuilder={(item, itemIndex) => (
+                                <Listbox.Option
+                                    value={item}
+                                    key={itemIndex}
+                                    as={React.Fragment}
                                 >
-                                    <ArrowLeftShort className="tw-w-4 tw-h-4" />
-                                    <div>
-                                        {currentlyOpenSubMenu == SubMenu.Inverters
-                                            ? getVernacularString("headerMenuSM1T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.Batteries
-                                            ? getVernacularString("headerMenuSM2T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
-                                            ? getVernacularString("headerMenuSM3T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.Solar
-                                            ? getVernacularString("headerMenuSM4T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.AccessoriesAndotherBatteries
-                                            ? getVernacularString("headerMenuSM5T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.DealerLocator
-                                            ? getVernacularString("headerMenuSM6T1", userPreferences.language)
-                                            : currentlyOpenSubMenu == SubMenu.RegisterYourBrand
-                                            ? getVernacularString("headerMenuSM7T1", userPreferences.language)
-                                            : null}
-                                    </div>
-                                </div>
-                            </Transition.Child>
-
-                            <ItemBuilder
-                                items={
-                                    currentlyOpenSubMenu == SubMenu.Inverters
-                                        ? [
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM1T2",
-                                                  enterClassName: "tw-delay-[250ms]",
-                                                  link: "/inverter-for-home",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM1T3",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/high-capacity-inverters",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                          ]
-                                        : currentlyOpenSubMenu == SubMenu.Batteries
-                                        ? []
-                                        : currentlyOpenSubMenu == SubMenu.AutomotiveBatteries
-                                        ? [
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM3T2",
-                                                  enterClassName: "tw-delay-[250ms]",
-                                                  link: "/car-and-suv-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM3T3",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/two-wheeler-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM3T4",
-                                                  enterClassName: "tw-delay-[350ms]",
-                                                  link: "/bus-and-truck-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM3T5",
-                                                  enterClassName: "tw-delay-[400ms]",
-                                                  link: "/tractor-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM3T6",
-                                                  enterClassName: "tw-delay-[450ms]",
-                                                  link: "/three-wheeler-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM3T7",
-                                                  enterClassName: "tw-delay-[500ms]",
-                                                  link: "/e-rickshaw-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                          ]
-                                        : currentlyOpenSubMenu == SubMenu.Solar
-                                        ? [
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM4T2",
-                                                  enterClassName: "tw-delay-[250ms]",
-                                                  link: "/solar-panels-and-inverters-for-home/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM4T3",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/solar-battery-for-home/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM4T4",
-                                                  enterClassName: "tw-delay-[350ms]",
-                                                  link: "https://www.livguardsolar.com/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                          ]
-                                        : currentlyOpenSubMenu == SubMenu.AccessoriesAndotherBatteries
-                                        ? [
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM5T2",
-                                                  enterClassName: "tw-delay-[250ms]",
-                                                  link: "/stabilizer-for-AC-and-TV.php",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM5T3",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/e-rickshaw-charger/",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM5T4",
-                                                  enterClassName: "tw-delay-[350ms]",
-                                                  link: "/inverter-batteries",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM5T5",
-                                                  enterClassName: "tw-delay-[400ms]",
-                                                  link: "/vrla-batteries/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM5T6",
-                                                  enterClassName: "tw-delay-[450ms]",
-                                                  link: "/inverter-trolley/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                          ]
-                                        : currentlyOpenSubMenu == SubMenu.DealerLocator
-                                        ? []
-                                        : currentlyOpenSubMenu == SubMenu.RegisterYourBrand
-                                        ? []
-                                        : currentlyOpenSubMenu == SubMenu.More
-                                        ? [
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T2",
-                                                  enterClassName: "tw-delay-[250ms]",
-                                                  link: "/about-us",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T6",
-                                                  enterClassName: "tw-delay-[300ms]",
-                                                  link: "/e-waste-management",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "headerMenuSM8T3",
-                                                  enterClassName: "tw-delay-[350ms]",
-                                                  link: "/blog/",
-                                                  external: true,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "7ad4abbd-2d09-4f4a-9605-f0f2c5008fa8",
-                                                  enterClassName: "tw-delay-[400ms]",
-                                                  link: "/offers",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "088ccfe9-7891-49bd-b01f-2ea4836b0342",
-                                                  enterClassName: "tw-delay-[450ms]",
-                                                  link: "/contact-us",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "6808dbb4-84a3-4aa6-87a0-4820bb7ddfb0",
-                                                  enterClassName: "tw-delay-[500ms]",
-                                                  link: "/service",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "2ab590ad-712c-420c-8315-896e4be9a0ac",
-                                                  enterClassName: "tw-delay-[550ms]",
-                                                  link: "/battery-finder",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "0bbd1db5-44c8-4953-8f29-1f58e19dc100",
-                                                  enterClassName: "tw-delay-[600ms]",
-                                                  link: "/csr",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "8aaec14c-68d6-4339-995d-d89919fc1ffa",
-                                                  enterClassName: "tw-delay-[650ms]",
-                                                  link: "/investors",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "4df385d0-992d-4acc-b9d4-06964b6f1e0d",
-                                                  enterClassName: "tw-delay-[700ms]",
-                                                  link: "/governance",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "dd54a06c-aee0-454f-8ed0-1182a37187d5",
-                                                  enterClassName: "tw-delay-[750ms]",
-                                                  link: "/video-gallery",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "b6b548ef-74b3-4aaa-81a4-be225b88ace9",
-                                                  enterClassName: "tw-delay-[800ms]",
-                                                  link: "/terms-and-conditions",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "8bbd3952-3ad1-46de-afa5-b79c841b3378",
-                                                  enterClassName: "tw-delay-[850ms]",
-                                                  link: "/privacy-policy",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "93e0fa70-2449-4565-a741-ea91931b2864",
-                                                  enterClassName: "tw-delay-[900ms]",
-                                                  link: "/sales-return-policy",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "096a9841-f21e-4920-adc9-1bcb10a4f35f",
-                                                  enterClassName: "tw-delay-[950ms]",
-                                                  link: "/india-ops",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "df025538-0d6a-4954-aba0-4234b2d34565",
-                                                  enterClassName: "tw-delay-[1000ms]",
-                                                  link: "/global-ops",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              {
-                                                  linkTextTextContentPiece: "c13afdef-ed06-4b83-be72-772fbb7a5706",
-                                                  enterClassName: "tw-delay-[1050ms]",
-                                                  link: "/pricing",
-                                                  external: false,
-                                                  download: null,
-                                              },
-                                              //   {
-                                              //       linkTextTextContentPiece: "eb9141ce-2ee8-4dcd-a007-7ccb7f451071",
-                                              //       enterClassName: "tw-delay-[750ms]",
-                                              //       link: "/",
-                                              //       external: false,
-                                              //       download: null,
-                                              //   },
-                                              //   {
-                                              //       linkTextTextContentPiece: "2483941c-5ae4-4903-bbab-a163b3df02bd",
-                                              //       enterClassName: "tw-delay-[800ms]",
-                                              //       link: "/",
-                                              //       external: false,
-                                              //       download: null,
-                                              //   },
-                                              //   {
-                                              //       linkTextTextContentPiece: "070dc123-0784-470f-b9d1-8a46ad3c5b81",
-                                              //       enterClassName: "tw-delay-[850ms]",
-                                              //       link: "/",
-                                              //       external: false,
-                                              //       download: null,
-                                              //   },
-                                          ]
-                                        : []
-                                }
-                                itemBuilder={(item, itemIndex) => (
-                                    <InternalOrExternalOrDownloadLink
-                                        to={item.link}
-                                        external={item.external}
-                                        download={item.download}
-                                        className="tw-flex tw-flex-row tw-pr-2"
-                                        key={itemIndex}
-                                    >
-                                        <Transition.Child
-                                            as={React.Fragment}
-                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
-                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                            enterTo="tw-translate-y-0 tw-opacity-full"
-                                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
+                                    {({active, selected}) => (
+                                        <li
+                                            className={concatenateNonNullStringsWithSpaces(
+                                                "tw-w-full tw-min-w-max tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-items-center tw-gap-x-2 tw-px-2 tw-py-2 tw-cursor-pointer tw-duration-200",
+                                                active ? "lg-bg-primary-500 tw-text-secondary-900-dark" : "lg-bg-secondary-300",
+                                            )}
                                         >
-                                            <div className="tw-flex-1 lg-text-title2">{getVernacularString(item.linkTextTextContentPiece, userPreferences.language)}</div>
-                                        </Transition.Child>
+                                            <div>{languageToHumanFriendlyString(item)}</div>
+                                            {selected ? (
+                                                <Check2 className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+                                            ) : (
+                                                <div className="tw-w-5 tw-h-5 lg:tw-h-3 lg:tw-w-3 xl:tw-h-5 xl:tw-w-5" />
+                                            )}
+                                        </li>
+                                    )}
+                                </Listbox.Option>
+                            )}
+                            spaceBuilder={(spaceIndex) => (
+                                <div
+                                    className="tw-h-px lg-bg-secondary-700"
+                                    key={spaceIndex}
+                                />
+                            )}
+                        />
+                    </Listbox.Options>
+                </Listbox>
 
-                                        <Transition.Child
-                                            as={React.Fragment}
-                                            enter={concatenateNonNullStringsWithSpaces("tw-ease-out tw-transition-all", item.enterClassName)}
-                                            enterFrom="tw-translate-y-[1em] tw-opacity-0"
-                                            enterTo="tw-translate-y-0 tw-opacity-full"
-                                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                                            leaveFrom="tw-translate-y-0 tw-opacity-full"
-                                            leaveTo="tw-translate-y-[1em] tw-opacity-0"
-                                        >
-                                            <div className="tw-flex-none tw-w-7 tw-h-7 tw-bg-secondary-300-light dark:tw-bg-secondary-500-dark tw-rounded-full tw-flex tw-flex-row tw-items-center tw-justify-center">
-                                                <ChevronRightIcon className="tw-w-6 tw-h-6" />
-                                            </div>
-                                        </Transition.Child>
-                                    </InternalOrExternalOrDownloadLink>
-                                )}
-                            />
-                        </div>
+                <input
+                    type="text"
+                    name="language"
+                    value={selectedLanguage}
+                    readOnly
+                    className="tw-hidden"
+                />
 
-                        {/* <VerticalSpacer className="tw-h-8" /> */}
+                <input
+                    type="text"
+                    name="redirectTo"
+                    value={redirectTo}
+                    readOnly
+                    className="tw-hidden"
+                />
+            </Form>
+        </div>
 
-                        {/* <Transition.Child
-                            as="div"
-                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
-                            enterFrom="tw-opacity-0"
-                            enterTo="tw-opacity-full"
-                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                            leaveFrom="tw-opacity-full"
-                            leaveTo="tw-opacity-0"
-                        >
-                            <FixedHeightImage
-                                relativePath="/livguard/header/akshay.png"
-                                height="13.75rem"
-                            />
-                        </Transition.Child>
+        // <>
+        //     <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">
+        //         {showMobileMenuIcon && (
+        //             <div className="tw-flex tw-flex-row lg:tw-hidden">
+        //                 <button
+        //                     type="button"
+        //                     onClick={tryToOpenMenu}
+        //                 >
+        //                     <Bars3Icon className="tw-w-6 tw-h-6" />
+        //                 </button>
 
-                        <Transition.Child
-                            as={React.Fragment}
-                            enter="tw-ease-out tw-transition-all tw-duration-200 tw-delay-200"
-                            enterFrom="tw-opacity-0"
-                            enterTo="tw-opacity-full"
-                            leave="tw-ease-in tw-transition-all tw-duration-200"
-                            leaveFrom="tw-opacity-full"
-                            leaveTo="tw-opacity-0"
-                        >
-                            <button
-                                className="lg-cta-button tw-px-4 tw-z-10"
-                                onClick={() => {
-                                    tryToCloseSubMenu();
-                                    setIsMenuOpen(false);
-                                    tryToOpenContactUsLeadFormDialog();
-                                }}
-                            >
-                                <div className="tw-grid tw-grid-cols-[1.5rem_2rem_auto_2rem_1.5rem] tw-items-center">
-                                    <Telephone className="tw-col-start-1 tw-w-6 tw-h-6" />
-                                    <div className="tw-col-start-3">{getVernacularString("360f578c-4a1f-49a7-baf8-ee0680fb3301", userPreferences.language)}</div>
-                                </div>
-                            </button>
-                        </Transition.Child> */}
-                    </div>
-                </Dialog.Panel>
-            </Dialog>
-        </Transition>
+        //                 <HorizontalSpacer className="tw-w-2" />
+        //             </div>
+        //         )}
+
+        //         <Link to="/">
+        //             <div className="tw-block dark:tw-hidden">
+        //                 <img
+        //                     src="https://files.growthjockey.com/livguard/icons/logo-light.svg"
+        //                     width={385}
+        //                     height={96}
+        //                     className="tw-w-auto tw-h-6"
+        //                 />
+        //             </div>
+
+        //             <div className="dark:tw-block tw-hidden">
+        //                 <img
+        //                     src="https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+        //                     width={385}
+        //                     height={96}
+        //                     className="tw-w-auto tw-h-6"
+        //                 />
+        //             </div>
+        //         </Link>
+
+        //         <div className="tw-w-8 tw-hidden lg:tw-flex" />
+
+        //         {showMobileMenuIcon && (
+        //             <div className="tw-hidden [@media(min-width:1075px)]:tw-flex lg:tw-gap-x-4 xl:tw-gap-x-8 tw-items-center lg:tw-text-[13px] xl:tw-text-[16px]">
+        //                 <button
+        //                     type="button"
+        //                     onClick={() => {
+        //                         tryToOpenSubMenu(SubMenu.Inverters);
+        //                     }}
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T1", userPreferences.language)}
+        //                 </button>
+
+        //                 <Link
+        //                     to="/inverter-batteries"
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T2", userPreferences.language)}
+        //                 </Link>
+
+        //                 <button
+        //                     type="button"
+        //                     onClick={() => {
+        //                         tryToOpenSubMenu(SubMenu.AutomotiveBatteries);
+        //                     }}
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T3", userPreferences.language)}
+        //                 </button>
+
+        //                 <button
+        //                     type="button"
+        //                     onClick={() => {
+        //                         tryToOpenSubMenu(SubMenu.Solar);
+        //                     }}
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T4", userPreferences.language)}
+        //                 </button>
+
+        //                 <button
+        //                     type="button"
+        //                     onClick={() => {
+        //                         tryToOpenSubMenu(SubMenu.AccessoriesAndotherBatteries);
+        //                     }}
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T5", userPreferences.language)}
+        //                 </button>
+
+        //                 <Link
+        //                     to="/dealer-for-inverters-and-batteries"
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T6", userPreferences.language)}
+        //                 </Link>
+
+        //                 {/* <a
+        //                     href="/register-and-warranty-for-inverters.php"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T7", userPreferences.language)}
+        //                 </a> */}
+
+        //                 <button
+        //                     type="button"
+        //                     onClick={() => {
+        //                         tryToOpenSubMenu(SubMenu.More);
+        //                     }}
+        //                     className="tw-transition tw-duration-200 hover:lg-text-primary-500"
+        //                 >
+        //                     {getVernacularString("headerMenuS1T8", userPreferences.language)}
+        //                 </button>
+
+        //                 <Link
+        //                     to={"/load-calculator"}
+        //                     className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-px-12 tw-py-1 tw-rounded-3xl lg:tw-text-white"
+        //                 >
+        //                     {getVernacularString("headerLoadCalculator", userPreferences.language)}
+        //                 </Link>
+        //             </div>
+        //         )}
+
+        //         <div className="tw-flex-1" />
+
+        //         {showSearchOption && (
+        //             <button
+        //                 type="button"
+        //                 onClick={tryToOpenSearch}
+        //                 className="tw-flex tw-flex-row tw-items-center"
+        //             >
+        //                 <Search className="tw-w-6 tw-h-6" />
+        //                 <HorizontalSpacer className="tw-w-2" />
+        //                 <div className="lg:tw-text-[13px] xl:tw-text-[16px]">{getVernacularString("headerS2T1", userPreferences.language)}</div>
+        //             </button>
+        //         )}
+        //         {showContactCtaButton && (
+        //             <OfferContactUsCta
+        //                 userPreferences={userPreferences}
+        //                 textVernacId="offerPageCta"
+        //                 className="tw-z-10 tw-hidden lg:tw-block"
+        //                 pageUrl={pageUrl}
+        //             />
+        //         )}
+        //     </div>
+
+        //     <ContactUsDialog
+        //         userPreferences={userPreferences}
+        //         isContactUsDialogOpen={isContactUsDialogOpen}
+        //         setIsContactUsDialogOpen={setIsContactUsDialogOpen}
+        //     />
+
+        //     {/* <MenuDialog
+        //         userPreferences={userPreferences}
+        //         isMenuOpen={isMenuOpen}
+        //         setIsMenuOpen={setIsMenuOpen}
+        //         menuState={menuState}
+        //         currentlyOpenSubMenu={currentlyOpenSubMenu}
+        //         setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+        //         subMenuState={subMenuState}
+        //         tryToOpenSubMenu={tryToOpenSubMenu}
+        //         tryToOpenContactUsLeadFormDialog={tryToOpenContactUsLeadFormDialog}
+        //     />
+
+        //     <SubMenuDialog
+        //         userPreferences={userPreferences}
+        //         currentlyOpenSubMenu={currentlyOpenSubMenu}
+        //         setCurrentlyOpenSubMenu={setCurrentlyOpenSubMenu}
+        //         subMenuState={subMenuState}
+        //         utmParameters={utmParameters}
+        //         pageUrl={pageUrl}
+        //         setIsMenuOpen={setIsMenuOpen}
+        //         tryToOpenContactUsLeadFormDialog={tryToOpenContactUsLeadFormDialog}
+        //     /> */}
+
+        //     <ContactUsLeadFormDialog
+        //         userPreferences={userPreferences}
+        //         isContactUsDialogOpen={isContactUsLeadFormDialogOpen}
+        //         setIsContactUsDialogOpen={setIsContactUsLeadFormDialogOpen}
+        //         utmParameters={utmParameters}
+        //         pageUrl={pageUrl}
+        //     />
+
+        //     <SearchDialog
+        //         userPreferences={userPreferences}
+        //         isSearchOpen={isSearchOpen}
+        //         setIsSearchOpen={setIsSearchOpen}
+        //     />
+        // </>
     );
 }
 
 const headerMenuItems: Array<HeaderItem> = [
     {
-        contentId: "07871c3d-b0ce-4d09-8cad-f2258217eb53",
+        contentId: "642467c3-8136-4523-b231-fa5aae9a075a",
         children: [
             {
-                contentId: "58ab0356-4a3b-4ec9-b2a2-1b36ac4dee0f",
+                contentId: "b2d29598-d1f2-4766-a1ea-20d0fe9dd2f9",
                 children: [
                     {
-                        contentId: "f54e5fcb-25a7-4af2-836c-75eff3e2916e",
-                        to: "/inverter-batteries",
+                        contentId: "2257b2c1-280c-49a6-9399-8abd4847993f",
+                        to: "/inverter-for-home",
                     },
                     {
-                        contentId: "816e8c1d-93cc-4629-b808-043e46fba2fd",
-                        children: [
-                            {
-                                contentId: "4254cae7-7bda-4303-bc24-80dcf71c0647",
-                                to: "/car-and-suv-batteries/",
-                            },
-                            {
-                                contentId: "d92c5f11-8777-4ec2-9aca-32061a9ea613",
-                                to: "/two-wheeler-batteries/",
-                            },
-                            {
-                                contentId: "ade7956e-a64e-4ade-8dbd-bfb9ffbe834a",
-                                to: "/three-wheeler-batteries/",
-                            },
-                            {
-                                contentId: "5da16ba5-b835-4eb5-9e86-d187a7186faf",
-                                to: "/tractor-batteries/",
-                            },
-                            {
-                                contentId: "b5eba6c1-c835-4f87-8f7b-d73951cf60b5",
-                                to: "/bus-and-truck-batteries/",
-                            },
-                            {
-                                contentId: "ef1a6048-3009-4268-b127-2affbacad4e1",
-                                to: "/e-rickshaw-batteries/",
-                            },
-                        ],
+                        contentId: "a6d509fa-dc46-498b-b363-fbf309c70449",
+                        to: "/high-capacity-inverters",
                     },
                     {
-                        contentId: "e057dd65-bdc4-4a61-9350-881e46db892a",
-                        to: "/solar-battery-for-home/",
+                        contentId: "824433d9-6781-46ab-afa1-a863ebef7038",
+                        to: "/load-calculator",
                     },
+                    // {
+                    //     contentId: "e31c0b34-e22a-4cf2-a890-15a7356188d1",
+                    //     to: "/inverter-trolley",
+                    // },
                 ],
+                desktopClassName: "tw-row-start-1 tw-col-start-1 tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-4 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
             },
             {
-                contentId: "3272fdec-2fca-490f-b0fa-857a45df8f0e",
+                contentId: "3618f17b-d59c-430d-99c0-a238adaea4e4",
                 children: [
                     {
-                        contentId: "9bfdbf1f-fe80-49e2-a0de-166844aad521",
-                        to: "/inverter-for-home/",
+                        contentId: "categoryBatteriesS4TT",
+                        to: "/inverter-batteries?id=0",
                     },
                     {
-                        contentId: "fe8f481e-ad9b-4000-b462-8fa0fa334a14",
-                        to: "/high-capacity-inverters/",
+                        contentId: "categoryBatteriesS4ST",
+                        to: "/inverter-batteries?id=1",
+                    },
+                    {
+                        contentId: "categoryBatteriesS4STT",
+                        to: "/inverter-batteries?id=2",
                     },
                 ],
+                desktopClassName:
+                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-0 tw-pb-10 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            // {
+            //     contentId: "4b1b2126-7ed2-4a31-98d8-74158e31022f",
+            //     children: [
+            //         {
+            //             contentId: "7e54165c-1ab3-4284-8a68-7db0515f1c66",
+            //             to: "/inverter-battery-combo",
+            //         },
+            //     ],
+            //     desktopClassName:
+            //         "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-h-full tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+            //     col: 1,
+            // },
+            {
+                contentId: "ba80271b-d0ce-4762-b82c-96c984f3d55c",
+                children: [
+                    {
+                        contentId: "0e58360b-6e83-47da-a0c5-afca55819e50",
+                        to: "/load-calculator",
+                    },
+                    {
+                        contentId: "e31c0b34-e22a-4cf2-a890-15a7356188d1",
+                        to: "/inverter-trolley",
+                    },
+                ],
+                desktopClassName:
+                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+                col: 2,
             },
             {
-                contentId: "893bd439-ee92-4bfb-a05d-476854330caa",
-                to: "https://www.livguardsolar.com/residential_solar",
+                contentId: "4b1b2126-7ed2-4a31-98d8-74158e31022f",
+                children: [
+                    {
+                        contentId: "7e54165c-1ab3-4284-8a68-7db0515f1c66",
+                        to: "/inverter-battery-combo",
+                    },
+                ],
+                desktopClassName:
+                    "tw-row-start-2 tw-col-start-1 tw-row-span-2 tw-h-full tw-content-start tw-pl-5 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+                col: 2,
             },
+            // {
+            //     contentId: "380adfbe-cb27-4b22-b601-db704a8d13ce",
+            //     children: [
+            //         {
+            //             contentId: "10a057de-1158-4f8b-8186-48571a720fc5",
+            //             // TODO: Find lithium page from old site
+            //             to: "/",
+            //         },
+            //         {
+            //             contentId: "ac7ae8d2-3f3c-49a6-a6db-e8cbb8b3ed07",
+            //             to: "/",
+            //         },
+            //         {
+            //             contentId: "7596543b-c504-4ca0-817d-fc7f5dcefea7",
+            //             to: "/",
+            //         },
+            //         {
+            //             contentId: "8ccc369c-daa0-47d7-a568-1752d660d737",
+            //             to: "/",
+            //         },
+            //         {
+            //             contentId: "b42973cc-d1f0-4ddb-aba7-a030b7398ccb",
+            //             to: "/",
+            //         },
+            //         {
+            //             contentId: "e720a43a-b9cc-4925-9dcb-e37abb16ac28",
+            //             to: "/",
+            //         },
+            //     ],
+            //     desktopClassName: "tw-row-start-1 tw-col-start-3 tw-row-span-2 tw-pl-5 tw-pr-6 tw-pt-10 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-foreground-500-light",
+            // },
+
+            // {
+            //     contentId: "",
+            //     children: [
+            //         {
+            //             contentId: "f54e5fcb-25a7-4af2-836c-75eff3e2916e",
+            //             to: "/inverter-batteries",
+            //         },
+            //         {
+            //             contentId: "816e8c1d-93cc-4629-b808-043e46fba2fd",
+            //             children: [
+            //                 {
+            //                     contentId: "4254cae7-7bda-4303-bc24-80dcf71c0647",
+            //                     to: "/car-and-suv-batteries/",
+            //                 },
+            //                 {
+            //                     contentId: "d92c5f11-8777-4ec2-9aca-32061a9ea613",
+            //                     to: "/two-wheeler-batteries/",
+            //                 },
+            //                 {
+            //                     contentId: "ade7956e-a64e-4ade-8dbd-bfb9ffbe834a",
+            //                     to: "/three-wheeler-batteries/",
+            //                 },
+            //                 {
+            //                     contentId: "5da16ba5-b835-4eb5-9e86-d187a7186faf",
+            //                     to: "/tractor-batteries/",
+            //                 },
+            //                 {
+            //                     contentId: "b5eba6c1-c835-4f87-8f7b-d73951cf60b5",
+            //                     to: "/bus-and-truck-batteries/",
+            //                 },
+            //                 {
+            //                     contentId: "ef1a6048-3009-4268-b127-2affbacad4e1",
+            //                     to: "/e-rickshaw-batteries/",
+            //                 },
+            //             ],
+            //         },
+            //         {
+            //             contentId: "e057dd65-bdc4-4a61-9350-881e46db892a",
+            //             to: "/solar-battery-for-home/",
+            //         },
+            //     ],
+            // },
+            // {
+            //     contentId: "3272fdec-2fca-490f-b0fa-857a45df8f0e",
+            //     children: [
+            //         {
+            //             contentId: "9bfdbf1f-fe80-49e2-a0de-166844aad521",
+            //             to: "/inverter-for-home/",
+            //         },
+            //         {
+            //             contentId: "fe8f481e-ad9b-4000-b462-8fa0fa334a14",
+            //             to: "/high-capacity-inverters/",
+            //         },
+            //     ],
+            // },
+            // {
+            //     contentId: "893bd439-ee92-4bfb-a05d-476854330caa",
+            //     to: "https://www.livguardsolar.com/residential_solar",
+            // },
             // E-Mobility solutions
             // {
             //     contentId: "b9da5f04-2f6a-48be-8942-9fadf03543bb",
@@ -1451,304 +862,427 @@ const headerMenuItems: Array<HeaderItem> = [
             //         }
             //     ],
             // },
-            {
-                contentId: "b98f5c9e-16fc-4803-8494-1f54a8eb55c9",
-                children: [
-                    {
-                        contentId: "0faf2ddb-4220-456c-a5fb-935716db76ec",
-                        children: [
-                            {
-                                contentId: "52a70998-083b-4b6e-977c-475295c0aa19",
-                                to: "/e-rickshaw-charger/",
-                            },
-                            {
-                                contentId: "15fbd08d-74e9-45f7-a7a1-645fd0679c14",
-                                to: "/vrla-batteries/",
-                            },
-                        ],
-                    },
-                    {
-                        contentId: "77534355-2fbc-4c69-851c-58a2e4034168",
-                        children: [
-                            // {
-                            //     contentId: "5d654da3-2d50-4150-86a1-633152d775c8",
-                            //     to: "/stabilizer-for-AC-and-TV.php",
-                            // },
-                            {
-                                contentId: "c4c67588-fe35-46da-8c07-d8e2ed05f7f4",
-                                to: "/inverter-trolley/",
-                            },
-                        ],
-                    },
-                ],
-            },
+            // {
+            //     contentId: "b98f5c9e-16fc-4803-8494-1f54a8eb55c9",
+            //     children: [
+            //         {
+            //             contentId: "0faf2ddb-4220-456c-a5fb-935716db76ec",
+            //             children: [
+            //                 {
+            //                     contentId: "52a70998-083b-4b6e-977c-475295c0aa19",
+            //                     to: "/e-rickshaw-charger/",
+            //                 },
+            //                 {
+            //                     contentId: "15fbd08d-74e9-45f7-a7a1-645fd0679c14",
+            //                     to: "/vrla-batteries/",
+            //                 },
+            //             ],
+            //         },
+            //         {
+            //             contentId: "77534355-2fbc-4c69-851c-58a2e4034168",
+            //             children: [
+            //                 // {
+            //                 //     contentId: "5d654da3-2d50-4150-86a1-633152d775c8",
+            //                 //     to: "/stabilizer-for-AC-and-TV.php",
+            //                 // },
+            //                 {
+            //                     contentId: "c4c67588-fe35-46da-8c07-d8e2ed05f7f4",
+            //                     to: "/inverter-trolley/",
+            //                 },
+            //             ],
+            //         },
+            //     ],
+            // },
         ],
+        desktopClassName: "",
+        colCount: 2,
     },
     {
-        contentId: "22f65f90-4e23-41ef-8eee-ad3ad43d3cc1",
+        contentId: "3a186513-50e2-4738-8d17-0f8691fa7b1c",
         children: [
             {
-                contentId: "acc5d1b0-6eeb-4d83-8d9e-b10124c39f3f",
-                to: "/about-us/",
-            },
-            {
-                contentId: "8a05cd2e-d60d-4eb4-9c04-28aa17936671",
-                to: "/india-ops/",
-            },
-            {
-                contentId: "49162714-5f92-492f-af84-355a69688f70",
-                to: "/global-ops/",
-            },
-            {
-                contentId: "c00c6383-63f2-4dc0-b65b-ef1ecfb4ee2c",
-                to: "/careers/",
-            },
-        ],
-    },
-    {
-        contentId: "6ca8db68-b2e4-41bc-a910-97750f73b9be",
-        children: [
-            {
-                contentId: "d59a87d7-e624-4437-bfd8-57ccc3ac9b0f",
-                to: "https://www.livguard.com/blog/",
-            },
-            {
-                contentId: "3da06e51-2ce1-41cc-b7b0-e50f014643a2",
-                to: "https://www.livguard.com/blog/category/inverters/",
-            },
-            {
-                contentId: "09d53d44-f25f-4340-a67a-77c1e483c764",
-                to: "https://www.livguard.com/blog/category/inverter-batteries/",
-            },
-            {
-                contentId: "429677df-14ea-4491-8aca-5044787bfa5d",
-                to: "https://www.livguard.com/blog/category/stabilizer/",
-            },
-            {
-                contentId: "570fb1bb-e61c-4447-8a52-0eb8cccba564",
+                contentId: "d5cf31f9-8ae3-48e5-afae-067d2844400f",
                 children: [
                     {
-                        contentId: "5ae37b56-b08d-4928-adf7-5a5827f199ab",
-                        to: "https://www.livguard.com/blog/category/solar-solution-2/solar-solution/",
+                        contentId: "9b76016a-c05d-4687-899f-aa6157ebc51c",
+                        to: "https://www.livguardsolar.com/solar/solculator",
                     },
-                    {
-                        contentId: "c4965a0f-b4e4-4afd-9e5f-fda80734f3b4",
-                        to: "https://www.livguard.com/blog/category/solar-solution-2/solar-panels/",
-                    },
+                    // {
+                    //     contentId: "267b476e-74fa-4648-a5f8-8129bbfaa8ce",
+                    //     to: "https://www.livguardsolar.com/",
+                    // },
                 ],
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName: "tw-row-start-1 tw-col-start-1 tw-row-span-2 tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-4 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
             },
             {
-                contentId: "2d020521-337f-4e2e-b526-22c915bfb563",
+                contentId: "e45100e2-66ca-4476-9822-c37e64ae5356",
+                // children: [
+                //     {
+                //         contentId: "f1d3fff0-6f22-4b2c-b891-8f1304c583a7",
+                //         to: "https://www.livguardsolar.com/",
+                //     },
+                // ],
+                to: "https://www.livguardsolar.com",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-1 tw-col-start-2 tw-content-start tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9",
+                // children: [
+                //     {
+                //         contentId: "f1d3fff0-6f22-4b2c-b891-8f1304c583a7",
+                //         to: "https://www.livguardsolar.com/",
+                //     },
+                // ],
+                to: "https://www.livguard.com/solar-battery-for-home/",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-2 tw-col-start-2 tw-content-start tw-self-center tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            {
+                contentId: "f996231c-b2f6-41f8-82bb-dea49b2c9a3d",
+                // children: [
+                //     {
+                //         contentId: "f9e6a204-a3e8-4725-b7f2-c03231a28813",
+                //         to: "https://www.livguardsolar.com/",
+                //     },
+                //     {
+                //         contentId: "c6c9f0ec-ff71-4a10-9bc6-5dbde9ef8a81",
+                //         to: "https://www.livguardsolar.com/",
+                //     },
+                //     {
+                //         contentId: "ebb7642d-4c02-426e-83c0-06acd292ec33",
+                //         to: "https://www.livguardsolar.com/",
+                //     },
+                // ],
+                to: "https://www.livguard.com/solar-panels-and-inverters-for-home/",
+                desktopClassName: "tw-row-start-3 tw-col-start-2 tw-row-span-2 tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            // {
+            //     contentId: "b78fac32-d1d1-4775-ad04-de991106a491",
+            //     children: [
+            //         {
+            //             contentId: "53d8effd-c423-465b-b273-b2e6ab17020a",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //         {
+            //             contentId: "ea7d6d75-5e3f-4ad7-a72b-10e9e9449618",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //         {
+            //             contentId: "6fc7c58e-1eb3-4600-a449-daaa702eb619",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //     ],
+            //     desktopClassName: "tw-row-start-1 tw-col-start-2 tw-row-span-3 tw-pl-5 tw-pr-5 tw-pt-10 tw-pb-4",
+            // },
+            {
+                contentId: "cd9df738-ed03-4cf5-8440-c15ee171ee0f",
                 children: [
                     {
-                        contentId: "57dfdb7b-3b26-4918-81fc-15aee33119a6",
-                        to: "https://www.livguard.com/blog/category/automotive-battery/two-wheeler-batteries/",
+                        contentId: "f5986d46-458c-4fde-9516-56dee3d6d94b",
+                        to: "https://www.livguard.com/solar-charge-controller-for-home/index.php",
                     },
                     {
-                        contentId: "109fecc7-85fc-46c2-9f6f-a7b330bfe03b",
-                        to: "https://www.livguard.com/blog/category/automotive-battery/car-batteries/",
-                    },
-                    {
-                        contentId: "fbbf41f7-9141-4c3a-8e2d-6203f59bb511",
-                        to: "https://www.livguard.com/blog/category/automotive-battery/e-rickshaw-batteries/",
-                    },
-                    {
-                        contentId: "5ad559b4-eb41-457b-a460-01611bca3e59",
-                        to: "https://www.livguard.com/blog/category/automotive-battery/commercial-vehicle-batteries/",
+                        contentId: "4e6fe38c-6d65-4fa0-a321-72eb79c840aa",
+                        to: "https://www.livguard.com/solar-management-unit-for-home/index.php",
                     },
                 ],
+                desktopClassName:
+                    "tw-row-start-3 tw-col-start-1 tw-row-span-3 tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
             },
+            {
+                contentId: "7596edad-f993-41bf-a344-577762691d53",
+                to: "https://www.livguard.com/solar-led-street-light/index.php",
+                // tw-h-full tw-content-start should not be required here, but somehow I have to add it for pixel-perfect UI. Investigate if possible.
+                desktopClassName:
+                    "tw-row-start-4 tw-col-start-2 tw-row-span-2 tw-content-start tw-self-start tw-pl-6 tw-pr-6 tw-pt-4 [&>*]:!lg-text-body-bold [&>*]:!lg-text-primary-500 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
+            },
+            // {
+            //     contentId: "54c5d2f5-501d-4bbe-bbde-f8ea37fa1f21",
+            //     children: [
+            //         {
+            //             contentId: "8fa18bba-da04-43ad-aba1-9b0192f4a9db",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //         {
+            //             contentId: "f9f3bfd2-74d3-4e42-8b0f-3ef0ecd469a9",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //         {
+            //             contentId: "dac9e320-4f31-4ea0-8cbc-742f69286b2f",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //         {
+            //             contentId: "32fe5fcc-99bb-4dad-a0e5-feb4b9e3963a",
+            //             to: "https://www.livguardsolar.com/",
+            //         },
+            //     ],
+            //     desktopClassName:
+            //         "tw-row-start-2 tw-col-start-3 tw-row-span-6 tw-h-full tw-content-start tw-pl-5 tw-pr-6 tw-pt-4 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-foreground-500-light",
+            // },
         ],
+        desktopClassName: "dark:!tw-bg-new-background-border-500-dark",
+        colCount: 2,
     },
     {
-        contentId: "6168e049-da78-4bc6-923b-9446914b8912",
+        contentId: "e9624c2c-a16e-4f56-88a2-3e2710461b14",
         children: [
             {
-                contentId: "6645babc-8e36-4cdb-8271-16caff597f22",
-                to: "/dealer-for-inverters-and-batteries",
+                contentId: "4b90a927-4cc2-46de-8118-1aa103534ba6",
+                children: [
+                    {
+                        contentId: "3be9fa84-b556-42a0-95d8-093c1254891a",
+                        to: "/two-wheeler-batteries",
+                    },
+                    {
+                        contentId: "c844f792-12c7-470d-87cf-317f70d4799a",
+                        to: "/three-wheeler-batteries",
+                    },
+                    {
+                        contentId: "23384cb7-5097-4db3-964c-3010ed24ea63",
+                        to: "/car-and-suv-batteries",
+                    },
+                    {
+                        contentId: "8c1ffd32-d901-4cae-b508-1ac6498f84f9",
+                        to: "/bus-and-truck-batteries",
+                    },
+                    {
+                        contentId: "fbbc862d-69ec-4906-8f81-7e139dcdf047",
+                        to: "/tractor-batteries",
+                    },
+                    {
+                        contentId: "8c1d602c-9b8c-42db-a63f-da5e63490357",
+                        to: "/e-rickshaw-batteries",
+                    },
+                    {
+                        contentId: "7d99e64e-9019-4cb3-9331-c5232bf040df",
+                        to: "/battery-finder",
+                    },
+                ],
+                desktopClassName: "tw-row-start-1 tw-col-start-1 tw-row-span-3 tw-h-full tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-10 dark:tw-bg-new-background-border-500-dark",
+                col: 1,
             },
             {
-                contentId: "6168e049-da78-4bc6-923b-9446914b8912",
+                contentId: "ba80271b-d0ce-4762-b82c-96c984f3d55c",
+                children: [
+                    {
+                        contentId: "dc3dacb5-baa4-4fa3-8d27-a4b87fcd0158",
+                        to: "/e-rickshaw-charger",
+                    },
+                ],
+                desktopClassName:
+                    "tw-row-start-1 tw-col-start-2 tw-row-[1/4] tw-h-full tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-10 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-500-dark",
+                col: 2,
+            },
+        ],
+        desktopClassName: "",
+        colCount: 2,
+    },
+    {
+        contentId: "b137744d-bc16-4100-afb4-8d3c2fb07793",
+        children: [
+            {
+                contentId: "c577a2cf-745c-40b6-a9fa-cb1ef88d7cd3",
+                to: "/pricing",
+                col: 1,
+                //Using a not so good way to control text color of these links, since they are L1 links but they have to look like L2 links
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "f008f7bb-e106-4e04-8654-8f3e1d517979",
+                to: "/offers",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "739577f2-3578-4eaf-8b45-8b3de3372aa9",
+                to: "/load-calculator",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "0476c521-6376-4411-ba07-10ab93e5982f",
+                to: "/battery-finder",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "9b76016a-c05d-4687-899f-aa6157ebc51c",
+                to: "https://www.livguardsolar.com/solar/solculator",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            // Download brochures? We dont have a page
+            // {
+            //     contentId: "454a8070-92b6-419a-af59-6f6253283c07",
+            //     to: "/",
+            //     desktopClassName: "tw-row-start-2 tw-col-start-2 tw-pl-5 tw-pr-5 tw-pt-4 tw-pb-10",
+            //     iconRelativePath: "/livguard/service/3/1-light.png",
+            // },
+        ],
+        desktopClassName: "",
+        colCount: 1,
+    },
+    {
+        contentId: "1a1fc6c9-a8b2-4ae7-9154-9999e251449c",
+        children: [
+            {
+                contentId: "96e824a1-876e-42ec-a9b5-2f68fea3a6d3",
+                to: "/service",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "4f0455d6-1f64-4f56-9cea-3d1655b10c5c",
+                to: "/warranty",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+        ],
+        desktopClassName: "tw-rounded-b-lg",
+        colCount: 1,
+    },
+    {
+        contentId: "86de9899-69e7-4cca-bc82-4f2e9efe405a",
+        to: "/dealer-for-inverters-and-batteries",
+    },
+    {
+        contentId: "902ff240-2339-4be5-98f0-741f1162f27f",
+        // to: "/about-us",
+        children: [
+            {
+                contentId: "ff7689df-232c-4839-a1ef-2d7fa388c667",
+                to: "/about-us",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "96c7b4e3-edf0-4ec8-aa70-67f7ee2ef73a",
                 to: "/contact-us",
-            },
-        ],
-    },
-    {
-        contentId: "ae2b8d62-1469-4c68-a9fa-2cd416ed578c",
-        children: [
-            {
-                contentId: "98f2d242-eb78-4ff3-882e-fbc504673165",
-                to: "/pricing/",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
             },
             {
-                contentId: "384acc41-febb-4514-a621-31d2054166f5",
-                to: "/e-waste-management/",
+                contentId: "0bbd1db5-44c8-4953-8f29-1f58e19dc100",
+                to: "/csr",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
             },
             {
-                contentId: "e7df1392-3354-4f8c-82a4-9d284da7d9bb",
+                contentId: "4df385d0-992d-4acc-b9d4-06964b6f1e0d",
+                to: "/governance",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "89fb5c95-3b83-4a5a-8bc9-aa810d620ee9",
+                to: "/investors",
+                col: 1,
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-bg-new-foreground-500-dark [&>*]:!lg-text-body-bold [&>*]:!lg-text-secondary-700 [&>*]:dark:!tw-text-new-foreground-500-dark [&>*]:dark:hover:!tw-text-primary-500-dark [&>*]:tw-transition-colors [&>*]:tw-duration-200 [&>*]:hover:!lg-text-primary-500 [&>*]:!tw-font-normal dark:tw-bg-new-background-border-500-dark",
+            },
+            {
+                contentId: "af709c5d-4066-419b-b775-17a43a234c9f",
                 children: [
                     {
-                        contentId: "b5fa862c-0c81-4c6e-ad0c-d49d3473d6d4",
-                        to: "/governance/",
-                    },
-                    {
-                        contentId: "78d6e103-5022-4d48-8ea7-94b38566d327",
-                        to: "/investors/",
-                    },
-                    {
-                        contentId: "a9df629a-e685-4822-be66-f59678e45cbc",
-                        to: "/csr/",
+                        contentId: "72516e54-5c6d-4723-a2b9-06ed6d3ae2c3",
+                        to: "/events/renewable-energy-india-expo",
                     },
                 ],
-            },
-            {
-                contentId: "e65f1b7c-554e-4815-bf97-d3848070204b",
-                to: "/sales-return-policy/",
-            },
-            {
-                contentId: "cc357c04-cde6-47c5-ab55-416eb27446a0",
-                to: "/video-gallery/",
-            },
-            {
-                contentId: "3e513ee8-0bbb-4cfa-861f-be8710ebffec",
-                to: "/privacy-policy/",
-            },
-            {
-                contentId: "49e991e9-4cae-4bb3-bc47-539ee1f4b222",
-                to: "/terms-and-conditions/",
+                desktopClassName:
+                    "tw-content-start tw-pl-6 tw-pr-5 tw-pt-4 tw-pb-6 tw-bg-new-foreground-500-dark dark:tw-bg-new-background-border-500-dark",
+                col: 1,
             },
         ],
+        desktopClassName: "tw-rounded-b-lg",
+        colCount: 1,
     },
-    // {
-    //     contentId: "headerMenuS1T6",
-    //     to: "/dealer-for-inverters-and-batteries",
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T1",
-    //     enterClassName: "tw-delay-[250ms]",
-    //     subMenu: SubMenu.Inverters,
-    //     link: null,
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T2",
-    //     enterClassName: "tw-delay-[300ms]",
-    //     subMenu: null,
-    //     link: "/inverter-batteries",
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T3",
-    //     enterClassName: "tw-delay-[350ms]",
-    //     subMenu: SubMenu.AutomotiveBatteries,
-    //     link: null,
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T4",
-    //     enterClassName: "tw-delay-[400ms]",
-    //     subMenu: SubMenu.Solar,
-    //     link: null,
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T5",
-    //     enterClassName: "tw-delay-[450ms]",
-    //     subMenu: SubMenu.AccessoriesAndotherBatteries,
-    //     link: null,
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T6",
-    //     enterClassName: "tw-delay-[500ms]",
-    //     subMenu: null,
-    //     link: "/dealer-for-inverters-and-batteries",
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T7",
-    //     enterClassName: "tw-delay-[550ms]",
-    //     subMenu: null,
-    //     link: "register-and-warranty-for-inverters.php",
-    // },
-    // {
-    //     linkTextTextContentPiece: "headerMenuS1T8",
-    //     enterClassName: "tw-delay-[600ms]",
-    //     subMenu: SubMenu.More,
-    //     link: null,
-    // },
-    // {
-    //     linkTextTextContentPiece: "9316f275-c395-4344-99d7-895d162602c0",
-    //     enterClassName: "tw-delay-[650ms]",
-    //     subMenu: null,
-    //     link: "/offers",
-    // },
-    // {
-    //     linkTextTextContentPiece: "0d7eacab-de68-49a3-a0d2-c25eba53a1e3",
-    //     enterClassName: "tw-delay-[700ms]",
-    //     subMenu: null,
-    //     link: "/e-waste-management.php",
-    // },
 ];
 
-function MenuDialogMobile({
-    userPreferences,
-    isMenuOpen,
-    setIsMenuOpen,
-    menuState,
-}: {
-    userPreferences: UserPreferences;
-    isMenuOpen: boolean;
-    setIsMenuOpen: React.Dispatch<boolean>;
-    menuState: React.MutableRefObject<MenuState>;
-}) {
+function MenuDialogMobile({userPreferences, isMenuOpen, setIsMenuOpen}: {userPreferences: UserPreferences; isMenuOpen: boolean; setIsMenuOpen: React.Dispatch<boolean>}) {
     function tryToCloseMenu() {
-        if (menuState.current == MenuState.Open) {
-            setIsMenuOpen(false);
-        }
+        setIsMenuOpen(false);
     }
 
     return (
+        // enter="tw-ease-out tw-transition-all tw-duration-1000"
+        // leave="tw-ease-in tw-transition-all "
+
         <Transition
             show={isMenuOpen}
             as={React.Fragment}
-            beforeEnter={() => (menuState.current = MenuState.Transitioning)}
-            afterEnter={() => (menuState.current = MenuState.Open)}
-            beforeLeave={() => (menuState.current = MenuState.Transitioning)}
-            afterLeave={() => (menuState.current = MenuState.Closed)}
+            enter="tw-duration-200"
+            enterFrom="tw-opacity-0"
+            enterTo="tw-opacity-100"
+            leave="tw-duration-200 tw-delay-[200ms]"
+            leaveFrom="tw-opacity-100"
+            leaveTo="tw-opacity-0"
         >
             <Dialog
                 as="div"
-                className="tw-fixed tw-inset-0 tw-z-[60] tw-isolate"
+                className="tw-fixed tw-inset-0 tw-z-[64] tw-isolate"
                 onClose={tryToCloseMenu}
             >
-                <Transition.Child
-                    as={React.Fragment}
-                    enter="tw-ease-out tw-transition-all tw-duration-200"
-                    enterFrom="tw-opacity-0"
-                    enterTo="tw-opacity-100"
-                    leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                    leaveFrom="tw-opacity-100"
-                    leaveTo="tw-opacity-0"
-                >
-                    <div className="tw-absolute tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur -tw-z-10" />
-                </Transition.Child>
+                <div className="tw-absolute tw-inset-0 tw-bg-black tw-bg-opacity-[55%] tw-backdrop-blur -tw-z-10" />
 
-                <Dialog.Panel className="tw-w-full tw-h-full tw-grid tw-grid-cols-[1.5rem_auto_1.5rem] tw-grid-rows-[1.5rem_2.5rem_1.5rem_minmax(0,1fr)]">
+                <Dialog.Panel className="tw-w-full tw-h-full tw-grid tw-grid-cols-[min(80vw,40rem)_1fr]">
                     <Transition.Child
-                        as={React.Fragment}
-                        enter="tw-ease-out tw-transition-all tw-duration-200"
-                        enterFrom="tw-scale-0 tw-rotate-180"
-                        enterTo="tw-scale-100 tw-rotate-0"
-                        leave="tw-ease-in tw-transition-all tw-duration-200 tw-delay-[200ms]"
-                        leaveFrom="tw-scale-100 tw-rotate-0"
-                        leaveTo="tw-scale-0 tw-rotate-180"
+                        as="div"
+                        className="tw-col-start-1 tw-w-full tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[20.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center lg-bg-new-background-500 tw-overflow-y-auto tw-relative tw-duration-200"
+                        enterFrom="-tw-translate-x-full"
+                        enterTo="tw-translate-x-0"
+                        leaveFrom="tw-translate-x-0"
+                        leaveTo="-tw-translate-x-full"
                     >
-                        <button
-                            type="button"
-                            className="tw-row-start-2 tw-col-start-2 tw-justify-self-center lg-bg-new-background-500 tw-rounded-full"
-                            onClick={tryToCloseMenu}
-                        >
-                            <X className="tw-w-10 tw-h-10 lg-text-new-foreground-500" />
-                        </button>
-                    </Transition.Child>
+                        <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-items-stretch">
+                            <div className="tw-grid tw-grid-cols-[2rem_minmax(0,1fr)_auto_minmax(0,1fr)_2rem] tw-items-center tw-pt-6 tw-pb-4">
+                                <img
+                                    src={
+                                        userPreferences.theme == Theme.Dark
+                                            ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                            : "https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                                    }
+                                    width={385}
+                                    height={96}
+                                    className="tw-col-start-3 tw-w-auto tw-h-6"
+                                    key={
+                                        userPreferences.theme == Theme.Dark
+                                            ? "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
+                                            : "https://files.growthjockey.com/livguard/icons/logo-light.svg"
+                                    }
+                                />
 
-                    <div className="tw-row-start-4 tw-col-start-2 tw-w-full tw-rounded-t-lg tw-p-8 tw-grid tw-grid-rows-[20.75rem_2rem_minmax(0,13.75rem)_3rem] tw-justify-items-center lg-bg-new-background-500 tw-overflow-y-auto">
-                        <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-gap-y-4 tw-items-stretch">
+                                <button
+                                    type="button"
+                                    className="tw-col-start-5 tw-relative tw-bottom-6"
+                                >
+                                    <X
+                                        className="tw-w-8 tw-h-8 tw-opacity-50"
+                                        onClick={tryToCloseMenu}
+                                    />
+                                </button>
+                            </div>
+
                             <ItemBuilder
                                 items={headerMenuItems}
                                 itemBuilder={(item, itemIndex) => (
@@ -1805,16 +1339,23 @@ function MenuDialogMobile({
                                 // </button>
                             />
                         </div>
-                    </div>
+                    </Transition.Child>
+
+                    <div
+                        className="tw-col-start-2 tw-w-full tw-h-full"
+                        onClick={tryToCloseMenu}
+                    />
                 </Dialog.Panel>
             </Dialog>
         </Transition>
     );
 }
 
-function MenuDialogDesktop({userPreferences}: {userPreferences: UserPreferences}) {
+function MenuDialogDesktop({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const [showMenu, setShowMenu] = useState<number | null>(null);
+
     return (
-        <div className="tw-flex tw-gap-x-8 tw-items-center tw-text-[16px]">
+        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-gap-x-6 tw-items-center tw-text-[0.875rem]", className)}>
             <ItemBuilder
                 items={headerMenuItems}
                 itemBuilder={
@@ -1822,84 +1363,180 @@ function MenuDialogDesktop({userPreferences}: {userPreferences: UserPreferences}
                         item.to != null ? (
                             <Link
                                 to={item.to}
-                                className="tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap"
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap",
+                                    item.desktopClassName == null ? undefined : item.desktopClassName,
+                                )}
                                 key={itemIndex}
+                                onMouseEnter={() => setShowMenu(null)}
                             >
                                 {getVernacularString(item.contentId, userPreferences.language)}
                             </Link>
                         ) : (
-                            <Popover key={itemIndex}>
-                                {({open}) => (
+                            <div
+                                className="tw-relative"
+                                key={itemIndex}
+                            >
+                                <div>
                                     <>
-                                        <Popover.Button className="tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-grid tw-grid-cols-[minmax(0,1fr)_1.25rem] tw-items-center tw-gap-x-2">
+                                        <button
+                                            className="tw-group tw-duration-200 hover:lg-text-primary-500 tw-whitespace-nowrap tw-relative"
+                                            onMouseEnter={() => setShowMenu(itemIndex)}
+                                        >
                                             {getVernacularString(item.contentId, userPreferences.language)}
-                                            <ChevronRightIcon className={concatenateNonNullStringsWithSpaces("tw-w-5 tw-h-5 tw-duration-200", open == true ? "-tw-rotate-90" : "tw-rotate-90")} />
-                                        </Popover.Button>
+                                            <div
+                                                className={concatenateNonNullStringsWithSpaces(
+                                                    "tw-absolute tw-inset-x-0 tw-h-1 -tw-bottom-[1.3125rem] lg-bg-primary-500 tw-duration-200",
+                                                    showMenu === itemIndex ? "tw-opacity-100" : "tw-opacity-0",
+                                                )}
+                                            />
+                                        </button>
 
                                         {/* TODO: Add relative to Popver and specify a smaller top instead */}
                                         {/* tw-top-14 */}
-                                        <Popover.Panel className="tw-absolute tw-top-[7.5rem] tw-left-[10%] tw-right-[10%] tw-p-10 tw-rounded-lg lg-bg-background-500 tw-grid tw-grid-cols-4 tw-gap-x-8 tw-gap-y-8 tw-items-start">
-                                            <ItemBuilder
-                                                items={item.children}
-                                                itemBuilder={(item, itemIndex) =>
-                                                    item.to != null ? (
-                                                        <Link
-                                                            to={item.to}
-                                                            className="lg-text-title2 tw-w-fit hover:lg-text-primary-500"
-                                                            key={itemIndex}
-                                                        >
-                                                            {getVernacularString(item.contentId, userPreferences.language)}
-                                                        </Link>
-                                                    ) : (
-                                                        <div
-                                                            className="tw-grid tw-grid-cols-1 tw-gap-y-2"
-                                                            key={itemIndex}
-                                                        >
-                                                            <div className="lg-text-title2 tw-pb-2">{getVernacularString(item.contentId, userPreferences.language)}</div>
+                                        {/* Final width: 768px = 48rem */}
+                                        {showMenu == null
+                                            ? null
+                                            : showMenu === itemIndex && (
+                                                  <div
+                                                      onMouseLeave={() => setShowMenu(null)}
+                                                      className="tw-grid tw-grid-flow-col tw-auto-cols-max tw-absolute tw-left-0 tw-top-[2.75rem] tw-rounded-b-lg tw-overflow-hidden"
+                                                  >
+                                                      {getIntegerArrayOfLength(item.colCount).map((_, currentColumnIndex) => (
+                                                          <div
+                                                              //   style={{
+                                                              //       gridTemplateColumns: `repeat(${item.columnCount}, minmax(0,1fr))`,
+                                                              //   }}
+                                                              className={concatenateNonNullStringsWithSpaces(
+                                                                  "tw-mt-1 xl:tw-mt-2 tw-w-fit tw-h-full tw-left-0 xl:tw-top-10 xl:tw-left-0 tw-overflow-hidden lg-bg-background-500 tw-items-start tw-text-left",
+                                                                  item.desktopClassName == null ? undefined : item.desktopClassName,
+                                                              )}
+                                                              key={currentColumnIndex}
+                                                          >
+                                                              <ItemBuilder
+                                                                  key={currentColumnIndex}
+                                                                  items={item.children.filter((child) => child.col == currentColumnIndex + 1)}
+                                                                  itemBuilder={(item, itemIndex) =>
+                                                                      item.to != null && item.iconRelativePath == null ? (
+                                                                          <div
+                                                                              className={item.desktopClassName}
+                                                                              key={itemIndex}
+                                                                          >
+                                                                              {item.to.startsWith("http") ? (
+                                                                                  <a
+                                                                                      href={item.to}
+                                                                                      className="lg-text-title2 lg-text-primary-500 tw-w-fit tw-flex tw-items-center"
+                                                                                  >
+                                                                                      {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                      <span>
+                                                                                          <ChevronRightIcon className="tw-h-4 tw-w-4" />
+                                                                                      </span>
+                                                                                  </a>
+                                                                              ) : (
+                                                                                  <Link
+                                                                                      to={item.to}
+                                                                                      className="lg-text-title2 lg-text-primary-500 tw-w-fit tw-flex tw-items-center"
+                                                                                  >
+                                                                                      {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                      <span>
+                                                                                          <ChevronRightIcon className="tw-h-4 tw-w-4" />
+                                                                                      </span>
+                                                                                  </Link>
+                                                                              )}
+                                                                          </div>
+                                                                      ) : item.to != null && item.iconRelativePath != null ? (
+                                                                          <div
+                                                                              className={item.desktopClassName}
+                                                                              key={itemIndex}
+                                                                          >
+                                                                              <Link
+                                                                                  to={item.to}
+                                                                                  className="lg-text-title2 lg-text-primary-500 tw-text-center tw-w-fit tw-grid tw-grid-cols-1 tw-justify-items-center tw-gap-y-1 tw-mx-auto"
+                                                                              >
+                                                                                  <FixedWidthImage
+                                                                                      relativePath={item.iconRelativePath}
+                                                                                      width="4rem"
+                                                                                  />
 
-                                                            <ItemBuilder
-                                                                items={item.children}
-                                                                itemBuilder={(item, itemIndex) =>
-                                                                    item.to != null ? (
-                                                                        <Link
-                                                                            to={item.to}
-                                                                            className="lg-text-body-bold hover:lg-text-primary-500"
-                                                                            key={itemIndex}
-                                                                        >
-                                                                            {getVernacularString(item.contentId, userPreferences.language)}
-                                                                        </Link>
-                                                                    ) : (
-                                                                        <>
-                                                                            <div className="lg-text-body-bold">{getVernacularString(item.contentId, userPreferences.language)}</div>
+                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                              </Link>
+                                                                          </div>
+                                                                      ) : (
+                                                                          <div
+                                                                              className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-cols-1 tw-gap-y-2", item.desktopClassName)}
+                                                                              key={itemIndex}
+                                                                          >
+                                                                              <div className="lg-text-body-bold lg-text-primary-500 tw-pb-2">
+                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                              </div>
 
-                                                                            <ItemBuilder
-                                                                                items={item.children}
-                                                                                itemBuilder={(item, itemIndex) =>
-                                                                                    item.to != null ? (
-                                                                                        <Link
-                                                                                            to={item.to}
-                                                                                            className="hover:lg-text-primary-500"
-                                                                                            key={itemIndex}
-                                                                                        >
-                                                                                            {getVernacularString(item.contentId, userPreferences.language)}
-                                                                                        </Link>
-                                                                                    ) : (
-                                                                                        <div>Max recursion depth reached</div>
-                                                                                    )
-                                                                                }
-                                                                            />
-                                                                        </>
-                                                                    )
-                                                                }
-                                                            />
-                                                        </div>
-                                                    )
-                                                }
-                                            />
-                                        </Popover.Panel>
+                                                                              <ItemBuilder
+                                                                                  items={item.children}
+                                                                                  itemBuilder={(item, itemIndex) =>
+                                                                                      item.to != null ? (
+                                                                                          item.to.startsWith("http") ? (
+                                                                                              <a
+                                                                                                  href={item.to}
+                                                                                                  className="lg-text-body dark:!tw-text-new-background-border-500-light hover:lg-text-primary-500 hover:dark:!tw-text-primary-500-dark tw-transition-colors tw-duration-200 tw-flex tw-items-center"
+                                                                                                  key={itemIndex}
+                                                                                              >
+                                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                  <span>
+                                                                                                      <ChevronRightIcon className="tw-h-4 tw-w-4" />
+                                                                                                  </span>
+                                                                                              </a>
+                                                                                          ) : (
+                                                                                              <Link
+                                                                                                  to={item.to}
+                                                                                                  className="lg-text-body dark:!tw-text-new-background-border-500-light hover:lg-text-primary-500 hover:dark:!tw-text-primary-500-dark tw-transition-colors tw-duration-200 tw-flex tw-items-center"
+                                                                                                  key={itemIndex}
+                                                                                              >
+                                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                  <span>
+                                                                                                      <ChevronRightIcon className="tw-h-4 tw-w-4" />
+                                                                                                  </span>
+                                                                                              </Link>
+                                                                                          )
+                                                                                      ) : (
+                                                                                          <>
+                                                                                              <div
+                                                                                                  className="lg-text-body-bold"
+                                                                                                  key={itemIndex}
+                                                                                              >
+                                                                                                  {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                              </div>
+
+                                                                                              <ItemBuilder
+                                                                                                  items={item.children}
+                                                                                                  itemBuilder={(item, itemIndex) =>
+                                                                                                      item.to != null ? (
+                                                                                                          <Link
+                                                                                                              to={item.to}
+                                                                                                              className="hover:lg-text-primary-500"
+                                                                                                              key={itemIndex}
+                                                                                                          >
+                                                                                                              {getVernacularString(item.contentId, userPreferences.language)}
+                                                                                                          </Link>
+                                                                                                      ) : (
+                                                                                                          <div>Max recursion depth reached</div>
+                                                                                                      )
+                                                                                                  }
+                                                                                              />
+                                                                                          </>
+                                                                                      )
+                                                                                  }
+                                                                              />
+                                                                          </div>
+                                                                      )
+                                                                  }
+                                                              />
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              )}
                                     </>
-                                )}
-                            </Popover>
+                                </div>
+                            </div>
                         )
 
                     // <HeaderItemDesktopComponent
@@ -2216,17 +1853,24 @@ function HeaderItemAccordionMobileComponent({
             {({open}) => (
                 <>
                     {/* , open ? "tw-bg-[#ed74741c]" : null)} */}
-                    <Disclosure.Button className="tw-grid tw-grid-cols-[minmax(0,1fr)_1.5rem] tw-items-center">
+                    <Disclosure.Button className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-cols-[minmax(0,1fr)_1.5rem] tw-items-center", indentationLevel == 0 ? "tw-py-4" : "tw-py-2")}>
                         <div
-                            className="lg-text-title2 tw-text-left"
+                            className={concatenateNonNullStringsWithSpaces(
+                                "tw-text-left",
+                                open ? "lg-text-primary-500 dark:!tw-text-primary-500-dark" : "dark:!tw-text-new-foreground-500-dark",
+                                indentationLevel == 0 ? "lg-text-title2" : "lg-text-body-bold",
+                            )}
                             style={{
                                 paddingLeft: indentationLevel * headerMobileItemIndentation,
                             }}
                         >
                             {getVernacularString(headerItemAccordion.contentId, userPreferences.language)}
                         </div>
-                        <div className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 lg-card tw-rounded-full tw-grid tw-place-items-center tw-duration-200", open ? "tw-rotate-90" : null)}>
-                            <ChevronRightIcon className="tw-w-5 tw-h-5" />
+                        <div className={concatenateNonNullStringsWithSpaces("tw-w-6 tw-h-6 tw-grid tw-place-items-center tw-duration-200", open ? "tw-rotate-90 lg-text-primary-500" : null)}>
+                            <ChevronRightIcon
+                                // className={concatenateNonNullStringsWithSpaces(indentationLevel == 0 ? "tw-w-6 tw-h-6" : "tw-w-4 tw-h-4")}
+                                className="tw-w-6 tw-h-6"
+                            />
                         </div>
                     </Disclosure.Button>
 
@@ -2243,6 +1887,8 @@ function HeaderItemAccordionMobileComponent({
                             )}
                         />
                     </Disclosure.Panel>
+
+                    {indentationLevel != 0 ? null : <div className="tw-h-px lg-bg-secondary-900 tw-opacity-50 tw-flex-none" />}
                 </>
             )}
         </Disclosure>
@@ -2251,16 +1897,20 @@ function HeaderItemAccordionMobileComponent({
 
 function HeaderItemLinkMobileComponent({headerItemLink, userPreferences, indentationLevel}: {headerItemLink: HeaderItemLink; userPreferences: UserPreferences; indentationLevel: number}) {
     return (
-        // item.to.startsWith("/")
-        <Link
-            to={headerItemLink.to}
-            className="lg-text-title2"
-            style={{
-                paddingLeft: indentationLevel * headerMobileItemIndentation,
-            }}
-        >
-            {getVernacularString(headerItemLink.contentId, userPreferences.language)}
-        </Link>
+        <>
+            {/* item.to.startsWith("/") */}
+            <Link
+                to={headerItemLink.to}
+                className={concatenateNonNullStringsWithSpaces(indentationLevel == 0 ? "lg-text-title2 tw-py-4" : "lg-text-body-bold dark:!tw-text-new-foreground-500-dark tw-py-2")}
+                style={{
+                    paddingLeft: indentationLevel * headerMobileItemIndentation,
+                }}
+            >
+                {getVernacularString(headerItemLink.contentId, userPreferences.language)}
+            </Link>
+
+            {indentationLevel != 0 ? null : <div className="tw-h-px lg-bg-secondary-900 tw-opacity-50 tw-flex-none" />}
+        </>
     );
 }
 

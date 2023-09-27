@@ -2,7 +2,7 @@ import {Dialog, Transition} from "@headlessui/react";
 import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import {Form, Link, useActionData, useFetcher} from "@remix-run/react";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import {StarFill, X} from "react-bootstrap-icons";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
@@ -24,7 +24,7 @@ import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {Language, Theme} from "~/typeDefinitions";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import type {DealerActionData} from "~/routes/contact-us/get-dealers-for-pin-code";
 import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
@@ -35,39 +35,11 @@ import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Get in Touch with Livguard: Contact Us Today",
-//             description: "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
-//             "og:title": "Get in Touch with Livguard: Contact Us Today",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/contact-us",
-//             "og:description": "Get in touch with Livguard's customer care. Call our toll-free number for support and solutions. Contact us today!",
-//             "og:type": "Website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
-//             description: " ग्राहक सहायता  नंबर पर संपर्क करें और लिवगार्ड से जुड़ें। समर्थन और समाधान के लिए हमारे टोल-फ्री नंबर पर कॉल करें।",
-//             "og:title": "लिवगार्ड से संपर्क करें: आज ही हमसे संपर्क करें",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/contact-us",
-//             "og:description": " ग्राहक सहायता  नंबर पर संपर्क करें और लिवगार्ड से जुड़ें। समर्थन और समाधान के लिए हमारे टोल-फ्री नंबर पर कॉल करें।",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/contact-us"}];
-// };
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {useInView} from "react-intersection-observer";
+import useMediaQuery from "~/global-common-typescript/hooks/useMediaQuery";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -107,7 +79,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/contact-us/contact-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -161,7 +133,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/contact-us/contact-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -193,11 +165,11 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const otpVerificationResult = await verifyOtp(phoneNumber, otpSubmitted);
 
-    if (formType == "complaintForm") {
+    if (formType == "enquiryForm") {
         if (!otpVerificationResult.success) {
             const actionData: ActionData = {
                 error: "Please enter valid otp! Error code: c07a58df-5019-4f01-8edf-6f75d62b644c",
-                formType: "complaintForm",
+                formType: "enquiryForm",
                 isInvalidOtp: true,
             };
             return json(actionData);
@@ -239,18 +211,32 @@ export const action: ActionFunction = async ({request, params}) => {
     }
 
     const utmParametersDecoded = JSON.parse(utmParameters);
+    const pageUrl = getUrlFromRequest(request);
+
+    const freshSalesData = {
+        mobile_number: phoneNumber,
+        first_name: name,
+        email: emailId,
+        otpVerified: true,
+    };
 
     if (formType == "feedbackForm") {
-        const insertResult = await insertContactFormLeads(generateUuid(), {
-            name: name,
-            emailId: emailId,
-            product: product,
-            rating: rating,
-            details: details,
-            formType: formType,
-            utmParameters: utmParametersDecoded,
-            termsAndConditionsChecked: termsAndConditionsChecked,
-        });
+        const insertResult = await insertContactFormLeads(
+            generateUuid(),
+            {
+                name: name,
+                emailId: emailId,
+                product: product,
+                rating: rating,
+                details: details,
+                formType: formType,
+                utmParameters: utmParametersDecoded,
+                termsAndConditionsChecked: termsAndConditionsChecked,
+            },
+            utmParametersDecoded,
+            pageUrl,
+            freshSalesData,
+        );
         if (insertResult instanceof Error) {
             const actionData: ActionData = {
                 error: "Error in submitting form! Error code: 48584397-7140-40fa-93e2-4804fc63ca40",
@@ -272,7 +258,6 @@ export const action: ActionFunction = async ({request, params}) => {
             }),
             ["livserv@sar-group.com", "shobheet.gupta@livguard.com"],
             "Contact Us Page Lead Submitted",
-            ["developers@growthjockey.com"], //CC Added temporarily for testing purposes
         );
 
         if (emailResult instanceof Error) {
@@ -283,17 +268,23 @@ export const action: ActionFunction = async ({request, params}) => {
             return actionData;
         }
     } else {
-        const insertResult = await insertContactFormLeads(generateUuid(), {
-            name: name,
-            emailId: emailId,
-            phoneNumber: phoneNumber,
-            selectedDealerCode: selectedDealerCode,
-            complaintType: complaintType,
-            details: details,
-            formType: formType,
-            utmParameters: utmParametersDecoded,
-            termsAndConditionsChecked: termsAndConditionsChecked,
-        });
+        const insertResult = await insertContactFormLeads(
+            generateUuid(),
+            {
+                name: name,
+                emailId: emailId,
+                phoneNumber: phoneNumber,
+                selectedDealerCode: selectedDealerCode,
+                complaintType: complaintType,
+                details: details,
+                formType: formType,
+                utmParameters: utmParametersDecoded,
+                termsAndConditionsChecked: termsAndConditionsChecked,
+            },
+            utmParametersDecoded,
+            pageUrl,
+            freshSalesData,
+        );
         if (insertResult instanceof Error) {
             const actionData: ActionData = {
                 error: "Error in submitting form! Error code: a6f5b2c8-c0a9-41e2-a093-268158313671",
@@ -314,9 +305,8 @@ export const action: ActionFunction = async ({request, params}) => {
                 utmParameters: utmParameters,
                 termsAndConditionsChecked: termsAndConditionsChecked,
             }),
-            ["livserv@sar-group.com", "shobheet.gupta@livguard.com"],
+            ["shobheet.gupta@livguard.com"],
             "Contact Us Page Lead Submitted",
-            ["developers@growthjockey.com"], //CC Added temporarily for testing purposes
         );
 
         if (emailResult instanceof Error) {
@@ -364,6 +354,8 @@ export default function () {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <>
             <PageScaffold
@@ -376,132 +368,88 @@ export default function () {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "15a15952-4fe9-4c9e-b07f-fb1467a3614d", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <ContactPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    actionData={actionData}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <ContactPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        actionData={actionData}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
-
-            {/* {
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        {
-                            "@type": "SiteNavigationElement",
-                            "name": "Contact Us",
-                            "url": "https://www.livguard.com/contact-us",
-                            "telephone": "+919205667999",
-                            "contactType": "",
-                            "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
-                            "addressLocality": "Gurugram",
-                            "addressRegion": "Haryana",
-                            "postalCode": "122016",
-                            "addressCountry": "India",
-                            "E-mail": "marketing@livguard.com, export@sar-group.com"
-                          }
-                        `,
-                    }}
-                ></script>
-            } */}
-
-            {/* <ProductAndCategoryBottomBar
-                userPreferences={userPreferences}
-                utmParameters={utmSearchParameters}
-                pageUrl={pageUrl}
-            /> */}
-
-            {/* <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": 1,
-                                    "name": "LivGuard",
-                                    "item": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "ListItem",
-                                    "position": 2,
-                                    "name": "Inverters Batteries",
-                                    "item": "https://www.livguard.com/inverter-batteries",
-                                    "description": " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
-                                    "image": [
-                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
-                                    ]
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Livguard",
-                                    "url": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Inverters Batteries",
-                                    "url": "https://www.livguard.com/inverter-batteries",
-                                    "description": "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
-                                    "image": [
-                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
-                                    ]
-                                }
-                            ]
-                        }
-                    `,
-                }}
-            /> */}
         </>
     );
 }
 
-function ContactPage({userPreferences, utmParameters, actionData}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; actionData: ActionData}) {
+function ContactPage({
+    userPreferences,
+    utmParameters,
+    actionData,
+    pageUrl,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {[searchParameter: string]: string};
+    actionData: ActionData;
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
             <HeroSection
                 userPreferences={userPreferences}
+                utmParameters={utmParameters}
+                pageUrl={pageUrl}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
             />
-
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
-            <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto tw-w-full">
-                <WeAreListening
-                    userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-max-w-2xl lg:tw-justify-self-end"
-                    actionData={actionData}
-                />
+            <div className="tw-row-start-4 tw-col-start-1 lg:tw-col-span-full tw-grid tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)] tw-gap-x-16 lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto tw-w-full">
+                {isScreenSizeBelow ? (
+                    <>
+                        <ClickConnectPowerUpSection
+                            userPreferences={userPreferences}
+                            className="tw-row-start-1 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-max-w-2xl lg:tw-justify-self-start"
+                        />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
+                        <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
 
-                <ClickConnectPowerUpSection
-                    userPreferences={userPreferences}
-                    className="tw-row-start-1 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-max-w-2xl lg:tw-justify-self-start"
-                />
+                        <WeAreListening
+                            userPreferences={userPreferences}
+                            className="tw-row-start-3 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-max-w-2xl lg:tw-justify-self-end"
+                            actionData={actionData}
+                        />
+                    </>
+                ) : (
+                    <>
+                        <WeAreListening
+                            userPreferences={userPreferences}
+                            className="tw-row-start-3 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-max-w-2xl lg:tw-justify-self-end"
+                            actionData={actionData}
+                        />
+
+                        <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
+                        <ClickConnectPowerUpSection
+                            userPreferences={userPreferences}
+                            className="tw-row-start-1 tw-col-span-full lg:tw-col-span-1 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-max-w-2xl lg:tw-justify-self-start"
+                        />
+                    </>
+                )}
             </div>
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-5 lg:tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
             <OurPresence
                 userPreferences={userPreferences}
-                className="tw-row-start-7 lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full"
+                className="tw-row-start-6 lg:tw-row-start-5 tw-col-start-1 lg:tw-col-span-full"
                 headingTextContentId="contactUsS4H"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[7] lg:tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
 
             {/* <ExploreCareers
                 userPreferences={userPreferences}
@@ -513,15 +461,39 @@ function ContactPage({userPreferences, utmParameters, actionData}: {userPreferen
     );
 }
 
-function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function HeroSection({
+    userPreferences,
+    utmParameters,
+    className,
+    pageUrl,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    className?: string;
+    pageUrl: string;
+}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold * 2});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -539,6 +511,9 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 
             <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
                 <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{getVernacularString("contactFormS1T2", userPreferences.language)}</div>
+            </DefaultTextAnimation>
+            <DefaultTextAnimation className="tw-row-start-5 tw-col-start-1">
+                <div className="lg-text-title1 lg-px-screen-edge-2 tw-text-secondary-900-dark">{getVernacularString("contactFormS1T3", userPreferences.language)}</div>
             </DefaultTextAnimation>
         </div>
     );
@@ -576,7 +551,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
             if (actionData.formType != null) {
                 if (actionData.formType == "feedbackForm") {
                     setIsFeedbackFormSubmitted(true);
-                } else if (actionData.formType == "complaintForm") {
+                } else if (actionData.formType == "enquiryForm") {
                     setIsComplaintFormSubmitted(true);
                 }
             }
@@ -590,11 +565,12 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
     const [dealers, setDealers] = useState<Array<Dealer> | null>(null);
     const dealerFetcher = useFetcher();
     const [selectedDealerIndex, setSelectedDealerIndex] = useState<number | null>(null);
+    const [selectedDealerCode, setSelectedDealerCode] = useState("");
 
     useEffect(() => {
         if (dealerFetcher.data != null) {
             if (dealerFetcher.data.error != null) {
-                toast.error("Error in finding dealer. Error Code: ed6784ce-3439-4b89-8ac5-8bee47d59a40");
+                toast.error(dealerFetcher.data.error);
                 return;
             }
             if (dealerFetcher.data.dealers.length === 0) {
@@ -642,7 +618,6 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                 clearTimeout(timeoutId);
             }
             let timeout = setTimeout(() => {
-                console.log("action dispatching", resendTimeOut);
                 // const action: FormStateInputsAction = {
                 //     actionType: FormStateInputsActionType.SetResendTimeOut,
                 //     payload: formStateInputs.resendTimeOut - 1,
@@ -665,9 +640,23 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
         setComplaintFormName("");
         setComplaintFormPhoneNumber("");
     };
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold * 1.5});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "we-are-listening": {
+                humanReadableName: getVernacularString("96713da3-cefd-4b58-9fb7-eca758ca2214", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_1rem_auto_1.5rem_minmax(0,1fr)] tw-w-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_1rem_auto_1.5rem_minmax(0,1fr)] tw-w-full", className)}
+            id="we-are-listening"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS3H", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -847,8 +836,8 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                         otpFieldRef.current.focus();
                                                     }
                                                     const data = new FormData();
-                                                    data.append("phoneNumber", feedbackFormName);
-                                                    data.append("name", feedbackFormPhoneNumber);
+                                                    data.append("phoneNumber", feedbackFormPhoneNumber);
+                                                    data.append("name", feedbackFormName);
                                                     otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                 }}
                                             >
@@ -1338,7 +1327,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                 <div className="tw-grid tw-gap-2 lg:tw-col-span-full">
                                     <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("76bb0c30-c244-4815-b68d-a1780f8c697e", userPreferences.language)}</div>
 
-                                    {/* <FancySearchableSelect
+                                    <FancySearchableSelect
                                         items={
                                             dealers == null
                                                 ? []
@@ -1350,19 +1339,43 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                                       };
                                                   })
                                         }
-                                        selectedItem={dealers == null || selectedDealerIndex == null ? null : `${dealers[selectedDealerIndex].name} - ${dealers[selectedDealerIndex].area}`}
+                                        selectedItem={
+                                            dealers == null || selectedDealerIndex == null
+                                                ? null
+                                                : {
+                                                      name: dealers[selectedDealerIndex].name,
+                                                      area: dealers[selectedDealerIndex].area,
+                                                      index: selectedDealerIndex,
+                                                  }
+                                        }
                                         placeholder={getVernacularString("11eba4f7-13aa-45bd-93bd-31d98b72531a", userPreferences.language)}
-                                        setSelectedItem={(dealer) => setSelectedDealerIndex(dealer.index)}
+                                        // setSelectedItem={(dealer) => {
+                                        //     console.log(dealer);
+                                        //     setSelectedDealerCode(dealer.dealerCode);
+                                        //     setSelectedDealerIndex(dealer.index);
+                                        // }}
+                                        setSelectedItem={(item) => {
+                                            if (item == null) {
+                                                return null;
+                                            }
+                                            setSelectedDealerIndex(item.index);
+                                            return {
+                                                name: item.name,
+                                                area: item.area,
+                                            };
+                                        }}
                                         filterFunction={(items, query) => items.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))}
                                         renderFunction={(item) => {
-                                            if (item == null) return null;
+                                            if (item == null) {
+                                                return "";
+                                            }
                                             return `${item.name} - ${item.area}`;
                                         }}
                                         disabled={dealers == null}
                                         inputClassName="disabled:tw-opacity-[0.6] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
-                                    /> */}
+                                    />
 
-                                    <FormSelectComponent
+                                    {/* <FormSelectComponent
                                         items={
                                             dealers == null
                                                 ? []
@@ -1395,7 +1408,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                                         setValue={(dealer) => setSelectedDealerIndex(dealer?.index)}
                                         buttonClassName="disabled:tw-opacity-[0.4] disabled:!tw-bg-secondary-100-light disabled:dark:tw-opacity-1 disabled:dark:!tw-bg-secondary-300-dark disabled:dark:!tw-text-secondary-900-dark"
                                         disabled={dealers == null}
-                                    />
+                                    /> */}
                                 </div>
                             )}
 
@@ -1431,7 +1444,7 @@ function WeAreListening({userPreferences, className, actionData}: {userPreferenc
                             <input
                                 readOnly
                                 className="tw-hidden"
-                                value="complaintForm"
+                                value="enquiryForm"
                                 name="formType"
                             />
                             <input
@@ -1607,9 +1620,23 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
             </div>
         );
     }
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold * 2});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "click-connect": {
+                humanReadableName: getVernacularString("7ec2537f-9154-4f04-a3ad-d7a33fa78494", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2 lg:tw-px-0", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2 lg:tw-px-0", className)}
+            id="click-connect"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("contactUsS2H", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -1808,9 +1835,23 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
             buttonLink: "/global-ops",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-operations": {
+                humanReadableName: getVernacularString("591ebee7-9d2d-416f-8942-29e3840cc4c4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-left lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto", className)}
+            id="our-operations"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString(headingTextContentId, userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -1824,7 +1865,7 @@ export function OurPresence({userPreferences, className, headingTextContentId}: 
                             className="lg-card tw-grid tw-grid-rows-[auto_1rem_minmax(0,1fr)] lg:tw-grid-rows-1 lg:tw-grid-cols-[auto_2rem_minmax(0,1fr)] tw-items-center tw-rounded-lg"
                             key={presenceIndex}
                         >
-                            <div className="tw-row-start-1 tw-w-[calc(100%+1px)] tw-h-full lg:tw-w-full lg:tw-h-[calc(100%+2px)] tw-px-4 tw-py-3 lg-bg-secondary-300 tw-bg-opacity-30 tw-rounded-t-lg lg:tw-rounded-tl-lg lg:tw-rounded-bl-lg lg:tw-rounded-t-none lg:tw-grid lg:tw-items-center">
+                            <div className="tw-row-start-1 tw-w-[calc(100%+1px)] tw-h-full lg:tw-w-full lg:tw-h-[calc(100%+2px)] tw-px-4 tw-py-3 tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg lg:tw-rounded-tl-lg lg:tw-rounded-bl-lg lg:tw-rounded-t-none lg:tw-grid lg:tw-items-center">
                                 <div className="tw-w-full tw-py-4 tw-rounded-lg tw-grid tw-justify-items-center lg-bg-secondary-100 lg:tw-h-full lg:tw-p-4 lg:tw-grid lg:tw-items-center">
                                     <img
                                         src={getAbsolutePathForRelativePath(getMetadataForImage(presence.imageUrl).finalUrl, ImageCdnProvider.Bunny, null, null)}

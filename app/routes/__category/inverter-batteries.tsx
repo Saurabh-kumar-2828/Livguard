@@ -1,11 +1,14 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
-import {useState} from "react";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {useParams} from "@remix-run/react";
+import {useContext, useEffect, useRef, useState} from "react";
 import {Clock, HandThumbsUpFill, Lightning, Wallet} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
+import {number} from "zod";
 import {CarouselStyle4} from "~/components/carouselStyle4";
-import {OurSuggestionsComponent, ProductCardComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
+import {OurSuggestionsComponent, ProductOverviewComponent, SocialHandles, WhatsBestForYouComponent} from "~/components/category/common";
 import {CategoryCarousel1} from "~/components/categoryCarousel1";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -15,52 +18,36 @@ import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
 import {DealerLocator} from "~/routes";
 import {SuggestedComboSection} from "~/routes/__category/inverter-for-home";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {appendSpaceToString, getDownloadCatalogueLink, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {
+    appendSpaceToString,
+    getDownloadCatalogueLink,
+    getMetadataForImage,
+    getProductNameFromProductTypeAndSubtype,
+    getRedirectToUrlFromRequest,
+    getUrlFromRequest,
+    secondaryNavThreshold,
+} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
+import batteryFinder from "../battery-finder";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Empower your home with Livguard strong Inverter Batteries",
-//             description: "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
-//             "og:title": "Empower your home with Livguard strong Inverter Batteries",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/inverter-batteries/",
-//             "og:description": "Experience the power of Livguard's strong inverter batteries and empower your home with a reliable and uninterrupted energy supply",
-//             "og:type": "product",
-//             "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
-//             description: "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
-//             "og:title": "लिवगार्ड की मजबूत इन्वर्टर बैटरियों से अपने घर को सशक्त बनाएं",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/inverter-batteries/",
-//             "og:description": "लिवगार्ड की मजबूत इन्वर्टर बैटरियों की शक्ति का अनुभव करें और अपने घर को विश्वसनीय और निर्बाध ऊर्जा आपूर्ति से सशक्त बनाएं",
-//             "og:type": "product",
-//             "og:image": "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/inverter-batteries/"}];
-// };
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
@@ -99,7 +86,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-batteries/inverter-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -178,7 +165,47 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/category/batteries/2/1.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/inverter-batteries/inverter-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
+            },
+            {
+                "script:ld+json": {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    itemListElement: [
+                        {
+                            "@type": "ListItem",
+                            position: 1,
+                            name: "LivGuard",
+                            item: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "ListItem",
+                            position: 2,
+                            name: "Inverters Batteries",
+                            item: "https://www.livguard.com/inverter-batteries",
+                            description: " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                            image: ["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Livguard",
+                            url: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
+                        },
+                        {
+                            "@type": "SiteNavigationElement",
+                            name: "Inverters Batteries",
+                            url: "https://www.livguard.com/inverter-batteries",
+                            description: "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
+                            image: ["https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"],
+                        },
+                    ],
+                },
             },
         ];
     } else {
@@ -190,6 +217,7 @@ type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     pageUrl: string;
+    id: string | null;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -198,19 +226,27 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const url = new URL(request.url);
+    const id = url.searchParams.get("id");
+
+    //   console.log("<<<<>>>>>>>>>>>>>>",id)
+
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         pageUrl: getUrlFromRequest(request),
+        id: id,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl, id} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -224,11 +260,17 @@ export default function () {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <CategoryPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <CategoryPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                        id={id}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -236,66 +278,31 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
             />
-
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": 1,
-                                    "name": "LivGuard",
-                                    "item": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "ListItem",
-                                    "position": 2,
-                                    "name": "Inverters Batteries",
-                                    "item": "https://www.livguard.com/inverter-batteries",
-                                    "description": " Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
-                                    "image": [
-                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
-                                    ]
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Livguard",
-                                    "url": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Inverters Batteries",
-                                    "url": "https://www.livguard.com/inverter-batteries",
-                                    "description": "Inverter batteries with a powerful backup, made to empower your home with limitless energy whenever you need",
-                                    "image": [
-                                        "https://growthjockey.imgix.net/livguard/category/batteries/2/3.jpg?w=714.7166748046875"
-                                    ]
-                                }
-                            ]
-                        }
-                    `,
-                }}
-            />
         </>
     );
 }
 
-function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}}) {
+function CategoryPage({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+    secondaryNavigationController,
+    id,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {[searchParameter: string]: string};
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+    id?: string | null;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
-            <HeroSection userPreferences={userPreferences} />
+            <HeroSection
+                userPreferences={userPreferences}
+                utmParameters={utmParameters}
+                pageUrl={pageUrl}
+            />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
@@ -306,15 +313,18 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <OurBatteriesSection
-                userPreferences={userPreferences}
-                className="lg:tw-px-[72px] xl:tw-px-[120px]"
-            />
+            <div>
+                <OurBatteriesSection
+                    userPreferences={userPreferences}
+                    className="lg:tw-px-[72px] xl:tw-px-[120px]"
+                />
+            </div>
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurSuggestionsSection
                 userPreferences={userPreferences}
+                id={id}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
@@ -324,7 +334,7 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10" /> */}
 
-            <SuggestedComboSection
+            <SuggestedCombo
                 userPreferences={userPreferences}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
@@ -332,9 +342,8 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
             <VerticalSpacer className="tw-h-10 llg:tw-h-20" />
 
             <div className="tw-grid tw-grid-cols-1 tw-grid-rows-2 lg:tw-items-center lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-gap-y-10 lg:tw-gap-x-4 lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto">
-                <DealerLocator
+                <DealerLocatorSection
                     userPreferences={userPreferences}
-                    showCtaButton={true}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-row-span-full lg:tw-col-start-1 lg:tw-h-full lg:tw-min-h-[36rem]"
                 />
 
@@ -354,9 +363,8 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <SocialHandles
+            <AboutLivguard
                 userPreferences={userPreferences}
-                heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
@@ -365,24 +373,51 @@ function CategoryPage({userPreferences, utmParameters}: {userPreferences: UserPr
     );
 }
 
-function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function HeroSection({
+    userPreferences,
+    utmParameters,
+    className,
+    pageUrl,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    className?: string;
+    pageUrl: string;
+}) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-4.5rem] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))-4.5rem] lg:tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height))] tw-min-h-[calc(100vw*7/16)] tw-overflow-hidden",
                 className,
             )}
-            ref={ref}
+            id="top"
+            ref={sectionRef}
         >
-            {/* <CoverImage
+            <div
+                className="tw-w-full tw-h-full tw-h-full tw-w-full tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center tw-items-stretch"
+                ref={ref}
+            >
+                {/* <CoverImage
                 relativePath="/livguard/category/batteries/1/1.jpg"
                 className="tw-row-[1/span_12] tw-col-start-1"
                 alt="Inverter battery"
             /> */}
 
-            {/* {containerWidth == null || containerHeight == null ? null : (
+                {/* {containerWidth == null || containerHeight == null ? null : (
                 <CoverImage
                     relativePath={
                         containerHeight > containerWidth || containerWidth < 640
@@ -406,27 +441,28 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 />
             )} */}
 
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktp_hero.jpg"}
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktp_hero.jpg"}
-                />
-            )}
+                {containerWidth == null || containerHeight == null ? null : (
+                    <CoverImage
+                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktp_hero.jpg"}
+                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full"
+                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/category/batteries/1/mobile_hero.jpg" : "/livguard/category/batteries/1/desktp_hero.jpg"}
+                    />
+                )}
 
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
-                <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T1", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1">
+                    <div className="lg-text-banner lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T1", userPreferences.language)}</div>
+                </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
-                <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T2", userPreferences.language)}</div>
-            </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1">
+                    <div className="lg-text-title1 lg-px-screen-edge tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T2", userPreferences.language)}</div>
+                </DefaultTextAnimation>
 
-            <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
-                <h2 className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T3", userPreferences.language)}</h2>
-            </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-[8] tw-col-start-1">
+                    <h2 className="lg-text-body lg-px-screen-edge !tw-text-secondary-900-dark">{getVernacularString("categoryBatteriesS1T3", userPreferences.language)}</h2>
+                </DefaultTextAnimation>
 
-            <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                <ChevronDoubleDownIcon className="tw-row-[11] tw-col-start-1 tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+            </div>
         </div>
     );
 }
@@ -454,9 +490,23 @@ function BatteriesAreMeantToLast({userPreferences, className}: {userPreferences:
             imageRelativePath: "/livguard/category/batteries/2/4.jpg",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "meant-to-last": {
+                humanReadableName: getVernacularString("8bb57774-d155-41f1-bf07-6906c1026203", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col", className)}
+            id="meant-to-last"
+            ref={sectionRef}
+        >
             <h2 className="lg-text-headline tw-text-center">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS2HT1", userPreferences.language))}} />
@@ -560,9 +610,24 @@ export function OurBatteriesSection({userPreferences, className}: {userPreferenc
         {name: "Short Tall Tubular", image: "/livguard/products/it1560stt/thumbnail.png"},
         {name: "Short Tubular Jumbo", image: "/livguard/products/it1636stj/thumbnail.png"},
     ];
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-batteries": {
+                humanReadableName: getVernacularString("32d2e95f-02b6-49fe-b1c3-cee4542e202b", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-cols-1 tw-justify-items-center lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-cols-1 tw-justify-items-center lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}
+            id="our-batteries"
+            ref={sectionRef}
+        >
             <h2 className="lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS3T1", userPreferences.language))}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS3T2", userPreferences.language)}} />
@@ -763,8 +828,28 @@ export function OurBatteriesSectionInternal({userPreferences}: {userPreferences:
     );
 }
 
-export function OurSuggestionsSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+export function OurSuggestionsSection({userPreferences, className, id}: {userPreferences: UserPreferences; className?: string; id?: string | null}) {
     const [selectedBatteryTypeIndex, setSelectedBatteryTypeIndex] = useState(0);
+
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+
+    useEffect(() => {
+        if (id != null && ["0", "1", "2"].includes(id)) {
+            setSelectedBatteryTypeIndex(Number(id));
+            document.getElementById("suggestions-section")?.scrollIntoView({behavior: "smooth", block: "start"});
+        }
+    }, [id]);
+
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-suggestion": {
+                humanReadableName: getVernacularString("0620b5a6-a7bb-4d55-84fb-6a3202439edb", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     const sectionData: Array<{
         typeDescription: string;
@@ -787,22 +872,22 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS1Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS1Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS2Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS2Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/battery_capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-capacity.svg",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS3Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS3Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/3dGrid.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-charging.svg",
                 },
                 {
                     keySpecificationTitle: getVernacularString("categoryBatteriesS2KS4Title", userPreferences.language),
                     keySpecificationContent: getVernacularString("categoryBatteriesSlide1KS4Description", userPreferences.language),
-                    keySpecificationIconRelativePath: "/livguard/icons/dimensions.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-dimensions.svg",
                 },
             ],
             imagesRelativePath: "/livguard/products/",
@@ -880,8 +965,16 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-flex tw-flex-col tw-items-center">
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
+            id="our-suggestion"
+            ref={sectionRef}
+        >
+            <div className="tw-flex tw-flex-col tw-items-center tw-relative">
+                <div
+                    id="suggestions-section"
+                    className="tw-h-[3.5rem] lg:tw-h-[4.2rem] tw-w-full tw-absolute -tw-top-[3.5rem] lg:-tw-top-[4.2rem]"
+                ></div>
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
                         <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS4HT1", userPreferences.language)}} />
@@ -908,7 +1001,7 @@ export function OurSuggestionsSection({userPreferences, className}: {userPrefere
                                     type="button"
                                     className={concatenateNonNullStringsWithSpaces(
                                         "tw-col-start-1 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-rounded-lg hover:tw-cursor-pointer tw-p-2 tw-gap-2",
-                                        `${selectedBatteryTypeIndex == itemIndex ? "lg-bg-primary-500" : "lg-bg-secondary-100"} `,
+                                        `${selectedBatteryTypeIndex == itemIndex ? "lg-bg-primary-500" : "lg-bg-secondary-100 lg-card"} `,
                                         `tw-col-start-${itemIndex + 1}`,
                                     )}
                                     onClick={() => setSelectedBatteryTypeIndex(itemIndex)}
@@ -1104,16 +1197,34 @@ export function ChooseBestInverterBattery({
         ],
         buttonText: `${getVernacularString("categoryBatteriesS8BT", userPreferences.language)}`,
     };
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "plan-your-power": {
+                humanReadableName: getVernacularString("4364581e-7ad6-4f87-9c83-66bf480d3fab", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
+            id="plan-your-power"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col">
-                <h2 className="lg-text-headline tw-text-center">
+                <h2 className="tw-grid lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
                         <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("categoryBatteriesS8HT1", userPreferences.language))}} />
                     </DefaultTextAnimation>
                     <DefaultTextAnimation>
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS8HT2", userPreferences.language)}} />
+                        {productType != undefined ? (
+                            <div dangerouslySetInnerHTML={{__html: getVernacularString(getProductNameFromProductTypeAndSubtype(productType, productSubType), userPreferences.language)}} />
+                        ) : (
+                            <div dangerouslySetInnerHTML={{__html: getVernacularString("categoryBatteriesS8HT2", userPreferences.language)}} />
+                        )}
                     </DefaultTextAnimation>
                 </h2>
 
@@ -1154,10 +1265,75 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
     ];
 
     return (
-        <FaqSectionInternal
-            faqs={faqs}
-            userPreferences={userPreferences}
-            className={className}
-        />
+        <div className="">
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className={className}
+            />
+        </div>
+    );
+}
+
+function DealerLocatorSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "find-my-dealer": {
+                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className=""
+            id="find-my-dealer"
+            ref={sectionRef}
+        >
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCtaButton={true}
+            />
+        </div>
+    );
+}
+
+function SuggestedCombo({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "suggested-combo": {
+                humanReadableName: getVernacularString("5270f2b4-c38b-45b7-8dac-0434f3e7bfcf", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className="lg:tw-px-[6.8rem] tw-px-0"
+            id="suggested-combo"
+            ref={sectionRef}
+        >
+            <SuggestedComboSection
+                userPreferences={userPreferences}
+                className=""
+            />
+        </div>
+    );
+}
+
+function AboutLivguard({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    return (
+        <div className="lg:tw-px-[6.8rem] tw-px-0">
+            <SocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "dealerLocatorSocialHT1", text2: "dealerLocatorSocialHT2"}}
+            />
+        </div>
     );
 }

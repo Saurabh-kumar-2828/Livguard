@@ -1,6 +1,6 @@
 import {Link} from "@remix-run/react";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {ProductType} from "~/productData";
+import {AccessoriesSubType, AutomotiveSubType, BatterySubType, ComboSubType, InverterSubType, ProductType} from "~/productData";
 import {UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
@@ -24,6 +24,7 @@ export type ProductCardTwoDetailsType = {
 export function ProductCardTwoDetails({
     slug,
     productType,
+    exploreProduct,
     userPreferences,
     isBestSeller,
     imageRelativeUrl,
@@ -36,6 +37,7 @@ export function ProductCardTwoDetails({
 }: {
     slug: string;
     productType: ProductType;
+    exploreProduct?:boolean;
     userPreferences: UserPreferences;
     isBestSeller?: boolean;
     imageRelativeUrl: string;
@@ -108,7 +110,9 @@ export function ProductCardTwoDetails({
                 <VerticalSpacer className="tw-h-4" />
 
                 <button className="lg-cta-outline-button lg-cta-outline-button-transition tw-w-full tw-text-center tw-px-1 tw-text-primary-500-light dark:tw-text-secondary-900-dark">
-                    {getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}
+                    {exploreProduct
+                        ? getVernacularString("d4e9cca1-8968-4759-b83b-0e5b5354934e", userPreferences.language)
+                        : getVernacularString("063dc56b-910e-4a48-acb8-8f52668a4c72", userPreferences.language)}
                 </button>
             </div>
         </Link>

@@ -1,7 +1,8 @@
 import {CheckCircleIcon, XCircleIcon} from "@heroicons/react/20/solid";
 import {Link} from "@remix-run/react";
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
@@ -10,6 +11,7 @@ import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -17,7 +19,7 @@ import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {allProductDetails, type ProductDetailsRecommendedProduct} from "~/productData";
 import type {UserPreferences} from "~/typeDefinitions";
-import {convertProductInternalNameToPublicName, getMetadataForImage} from "~/utilities";
+import {convertProductInternalNameToPublicName, getMetadataForImage, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export function EmpowerYourHomeComponent({userPreferences, item}: {userPreferences: UserPreferences; item: {imageRelativePath: string; titleTextContentPiece: string; bodyTextContentPiece: string}}) {
@@ -107,7 +109,7 @@ export function OurSuggestionsComponent({
                                     <div className={`tw-flex tw-min-w-[40px] tw-h-[40px] lg:tw-w-12 lg:tw-h-12 tw-rounded-full tw-items-center tw-justify-center lg-bg-secondary-500`}>
                                         <FixedWidthImage
                                             relativePath={keySpecification.keySpecificationIconRelativePath}
-                                            width="1.5rem"
+                                            width="2rem"
                                             className="tw-place-self-center"
                                         />
                                     </div>
@@ -662,6 +664,17 @@ export function DownloadCta({
 // }
 
 export function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "social-handles": {
+                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const embeddedVideos = [
         <EmbeddedYoutubeVideo
             id="b6gqLXTnZnw"
@@ -678,7 +691,11 @@ export function SocialHandles({userPreferences, heading, className}: {userPrefer
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
+            id="social-handles"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 

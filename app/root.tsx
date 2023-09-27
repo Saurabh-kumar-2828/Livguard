@@ -1,22 +1,23 @@
-import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {json} from "@remix-run/node";
 import type {ShouldRevalidateFunction} from "@remix-run/react";
 import {Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse, useLoaderData, useRouteError} from "@remix-run/react";
 import type {V2_ErrorBoundaryComponent} from "@remix-run/react/dist/routeModules";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {ToastContainer} from "react-toastify";
 import reactToastifyStylesheet from "react-toastify/dist/ReactToastify.css";
-import {DynamicLinks} from "remix-utils";
 import {ErrorHeaderComponent} from "~/components/errorHeaderComponent";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {WebsiteConfigurationContext} from "~/global-common-typescript/contexts/websiteConfigurationContext";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getBooleanFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import tailwindStylesheet from "~/tailwind.css";
 import type {UserPreferences, WebsiteConfiguration} from "~/typeDefinitions";
 import {Language, Theme} from "~/typeDefinitions";
+import {useExternalScript} from "~/hooks/useExternalScript";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -93,77 +94,93 @@ export const links: LinksFunction = () => [
     {rel: "stylesheet", href: reactToastifyStylesheet},
 ];
 
-// const dynamicLinks: DynamicLinksFunction<LoaderData> = ({
-//     id,
-//     data,
-//     params,
-//     location,
-//     parentsData,
-// }) => {
-//     if (!data) {
-//         return []
-//     };
-
-//     return [{rel: "canonical", href: data.canonicalUrl}];
-// };
-
-// export const handle = {
-//     dynamicLinks: dynamicLinks,
-// };
-
 // TODO: Set fallback font, and adjust fallback font to be the width as actual font
 export default function Root() {
     const {userPreferences, canonicalUrl, websiteConfiguration, haptikInitSettings} = useLoaderData() as LoaderData;
 
-    function addScript(scriptContent: string) {
-        const scriptTag = document.createElement("script");
-        scriptTag.innerHTML = scriptContent;
-        document.body.appendChild(scriptTag);
-    }
+    // function addScript(scriptContent: string) {
+    //     const scriptTag = document.createElement("script");
+    //     scriptTag.innerHTML = scriptContent;
+    //     document.body.appendChild(scriptTag);
+    // }
+
+    const [cookiesAccepted, setCookiesAccepted] = useState<string | null>(null);
+    useEffect(() => {
+        if (localStorage.getItem("cookiesAccepted") != null) {
+            setCookiesAccepted(localStorage.getItem("cookiesAccepted"));
+        }
+        window.addEventListener("cookiesAccepted", () => {
+            setCookiesAccepted(localStorage.getItem("cookiesAccepted"));
+        });
+    }, []);
+
+    useExternalScript("https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js", {removeOnUnmount: true, appendInHead: true, timeoutDuration: 5000}, "true", () => {
+        document.addEventListener("haptik_sdk", () => setHaptikLanguage(userPreferences.language));
+    });
+    useExternalScript(
+        `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`,
+        {removeOnUnmount: true, appendInBody: true, addScriptAsText: true, timeoutDuration: 5000},
+        // cookiesAccepted,
+        "true",
+    );
+    useExternalScript(
+        `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '635911646858607');fbq('track', 'PageView');`,
+        {removeOnUnmount: true, appendInBody: true, addScriptAsText: true, timeoutDuration: 5000},
+        // cookiesAccepted,
+        "true",
+    );
+    useExternalScript(
+        `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`,
+        {removeOnUnmount: true, appendInBody: true, addScriptAsText: true, timeoutDuration: 5000},
+        // cookiesAccepted,
+        "true",
+    );
 
     // TODO: Maintain state for this
-    useEffect(() => {
-        setTimeout(() => {
-            // Google Tag Manager
-            addScript(
-                `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`,
-            );
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         // Google Tag Manager
+    //         addScript(
+    //             `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5HRQL29');`,
+    //         );
 
-            // Meta Pixel
-            addScript(
-                `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '635911646858607');fbq('track', 'PageView');`,
-            );
-        }, 2500);
+    //         // Meta Pixel
+    //         addScript(
+    //             `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '635911646858607');fbq('track', 'PageView');`,
+    //         );
+    //     }, 2500);
 
-        setTimeout(() => {
-            // Microsoft Clarity
-            addScript(
-                `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`,
-            );
-        }, 5000);
-    }, []);
+    //     setTimeout(() => {
+    //         // Microsoft Clarity
+    //         addScript(
+    //             `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "ganufjw8cz");`,
+    //         );
+    //     }, 5000);
+    // }, []);
 
     // TODO: Maintain state for this
     // Haptik
-    useEffect(() => {
-        const onDocumentLoad = () => {
-            setTimeout(() => {
-                // TODO: Shift this to use addScript as well
-                const scriptTag = document.createElement("script");
-                scriptTag.src = "https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js";
-                scriptTag.setAttribute("charset", "UTF-8");
-                scriptTag.setAttribute("type", "text/javascript");
-                document.body.appendChild(scriptTag);
-            }, 5000);
-        };
+    // useEffect(() => {
+    //     const onDocumentLoad = () => {
+    //         setTimeout(() => {
+    //             document.addEventListener("haptik_sdk", () => setHaptikLanguage(userPreferences.language));
 
-        if (document.readyState == "complete") {
-            onDocumentLoad();
-        } else {
-            window.addEventListener("load", onDocumentLoad);
-            return () => window.removeEventListener("load", onDocumentLoad);
-        }
-    }, []);
+    //             // TODO: Shift this to use addScript as well
+    //             const scriptTag = document.createElement("script");
+    //             scriptTag.src = "https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js";
+    //             scriptTag.setAttribute("charset", "UTF-8");
+    //             scriptTag.setAttribute("type", "text/javascript");
+    //             document.body.appendChild(scriptTag);
+    //         }, 5000);
+    //     };
+
+    //     if (document.readyState == "complete") {
+    //         onDocumentLoad();
+    //     } else {
+    //         window.addEventListener("load", onDocumentLoad);
+    //         return () => window.removeEventListener("load", onDocumentLoad);
+    //     }
+    // }, []);
 
     // const suppressHydrationWarning = websiteConfiguration.websiteBaseUrl.endsWith("livguard.com") ? true : false;
     // const suppressHydrationWarning = true;
@@ -173,11 +190,10 @@ export default function Root() {
         <WebsiteConfigurationContext.Provider value={websiteConfiguration}>
             <html
                 lang={userPreferences.language}
-                className={userPreferences.theme == Theme.Dark ? "tw-dark" : undefined}
+                className={concatenateNonNullStringsWithSpaces(userPreferences.theme == Theme.Dark ? "tw-dark" : undefined, userPreferences.language === Language.Hindi ? "lg-hi-in" : undefined)}
             >
                 <head>
                     <Meta />
-                    <DynamicLinks />
                     <Links />
 
                     {/* TODO: Move canonicalUrl thing here? */}
@@ -204,6 +220,8 @@ export default function Root() {
                         name="viewport"
                         content="width=device-width,initial-scale=1"
                     />
+
+                    {/* TODO: Check whether we actually need this */}
                     <meta
                         name="google-site-verification"
                         content="kBcFXIhI8Fo0WubHw2RPr_SmmpuizSmpkWqmJdsl3g0"
@@ -272,6 +290,10 @@ export default function Root() {
                                     z-index: 61 !important;
                                 }
 
+                                iframe#haptik-xdk {
+                                    bottom: 80px !important;
+                                }
+
                                 @media (min-width: 640px) {
                                     iframe#haptik-xdk-main-view {
                                         bottom: 65px !important;
@@ -289,6 +311,10 @@ export default function Root() {
 
                                     iframe.xdk-iframe {
                                         bottom: 75px !important;
+                                    }
+
+                                    iframe#haptik-xdk {
+                                        bottom: 135px !important;
                                     }
                                 }
                             `,
@@ -434,34 +460,16 @@ export const ErrorBoundary: V2_ErrorBoundaryComponent = () => {
     // logFrontendError(routeError);
 };
 
-// <html
-// // TODO: Re-enable this
-// // lang="en"
-// >
-//     <head>
-//         <Meta />
-//         <DynamicLinks />
-//         <Links />
-//     </head>
-
-//     <body className="lg-bg-primary-500 lg-text-secondary-900 lg-text-body tw-text-secondary-900-dark">
-//         <div className="tw-grow tw-grid tw-place-items-center tw-min-h-screen">
-//             <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-y-4">
-//                 <div className="lg-text-banner">Something went wrong</div>
-
-//                 <div>We have notified our team, they are on it.</div>
-//             </div>
-
-//             <Link
-//                 to="/"
-//                 className="tw-text-muted tw-lx-underline-on-hover tw-underline tw-underline-offset-4"
-//             >
-//                 Back to Home
-//             </Link>
-//         </div>
-
-//         <ScrollRestoration />
-//         <Scripts />
-//         <LiveReload />
-//     </body>
-// </html>
+export function setHaptikLanguage(language: Language) {
+    if (window._haptikLanguage == language) {
+        return;
+    }
+    if (language == Language.English) {
+        // HaptikSDK.launchMessage("welcome {english}", "TRUE", "FALSE");
+        HaptikSDK?.changeLanguage("en");
+    } else if (language == Language.Hindi) {
+        HaptikSDK?.changeLanguage("hi");
+        // HaptikSDK.launchMessage("स्वागत {hindi}", "TRUE", "FALSE");
+    }
+    window._haptikLanguage = language;
+}

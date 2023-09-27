@@ -1,60 +1,33 @@
-import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useResizeDetector} from "react-resize-detector";
+import {useEffect, useState, useContext} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
+import {useResizeDetector} from "react-resize-detector";
+import {CarouselStyle3} from "~/components/carouselStyle3";
+import {CarouselStyle5} from "~/components/carouselStyle5";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FaqSectionInternal} from "~/components/faqs";
+import {CoverImage} from "~/components/images/coverImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {convertProductInternalNameToPublicName, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {CarouselStyle5} from "~/components/carouselStyle5";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import {CarouselStyle3} from "~/components/carouselStyle3";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {ProductType} from "~/productData";
-import {useState} from "react";
-import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {DealerLocator} from "~/routes";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Empower Your Home with Livguard Stabilizers",
-//             description: "Experience seamless and steady energy with high-quality, feature-led solutions for AC, TV, and more with Livguard voltage stabilizers.",
-//             "og:title": "Empower Your Home with Livguard Stabilizers",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/stabilizer",
-//             "og:description": "Experience seamless and steady energy with high-quality, feature-led solutions for AC, TV, and more with Livguard voltage stabilizers.",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
-//             description: "लिवगार्ड वोल्टेज स्टेबलाइजर्स के साथ एसी, टीवी और अन्य के लिए उच्च-गुणवत्ता, फीचर-आधारित समाधानों के साथ निर्बाध और स्थिर ऊर्जा का अनुभव करें।",
-//             "og:title": "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/stabilizer",
-//             "og:description": "लिवगार्ड वोल्टेज स्टेबलाइजर्स के साथ एसी, टीवी और अन्य के लिए उच्च-गुणवत्ता, फीचर-आधारित समाधानों के साथ निर्बाध और स्थिर ऊर्जा का अनुभव करें।",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/stabilizer"}];
-// };
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -102,7 +75,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "https://www.livguard.com/stabilizer"
+                href: "https://www.livguard.com/stabilizer",
             },
             {
                 title: "लिवगार्ड स्टेबलाइजर्स के साथ अपने घर को सशक्त बनाएं",
@@ -173,6 +146,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -187,7 +161,12 @@ export default () => {
                     {contentId: "273b847e-61e5-4a66-8c6d-a0539da153e2", link: "#"},
                 ]}
             >
-                <StabilizerPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <StabilizerPage
+                        userPreferences={userPreferences}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -199,7 +178,9 @@ export default () => {
     );
 };
 
-function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
+function StabilizerPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -208,7 +189,7 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 tw-col-span-full" />
 
                 <StabilizersThatAreMeantToLast
                     userPreferences={userPreferences}
@@ -261,7 +242,19 @@ function StabilizerPage({userPreferences}: {userPreferences: UserPreferences}) {
 }
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const isScreenSizeBelow = useIsScreenSizeBelow(640);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -269,17 +262,14 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-9.5rem)] lg:tw-h-[70vh] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_3.5rem] lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] tw-text-center",
                 className,
             )}
-            ref={ref}
+            id="top"
+            ref={sectionRef}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <CoverImage
-                    relativePath={
-                        containerHeight > containerWidth || containerWidth < 640 ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg" : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"
-                    }
-                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full lg:tw-col-span-full"
-                    key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg" : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"}
-                />
-            )}
+            <CoverImage
+                relativePath={isScreenSizeBelow ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg" : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"}
+                className="tw-row-start-1 tw-col-start-1 tw-row-span-full lg:tw-col-span-full"
+                key={isScreenSizeBelow ? "/livguard/stabilizer/1/stabilizer-banner-mobile.jpg" : "/livguard/stabilizer/1/stabilizer-banner-desktop.jpg"}
+            />
 
             <DefaultTextAnimation className="tw-row-start-2 tw-col-start-1 lg:tw-col-start-2 lg-px-screen-edge-2 lg:tw-px-0">
                 <div className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center lg:tw-place-self-start">
@@ -301,6 +291,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function StabilizersThatAreMeantToLast({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "meant-to-last": {
+                humanReadableName: getVernacularString("8bb57774-d155-41f1-bf07-6906c1026203", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const StabilizerCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
@@ -364,7 +366,11 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
+                id="meant-to-last"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div>{getVernacularString("612038bf-767c-475f-beca-aa4428c56d9f", userPreferences.language)}</div>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("4a65b232-e2e5-4a85-9004-a84a5e04f91d", userPreferences.language)}} />
@@ -391,6 +397,18 @@ function StabilizersThatAreMeantToLast({userPreferences, className}: {userPrefer
 }
 
 function StabilizersForHome({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "stabilizers-for-home": {
+                humanReadableName: getVernacularString("c00d2678-dc68-4ded-99aa-4612742a4542", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const featuredProducts = [
         {
             productType: ProductType.battery,
@@ -704,9 +722,7 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
                 )}
 
                 <div className="tw-p-4">
-                    <FullWidthImage
-                        relativePath={`/livguard/products/${slug}/thumbnail.png`}
-                    />
+                    <FullWidthImage relativePath={`/livguard/products/${slug}/thumbnail.png`} />
 
                     <div className="tw-w-full tw-capitalize tw-text-center lg-text-body-bold lg-text-secondary-900">{ProductType[`${productType}`]}</div>
                     <div className="tw-w-full tw-text-center lg-text-body-bold lg-text-secondary-900">{productName}</div>
@@ -730,7 +746,11 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
     const [selectedStabilizerType, setSelectedStabilizerType] = useState<StabilizerType>(StabilizerType.forAC);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}
+            id="stabilizers-for-home"
+            ref={sectionRef}
+        >
             <div className="tw-grid tw-grid-cols-1">
                 <h2 className="lg-text-headline tw-text-center">
                     <span className="lg-text-highlighted">{getVernacularString("342e7f22-6183-4d16-afd9-3f4e05c36a04", userPreferences.language)}</span>
@@ -800,8 +820,23 @@ function StabilizersForHome({userPreferences, className}: {userPreferences: User
 }
 
 function ChooseTheBestStabilizer({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "choose-best-stabilizer": {
+                humanReadableName: getVernacularString("c5937b05-1396-4be3-a508-6478d48700aa", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
+            id="choose-best-stabilizer"
+            ref={sectionRef}
+        >
             <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("53bbe30f-9859-42e5-add2-64dd0de0d415", userPreferences.language)}</div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
@@ -888,6 +923,18 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "social-handles": {
+                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const embeddedVideos = [
         <EmbeddedYoutubeVideo
             id="b6gqLXTnZnw"
@@ -904,7 +951,11 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
+            id="social-handles"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 

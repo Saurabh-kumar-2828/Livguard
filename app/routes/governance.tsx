@@ -1,48 +1,26 @@
 import type {LoaderFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
+import {useEffect, useContext} from "react";
+import {useInView} from "react-intersection-observer";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FinancialStatements} from "~/routes/investors";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/service",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "?????",
-//             description: "?????",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/service"}];
-// };
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -69,6 +47,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
     return (
         <>
             <PageScaffold
@@ -77,18 +56,26 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
+                secondaryNavigationController={secondaryNavigationController}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "59cc9aaf-ed88-4639-9fb4-634aeac22825", link: "#"},
                 ]}
             >
-                <GovernancePage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <GovernancePage
+                        userPreferences={userPreferences}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </>
     );
 };
 
-function GovernancePage({userPreferences}: {userPreferences: UserPreferences}) {
+function GovernancePage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1  tw-gap-x-16 tw-items-start tw-justify-center">
@@ -97,7 +84,7 @@ function GovernancePage({userPreferences}: {userPreferences: UserPreferences}) {
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
                 <CsrInitiative
                     userPreferences={userPreferences}
@@ -125,6 +112,17 @@ function GovernancePage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -132,6 +130,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_4rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -157,8 +157,23 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function CsrInitiative({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-csr-efforts": {
+                humanReadableName: getVernacularString("16248ec0-c540-495b-9340-724bc296c3cf", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2", className)}
+            id="our-csr-efforts"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 tw-justify-self-center">
                 <div>
                     <div

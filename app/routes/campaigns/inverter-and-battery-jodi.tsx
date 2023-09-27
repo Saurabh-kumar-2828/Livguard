@@ -1,8 +1,9 @@
 import {ChevronDoubleDownIcon} from "@heroicons/react/20/solid";
-import type {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
-import {useEffect, useReducer, useRef, useState} from "react";
+import {useContext, useEffect, useReducer, useRef, useState} from "react";
+import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
@@ -16,7 +17,8 @@ import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {StickyLandingPage3BottomBar} from "~/components/landingPage3BottomBar";
 import {LandingPage3Carousel} from "~/components/landingPage3Carousel";
-import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -24,6 +26,8 @@ import type {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {ContactUsCta, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {ComboSection, WhyLivguardCombo} from "~/routes/campaigns/inverter-and-battery";
@@ -32,29 +36,9 @@ import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormStat
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Smart & Strong Inverter and Battery Combos",
-//             description: "Empower your home with Livguard smart inverter and battery jodis to compliment your home's energy needs.",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड स्मार्ट और मजबूत इनवर्टर और बैटरी जोड़ी देखे",
-//             description: "अपने घर की ऊर्जा जरूरतों को पूरा करने के लिए लिवगार्ड स्मार्ट इनवर्टर और बैटरी जोड़ी के साथ अपने घर को सशक्त बनाएं।",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.Livguard.com/campaigns/inverter-and-battery-jodi/"}];
-// };
+import {ContactFormSection} from "./energy-storage-solution";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -94,7 +78,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -143,7 +127,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -177,6 +161,8 @@ export default function () {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <>
             <CampaignPageScaffold
@@ -186,12 +172,16 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 showContactCtaButton={false}
                 showSearchOption={true}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <LandingPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <LandingPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </CampaignPageScaffold>
 
             <StickyLandingPage3BottomBar
@@ -199,22 +189,6 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
             />
-
-            {/* <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Inverter and Battery",
-                            "url": "https://www.livguard.com/campaigns/inverter-and-battery/",
-                            "logo": "",
-                            "sameAs": ""
-                        }
-                    `,
-                }}
-            /> */}
         </>
     );
 }
@@ -223,12 +197,14 @@ function LandingPage({
     userPreferences,
     utmParameters,
     pageUrl,
+    secondaryNavigationController,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
 }) {
     const fetcher = useFetcher();
     const otpFetcher = useFetcher();
@@ -294,8 +270,10 @@ function LandingPage({
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
-        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch tw-gap-y-10 lg:tw-gap-y-20 tw-pb-10 lg:tw-pb-20">
+        <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,3fr),minmax(0,2fr)] tw-gap-x-1 tw-align-stretch tw-pb-10 lg:tw-pb-20">
             <HeroSection
                 userPreferences={userPreferences}
                 className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
@@ -307,13 +285,10 @@ function LandingPage({
                 leadId={leadId.current}
                 pageUrl={pageUrl}
             />
-
-            <div
-                className="tw-row-start-2 tw-col-start-1 lg:tw-hidden"
-                id="contact-us-form-mobile"
-            >
-                {!formStateInputs.formSuccessfullySubmitted ? (
-                    <ContactForm
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 lg:tw-hidden tw-col-start-1 tw-col-span-full" />
+            {isScreenSizeBelow && (
+                <>
+                    <ContactFormSection
                         userPreferences={userPreferences}
                         fetcher={fetcher}
                         otpFetcher={otpFetcher}
@@ -322,20 +297,20 @@ function LandingPage({
                         dispatch={dispatch}
                         leadId={leadId.current}
                         pageUrl={pageUrl}
+                        className="tw-row-start-4 tw-col-start-1 lg:tw-hidden"
                     />
-                ) : (
-                    <ContactFormSuccess userPreferences={userPreferences} />
-                )}
-            </div>
+                </>
+            )}
 
-            <WhyLivguardCombo
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 lg:tw-row-start-5 tw-col-start-1 tw-col-span-full" />
+            <WhyLivguardComboSection
                 userPreferences={userPreferences}
-                className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-span-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                className="tw-row-start-5 lg:tw-row-start-6 lg:tw-col-span-full lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
-
-            <ComboSection
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-row-start-7 tw-col-start-1 tw-col-span-full" />
+            <OurCombos
                 userPreferences={userPreferences}
-                className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-col-span-2"
+                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-8 lg:tw-col-start-1 lg:tw-col-span-2"
             />
 
             {/* <DealerLocator
@@ -353,29 +328,29 @@ function LandingPage({
                 userPreferences={userPreferences}
                 className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             /> */}
-
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 lg:tw-row-start-9 tw-col-start-1 tw-col-span-full" />
             <TvcSection
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-10 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
                 pageUrl={pageUrl}
             />
-
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 lg:tw-row-start-11 tw-col-start-1 tw-col-span-full" />
             <TapIntoEfficiency
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
-                className="tw-row-start-6 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-col-start-1 tw-row-start-[11] lg:tw-row-start-12 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
                 pageUrl={pageUrl}
             />
-
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-12 lg:tw-row-start-[13] tw-col-start-1 tw-col-span-full" />
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-7 tw-col-start-1 lg:tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-col-start-1 tw-row-start-[13] lg:tw-row-start-[14] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
-
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[14] lg:tw-row-start-[15] tw-col-start-1 tw-col-span-full" />
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-8 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[16] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
         </div>
     );
@@ -406,18 +381,36 @@ function HeroSection({
 }) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
 
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
-                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
-                containerWidth == null || containerWidth < 380
-                    ? "tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
-                    : "tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]",
+                "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)]",
+
                 className,
             )}
-            ref={ref}
+            id="top"
+            ref={sectionRef}
         >
-            {/* {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
+            <div
+                className={`tw-h-full tw-w-full tw-grid tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate ${
+                    containerWidth == null || containerWidth < 380
+                        ? "tw-grid-rows-[1.5rem_0_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
+                        : "tw-grid-rows-[1.5rem_3rem_0_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem]"
+                }`}
+                ref={ref}
+            >
+                {/* {containerWidth == null || containerHeight == null ? null : containerHeight > containerWidth || containerWidth < 640 ? (
                 <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
                     <img
                         src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hero-banners/akshay-mobile.jpg")?.finalUrl, ImageCdnProvider.Bunny, 1080, 1080)}
@@ -433,90 +426,91 @@ function HeroSection({
                 />
             )} */}
 
-            <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
-                <CoverImage relativePath="/livguard/lp3/1/bg.jpg" />
+                <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-relative -tw-z-10">
+                    <CoverImage relativePath="/livguard/lp3/1/bg.jpg" />
 
-                {containerWidth == null ? null : (
-                    <>
-                        <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
-                            alt="Akshay Kumar"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute",
-                                containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-[30%]" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-[30%] tw-h-3/5",
-                            )}
-                        />
+                    {containerWidth == null ? null : (
+                        <>
+                            <img
+                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/akshay.png")?.finalUrl, ImageCdnProvider.Bunny, null, null)}
+                                alt="Akshay Kumar"
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-absolute",
+                                    containerWidth < 768 ? "tw-bottom-0 tw-right-0 tw-w-[30%]" : containerWidth < 1024 ? "tw-bottom-0 tw-right-0 tw-h-3/5" : "tw-bottom-0 tw-left-[30%] tw-h-3/5",
+                                )}
+                            />
 
-                        <img
-                            src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/combo.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
-                            alt="Livguard inverter-battery combo"
-                            className={concatenateNonNullStringsWithSpaces(
-                                "tw-absolute",
-                                containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-left-8 tw-h-3/5",
-                            )}
-                        />
-                    </>
-                )}
-            </div>
-
-            <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
-                    className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
-                />
-            </DefaultTextAnimation>
-
-            <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T2", userPreferences.language)}}
-                    className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
-                />
-            </DefaultTextAnimation>
-
-            <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1 lg:tw-hidden">
-                <Link
-                    to="#contact-us-form-mobile"
-                    className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
-                >
-                    {getVernacularString("landingPage3S1T3", userPreferences.language)}
-                </Link>
-            </DefaultElementAnimation>
-
-            <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
-                <Link
-                    to="#contact-us-form-mobile"
-                    className="tw-block lg:tw-hidden"
-                >
-                    <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
-                </Link>
-
-                <Link
-                    to="#energy-solutions"
-                    className="tw-hidden lg:tw-block"
-                >
-                    <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
-                </Link>
-            </div>
-
-            <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
-                <div
-                    className="lg:tw-w-[25rem]"
-                    id="contact-us-form-desktop"
-                >
-                    {!formStateInputs.formSuccessfullySubmitted ? (
-                        <ContactForm
-                            userPreferences={userPreferences}
-                            fetcher={fetcher}
-                            otpFetcher={otpFetcher}
-                            utmParameters={utmParameters}
-                            formStateInputs={formStateInputs}
-                            dispatch={dispatch}
-                            leadId={leadId}
-                            pageUrl={pageUrl}
-                        />
-                    ) : (
-                        <ContactFormSuccess userPreferences={userPreferences} />
+                            <img
+                                src={getAbsolutePathForRelativePath(getMetadataForImage("/livguard/lp3/1/combo.png")?.finalUrl, ImageCdnProvider.Bunny, 360, null)}
+                                alt="Livguard inverter-battery combo"
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-absolute",
+                                    containerWidth < 768 ? "tw-bottom-0 tw-left-0 tw-w-2/5" : containerWidth < 1024 ? "tw-bottom-0 tw-left-0 tw-h-3/5" : "tw-bottom-[-5rem] tw-left-8 tw-h-3/5",
+                                )}
+                            />
+                        </>
                     )}
+                </div>
+
+                <DefaultTextAnimation className="tw-row-start-4 tw-col-start-1 lg:tw-place-self-start lg:tw-col-start-1">
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T1", userPreferences.language)}}
+                        className="lg-text-banner lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                    />
+                </DefaultTextAnimation>
+
+                <DefaultTextAnimation className="tw-row-start-6 tw-col-start-1 lg:tw-place-self-start lg:tw-max-w-[620px] lg:tw-col-start-1">
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("landingPage3S1T2", userPreferences.language)}}
+                        className="lg-text-title1 lg-px-screen-edge tw-text-white lg:tw-pl-[120px]"
+                    />
+                </DefaultTextAnimation>
+
+                <DefaultElementAnimation className="tw-row-[8] tw-col-start-1 lg:tw-place-self-start lg:tw-pl-[120px] lg:tw-col-start-1 lg:tw-hidden">
+                    <Link
+                        to="#contact-us-form-mobile"
+                        className="lg-cta-button lg-px-screen-edge lg:tw-pl-[60px]"
+                    >
+                        {getVernacularString("landingPage3S1T3", userPreferences.language)}
+                    </Link>
+                </DefaultElementAnimation>
+
+                <div className="tw-row-[11] tw-col-start-1 tw-col-span-full">
+                    <Link
+                        to="#contact-us-form-mobile"
+                        className="tw-block lg:tw-hidden"
+                    >
+                        <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                    </Link>
+
+                    <Link
+                        to="#energy-solutions"
+                        className="tw-hidden lg:tw-block"
+                    >
+                        <ChevronDoubleDownIcon className="tw-w-12 tw-h-12 lg-text-primary-500 tw-animate-bounce" />
+                    </Link>
+                </div>
+
+                <div className="tw-hidden lg:tw-flex lg:tw-items-center lg:tw-justify-center lg:tw-col-start-2 lg:tw-row-start-1 lg:tw-row-span-full">
+                    <div
+                        className="lg:tw-w-[25rem]"
+                        id="contact-us-form-desktop"
+                    >
+                        {!formStateInputs.formSuccessfullySubmitted ? (
+                            <ContactForm
+                                userPreferences={userPreferences}
+                                fetcher={fetcher}
+                                otpFetcher={otpFetcher}
+                                utmParameters={utmParameters}
+                                formStateInputs={formStateInputs}
+                                dispatch={dispatch}
+                                leadId={leadId}
+                                pageUrl={pageUrl}
+                            />
+                        ) : (
+                            <ContactFormSuccess userPreferences={userPreferences} />
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
@@ -627,8 +621,23 @@ export function TvcSection({
     className?: string;
     pageUrl: string;
 }) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "watch-digital-film": {
+                humanReadableName: getVernacularString("e543a55b-6744-49a7-8d5f-6cf2641ca056", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}
+            id="watch-digital-film"
+            ref={sectionRef}
+        >
             <div className="lg-text-headline">
                 <DefaultTextAnimation>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("71bf111f-fc1f-4026-baeb-9b4981a8aba9", userPreferences.language)}} />
@@ -676,9 +685,23 @@ export function TapIntoEfficiency({
             bodyTextContentPiece: "landingPage3S7Slide3Content",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "battery-combo": {
+                humanReadableName: getVernacularString("0778c1ff-2e3c-4773-889f-6f01e0e58f0e", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center", className)}
+            id="battery-combo"
+            ref={sectionRef}
+        >
             <div className="lg-text-headline">
                 <DefaultTextAnimation>
                     <div
@@ -767,13 +790,14 @@ export function FaqSection({userPreferences, className}: {userPreferences: UserP
             answer: "landingPage3FAQQ5A",
         },
     ];
-
     return (
-        <FaqSectionInternal
-            faqs={faqs}
-            userPreferences={userPreferences}
-            className={className}
-        />
+        <div className={concatenateNonNullStringsWithSpaces("", className)}>
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className={className}
+            />
+        </div>
     );
 }
 
@@ -876,6 +900,58 @@ function DealerLocator({userPreferences, showCtaButton, className}: {userPrefere
                     </div>
                 </div>
             </div>
+        </div>
+    );
+}
+
+function WhyLivguardComboSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "livguard-combo": {
+                humanReadableName: getVernacularString("b708a357-961a-4b28-afec-1e538023a140", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces("", className)}
+            id="livguard-combo"
+            ref={sectionRef}
+        >
+            <WhyLivguardCombo
+                userPreferences={userPreferences}
+                className=""
+            />
+        </div>
+    );
+}
+
+function OurCombos({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-combos": {
+                humanReadableName: getVernacularString("e0e7bba0-3200-4edf-870d-4c03a86ce636", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces("", className)}
+            id="our-combos"
+            ref={sectionRef}
+        >
+            <ComboSection
+                userPreferences={userPreferences}
+                className=""
+            />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import {Dialog, Listbox, Popover, Transition} from "@headlessui/react";
 import {ChevronDoubleDownIcon, InformationCircleIcon} from "@heroicons/react/20/solid";
-import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
 import {Form, Link, useActionData, useSearchParams} from "@remix-run/react";
 import React, {useEffect, useReducer, useState} from "react";
@@ -10,59 +10,31 @@ import {toast} from "react-toastify";
 import {insertLoadCalculatorEntry} from "~/backend/loadCalculator.server";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {PageScaffold} from "~/components/pageScaffold";
-import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
+import {FindTheThiefDialog} from "~/components/find-the-thief/findTheThiefDialog";
+import {LoadCalculatorDialogComponent} from "~/components/find-the-thief/loadCalculatorDialogComponent";
+import {Thief} from "~/components/find-the-thief/thiefComponent";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFiller";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getIntegerFromUnknown, getNonEmptyStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, getIntegerArrayOfLength, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
+import {concatenateNonNullStringsWithSpaces, createGroupByReducer, distinct, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import {FaqSection} from "~/routes";
 import type {LoadCalculatorInputsAction} from "~/routes/load-calculator/index.state";
-import {createInitialState, createInitialStateNewUi, LoadCalculatorInputsActionType, loadCalculatorInputsReducer} from "~/routes/load-calculator/index.state";
+import {LoadCalculatorInputsActionType, createInitialState, createInitialStateNewUi, loadCalculatorInputsReducer} from "~/routes/load-calculator/index.state";
 import type {Device, LoadCalculatorInputs, Room} from "~/routes/load-calculator/index.types";
-import {deviceTypeLibrary, getDeviceTypeDetails, getRoomTypeDetails, propertyTemplates, propertyTemplatesNewUi, PropertyType, roomTypeLibrary} from "~/routes/load-calculator/index.types";
+import {PropertyType, deviceTypeLibrary, getDeviceTypeDetails, getRoomTypeDetails, propertyTemplates, propertyTemplatesNewUi, roomTypeLibrary} from "~/routes/load-calculator/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {enumFromStringValue, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {enumFromStringValue, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Plan Your Power Needs with Livguard Load Calculator",
-//             description: "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
-//             "og:title": "Plan Your Power Needs with Livguard Load Calculator",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/load-calculator",
-//             "og:description": "Livguard Power Planner is the ultimate tool to plan your power needs. Use our load calculator to find the perfect inverter and inverter battery options",
-//             "og:type": "website",
-//             "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
-//             description: "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
-//             "og:title": "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/load-calculator",
-//             "og:description": "लिवगार्ड पावर प्लानर आपकी बिजली आवश्यकताओं की योजना बनाने का सर्वोत्तम उपकरण है। सही इन्वर्टर और इन्वर्टर बैटरी विकल्प खोजने के लिए हमारे लोड कैलकुलेटर का उपयोग करें",
-//             "og:type": "product",
-//             "og:image": "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/load-calculator/"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -102,56 +74,55 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/home/5/1.png").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
-                "script:ld+json":
-                {
+                "script:ld+json": {
                     "@context": "https://schema.org",
                     "@type": "BreadcrumbList",
-                    "itemListElement": [
+                    itemListElement: [
                         {
                             "@type": "ListItem",
-                            "position": 1,
-                            "name": "LivGuard",
-                            "item": "https://www.livguard.com/",
-                            "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            "image": [
-                                " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            ]
+                            position: 1,
+                            name: "LivGuard",
+                            item: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: [" https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "ListItem",
-                            "position": 2,
-                            "name": "Load Calculator",
-                            "item": "https://www.livguard.com/load-calculator",
-                            "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
+                            position: 2,
+                            name: "Load Calculator",
+                            item: "https://www.livguard.com/load-calculator",
+                            description:
+                                "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
                         },
                         {
                             "@type": "SiteNavigationElement",
-                            "name": "Livguard",
-                            "url": "https://www.livguard.com/",
-                            "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                            "image": [
-                                "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                            ]
+                            name: "Livguard",
+                            url: "https://www.livguard.com/",
+                            description:
+                                " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
+                            image: ["https://files.growthjockey.com/livguard/icons/logo-dark.svg"],
                         },
                         {
                             "@type": "SiteNavigationElement",
-                            "name": "Load Calculator",
-                            "url": "https://www.livguard.com/load-calculator",
-                            "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
-                        }
-                    ]
-                }
-            }
+                            name: "Load Calculator",
+                            url: "https://www.livguard.com/load-calculator",
+                            description:
+                                "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times.",
+                        },
+                    ],
+                },
+            },
         ];
     } else if (userPreferences.language == Language.Hindi) {
         return [
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "https://www.livguard.com/load-calculator/"
+                href: "https://www.livguard.com/load-calculator/",
             },
             {
                 title: "लिवगार्ड लोड कैलकुलेटर के साथ अपनी बिजली की जरूरतों की योजना बनाएं",
@@ -182,7 +153,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/5/1.png?w=487.265625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/home/5/1.png").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -268,52 +239,6 @@ export default function () {
             >
                 <LoadCalculator userPreferences={userPreferences} />
             </PageScaffold>
-{/*
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": 1,
-                                    "name": "LivGuard",
-                                    "item": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "ListItem",
-                                    "position": 2,
-                                    "name": "Load Calculator",
-                                    "item": "https://www.livguard.com/load-calculator",
-                                    "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Livguard",
-                                    "url": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Load Calculator",
-                                    "url": "https://www.livguard.com/load-calculator",
-                                    "description": "Take charge of your power needs with Livguard's load calculator- Power Planner. Your key to personalised power solutions. It helps you find the perfect inverter and inverter battery options for your home, ensuring uninterrupted power supply at all times."
-                                }
-                            ]
-                        }
-                    `,
-                }}
-            /> */}
         </>
     );
 }
@@ -335,6 +260,28 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
         {propertyType: propertyType == null ? PropertyType.ThreeBhk : enumFromStringValue(PropertyType, propertyType) ?? PropertyType.ThreeBhk},
         createInitialStateNewUi,
     );
+
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [thiefLocation, setThiefLocation] = useState<number | null>(null);
+    const [couponCode, setCouponCode] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (localStorage.getItem("couponCode") == null) {
+            localStorage.setItem("treasureHuntStep", "0");
+            return;
+        }
+        setCouponCode(localStorage.getItem("couponCode"));
+
+        const treasureHuntStep = localStorage.getItem("treasureHuntStep");
+
+        switch (treasureHuntStep) {
+            case "3": {
+                // setIsDialogOpen(true);
+                setThiefLocation(0);
+                break;
+            }
+        }
+    }, []);
 
     return (
         <>
@@ -362,14 +309,14 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
 
             <div className="tw-w-full tw-flex tw-flex-row tw-gap-x-4 tw-justify-center">
                 <button
-                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500" : "lg-bg-secondary-100")}
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 0 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-bg-secondary-100")}
                     onClick={() => emblaApi?.scrollTo(0)}
                 >
                     {getVernacularString("homeS5T5P4", userPreferences.language)}
                 </button>
 
                 <button
-                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500" : "lg-bg-secondary-100")}
+                    className={concatenateNonNullStringsWithSpaces("tw-p-4 tw-rounded-lg", selectedIndex == 1 ? "lg-bg-primary-500 tw-text-secondary-100-light" : "lg-bg-secondary-100")}
                     onClick={() => emblaApi?.scrollTo(1)}
                 >
                     {getVernacularString("homeS5T5P5", userPreferences.language)}
@@ -383,15 +330,49 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
             <VerticalSpacer className="tw-h-4" />
 
             <div
-                className="tw-overflow-hidden tw-w-full"
+                className="tw-overflow-hidden tw-w-full tw-relative"
                 ref={emblaRef}
             >
                 {/* TODO: Convert all tw-auto-cols-[100%] to tw-auto-cols-[minmax(0,100%)]? */}
+                <Thief
+                    currentThiefLocation={thiefLocation}
+                    direction="left"
+                    thiefShowLocation={0}
+                    onClick={() => setThiefLocation(1)}
+                    thiefClassName="tw-top-[6%] -tw-left-1 lg:-tw-left-[0.5625rem]"
+                />
+
+                <Thief
+                    currentThiefLocation={thiefLocation}
+                    direction="right"
+                    thiefShowLocation={1}
+                    onClick={() => {
+                        setThiefLocation(2);
+                        setIsDialogOpen(true);
+                    }}
+                    thiefClassName="tw-top-[49%] -tw-right-1 lg:-tw-right-[0.5625rem]"
+                />
+
+                {/* {currentThiefLocation === 2 && (
+                <Thief
+                    currentThiefLocation={currentThiefLocation}
+                    direction="left"
+                    thiefShowLocation={2}
+                    onClick={() => {
+                        setCurrentThiefLocation(3);
+                        setIsDialogOpen(true);
+                    }}
+                    thiefClassName="tw-top-[64%] -tw-left-1 lg:-tw-left-[0.5625rem]"
+                />
+            )} */}
                 <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-start">
                     <DeviceSelectionNewUi
                         userPreferences={userPreferences}
                         loadCalculatorInputs={loadCalculatorInputsNewUi}
                         dispatch={dispatchNewUi}
+                        currentThiefLocation={thiefLocation}
+                        setCurrentThiefLocation={setThiefLocation}
+                        setIsDialogOpen={setIsDialogOpen}
                     />
 
                     <RoomSelection
@@ -441,6 +422,20 @@ function LoadCalculator({userPreferences}: {userPreferences: UserPreferences}) {
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+
+            <FindTheThiefDialog
+                isDialogOpen={isDialogOpen}
+                setIsDialogOpen={setIsDialogOpen}
+                userPreferences={userPreferences}
+                showSunraysPattern={true}
+            >
+                <LoadCalculatorDialogComponent
+                    userPreferences={userPreferences}
+                    setIsDialogOpen={setIsDialogOpen}
+                    couponCode={couponCode == null ? "" : couponCode}
+                    setCouponCode={setCouponCode}
+                />
+            </FindTheThiefDialog>
         </>
     );
 }
@@ -761,32 +756,32 @@ function PropertySelection({
                 <ItemBuilder
                     items={[
                         {
-                            icon: "/livguard/home/5/1-bhk.png",
+                            icon: "/livguard/load-calculator/1-bhk.svg",
                             content: `${getVernacularString("propertyType-1-bhk", userPreferences.language)}`,
                             value: "1-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/2-bhk.png",
+                            icon: "/livguard/load-calculator/2-bhk.svg",
                             content: `${getVernacularString("propertyType-2-bhk", userPreferences.language)}`,
                             value: "2-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/3-bhk.png",
+                            icon: "/livguard/load-calculator/3-bhk.svg",
                             content: `${getVernacularString("propertyType-3-bhk", userPreferences.language)}`,
                             value: "3-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/4-bhk.png",
+                            icon: "/livguard/load-calculator/4-bhk.svg",
                             content: `${getVernacularString("propertyType-4-bhk", userPreferences.language)}`,
                             value: "4-bhk",
                         },
                         {
-                            icon: "/livguard/home/5/villa.png",
+                            icon: "/livguard/load-calculator/villa.svg",
                             content: `${getVernacularString("propertyType-villa", userPreferences.language)}`,
                             value: "villa",
                         },
                         {
-                            icon: "/livguard/home/5/custom.png",
+                            icon: "/livguard/load-calculator/custom.svg",
                             content: `${getVernacularString("propertyType-custom", userPreferences.language)}`,
                             value: "custom",
                         },
@@ -833,15 +828,15 @@ function PropertySelection({
                             <div
                                 className={concatenateNonNullStringsWithSpaces(
                                     "tw-rounded-full tw-w-8 tw-h-8 tw-p-1.5",
-                                    item.value == loadCalculatorInputs.property.propertyType ? "lg-bg-secondary-900" : "lg-bg-secondary-700",
+                                    item.value == loadCalculatorInputs.property.propertyType ? "tw-bg-secondary-900-dark" : "lg-bg-secondary-700",
                                 )}
                             >
                                 <FullWidthImage
                                     relativePath={item.icon}
-                                    className="tw-invert dark:tw-invert-0"
+                                    className={concatenateNonNullStringsWithSpaces("dark:tw-invert-0", item.value == loadCalculatorInputs.property.propertyType ? "tw-invert-0" : "tw-invert")}
                                 />
                             </div>
-                            <div>{item.content}</div>
+                            <div className={concatenateNonNullStringsWithSpaces(item.value == loadCalculatorInputs.property.propertyType ? "tw-text-secondary-900-dark" : "")}>{item.content}</div>
                         </button>
                     )}
                 />
@@ -986,10 +981,16 @@ function DeviceSelectionNewUi({
     userPreferences,
     loadCalculatorInputs,
     dispatch,
+    currentThiefLocation,
+    setCurrentThiefLocation,
+    setIsDialogOpen,
 }: {
     userPreferences: UserPreferences;
     loadCalculatorInputs: LoadCalculatorInputs;
     dispatch: React.Dispatch<LoadCalculatorInputsAction>;
+    currentThiefLocation: number | null;
+    setCurrentThiefLocation: React.Dispatch<number>;
+    setIsDialogOpen: React.Dispatch<boolean>;
 }) {
     const [isNewDeviceDialogOpen, setIsNewDeviceDialogOpen] = useState(false);
 

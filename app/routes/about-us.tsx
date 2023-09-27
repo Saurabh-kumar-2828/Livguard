@@ -1,62 +1,29 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {Marquee} from "dynamic-marquee-react";
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {CarouselStyle7} from "~/components/carouselStyle7";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {DealerLocator} from "~/routes";
 import {OurPresence} from "~/routes/contact-us";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Get to Know Livguard - Your Trusted Energy and Power Solutions Provider",
-//             description:
-//                 "Livguard is a leading brand in the power backup and home appliances industry, committed to providing innovative and reliable solutions to satisfy the diverse needs of customers.",
-//             "og:title": "Get to Know Livguard - Your Trusted Energy and Power Solutions Provider",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/about-us",
-//             "og:description":
-//                 "Livguard is a leading brand in the power backup and home appliances industry, committed to providing innovative and reliable solutions to satisfy the diverse needs of customers.",
-//             "og:type": "Website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड: आपकी ऊर्जा और पावर समस्याओं का विश्वसनीय समाधान",
-//             description:
-//                 "लिवगार्ड ऊर्जा संगठन और घरेलू उपकरण उद्योग में एक अग्रणी ब्रांड है, जो ग्राहकों की विभिन्न आवश्यकताओं को पूरा करने के लिए नवाचारी और विश्वसनीय समाधान प्रदान करने के प्रतिबद्ध है।",
-//             "og:title": "लिवगार्ड: आपकी ऊर्जा और पावर समस्याओं का विश्वसनीय समाधान",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/about-us",
-//             "og:description":
-//                 "लिवगार्ड ऊर्जा संगठन और घरेलू उपकरण उद्योग में एक अग्रणी ब्रांड है, जो ग्राहकों की विभिन्न आवश्यकताओं को पूरा करने के लिए नवाचारी और विश्वसनीय समाधान प्रदान करने के प्रतिबद्ध है।",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/about-us"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -98,7 +65,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/about-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -154,7 +121,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/about-us-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -188,6 +155,8 @@ export default () => {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <>
             <PageScaffold
@@ -200,70 +169,68 @@ export default () => {
                     {contentId: "849dabf7-0fa6-47e6-a1f8-e4f544306f7c", link: "/"},
                     {contentId: "6d164881-cc49-4447-8460-d6fa6cf7a14f", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <AboutUsPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <AboutUsPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
-
-            {/* {
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        {
-                            "@type": "SiteNavigationElement",
-                            "name": "Contact us",
-                            "url": "https://www.livguard.com/contact-us",
-                            "telephone": "+91 92056-67999",
-                            "contactType": "",
-                            "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
-                            "addressLocality": "Gurugram",
-                            "addressRegion": "Haryana",
-                            "postalCode": "122016",
-                            "addressCountry": "India",
-                           "E-mail": "marketing@livguard.com, export@sar-group.com"
-                        }`
-                        ,
-                    }}
-                ></script>
-            } */}
         </>
     );
 };
 
-function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
+function AboutUsPage({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
-            <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start">
+            <div className="">
                 <HeroSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
+                    className=""
                 />
-
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10" />
 
                 <WhoWeAre
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    className="  tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
                 <MeetOurLeaders
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    className="tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-row-start-6 tw-h-10 lg:tw-h-20" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-                <OurPresence
+                <OurOperations
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
-                    headingTextContentId="75b7261b-7ced-4385-891a-ecfe8123bab5"
+                    className="tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 " />
 
-                <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] tw-col-span-full tw-gap-x-5 tw-w-full lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto">
+                <div className="tw-grid lg:tw-grid-cols-[minmax(0,3fr)_minmax(0,2fr)] tw-col-span-full tw-gap-x-5 tw-w-full lg-px-screen-edge-2 tw-max-w-7xl tw-mx-auto">
                     <OurValues
                         userPreferences={userPreferences}
                         className="tw-row-start-1 lg:tw-col-start-1"
@@ -271,14 +238,13 @@ function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
 
                     <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-col-start-1 lg:tw-hidden" />
 
-                    <DealerLocator
+                    <Everywhere
                         userPreferences={userPreferences}
                         className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-h-full"
-                        showCtaButton={true}
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-10 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
                 {/* Remember to change tw-row-start numbers when uncommenting */}
                 {/* <ExploreCareers
@@ -301,16 +267,40 @@ function AboutUsPage({userPreferences}: {userPreferences: UserPreferences}) {
     );
 }
 
-function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+function HeroSection({
+    userPreferences,
+    utmParameters,
+    className,
+    pageUrl,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    className?: string;
+    pageUrl: string;
+}) {
     // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid tw-grid-rows-[3rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-relative tw-isolate",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-start-2 tw-row-span-full lg:tw-col-span-full tw-isolate tw-z-[-10]">
                 {isScreenSizeBelow == null ? null : (
@@ -321,12 +311,20 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 )}
             </div>
 
-            <DefaultTextAnimation className="lg:lg-about-us-banner-text-gradient tw-row-start-2 tw-col-start-1 tw-place-self-start lg-px-screen-edge-2 tw-justify-self-center lg:tw-justify-self-start lg:tw-py-3">
-                <div
-                    dangerouslySetInnerHTML={{__html: getVernacularString("b38f6ec8-1c38-44ef-b016-93da7ed7bf19", userPreferences.language)}}
-                    className="lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center lg:tw-text-left tw-max-w-[31rem]"
-                />
-            </DefaultTextAnimation>
+            <div className="lg:lg-about-us-banner-text-gradient tw-grid tw-grid-flow-row tw-row-start-2 tw-col-start-1 lg:tw-py-3">
+                <DefaultTextAnimation className=" tw-row-start-2 tw-col-start-1 tw-place-self-start lg-px-screen-edge-2 tw-justify-self-center lg:tw-justify-self-start tw-grid tw-grid-flow-row">
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("b38f6ec8-1c38-44ef-b016-93da7ed7bf19", userPreferences.language)}}
+                        className="tw-row-start-1 lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center lg:tw-text-left tw-max-w-[31rem]"
+                    />
+                </DefaultTextAnimation>
+                <DefaultTextAnimation className="tw-row-start-3 tw-col-start-1 tw-place-self-start lg-px-screen-edge-2 tw-justify-self-center lg:tw-justify-self-start tw-grid tw-grid-flow-row">
+                    <div
+                        dangerouslySetInnerHTML={{__html: getVernacularString("ca68e2b9-8aba-4002-adbf-d9c40945027d", userPreferences.language)}}
+                        className="tw-row-start-2 lg-text-banner tw-text-secondary-900-dark tw-place-self-center tw-self-center tw-text-center lg:tw-text-left tw-max-w-[31rem]"
+                    />
+                </DefaultTextAnimation>
+            </div>
         </div>
     );
 }
@@ -334,19 +332,33 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 function WhoWeAre({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     function WhoWeAreCard({iconUrl, title, description}: {iconUrl: string; title: string; description: string}) {
         return (
-            <div className="tw-grid tw-grid-rows-[1.5rem_auto_0.5rem_auto_0.5rem_auto_minmax(1rem,1fr)] lg:tw-grid-rows-[4rem_auto_1rem_auto_0.75rem_auto_minmax(1rem,1fr)] tw-border-2 lg-card tw-px-6">
-                <div className="lg-card tw-row-start-2 tw-h-16 tw-w-16 lg:tw-h-[6.25rem] lg:tw-w-[6.25rem] tw-rounded-full tw-place-self-center tw-grid tw-place-content-center">
-                    <img
-                        src={iconUrl}
-                        className="tw-invert dark:tw-invert-0 tw-h-8 tw-w-8 lg:tw-h-[3.125rem] lg:tw-w-[3.125rem]"
-                    />
+            <div className="tw-grid tw-grid-rows-[auto_minmax(0,1fr)] tw-border-[3px] tw-border-new-background-border-500-light lg-card ">
+                <div className="lg-card tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark tw-rounded-t-lg tw-row-start-1 tw-grid tw-items-center tw-justify-items-center tw-p-4">
+                    <div className="tw-w-full tw-h-full tw-rounded-md tw-place-self-center tw-grid tw-place-content-center lg-bg-secondary-100 tw-py-6">
+                        <img
+                            src={iconUrl}
+                            className="tw-invert dark:tw-invert-0 lg:tw-h-[6.25rem] lg:tw-w-[6.25rem]"
+                        />
+                    </div>
                 </div>
-                <DefaultTextAnimation className="tw-row-start-4 lg-text-title2 tw-text-center">{title}</DefaultTextAnimation>
-                <DefaultTextAnimation className="tw-row-start-6 lg-text-body tw-text-center">{description}</DefaultTextAnimation>
+                <div className="tw-row-start-2 lg:tw-py-4 tw-pt-2 tw-pb-6 tw-px-6 ">
+                    <DefaultTextAnimation className="tw-row-start-4 lg-text-title2 tw-text-center">{title}</DefaultTextAnimation>
+                    <DefaultTextAnimation className="tw-row-start-6 lg-text-body tw-text-center">{description}</DefaultTextAnimation>
+                </div>
             </div>
         );
     }
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "who-we-are": {
+                humanReadableName: getVernacularString("1048c716-f3d1-4740-90b8-99e7d1e3b80d", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const whoWeAreCardsContent = [
         {
             iconUrl: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/about-us/2/our-mission.svg").finalUrl, ImageCdnProvider.Bunny, null, null)}`,
@@ -361,7 +373,11 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2 lg:tw-grid-cols-[minmax(0,4fr)_minmax(0,3fr)_minmax(0,3fr)] tw-gap-6", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2 lg:tw-grid-cols-[minmax(0,4fr)_minmax(0,3fr)_minmax(0,3fr)] tw-gap-6", className)}
+            id="who-we-are"
+            ref={sectionRef}
+        >
             <div className="lg:tw-col-start-1 tw-w-full tw-h-full tw-grid tw-px-8 max-lg:tw-py-8 lg:tw-grid-rows-[minmax(2rem,1fr)_auto_auto_0.75rem_auto_minmax(2rem,1fr)] lg-card">
                 <DefaultTextAnimation className="tw-row-start-1 lg:tw-row-start-2 lg-text-banner tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("540952b6-a7ef-453f-a6e5-cd8953fa4222", userPreferences.language)}}></div>
@@ -435,11 +451,24 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
             imageRelativePath: "/livguard/about-us/3/leader-gurpreet.png",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "meet-our-leaders": {
+                humanReadableName: getVernacularString("b1387a67-2e83-4f5f-b794-3cf1c7bc61fd", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
-        <>
+        <div
+            id="meet-our-leaders"
+            ref={sectionRef}
+        >
             <div
                 className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2", className)}
                 ref={ref}
@@ -488,7 +517,7 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 
@@ -546,7 +575,17 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
             valueImageMobile: "/livguard/about-us/5/value-trust-mobile.png",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-values": {
+                humanReadableName: getVernacularString("35610704-9140-46c7-a510-9365b19f837d", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const [selectedValue, setSelectedValue] = useState<Values>(Values.Aim);
 
     const ValueDisplay = ({valueDisplayClassName}: {valueDisplayClassName?: string}) => {
@@ -568,7 +607,11 @@ function OurValues({userPreferences, className}: {userPreferences: UserPreferenc
     };
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_1rem_auto]", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_1rem_auto]", className)}
+            id="our-values"
+            ref={sectionRef}
+        >
             <div
                 dangerouslySetInnerHTML={{__html: getVernacularString("389859cd-81c3-4b9a-95ad-b38dde856511", userPreferences.language)}}
                 className="tw-row-start-1 lg-text-headline tw-text-center lg:tw-text-left"
@@ -636,7 +679,17 @@ function ExploreCareers({userPreferences, className}: {userPreferences: UserPref
 
 function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "empowered-by-sar": {
+                humanReadableName: getVernacularString("fe6d299f-3f6a-44fe-9b3a-877ff0d423d2", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const sisterCompanies = [
         {
             logoUrl: "/livguard/about-us/7/livpure.png",
@@ -665,6 +718,8 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
                 "tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto] md:tw-grid-rows-[minmax(0,1fr)_2.5rem_auto_auto_1rem_auto_2.5rem_minmax(0,1fr)] tw-justify-center tw-place-items-center md:tw-border-2 lg-card tw-px-8 md:tw-px-16 max-md:tw-py-8",
                 className,
             )}
+            id="empowered-by-sar"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 md:tw-row-start-3 tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_0.5rem_auto] md:tw-grid-rows-[auto_auto_1rem_auto] md:tw-grid-cols-[minmax(0,11fr)_1.5rem_minmax(0,9fr)] md:tw-w-full">
                 <div
@@ -724,6 +779,58 @@ function EmpoweredBySAR({userPreferences, className}: {userPreferences: UserPref
                     })
                 )}
             </div>
+        </div>
+    );
+}
+
+function OurOperations({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-operations": {
+                humanReadableName: getVernacularString("591ebee7-9d2d-416f-8942-29e3840cc4c4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className=""
+            id="our-operations"
+            ref={sectionRef}
+        >
+            <OurPresence
+                userPreferences={userPreferences}
+                headingTextContentId="75b7261b-7ced-4385-891a-ecfe8123bab5"
+            />
+        </div>
+    );
+}
+
+function Everywhere({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "find-my-dealer": {
+                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className=""
+            id="find-my-dealer"
+            ref={sectionRef}
+        >
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCtaButton={true}
+            />
         </div>
     );
 }

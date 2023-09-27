@@ -1,6 +1,7 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useState} from "react";
+import {useEffect, useState, useContext} from "react";
+import {useInView} from "react-intersection-observer";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {SocialHandles} from "~/components/category/common";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
@@ -10,52 +11,22 @@ import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {allProductDetails} from "~/productData";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Empower Your Home with High-Capacity Inverters",
-//             description: "Enjoy unlimited energy with Livguard's intelligent high-capacity inverters, advanced technology, intelligent charging, and guaranteed protection.",
-//             "og:title": "Empower Your Home with High-Capacity Inverters",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/high-capacity-inverter-battery",
-//             "og:description": "Enjoy unlimited energy with Livguard's intelligent high-capacity inverters, advanced technology, intelligent charging, and guaranteed protection.",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "उच्च क्षमता वाले इनवर्टर से अपने घर को सशक्त बनाएं",
-//             description: "विकसित तकनीक, इंटेलिजेंट चार्जिंग और गारंटीकृत सुरक्षा के साथ लिवगार्ड के  उच्च क्षमता वाले इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
-//             "og:title": "उच्च क्षमता वाले इनवर्टर से अपने घर को सशक्त बनाएं",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/high-capacity-inverter-battery",
-//             "og:description": "विकसित तकनीक, इंटेलिजेंट चार्जिंग और गारंटीकृत सुरक्षा के साथ लिवगार्ड के  उच्च क्षमता वाले इनवर्टर के साथ असीमित ऊर्जा का अनुभव करें",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/high-capacity-inverter-battery"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -95,7 +66,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/hkva-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -134,7 +105,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/hkva/hkva-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -167,6 +138,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -176,12 +148,18 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
+                secondaryNavigationController={secondaryNavigationController}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "d36bc5a4-9718-4e25-bc26-1a8c4853d9b1", link: "#"},
                 ]}
             >
-                <HKVAPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <HKVAPage
+                        userPreferences={userPreferences}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -193,7 +171,9 @@ export default () => {
     );
 };
 
-function HKVAPage({userPreferences}: {userPreferences: UserPreferences}) {
+function HKVAPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -202,7 +182,7 @@ function HKVAPage({userPreferences}: {userPreferences: UserPreferences}) {
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <ExperienceHighPower
                     userPreferences={userPreferences}
@@ -270,6 +250,17 @@ function HKVAPage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -277,6 +268,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_repeat(3,auto)_minmax(0,1fr)] lg:tw-grid-rows-[3rem_auto_auto_minmax(0,2fr)_3rem] tw-text-center lg:tw-text-left lg:tw-grid-cols-1",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -305,6 +298,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function ExperienceHighPower({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "high-power": {
+                humanReadableName: getVernacularString("57e5cba3-9ffe-47dd-b584-1a8f2f8aaf8b", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const InverterUSPCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
@@ -403,7 +408,11 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
+                id="high-power"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("eaa6ffa9-a509-4be1-8f5e-93a008f86aaf", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("354321fa-4e5e-4cc5-80a4-07a320dfe654", userPreferences.language)}} />
@@ -432,8 +441,23 @@ function ExperienceHighPower({userPreferences, className}: {userPreferences: Use
 }
 
 function ChooseYourInverter({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "your-inverter": {
+                humanReadableName: getVernacularString("fdb7fec0-6865-44e5-a84c-73b11f76c326", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-cente", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col lg:tw-items-center lg:tw-justify-cente", className)}
+            id="your-inverter"
+            ref={sectionRef}
+        >
             <h2 className="lg-text-screen-edge lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("b3b052f7-ef5b-43d1-b426-279e9c05ca84", userPreferences.language)}} />
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("354448cd-c3be-4427-b3a5-c3f5cf7afaf9", userPreferences.language)}} />
@@ -600,8 +624,24 @@ function PowerhouseInverters({userPreferences, className}: {userPreferences: Use
         },
     ];
 
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "heavy-duty-inverters": {
+                humanReadableName: getVernacularString("4c457900-7da0-4e38-ad3f-732e9ab35335", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}
+            id="heavy-duty-inverters"
+            ref={sectionRef}
+        >
             <VerticalSpacer className="tw-h-6 lg:tw-h-10" />
 
             <div
@@ -737,7 +777,7 @@ function InverterCard({
 
                 <Link
                     className="tw-place-self-center lg:tw-hidden"
-                    to={inverterSlug}
+                    to={`/product/${inverterSlug}`}
                 >
                     <button className="lg-cta-button">{getVernacularString("dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee", userPreferences.language)}</button>
                 </Link>
@@ -749,6 +789,18 @@ function InverterCard({
 }
 
 function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "high-capacity-inverters": {
+                humanReadableName: getVernacularString("4b6c134b-096e-49cf-9e12-d53c0e3cf059", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const inverters = [
         allProductDetails["lg2350ixl"][userPreferences.language],
         allProductDetails["lgs2500"][userPreferences.language],
@@ -763,7 +815,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
             name: inverters[0].humanReadableModelNumber,
             slug: "lg2350ixl",
             capacity: inverters[0].productIcons[1].text,
-            warranty: inverters[0].specifications[1].value,
+            warranty: inverters[0].productIcons[0].text,
             price: inverters[0].price,
             imageRelativeUrl: "/livguard/products/lg2350ixl/thumbnail.png",
         },
@@ -771,7 +823,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
             name: inverters[1].humanReadableModelNumber,
             slug: "lgs2500",
             capacity: inverters[1].productIcons[1].text,
-            warranty: inverters[1].specifications[1].value,
+            warranty: inverters[1].productIcons[0].text,
             price: inverters[1].price,
             imageRelativeUrl: "/livguard/products/lgs2500/thumbnail.png",
         },
@@ -779,7 +831,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
             name: inverters[2].humanReadableModelNumber,
             slug: "lgs3000",
             capacity: inverters[2].productIcons[1].text,
-            warranty: inverters[2].specifications[1].value,
+            warranty: inverters[2].productIcons[0].text,
             price: inverters[2].price,
             imageRelativeUrl: "/livguard/products/lgs3000/thumbnail.png",
         },
@@ -787,7 +839,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
             name: inverters[3].humanReadableModelNumber,
             slug: "lg3500",
             capacity: inverters[3].productIcons[1].text,
-            warranty: inverters[3].specifications[1].value,
+            warranty: inverters[3].productIcons[0].text,
             price: inverters[3].price,
             imageRelativeUrl: "/livguard/products/lg3500/thumbnail.png",
         },
@@ -795,7 +847,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
             name: inverters[4].humanReadableModelNumber,
             slug: "lgs4000",
             capacity: inverters[4].productIcons[1].text,
-            warranty: inverters[4].specifications[1].value,
+            warranty: inverters[4].productIcons[0].text,
             price: inverters[4].price,
             imageRelativeUrl: "/livguard/products/lgs4000/thumbnail.png",
         },
@@ -803,7 +855,7 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
             name: inverters[5].humanReadableModelNumber,
             slug: "lgs5000",
             capacity: inverters[5].productIcons[1].text,
-            warranty: inverters[5].specifications[1].value,
+            warranty: inverters[5].productIcons[0].text,
             price: inverters[5].price,
             imageRelativeUrl: "/livguard/products/lgs5000/thumbnail.png",
         },
@@ -892,7 +944,11 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
     const [isViewMore, setIsViewMore] = useState(false);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}
+            id="high-capacity-inverters"
+            ref={sectionRef}
+        >
             <div className="tw-grid tw-grid-cols-1">
                 <DefaultTextAnimation>
                     <h2
@@ -954,8 +1010,24 @@ function PowerUpWithHighCapacityInverters({userPreferences, className}: {userPre
 }
 
 function YourGuideToFindingTheRightInverter({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "your-guide": {
+                humanReadableName: getVernacularString("2223a612-f480-45b4-86fb-d5d02dc1a69d", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
+            id="your-guide"
+            ref={sectionRef}
+        >
             <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("a5bdaea0-3ac4-4e61-bb56-15921022d881", userPreferences.language)}</div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"

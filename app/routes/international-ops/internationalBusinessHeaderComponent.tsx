@@ -124,11 +124,11 @@ export function InternationalBusinessHeaderComponent({userPreferences, redirectT
                         />
                     </Form>
 
-                    {/* <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" /> */}
+                    <HorizontalSpacer className="tw-w-4 tw-border-r tw-border-solid tw-border-secondary-700-light dark:tw-border-secondary-700-dark" />
 
-                    {/* <HorizontalSpacer className="tw-w-4" /> */}
+                    <HorizontalSpacer className="tw-w-4" />
 
-                    {/* <Form
+                    <Form
                         method="post"
                         action="/set-language"
                         ref={languageFormRef}
@@ -194,7 +194,7 @@ export function InternationalBusinessHeaderComponent({userPreferences, redirectT
                             readOnly
                             className="tw-hidden"
                         />
-                    </Form> */}
+                    </Form>
                 </div>
 
                 <div className="lg-px-screen-edge tw-py-4 lg-bg-background-500 tw-flex tw-flex-row tw-items-center">

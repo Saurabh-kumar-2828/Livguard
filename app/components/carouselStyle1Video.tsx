@@ -58,9 +58,11 @@ export function CarouselStyle1Video({
                                     <button
                                         type="button"
                                         className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollPrev()}
+                                        onClick={() => {
+                                            emblaApi?.scrollPrev();
+                                        }}
                                     >
-                                        <ChevronLeftIcon className="tw-w-6 tw-h-6 lg-text-new-foreground-500" />
+                                        <ChevronLeftIcon className="tw-w-6 tw-h-6" />
                                     </button>
 
                                     <div className="tw-flex tw-flex-row tw-gap-x-2">
@@ -80,10 +82,12 @@ export function CarouselStyle1Video({
 
                                     <button
                                         type="button"
-                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                                        onClick={() => emblaApi?.scrollNext()}
+                                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light tw-mt-[0.4px]"
+                                        onClick={() => {
+                                            emblaApi?.scrollNext();
+                                        }}
                                     >
-                                        <ChevronRightIcon className="tw-w-6 tw-h-6 lg-text-new-foreground-500" />
+                                        <ChevronRightIcon className="tw-w-6 tw-h-6" />
                                     </button>
                                 </div>
                             </div>

@@ -1,11 +1,17 @@
 import {Combobox, Transition} from "@headlessui/react";
 import {CheckIcon, ChevronUpDownIcon} from "@heroicons/react/20/solid";
-import React, {useState} from "react";
+import {Link} from "@remix-run/react";
+import React, {MouseEventHandler, useState} from "react";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {UserPreferences} from "~/typeDefinitions";
+import {getMetadataForImage} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-export function FancySearchableSelect<T extends string>({
+export function FancySearchableSelect<T>({
     items,
     selectedItem,
     setSelectedItem,
@@ -255,3 +261,252 @@ export function ButtonWithIconAndText({
         </div>
     );
 }
+
+export function CtaButtonLink({
+    userPreferences,
+    to,
+    target,
+    textVernacId,
+    buttonClassName,
+    linkClassName,
+    linkContainerClassName,
+}: {
+    userPreferences: UserPreferences;
+    to: string;
+    target?: boolean;
+    textVernacId: string;
+    buttonClassName?: string;
+    linkClassName?: string;
+    linkContainerClassName?: string;
+}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", linkContainerClassName)}>
+            <Link
+                className={concatenateNonNullStringsWithSpaces(
+                    "tw-overflow-hidden tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)] lg-cta-button !tw-px-2 tw-text-center tw-relative tw-group tw-transition tw-duration-300 hover:tw-border-1 tw-h-full tw-grid tw-place-items-center tw-box-border",
+                    linkClassName,
+                )}
+                to={to}
+                target={target == null || !target ? "_self" : "_blank"}
+            >
+                <div className="tw-absolute tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)] -tw-left-[1px] tw-top-0 tw-rounded-full tw-inset-0 tw-m-auto tw-transition-opacity tw-ease-in tw-duration-300 tw-opacity-0 group-hover:tw-opacity-100 lg-cta-button-gradient"></div>
+                <button
+                    className={concatenateNonNullStringsWithSpaces("tw-text-center tw-relative tw-duration-300 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center", buttonClassName)}
+                    dangerouslySetInnerHTML={{__html: getVernacularString(textVernacId, userPreferences.language)}}
+                />
+            </Link>
+        </div>
+    );
+}
+
+export function CtaButton({
+    userPreferences,
+    onClick,
+    textVernacId,
+    buttonClassName,
+    buttonContainerClassName,
+    mainContainerClassName,
+    disabled,
+    type,
+}: {
+    userPreferences: UserPreferences;
+    onClick: MouseEventHandler;
+    textVernacId: string;
+    buttonClassName?: string;
+    buttonContainerClassName?: string;
+    mainContainerClassName?: string;
+    disabled?: boolean;
+    type?: "button" | "reset" | "submit";
+}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", mainContainerClassName)}>
+            <div className="tw-overflow-hidden tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)]">
+                <div
+                    className={concatenateNonNullStringsWithSpaces(
+                        "tw-overflow-hidden lg-cta-button tw-text-center tw-relative tw-group tw-transition tw-duration-300 tw-grid tw-h-full tw-place-items-center tw-box-border",
+                        buttonContainerClassName,
+                    )}
+                >
+                    <div className="tw-absolute tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)] -tw-left-[1px] tw-top-[-1px] tw-rounded-full tw-inset-0 tw-m-auto -tw-translate-x-full group-hover:tw-translate-x-0 tw-ease-in tw-duration-300 lg-cta-button-gradient"></div>
+                    <button
+                        type={type == null ? undefined : type}
+                        onClick={onClick}
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-text-center tw-relative tw-duration-300 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center",
+                            buttonClassName,
+                        )}
+                        disabled={disabled}
+                    >
+                        {getVernacularString(textVernacId, userPreferences.language)}
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function CtaOutlineButtonLink({
+    userPreferences,
+    to,
+    target,
+    textVernacId,
+    buttonClassName,
+    linkClassName,
+    linkContainerClassName,
+    imgPath,
+    download,
+}: {
+    userPreferences: UserPreferences;
+    to: string;
+    target?: boolean;
+    textVernacId: string;
+    buttonClassName?: string;
+    linkClassName?: string;
+    linkContainerClassName?: string;
+    imgPath?: string;
+    download?: boolean;
+}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden tw-relative tw-rounded-full", linkContainerClassName)}>
+            <Link
+                className={concatenateNonNullStringsWithSpaces(
+                    "lg-cta-outline-button tw-text-center tw-relative tw-group tw-transition tw-duration-300 hover:tw-border-1tw-h-full tw-grid tw-place-items-center",
+                    linkClassName,
+                )}
+                to={to}
+                target={target == null || !target ? "_self" : "_blank"}
+                download={download ? true : false}
+            >
+                <div className="tw-absolute tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)] -tw-left-[1px] tw-top-0 tw-rounded-full tw-inset-0 tw-m-auto tw-opacity-0 group-hover:tw-opacity-100 tw-ease-in tw-duration-300 lg-cta-button-gradient"></div>
+                <div className="tw-flex tw-gap-2 tw-justify-center tw-items-center">
+                    {imgPath && (
+                        <img
+                            className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
+                            src={getAbsolutePathForRelativePath(getMetadataForImage(imgPath).finalUrl, ImageCdnProvider.Bunny, null, null)}
+                            alt="icon"
+                        />
+                    )}
+                    <button
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-text-center tw-relative tw-duration-300 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center",
+                            buttonClassName,
+                            imgPath ? "tw-text-secondary-300-dark" : "",
+                        )}
+                    >
+                        {getVernacularString(textVernacId, userPreferences.language)}
+                    </button>
+                </div>
+            </Link>
+        </div>
+    );
+}
+
+/**
+ * The className hierarchy goes as follows - div.mainContainerClassName > div.buttonContainerClassName > button.buttonClassName
+ */
+export function CtaOutlineButton({
+    userPreferences,
+    onClick,
+    textVernacId,
+    buttonClassName,
+    buttonContainerClassName,
+    mainContainerClassName,
+    disabled,
+    type,
+}: {
+    userPreferences: UserPreferences;
+    onClick: MouseEventHandler;
+    textVernacId: string;
+    buttonClassName?: string;
+    buttonContainerClassName?: string;
+    mainContainerClassName?: string;
+    disabled?: boolean;
+    type?: "button" | "reset" | "submit";
+}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("tw-overflow-hidden", mainContainerClassName)}>
+            <div className="tw-overflow-hidden tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)]">
+                <div
+                    className={concatenateNonNullStringsWithSpaces(
+                        "lg-cta-outline-button tw-text-center tw-relative tw-group tw-transition tw-duration-300 hover:tw-border-1 hover:tw-h-full tw-grid tw-place-items-center tw-box-border",
+                        buttonContainerClassName,
+                    )}
+                >
+                    <div className="tw-absolute tw-h-[calc(100%+2px)] tw-w-[calc(100%+2px)] -tw-left-[1px] tw-top-0 tw-rounded-full tw-inset-0 tw-m-auto tw-transition-opacity tw-ease-in tw-duration-300 tw-opacity-0 group-hover:tw-opacity-100 lg-cta-button-gradient"></div>
+                    <button
+                        type={type == null ? undefined : type}
+                        onClick={onClick}
+                        className={concatenateNonNullStringsWithSpaces(
+                            "tw-text-center tw-relative tw-duration-300 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center",
+                            buttonClassName,
+                        )}
+                        disabled={disabled}
+                    >
+                        {getVernacularString(textVernacId, userPreferences.language)}
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function ImageAndContentCard({
+    cardItem,
+    userPreferences,
+    largeFont,
+    bestSeller,
+}: {
+    cardItem: {imgId: string; name: string};
+    userPreferences: UserPreferences;
+    largeFont?: boolean;
+    bestSeller?: boolean;
+}) {
+    return (
+        <div className="tw-grid tw-gap-2 lg:tw-gap-4 tw-px-2 md:tw-px-4 tw-py-4 lg:tw-py-6 lg-card-shadow tw-rounded-lg tw-overflow-hidden tw-relative tw-h-full">
+            <div className="tw-rounded-lg tw-overflow-hidden">
+                <FullWidthImage relativePath={cardItem.imgId} />
+            </div>
+            <div
+                className={concatenateNonNullStringsWithSpaces(
+                    "tw-text-center tw-mx-auto",
+                    largeFont ? "lg-text-title2" : "lg-text-body tw-w-[58%] min-[490px]:max-[918px]:tw-w-3/4 lg:tw-w-[77%] xl:tw-w-3/5 2xl:tw-w-full",
+                )}
+            >
+                {getVernacularString(cardItem.name, userPreferences.language)}
+            </div>
+            {bestSeller && (
+                <div className="tw-absolute tw-right-0 tw-top-0 tw-w-fit tw-bg-primary-500-light lg-text-icon tw-font-semibold tw-text-secondary-100-light tw-py-1 tw-px-5">
+                    {getVernacularString("f22a7acc-0168-4011-9eaf-6a8f3328f093", userPreferences.language)}
+                </div>
+            )}
+        </div>
+    );
+}
+
+// export function SocialMediaFeed({posts, className}: {posts: Array<any>; className?: string}) {
+//     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
+//     return (
+//         <>
+//             {isScreenSizeBelow ? (
+//                 <SocialMediaFeedMobile
+//                     posts={posts}
+//                     className={className}
+//                 />
+//             ) : (
+//                 <SocialMediaFeedDesktop
+//                     posts={posts}
+//                     className={className}
+//                 />
+//             )}
+//         </>
+//     );
+// }
+
+// export function SocialMediaFeedDesktop({posts, className}: {posts: Array<any>; className?: string}) {
+//     return <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-max-h-[30rem] tw-overflow-y-scroll", className)}>{posts}</div>;
+// }
+
+// export function SocialMediaFeedMobile({posts, className}: {posts: Array<any>; className?: string}) {
+//     return <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-max-h-[20rem] tw-overflow-y-scroll", className)}>{posts}</div>;
+// }

@@ -1,79 +1,44 @@
 import {Dialog, Transition} from "@headlessui/react";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
+import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {json} from "@remix-run/node";
 import {Form, Link, useActionData, useFetcher, useSubmit, useTransition} from "@remix-run/react";
-import React, {useEffect, useReducer, useRef} from "react";
-import {useState} from "react";
+import React, {useContext, useEffect, useReducer, useRef, useState} from "react";
 import {Envelope, Telephone, Whatsapp, X} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
 import {useResizeDetector} from "react-resize-detector";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {insertWarrantyFormLeads, uploadFileToS3} from "~/backend/dealer.server";
+import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
+import {FaqSectionInternal} from "~/components/faqs";
+import {SocialMediaIcons} from "~/components/footers/common";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {getObjectFromUnknown, getStringFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getStringFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern, pinCodeValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FaqSectionInternal} from "~/components/faqs";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
+import {getFormSelectProductItems} from "~/routes/contact-us";
+import type {WarrantyFormStateInputs, WarrantyFormStateInputsAction} from "~/routes/warranty-form-state";
+import {WarrantyFormActionTypes, WarrantyFormFieldKeys, WarrantyFormReducer, warrantyFormErrorMessages, warrantyFormInitialState} from "~/routes/warranty-form-state";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-import {
-    WarrantyFormActionTypes,
-    WarrantyFormReducer,
-    WarrantyFormStateInputsAction,
-    warrantyFormErrorMessages,
-    warrantyFormInitialState,
-    WarrantyFormFieldKeys,
-    WarrantyFormStateInputs,
-} from "~/routes/warranty-form-state";
-import {getFormSelectProductItems} from "~/routes/contact-us";
-import {SocialMediaIcons} from "~/components/footers/common";
-import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Warranty: Protect Your Investment Today",
-//             description: "Comprehensive Livguard warranty protects your purchases with reliable coverage and peace of mind. Explore now!",
-//             "og:title": "Livguard Warranty: Protect Your Investment Today",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/warranty",
-//             "og:description": "Comprehensive Livguard warranty protects your purchases with reliable coverage and peace of mind. Explore now!",
-//             "og:type": "Website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड वारंटी: आज ही अपने निवेश को सुरक्षित करें।",
-//             description: "लिवगार्ड की व्यापक वारंटी आपकी खरीदारी की प्रमुखता के साथ विश्वसनीय कवरेज और चिंता मुक्ति प्रदान करती है। अभी खोजें!",
-//             "og:title": "लिवगार्ड वारंटी: आज ही अपने निवेश को सुरक्षित करें।",
-//             "og:site_name": "लिवगार्ड",
-//             "og:url": "https://www.livguard.com/warranty",
-//             "og:description": "Livguard की व्यापक वारंटी आपकी खरीदारी की प्रमुखता के साथ विश्वसनीय कवरेज और चिंता मुक्ति प्रदान करती है। अभी खोजें!",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/warranty"}];
-// };
+import {GenericActionData} from "./lead-form-submission";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -113,7 +78,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/warranty/warranty-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -148,11 +113,11 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:type",
-                content: "लिवगार्ड",
+                content: "website",
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/warranty/warranty-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -168,6 +133,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
     const uuid = safeParse(getUuidFromUnknown, body.get("uuid"));
+    const utmParameters = safeParse(getStringFromUnknown, body.get("utmParameters"));
     const jsonData = safeParse(getStringFromUnknown, body.get("registerFormDetails"));
     if (jsonData != null) {
         const jsonDataParsed = JSON.parse(jsonData);
@@ -181,7 +147,7 @@ export const action: ActionFunction = async ({request, params}) => {
             const state = safeParse(getStringFromUnknown, jsonDataParsed.state);
             const products = jsonDataParsed.products;
 
-            if (contactNumber == null || email == null || name == null || pincode == null || city == null || state == null || products == null || uuid == null) {
+            if (contactNumber == null || email == null || name == null || pincode == null || city == null || state == null || products == null || uuid == null || utmParameters == null) {
                 const actionData: ActionData = {
                     error: "Inputs cannot be null! Error code: 2efe2d0b-c43b-4679-8eb2-f55be853623b",
                 };
@@ -210,6 +176,17 @@ export const action: ActionFunction = async ({request, params}) => {
             if (insertResult instanceof Error) {
                 const actionData: ActionData = {
                     error: "Error in submiting form! Error code: 7b84af66-174a-4b89-bbfa-3a51d9aa8862",
+                };
+                return json(actionData);
+            }
+
+            const utmParametersDecoded = JSON.parse(utmParameters);
+            const pageUrl = getUrlFromRequest(request);
+
+            const freshsalesResult = await sendDataToFreshsales(uuid, {mobile_number: contactNumber, first_name: name, email: email, city: city, otpVerified: true}, utmParametersDecoded, pageUrl);
+            if (freshsalesResult instanceof Error) {
+                const actionData: GenericActionData = {
+                    error: "Error in submitting form! Error code: 0177ace3-f07e-454a-a27f-f210d67702a9",
                 };
                 return json(actionData);
             }
@@ -256,6 +233,7 @@ export default function () {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
     const actionData = useActionData() as ActionData;
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -269,18 +247,34 @@ export default function () {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "237533ce-d6ab-4735-8064-14567ca50a48", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <WarrantyRegistrationPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    actionData={actionData}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <WarrantyRegistrationPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        secondaryNavigationController={secondaryNavigationController}
+                        actionData={actionData}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </>
     );
 }
 
-function WarrantyRegistrationPage({userPreferences, utmParameters, actionData}: {userPreferences: UserPreferences; utmParameters: {[searchParameter: string]: string}; actionData: ActionData}) {
+function WarrantyRegistrationPage({
+    userPreferences,
+    utmParameters,
+    actionData,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {[searchParameter: string]: string};
+    actionData: ActionData;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <div className="tw-grid tw-grid-cols-1 tw-gap-x-16 tw-items-start tw-justify-center">
             <HeroSection
@@ -288,19 +282,19 @@ function WarrantyRegistrationPage({userPreferences, utmParameters, actionData}: 
                 className="tw-row-start-1 tw-w-full"
             />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-14 tw-row-start-2" />
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2" />
+
+            <SeamlessService
+                userPreferences={userPreferences}
+                className="tw-row-start-3 tw-max-w-7xl tw-mx-auto"
+            />
+
+            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4" />
 
             <RegisterInMinutes
                 userPreferences={userPreferences}
                 className="tw-row-start-5 tw-max-w-3xl tw-mx-auto lg-px-screen-edge-2"
                 actionData={actionData}
-            />
-
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4" />
-
-            <SeamlessService
-                userPreferences={userPreferences}
-                className="tw-row-start-3 tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6" />
@@ -331,6 +325,17 @@ function WarrantyRegistrationPage({userPreferences, utmParameters, actionData}: 
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -338,6 +343,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(3.5rem,1fr)_auto_auto_1rem_auto_3rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_minmax(0,1fr)] lg:tw-text-start tw-text-center lg:tw-grid-cols-2",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-col-span-full tw-row-span-full">
                 {useIsScreenSizeBelow == null ? null : (
@@ -369,6 +376,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function SeamlessService({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "seamless-service": {
+                humanReadableName: getVernacularString("ee900aeb-0671-433a-93cc-115b6b6801b6", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     function ReadMore({text, className}: {text: string; className?: string}) {
         const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
         const [isReadMore, setIsReadMore] = useState(false);
@@ -441,13 +460,20 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_2rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-rows-[auto_0.5rem_auto_1rem_auto_2rem_auto_1rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}
+                id="seamless-service"
+                ref={sectionRef}
+            >
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("4c465a92-fb45-41f3-9fc5-dfed80962b12", userPreferences.language)}}
                     className="tw-row-start-1 lg-text-headline tw-text-center tw-mb-1"
                 />
 
-                <div className="tw-row-start-3 lg-text-title2 tw-text-center">{getVernacularString("dc2254fc-6ca8-49f7-a007-7e833db77009", userPreferences.language)}</div>
+                <div
+                    className="tw-row-start-3 lg-text-title2 tw-text-center"
+                    dangerouslySetInnerHTML={{__html: getVernacularString("dc2254fc-6ca8-49f7-a007-7e833db77009", userPreferences.language)}}
+                ></div>
 
                 <ReadMore
                     className="tw-row-start-5 tw-text-center"
@@ -474,6 +500,18 @@ function SeamlessService({userPreferences, className}: {userPreferences: UserPre
 }
 
 function RegisterInMinutes({userPreferences, className, actionData}: {userPreferences: UserPreferences; className?: string; actionData: ActionData}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "register-in-minutes": {
+                humanReadableName: getVernacularString("a5ee9b69-adfe-49ac-9256-cff986b899b7", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: false});
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -531,7 +569,6 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                 clearTimeout(timeoutId);
             }
             let timeout = setTimeout(() => {
-                console.log("action dispatching", resendTimeOut);
                 setResendTimeOut((prev) => prev - 1);
             }, 1000);
             setTimeoutId(timeout);
@@ -641,7 +678,11 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
     }, [actionData]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-grid-cols-1 tw-justify-center tw-w-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-grid-cols-1 tw-justify-center tw-w-full", className)}
+            id="register-in-minutes"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center tw-w-full">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("b4c42c87-1ee1-4f06-8cff-abe7751a025c", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -936,7 +977,6 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                     />
                                                 </div>
                                             </div>
-
                                             <div className="tw-place-self-center tw-w-full tw-mt-2 tw-grid tw-justify-items-center">
                                                 <button
                                                     type="button"
@@ -1057,7 +1097,7 @@ function RegisterInMinutes({userPreferences, className, actionData}: {userPrefer
                                                     className="tw-hidden"
                                                     value={JSON.stringify({
                                                         ...warrantyFormState,
-                                                        products: warrantyFormState.products.map(product => ({
+                                                        products: warrantyFormState.products.map((product) => ({
                                                             ...product,
                                                             internalId: undefined,
                                                         })),
@@ -1375,6 +1415,18 @@ function ContactUsDialog({
 }
 
 function ContactTeamOfExperts({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "contact-us": {
+                humanReadableName: getVernacularString("f1ab4d68-c36d-4484-851d-58a6c48bc4ee", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "call-us", headerTextContentId: "84b91d23-dc94-48a8-ac22-24fb97f95e4d"});
 
@@ -1431,7 +1483,11 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
     }
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2 tw-items-center tw-w-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2 tw-items-center tw-w-full", className)}
+            id="contact-us"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("4e6a2a00-461a-4407-a51e-ebee08a59f1f", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -1439,7 +1495,7 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
             <VerticalSpacer className="tw-h-2" />
 
             <DefaultTextAnimation className="lg-text-headline tw-text-center">
-                <div className="lg-text-title2">{getVernacularString("94cc6e89-af38-4bdf-9c02-f666eb559837", userPreferences.language)}</div>
+                <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("94cc6e89-af38-4bdf-9c02-f666eb559837", userPreferences.language))}} />
             </DefaultTextAnimation>
 
             <VerticalSpacer className="tw-h-6" />
@@ -1474,6 +1530,17 @@ function ContactTeamOfExperts({userPreferences, className}: {userPreferences: Us
 
 function RequestAServiceBanner({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "reliable-service": {
+                humanReadableName: getVernacularString("2a231443-40bf-48b5-b482-147609bb9d63", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -1481,6 +1548,8 @@ function RequestAServiceBanner({userPreferences, className}: {userPreferences: U
                 "tw-aspect-squre lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_0.5rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
+            id="reliable-service"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (

@@ -10,9 +10,11 @@ import type {UserPreferences} from "~/typeDefinitions";
 export function TestimonialsCarousel({
     userPreferences,
     testimonials,
+    snapDotsDivisionFactor,
 }: {
     userPreferences: UserPreferences;
-    testimonials: Array<{video?: JSX.Element; name: string; rating: number; state: string; message: string; productImage: string; productName: string}>;
+    snapDotsDivisionFactor?: number;
+    testimonials: Array<{video?: JSX.Element; name: string; rating: number; state: string; message: string; productImage: string | null}>;
 }) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
 
@@ -32,7 +34,7 @@ export function TestimonialsCarousel({
                             >
                                 <div className="tw-grid tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] lg:tw-min-w-[23rem] lg:tw-max-w-[35rem] tw-grid-rows-[auto,auto,minmax(0,1fr)] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-card tw-h-full tw-w-full">
                                     {testimonial.video ? (
-                                        <div className="tw-col-start-1 tw-row-start-1 tw-col-span-full">{testimonial.video}</div>
+                                        <div className="tw-col-start-1 tw-row-start-1 tw-col-span-full tw-rounded-lg">{testimonial.video}</div>
                                     ) : (
                                         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-start-1 tw-row-start-1 tw-col-span-full tw-aspect-[560/315] lg-bg-secondary-300 tw-rounded-lg tw-w-full">
                                             <div className="lg-text-title1">{testimonial.rating} Stars</div>
@@ -76,10 +78,12 @@ export function TestimonialsCarousel({
                                     </div>
 
                                     <div className="tw-col-start-2 tw-row-start-2 tw-justify-end tw-flex">
-                                        <FixedWidthImage
-                                            relativePath={testimonial.productImage}
-                                            width="100px"
-                                        />
+                                        {testimonial.productImage == null ? <div /> : (
+                                            <FixedWidthImage
+                                                relativePath={testimonial.productImage}
+                                                width="100px"
+                                            />
+                                        )}
                                     </div>
 
                                     <div className="tw-col-start-1 tw-col-span-full tw-row-start-3 tw-h-full tw-w-full">
@@ -105,10 +109,15 @@ export function TestimonialsCarousel({
 
                 <div className="tw-flex tw-flex-row tw-gap-x-2">
                     <ItemBuilder
-                        items={testimonials}
+                        items={snapDotsDivisionFactor == undefined ? testimonials : testimonials.slice(0, testimonials.length / snapDotsDivisionFactor)}
                         itemBuilder={(_, scrollSnapIndex) => (
                             <div
-                                className={concatenateNonNullStringsWithSpaces("tw-w-2 tw-h-2 tw-rounded-full", scrollSnapIndex == selectedIndex ? "lg-bg-secondary-900" : "lg-bg-secondary-300")}
+                                className={concatenateNonNullStringsWithSpaces(
+                                    "tw-w-2 tw-h-2 tw-rounded-full",
+                                    scrollSnapIndex == selectedIndex || (snapDotsDivisionFactor != undefined && scrollSnapIndex === selectedIndex % (testimonials.length / snapDotsDivisionFactor))
+                                        ? "lg-bg-secondary-900"
+                                        : "lg-bg-secondary-300",
+                                )}
                                 key={scrollSnapIndex}
                             />
                         )}

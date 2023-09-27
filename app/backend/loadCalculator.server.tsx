@@ -1,9 +1,12 @@
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
-import {Integer, Uuid} from "~/global-common-typescript/typeDefinitions";
+import type {Integer, Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getUuidFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {generateUuid, getCurrentIsoTimestamp, getSingletonValue} from "~/global-common-typescript/utilities/utilities";
-import {deviceTypeLibrary, LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
+import {allProductDetails} from "~/productData";
+import type {LoadCalculatorInputs} from "~/routes/load-calculator/index.types";
+import {deviceTypeLibrary} from "~/routes/load-calculator/index.types";
+import type {UserPreferences} from "~/typeDefinitions";
 
 export async function insertLoadCalculatorEntry(loadCalculatorInputs: string): Promise<Uuid | Error> {
     const id = generateUuid();
@@ -71,11 +74,11 @@ export type LoadCalculatorOutputs = {
     totalWatts: number;
     averageWatts: number;
     ah: number;
-    recommendedInverters: Array<{model: string; score: number; humanFriendlyString: string; nBatteries: Integer; capacity: number; warranty: Integer}> | null;
-    recommendedBatteries: Array<{model: string; score: number; humanFriendlyString: string; nBatteries: Integer; capacity: number; warranty: Integer}> | null;
+    recommendedInverters: Array<{model: string; score: number; humanFriendlyString: string; nBatteries: Integer; capacity: string; warranty: string}> | null;
+    recommendedBatteries: Array<{model: string; score: number; humanFriendlyString: string; nBatteries: Integer; capacity: string; warranty: string}> | null;
 };
 
-export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs): Promise<LoadCalculatorOutputs> {
+export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalculatorInputs, userPreferences: UserPreferences): Promise<LoadCalculatorOutputs> {
     const totalWatts = loadCalculatorInputs.property.rooms
         .flatMap((room) => room.devices)
         .map((device) => deviceTypeLibrary[device.deviceType])
@@ -96,6 +99,19 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
         recommendedInverters: null,
         recommendedBatteries: null,
     };
+
+    // TODO: Get Ujjawal to complete this table
+    // [
+    //     {
+    //         wattsGte: 0,
+    //         wattsLt: 525,
+    //         ahGte: 0,
+    //         ahLt: 90,
+    //         inverters: ["lg700e", "lgs900i", "lgs1000i"],
+    //         batteries: ["it9048st", "it1048st", "it1172stt"],
+    //         nBatteries: ah <= 290 ? 1 : ah <= 550 : 2 : ah <= 870 ? 3 : ah <= 1080 ? 4 : null,
+    //     },
+    // ],
 
     if (totalWatts <= 525 && ah <= 90) {
         loadCalculatorOutputs.recommendedInverters = [
@@ -585,59 +601,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it9048st",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Short Tubular",
-                nBatteries: 1,
-                capacity: 90,
-                warranty: 48,
-            },
-            {
-                model: "it1048st",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Short Tubular",
-                nBatteries: 1,
-                capacity: 100,
-                warranty: 48,
-            },
-            {
-                model: "it1172stt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Short Tall Tubular",
-                nBatteries: 1,
-                capacity: 110,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 90) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -646,12 +609,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LG3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -858,12 +821,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -903,73 +866,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it9048st",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Short Tubular",
-                nBatteries: 1,
-                capacity: 90,
-                warranty: 48,
-            },
-            {
-                model: "it1048st",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Short Tubular",
-                nBatteries: 1,
-                capacity: 100,
-                warranty: 48,
-            },
-            {
-                model: "it1172stt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Short Tall Tubular",
-                nBatteries: 1,
-                capacity: 110,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 90) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -1486,59 +1396,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1048st",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Short Tubular",
-                nBatteries: 1,
-                capacity: 100,
-                warranty: 48,
-            },
-            {
-                model: "it1172stt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Short Tall Tubular",
-                nBatteries: 1,
-                capacity: 110,
-                warranty: 72,
-            },
-            {
-                model: "it1584tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 84,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 100) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -1547,12 +1404,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -1759,12 +1616,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -1804,73 +1661,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1048st",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Short Tubular",
-                nBatteries: 1,
-                capacity: 100,
-                warranty: 48,
-            },
-            {
-                model: "it1172stt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Short Tall Tubular",
-                nBatteries: 1,
-                capacity: 110,
-                warranty: 72,
-            },
-            {
-                model: "it1584tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 84,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 100) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2387,59 +2191,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1172stt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Short Tall Tubular",
-                nBatteries: 1,
-                capacity: 110,
-                warranty: 72,
-            },
-            {
-                model: "it1584tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 84,
-            },
-            {
-                model: "it1578tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 78,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 110) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -2448,12 +2199,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2660,12 +2411,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -2705,73 +2456,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1172stt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Short Tall Tubular",
-                nBatteries: 1,
-                capacity: 110,
-                warranty: 72,
-            },
-            {
-                model: "it1584tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 84,
-            },
-            {
-                model: "it1578tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 78,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 110) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -3288,59 +2986,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1584tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 84,
-            },
-            {
-                model: "it1578tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 78,
-            },
-            {
-                model: "it1572tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -3349,12 +2994,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -3561,12 +3206,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -3606,73 +3251,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1584tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 84,
-            },
-            {
-                model: "it1578tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 78,
-            },
-            {
-                model: "it1572tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 150,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 150) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -4189,59 +3781,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 72,
-            },
-            {
-                model: "it1648tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 48,
-            },
-            {
-                model: "it1642tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 42,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -4250,12 +3789,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -4462,12 +4001,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -4507,73 +4046,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 72,
-            },
-            {
-                model: "it1648tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 48,
-            },
-            {
-                model: "it1642tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 42,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 160) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -5090,59 +4576,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1872tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 180,
-                warranty: 72,
-            },
-            {
-                model: "it1860tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 180,
-                warranty: 60,
-            },
-            {
-                model: "it1672tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -5151,12 +4584,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -5363,12 +4796,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -5408,73 +4841,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1872tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 180,
-                warranty: 72,
-            },
-            {
-                model: "it1860tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 180,
-                warranty: 60,
-            },
-            {
-                model: "it1672tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 160,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 180) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -5991,59 +5371,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2072tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 72,
-            },
-            {
-                model: "it2060tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 60,
-            },
-            {
-                model: "it2048tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 48,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 200) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -6052,12 +5379,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -6264,12 +5591,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -6309,73 +5636,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2072tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 72,
-            },
-            {
-                model: "it2060tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 60,
-            },
-            {
-                model: "it2048tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 48,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 200) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -6892,59 +6166,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2272tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2072tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 220) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -6953,12 +6174,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -7165,12 +6386,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -7210,73 +6431,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2272tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2072tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 220) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -7793,59 +6961,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2360tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2072tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 230) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -7854,12 +6969,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -8066,12 +7181,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -8111,73 +7226,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2360tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2072tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 230) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -8694,59 +7756,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 260,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 220,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -8755,12 +7764,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -8967,12 +7976,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -9012,73 +8021,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 260,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 220,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 260) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -9451,43 +8407,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 260,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 290) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 1,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -9496,12 +8415,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
+                humanFriendlyString: "LGS3000",
                 nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -9644,12 +8563,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -9673,57 +8592,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 1,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 1,
-                capacity: 260,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 290) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 1,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 1,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 1,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -9755,12 +8637,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -9800,59 +8682,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1584tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 150,
-                warranty: 84,
-            },
-            {
-                model: "it1578tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 150,
-                warranty: 78,
-            },
-            {
-                model: "it1572tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 150,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 300) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -9861,12 +8690,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10073,12 +8902,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10118,14 +8947,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
                 score: 8,
                 humanFriendlyString: "LGS4000",
@@ -10133,58 +8954,13 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1584tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 150,
-                warranty: 84,
-            },
-            {
-                model: "it1578tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 150,
-                warranty: 78,
-            },
-            {
-                model: "it1572tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 150,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 300) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10232,12 +9008,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10277,59 +9053,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 72,
-            },
-            {
-                model: "it1648tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 48,
-            },
-            {
-                model: "it1642tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 42,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 320) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -10338,12 +9061,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10550,12 +9273,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10595,73 +9318,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 72,
-            },
-            {
-                model: "it1648tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 48,
-            },
-            {
-                model: "it1642tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 42,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 320) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10709,12 +9379,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -10754,59 +9424,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it1872tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 180,
-                warranty: 72,
-            },
-            {
-                model: "it1860tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 180,
-                warranty: 60,
-            },
-            {
-                model: "it1672tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 360) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -10815,12 +9432,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11027,12 +9644,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11072,73 +9689,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it1872tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 180,
-                warranty: 72,
-            },
-            {
-                model: "it1860tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 180,
-                warranty: 60,
-            },
-            {
-                model: "it1672tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 160,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 360) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11186,12 +9750,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11231,59 +9795,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2072tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 72,
-            },
-            {
-                model: "it2060tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 60,
-            },
-            {
-                model: "it2048tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 48,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 400) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -11292,12 +9803,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11504,12 +10015,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                humanFriendlyString: "LG3500",
+                nBatteries: 1,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11549,73 +10060,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2072tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 72,
-            },
-            {
-                model: "it2060tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 60,
-            },
-            {
-                model: "it2048tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 48,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 400) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11663,12 +10121,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11708,59 +10166,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2272tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2072tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 440) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -11769,12 +10174,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -11981,12 +10386,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12026,73 +10431,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2272tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2072tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 440) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12140,12 +10492,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12185,59 +10537,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2360tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2072tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 460) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -12246,12 +10545,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12458,12 +10757,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12503,73 +10802,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2360tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2072tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 460) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12617,12 +10863,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12662,59 +10908,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 260,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 220,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 520) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -12723,12 +10916,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12935,12 +11128,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -12980,73 +11173,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 260,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 220,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 520) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13094,12 +11234,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
+                model: "lgs2500",
                 score: 8,
-                humanFriendlyString: "LG2300",
+                humanFriendlyString: "LGS2500",
                 nBatteries: 2,
                 capacity: 2000,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13123,43 +11263,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg2300",
-                score: 9,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
-                model: "lgs2500",
-                score: 8,
-                humanFriendlyString: "LGS2500",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 260,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 1600 && ah <= 550) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg2300",
-                score: 10,
-                humanFriendlyString: "LG2300",
-                nBatteries: 2,
-                capacity: 2000,
-                warranty: 72,
-            },
-            {
                 model: "lgs2500",
                 score: 9,
                 humanFriendlyString: "LGS2500",
@@ -13168,12 +11271,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lgs5000",
+                model: "lgs3000",
                 score: 8,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
+                humanFriendlyString: "LGS3000",
+                nBatteries: 1,
                 capacity: 2500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13316,12 +11419,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13345,57 +11448,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 2,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 2,
-                capacity: 260,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 550) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 2,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 2,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 2,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13480,12 +11546,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13525,73 +11591,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 3,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2072tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 200,
-                warranty: 72,
-            },
-            {
-                model: "it2060tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 200,
-                warranty: 60,
-            },
-            {
-                model: "it2048tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 200,
-                warranty: 48,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 600) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 3,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13692,12 +11705,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13737,73 +11750,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 3,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2272tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2072tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 660) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 3,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13904,12 +11864,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -13949,14 +11909,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
                 score: 8,
                 humanFriendlyString: "LGS4000",
@@ -13964,58 +11916,13 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2360tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2072tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 690) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 3,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14116,12 +12023,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14161,14 +12068,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
                 score: 8,
                 humanFriendlyString: "LGS4000",
@@ -14176,58 +12075,13 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 260,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 220,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 780) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 3,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
-                score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14312,12 +12166,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14341,57 +12195,20 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
-                score: 9,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
                 model: "lgs4000",
-                score: 8,
+                score: 9,
                 humanFriendlyString: "LGS4000",
                 nBatteries: 3,
                 capacity: 3500,
                 warranty: 72,
             },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
             {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 3,
-                capacity: 260,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 870) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 3,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 3,
-                capacity: 4000,
-                warranty: 72,
-            },
-            {
-                model: "lgs4000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LGS4000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 3,
                 capacity: 3500,
-                warranty: 72,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14423,12 +12240,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 8,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14468,57 +12285,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 9,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2272tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2072tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 880) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14565,14 +12337,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 capacity: 4000,
                 warranty: 72,
             },
-            {
-                model: "lg5000",
-                score: 8,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -14611,57 +12375,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 9,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2360tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 220,
-                warranty: 72,
-            },
-            {
-                model: "it2072tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 200,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 920) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14708,14 +12427,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 capacity: 4000,
                 warranty: 72,
             },
-            {
-                model: "lg5000",
-                score: 8,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -14754,57 +12465,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 9,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 260,
-                warranty: 72,
-            },
-            {
-                model: "it2360tt",
-                score: 9,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 230,
-                warranty: 60,
-            },
-            {
-                model: "it2272tt",
-                score: 8,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 220,
-                warranty: 72,
-            },
-        ];
-    } else if (totalWatts <= 4000 && ah <= 1040) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14851,14 +12517,6 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 capacity: 4000,
                 warranty: 72,
             },
-            {
-                model: "lg5000",
-                score: 8,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
             {
@@ -14881,12 +12539,12 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
             {
-                model: "lg5000",
+                model: "lg3500",
                 score: 9,
-                humanFriendlyString: "LG5000",
+                humanFriendlyString: "LG3500",
                 nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
+                capacity: 3500,
+                warranty: 24,
             },
         ];
         loadCalculatorOutputs.recommendedBatteries = [
@@ -14899,35 +12557,71 @@ export async function getLoadCalculatorOutputs(loadCalculatorInputs: LoadCalcula
                 warranty: 72,
             },
         ];
-    } else if (totalWatts <= 4000 && ah <= 1080) {
-        loadCalculatorOutputs.recommendedInverters = [
-            {
-                model: "lg5000",
-                score: 10,
-                humanFriendlyString: "LG5000",
-                nBatteries: 4,
-                capacity: 5000,
-                warranty: 72,
-            },
-            {
-                model: "lgs5000",
-                score: 9,
-                humanFriendlyString: "LGS5000",
-                nBatteries: 4,
-                capacity: 4000,
-                warranty: 72,
-            },
-        ];
-        loadCalculatorOutputs.recommendedBatteries = [
-            {
-                model: "it2672tt",
-                score: 10,
-                humanFriendlyString: "INVERTUFF Tall Tubular",
-                nBatteries: 4,
-                capacity: 260,
-                warranty: 72,
-            },
-        ];
+    }
+
+    if (loadCalculatorOutputs.recommendedInverters != undefined) {
+        loadCalculatorOutputs.recommendedInverters = loadCalculatorOutputs.recommendedInverters?.map((recommendedInverter) => {
+            let capacity = allProductDetails[recommendedInverter.model][userPreferences.language].productIcons[1].text.trim();
+            if (capacity.toLowerCase().endsWith("va") || capacity.toLowerCase().endsWith("ah")) {
+                capacity = capacity.slice(0, -2).trim();
+            }
+            let capacityNumeric = parseInt(capacity);
+
+            let warranty = allProductDetails[recommendedInverter.model][userPreferences.language].productIcons[0].text.trim();
+            let shouldConvertToMonths = false;
+            if (warranty.toLowerCase().endsWith("months")) {
+                warranty = warranty.replace("months", "");
+            } else if (warranty.toLowerCase().endsWith("महीने")) {
+                warranty = warranty.replace("महीने", "");
+            } else if (warranty.toLowerCase().endsWith("years")) {
+                warranty = warranty.replace("years", "");
+                shouldConvertToMonths = true;
+            } else if (warranty.toLowerCase().endsWith("वर्ष")) {
+                warranty = warranty.replace("वर्ष", "");
+                shouldConvertToMonths = true;
+            }
+            let warrantyNumeric = parseInt(warranty);
+            if (shouldConvertToMonths) {
+                warrantyNumeric = warrantyNumeric * 12;
+            }
+            return {
+                ...recommendedInverter,
+                // humanFriendlyString: allProductDetails[recommendedInverter.model][userPreferences.language].humanReadableModelNumber,
+                capacity: capacityNumeric,
+                warranty: warrantyNumeric,
+            };
+        });
+    }
+
+    if (loadCalculatorOutputs.recommendedBatteries != undefined) {
+        loadCalculatorOutputs.recommendedBatteries = loadCalculatorOutputs.recommendedBatteries?.map((recommendedBattery) => {
+            let capacity = allProductDetails[recommendedBattery.model][userPreferences.language].productIcons[1].text.trim();
+            if (capacity.toLowerCase().endsWith("va") || capacity.toLowerCase().endsWith("ah")) {
+                capacity = capacity.slice(0, -2).trim();
+            }
+            let capacityNumeric = parseInt(capacity);
+
+            let warranty = allProductDetails[recommendedBattery.model][userPreferences.language].productIcons[0].text.trim();
+            let shouldConvertToMonths = false;
+            if (warranty.toLowerCase().endsWith("months")) {
+                warranty = warranty.replace("months", "");
+            }
+            if (warranty.toLowerCase().endsWith("years")) {
+                warranty = warranty.replace("years", "");
+                shouldConvertToMonths = true;
+            }
+            let warrantyNumeric = parseInt(warranty);
+            if (shouldConvertToMonths) {
+                warrantyNumeric = warrantyNumeric * 12;
+            }
+
+            return {
+                ...recommendedBattery,
+                // humanFriendlyString: allProductDetails[recommendedBattery.model][userPreferences.language].humanReadableModelNumber,
+                capacity: capacityNumeric,
+                warranty: warrantyNumeric,
+            };
+        });
     }
 
     return loadCalculatorOutputs;

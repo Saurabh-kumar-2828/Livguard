@@ -1,18 +1,23 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
+import {useContext, useEffect} from "react";
+import {useInView} from "react-intersection-observer";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -53,7 +58,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/investor/investor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -92,7 +97,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/investor/investor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -125,6 +130,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
     return (
         <>
             <PageScaffold
@@ -137,14 +143,21 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "6baac105-c0e8-4412-90cd-802739069c52", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <InvestorPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <InvestorPage
+                        userPreferences={userPreferences}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </>
     );
 };
 
-function InvestorPage({userPreferences}: {userPreferences: UserPreferences}) {
+function InvestorPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -153,7 +166,7 @@ function InvestorPage({userPreferences}: {userPreferences: UserPreferences}) {
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 tw-col-span-full" />
 
                 <FinancialStatements
                     userPreferences={userPreferences}
@@ -168,6 +181,17 @@ function InvestorPage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -175,6 +199,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_3.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -216,8 +242,23 @@ export function FinancialStatements({userPreferences, className}: {userPreferenc
             link: "https://www.livguard.com/static-assets/LETPL%20-%20Annual%20Return%20-%20FY%2021-22.pdf",
         },
     ];
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            financials: {
+                humanReadableName: getVernacularString("b2a44a66-bdca-45c5-b848-a103cc193da4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-grid tw-grid-cols-1 tw-gap-y-8", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-grid tw-grid-cols-1 tw-gap-y-8", className)}
+            id="financials"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 tw-justify-self-center">
                 <div
                     className="lg-text-headline"

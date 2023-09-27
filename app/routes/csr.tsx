@@ -1,12 +1,15 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {useInView} from "react-intersection-observer";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {CarouselStyle7} from "~/components/carouselStyle7";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {CoverImage} from "~/components/images/coverImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -14,10 +17,11 @@ import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -58,7 +62,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/csr/csr-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -97,7 +101,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/csr/csr-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -131,6 +135,8 @@ export default () => {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <div className="">
             <PageScaffold
@@ -143,18 +149,38 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "5888e217-c7c5-4951-9e72-7527c0702882", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <CsrPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <CsrPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </div>
     );
 };
 
-function CsrPage({userPreferences}: {userPreferences: UserPreferences}) {
+function CsrPage({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div className="lg-bg-secondary-100 dark:tw-bg-background-500-dark tw-w-full tw-h-full">
             <HeroSection userPreferences={userPreferences} />
-
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <OurCsrInitiative
@@ -170,16 +196,21 @@ function CsrPage({userPreferences}: {userPreferences: UserPreferences}) {
             />
 
             <VerticalSpacer className="lg:tw-h-20  tw-h-10" />
-
-            <OurProjectsDesktop
-                className="tw-hidden lg:tw-block tw-max-w-7xl tw-mx-auto"
-                userPreferences={userPreferences}
-            />
-
-            <OurProjectsMobile
-                className="tw-block lg:tw-hidden tw-max-w-7xl tw-mx-auto"
-                userPreferences={userPreferences}
-            />
+            {!isScreenSizeBelow ? (
+                <>
+                    <OurProjectsDesktop
+                        className="tw-max-w-7xl tw-mx-auto"
+                        userPreferences={userPreferences}
+                    />
+                </>
+            ) : (
+                <>
+                    <OurProjectsMobile
+                        className="tw-max-w-7xl tw-mx-auto"
+                        userPreferences={userPreferences}
+                    />
+                </>
+            )}
 
             <VerticalSpacer className="lg:tw-h-20  tw-h-10" />
 
@@ -195,6 +226,17 @@ function CsrPage({userPreferences}: {userPreferences: UserPreferences}) {
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -202,6 +244,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380]  tw-grid tw-grid-rows-[3.5rem_auto_1rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -258,8 +302,24 @@ function OurCsrInitiative({userPreferences, className}: {userPreferences: UserPr
             text: "06174709-99f2-4a5e-8db2-e499622975dc",
         },
     ];
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "csr-journey": {
+                humanReadableName: getVernacularString("8fc9ce3b-96c8-4ed0-aa3e-f479d5f0d762", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}
+            id="csr-journey"
+            ref={sectionRef}
+        >
             <div
                 className="lg-text-headline tw-text-center"
                 dangerouslySetInnerHTML={{__html: getVernacularString("09b7690d-2117-461b-8a05-110dc4319240", userPreferences.language)}}
@@ -307,8 +367,24 @@ function OurCsrInitiative({userPreferences, className}: {userPreferences: UserPr
 }
 
 function OurVision({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "csr-vision": {
+                humanReadableName: getVernacularString("8adac62a-bc43-4744-aa00-339d0624248f", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-card lg-px-screen-edge-2 tw-w-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-card lg-px-screen-edge-2 tw-w-full", className)}
+            id="csr-vision"
+            ref={sectionRef}
+        >
             <div className="tw-w-full tw-h-full tw-py-6 lg:tw-py-10">
                 <div className="tw-grid tw-justify-center tw-items-center tw-gap-4">
                     <div className="lg-card tw-h-[4rem] tw-w-[4rem] tw-rounded-full tw-grid tw-justify-center tw-justify-self-center tw-items-center">
@@ -364,9 +440,24 @@ function OurProjectsDesktop({userPreferences, className}: {userPreferences: User
             text: "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc",
         },
     ];
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-projects": {
+                humanReadableName: getVernacularString("e2178aa3-294f-4cf6-a5c4-eecdd2b63217", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}
+            id="our-projects"
+            ref={sectionRef}
+        >
             <div
                 className="lg-text-headline tw-text-center"
                 dangerouslySetInnerHTML={{__html: getVernacularString("423d9fb0-8f59-4a7c-94e6-6eae3e78ec46", userPreferences.language)}}
@@ -443,8 +534,23 @@ function OurProjectsDesktop({userPreferences, className}: {userPreferences: User
 
 function OurProjectsMobile({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [imgText, setImgText] = useState(false);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-projects": {
+                humanReadableName: getVernacularString("e2178aa3-294f-4cf6-a5c4-eecdd2b63217", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-w-full", className)}
+            id="our-projects"
+            ref={sectionRef}
+        >
             <div
                 className="lg-text-headline tw-text-center"
                 dangerouslySetInnerHTML={{__html: getVernacularString("423d9fb0-8f59-4a7c-94e6-6eae3e78ec46", userPreferences.language)}}
@@ -536,6 +642,17 @@ function OurProjectsMobile({userPreferences, className}: {userPreferences: UserP
 }
 
 function CompositionOfCsrCommittee({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "csr-committee": {
+                humanReadableName: getVernacularString("6eaa372b-cfbe-434f-8dfb-cf31db5a1f35", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const leadersData: Array<{title: string; position: string; description: string; imageRelativePath: string}> = [
         {
             title: getVernacularString("d867ff63-d4bf-49ae-8ac7-7290a76caef3", userPreferences.language),
@@ -577,7 +694,11 @@ function CompositionOfCsrCommittee({userPreferences, className}: {userPreference
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("lg:tw-pb-6 lg:lg-px-screen-edge-2", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("lg:tw-pb-6 lg:lg-px-screen-edge-2", className)}
+                id="csr-committee"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("fccd6c6b-9f47-4862-9464-4592c9a14c84", userPreferences.language)}} />
                 </DefaultTextAnimation>
@@ -591,9 +712,9 @@ function CompositionOfCsrCommittee({userPreferences, className}: {userPreference
                             headingTextContentId: "0eeb2d2b-6dca-47bb-b5a8-05453bf8c91c",
                             descriptionTextContentId: "97498b14-b629-4e6e-81a3-6a480bdd6652",
                             ctaButton1TextContentId: "e1fa0021-2310-4c6a-a221-9025e3b35ed7",
-                            ctaButton1Link: "",
+                            ctaButton1Link: "https://www.livguard.com/static-assets/csr-policy-livguard-energy.pdf",
                             ctaButton2TextContentId: "dd1fd5f5-12e4-4c37-b41d-969150aa721a",
-                            ctaButton2Link: "",
+                            ctaButton2Link: "https://www.livguard.com/static-assets/csr-project-livguard-energy.pdf",
                         }}
                         className="lg-px-screen-edge-2 lg:tw-px-0 lg:tw-pt-6 lg:tw-h-full"
                     />
@@ -619,9 +740,9 @@ function CompositionOfCsrCommittee({userPreferences, className}: {userPreference
                             headingTextContentId: "2b6ccacf-093d-48d2-b29c-e5d1c537f3c1",
                             descriptionTextContentId: "528dd262-635a-43cf-ab1e-e6a7fc5a052b",
                             ctaButton1TextContentId: "e1fa0021-2310-4c6a-a221-9025e3b35ed7",
-                            ctaButton1Link: "",
+                            ctaButton1Link: "https://www.livguard.com/static-assets/csr-policy-livguard-batteries.pdf",
                             ctaButton2TextContentId: "dd1fd5f5-12e4-4c37-b41d-969150aa721a",
-                            ctaButton2Link: "",
+                            ctaButton2Link: "https://www.livguard.com/static-assets/csr-project-livguard-batteries.pdf",
                         }}
                         className="lg-px-screen-edge-2 lg:tw-px-0 lg:tw-pt-6 lg:tw-h-full"
                     />
@@ -664,8 +785,22 @@ function CompositionCard({
                 <div className="tw-row-start-3 lg:tw-row-start-4 lg-text-body tw-text-center">{getVernacularString(content.descriptionTextContentId, userPreferences.language)}</div>
 
                 <div className="tw-row-start-5 lg:tw-row-start-6 tw-grid tw-grid-flow-row tw-gap-y-4">
-                    <button className="lg-cta-button tw-px-4">{getVernacularString(content.ctaButton1TextContentId, userPreferences.language)}</button>
-                    <button className="lg-cta-outline-button tw-px-4">{getVernacularString(content.ctaButton2TextContentId, userPreferences.language)}</button>
+                    <a
+                        target="_blank"
+                        download
+                        href={content.ctaButton1Link}
+                        className="lg-cta-button tw-px-4 tw-text-center"
+                    >
+                        {getVernacularString(content.ctaButton1TextContentId, userPreferences.language)}
+                    </a>
+                    <a
+                        target="_blank"
+                        download
+                        href={content.ctaButton2Link}
+                        className="lg-cta-outline-button tw-px-4 tw-text-center"
+                    >
+                        {getVernacularString(content.ctaButton2TextContentId, userPreferences.language)}
+                    </a>
                 </div>
             </div>
         </div>

@@ -12,29 +12,6 @@ import type {UserPreferences} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/terms-and-condition",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "?????",
-//             description: "?????",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
 export const links: LinksFunction = () => {
     return [{rel: "canonical", href: "https://www.livguard.com/term-and-condition"}];
 };

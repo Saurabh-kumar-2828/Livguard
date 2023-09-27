@@ -1,6 +1,7 @@
 import {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import React, {useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
+import {useInView} from "react-intersection-observer";
 import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {SocialHandles} from "~/components/category/common";
@@ -10,53 +11,23 @@ import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import LivguardDialog from "~/components/livguardDialog";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
 import {ProductType, allProductDetails} from "~/productData";
 import {DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Limitless Journeys with Livguard's Robust Bus and Truck Batteries",
-//             description: "Unleash uninterrupted journeys with dependable power! Explore our robust bus and truck batteries, designed for excellence every time",
-//             "og:title": "Limitless Journeys with Livguard's Robust Bus and Truck Batteries",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/bus-and-truck-batteries",
-//             "og:description": "Unleash uninterrupted journeys with dependable power! Explore our robust bus and truck batteries, designed for excellence every time",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड की मजबूत बस और ट्रक बैटरियों के साथ असीमित यात्राएँ",
-//             description: "भरोसेमंद शक्ति के साथ निर्बाध यात्राएँ शुरू करें! हर बार उत्कृष्टता के लिए डिज़ाइन की गई हमारी मजबूत बस और ट्रक बैटरियों का अन्वेषण करें",
-//             "og:title": "लिवगार्ड की मजबूत बस और ट्रक बैटरियों के साथ असीमित यात्राएँ",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/bus-and-truck-batteries",
-//             "og:description": "भरोसेमंद शक्ति के साथ निर्बाध यात्राएँ शुरू करें! हर बार उत्कृष्टता के लिए डिज़ाइन की गई हमारी मजबूत बस और ट्रक बैटरियों का अन्वेषण करें",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/bus-and-truck-batteries"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -96,7 +67,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/bus-and-truck/bus-and-truck-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -135,7 +106,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/bus-and-truck/bus-and-truck-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -169,6 +140,8 @@ export default () => {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <>
             <PageScaffold
@@ -181,8 +154,16 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "530f4898-7fd2-474b-809b-905a2b722d83", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <BusAndTruckBatteriesPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <BusAndTruckBatteriesPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -194,7 +175,20 @@ export default () => {
     );
 };
 
-function BusAndTruckBatteriesPage({userPreferences}: {userPreferences: UserPreferences}) {
+function BusAndTruckBatteriesPage({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -202,28 +196,26 @@ function BusAndTruckBatteriesPage({userPreferences}: {userPreferences: UserPrefe
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
-
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <SuperiorFeatures
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-4 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-5 tw-col-start-1 lg:tw-col-span-full" />
 
                 <ExploreOurBusAndTruckBatteries
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-6 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-7 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <DealerLocator
+                <div className="tw-row-start-8 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
+                    <DealerLocatorSection
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
-                        showCtaButton={true}
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -234,22 +226,21 @@ function BusAndTruckBatteriesPage({userPreferences}: {userPreferences: UserPrefe
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[8] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[9] tw-col-start-1 lg:tw-col-span-full" />
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-[9] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
+                    className="tw-row-start-[10] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
-                <SocialHandles
+                <SocialHandlesSection
                     userPreferences={userPreferences}
-                    heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -257,13 +248,25 @@ function BusAndTruckBatteriesPage({userPreferences}: {userPreferences: UserPrefe
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[4rem_auto_auto_1rem_auto_3.5rem_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
                 {isScreenSizeBelow == null ? null : (
@@ -306,9 +309,9 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
                     />
                 </div>
 
-                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1 lg-text-secondary-900">{title}</div>
 
-                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body lg-text-secondary-900">{description}</div>
             </div>
         );
     };
@@ -355,10 +358,24 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
             imageRelativePath: "/livguard/bus-and-truck/2/all-weather-performance.jpg",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "superior-features": {
+                humanReadableName: getVernacularString("b907dc0e-a480-49e8-ae9d-3943d5d3c69e", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
+                id="superior-features"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("853e41c9-26ed-409d-a636-03af2124e7bb", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("dcfc64d7-ca43-4e45-a11a-f0c4fe765152", userPreferences.language)}} />
@@ -615,8 +632,24 @@ function ExploreOurBusAndTruckBatteries({userPreferences, className}: {userPrefe
 
     const [isViewMore, setIsViewMore] = useState(false);
 
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-range": {
+                humanReadableName: getVernacularString("a2f95300-c1a1-45f4-a151-3f4b81b66e39", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-px-3", className)}
+            id="our-range"
+            ref={sectionRef}
+        >
             <div className="tw-grid tw-grid-cols-1">
                 <DefaultTextAnimation>
                     <h2
@@ -651,8 +684,23 @@ function ExploreOurBusAndTruckBatteries({userPreferences, className}: {userPrefe
 }
 
 function ChooseYourIdealBusAndTruckBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "find-my-battery": {
+                humanReadableName: getVernacularString("5401aff8-4337-470a-8d9d-7da5591a1118", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
+            id="find-my-battery"
+            ref={sectionRef}
+        >
             <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("c46c205c-ffdc-4791-a3f9-b4a839925185", userPreferences.language)}</div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
@@ -715,13 +763,14 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
             answer: "64eb212f-e988-4ec9-8cd9-c8af0bdb1f63",
         },
     ];
-
     return (
-        <FaqSectionInternal
-            faqs={faqs}
-            userPreferences={userPreferences}
-            className={className}
-        />
+        <div className={className}>
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className="tw-h-full tw-w-full"
+            />
+        </div>
     );
 }
 
@@ -860,5 +909,42 @@ export function FilterDialog({
                 </div>
             </LivguardDialog>
         </>
+    );
+}
+
+function SocialHandlesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    return (
+        <div className={concatenateNonNullStringsWithSpaces("", className)}>
+            <SocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
+            />
+        </div>
+    );
+}
+
+function DealerLocatorSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "find-my-dealer": {
+                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces("", className)}
+            id="find-my-dealer"
+            ref={sectionRef}
+        >
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCtaButton={true}
+            />
+        </div>
     );
 }

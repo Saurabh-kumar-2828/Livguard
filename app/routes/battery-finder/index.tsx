@@ -69,7 +69,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/battery-finder/battery-finder-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -108,7 +108,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/battery-finder/battery-finder-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -451,6 +451,7 @@ function ChooseYourVehicle({
                                 <div className="lg-text-body tw-row-start-4 tw-text-center">
                                     <span>{getVernacularString("e7c60040-8fbd-4296-82ce-9ab85cc9bbea", userPreferences.language)} </span>
                                     <span>{getVernacularString(categoryNames[batteryFinderState.selectedCategoryIndex], userPreferences.language).toLowerCase()}</span>
+                                    <span>{getVernacularString("14dc2eb0-2c97-40c7-ba8f-aead0e174deb", userPreferences.language)} </span>
                                 </div>
                             </div>
 

@@ -27,27 +27,6 @@ import {FormType, Language} from "~/typeDefinitions";
 import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Buy Livguard Inverter Battery Combo and win cashback upto Rs. 1500",
-//             description: "Experience an uninterrupted summer with Livguard Inverter and Battery Combos and enjoy up to ₹1500 cashback! The offer is for limited time grab it now",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड इन्वर्टर बैटरी कॉम्बो खरीदें और रुपये 1500 तक कैशबैक जीतें। ",
-//             description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और ₹1500 तक कैशबैक का आनंद लें! ऑफर सीमित समय के लिए है इसे अभी खरीदें",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-and-battery-jodi"}];
-// };
-
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
@@ -180,15 +159,6 @@ export default function () {
                 userPreferences={userPreferences}
                 pageUrl={pageUrl}
             />
-
-            {/* <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-
-                    `,
-                }}
-            /> */}
         </>
     );
 }

@@ -50,7 +50,7 @@ export const loader: LoaderFunction = async ({request, params}) => {
         throw loadCalculatorInputs;
     }
 
-    const loadCalculatorOutputs = await getLoadCalculatorOutputs(loadCalculatorInputs);
+    const loadCalculatorOutputs = await getLoadCalculatorOutputs(loadCalculatorInputs, userPreferences);
 
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
@@ -247,14 +247,14 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
                         <div>
                             <div className="lg-bg-primary-500 tw-p-4 tw-rounded-lg tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-justify-items-center tw-items-center tw-gap-x-4 tw-gap-y-4">
                                 <div className="tw-col-span-full">
-                                    <div className="tw-w-full tw-text-center lg-text-title2">
+                                    <div className="tw-w-full tw-text-center lg-text-title2 lg-text-secondary-100">
                                         {getVernacularString("75a44862-4242-4b1b-a7b7-bd6b57e40da7", userPreferences.language)}: {loadCalculatorOutputs.totalWatts}W,{" "}
                                         {Math.round(loadCalculatorOutputs.ah)}Ah
                                     </div>
 
                                     <VerticalSpacer className="tw-h-2" />
 
-                                    <div className="tw-w-full tw-text-center">
+                                    <div className="tw-w-full tw-text-center lg-text-secondary-100">
                                         {appendSpaceToString(String(loadCalculatorOutputs.recommendedInverters[0].nBatteries))}
                                         {loadCalculatorOutputs.recommendedInverters[0].nBatteries == 1
                                             ? getVernacularString("750f6ea3-5bc7-4589-a49e-55015d845288", userPreferences.language)
@@ -304,7 +304,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                             <Link
                                 to="/inverter-for-home"
-                                className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center lg-card-shadow-hack"
                             >
                                 <VerticalSpacer className="tw-h-3" />
 
@@ -342,7 +342,7 @@ function TopChoicesSection({userPreferences, loadCalculatorOutputs}: {userPrefer
 
                             <Link
                                 to="/inverter-batteries"
-                                className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center"
+                                className="tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center lg-card-shadow-hack"
                             >
                                 <VerticalSpacer className="tw-h-3" />
 
@@ -460,8 +460,8 @@ function HorizontalInverterRecommendationCard({
         score: number;
         humanFriendlyString: string;
         nBatteries: number;
-        capacity: number;
-        warranty: number;
+        capacity: string;
+        warranty: string;
     };
     userPreferences: UserPreferences;
     className?: string;
@@ -539,8 +539,8 @@ function HorizontalBatteryRecommendationCard({
         score: number;
         humanFriendlyString: string;
         nBatteries: number;
-        capacity: number;
-        warranty: number;
+        capacity: string;
+        warranty: string;
     };
     userPreferences: UserPreferences;
     className?: string;
@@ -588,7 +588,7 @@ function HorizontalBatteryRecommendationCard({
                         />
 
                         <div className="lg-text-secondary-900 lg-text-icon">
-                            {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                            {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T10", userPreferences.language)}
                         </div>
                     </div>
                 </div>
@@ -620,8 +620,8 @@ function VerticalInverterRecommendationCard({
         score: number;
         humanFriendlyString: string;
         nBatteries: number;
-        capacity: number;
-        warranty: number;
+        capacity: string;
+        warranty: string;
     };
     toastMessage?: string;
     userPreferences: UserPreferences;
@@ -630,7 +630,7 @@ function VerticalInverterRecommendationCard({
     return (
         <a
             href={`/product/${recommendation.model}`}
-            className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
+            className={concatenateNonNullStringsWithSpaces("lg-card-shadow-hack tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
             {/* <Link
             to={`/product/${recommendation.model}`}
@@ -638,7 +638,7 @@ function VerticalInverterRecommendationCard({
         > */}
             <VerticalSpacer className="tw-h-3" />
 
-            <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
+            <div className="tw-w-full tw-h-full lg-bg-secondary-100 lg-card tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
                 <div className="lg-cta-button tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative -tw-top-3">
                     {recommendation.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}
                 </div>
@@ -676,7 +676,9 @@ function VerticalInverterRecommendationCard({
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">
-                        {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                        {recommendation.warranty}
+
+                        {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
                     </div>
                 </div>
 
@@ -724,7 +726,7 @@ function VerticalBatteryRecommendationCard({
     return (
         <a
             href={`/product/${recommendation.model}`}
-            className={concatenateNonNullStringsWithSpaces("tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
+            className={concatenateNonNullStringsWithSpaces("lg-card-shadow-hack tw-w-60 tw-h-full tw-flex-none tw-flex tw-flex-col tw-items-center", className)}
         >
             {/* <Link
             to={`/product/${recommendation.model}`}
@@ -732,7 +734,7 @@ function VerticalBatteryRecommendationCard({
         > */}
             <VerticalSpacer className="tw-h-3" />
 
-            <div className="tw-w-full tw-h-full lg-bg-secondary-100 tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
+            <div className="tw-w-full tw-h-full lg-bg-secondary-100 lg-card tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-text-center">
                 <div className="lg-cta-button tw-w-fit tw-px-2 tw-py-0 tw-whitespace-nowrap tw-relative -tw-top-3">
                     {recommendation.score}/10 {getVernacularString("loadCalculatorRecommendationsS2T4", userPreferences.language)}
                 </div>
@@ -770,7 +772,7 @@ function VerticalBatteryRecommendationCard({
                     />
 
                     <div className="lg-text-secondary-900 lg-text-icon">
-                        {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T7", userPreferences.language)}
+                        {recommendation.warranty} {getVernacularString("loadCalculatorRecommendationsS2T10", userPreferences.language)}
                     </div>
                 </div>
 

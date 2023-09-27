@@ -1,66 +1,36 @@
-import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useResizeDetector} from "react-resize-detector";
+import React, {useContext, useEffect, useRef} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
+import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
+import {CarouselStyle3} from "~/components/carouselStyle3";
+import {CarouselStyle5} from "~/components/carouselStyle5";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FaqSectionInternal} from "~/components/faqs";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
+import LivguardDialog from "~/components/livguardDialog";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {CarouselStyle5} from "~/components/carouselStyle5";
-import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
-import {CarouselStyle3} from "~/components/carouselStyle3";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductType, allProductDetails} from "~/productData";
-import React, {useRef} from "react";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import LivguardDialog from "~/components/livguardDialog";
-import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
-import {SubCategoryProductsInternal} from "~/components/automotive-batteries/subCategoryProductsInternal";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
+import {ProductType, allProductDetails} from "~/productData";
 import {DealerLocator} from "~/routes";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Unleash Tractor Power with the Pradhan of Batteries",
-//             description: "Empower India's agriculture segment with our power-packed tractor battery choices. Keep moving forward with Livguard's Pradhan of All Batteries.",
-//             "og:title": "Unleash Tractor Power with the Pradhan of Batteries",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/tractor-batteries",
-//             "og:description": "Empower India's agriculture segment with our power-packed tractor battery choices. Keep moving forward with Livguard's Pradhan of All Batteries.",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "बैटरियों के प्रधान के साथ ट्रैक्टर की शक्ति को उजागर करें",
-//             description: "हमारे पावर-पैक्ड ट्रैक्टर बैटरी विकल्पों के साथ भारत के कृषि क्षेत्र को सशक्त बनाएं। लिवगार्ड के सभी बैटरियों के प्रधान के साथ आगे बढ़ते रहें।",
-//             "og:title": "बैटरियों के प्रधान के साथ ट्रैक्टर की शक्ति को उजागर करें",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/tractor-batteries",
-//             "og:description": "हमारे पावर-पैक्ड ट्रैक्टर बैटरी विकल्पों के साथ भारत के कृषि क्षेत्र को सशक्त बनाएं। लिवगार्ड के सभी बैटरियों के प्रधान के साथ आगे बढ़ते रहें।",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/tractor-batteries"}];
-// };
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -100,7 +70,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/tractor/tractor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -139,7 +109,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/tractor/tractor-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -172,6 +142,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -185,8 +156,14 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "5a1d25fa-a3af-4cab-9cdf-43b6f0675973", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <TractorBatteriesPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <TractorBatteriesPage
+                        userPreferences={userPreferences}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -198,7 +175,9 @@ export default () => {
     );
 };
 
-function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferences}) {
+function TractorBatteriesPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -207,30 +186,30 @@ function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferenc
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <StrongAutomotiveBatteries
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-4 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-5 tw-col-start-1 lg:tw-col-span-full" />
 
                 <TractorBatteriesCarousel
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-w-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
 
                 <TopTractorBatteryPicks
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 tw-col-start-1 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-8 tw-col-start-1 lg:tw-col-span-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-9 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
+                <div className="tw-row-start-10 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
                     <DealerLocator
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
@@ -245,22 +224,22 @@ function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferenc
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
+                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
 
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -268,6 +247,17 @@ function TractorBatteriesPage({userPreferences}: {userPreferences: UserPreferenc
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -275,6 +265,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto] lg:tw-grid-rows-[3rem_auto_auto_1rem_auto] lg:tw-grid-cols-[0_auto_minmax(0,1fr)] tw-text-center",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-fit">
                 {isScreenSizeBelow == null ? null : (
@@ -303,6 +295,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function StrongAutomotiveBatteries({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "superior-features": {
+                humanReadableName: getVernacularString("ac4503ae-ef14-4618-900a-7cfe181b3e45", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const BatteryCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
@@ -317,9 +321,9 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
                     />
                 </div>
 
-                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1 lg-text-secondary-900">{title}</div>
 
-                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body lg-text-secondary-900">{description}</div>
             </div>
         );
     };
@@ -359,7 +363,11 @@ function StrongAutomotiveBatteries({userPreferences, className}: {userPreference
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
+                id="superior-features"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("c15def47-2c4f-4e42-ba57-102da4f0ee11", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("7547aa62-ca76-48e4-9fb0-62cea563108c", userPreferences.language)}} />
@@ -483,8 +491,24 @@ function TractorBatteriesCarousel({userPreferences, className}: {userPreferences
         },
     ];
 
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-range": {
+                humanReadableName: getVernacularString("f455acf2-de2a-48bb-afa1-c1b400f1fc09", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}
+            id="our-range"
+            ref={sectionRef}
+        >
             <VerticalSpacer className="tw-h-6 lg:tw-h-10" />
 
             <div
@@ -547,7 +571,7 @@ function CarouselBatteryCard({
     return (
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:tw-gap-x-2 lg-bg-new-background-500 lg-card tw-rounded-lg tw-px-4 tw-py-3 lg:tw-py-6 lg:tw-px-8 tw-w-full tw-max-w-3xl tw-mx-auto">
             <div className="tw-col-start-1 tw-grid tw-grid-flow-row tw-place-items-center">
-                <div className="lg:tw-hidden tw-bg-[#c5c5c5] dark:tw-bg-[#3a3a3a] tw-p-2">{getVernacularString("4f1b53b9-36a8-4a0e-b693-4f92e8a1b32b", userPreferences.language)}</div>
+                <div className="lg:tw-hidden lg-bg-primary-500 tw-text-secondary-900-dark tw-p-2">{getVernacularString("4f1b53b9-36a8-4a0e-b693-4f92e8a1b32b", userPreferences.language)}</div>
                 <div className="tw-w-full tw-h-full">
                     <FullWidthImage relativePath={`/livguard/products/${batterySlug}/thumbnail.png`} />
                 </div>
@@ -739,8 +763,24 @@ function TopTractorBatteryPicks({userPreferences, className}: {userPreferences: 
 
     const refs = [pradhaanRef, xtralifeRef];
 
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "top-tractor-battery": {
+                humanReadableName: getVernacularString("1dfc8abe-6cb9-4413-8a90-5223ebdbd4d1", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-w-full tw-px-3 lg:lg-px-screen-edge-2 lg:tw-py-4", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-w-full tw-px-3 lg:lg-px-screen-edge-2 lg:tw-py-4", className)}
+            id="top-tractor-battery"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-grid tw-grid-flow-row tw-gap-y-1 tw-text-center lg-text-headline">
                 <div dangerouslySetInnerHTML={{__html: getVernacularString("713355d6-1d59-4ecb-af08-1e9a651bddc1", userPreferences.language)}}></div>
                 <div>{getVernacularString("7dccb0a9-930e-498d-bc45-194b73920af2", userPreferences.language)}</div>
@@ -897,9 +937,25 @@ function TopTractorBatteryPicks({userPreferences, className}: {userPreferences: 
 }
 
 function ChooseYourIdealTractorBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "choose-the-right-battery": {
+                humanReadableName: getVernacularString("08f36f74-4395-4e7f-b301-c02e0e7862f8", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
-            <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("27518d22-a27d-4519-b01a-18d1fed070ed", userPreferences.language)}</div>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
+            id="choose-the-right-battery"
+            ref={sectionRef}
+        >
+            <div className="tw-row-start-2 tw-text-center lg-text-headline" dangerouslySetInnerHTML={{__html: getVernacularString("27518d22-a27d-4519-b01a-18d1fed070ed", userPreferences.language)}}></div>
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
                 dangerouslySetInnerHTML={{__html: getVernacularString("4092b04f-c277-4ec3-b313-0844337ae7df", userPreferences.language)}}
@@ -972,6 +1028,18 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "social-handles": {
+                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const embeddedVideos = [
         <EmbeddedYoutubeVideo
             id="b6gqLXTnZnw"
@@ -988,7 +1056,11 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
+            id="social-handles"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 

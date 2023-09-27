@@ -10,8 +10,10 @@ import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductCardTwoDetails} from "~/components/reusable-components/productCardTwoDetails";
 import {ChipButtonWithText} from "~/components/scratchpad";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import { ImageCdnProvider } from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
@@ -21,7 +23,7 @@ import type {PricingPageState} from "~/routes/pricing/index.types";
 import {PricingPageFilterAttribute, PricingPageProductType, allPricingPageFilters} from "~/routes/pricing/index.types";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, type UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -62,7 +64,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/pricing/pricing-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -101,7 +103,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/pricing/pricing-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -245,7 +247,12 @@ function PricingSection({
 }) {
     const productRef = useRef<HTMLDivElement>(null);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_auto_minmax(0,1fr)] lg:tw-grid-cols-[20rem_minmax(0,1fr)] tw-gap-x-4 tw-gap-y-4", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces(
+                "tw-w-full tw-grid tw-grid-cols-1 lg:tw-grid-rows-[auto_auto_minmax(0,1fr)] lg:tw-grid-cols-[20rem_minmax(0,1fr)] tw-gap-x-4 tw-gap-y-4",
+                className,
+            )}
+        >
             <CategoryFilters
                 userPreferences={userPreferences}
                 utmParameters={utmParameters}
@@ -255,7 +262,9 @@ function PricingSection({
                 className="tw-row-start-1 tw-col-start-1 lg:tw-row-start-1 lg:tw-col-start-1 lg:tw-col-span-2"
             />
 
-            {[PricingPageProductType.all, PricingPageProductType.inverter, PricingPageProductType.inverterBattery, PricingPageProductType.automotiveBatteries].includes(pricingPageState.selectedPricingPageProductType) && (
+            {[PricingPageProductType.all, PricingPageProductType.inverter, PricingPageProductType.inverterBattery, PricingPageProductType.automotiveBatteries].includes(
+                pricingPageState.selectedPricingPageProductType,
+            ) && (
                 <Filters
                     userPreferences={userPreferences}
                     utmParameters={utmParameters}
@@ -275,35 +284,32 @@ function PricingSection({
                 className="tw-row-start-3 tw-col-start-1 lg:tw-row-start-2 lg:tw-col-start-2"
             />
 
-
             <div
                 ref={productRef}
                 className="tw-row-start-4 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-2 tw-grid tw-grid-cols-2 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-x-4 tw-gap-y-4"
             >
                 {pricingPageState.filteredProducts.length == 0 ? (
-                    <div className="tw-col-span-full tw-w-full tw-h-full tw-grid tw-place-items-center">
-                        No products found!
-                    </div>
+                    <div className="tw-col-span-full tw-w-full tw-h-full tw-grid tw-place-items-center">No products found!</div>
                 ) : (
                     <ItemBuilder
-                    items={pricingPageState.filteredProducts}
-                    itemBuilder={(item, itemIndex) => (
-                        <ProductCardTwoDetails
-                            slug={item.slug}
-                            productType={item.productType}
-                            isBestSeller={item.isBestSeller}
-                            imageRelativeUrl={item.imageRelativeUrl}
-                            productName={item.productName}
-                            productPrice={item.productPrice}
-                            specification1Icon={item.specification1Icon}
-                            specification1={item.specification1}
-                            specification2Icon={item.specification2Icon}
-                            specification2={item.specification2}
-                            userPreferences={userPreferences}
-                            key={itemIndex}
-                        />
-                    )}
-                />
+                        items={pricingPageState.filteredProducts}
+                        itemBuilder={(item, itemIndex) => (
+                            <ProductCardTwoDetails
+                                slug={item.slug}
+                                productType={item.productType}
+                                isBestSeller={item.isBestSeller}
+                                imageRelativeUrl={item.imageRelativeUrl}
+                                productName={item.productName}
+                                productPrice={item.productPrice}
+                                specification1Icon={item.specification1Icon}
+                                specification1={item.specification1}
+                                specification2Icon={item.specification2Icon}
+                                specification2={item.specification2}
+                                userPreferences={userPreferences}
+                                key={itemIndex}
+                            />
+                        )}
+                    />
                 )}
             </div>
 
@@ -448,7 +454,9 @@ function Filters({
                     </>
                 )}
 
-                {[PricingPageProductType.all, PricingPageProductType.inverter, PricingPageProductType.inverterBattery, PricingPageProductType.automotiveBatteries].includes(pricingPageState.selectedPricingPageProductType) && (
+                {[PricingPageProductType.all, PricingPageProductType.inverter, PricingPageProductType.inverterBattery, PricingPageProductType.automotiveBatteries].includes(
+                    pricingPageState.selectedPricingPageProductType,
+                ) && (
                     <>
                         <div className="lg-text-body-bold">{getVernacularString("8c207582-8a8a-4995-bd70-2a7c555bd50a", userPreferences.language)}</div>
 
@@ -794,7 +802,6 @@ function Paginator({
                                         if (pageNumber == pricingPageState.activePageNumber) {
                                             return;
                                         }
-                                        console.log(pageNumber);
 
                                         dispatch({
                                             actionType: PricingPageActionType.setPageNumber,

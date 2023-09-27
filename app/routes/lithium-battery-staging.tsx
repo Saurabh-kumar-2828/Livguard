@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import {LoaderFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import {useResizeDetector} from "react-resize-detector";
@@ -11,7 +11,7 @@ import {PageScaffold} from "~/components/pageScaffold";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {FixedHeightImage} from "~/components/images/fixedHeightImage";
 import {CarouselStyle7} from "~/components/carouselStyle7";
@@ -19,6 +19,11 @@ import {InfiniteHorizontalScroller, HorizontalScrollDirection} from "~/livguard-
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {ContactUsCta} from "~/routes/index";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {useInView} from "react-intersection-observer";
 
 type LoaderData = {
     userPreferences: UserPreferences;
@@ -45,6 +50,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -59,11 +65,14 @@ export default () => {
                     {contentId: "14ea2ec8-f4b9-4b8a-8aff-384750bc010a", link: "#"},
                 ]}
             >
-                <AboutUsPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <AboutUsPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </>
     );
@@ -73,13 +82,17 @@ function AboutUsPage({
     userPreferences,
     utmParameters,
     pageUrl,
+    secondaryNavigationController,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
 }) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start">
@@ -90,12 +103,11 @@ function AboutUsPage({
                     pageUrl={pageUrl}
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
-
-                <EMobilitySolutions
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 tw-col-span-full" />
+                {/* <EMobilitySolutions
                     userPreferences={userPreferences}
                     className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full"
-                />
+                /> */}
 
                 <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
 
@@ -130,28 +142,39 @@ function HeroSection({
     };
     pageUrl: string;
 }) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    const isScreenSizeBelow = useIsScreenSizeBelow(640);
 
     return (
         <div
             className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}
-            ref={ref}
+            id="top"
+            ref={sectionRef}
         >
-            {containerWidth == null || containerHeight == null ? null : (
-                <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-                    <CoverImage
-                        relativePath={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/about-us/1/banner-mobile.jpg" : "/livguard/about-us/1/banner-desktop.jpg"}
-                        className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-max-h-[40vh] lg:tw-max-h-[60vh]"
-                        key={containerHeight > containerWidth || containerWidth < 640 ? "/livguard/about-us/1/banner-mobile.jpg" : "/livguard/about-us/1/banner-desktop.jpg"}
-                    />
+            <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full tw-grid lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+                <CoverImage
+                    relativePath={isScreenSizeBelow ? "/livguard/about-us/1/banner-mobile.jpg" : "/livguard/about-us/1/banner-desktop.jpg"}
+                    className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-w-full tw-h-full tw-max-h-[40vh] lg:tw-max-h-[60vh]"
+                    key={isScreenSizeBelow ? "/livguard/about-us/1/banner-mobile.jpg" : "/livguard/about-us/1/banner-desktop.jpg"}
+                />
 
-                    <EndToEndSolutions
-                        userPreferences={userPreferences}
-                        utmParameters={utmParameters}
-                        pageUrl={pageUrl}
-                    />
-                </div>
-            )}
+                <EndToEndSolutions
+                    userPreferences={userPreferences}
+                    utmParameters={utmParameters}
+                    pageUrl={pageUrl}
+                />
+            </div>
         </div>
     );
 }
@@ -187,11 +210,22 @@ function EndToEndSolutions({
     );
 }
 
-function EMobilitySolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    return <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-grid tw-grid-rows-3 tw-grid-cols-1 tw-grid-flow-row tw-gap-y-6", className)}></div>;
-}
+// function EMobilitySolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+//     return <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 tw-grid tw-grid-rows-3 tw-grid-cols-1 tw-grid-flow-row tw-gap-y-6", className)}></div>;
+// }
 
 function WhoWeAre({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "who-we-are": {
+                humanReadableName: getVernacularString("1048c716-f3d1-4740-90b8-99e7d1e3b80d", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     function WhoWeAreCard({iconUrl, title, description}: {iconUrl: string; title: string; description: string}) {
         return (
             <div className="tw-grid tw-grid-rows-[1.5rem_auto_0.5rem_auto_0.5rem_auto_minmax(1rem,1fr)] lg:tw-grid-rows-[4rem_auto_1rem_auto_0.75rem_auto_minmax(1rem,1fr)] tw-border-2 lg-border-secondary-900 tw-rounded-lg tw-px-6">
@@ -221,7 +255,11 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2 lg:tw-grid-cols-[minmax(0,4fr)_minmax(0,3fr)_minmax(0,3fr)] tw-gap-6", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid lg-px-screen-edge-2 lg:tw-grid-cols-[minmax(0,4fr)_minmax(0,3fr)_minmax(0,3fr)] tw-gap-6", className)}
+            id="who-we-are"
+            ref={sectionRef}
+        >
             <div className="lg:tw-col-start-1 tw-w-full tw-h-full tw-grid lg:lg-bg-secondary-100 lg:tw-px-8 lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_0.75rem_auto_minmax(0,1fr)] lg:tw-rounded-lg lg:lg-about-us-who-we-are-bg-gradient-light lg:dark:lg-about-us-who-we-are-bg-gradient-dark">
                 <DefaultTextAnimation className="tw-row-start-1 lg:tw-row-start-2 lg-text-banner tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("540952b6-a7ef-453f-a6e5-cd8953fa4222", userPreferences.language)}}></div>
@@ -255,7 +293,18 @@ function WhoWeAre({userPreferences, className}: {userPreferences: UserPreference
 }
 
 function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
-    const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    // const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "meet-our-leaders": {
+                humanReadableName: getVernacularString("b1387a67-2e83-4f5f-b794-3cf1c7bc61fd", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     const leadersData: Array<{title: string; position: string; description: string; imageRelativePath: string}> = [
         {
@@ -307,12 +356,14 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
             imageRelativePath: "/livguard/about-us/3/leader-alankar.png",
         },
     ];
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
 
     return (
         <>
             <div
                 className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}
-                ref={ref}
+                id="meet-our-leaders"
+                ref={sectionRef}
             >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div>{getVernacularString("13f6e1c4-d97c-46cf-8ddb-52712843410b", userPreferences.language)}</div>
@@ -327,8 +378,8 @@ function MeetOurLeaders({userPreferences, className}: {userPreferences: UserPref
                     slidesContainerClassName=""
                     deselectedContainersClassName="tw-pt-6 md:tw-pt-12 tw-h-full"
                     selectedContainerClassName="tw-pt-6 tw-h-full"
-                    chevronButtonsBelowCarousel={containerWidth != null && containerHeight != null && (containerHeight > containerWidth || containerWidth < 640) ? false : true}
-                    chevronButtonsDivisionFactor={2}
+                    chevronButtonsBelowCarousel={isScreenSizeBelow ? false : true}
+                    snapDotsDivisionFactor={2}
                 />
             </div>
         </>

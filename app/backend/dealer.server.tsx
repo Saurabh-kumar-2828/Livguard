@@ -1,4 +1,5 @@
 import AWS from "aws-sdk";
+import {sendDataToFreshsales} from "~/backend/freshsales.server";
 import {getPostgresDatabaseManager} from "~/global-common-typescript/server/postgresDatabaseManager.server";
 import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/server/utilities.server";
 import {Uuid} from "~/global-common-typescript/typeDefinitions";
@@ -50,6 +51,7 @@ function rowToDealerInformation(row: any): Dealer {
         longitude: row.longitude,
         // stateCode: row.state_code,
         area: row.area,
+        gmbLink: row.gmb_link,
     };
 
     return dealer;
@@ -426,7 +428,18 @@ export async function insertSearchQuery(searchTerm: string): Promise<void | Erro
     }
 }
 
-export async function insertContactFormLeads(leadId: string, formResponse: any): Promise<void | Error> {
+export async function insertContactFormLeads(
+    leadId: Uuid,
+    formResponse: any,
+    utmParametersDecoded: {[searchParameter: string]: string},
+    pageUrl: string,
+    freshSalesData: {
+        mobile_number: string;
+        first_name: string;
+        email?: string;
+        otpVerified?: boolean;
+    },
+): Promise<void | Error> {
     const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
     if (postgresDatabaseManager instanceof Error) {
         return postgresDatabaseManager;
@@ -447,6 +460,11 @@ export async function insertContactFormLeads(leadId: string, formResponse: any):
 
     if (result instanceof Error) {
         return result;
+    }
+
+    const freshsalesResult = await sendDataToFreshsales(leadId, freshSalesData, utmParametersDecoded, pageUrl);
+    if (freshsalesResult instanceof Error) {
+        return freshsalesResult;
     }
 }
 
@@ -570,12 +588,17 @@ export async function updateWarrantyRecordWithDob(uuid: string, dob: string) {
 
     const result = await postgresDatabaseManager.execute(
         `
-            UPDATE 
+            UPDATE
                 livguard.warranty_entries
-            SET 
-                form_response = JSONB_SET(CAST(form_response AS jsonb), '{dateOfBirth}', $1, true)
-            WHERE 
-                id = $2;
+            SET
+                form_response = JSONB_SET(
+                    CAST(form_response AS jsonb), 
+                    '{dateOfBirth}', 
+                    $1, 
+                    true
+                )
+            WHERE
+                id = $2
         `,
         [`"${dob}"`, uuid],
     );
@@ -629,7 +652,7 @@ export async function getDealersForPinCode(pinCode: string): Promise<Array<Deale
             WHERE
                 pin_code = $1
             ORDER BY
-                dealer_name 
+                dealer_name
         `,
         [pinCode],
     );
@@ -654,5 +677,29 @@ export async function verifyGoogleRecaptcha(token: string): Promise<Error | void
 
     if (response instanceof Error) {
         return response;
+    }
+}
+
+export async function insertReachOutFormLeadsForRenewableEnergy(leadId: string, formResponse: any): Promise<void | Error> {
+    const postgresDatabaseManager = await getPostgresDatabaseManager(getUuidFromUnknown(getRequiredEnvironmentVariableNew("DATABASE_CREDENTIALS_ID")));
+    if (postgresDatabaseManager instanceof Error) {
+        return postgresDatabaseManager;
+    }
+
+    const result = await postgresDatabaseManager.execute(
+        `
+            INSERT INTO
+                livguard.renewable_energy_campaign_leads
+            VALUES(
+                $1,
+                $2,
+                $3
+            )
+        `,
+        [leadId, getCurrentIsoTimestamp(), formResponse],
+    );
+
+    if (result instanceof Error) {
+        return result;
     }
 }

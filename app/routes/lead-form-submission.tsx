@@ -3,7 +3,7 @@ import {json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateLeadFormDetails} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
-import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getNonEmptyStringFromUnknown, getObjectFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {FormType} from "~/typeDefinitions";
 
 export type GenericActionData = {
@@ -14,7 +14,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const body = await request.formData();
 
     const inputData = safeParse(getObjectFromUnknown, body.get("inputData"));
-    const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
+    const leadId = safeParse(getUuidFromUnknown, body.get("leadId"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
     const formType = safeParse(getNonEmptyStringFromUnknown, body.get("formType"));
     const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
@@ -85,7 +85,7 @@ export const action: ActionFunction = async ({request, params}) => {
             return json(actionData);
         }
 
-        const freshsalesResult = await sendDataToFreshsales({mobile_number: inputData.phoneNumber, first_name: inputData.name, otpVerified: true}, utmParametersDecoded, pageUrl);
+        const freshsalesResult = await sendDataToFreshsales(leadId, {mobile_number: inputData.phoneNumber, first_name: inputData.name, otpVerified: true}, utmParametersDecoded, pageUrl);
         if (freshsalesResult instanceof Error) {
             const actionData: GenericActionData = {
                 error: "Error in submitting form! Error code: 242068d4-24d8-4dc3-b205-8789f28454ed",
@@ -110,6 +110,7 @@ export const action: ActionFunction = async ({request, params}) => {
         }
 
         const freshsalesResult = await sendDataToFreshsales(
+            leadId,
             {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, otpVerified: true},
             utmParametersDecoded,
             pageUrl,

@@ -1,66 +1,35 @@
-import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
-import {useResizeDetector} from "react-resize-detector";
+import React, {useContext, useEffect} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
+import {CarouselStyle3} from "~/components/carouselStyle3";
+import {CarouselStyle5} from "~/components/carouselStyle5";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FaqSectionInternal} from "~/components/faqs";
+import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
+import LivguardDialog from "~/components/livguardDialog";
+import {PageScaffold} from "~/components/pageScaffold";
+import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {convertProductInternalNameToPublicName, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {CarouselStyle5} from "~/components/carouselStyle5";
-import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
-import {CarouselStyle3} from "~/components/carouselStyle3";
-import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import {ProductType, allProductDetails} from "~/productData";
-import React, {useEffect, useState} from "react";
-import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
-import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import LivguardDialog from "~/components/livguardDialog";
-import {StickyBottomBar} from "~/components/bottomBar";
-import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
+import {allProductDetails} from "~/productData";
 import {DealerLocator} from "~/routes";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Power on Wheels with Livguard's Three Wheeler Batteries",
-//             description: "Experience the reliability of Livguard Three Wheeler batteries, delivering better cranking power, easy maintenance, long battery life, and high performance ",
-//             "og:title": "Power on Wheels with Livguard's Three Wheeler Batteries",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/three-wheeler-batteries",
-//             "og:description": "Experience the reliability of Livguard Three Wheeler batteries, delivering better cranking power, easy maintenance, long battery life, and high performance ",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड के तीन पहिया बैटरी के साथ सशक्त यात्रा",
-//             description: "बेहतर क्रैंकिंग पावर, आसान रखरखाव, लंबी बैटरी लाइफ और उच्च प्रदर्शन प्रदान करने वाली लिवगार्ड थ्री व्हीलर बैटरियों की विश्वसनीयता का अनुभव करें",
-//             "og:title": "लिवगार्ड के तीन पहिया बैटरी के साथ सशक्त यात्रा",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/three-wheeler-batteries",
-//             "og:description": "बेहतर क्रैंकिंग पावर, आसान रखरखाव, लंबी बैटरी लाइफ और उच्च प्रदर्शन प्रदान करने वाली लिवगार्ड थ्री व्हीलर बैटरियों की विश्वसनीयता का अनुभव करें",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/three-wheeler-batteries"}];
-// };
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -100,7 +69,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/three-wheeler/three-wheeler-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -139,7 +108,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/three-wheeler/three-wheeler-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -172,6 +141,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -185,8 +155,14 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "5ec9401e-43ed-47cd-a0f9-3ef981780ca1", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <ThreeWheelerBatteriesPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <ThreeWheelerBatteriesPage
+                        userPreferences={userPreferences}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -198,7 +174,9 @@ export default () => {
     );
 };
 
-function ThreeWheelerBatteriesPage({userPreferences}: {userPreferences: UserPreferences}) {
+function ThreeWheelerBatteriesPage({userPreferences, secondaryNavigationController}: {userPreferences: UserPreferences; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -207,7 +185,7 @@ function ThreeWheelerBatteriesPage({userPreferences}: {userPreferences: UserPref
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <ReliabilityYouCanExperience
                     userPreferences={userPreferences}
@@ -261,6 +239,17 @@ function ThreeWheelerBatteriesPage({userPreferences}: {userPreferences: UserPref
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -268,6 +257,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_auto_1rem_auto_1.5rem_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_minmax(0,1fr)] lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
                 {isScreenSizeBelow == null ? null : (
@@ -292,6 +283,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function ReliabilityYouCanExperience({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            reliability: {
+                humanReadableName: getVernacularString("fdbf482e-5a9b-42b3-a012-95b00e93e2dc", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const BatteryCard = ({title, description, imageRelativePath}: {title: string; description: string; imageRelativePath: string}) => {
         return (
             <div
@@ -306,9 +309,9 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
                     />
                 </div>
 
-                <div className="tw-row-start-3 tw-text-center lg-text-title1">{title}</div>
+                <div className="tw-row-start-3 tw-text-center lg-text-title1 lg-text-secondary-900">{title}</div>
 
-                <div className="tw-row-start-5 tw-text-center lg-text-body">{description}</div>
+                <div className="tw-row-start-5 tw-text-center lg-text-body lg-text-secondary-900">{description}</div>
             </div>
         );
     };
@@ -358,7 +361,11 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
+                id="reliability"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("75dfe585-c7bc-4497-a8a7-23bb1ed11625", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("942ecb94-3de6-477e-9dea-5079f62a04c3", userPreferences.language)}} />
@@ -387,6 +394,18 @@ function ReliabilityYouCanExperience({userPreferences, className}: {userPreferen
 }
 
 function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "three-wheeler-battery": {
+                humanReadableName: getVernacularString("b56af9ea-2d7d-45e5-8886-d4a367bc7e89", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const products = [allProductDetails["lgmf0ar32r"][userPreferences.language], allProductDetails["lgmf0ar60l"][userPreferences.language]];
     const brandBatteries = [
         {
@@ -410,7 +429,11 @@ function ThreeWheelerBatteriesForUnmatchedPower({userPreferences, className}: {u
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions tw-rounded-lg", className)}
+            id="three-wheeler-battery"
+            ref={sectionRef}
+        >
             <VerticalSpacer className="tw-h-6 lg:tw-h-10" />
 
             <div
@@ -558,8 +581,24 @@ function BatteryCard({
 }
 
 function FindTheRightBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "find-the-right-battery": {
+                humanReadableName: getVernacularString("a72629ee-930b-4f47-9d31-f630e2db0709", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
+            id="find-the-right-battery"
+            ref={sectionRef}
+        >
             <div
                 className="tw-row-start-2 tw-text-center lg-text-headline"
                 dangerouslySetInnerHTML={{__html: getVernacularString("d06ea4a8-87f2-40b0-a235-bfae5e318be3", userPreferences.language)}}
@@ -636,6 +675,18 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function SocialHandles({userPreferences, heading, className}: {userPreferences: UserPreferences; heading: {text1: string; text2: string}; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "social-handles": {
+                humanReadableName: getVernacularString("01553562-bafd-4ad3-a18c-7b6cc113f03f", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const embeddedVideos = [
         <EmbeddedYoutubeVideo
             id="b6gqLXTnZnw"
@@ -652,7 +703,11 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
+            id="social-handles"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 

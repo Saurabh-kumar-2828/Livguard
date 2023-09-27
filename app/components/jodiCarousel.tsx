@@ -1,5 +1,7 @@
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/20/solid";
 import Autoplay from "embla-carousel-autoplay";
+import {useEffect, useState} from "react";
+import {number} from "zod";
 import {EmpowerYourHomeComponent} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
@@ -23,19 +25,19 @@ export function ComboCarousel({
         comboImageRelativePath: string;
     }>;
 }) {
-    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000);
+    const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true}, 8000, 6000);
 
     return (
         <div
             className="tw-overflow-hidden tw-w-full"
             ref={emblaRef}
         >
-            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[min(50%,47rem)]">
+            <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] lg:tw-auto-cols-[min(50%,47rem)] tw-pt-2">
                 <ItemBuilder
                     items={items}
                     itemBuilder={(item, itemIndex) => (
                         <div
-                            className="lg-px-screen-edge tw-h-full tw-flex tw-flex-col"
+                            className="lg-px-screen-edge tw-h-full tw-flex tw-flex-col lg-card-shadow"
                             key={itemIndex}
                         >
                             <div
@@ -104,9 +106,7 @@ export function ComboCarousel({
                                             {/* <VerticalSpacer className="tw-h-4" /> */}
 
                                             <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 tw-mx-12">
-                                                <FullWidthImage
-                                                    relativePath={item.comboImageRelativePath}
-                                                />
+                                                <FullWidthImage relativePath={item.comboImageRelativePath} />
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +126,9 @@ export function ComboCarousel({
                     <button
                         type="button"
                         className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                        onClick={() => emblaApi?.scrollPrev()}
+                        onClick={() => {
+                            emblaApi?.scrollPrev();
+                        }}
                     >
                         <ChevronLeftIcon className="tw-w-6 tw-h-6" />
                     </button>
@@ -145,14 +147,16 @@ export function ComboCarousel({
 
                     <button
                         type="button"
-                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark"
-                        onClick={() => emblaApi?.scrollNext()}
+                        className="tw-rounded-full tw-p-1 tw-border tw-border-solid tw-border-secondary-900-light dark:tw-border-secondary-900-dark tw-bg-secondary-100-light tw-mt-[0.4px]"
+                        onClick={() => {
+                            emblaApi?.scrollNext();
+                        }}
                     >
                         <ChevronRightIcon className="tw-w-6 tw-h-6" />
                     </button>
                 </div>
             </div>
+            {/* { timerProgress>=0 &&<div>{timerProgress}%</div>} */}
         </div>
     );
 }
-

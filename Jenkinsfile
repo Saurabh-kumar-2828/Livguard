@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+    agent any
 
     environment {
         REMOTE_PORT = 22
@@ -27,6 +27,7 @@ pipeline {
                     } else {
                         return
                     }
+
                     sh """
                         cd /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_${DIRECTORY}
                     """
@@ -48,6 +49,7 @@ pipeline {
                     } else {
                         return
                     }
+
                     sshagent(["f74f1a2f-5c3d-49e4-a0e5-646f8d9e87ea"]) {
                         sh """
                             scp -r -P $REMOTE_PORT /var/lib/jenkins/workspace/${GITHUB_REPOSITORY_NAME}_$DIRECTORY/build ubuntu@43.204.40.59:/home/ubuntu/$FOLDER/

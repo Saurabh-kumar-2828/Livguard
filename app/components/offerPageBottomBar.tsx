@@ -3,7 +3,7 @@ import {UserPreferences} from "~/typeDefinitions";
 
 export function OfferPageBottomBar({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
     return (
-        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-100 tw-rounded-t-lg tw-flex tw-flex-row tw-py-[0.8125rem] tw-text-center tw-justify-center tw-gap-x-10 tw-px-10 tw-z-50 lg:tw-hidden">
+        <div className="tw-sticky tw-bottom-0 lg-bg-secondary-100 lg-card lg-sticky-bottom-bar-shadow tw-rounded-t-lg tw-flex tw-flex-row tw-py-[0.8125rem] tw-text-center tw-justify-center tw-gap-x-10 tw-px-10 tw-z-[63] lg:tw-hidden">
             <OfferContactUsCta
                 userPreferences={userPreferences}
                 textVernacId="offerPageCta"

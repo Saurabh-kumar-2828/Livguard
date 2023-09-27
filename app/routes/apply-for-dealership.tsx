@@ -3,7 +3,7 @@ import {json} from "@remix-run/node";
 import {verifyOtp} from "~/backend/authentication.server";
 import {insertOrUpdateDealerLeads} from "~/backend/dealer.server";
 import {sendDataToFreshsales} from "~/backend/freshsales.server";
-import {getNonEmptyStringFromUnknown, getObjectFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
+import {getNonEmptyStringFromUnknown, getObjectFromUnknown, getUuidFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import type {GenericActionData} from "~/routes/lead-form-submission";
 
 export const action: ActionFunction = async ({request, params}) => {
@@ -12,7 +12,7 @@ export const action: ActionFunction = async ({request, params}) => {
     const inputData = safeParse(getObjectFromUnknown, body.get("inputData"));
     const otpSubmitted = safeParse(getNonEmptyStringFromUnknown, body.get("otpSubmitted"));
     const utmParameters = safeParse(getNonEmptyStringFromUnknown, body.get("utmParameters"));
-    const leadId = safeParse(getNonEmptyStringFromUnknown, body.get("leadId"));
+    const leadId = safeParse(getUuidFromUnknown, body.get("leadId"));
     const pageUrl = safeParse(getNonEmptyStringFromUnknown, body.get("pageUrl"));
 
     if (inputData == null || utmParameters == null || leadId == null || otpSubmitted == null || pageUrl == null) {
@@ -67,6 +67,7 @@ export const action: ActionFunction = async ({request, params}) => {
     }
 
     const freshsalesResult = await sendDataToFreshsales(
+        leadId,
         {mobile_number: inputData.phoneNumber, first_name: inputData.name, email: inputData.emailId, city: inputData.city, otpVerified: true},
         utmParametersDecoded,
         pageUrl,

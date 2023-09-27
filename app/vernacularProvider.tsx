@@ -175,7 +175,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "स्टेबिलाइजर्स",
     },
     headerMenuSM5T3: {
-        [Language.English]: "E-Rikshaw Chargers",
+        [Language.English]: "E-Rickshaw Chargers",
         [Language.Hindi]: "ई-रिक्शा चार्जर",
     },
     headerMenuSM5T4: {
@@ -260,23 +260,23 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4254cae7-7bda-4303-bc24-80dcf71c0647": {
         [Language.English]: "Car and SUV Batteries",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "गाड़ी और SUV बैटरी",
     },
     "d92c5f11-8777-4ec2-9aca-32061a9ea613": {
         [Language.English]: "Two Wheeler Batteries",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "2-पहिया बैटरी",
     },
     "ade7956e-a64e-4ade-8dbd-bfb9ffbe834a": {
         [Language.English]: "Three Wheeler Batteries",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "3-पहिया बैटरी",
     },
     "5da16ba5-b835-4eb5-9e86-d187a7186faf": {
         [Language.English]: "Tractor Batteries",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "ट्रैक्टर बैटरी",
     },
     "b5eba6c1-c835-4f87-8f7b-d73951cf60b5": {
         [Language.English]: "Bus and Truck Batteries",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "बस और ट्रक की बैटरी",
     },
     "e057dd65-bdc4-4a61-9350-881e46db892a": {
         [Language.English]: "Solar Batteries",
@@ -284,7 +284,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3272fdec-2fca-490f-b0fa-857a45df8f0e": {
         [Language.English]: "Inverters",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "इनवर्टर",
     },
     "893bd439-ee92-4bfb-a05d-476854330caa": {
         [Language.English]: "Solar Solutions",
@@ -303,8 +303,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "???",
     },
     "52a70998-083b-4b6e-977c-475295c0aa19": {
-        [Language.English]: "E-Rikshaw Charger",
-        [Language.Hindi]: "???",
+        [Language.English]: "E-Rickshaw Charger",
+        [Language.Hindi]: "ई-रिक्शा चार्जर",
     },
     "15fbd08d-74e9-45f7-a7a1-645fd0679c14": {
         [Language.English]: "VRLA",
@@ -320,7 +320,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c4c67588-fe35-46da-8c07-d8e2ed05f7f4": {
         [Language.English]: "Inverter Trolley",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "इनवर्टर ट्राली",
     },
     "22f65f90-4e23-41ef-8eee-ad3ad43d3cc1": {
         [Language.English]: "About Us",
@@ -332,11 +332,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8a05cd2e-d60d-4eb4-9c04-28aa17936671": {
         [Language.English]: "Presence in India",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "भारत में उपस्थिति",
     },
     "49162714-5f92-492f-af84-355a69688f70": {
         [Language.English]: "International Presence",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "वैश्विक उपस्थिति",
     },
     "c00c6383-63f2-4dc0-b65b-ef1ecfb4ee2c": {
         [Language.English]: "Careers",
@@ -352,7 +352,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3da06e51-2ce1-41cc-b7b0-e50f014643a2": {
         [Language.English]: "Inverters",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "इनवर्टर",
     },
     "09d53d44-f25f-4340-a67a-77c1e483c764": {
         [Language.English]: "Inverter Batteries",
@@ -380,7 +380,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "57dfdb7b-3b26-4918-81fc-15aee33119a6": {
         [Language.English]: "Two Wheeler",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "2-पहिया बैटरी",
     },
     "109fecc7-85fc-46c2-9f6f-a7b330bfe03b": {
         [Language.English]: "Car",
@@ -404,39 +404,39 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "98f2d242-eb78-4ff3-882e-fbc504673165": {
         [Language.English]: "Pricing",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "मूल्य निर्धारण",
     },
     "384acc41-febb-4514-a621-31d2054166f5": {
         [Language.English]: "E-Waste Management",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
     },
     "e7df1392-3354-4f8c-82a4-9d284da7d9bb": {
         [Language.English]: "Governance",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "शासन",
     },
     "78d6e103-5022-4d48-8ea7-94b38566d327": {
         [Language.English]: "Investor Page",
         [Language.Hindi]: "???",
     },
     "a9df629a-e685-4822-be66-f59678e45cbc": {
-        [Language.English]: "CSR Page",
-        [Language.Hindi]: "???",
+        [Language.English]: "CSR",
+        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व",
     },
     "cc357c04-cde6-47c5-ab55-416eb27446a0": {
         [Language.English]: "Video Gallery",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "वीडियो गैलरी",
     },
     "3e513ee8-0bbb-4cfa-861f-be8710ebffec": {
         [Language.English]: "Privacy Policy",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "गोपनीयता नीति",
     },
     "49e991e9-4cae-4bb3-bc47-539ee1f4b222": {
         [Language.English]: "Terms and Conditions",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "नियम और शर्तें",
     },
     "e65f1b7c-554e-4815-bf97-d3848070204b": {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "???",
+        [Language.Hindi]: "बिक्री वापसी नीति",
     },
 
     homeS1T1: {
@@ -938,7 +938,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     homeS13H1T1: {
         [Language.English]: `In The <span class="lg-text-highlighted">News</span>`,
-        [Language.Hindi]: "???",
+        [Language.Hindi]: `<span class="lg-text-highlighted">खबरों</span> में`,
     },
 
     landingPage1S1T1: {
@@ -2000,7 +2000,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     categoryInvertersS8HT2: {
         [Language.English]: `<span class="lg-text-highlighted">Inverter</span> For You`,
-        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर बैटरी</span> से`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर</span> से`,
     },
     categoryInvertersS8Description: {
         [Language.English]:
@@ -2222,8 +2222,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
 
     footerCopyrightText: {
-        [Language.English]: `© Livguard 2023. All Rights Reserved | Technology Partner - <a href="https://growthjockey.com" target="_blank" class="tw-underline hover:tw-text-[#00a2ed]">GrowthJockey</a>`,
-        [Language.Hindi]: `© लिवगार्ड 2023। सभी अधिकार सुरक्षित | प्रौद्योगिकी भागीदार - <a href="https://growthjockey.com">GrowthJockey</a>`,
+        [Language.English]: `© Livguard 2023. All Rights Reserved`,
+        [Language.Hindi]: `© लिवगार्ड 2023। सभी अधिकार सुरक्षित`,
     },
     "aefcb24c-ff32-4530-a8e8-1fe009daa883": {
         [Language.English]: `© Livguard 2023. All Rights Reserved | Get in touch - <a href="mailto:export@sar-group.com" class="tw-underline hover:tw-text-blue-600">export@sar-group.com</a>`,
@@ -2260,7 +2260,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     footerDisclosure1T5: {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "सेल्स वापसी नीति",
+        [Language.Hindi]: "बिक्री वापसी नीति",
     },
     footerDisclosure1T6: {
         [Language.English]: "Terms and conditions",
@@ -2617,20 +2617,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "और इनवर्टर देखें",
     },
     loadCalculatorRecommendationsS2T6: {
-        [Language.English]: "VA Capacity",
-        [Language.Hindi]: "VA कैपेसिटी",
+        [Language.English]: " VA Capacity",
+        [Language.Hindi]: " VA कैपेसिटी",
     },
     loadCalculatorRecommendationsS2T7: {
-        [Language.English]: "Months Warranty",
-        [Language.Hindi]: "वारंटी",
+        [Language.English]: " Months Warranty",
+        [Language.Hindi]: " महीने वारंटी",
     },
     loadCalculatorRecommendationsS2T8: {
-        [Language.English]: "Ah Capacity",
-        [Language.Hindi]: "Ah कैपेसिटी",
+        [Language.English]: " Ah Capacity",
+        [Language.Hindi]: " Ah कैपेसिटी",
     },
     loadCalculatorRecommendationsS2T9: {
         [Language.English]: "View More Batteries",
         [Language.Hindi]: "और बैटरी देखें",
+    },
+    loadCalculatorRecommendationsS2T10: {
+        [Language.English]: "Months Warranty",
+        [Language.Hindi]: "महीने वारंटी",
     },
     loadCalculatorRecommendationsS3H1: {
         [Language.English]: "A Quick Guide to",
@@ -3556,8 +3560,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "हमसे संपर्क करें",
     },
     contactFormS1T2: {
-        [Language.English]: "Find answers to your queries, without any hassle",
-        [Language.Hindi]: "बिना किसी परेशानी के अपने प्रश्नों के उत्तर पाएं",
+        [Language.English]: "Find answers to your queries",
+        [Language.Hindi]: "बिना किसी परेशानी के",
+    },
+    contactFormS1T3: {
+        [Language.English]: "without any hassle",
+        [Language.Hindi]: "अपने प्रश्नों के उत्तर पाएं",
     },
     contactUsS3H: {
         [Language.English]: `We Are <span class="lg-text-highlighted">Listening</span>`,
@@ -3569,7 +3577,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     contactUsS3Complaint: {
         [Language.English]: "Enquiry",
-        [Language.Hindi]: "शिकायत",
+        [Language.Hindi]: "पूछ-ताछ",
     },
     contactUsS3FeedbackFormT1: {
         [Language.English]: "Rate Our Product",
@@ -3635,11 +3643,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     contactUsS3ComplaintFormDetailText: {
         [Language.English]: "Please let us know in detail",
-        [Language.Hindi]: "आपको क्या परेशान कर रहा है? कृपया हमें बताएं",
+        [Language.Hindi]: "कृपया हमें विस्तार से बताएं",
     },
     contactUsS3ComplaintFormDetailPlaceholder: {
         [Language.English]: "Describe your concern here...",
-        [Language.Hindi]: "अपनी समस्या का विवरण यहां करें...",
+        [Language.Hindi]: "अपनी चिंता यहां बताएं...",
     },
 
     contactUsS3FormNumberText: {
@@ -3785,7 +3793,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "063dc56b-910e-4a48-acb8-8f52668a4c72": {
         [Language.English]: "Explore Battery",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी देखें",
     },
     "14e0e286-5fd7-43aa-a6f3-5b3b9a0ec71f": {
         [Language.English]: "Best Seller",
@@ -3925,11 +3933,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "17cfa283-6fcc-4a49-9dfe-a392e0310b27": {
         [Language.English]: `Your Contact Number`,
-        [Language.Hindi]: "आपका मोबाइल नंबर",
+        [Language.Hindi]: "आपका संपर्क नंबर",
     },
     "1e90dca7-b78f-4231-b2df-644a3b0322d1": {
         [Language.English]: `Enter Contact Number`,
-        [Language.Hindi]: "अपना मोबाइल नंबर डालें",
+        [Language.Hindi]: "अपना संपर्क नंबर डालें",
     },
     "31241b10-2784-43df-a2ea-a614c9ef7468": {
         [Language.English]: `Your Pin Code`,
@@ -3985,11 +3993,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6d0f2700-ee1b-4215-b60c-f920ba0d0a2b": {
         [Language.English]: `Thank You!`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "धन्यवाद!",
     },
     "d0b96a23-94c3-45c9-af3e-0722264c7ed5": {
         [Language.English]: `Hang on, our team will get in touch with you shortly.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "प्रतीक्षा करें, हम आपसे जल्द संपर्क करेंगे",
     },
     "74058229-5e75-4efe-833c-18009f248c6a": {
         [Language.English]: `Join Our 2 Crore`,
@@ -4013,7 +4021,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "0a3cd411-749e-4d0a-8d1e-36bbf631e462": {
         [Language.English]: `Hang on, our team will get in touch with your shortly.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "प्रतीक्षा करें, हम आपसे जल्द संपर्क करेंगे",
     },
     "5816ad28-9bb2-42c3-8c82-e70a3f4e6f6c": {
         [Language.English]: `What should I do if my product is not working correctly?`,
@@ -4138,28 +4146,28 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "51ae4bbd-0f66-42bc-b031-cc3e9dc4dc26": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कैटलॉग डाउनलोड करें",
     },
     "1271cac7-693c-48bc-850f-16199416dd0e": {
         [Language.English]: `Find My Battery`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी बैटरी खोजें",
     },
     "c32db78a-c200-4267-b144-cea5563916fe": {
         [Language.English]: `E-Rickshaw Battery`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-रिक्शा बैटरी",
     },
     "df2ff393-aa90-47f1-a4cf-04f0b5ace0fc": {
         [Language.English]: `E-Rickshaw Charger`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-रिक्शा चार्जर",
     },
 
     "b0a3aa40-4b00-4bdd-88e0-67085fafa92b": {
         [Language.English]: `Shower Some Love`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "प्यार बरसाएं हमारे",
     },
     "c0f802cc-902b-4328-b631-a3fad8fc7d18": {
         [Language.English]: `On Our <span class="lg-text-highlighted">Social Handles</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">सोशल हैंडल</span> पर!`,
     },
     //Stabilizer Page Vernac Strings End
 
@@ -4173,60 +4181,46 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "हमारे बारे में",
     },
     "b38f6ec8-1c38-44ef-b016-93da7ed7bf19": {
-        [Language.English]: `Bringing Unlimited Energy To Every Household`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Empowering Lives`,
+        [Language.Hindi]: "हर जीवन सशक्त",
+    },
+    "ca68e2b9-8aba-4002-adbf-d9c40945027d": {
+        [Language.English]: `With Energy Unlimited`,
+        [Language.Hindi]: "असीमित ऊर्जा के साथ",
     },
     "540952b6-a7ef-453f-a6e5-cd8953fa4222": {
         [Language.English]: `Who <span class="lg-text-highlighted">We Are</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `कौन हैं <span class="lg-text-highlighted">हम</span>`,
     },
     "55c526fa-c19d-4a73-a460-62c333174a1b": {
         [Language.English]: `About Livguard`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "लिवगार्ड के बारे में",
     },
     "a95dff17-79db-4ac9-b9aa-2518f93919c5": {
         [Language.English]: `Driven by innovation and an unwavering commitment to sustainability, Livguard continues to redefine the landscape of energy storage solutions. Offering an array of quality products including automotive batteries, inverters, and residential solar solutions, we're not just powering homes and businesses, but also supporting the world's shift to a cleaner future. Pioneering in our approach, we stand dedicated to deliver limitless energy, as we stride towards shaping a world where energy is accessible, efficient, and sustainable.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "अभिनवता और स्थायित्व के साथ प्रेरित होकर, लिवगार्ड ने ऊर्जा संचय समाधानों के संदर्भ को पुनः परिभाषित किया है। ऑटोमोटिव बैटरियों, इनवर्टर, और आवासीय सोलर समाधानों जैसे अनेकता प्रदान करने वाले उत्पादों के साथ, हम सिर्फ घरों और व्यापारों को ही नहीं, बल्कि दुनिया को एक स्वच्छ भविष्य की ओर आग्रहण करने में भी सहायता कर रहे हैं। हमारे दृष्टिकोण में प्रथमगामी रूप से, हम असीमित ऊर्जा प्रदान करने के लिए समर्पित हैं, क्योंकि हम उस दुनिया की रचना करने की ओर बढ़ रहे हैं जहां ऊर्जा सुलभ, कुशल और सतत है।",
     },
     "8a35dff2-079c-4638-a96a-8100d04a72b6": {
         [Language.English]: `Our Mission`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारा मिशन",
     },
     "4e49216b-9457-488a-860e-3fb97ba34100": {
         [Language.English]: `Establish Livguard as a strong player in energy-solution space in India. We will achieve this by developing an ecosystem of delighted customers, committed partners, exceptional product quality and delightful service.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "लिवगार्ड को भारत में ऊर्जा समाधान अंतरिक्ष में एक मजबूत खिलाड़ी के रूप में स्थापित करना। हम इसे सफलता की ऊंचाइयों तक पहुंचाने के लिए प्रसन्न ग्राहकों, समर्पित साथियों, उत्कृष्ट उत्पाद गुणवत्ता और  विश्वसनीय सर्विस के एक सुगम मेल से स्थापित कर के बनाएँगे।",
     },
     "68b1762f-e31f-4110-bf87-3afc487d7edf": {
         [Language.English]: `Our Vision`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारा दृष्टिकोन",
     },
     "373fedff-da89-4396-b215-ed4099abfcf9": {
         [Language.English]: `To be a global leader in energy storage products driven by innovative technology and excellence in manufacturing & services.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारा लक्ष्य ऊर्जा संचयन उत्पादों के ग्लोबल नेतृत्वी बनना है, जिसे हम नयी तकनीक और उत्कृष्ट उत्पादन और सर्विस के माध्यम से हासिल करने की दृष्टि रखते हैं",
     },
     "75b7261b-7ced-4385-891a-ecfe8123bab5": {
-        [Language.English]: `Our <span class="lg-text-highlighted">Presence</span>`,
-        [Language.Hindi]: `?????`,
-    },
-    "bc06ea32-4286-48ed-bde2-5a5c7250ff67": {
-        [Language.English]: `India Operations`,
-        [Language.Hindi]: `?????`,
-    },
-    "78cd576b-2c66-4cf1-b4db-209d0543a659": {
-        [Language.English]: `Livguard, with its widespread network of dealers, distributors, and service providers, aims to deliver limitless energy experiences to all.`,
-        [Language.Hindi]: `?????`,
-    },
-    "02195d6b-8516-4598-9214-d1b13866d85b": {
-        [Language.English]: `Know More`,
-        [Language.Hindi]: `?????`,
-    },
-    "8ae1096b-408d-4d55-8005-78574a7b5815": {
-        [Language.English]: `International Operations`,
-        [Language.Hindi]: `?????`,
-    },
-    "812b45ce-01e5-4ecb-9595-33766948660f": {
-        [Language.English]: `Livguard has established connections in many countries, which enable them to seize opportunities in the Global Energy Storage Solutions Sector.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Our <span class="lg-text-highlighted">Operations</span>`,
+        [Language.Hindi]: `हमारी <span class="lg-text-highlighted">कार्यप्रणाली</span>`,
     },
     "2adcc683-70f0-4b39-be83-73211ea28f20": {
         [Language.English]: `<span class="lg-text-highlighted">Explore Careers</span> <br/> At Livguard`,
@@ -4242,11 +4236,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "13f6e1c4-d97c-46cf-8ddb-52712843410b": {
         [Language.English]: `Meet Our`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मिलिए हमारे`,
     },
     "cb60764f-1758-4b61-a998-8f7acc7b0b92": {
         [Language.English]: `<span class="lg-text-highlighted">Leaders</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">मार्गदर्शकों</span> से`,
     },
     "d867ff63-d4bf-49ae-8ac7-7290a76caef3": {
         [Language.English]: "Mr. Rakesh Malhotra",
@@ -4306,7 +4300,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "389859cd-81c3-4b9a-95ad-b38dde856511": {
         [Language.English]: `Our <span class="lg-text-highlighted">Values</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारे <span class="lg-text-highlighted">मूल्य</span>`,
     },
     "0840f752-7ac4-4277-8e49-5cf832119941": {
         [Language.English]: `AIM & ACT`,
@@ -4318,7 +4312,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "795f5dfe-542d-4eaa-a26d-90effc18a849": {
         [Language.English]: `<span class="lg-text-primary-500">A</span>im outside your comfort zone`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने सुविधा क्षेत्र से बाहर लक्ष्य रखें`,
     },
     "b2620aa3-0677-4330-9b99-ef2c0d7170cd": {
         [Language.English]: "I",
@@ -4326,7 +4320,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "59a5ec6f-6eba-4395-9047-bec0c8bec32e": {
         [Language.English]: `<span class="lg-text-primary-500">I</span>nspire and energize your team`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी टीम को प्रेरित और ऊर्जावान बनाएं`,
     },
     "dac92472-0230-4fe5-a152-bb6aab17c8e0": {
         [Language.English]: "M",
@@ -4334,7 +4328,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "bffefb3c-8634-4f2b-bc52-e7c4d487da23": {
         [Language.English]: `<span class="lg-text-primary-500">M</span>easure, track and review your results.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने परिणामों को मापें, ट्रैक करें और समीक्षा करें`,
     },
     "d83054c4-751b-4bc1-a061-fd43e39c177c": {
         [Language.English]: "A",
@@ -4342,7 +4336,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8e99838f-3d77-4c89-955e-9411d2e447eb": {
         [Language.English]: `<span class="lg-text-primary-500">A</span>nalyze customer needs and being their champion.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ग्राहकों की ज़रूरतों का विश्लेषण करें और उनके चैंपियन बनें`,
     },
     "2bbf5d96-c268-4c3a-ad76-0bc5d3dc5bc5": {
         [Language.English]: "C",
@@ -4350,7 +4344,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6bf5ab86-1ff2-42d6-b20e-b3641dc69d28": {
         [Language.English]: `<span class="lg-text-primary-500">C</span>ommunicate honestly and listen carefully.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ईमानदारी से संवाद करें और ध्यान से सुनें`,
     },
     "d5435550-b3aa-493f-9513-56bc9e701701": {
         [Language.English]: "T",
@@ -4358,25 +4352,25 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d54dcad5-4ae4-4300-ab3a-e44d26e2a82a": {
         [Language.English]: `<span class="lg-text-primary-500">T</span>rust and create winning Teams`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विश्वास करें और विजयी टीमें बनाएं`,
     },
     "310ad3b5-2e4a-409b-9622-c1389c366dbd": {
-        [Language.English]: `Empowered By <span class="lg-text-highlighted">SAR</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Empowered By `,
+        [Language.Hindi]: `<span class="lg-text-highlighted">SAR</span> द्वारा सशक्तिकृत`,
     },
     "b005d8fa-48dc-4f1a-acee-4afdeec1a1d2": {
         [Language.English]: `Our Guidance & Motivation`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारा मार्गदर्शन और प्रेरणा`,
     },
     "4a0ff6e2-3456-4e80-a100-dd0437e1e1a5": {
         [Language.English]: `Established in 1988 by visionaries Mr. Rakesh Malhotra and Mr. Navneet Kapoor, the SAR Group has been at the forefront of creating a safer, better future through innovative and
         eco-friendly brands. These brands include Livpure, Livguard, Lectrix, Ncubate, and HEKA. Over the decades, the group has carved a strong niche for itself, leading the market in areas
         such as Water Purification, Batteries, Inverters, Electric Vehicles, and Venture Capital.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `1988 में दृढ़ दृष्टिकोन के नेतृत्वी श्री राकेश मल्होत्रा और श्री नवनीत कपूर द्वारा स्थापित SAR ग्रुप उपयुक्त और पर्यावरण-सुस्थ ब्रांडों के माध्यम से एक सुरक्षित और बेहतर भविष्य बनाने के लिए प्रतिबद्ध है। इन ब्रांडों में Livpure, Livguard, Lectrix, Ncubate और HEKA शामिल हैं। दशकों के दौरान, ग्रुप ने जल शोधन, बैटरी, इनवर्टर, इलेक्ट्रिक वाहन और वेंचर कैपिटल जैसे क्षेत्रों में मजबूत स्थान स्थापित किया है।`,
     },
     "1dac654a-dcb3-48bf-9b14-2e08470548d9": {
         [Language.English]: `Our Sister Companies`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी साथी कंपनियां`,
     },
     // International page - Lebanon
     "c7a9f807-dc1c-484e-990a-710af6961b66": {
@@ -4544,7 +4538,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "50cc12a0-8bca-46cd-ae1e-37aa23b7cc5c": {
         [Language.English]: `Download Info`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `معلومات التنزيل`,
     },
     "4dbd6d59-b14a-43e7-968a-04b44513e509": {
         [Language.English]: `Talk to us on a quick call`,
@@ -4593,11 +4587,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "7fcce52e-a757-41ee-92e7-d6e54fc3d8a9": {
         [Language.English]: `Required Battery Quantity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `كمية البطارية المطلوبة`,
     },
     "a6eb5ef2-e65b-4d52-ba90-e07f86b7390e": {
         [Language.English]: `Select Quantity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `حدد الكمية`,
     },
     "bb6ae191-31a7-4cdc-8654-f1f4c3c9f4f5": {
         [Language.English]: `I accept the terms of use & Privacy policy`,
@@ -4626,6 +4620,26 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "c5e3ae47-a9e3-49b1-a414-2bd6d2d5737c": {
         [Language.English]: `We have received your details, you'll receive a call from our team soon.`,
         [Language.Hindi]: `شكراً لمشاركتنا تفاصيلك، ستتلقى اتصالاً من فريقنا قريباً.`,
+    },
+    "5294b3b5-0c9b-4b7e-b1dd-2211b7388427": {
+        [Language.English]: `1`,
+        [Language.Hindi]: `1`,
+    },
+    "9b364e60-b83d-4ebf-8c1e-10c0d63de03c": {
+        [Language.English]: `2`,
+        [Language.Hindi]: `2`,
+    },
+    "e5dcc665-3df9-4e74-96d0-01664c689ffa": {
+        [Language.English]: `5`,
+        [Language.Hindi]: `5`,
+    },
+    "56f3e816-8f56-4efa-9cf8-1d4c39907d17": {
+        [Language.English]: `10`,
+        [Language.Hindi]: `10`,
+    },
+    "b2037dcf-e83b-4859-ab52-9d2b846c6696": {
+        [Language.English]: `More than 10`,
+        [Language.Hindi]: `أكثر من 10`,
     },
     "5389e85c-776b-4979-86df-1b323b6ca815": {
         [Language.English]: `Till then, show some love to our social handles!`,
@@ -4723,19 +4737,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     "cc92d2f4-4884-4d08-bd15-9ed54eaf1e4d": {
         [Language.English]: `Contact Us`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `اتصل بنا`,
     },
     "f396f200-9afb-4408-85c2-fe7ed011e288": {
         [Language.English]: `Global Reach`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `الوصول العالمي`,
     },
     "3646d35c-629c-47af-902a-5ccc2941a5e5": {
         [Language.English]: `Privacy Policy`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `سياسة الخصوصية`,
     },
     "586b03b6-cd5a-4e80-88ac-ae3cdabc170c": {
         [Language.English]: `About Us`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `معلومات عنا`,
     },
     "41d5c04e-ff29-4bfc-8082-b2245a96dd7a": {
         [Language.English]: `E-Waste Management`,
@@ -4743,7 +4757,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "70e9b582-ab5a-492a-a426-5552a796bc6d": {
         [Language.English]: `CSR`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `المسؤولية الاجتماعية للشركات`,
     },
     "35fe95ed-b847-4ac1-a6f6-5878d1a183ea": {
         [Language.English]: `Investor`,
@@ -4751,7 +4765,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4293e069-961d-471a-b759-b506e1fa1d6b": {
         [Language.English]: `Governance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `الحكم`,
     },
     "13a52500-50ab-4649-9811-a670bc78df8a": {
         [Language.English]: `E-Waste Management`,
@@ -4759,90 +4773,90 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "501d17d3-de19-4710-9597-67c48bfdd52c": {
         [Language.English]: `© Livguard `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `© Livguard `,
     },
     "ceb7cbb7-9f86-48fa-9781-e5b5c17f2c69": {
         [Language.English]: `. All Rights Reserved`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `. جميع الحقوق محفوظة`,
     },
     //About Us Page Vernac Strings End
 
     // Battery finder
     "454f7c18-bc20-49a9-a1f8-273420f2679b": {
         [Language.English]: `Choose Your Vehicle`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने वाहन को चुनें`,
     },
     "4ca84917-22f8-40be-acfe-4b3fca449539": {
         [Language.English]: `2 Wheeler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `2-पहिया बैटरी`,
     },
     "418de152-95ee-488d-b491-a86293219636": {
         [Language.English]: `3 Wheeler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `3-पहिया बैटरी`,
     },
     "9f009968-050d-4d5b-84bd-6396fb16b925": {
         [Language.English]: `Bus and Truck`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बस और ट्रक की बैटरी`,
     },
     "669014e9-bd1e-4e30-ab8a-64c3900b7d51": {
         [Language.English]: `Tractor`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ट्रैक्टर बैटरी`,
     },
     "ea72fad1-6f0f-48bd-ba19-65be3fae44f1": {
         [Language.English]: `Car and SUV`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `गाड़ी और SUV बैटरी`,
     },
     "dc5a454d-ec59-48fd-a3e9-f834038d7cdb": {
         [Language.English]: `E-Rikshaw`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा बैटरी`,
     },
     "18953b2c-d9bf-4992-bcbd-903f9c78c0e7": {
         [Language.English]: `Select Brand`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ब्रांड चुनें`,
     },
     "4990cdb1-9ee8-44d0-876f-3a668f2e7f9b": {
         [Language.English]: `Select Model`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मॉडल चुनें`,
     },
     "e2131e40-08cc-401d-958c-46baa3fa8642": {
         [Language.English]: `Select Fuel Type`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ईंधन प्रकार चुनें`,
     },
     "112996e0-2850-4283-af77-7514a386d172": {
         [Language.English]: `Find Ideal Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आदर्श बैटरी खोजें`,
     },
     "d11295cc-c71b-40d3-b0c3-6dfb96473a3a": {
-        [Language.English]: `Know In Detail About`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Know More About`,
+        [Language.Hindi]: `अधिक जानें`,
     },
     "7738908b-a43c-4ef9-8bb7-1f0d44e60899": {
-        [Language.English]: `Livguard delivers robust, durable batteries designed to keep two wheelers running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the two wheeler, Livguard proudly supports India's agricultural sector with reliable, high-performing two wheeler batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Navigate India's tough terrains with Livguard MoRide, the high-performance two-wheeler batteries engineered for daily commutes. With advanced Lead-Calcium Technology for instant starts, our batteries combat vibrations and promise reliable power even after infrequent use.`,
+        [Language.Hindi]: `लिवगार्ड मोराइड, उच्च प्रदर्शन वाली टू-व्हीलर बैटरियों के साथ भारत के कठिन रास्तों को आसानी से पार करें, जो दैनिक यात्राओं के लिए विकसित की गई हैं। एडवांस लीड-कैल्शियम टेक्नोलॉजी के साथ इन बैटरियों में तुरंत प्रारंभ करने की क्षमता होती है, और ये आपको आंतरिक घबराहट के बावजूद स्थायी शक्ति की गारंटी देते हैं।`,
     },
     "f6d0539b-16df-443a-af9c-2ae6f79765a4": {
-        [Language.English]: `Livguard delivers robust, durable batteries designed to keep three wheelers running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the three wheeler, Livguard proudly supports India's agricultural sector with reliable, high-performing three wheeler batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Boost your profitability with Livguard, designed for auto-rickshaws with superior casing to resist corrosion and vibrations. Our batteries offer high-cranking power, a larger amp-hour capacity for reliable starts, and a unique grid design for better recharging capability. For a cost-effective solution that stands up to daily runs and city traffic, choose Livguard AutoZ`,
+        [Language.Hindi]: `अपनी लाभदायकता बढ़ाएँ लिवगार्ड बैटरी के साथ, जो ऑटो रिक्शा के लिए बेहतर आवरण के साथ ज़ंग और कंपन को दूर रखती हैं। हमारी बैटरी ज़्यादा क्रैंकिंग क्षमता, ज़्यादा ऐम्पेयर घंटे की क्षमता बेहतर शुरुवात ले लिए, और एक नायाब ग्रिड ढाँचे से बनी हैं बेहतर चार्ज क्षमता के लिए। रोज़मर्रा के कामों के लिए लिवगार्ड की Autoz बैटरी देखें।`,
     },
     "c635c871-90ac-480c-83d3-8032728f3059": {
-        [Language.English]: `Livguard delivers robust, durable batteries designed to keep buses and trucks running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the bus and truck, Livguard proudly supports India's agricultural sector with reliable, high-performing bus and truck batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Livguard's truck and bus batteries are equipped to endure tough terrains and climates, delivering reliable starting power and extensive electronic equipment support. Crafted with advanced technology, they're known for high cranking efficiency, low maintenance, superior safety standards, and a robust structure for longevity.`,
+        [Language.Hindi]: `लिवगार्ड की बस और ट्रक बैटरियां कठिन भू-भाग और मौसम का सामना करने के लिए तैयार हैं, जो विश्वसनीय प्रारंभिक पावर और विस्तृत इलेक्ट्रॉनिक उपकरण समर्थन प्रदान करती हैं। आधुनिक तकनीक के साथ तैयार की गई ये बैटरी उच्च क्रैंकिंग क्षमता, कम रखरखाव, उत्कृष्ट सुरक्षा मानक और टिकाऊ संरचना के लिए जानी जाती हैं।`,
     },
     "171cb335-6ec4-44d1-a289-b0b231024c0b": {
-        [Language.English]: `Livguard delivers robust, durable batteries designed to keep tractors running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the tractor, Livguard proudly supports India's agricultural sector with reliable, high-performing tractor batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Livguard delivers robust, durable batteries designed to keep tractors running in all weather types. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the tractor, Livguard proudly supports India's agricultural sector with reliable, high-performing tractor batteries`,
+        [Language.Hindi]: `लिवगार्ड विभिन्न मौसम के तथा कठिन भू-भागों में ट्रैक्टरों को चलाने के लिए मजबूत और टिकाऊ बैटरियां प्रदान करता है। यह बैटरियां कम मेंटेनेंस वाली होती हैं, जो उच्च क्रैंकिंग प्रदर्शन, सुरक्षा और लंबी उम्र के लिए डिज़ाइन किए गए हैं। यह ट्रैक्टर के प्रदर्शन और उत्पादकता को बढ़ाने के लिए तैयार किए गए हैं। लिवगार्ड गर्व के साथ भारत के कृषि क्षेत्र का समर्थन करता है साथ ही विश्वसनीय और उच्च प्रदर्शन वाली ट्रैक्टर बैटरियां प्रदान करता है।`,
     },
     "6dd9224e-2bae-425d-8687-767059c99732": {
-        [Language.English]: `Livguard delivers robust, durable batteries designed to keep cars and SUVs running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the car and SUV, Livguard proudly supports India's agricultural sector with reliable, high-performing car and SUV batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Livguard's advanced car and SUV batteries are designed to meet the growing power requirements of modern vehicles with extensive electronic equipment. Our maintenance-free batteries offer years of reliable service, reducing the risks of roadside breakdowns due to battery failures.`,
+        [Language.Hindi]: `लिवगार्ड की उन्नत गाड़ी और SUV बैटरियां आधुनिक वाहनों की बढ़ती हुई शक्ति आवश्यकताओं को पूरा करने के लिए डिज़ाइन की गई हैं जो विस्तृत इलेक्ट्रॉनिक उपकरणों के साथ होते हैं। हमारी बिना मेंटेनेंस वाली बैटरियां वर्षों तक विश्वसनीय सेवा प्रदान करती हैं, जिससे बैटरी के खराब होने के कारण रास्ते में ब्रेकडाउन के जोखिम को कम किया जा सकता है।`,
     },
     "be93e4e6-cf77-4b1a-a418-5b22214fbaf6": {
-        [Language.English]: `Livguard delivers robust, durable batteries designed to keep E-Rikshaws running in even the harshest weather. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the E-Rikshaw, Livguard proudly supports India's agricultural sector with reliable, high-performing E-Rikshaw batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Livguard's e-rickshaw batteries ensure dependable performance and longevity, ideal for high-demand usage. Designed to combat frequent start-stops and high vibrations, these batteries are low-maintenance and offer high cranking power. Enjoy smoother, uninterrupted rides with Livguard, and enhance your e-rickshaw's overall efficiency and productivity.`,
+        [Language.Hindi]: `लिवगार्ड की ई-रिक्शा बैटरियां विश्वसनीय प्रदर्शन और दीर्घकालिकता सुनिश्चित करती हैं, जो उच्च डिमांड वाले उपयोग के लिए आदर्श हैं। यह बैटरियां आवृत्त स्टार्ट-स्टॉप और ऊँची दहशतों का सामना करने के लिए डिज़ाइन की गई हैं, जो कम रखरखाव की होती हैं और उच्च क्रैंकिंग पावर प्रदान करती हैं। लिवगार्ड के साथ आनंददायक, बिना रुकावट के सफर का आनंद लें और अपने ई-रिक्शा की कुल सक्रियता और उत्पादकता को बढ़ाएं।`,
     },
     "8b6be5de-9c57-461a-8ec5-106f29eccaca": {
         [Language.English]: `Know More`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `और जानें`,
     },
     // /Battery finder
     // Video gallery
@@ -4859,143 +4873,139 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //HKVA Vernac Strings Start
     "1333b617-c9a4-4b8c-b6ae-652d2b17c58b": {
         [Language.English]: `If Load Heavy,`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लोड हेवी`,
     },
     "f7ab7eb5-83ec-4ced-b179-c9ad29f8673e": {
         [Language.English]: `Then Inverter Heavy Duty!`,
-        [Language.Hindi]: `?????`,
-    },
-    "6576ec8d-6a69-482e-b4e9-9f11b9b01dfd": {
-        [Language.English]: `Inverters made to empower your home with Limitless Energy at all times.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `तो इनवर्टर हेवी ड्यूटी`,
     },
     "eaa6ffa9-a509-4be1-8f5e-93a008f86aaf": {
         [Language.English]: `Experience <span class="lg-text-highlighted">High Power</span> And`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अनुभव करें <span class="lg-text-highlighted">उच्च शक्ति</span>`,
     },
     "354321fa-4e5e-4cc5-80a4-07a320dfe654": {
         [Language.English]: `Higher Convenience`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `और उच्च सुविधा`,
     },
     "ceb40b2c-64aa-4279-a44b-88fdfa0f6940": {
         [Language.English]: `Higher Load Carrying Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ज़्यादा लोड सँभालने की क्षमता`,
     },
     "82a58556-3b79-42da-99fa-fb37bf75fc76": {
         [Language.English]: `Get uninterrupted power with heavy-duty inverters equipped with higher load-carrying capacity, with seamless performance.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ज़्यादा लोड सँभालने की क्षमता से सुसज्जित हैवी-ड्यूटी इनवर्टर के साथ निर्बाध प्रदर्शन के साथ निर्बाध बिजली प्राप्त करें।`,
     },
     "bdf346b3-6536-4eb0-bf84-833185c53ec6": {
         [Language.English]: `Interactive LCD Display`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इंटरएक्टिव एलसीडी डिस्प्ले`,
     },
     "312aecd5-8481-4cad-867d-70f3cca7a78c": {
         [Language.English]: `Experience the convenience of uninterrupted energy with a user-friendly and easy-to-understand LCD display, that reflects your inverter's information.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उपयोगकर्ता के अनुकूल और समझने में आसान एलसीडी डिस्प्ले के साथ निर्बाध ऊर्जा की सुविधा का अनुभव करें, जो आपके इनवर्टर की जानकारी को दर्शाता है।`,
     },
     "9b22fdf1-dec8-48c8-9710-f0d8ac89b7d9": {
         [Language.English]: `Dual MCB Protection`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `दोहरी एमसीबी सुरक्षा`,
     },
     "6aa6f045-8ba1-4157-a838-c794bc015eba": {
         [Language.English]: `Bring home inverters packed with safety features including the Dual MCB Protection that protects your inverter from short circuits, overload, reverse polarity, etc.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `दोहरी एमसीबी सुरक्षा सहित सुरक्षा सुविधाओं से भरपूर इनवर्टर घर लाएँ जो आपके इनवर्टर को शॉर्ट सर्किट, ओवरलोड, रिवर्स पोलरिटी आदि से बचाता है।`,
     },
     "bfc88889-a1cb-4fc0-9823-aa2596efdde8": {
         [Language.English]: `New Generation Technology`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आधुनिक तकनीक`,
     },
     "6a0ce82e-1378-4cfd-a26f-83152e0ec09a": {
         [Language.English]: `Inverters built with MOSFET Based PWM Technology, which brings greater efficiency, dynamic stability, and reduced electricity bills.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `MOSFET आधारित PWM तकनीक से निर्मित इनवर्टर, जो अधिक दक्षता, गतिशील स्थिरता और कम बिजली बिल लाते हैं।`,
     },
     "35d69b34-f446-4c69-a20f-1a151f0d5376": {
         [Language.English]: `Smart AI Charging`,
-        [Language.Hindi]: "????",
+        [Language.Hindi]: "स्मार्ट एआई चार्जिंग",
     },
     "10f168b5-b818-474b-a5ef-4f475a230786": {
         [Language.English]: `Experience the ease of having an inverter with smart AI charging. It uses the most ideal charging method for your battery by reading its history for a longer life.`,
-        [Language.Hindi]: "????",
+        [Language.Hindi]: "स्मार्ट एआई चार्जिंग के साथ इनवर्टर रखने में आसानी का अनुभव करें। यह आपकी बैटरी के इतिहास को पढ़कर लंबे जीवन के लिए सबसे आदर्श चार्जिंग विधि का उपयोग करता है।",
     },
     "b3b052f7-ef5b-43d1-b426-279e9c05ca84": {
         [Language.English]: `Choose <span class="lg-text-highlighted">Your Inverter</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">अपना इनवर्टर</span> चुनें`,
     },
     "354448cd-c3be-4427-b3a5-c3f5cf7afaf9": {
         [Language.English]: `Based On Your Needs`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी आवश्यकताओं के आधार पर`,
     },
     "0bcd7c25-b650-4085-990b-36795b06c1f5": {
         [Language.English]: `High Capacity Inverters`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उच्च क्षमता वाले इनवर्टर`,
     },
     "7618d425-96b8-4402-9ffb-50f4a69efbf9": {
-        [Language.English]: `Home Inverter`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Home Inverters`,
+        [Language.Hindi]: `होम इनवर्टर`,
     },
     "1685c892-2604-467b-835b-751154288554": {
         [Language.English]: `Power Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विद्युत क्षमता`,
     },
     "1e7e9b6c-9b4b-43c9-876c-3b1eb84c555f": {
         [Language.English]: `Designed for commercial, industrial applications & big residential areas that require high power capacities.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वाणिज्यिक, औद्योगिक अनुप्रयोगों और बड़े आवासीय क्षेत्रों के लिए डिज़ाइन किए गए इनवर्टर जिन्हें उच्च बिजली क्षमताओं की आवश्यकता होती है।`,
     },
     "a5350102-acd3-4024-a3ef-bcf478522fbb": {
         [Language.English]: `For residential use, powering household basic appliances during outages.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आवासीय उपयोग के लिए, बिजली कटौती के दौरान घरेलू बुनियादी उपकरणों को बिजली देना।`,
     },
     "a331300e-7f4f-4937-b652-be74e52427fa": {
         [Language.English]: `Load Handling Capability`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `भार संभालने की क्षमता`,
     },
     "86034731-4b04-4172-8ba3-bc4f6ba538a7": {
         [Language.English]: `Suitable for high-power requirement appliances like dental chair, AC, printers, photocopiers, water pumps etc`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `डेंटल चेयर, एसी, प्रिंटर, फोटोकॉपियर, वॉटर पंप आदि जैसे उच्च-शक्ति आवश्यकता वाले उपकरणों के लिए उपयुक्त।`,
     },
     "45f25658-b0ea-4f47-aee0-99769c6be404": {
         [Language.English]: `Suitable for handling appliances with Load capacity lesser than HKVA`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `HKVA से कम भार क्षमता वाले उपकरणों को संभालने के लिए उपयुक्त।`,
     },
     "72d5d1e9-8be5-4207-8b96-24ca298341ec": {
         [Language.English]: `Adaptability`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अनुकूलनशीलता`,
     },
     "3e617d69-c451-401f-aba2-40937134cee3": {
         [Language.English]: `Built to enable multiple unit connections and support adaptability.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एकाधिक इकाई कनेक्शन सक्षम करने और अनुकूलनशीलता का समर्थन करने के लिए निर्मित।`,
     },
     "d293fd91-73a4-4cb9-94b1-fa261e25f284": {
         [Language.English]: ` Built for individual use for individual homes, basic needs plus spatial appliances like washing machine, fridge, blender,  BLDC cooler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `व्यक्तिगत घरों, बुनियादी जरूरतों और वॉशिंग मशीन, फ्रिज, ब्लेंडर, बीएलडीसी कूलर जैसे स्थानिक उपकरणों के लिए बनाए गए इनवर्टर।`,
     },
     "2ae8f286-2ead-4d34-9c10-b28b49c90149": {
         [Language.English]: `Technical Advancements`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `तकनीकी प्रगति`,
     },
     "32461cc4-3f7b-403d-b4f3-b4b413c39c59": {
         [Language.English]: `Equipped with Smart AI charging, enhanced long life, advanced features and technology to cater to specific needs of commercial and industrial settings`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वाणिज्यिक और औद्योगिक सेटिंग्स की विशिष्ट आवश्यकताओं को पूरा करने के लिए स्मार्ट एआई चार्जिंग और उन्नत सुविधाओं से युक्त।`,
     },
     "a9a74f7d-81d0-42b3-9f54-690d2ecea92a": {
         [Language.English]: `Equipped with Smart AI charging for enhancing long life of the inverter battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर बैटरी की लंबी आयु बढ़ाने के लिए स्मार्ट एआई चार्जिंग से युक्त।`,
     },
     "f1a96b7a-bb14-4c20-803a-81373f0195fc": {
         [Language.English]: `-`,
         [Language.Hindi]: `?????`,
     },
     "32366348-8f4d-4253-959f-f9b586c26b25": {
-        [Language.English]: `<span class="lg-text-highlighted">Powerhouse Inverters</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `<span class="lg-text-highlighted">Heavy Duty Inverters</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">हेवी ड्यूटी इनवर्टर</span>`,
     },
     "33d1aa29-9949-4a28-92f3-4c27ce30d244": {
         [Language.English]: `for Heavy-Duty Appliances`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हेवी ड्यूटी उपकरणों के लिए`,
     },
     "7854d25c-c385-49b5-b1e5-e1127f1d1e5d": {
         [Language.English]: `Recommended`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सुझाया गया`,
     },
     "96915132-3fda-47ff-8bbb-b35a33432e74": {
         [Language.English]: `ih-verter LGS 2500`,
@@ -5007,7 +5017,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "be198f94-415e-4384-87d4-3887e8cd8a2c": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी`,
     },
     "c4d0e968-550c-4289-a333-6a4c7cc59a76": {
         [Language.English]: `24 Months`,
@@ -5015,7 +5025,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "7ee64780-1190-49dc-a305-0f6e9551e8aa": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्षमता`,
     },
     "b3a5db70-edb5-4d97-ac68-34948136ef74": {
         [Language.English]: `2000 VA / 24V`,
@@ -5023,7 +5033,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "94ba8c21-8088-4d61-a674-4f9d4ec28744": {
         [Language.English]: `Technology`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `तकनीक`,
     },
     "61866568-5831-4f41-9db7-1058f8b67154": {
         [Language.English]: `Longer Life`,
@@ -5031,7 +5041,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "781a0678-8e4b-4543-bda3-c80a5cf30176": {
         [Language.English]: `Dimensions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आयाम`,
     },
     "3f7043c1-174e-4714-8d63-7b44d67a1f41": {
         [Language.English]: `275 x 320 x 275 mm`,
@@ -5039,19 +5049,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "dd68b98c-5aa6-4f3f-824e-056ffa6ae4ee": {
         [Language.English]: `Explore Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद देखें`,
     },
     "857b8564-8171-4ea0-b4eb-940b767fb270": {
         [Language.English]: `Power Up with`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `HKVA इनवर्टर के साथ`,
     },
     "6cf663f6-3c72-4bbd-93a6-f9e53a53cc08": {
         [Language.English]: `<span class="lg-text-highlighted">High-Capacity Inverters</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पाएँ <span class="lg-text-highlighted">असीमित ऊर्जा</span>`,
     },
     "f4b66650-853d-4dd7-946f-1cda1f5c724a": {
         [Language.English]: `Best Seller`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `श्रेष्ठ विकल्प`,
     },
     "0d96f3ca-0045-405f-bc18-1fd584bfd934": {
         [Language.English]: `ih-verter LGS 2500`,
@@ -5079,15 +5089,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a5bdaea0-3ac4-4e61-bb56-15921022d881": {
         [Language.English]: `Your Guide to Finding The`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपकी मार्गदर्शिका`,
     },
     "cd0ff218-fadc-488a-a3b8-f97beffed82b": {
         [Language.English]: `<span class="lg-text-highlighted">Right Inverter</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सही इनवर्टर</span> ढूँढने के लिए`,
     },
     "b137befb-819f-4e24-a9f1-8a8a7fefeb3a": {
         [Language.English]: `Find the suitable pick of inverter that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर का उपयुक्त चयन ढूंढें जो दक्षता के साथ आपकी आवश्यकताओं को पूरा करता हो। हमारे बाइंग गाइड और प्रोडक्ट कैटलॉग का उपयोग करके अपने लिए उपयुक्त इनवर्टर चुनें जो सहजता के साथ आपकी आवश्यकताओं को पूरा करें।`,
     },
     "8d939846-726e-4b7a-a834-a985292cec9b": {
         [Language.English]: `Buying Guide`,
@@ -5095,7 +5105,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d44ffe14-87dd-42e8-8550-0b82ac2dad04": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "bfcd956a-49a7-4586-b645-b6b1a4e20a83": {
         [Language.English]: `Plan Your Power`,
@@ -5103,93 +5113,93 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4810d194-34b9-4aec-b27b-61905a838517": {
         [Language.English]: `Can I use an inverter for fridge?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या मैं फ्रिज के लिए HKVA इनवर्टर का उपयोग कर सकता हूँ?`,
     },
     "adf7b4db-adfb-47fe-8a4e-6290465e6abb": {
         [Language.English]: `Yes you can opt for Livguard Sinewave inverter depending on the power requirement of the Fridge . The easiest way to find the right inverter that fits your needs is to use the Load calculator, called the Power Planner(link to Power Planner).`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हां, आप फ्रिज की बिजली की आवश्यकता के आधार पर लिवगार्ड HKVA इनवर्टर का विकल्प चुन सकते हैं।`,
     },
     "7fe9f5d4-00a9-41a1-a09e-facb4f63ee0b": {
         [Language.English]: `Can I run an AC on inverter?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या मैं HKVA इनवर्टर पर एसी चला सकता हूँ?`,
     },
     "3b1d76dd-c2bb-4d9f-b56d-d682a0cd42de": {
         [Language.English]: `Yes, depending on the AC load (tonnage), You can choose the ideal Livguard High Rating Inverter, designed specially to take care of the surge current arising due to switching ON of the AC compressor. Take a look Livguard's range if inverters to empower your home with Limitless enegry.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हां, एसी लोड (टन भार) के आधार पर, आप आदर्श लिवगार्ड हेवी ड्यूटी इनवर्टर चुन सकते हैं, जो विशेष रूप से एसी कंप्रेसर को चालू करने के कारण उत्पन्न होने वाले सर्ज करंट की देखभाल के लिए डिज़ाइन किया गया है। अपने घर को असीमित ऊर्जा से सशक्त बनाने के लिए लिवगार्ड के इनवर्टर रेंज पर एक नज़र डालें।`,
     },
     "22698520-ae75-494a-a16b-4afc4ac1992c": {
         [Language.English]: `What happens if you overload an inverter?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `यदि आप इनवर्टर को ओवरलोड कर दें तो क्या होगा?`,
     },
     "7e5ac090-a155-46f8-8461-404c710b925d": {
         [Language.English]: `The most common reason for a power overload is when the inverter reaches its peak power output. The best way to avoid this is by using a high-capacity inverter that produces clean AC power when and where needed. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पावर ओवरलोड का सबसे आम कारण तब होता है जब इनवर्टर अपने चरम पावर आउटपुट पर पहुंच जाता है। जब भी ओवरलोड होता है तो एमसीबी ट्रिप हो जाती है, जिसे इनवर्टर की भार वहन क्षमता के अनुसार लोड लाकर वापस चालू किया जा सकता है। लिवगार्ड हेवी ड्यूटी इनवर्टर आपके उपकरण और उपकरणों की सुरक्षा सुनिश्चित करने के लिए दोहरी एमसीबी सुरक्षा के साथ स्थिर बिजली वितरण के लिए डिज़ाइन किए गए हैं।`,
     },
     "a78c0c49-ffb7-4dce-aa79-308daa5623a4": {
         [Language.English]: `What appliances can be operated on Livguard's high-capacity inverters at home?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `घर पर लिवगार्ड के उच्च क्षमता वाले इनवर्टर पर कौन से उपकरण संचालित किए जा सकते हैं?`,
     },
     "31c4c4e8-2c27-4d1f-abce-9bffd83915b2": {
         [Language.English]: `The various appliances that can be operated on Livguard's high-capacity inverters include a fridge, AC, washing machine, microwave, steam iron etc. at home. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड के उच्च क्षमता वाले इनवर्टर पर जिन विभिन्न उपकरणों को संचालित किया जा सकता है उनमें घर पर फ्रिज, एसी, वॉशिंग मशीन, माइक्रोवेव, स्टीम आयरन आदि शामिल हैं। लिवगार्ड हेवी ड्यूटी इनवर्टर आपके उपकरण और उपकरणों की सुरक्षा सुनिश्चित करने के लिए स्थिर बिजली वितरण के लिए डिज़ाइन किए गए हैं।`,
     },
     "9f264c8e-4212-43c1-a101-8f680845d25c": {
         [Language.English]: `What are high-capacity inverters?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उच्च क्षमता वाले इनवर्टर क्या हैं?`,
     },
     "64882f53-b9a6-4486-89a7-5c673f36a258": {
         [Language.English]: `Livguard's “ih-verter” systems are an ideal option for residential and commercial power back-up. They are a cohesive power backup system that produces clean AC power when and where it's needed. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड के "ih-वर्टर" सिस्टम भारी भार वाले उपकरणों को चलाने के लिए एक आदर्श विकल्प हैं। वे एक समेकित पावर बैकअप सिस्टम हैं जो सभी स्थानों पर, जब और जहां इसकी आवश्यकता होती है, शुद्ध साइनवेव आउटपुट उत्पन्न करता है। लिवगार्ड हेवी ड्यूटी इनवर्टर आपके उपकरण और उपकरणों की सुरक्षा सुनिश्चित करने के लिए स्थिर बिजली वितरण के लिए डिज़ाइन किए गए हैं।`,
     },
 
     //Inverter Trolley Vernac Strings Start
     "c8044356-0123-4e47-a1b9-a453d40c6f41": {
         [Language.English]: `Safeguard Your Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी शक्ति की सुरक्षा करें`,
     },
     "a44c1ac7-94e3-4b5f-92a7-97d56aa17619": {
         [Language.English]: `The Ideal Trolley for You`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपके लिए आदर्श ट्रॉलीs`,
     },
     "71072fc8-967d-4e21-9922-2bab4b7513b5": {
         [Language.English]: `Combining Style,`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `स्टाइल, <span class="lg-text-highlighted">शक्ति और स्थिरता</span>`,
     },
     "1d257cca-7858-42b7-ba71-cb411c5b6bf3": {
         [Language.English]: `<span class="lg-text-highlighted">Strength, and Stability</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `का अद्भुद मेल`,
     },
     "656202ba-4d43-417e-ab8a-4d411da87ede": {
         [Language.English]: `Stylish Curve Design`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `स्टाइलिश कर्व डिज़ाइन`,
     },
     "b1860dae-087d-4b2e-b55e-72b0d91de418": {
         [Language.English]: `Inverter Trolleys made with unique curve design to complement your home and empower it with seamless performance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपके घर को पूर्ण बनाने और इसे निर्बाध प्रदर्शन के साथ सशक्त बनाने के लिए अद्वितीय कर्व डिजाइन के साथ बनाई गई इनवर्टर ट्रॉली।`,
     },
     "3a7552bb-96e1-4e59-b96c-8255ffe0166a": {
         [Language.English]: `6 Wheel Tuffness `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `6 पहिया टफनेस`,
     },
     "121d0e61-b0a4-462c-a167-07fdb7408680": {
         [Language.English]: `Experience long life and performance with inverter trolleys for your home, empowered with 6 wheel Tuffness for support`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने घर के लिए इनवर्टर ट्रॉली के साथ लंबे जीवन और प्रदर्शन का अनुभव करें, समर्थन के लिए 6 पहिया टफ़नेस के साथ।`,
     },
     "60dd74c4-1b24-496b-8629-802beabbf14e": {
         [Language.English]: `Easy Front Door Access `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सरल फ्रंट डोर एक्सेस`,
     },
     "000ee25a-3c54-4f21-8df9-7f535b85c6c8": {
         [Language.English]: `Easily accessible front door for effortless battery water checks. Backed with Innovative design to ensure simple and efficient maintenance.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सरल तरीके से पहुंचने वाला फ्रंट डोर जो बैटरी के पानी की जांच को आसान बनाता है। सरल और कुशल मेंटेनेंस सुनिश्चित करने के लिए आधुनिक डिज़ाइन से बनी ट्रॉली।`,
     },
     "9b082fd9-8254-4ea0-a76f-f831d2bd3248": {
         [Language.English]: `<span class="lg-text-highlighted">Your Power, Your Choice</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">आपकी शक्ति, आपकी पसंद</span>`,
     },
     "3bee363a-d749-49b8-8f1e-fa1cc640c526": {
-        [Language.English]: `Our Inverter Trolley Range`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Our Inverter Trolley`,
+        [Language.Hindi]: `हमारा इनवर्टर ट्रॉली`,
     },
     "6abe737b-e0b3-4b27-8d3e-45e0555ca4fd": {
         [Language.English]: `Trolley`,
@@ -5205,7 +5215,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "49106fd2-d12b-454d-a3ea-24a793de49b6": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी`,
     },
     "965c45f7-f888-4d22-bd3a-cad183c42e7e": {
         [Language.English]: `24 Months`,
@@ -5213,7 +5223,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "71bd364d-bc35-416e-92ee-212a82b4d833": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्षमता`,
     },
     "31f21f05-2ce7-46d8-9971-1102f33f1569": {
         [Language.English]: `1500 VA`,
@@ -5229,7 +5239,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "75fd8c06-fd2d-422c-8cd2-c972065f72e2": {
         [Language.English]: `Dimensions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आयाम`,
     },
     "0de3fa1c-d195-45dd-9670-155370379e7a": {
         [Language.English]: `275(L) X 277(W) X 153(H) mm`,
@@ -5237,19 +5247,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b537cb7c-46f5-4d95-b329-8e2745900f0a": {
         [Language.English]: `Explore Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद देखें`,
     },
     "e596f970-68cb-4c78-a74f-885ff89a0f84": {
         [Language.English]: `Bring Home`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `घर लाएं`,
     },
     "da847308-2fc2-449f-9346-7372e8f72d97": {
         [Language.English]: `<span class="lg-text-highlighted">The Right</span> Inverter Trolley`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सही</span> इनवर्टर ट्रॉली`,
     },
     "6e9b8409-2e42-4c63-9d68-9be787e999ab": {
         [Language.English]: `Find the suitable pick of inverter trolley that complements your inverter with efficiency. Use our leaflet tp get to know in detail about the products we offer, with their specifications.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर ट्रॉली चुनें जो आपके इनवर्टर के साथ सहज रूप से समर्थित हो। हमारे लीफलेट का उपयोग करके हमारे उत्पादों के विवरण के साथ में और अधिक जानें।`,
     },
     "1f38d219-7fb1-4b45-84d8-d28ea3bd3a71": {
         [Language.English]: `Buying Guide`,
@@ -5257,7 +5267,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "af4fabfc-67ee-488b-be62-5a17bac10daf": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "fcb9e80f-e552-41af-81fc-6ade228105ab": {
         [Language.English]: `Plan Your Power`,
@@ -5265,15 +5275,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a1d8ea9a-0849-49aa-826e-87bab380866b": {
         [Language.English]: `What is an inverter trolley?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर ट्रॉली क्या है?`,
     },
     "47d12216-c8fc-4aa9-9bdb-29d8dcd0ab69": {
         [Language.English]: `An inverter trolley is a portable stand or cart designed to hold and transport inverters and batteries. It provides stability, convenience, and protection with easy mobility for your inverter setup.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर ट्रॉली एक पोर्टेबल स्टैंड या कार्ट है जिसे इनवर्टर और बैटरी रखने और परिवहन करने के लिए डिज़ाइन किया गया है। यह आपके इनवर्टर सेटअप के लिए आसान गतिशीलता के साथ स्थिरता, सुविधा और सुरक्षा प्रदान करता है।`,
     },
     "e2f88f7e-1815-46e8-9aa1-01cefaca9f07": {
         [Language.English]: `Why do I need an inverter trolley for home?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मुझे घर के लिए इनवर्टर ट्रॉली की आवश्यकता क्यों है?`,
     },
     "59ccc2c2-5029-4e43-889b-479f159893f3": {
         [Language.English]: `An inverter trolley, or inverter stand, offers several benefits, including:<br />
@@ -5281,28 +5291,46 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         Safety: The trolley provides a stable platform for your inverter and battery, reducing the risk of accidental damage or tipping over.<br />
         Ventilation: Trolleys often feature open designs that promote airflow and ventilation, helping to keep your inverter and battery cool during operation.<br />
         Cable management: Many trolleys have provisions for managing cables neatly, reducing clutter and enhancing safety.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एक इनवर्टर ट्रॉली, या इनवर्टर स्टैंड, कई लाभ प्रदान करता है, जिनमें शामिल हैं:<br />
+        गतिशीलता: यह आपको अपने इनवर्टर और बैटरी सेटअप को आसानी से स्थानांतरित करने की अनुमति देता है, जब आपको अपने सेटअप को पुनर्व्यवस्थित करने की आवश्यकता होती है।<br />
+        सुरक्षा: ट्रॉली आपके इनवर्टर और बैटरी के लिए एक स्थिर मंच प्रदान करती है, जिससे आकस्मिक क्षति या पलटने का जोखिम कम हो जाता है।<br />
+        वेंटिलेशन: ट्रॉलियों में अक्सर खुले डिज़ाइन होते हैं जो वायु प्रवाह और वेंटिलेशन को बढ़ावा देते हैं, जो ऑपरेशन के दौरान आपके इनवर्टर और बैटरी को ठंडा रखने में मदद करते हैं।<br />
+        केबल प्रबंधन: कई ट्रॉलियों में केबलों को व्यवस्थित ढंग से प्रबंधित करने, अव्यवस्था को कम करने और सुरक्षा बढ़ाने के प्रावधान होते हैं।`,
     },
     "20500319-4842-4a4f-91ce-d2adbd17b524": {
         [Language.English]: `Are Livguard's inverter trolleys compatible with other brands of inverters?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या लिवगार्ड की इनवर्टर ट्रॉलियां अन्य ब्रांडों के इनवर्टर के साथ संगत हैं?`,
     },
     "d14ed9a8-72cb-4eea-847b-fc7ae260924b": {
-        [Language.English]: ` Livguard's inverter trolleys typically come with the following features:
+        [Language.English]: `Yes, Livguard's inverter trolleys are designed to be compatible with a wide range of inverters available in the market, including those from competitors like Luminous, Okaya, and Exide.`,
+        [Language.Hindi]: `हां, लिवगार्ड की इनवर्टर ट्रॉलियों को बाजार में उपलब्ध इनवर्टर की एक विस्तृत श्रृंखला के साथ संगत होने के लिए डिज़ाइन किया गया है, जिसमें ल्यूमिनस, ओकाया और एक्साइड जैसे नाम भी शामिल हैं।`,
+    },
+    "7e236ae3-2627-44bb-a955-082a1017453c": {
+        [Language.English]: `What are the key features of Livguard's inverter and inverter battery trolleys`,
+        [Language.Hindi]: `लिवगार्ड के इनवर्टर और इनवर्टर बैटरी ट्रॉली की मुख्य विशेषताएं क्या हैं?`,
+    },
+    "2a7ccdee-88af-4b50-b433-a26df20a5856": {
+        [Language.English]: ` Livguard's inverter trolleys typically come with the following features:<br >
         Sturdy construction: They are made from high-quality materials to ensure durability and stability.<br />
         Easy maneuverability: Trolleys often have wheels or casters for effortless movement.<br />
         Adjustable size: Some models offer adjustable sizes to accommodate different inverter and battery configurations.<br />
         Cable management: They include cable clips or hooks to keep the wires organized and minimize tripping hazards.<br />
-        Ventilation: The trolleys are designed with proper ventilation to prevent overheating.`,
-        [Language.Hindi]: `?????`,
+        Ventilation: The trolleys are designed with proper ventilation to prevent overheating. `,
+        [Language.Hindi]: `
+        लिवगार्ड की इनवर्टर ट्रॉलियों में आम तौर पर निम्नलिखित विशेषताएं होती हैं:<br />
+        मजबूत निर्माण: ये ट्रॉलियां उच्च गुणवत्ता के सामग्री से बनी होती हैं जिससे उन्हें टिकाऊता और स्थिरता होती है।<br />
+        आसान मणवारण: ट्रॉलियों में आम तौर पर पहियों या कास्टर्स होते हैं जिससे उन्हें आसानी से स्थानांतरित किया जा सकता है।<br />
+        समायोज्य आकार: कुछ मॉडल विभिन्न इनवर्टर और बैटरी सेटअप को समर्थन करने के लिए आकार में समायोज्यता प्रदान करते हैं।<br />
+        केबल प्रबंधन: इनवर्टर ट्रॉलियों में वायरों को व्यवस्थित रखने और ट्रिपिंग जोखिम को कम करने के लिए केबल क्लिप्स या हुक शामिल होते हैं।<br />
+        वेंटिलेशन: ट्रॉलियों में उचित हवा प्रवाह को सुनिश्चित करने के लिए वेंटिलेशन दिया जाता है जिससे इनवर्टर और बैटरी के सेटअप को ऑवरहीटिंग से बचाया जा सकता है।`,
     },
     "f9132ecf-4676-4cae-a86b-f754884b1caf": {
         [Language.English]: `Can Livguard assist with the installation of the inverter trolley?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या लिवगार्ड इनवर्टर ट्रॉली की स्थापना में सहायता कर सकता है?`,
     },
     "677ad117-00ce-425f-92f5-a2e879a907a8": {
         [Language.English]: ` Livguard primarily focuses on providing energy solutions through its products, including inverter trolleys. While they do not directly offer installation services for your inverter trolley case, they can provide guidelines or recommend authorized service providers who can assist you with the installation process.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड प्राथमिक रूप से अपने उत्पादों के माध्यम से ऊर्जा समाधान प्रदान करने पर ध्यान केंद्रित करता है, जिसमें इनवर्टर ट्रॉलियों भी शामिल हैं। वे सीधे इनवर्टर ट्रॉली के इंस्टॉलेशन सेवाएं प्रदान नहीं करते हैं, लेकिन वे आपको इंस्टॉलेशन प्रक्रिया में मदद के लिए दिशानिर्देश या अधिकृत सर्विस प्रोवाइडर्स की सिफारिश कर सकते हैं।`,
     },
     "036a4ed1-77f5-4a67-bc17-c3a2d364e21d": {
         [Language.English]: `FAQ Q5`,
@@ -5314,57 +5342,45 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "10a749b0-d7b2-4c29-add5-a4afb989249d": {
         [Language.English]: `View More`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `और देखें`,
     },
     "05dd627c-2d81-4390-a8ec-4543cb8b8cd7": {
         [Language.English]: `Show Less`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कम देखे`,
     },
 
     //E Rickshaw Charger vernac start
     "cf6da0b7-e5ad-4b79-b0a5-65a72b31b132": {
         [Language.English]: `Use Smart Charger`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `स्मार्ट चार्जर लगाओ`,
     },
     "1e3021a0-0a0d-479a-84eb-bcc17a9747a0": {
         [Language.English]: `Earn Smarter`,
-        [Language.Hindi]: `?????`,
-    },
-    "e012e585-3558-420d-8614-393e2ecfd8bc": {
-        [Language.English]: `Make every journey power packed with the best E-Rickshaw battery for your ride`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बेहतर कमाओ`,
     },
     "6148b8eb-4751-480f-96ef-b8ef9a1754a0": {
         [Language.English]: `<span class="lg-text-highlighted">Unmatched Performance</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">बेजोड़ प्रदर्शन</span>`,
     },
     "5323b1af-564e-435c-8e06-2d3041494551": {
         [Language.English]: `for Smooth Journeys`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सुगम यात्रा के लिए`,
     },
     "2fb36c26-a28f-4b1a-878a-fdb7d122caf4": {
-        [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `<span class="lg-text-highlighted">Featured Products</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">विशेष उत्पाद</span>`,
     },
     "b15faf10-0686-425c-abf7-50c35e7f1658": {
-        [Language.English]: `Based On Your Choice`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `For Your E-Rickshaw`,
+        [Language.Hindi]: `आपके ई-रिक्शा के लिए`,
     },
     "22669d2d-400b-4699-9d1c-2dd7078949b5": {
         [Language.English]: `Recommended`,
-        [Language.Hindi]: `?????`,
-    },
-    "79ecf90e-de5b-47f3-ad78-2ab6c8b38c14": {
-        [Language.English]: `E-Rickshaw Charger Black`,
-        [Language.Hindi]: `?????`,
-    },
-    "73741111-9f1f-4c7c-b9c7-678fda1b62c5": {
-        [Language.English]: `Lorem ipsum dolor sit amet. Sit accusamus facere et numquam nihil qui dolor impedit ut velit ....`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सुझाया गया`,
     },
     "46e8b48e-8f18-4d30-892d-9bdf5b3e76f6": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी`,
     },
     "8b0eae76-d68a-41e3-ae04-ac2663f60e09": {
         [Language.English]: `24 + 24* Months`,
@@ -5372,7 +5388,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "761454b0-a898-4f44-a557-65fc8d21069f": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्षमता`,
     },
     "32af45e9-f996-4fec-a122-e2e00e6c34c2": {
         [Language.English]: `7 Ah`,
@@ -5388,7 +5404,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "77b93075-16aa-4d56-a897-842797e65523": {
         [Language.English]: `Dimensions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आयाम`,
     },
     "90d584ae-5ce3-451c-bf58-6e0b2d713463": {
         [Language.English]: `275(L) X 277(W) X 153(H) mm`,
@@ -5396,27 +5412,27 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "e48d4eeb-f921-45f5-b023-680f699816c5": {
         [Language.English]: `Explore Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद देखें`,
     },
     "bd79396d-6510-44b5-b0cc-222450998828": {
         [Language.English]: `Discover More`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अधिक जानें`,
     },
     "a3079b91-9d9c-4adc-9859-158932a6b433": {
-        [Language.English]: `<span class="lg-text-highlighted>E-Rickshaw Video Guide</span>"`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `<span class="lg-text-highlighted">E-Rickshaw Video Guide</span>`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">ई-रिक्शा वीडियो गाइड</span>`,
     },
     "449e3c56-4dd9-4495-b968-a4ef45533fbb": {
         [Language.English]: `Featured Products`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विशेष उत्पाद`,
     },
     "e8fb1edc-fdbc-4bc9-b660-012d4cbb10f5": {
         [Language.English]: `For Your <span class="lg-text-highlighted">E-Rickshaw</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपके <span class="lg-text-highlighted">ई-रिक्शा</span> के लिए`,
     },
     "698f4100-216f-4ce8-89be-80b336b942ed": {
         [Language.English]: `Boost your rides with the perfect e-rickshaw charger. Explore our Product catalogue for purchasing details and specifications.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्तम ई-रिक्शा चार्जर के साथ अपनी सवारी को बेहतर बनाएं। खरीदारी विवरण और विशिष्टताओं के लिए हमारी उत्पाद सूची देखें।`,
     },
     "50f5f8f9-afaf-4793-97e9-201bdaeeb853": {
         [Language.English]: `Buying Guide`,
@@ -5424,7 +5440,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "214695af-9a93-4d51-909a-c3574f457997": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "92797775-c5d0-49a7-93e4-b35314cddc6f": {
         [Language.English]: `Plan Your Power`,
@@ -5496,7 +5512,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3f724c0f-7cd3-4c2e-b320-a8d48ee22cd3": {
         [Language.English]: `Connect with Us`,
-        [Language.Hindi]: ``,
+        [Language.Hindi]: `जुड़िए हमसे`,
     },
     "30f39249-45bb-45cb-a674-bcbe3df9710e": {
         [Language.English]: `<span class="lg-text-highlighted">E-mobility</span> Solutions`,
@@ -5674,67 +5690,63 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //Two Wheeler Page Vernac Strings Start
     "c106b24b-668c-4bc2-b9fe-747eea24944a": {
         [Language.English]: `Two-Wheeler Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `2-पहिया बैटरी`,
     },
     "24038be1-0e21-4016-9f8e-17d3d522b20e": {
         [Language.English]: `Powered For More`,
-        [Language.Hindi]: `?????`,
-    },
-    "7751ea6c-f22e-4cbf-b6a7-45dfc655bdc1": {
-        [Language.English]: `Ideal batteries to make every ride empowered for your two-wheeler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ज़्यादा के लिए सशक्त`,
     },
     "d3b47f52-f35c-4523-bb3f-0c4a55113f63": {
         [Language.English]: `Power, Performance, Perfection`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `शक्ति, प्रदर्शन, परिपूर्णता`,
     },
     "83e88e8e-82c4-4a1f-9540-6551a24c703c": {
         [Language.English]: `With <span class="lg-text-highlighted">Two Wheeler Batteries</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">दो-पहिया बैटरी</span> के साथ`,
     },
     "4136551e-69a6-4500-b475-321dd6b4e658": {
         [Language.English]: `More Cranking Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ज़्यादा क्रैंकिंग क्षमता`,
     },
     "34bb4867-d4f4-434d-a956-e3bb03c23b34": {
         [Language.English]: `Livguard Automotive Batteries are made with the perfect blend of Grid Structure and Plate Chemistry to ensure a more efficient and higher cranking power.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी ऑटोमोटिव बैटरी ग्रिड ढाँचे और प्लेट केमिस्ट्री के सहज मेल से बनी हैं, जो आपको  बेहतर और ज़्यादा क्रैंकिंग क्षमता देती है।`,
     },
     "701881a3-e5f5-42b7-b41e-118fa30f47e0": {
         [Language.English]: `More Consistent Performance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अधिक नियमित प्रदर्शन`,
     },
     "7aaf5c28-e9df-4665-8aa7-5358869f54e8": {
         [Language.English]: `The durable design and technology that helps in providing a better, seamless, and more consistent performance with every ride.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी हर सवारी में लंबे समय तक चलने वाले डिज़ाइन और तकनीक से एक बेहतर, सुव्यवस्थित और नियमित प्रदर्शन का आनंद लें।`,
     },
     "353cc560-e2f2-4e33-a948-607d46455471": {
         [Language.English]: `More Battery Life`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लंबी बैटरी आयु`,
     },
     "fe83636f-3c6f-4450-a329-17edf6e7ea31": {
         [Language.English]: `Made with a Robust Design and Double Clad Separation, our Automotive Batteries are made to last long and deliver a seamless experience`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `शक्तिशाली डिज़ाइन और डबल क्लैड विभाजन के साथ, हमारी ऑटोमोटिव बैटरी लम्बे समय तक टिकने और समर्थक अनुभव प्रदान करने के लिए बनाई गई है।`,
     },
     "8b863aa9-0f16-493f-94e0-232f4fabfda2": {
         [Language.English]: `Zero Maintenance`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मेंटेनेंस मुक्त",
     },
     "ce0ddd16-4361-477a-8ca3-3bee5c8fdc95": {
         [Language.English]: `With our range of two-wheeler batteries, experience seamless performance with zero maintenance requirements.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारी 2-पहिया बैटरी के साथ बिना रखरखाव के साथ बेहतर अनुभव कीजिए।",
     },
     "b21c18a0-c411-4c08-adb9-cb1623a207bc": {
         [Language.English]: `Choose Your Ideal`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `चुनिए अपनी आदर्श`,
     },
     "c0e900e7-59e1-45d8-b317-54988a6051ba": {
         [Language.English]: `<span class="lg-text-highlighted">Two Wheeler</span> Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">दो-पहिया</span> बैटरी`,
     },
     "114a82b5-b299-4bb9-8528-b295394771d8": {
         [Language.English]: "Find the ideal battery that suits your two-wheeler. Use our battery finder to find your ideal pick, or download our catalogue for specifications.",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने 2-पहिया वाहन के लिए सही बैटरी को चुनें। हमारे बैटरी फाइंडर का उपयोग करके अपनी आदर्श बैटरी को ढूंढें, या अन्य विशेषताओं के लिए हमारे कैटलॉग को डाउनलोड करें।`,
     },
     "a1ac20a8-c430-4a35-b262-2ff35b480344": {
         [Language.English]: `Plan Your Power`,
@@ -5749,44 +5761,44 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "/- से शुरू",
     },
     "3e16fc04-40ab-4a32-aca8-bb10812fe30d": {
-        [Language.English]: `Our Range `,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Our Range`,
+        [Language.Hindi]: "श्रेणी देखें",
     },
     "52d70e49-05fc-47e2-93c0-104e51b58fbc": {
         [Language.English]: `For <span class="lg-text-highlighted">Two Wheeler</span> Batteries`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">2-पहिया बैटरी</span> की`,
     },
     "cd191eb4-b171-47b1-ab0e-21e4f3259011": {
         [Language.English]: `Best Seller`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "श्रेष्ठ विकल्प",
     },
     "2b42baca-b2b7-489c-b1a2-2d25d18f9ffd": {
         [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">हमारे सुझाव</span>`,
     },
     "d4091725-079a-4f18-831c-03cc7bb2ec09": {
         [Language.English]: `Based On Your Choice`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपकी ज़रूरत अनुसार",
     },
     "0dc1ec96-3b51-4314-ab45-9b5b542f66c5": {
         [Language.English]: `Filter`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "फ़िल्टर",
     },
     "51d56374-4d1d-46c1-8ef1-f72396e12e6a": {
-        [Language.English]: `Select Manufacturer`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Select Brand`,
+        [Language.Hindi]: "ब्रांड चुनें",
     },
     "5793b8a3-16b1-4c11-bc37-ef5062160855": {
         [Language.English]: `Select Segment`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सेगमेंट चुनें",
     },
     "97f3fc31-1116-46f6-a385-d4df5e25bde1": {
         [Language.English]: `Select Model`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मॉडल चुनें",
     },
     "3231d38a-1950-46eb-be3b-76bd8bce6998": {
         [Language.English]: `Apply`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अप्लाई",
     },
     "e9d54eec-71d3-4c7e-aa3e-265e7c7db57f": {
         [Language.English]: `MoRide LGBTX 7L`,
@@ -5815,48 +5827,48 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "7bcd803f-7cae-427b-9838-8c1966e13b01": {
         [Language.English]: `Recommended`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सुझाया गया",
     },
     "42bd678d-83ef-4935-a3aa-7e9406887b28": {
         [Language.English]: `Explore Product`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "उत्पाद देखें",
     },
     "2c6dc668-49ef-4913-88c1-904d6e9be1a2": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वारंटी",
     },
     "c73ece31-e0c3-4b1f-94c5-51d742ae3186": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्षमता",
     },
     "0bbd2699-d61f-48ee-ae84-491a2ee102eb": {
         [Language.English]: `Polarity`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "पोलारिटी",
     },
     "e44c8c4b-bf5d-412c-9ca4-27552ec79104": {
         [Language.English]: `Dimensions`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आयाम",
     },
 
     "03af4bc6-64c9-4819-8b24-32aa3e2ef3f1": {
         [Language.English]: `How to find the best two-wheeler battery?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "2-पहिया वाहन के लिए सर्वोत्तम बैटरी कैसे चुनें?",
     },
     "9e54904b-adb2-4589-89c9-c1e4c407a454": {
-        [Language.English]: `When it comes to two-wheeler batteries, quality is the most important thing to consider. Livguard excels in manufacturing robust and reliable two-wheeler batteries. Our Automotive Batteries(link to page) are designed to offer superior performance, easy handling, and low maintenance requirements.`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `When it comes to two-wheeler batteries, quality is the most important thing to consider. Livguard excels in manufacturing robust and reliable two-wheeler batteries. Our <a class="tw-underline" href="/two-wheeler-batteries">2W Batteries</a> are designed to offer superior performance, easy handling, and low maintenance requirements.`,
+        [Language.Hindi]: `जब बात 2-पहिया  बैटरी की होती है, तो गुणवत्ता सबसे महत्वपूर्ण बात है। लिवगार्ड 2-पहिया बैटरी के निर्माण में उत्कृष्टता दिखाता है। हमारी <a class="tw-underline" href="/two-wheeler-batteries">2-पहिया बैटरी</a> उच्च प्रदर्शन और मेंटेनेंस मुक्त आती हैं।`,
     },
     "346c1030-2edd-4ba5-94d0-32f877f452be": {
         [Language.English]: `Which battery is best for bikes?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कौन सी बैटरी बाइक के लिए सबसे अच्छी है?",
     },
     "1e94b867-5da8-4c8c-befe-4d3018a8bb56": {
         [Language.English]: `Livguard's range of <a href="/product/lgzhhtz4" class="tw-underline">MoRide batteries</a> is the best for bikes. They are high-performance two-wheeler batteries designed to deliver a power-packed ride through the narrow lanes and tough terrains of India. Livguard MoRide two-wheeler batteries offer more cranking power, more consistent performance and more battery life.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `लिवगार्ड की <a href="/product/lgzhhtz4" class="tw-underline">MoRide बैटरी</a> बाइकों के लिए सबसे अच्छी है। यह उच्च प्रदर्शन वाली दो-पहिया वाहन बैटरी है जो भारत की पतली गलियों और कठिन भूमि में एक शक्तिशाली सवारी प्रदान करने के लिए डिज़ाइन की गई है। लिवगार्ड MoRide दो-पहिया वाहन बैटरी अधिक क्रैंकिंग पावर, निरंतर प्रदर्शन, और अधिक बैटरी लाइफ प्रदान करती है।`,
     },
     "666f5b25-c71d-41b4-8695-2f2f29a2915c": {
         [Language.English]: `What is the life of a two-wheeler bike battery?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "दो-पहिया वाहन बाइक बैटरी का जीवनकाल कितना होता है?",
     },
     "fb9a1ce5-7522-442d-89b0-10387f9dbecd": {
         [Language.English]: `An average two-wheeler bike battery lasts between 2-3 years depending upon the usage. There are many factors that affect the batteries’ lifecycle. Such as:<br>
@@ -5864,12 +5876,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         - Faulty voltage regulator<br>
         - Leaky circuit<br>
         - Heat and vibration<br>
-        Livguards range of Two-wheeler batteries(Link to page) are made to power your ride with better performance and efficiency.`,
-        [Language.Hindi]: "?????",
+        Livguards range of <a class="tw-underline" href="/two-wheeler-batteries">Two-wheeler batteries</a> are made to power your ride with better performance and efficiency.`,
+        [Language.Hindi]: `औसतन, दो-पहिया वाहन बाइक बैटरी का जीवनकाल 3-4 वर्ष के बीच होता है जो उपयोग पर निर्भर करता है। इसमें कई कारक जीवनकाल को प्रभावित करते हैं। जैसे:<br>
+        - खराब वोल्टेज रेगुलेटर<br>
+        - बिगड़ा हुआ सर्किट<br>
+        - गरमी और दहन<br>
+        Livguard के <a class="tw-underline" href="/two-wheeler-batteries">दो-पहिया वाहन बैटरी</a> आपके राइड को बेहतर प्रदर्शन और दक्षता के साथ चलाने के लिए बनाई गई हैं।`,
     },
     "77454b24-599c-4a4a-a980-abe2ea759eda": {
         [Language.English]: `How can I improve my bike battery life?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मैं अपनी बाइक बैटरी का जीवनकाल कैसे सुधार सकता हूँ?",
     },
     "44842d1f-5e7a-4ace-83f8-1e02bf0e4b81": {
         [Language.English]: `A few careful steps and guidelines can extend the life of your bike's battery by several years. These include:<br>
@@ -5877,15 +5893,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         - Keep the battery charged<br>
         - Follow a maintenance schedule<br>
         Livguard's range of <a href="/product/lgzhhtz4" class="tw-underline">MoRide batteries</a> is the best for bikes. They offer more cranking power, more consistent performance and more battery life. They are easy to handle and low on maintenance.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `"कुछ सावधानीपूर्वक कदम और दिशा-निर्देश आपकी बाइक की बैटरी का जीवनकाल कई वर्षों तक बढ़ा सकते हैं। इनमें शामिल हैं:<br>
+        - सही बैटरी का उपयोग करें<br>
+        - बैटरी को चार्ज में रखें<br>
+        - अपनी बैटरी को साफ करें<br>
+        Livguard के <a href="/product/lgzhhtz4" class="tw-underline">MoRide बैटरी रेंज</a> बाइक के लिए सबसे अच्छे हैं। ये बैटरी को अधिक क्रैंकिंग पावर, सतत प्रदर्शन और अधिक बैटरी लाइफ देते हैं।"`,
     },
     "eb26cf7b-27ef-4778-b611-eaa017322540": {
-        [Language.English]: `Which two-wheeler bike battery is suitable for 200cc bikes?`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `How do I choose right battery for my 2 Wheeler?`,
+        [Language.Hindi]: "मेरे दो-पहिये वाहन के लिए सही बैटरी कैसे चुनूं?",
     },
     "2266d6d4-5dfe-4850-bd66-e2fa675eb9a5": {
-        [Language.English]: `Livguard's BTX9L(link to product) is the best battery for 200cc bikes. Its battery capacity is 9Ah and provides more consistent performance.`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `For your two-wheeler ride, you should look for a battery that offers a smooth performance in the long run, for a hassle free ownership. Use our <a href="/battery-finder" class="tw-underline">Battery Finder</a> to find the ideal battery for your two-wheeler.`,
+        [Language.Hindi]: `आपके दो-पहिये वाहन के लिए, आपको एक ऐसी बैटरी चुननी चाहिए जो आपको लंबे समय तक सहज और तकनीकी समस्याएं मुक्त रहने की सुविधा प्रदान करे। हमारे <a href="/battery-finder" class="tw-underline">बैटरी फाइंडर</a> का उपयोग करें और अपने दो-पहिये वाहन के लिए आदर्श बैटरी ढूंढें।`,
     },
     "de841654-95b1-424b-a000-e70cde20f666": {
         [Language.English]: "1500VA Capacity",
@@ -5900,111 +5920,107 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     "835eb595-c459-46db-a37a-f310363e1733": {
         [Language.English]: " Simply amaZING Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सिर्फ़ amaZING बैटरी",
     },
     "4abfa328-bde2-4190-b944-71556401c22c": {
         [Language.English]: "With Best in Class Warranties",
-        [Language.Hindi]: "?????",
-    },
-    "1d0accca-ec98-4ea1-89b9-88072cf5881d": {
-        [Language.English]: "Make every ride an adventure with Livguard's range of Car & SUV batteries. Select and buy the ideal one that fits your Car and SUV's needs",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सर्वश्रेष्ठ वारंटी के साथ",
     },
     "32311f43-f3bd-4137-8d35-381f0bfff7bf": {
         [Language.English]: `Strong <span class="lg-text-highlighted">Automotive Batteries</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `मज़बूत <span class="lg-text-highlighted">ऑटोमोटिव बैटरी</span>`,
     },
     "30486bb4-8e46-4f90-87e0-1ecf2addaba4": {
         [Language.English]: "To Drive Your Journey Forward",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपके सफ़र को आगे बढ़ाने के लिए",
     },
     "f6ffda18-14b4-4973-9f1d-8394404caae0": {
         [Language.English]: "Best In Class Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "श्रेष्ठ वारंटी",
     },
     "a3d4f75e-dfc7-4a1e-b227-f7ba59c7415d": {
         [Language.English]: "Experience unmatched performance for your car and SUV with peace of mind of our best-in-class warranty, for each Ah battery category",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपने कार और SUV के लिए बेमिसाल प्रदर्शन का आनंद लें, हर Ah बैटरी श्रेणी के लिए हमारी सर्वश्रेष्ठ वारंटी के साथ।",
     },
     "035647a1-11fd-46c8-9779-6ca45d66aef9": {
         [Language.English]: "Maintenance Free",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मैंटेनेंस मुक्त",
     },
     "7e6ef891-fa59-4673-b436-af77ecff2da0": {
         [Language.English]: "Batteries made with Advance Calcium Technology for a smooth and maintenance-free battery life.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "एडवांस कैल्शियम टेक्नोलॉजी से बनी बैटरियां, सरल और निर्बाध बैटरी जीवन के लिए।",
     },
     "c5b351d6-0747-4a75-8e47-48f20f9adb0f": {
         [Language.English]: "Smooth Start",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सहज शुरुआत",
     },
     "521768ff-9aa1-41fe-b403-5fbeaf100b3b": {
         [Language.English]: "Car and SUV batteries built with Unique Active Material for seamless ignition, during every ride.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अद्वितीय सक्रिय सामग्री से निर्मित कार और SUV बैटरियां, जो हर बार एक सहज शुरुवात मुमकिन करती हैं।",
     },
     "79f76b0b-3fce-4d4f-8fb8-4a468a20420b": {
         [Language.English]: "Long Battery Life",
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: "लंबी बैटरी आयु",
     },
     "559a1118-7d22-4c63-8838-c246921b9361": {
         [Language.English]: "Experience unparalleled longevity of batteries, with the use of Tough Radial Grid design to keep you moving always.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हमारे दमदार रेडियल ग्रिड डिज़ाइन के उपयोग से बैटरियों की लंबी आयु को अनुभव करें, जो आपको हमेशा चलते रहने में मदद करेगी।",
     },
     "1d2d55db-13cc-47d8-b960-9aa8906e1922": {
         [Language.English]: `<span class="lg-text-highlighted">Our Suggestions</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">हमारे सुझाव</span>`,
     },
     "cd8f0fe0-3dae-485f-aa06-dac1a5450012": {
         [Language.English]: "Based On Your Choice",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपकी ज़रूरत अनुसार",
     },
     "c505d928-fde1-4ad6-95f4-2f3109e0e87f": {
         [Language.English]: "Filter",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "फ़िल्टर",
     },
     "38a5a09b-8b40-42ea-8d49-52cce1c949c2": {
-        [Language.English]: "Select Manufacturer",
-        [Language.Hindi]: "?????",
+        [Language.English]: "Select Brand",
+        [Language.Hindi]: "ब्रांड चुनें",
     },
     "89d6339c-70c9-4b06-aada-fc1800ed6018": {
         [Language.English]: "Select Segment",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सेगमेंट चुनें",
     },
     "c7f85209-525c-4954-8450-f5dd4b3c3d1e": {
         [Language.English]: "Select Model",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मॉडल चुनें",
     },
     "9e1abe1a-e9ab-47a1-ae4a-36b66a06af82": {
         [Language.English]: "Select Fuel",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ईंधन प्रकार चुनें",
     },
     "85423d3b-8623-4b4b-b4f1-48953aa4fee7": {
         [Language.English]: "Apply",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अप्लाई",
     },
     "e2ceac17-9977-44d4-933b-1f221aed6c85": {
         [Language.English]: "Recommended",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "सुझाया गया",
     },
     "30de7643-a5bc-49a0-b85f-bfa770836330": {
         [Language.English]: "Explore Battery",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी देखें",
     },
     "95a938d7-dd71-46de-80b0-a417845dfb4d": {
         [Language.English]: "Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वारंटी",
     },
     "c4c53678-fb9a-41c2-8782-de0690cffdd4": {
         [Language.English]: "Capacity",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्षमता",
     },
     "05bda873-c84c-4376-8a17-6503ac9d2820": {
         [Language.English]: "Polarity",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "पोलारिटी",
     },
     "9c719db5-fa53-423e-9b96-a77602b3c5bc": {
         [Language.English]: "Dimensions",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आयाम",
     },
     "7c0a4fcb-46bb-4f91-bad3-c2edf00a1950": {
         [Language.English]: "ZING ULTRA ZU 38B20 L",
@@ -6017,7 +6033,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c064ffe8-b794-4e21-baf5-56a5515a28f5": {
         [Language.English]: "Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वारंटी",
     },
     "aaabaf03-79df-4e72-9785-855769b39789": {
         [Language.English]: "30+30* Months",
@@ -6025,7 +6041,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "cb10db44-cef3-48d4-9e58-bdf3994ab36c": {
         [Language.English]: "Capacity",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्षमता",
     },
     "0ae2cd6e-1165-41a6-82ec-977fda0f326b": {
         [Language.English]: "35 Ah @C 2O",
@@ -6033,7 +6049,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "192b8ada-bbdd-44cc-a446-eaea0eb04fff": {
         [Language.English]: "Polarity",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "पोलारिटी",
     },
     "c4503ffb-5eec-496c-88ad-3b9436fe9b47": {
         [Language.English]: "L",
@@ -6041,7 +6057,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c813406c-6efb-41c1-8106-b75ef5856aa8": {
         [Language.English]: "Dimensions",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आयाम",
     },
     "fac2ba5d-65a2-4873-be4e-42ac01cd401e": {
         [Language.English]: "197(L) x 129(W) x 225(H) mm",
@@ -6049,11 +6065,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "72238b02-d35a-497e-be9d-1d1f2742dd6d": {
         [Language.English]: `Top <span class="lg-text-highlighted">Car & SUV</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">कार और SUV</span> के`,
     },
     "7dccb0a9-930e-498d-bc45-194b73920af2": {
         [Language.English]: "Battery Picks",
-        [Language.Hindi]: "",
+        [Language.Hindi]: "शीर्ष बैटरी विकल्प",
     },
     "281b48d3-22ce-4806-905b-6d88896ed020": {
         [Language.English]: "Eterna",
@@ -6081,7 +6097,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "370fbb82-0ac6-4fb3-bfdf-02b69882b943": {
         [Language.English]: "Best Seller",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "श्रेष्ठ विकल्प",
     },
     "550d6911-0818-4aa4-aa5b-13f72a16006b": {
         [Language.English]: "Zing Eterna ZE 38B20 L",
@@ -6173,47 +6189,48 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3dd8ef5c-fbb6-42e3-ba7a-32ac98bef635": {
         [Language.English]: "Choose Your Ideal",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "चुनिए अपनी आदर्श",
     },
     "a1cd74ff-061a-4631-916b-66ca35810235": {
         [Language.English]: `<span class="lg-text-highlighted">Car & SUV</span> Battery`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">आदर्श कार और SUV</span> बैटरी`,
     },
     "9e3c8233-9c58-4c24-b87c-fd99c33ff11e": {
         [Language.English]:
             "Find the ideal battery that fits perfectly with your Car and SUV. Use our Buying Guide to get to know in detail about how you can buy your battery and our Product Catalogue for product specifications",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी कार और एसयूवी के लिए आदर्श बैटरी का चयन करें। हमारे बैटरी फाइंडर का उपयोग करके अपनी आदर्श बैटरी को ढूंढें, या अन्य विशेषताओं के लिए हमारे कैटलॉग को डाउनलोड करें।",
     },
     "2e95883c-ae7a-46d4-91c7-baff1724f551": {
         [Language.English]: "Can we charge a discharged car battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्या हम एक डिस्चार्ज हो चुकी कार बैटरी को चार्ज कर सकते हैं?",
     },
     "e5dc6e92-092d-4879-8e6f-869818c6fe35": {
         [Language.English]:
             "A car battery is considered discharged when the voltage drops below 12 volts. And if the car battery is below 12 volts, use a dedicated charger to charge it. Consider Livguard's range of cars and SUV batteries for a smooth experience.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "जब कार बैटरी का वोल्टेज 12 वोल्ट से कम हो जाता है, तो उसे डिस्चार्ज हुआ माना जाता है। और अगर कार बैटरी 12 वोल्ट से कम है, तो इसे चार्ज करने के लिए एक चुने हुए चार्जर का उपयोग करें। इसके लिए लिवगार्ड की कार और SUV बैटरी श्रेणी एक भरोसेमंद विकल्प है।",
     },
     "c7184bc7-e542-4611-9a62-ad9459b1c6ec": {
         [Language.English]: "Does a car battery discharge in cold weather?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्या गाड़ी की बैटरी सर्दी के मौसम में डिस्चार्ज होती है?",
     },
     "1a580e9e-7d49-4c5e-b99a-4c75b5788551": {
         [Language.English]:
             "Cold temperatures thicken motor oil, making it harder to turn the engine over. A cold battery has less cranking power, thus making it difficult to start in cold weather. Livguard automotive batteries are made with higher cranking power to deliver a smooth experience",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "सर्दी की तापमान से मोटर तेल गाढ़ हो जाता है, जिससे इंजन को घुमाना मुश्किल हो जाता है। ठंडे मौसम में ठंडी बैटरी में कम क्रैंकिंग क्षमता होती है, जिससे ठंडे मौसम में स्टार्ट करना कठिन हो जाता है। लिवगार्ड ऑटोमोटिव बैटरी उच्च क्रैंकिंग पावर के साथ बनाई जाती हैं, जिससे आपको एक सहज अनुभव मिलता है।",
     },
     "9d49ec97-e7f0-4fb7-90ad-23f73ed28b69": {
         [Language.English]: "What is the average life of a car battery? How to find the best car battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "गाड़ी के लिए बैटरी का औसत जीवन क्या है? सबसे अच्छी बैटरी कैसे ढूंढें?",
     },
     "93d6fb1c-e245-43ee-a440-43938bc33b1d": {
-        [Language.English]:
-            "Car batteries usually last between 3 and 5 years. There are many factors which decide the average life of a battery. To find the best car battery visit Livguard's Automotive Battery range.",
-        [Language.Hindi]: "?????",
+        [Language.English]: `Car batteries usually last between 3 and 5 years. There are many factors which decide the average life of a battery. To find the best car battery visit <a class="tw-underline" href="/battery-finder">Livguard's Automotive Battery Range</a>.`,
+        [Language.Hindi]: `गाड़ी की बैटरियों की सामान्य उम्र आम तौर पर 3 से 5 साल के बीच होती है। इसकी औसत उम्र पर कई कारक निर्धारित करते हैं। सबसे अच्छी गाड़ी की बैटरी ढूंढने के लिए, लिवगार्ड की <a class="tw-underline" href="/battery-finder">ऑटोमोटिव बैटरी रेंज</a> पर जाएं।`,
     },
     "348ff8a2-eb90-4f43-8099-306938e8f7cb": {
         [Language.English]: "How do I choose a car battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "गाड़ी के लिए बैटरी कैसे चुनें?",
     },
     "ec314aa6-aed3-4ef2-96d4-9627a4241bc4": {
         [Language.English]: `To find the right battery power for your vehicle, you need to consider a few important factors.<br>
@@ -6221,16 +6238,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         Reserve capacity (RC) of the battery: It refers to a battery's standing power.<br>
         The standard requirements of your vehicle.<br>
         Size and brand<br>
-        Livguard’s battery finder is the best way to help you find the right battery for your vehicle.`,
-        [Language.Hindi]: "?????",
+        Livguard’s <a href="/battery-finder" class="tw-underline">Battery Finder</a> is the best way to help you find the right battery for your vehicle.`,
+        [Language.Hindi]: `अपने वाहन के लिए सही बैटरी चुनने के लिए कुछ महत्वपूर्ण कारकों का ध्यान रखना आवश्यक है।<br>
+        कोल्ड-क्रैंकिंग एम्प्स (सीसीए): यह बैटरी की शुरूआती शक्ति का माप होता है।<br>
+        बैटरी का रिजर्व कैपेसिटी (आरसी): यह एक बैटरी की खड़ी शक्ति को दर्शाता है।<br>
+        आपके वाहन के मानक आवश्यकताएं।<br>
+        आकार और ब्रांड<br>
+        लिवगार्ड का <a href="/battery-finder" class="tw-underline">बैटरी फाइंडर</a> आपको आपके वाहन के लिए सही बैटरी का चयन करने में सहायता करेगा।`,
     },
     "09cfe0e4-6cf2-4624-96d2-814f38c3a7b7": {
         [Language.English]: "What is a maintenance-free car battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मेंटेनेंस-फ्री गाड़ी की बैटरी क्या होती है?",
     },
     "a334719f-b502-42db-ad3d-61020e863d49": {
         [Language.English]: `A maintenance-free car battery implies that the manufacturer didn’t provide any means of maintaining the water/acid level in the battery. This means it can only be replaced if the battery boils dry. Therefore, buying a maintenance-free battery from a trusted and renowned manufacturer like Livguard is imperative. We provide robust, sturdy and long-lasting batteries for every road condition in India. Livguard’s <a href="/product/ze38b20l" class="tw-underline">Zing ETERNA battery</a> for Cars & SUVs is an ideal choice with a double-lid design which prevents external damage and terminal corrosion for a maintenance-free life.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `एक मेंटेनेंस-फ्री कार बैटरी का अर्थ है कि आपको अपनी बैटरी में पानी के ऊपर का ध्यान रखने की चिंता नहीं होती, क्योंकि बैटरी ऐसे तरीके से बनाई जाती है। इन्हें केवल तब बदला जा सकता है जब बैटरी सूख जाती है। इसलिए, भारत में एक विश्वसनीय और प्रसिद्ध निर्माता से मेंटेनेंस-फ्री बैटरी खरीदना महत्वपूर्ण है, जैसे कि लिवगार्ड। हम भारत में हर सड़क की स्थिति के लिए मज़बूत, टिकाऊ और दीर्घकालिक बैटरियाँ प्रदान करते हैं। लिवगार्ड की <a href="/product/ze38b20l" class="tw-underline">ज़िंग एटर्ना बैटरी</a> कार और एसयूवी के लिए एक आदर्श विकल्प है जिसमें डबल-लिड डिज़ाइन है जो बाहरी क्षति और टर्मिनल धब्बे को रोकता है और मेंटेनेंस-फ्री जीवन प्रदान करता है।`,
     },
     "e2e8a837-7ec1-4291-9838-aaf60d3bc843": {
         [Language.English]: "35 Ah @ C₂₀",
@@ -6260,11 +6282,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //Tractor Page Vernac Strings Start
     "1ff75fcb-01bd-4946-84bc-f759d4dad669": {
         [Language.English]: "Powering Tractors with",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ट्रैक्टर के लिए शक्ति",
     },
     "d11c39cc-f5a5-412e-acfa-a08385f2fd26": {
         [Language.English]: "the Pradhan of All Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरियों के प्रधान के साथ",
     },
     "6dfb8a56-4b0a-48d1-a976-7bb6f235c9c2": {
         [Language.English]: "Empowering India's agriculture segment with power-packed tractor battery choices",
@@ -6272,43 +6294,43 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c15def47-2c4f-4e42-ba57-102da4f0ee11": {
         [Language.English]: `<span class="lg-text-highlighted">Superior Features</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">अद्भुद विशेषतायें</span>`,
     },
     "7547aa62-ca76-48e4-9fb0-62cea563108c": {
         [Language.English]: "For A Supreme Performance",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "श्रेष्ठ प्रदर्शन के लिए",
     },
     "054be978-134a-4185-9c1c-af2e2115a679": {
         [Language.English]: "Fast Start",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "फ़ास्ट स्टार्ट",
     },
     "52f9b679-cbea-492f-be72-97980bbd8f4f": {
         [Language.English]: "Batteries built with specially designed grid structure and plate chemistry to ensure higher cranking  and a fast start, everytime.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "विशेष रूप से ग्रिड ढाँचे और प्लेट केमिस्ट्री के साथ डिज़ाइन की गई बैटरी जो बेहतर क्रैंकिंग के साथ निश्चित करती हैं कि आपको हमेशा एक फ़ास्ट स्टार्ट मिले।",
     },
     "55d766c4-1a47-4ba3-bb6f-299997cb27ee": {
         [Language.English]: "Long Service Life",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "लंबी सेवा अवधि",
     },
     "3d8116d8-57fd-461c-916d-060537ceda59": {
         [Language.English]: "Made with a Robust Design and Double Clad Separation, our Automotive Batteries are made to last long and deliver a seamless experience.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "मजबूत डिज़ाइन और डबल क्लैड सेपरेशन से बनी हमारी ऑटोमोटिव बैटरियां लंबे समय तक टिकने और एक बिना रुकावट अनुभव प्रदान करने के लिए बनाई गई हैं।",
     },
     "2e1d6311-034a-4ee3-8f50-bee164a05906": {
         [Language.English]: "All Weather Performance",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हर  मौसम में प्रदर्शन",
     },
     "141b0934-353a-4b48-ba96-69afbe2bc115": {
         [Language.English]: "Batteries made with corrosion-resistant alloy with high concentration of current carrying parts to give maximum performance in rough terrains.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "जंगरोधी धातु और अधिकतम उत्पादन के लिए विद्युत धारक भागों की अधिकतम संख्या के साथ बनाई गई बैटरी, जो ऊँचे-नीचे रास्तों में भी सर्वश्रेष्ठ प्रदर्शन दिखाती हैं।",
     },
     "0e93ec35-4468-4b70-a176-bd13df7e5e63": {
-        [Language.English]: `Our <span class="lg-text-highlighted">Top Picks</span> For Your`,
-        [Language.Hindi]: "?????",
+        [Language.English]: `Our <span class="lg-text-highlighted">Range</span>`,
+        [Language.Hindi]: `हमारी <span class="lg-text-highlighted">श्रेणी</span>`,
     },
     "ab60649d-e18a-4461-8cc3-2e9e0b2150ab": {
-        [Language.English]: "Limitless Growth",
-        [Language.Hindi]: "?????",
+        [Language.English]: "To Empower Your Growth",
+        [Language.Hindi]: "आपके विकास के लिए",
     },
     "3daf8d68-a883-4175-b8b5-6dca9724201a": {
         [Language.English]: "Pradhaan",
@@ -6328,7 +6350,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "7a706b0b-70b9-4880-9ef1-c90f1fde1dc0": {
         [Language.English]: "Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वारंटी",
     },
     "7df7a369-4108-454a-90e4-0846ad1610ee": {
         [Language.English]: "24 + 24* Months",
@@ -6336,7 +6358,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "20746cd1-a2d8-4dba-bc90-7632e05cc1f9": {
         [Language.English]: "Capacity",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्षमता",
     },
     "db1eec3b-ce03-42ae-89a2-4b6f19ce8f2d": {
         [Language.English]: "7 Ah",
@@ -6352,7 +6374,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "38ae7f11-a012-4361-8f9a-397405fbfac7": {
         [Language.English]: "Dimensions",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आयाम",
     },
     "e06d3d4a-dd54-4c26-b31b-33e3615f92b4": {
         [Language.English]: "275(L) X 277(W) X 153(H) mm",
@@ -6392,16 +6414,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "27518d22-a27d-4519-b01a-18d1fed070ed": {
         [Language.English]: `Choose The`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `खोजें <span class="lg-text-highlighted">सही बैटरी</span>`,
     },
     "4092b04f-c277-4ec3-b313-0844337ae7df": {
         [Language.English]: `<span class="lg-text-highlighted">Right Battery</span> For You`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपने ट्रैक्टर के लिए",
     },
     "c92fa811-4140-4bef-86a4-6034b9ad2cf9": {
         [Language.English]:
             "Find a battery that complements and empowers your tractor with limitless power. Use our battery finder to find your ideal pick, or download our catalogue for specifications.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "अपने ट्रैक्टर को असीमित शक्ति से संयुक्त करने और सशक्त बनाने के लिए एक ऐसी बैटरी खोजें जो आपके लिए उपयुक्त हो। हमारे बैटरी फाइंडर का उपयोग करके अपनी आवश्यकतानुसार बैटरी का चयन करें, या स्पेसिफिकेशन के लिए हमारे कैटलॉग को डाउनलोड करें।",
     },
     "ec0d9e43-a1e3-414a-b6fe-01114e016fd3": {
         [Language.English]: "Buying Guide",
@@ -6409,121 +6432,119 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b0b06e47-de82-4dba-acc2-90e3b74df96b": {
         [Language.English]: "Download Catalogue",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कैटलॉग डाउनलोड करें",
     },
     "734ba5fc-030e-4c78-a3c3-b31ae30e1f51": {
         [Language.English]: "Find My Battery",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "अपनी बैटरी खोजें",
     },
     "6a9dcdf2-db86-4d1a-a9aa-0431dc441372": {
         [Language.English]: "Which is the best tractor battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कौनसी ट्रैक्टर बैटरी सबसे अच्छी है?",
     },
     "775f35e2-464a-4571-a75e-babbc97ac4d2": {
         [Language.English]:
             "The best tractor battery for agriculture may vary on the needs of the individual buying it. Livguard’s Pradhan is an ideal choice for your agricultural vehicles. They are designed for an unmatched performance of tractors with high energy demands.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "खेती के लिए सबसे अच्छी ट्रैक्टर बैटरी व्यक्ति की जरूरतों पर निर्भर कर सकती है। लिवगार्ड की प्रधान ट्रेक्टर बैटरी आपके कृषि वाहनों के लिए एक आदर्श विकल्प है। ये ट्रैक्टरों के ऊंचे ऊर्जा आवश्यकताओं के लिए अद्भुत प्रदर्शन के लिए डिज़ाइन की गई हैं।",
     },
     "a5472cd9-0d41-4450-88ed-d7c07c18a319": {
         [Language.English]: "How can I find the best battery for tractor?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ट्रैक्टर के लिए सबसे अच्छी बैटरी कैसे ढूंढें?",
     },
     "550c8080-9893-46ac-92bf-b317fc9aaeb4": {
-        [Language.English]:
-            "When looking for the best tractor battery, consider factors like capacity, life, and weather resistance. For a reliable choice that meets all these criteria, Livguard's range of tractor batteries is an ideal option for you to explore. Use our Battery Finder (linked) to find the ideal battery for your tractor.",
-        [Language.Hindi]: "?????",
+        [Language.English]: `When looking for the best tractor battery, consider factors like capacity, life, and weather resistance. For a reliable choice that meets all these criteria, Livguard's range of tractor batteries is an ideal option for you to explore. Use our <a class="tw-underline" href="/battery-finder">Battery Finder</a> to find the ideal battery for your tractor.`,
+        [Language.Hindi]: `ट्रैक्टर के लिए सबसे अच्छी बैटरी ढूंढते समय, क्षमता, जीवनकाल, और मौसम से सहायता लें। इन सभी मानदंडों को पूरा करने वाले एक विश्वसनीय विकल्प के रूप में, लिवगार्ड की ट्रैक्टर बैटरी की रेंज आपके लिए एक आदर्श विकल्प है। हमारे <a class="tw-underline" href="/battery-finder">बैटरी फाइंडर</a> का उपयोग करें और अपने ट्रैक्टर के लिए सही बैटरी का पता लगाएं।`,
     },
     "a46b2d72-9f30-4fc6-ac40-48427ed1f401": {
         [Language.English]: "What should be the capacity of a diesel tractor battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "एक डीजल ट्रैक्टर बैटरी की क्षमता कितनी होनी चाहिए?",
     },
     "477e9287-3dd5-4d80-99b2-49cab09dcc3d": {
         [Language.English]: "Livguard’s 12-volt tractor battery has the capacity of 80ah, 90Ah & 100Ah which are the ideal for a diesel tractor battery.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "लिवगार्ड की 12-वोल्ट ट्रैक्टर बैटरी की क्षमता 80Ah, 90Ah और 100Ah हैं, जो डीजल ट्रैक्टर बैटरी के लिए आदर्श हैं।",
     },
     "8bf5fb61-8c2c-4728-b93f-0b291817209e": {
         [Language.English]: "What are the signs of a failing tractor battery?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "एक ख़राब हो रही ट्रेक्टर बैटरी के क्या लक्षण हो सकते हैं?",
     },
     "563e329b-a70c-4093-9ec9-e07c9942721d": {
         [Language.English]:
             "Common signs of a failing tractor battery can include difficulty in starting the tractor, dimming lights, and decreased electrical functions. If you experience such issues, it's wise to consider Livguard batteries, which are known for their reliability and long-lasting performance.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "ट्रैक्टर बैटरी की नाकामयाबी के लक्षण में शामिल हो सकते हैं: ट्रैक्टर चालू करने में कठिनाई, लाइटें धीमी होना और विद्युतीय कार्यक्षमता में कमी। ऐसे मुद्दों के सामने आने पर, लिवगार्ड बैटरियों का विचार करना समझदारी रहती है, जो अपनी भरोसेमंदता और दीर्घकालिक प्रदर्शन के लिए प्रसिद्ध हैं।",
     },
     "9b90fd59-08ca-4378-b846-3f364b90d058": {
         [Language.English]: "Are heavy-duty tractor batteries suitable for all types of tractors?",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्या हैवी-ड्यूटी ट्रैक्टर बैटरी सभी प्रकार के ट्रैक्टरों के लिए उपयुक्त हैं?",
     },
     "aaa8b7ad-37fa-4782-8f3a-68f3690cf08b": {
         [Language.English]:
             "While most tractors can utilize heavy-duty batteries, the right choice depends on your specific vehicle's requirements. Livguard's range of heavy-duty tractor batteries is designed to cater to a broad spectrum of tractors, providing robust performance and durability.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "ज्यादातर ट्रैक्टर हैवी-ड्यूटी बैटरी का उपयोग कर सकते हैं, लेकिन सही चयन आपके विशिष्ट वाहन के आवश्यकताओं पर निर्भर करता है। लिवगार्ड के रेंज में हैवी-ड्यूटी ट्रैक्टर बैटरी विभिन्न प्रकार के ट्रैक्टरों को संतुलित प्रदर्शन और टिकाऊता प्रदान करने के लिए डिज़ाइन की गई हैं।",
     },
 
     //Bus and truck vernac strings start
     "67dd15a8-c016-43f0-8715-e7ba18ca5c38": {
         [Language.English]: `Batteries As Tough`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ताकतवर और सॉलिड बैटरी`,
     },
     "7853d640-7e57-4678-af5d-8631f2ec6cf7": {
         [Language.English]: `And Solid As You!`,
-        [Language.Hindi]: `?????`,
-    },
-    "cc5f0cf2-f523-4726-83b6-e950d6007ef4": {
-        [Language.English]: `Robust Bus and Truck Batteries made to deliver excellence every time`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बिलकुल आपकी तरह!`,
     },
     "853e41c9-26ed-409d-a636-03af2124e7bb": {
         [Language.English]: `<span class="lg-text-highlighted">Superior Features</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">अद्भुद विशेषतायें</span>`,
     },
     "dcfc64d7-ca43-4e45-a11a-f0c4fe765152": {
         [Language.English]: `For A Supreme Performance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `श्रेष्ठ प्रदर्शन के लिए`,
     },
     "70f2a04d-bc31-4848-9509-f77f40137e84": {
         [Language.English]: `Low Maintenance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कम मेंटेनेंस`,
     },
     "fbba1481-db00-4e47-8a74-8382af5b4ac4": {
         [Language.English]: `The durable design and technology that helps in improving efficiency and reducing waste makes Livguard automotive batteries the ideal pick for you`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड ऑटोमोटिव बैटरी के विशेष डिज़ाइन और तकनीक बैटरी के प्रदर्शन को बेहतर बनाने में, और अपचय को कम करने में मदद करते हैं। यह इन्हें आपके लिए एक सहज विकल्प बनाता है।`,
     },
     "75c7f633-bbb4-4a79-bdcb-5b817da7c076": {
         [Language.English]: `Heavy Duty Cranking Power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हेवी ड्यूटी क्रैंकिंग क्षमता`,
     },
     "c5bf4b2a-a0a8-4d43-9b84-c25c048dd079": {
         [Language.English]: `Livguard Automotive Batteries are made with the perfect blend of Grid Structure and Plate Chemistry to ensure a more efficient and higher cranking power.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी ऑटोमोटिव बैटरी ग्रिड ढाँचे और प्लेट केमिस्ट्री के सहज मेल से बनी हैं, जो आपको  बेहतर और ज़्यादा क्रैंकिंग क्षमता देती है।`,
     },
     "3bed811b-de77-40ab-8181-86efbf684059": {
         [Language.English]: `Long Battery Life`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लंबी बैटरी आयु`,
     },
     "fc26240d-32c8-47bc-a2bf-c29c0a25e6af": {
         [Language.English]: `Made with a Robust Design and Double Clad Separation, our Automotive Batteries are made to last long and deliver a seamless experience`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `शक्तिशाली डिज़ाइन और डबल क्लैड विभाजन के साथ, हमारी ऑटोमोटिव बैटरी लम्बे समय तक टिकने और समर्थक अनुभव प्रदान करने के लिए बनाई गई है।`,
     },
     "6fe5a9f6-4817-4100-90ad-b05fefd330f5": {
         [Language.English]: `All Weather Performance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हर मौसम में प्रदर्शन`,
     },
     "2c278f68-8047-4a91-b53d-fe7c4e592781": {
         [Language.English]: `Experience uninterrupted performance, at all times. Our bus and truck batteries thrive evenly in all weather, providing reliable and consistent power.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बिना रुकावट के परफॉर्मेंस का आनंद लें, हमारी बस और ट्रक बैटरी सभी मौसम में एक समान रूप से सफलतापूर्वक काम करती हैं, जो आपको विश्वसनीय और निरंतर शक्ति प्रदान करती हैं।`,
     },
     "537716c2-f2d4-48af-b779-46cfd71501d7": {
         [Language.English]: `Our Range`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी श्रेणी`,
     },
     "8ffe8884-7063-4944-98d1-a54fe742262d": {
         [Language.English]: `<span class="lg-text-highlighted">To Empower Your Growth</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">आपके विकास के लिए</span>`,
     },
     "f22a7acc-0168-4011-9eaf-6a8f3328f093": {
         [Language.English]: `Best Seller`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `श्रेष्ठ विकल्प`,
     },
     "fdb7af25-0b1a-4052-90ff-99ec30711c30": {
         [Language.English]: `1500VA Capacity`,
@@ -6541,21 +6562,17 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.English]: `/-`,
         [Language.Hindi]: `?????`,
     },
-    "d2731f76-051f-4f2b-ac83-2a83f690c401": {
-        [Language.English]: `View Product`,
-        [Language.Hindi]: `?????`,
-    },
     "c46c205c-ffdc-4791-a3f9-b4a839925185": {
         [Language.English]: `Choose Your`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `खोजिए अपनी`,
     },
     "ea7ce343-ef9d-447e-95ff-578d437bcd97": {
         [Language.English]: `Ideal <span class="lg-text-highlighted">Bus & Truck</span> Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आदर्श बस और ट्रक बैटरी`,
     },
     "13754e87-5d5e-46f4-9f02-6f84770a8ec8": {
         [Language.English]: `Find the ideal battery that fits perfectly with your Bus and Truck. Use our battery finder to find your ideal pick, or download our catalogue for specifications.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने बस और ट्रक के लिए सही बैटरी को खोजें। हमारे बैटरी फाइंडर का उपयोग करके अपनी आवश्यकतानुसार बैटरी का चयन करें, या स्पेसिफिकेशन के लिए हमारे कैटलॉग को डाउनलोड करें।`,
     },
     "b0a19244-9a60-4fd6-93a7-d0224c9d95d5": {
         [Language.English]: `Buying Guide`,
@@ -6563,51 +6580,51 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "f28967c2-99fe-44dc-96cb-6d926c5ea4df": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "2c8b3327-a317-4ad0-9c09-d6dbb0846c5c": {
         [Language.English]: `Find My Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी बैटरी खोजें`,
     },
     "2b84c09e-60d6-4590-9f2a-a8b058c94087": {
         [Language.English]: `What should I consider before buying commercial truck batteries?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `व्यावसायिक ट्रक बैटरियों को खरीदने से पहले मुझे क्या ध्यान में रखना चाहिए?`,
     },
     "0acdb496-94a8-487b-a73d-829546437963": {
         [Language.English]: `Consider factors like power requirement, vehicle model, weather conditions, and regular usage. Livguard's range of truck battery offers high cranking power, superior performance and durability, making them an excellent choice for commercial trucks.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बिजली की आवश्यकता, वाहन मॉडल, मौसम की स्थिति और नियमित उपयोग जैसे कारकों का ध्यान रखें। लिवगार्ड के ट्रक बैटरी का विकल्प उच्च क्रैंकिंग पावर, श्रेष्ठ प्रदर्शन और टिकाऊता प्रदान करता है, जो इन्हें व्यावसायिक ट्रकों के लिए एक उत्कृष्ट विकल्प बनाता है।`,
     },
     "3db5b6a7-0861-41ff-8d90-2ffbac60bf69": {
         [Language.English]: `How to select best battery for a diesel truck?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एक डीजल ट्रक के लिए श्रेष्ठ बैटरी कैसे चुनें?`,
     },
     "4023e870-1e78-41f9-a528-2640381c5288": {
         [Language.English]: `Choosing a battery for a diesel truck involves considering power needs, engine size, and weather conditions. Livguard batteries, with high cranking power and exceptional durability, are well-suited to meet the needs of diesel trucks.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `डीजल ट्रक के लिए बैटरी चुनते समय विचार करने वाले तत्वों में पावर की आवश्यकता, इंजन का आकार, और मौसम की स्थिति शामिल होती है। लिवगार्ड के बैटरी में उच्च क्रैंकिंग पावर और अतुलनीय टिकाऊता होती है, जिससे वे डीजल ट्रक्स की आवश्यकताओं को पूरा करने में सक्षम होती हैं।`,
     },
     "7f21538b-0330-4a9b-a3fc-937390f6967a": {
         [Language.English]: `How can I properly maintain a 24-volt truck battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `24-volt ट्रक बैटरी को सही तरीके से रखने के लिए कैसे देखभाल करें?`,
     },
     "e0581f37-46a0-472c-94e6-c7205e04d466": {
         [Language.English]: `Proper maintenance of a 24-volt truck battery includes regular cleaning, avoiding overcharging, and ensuring it stays adequately charged. Livguard's 24-volt truck batteries are designed for longevity and reliability, reducing the need for frequent maintenance.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `24-वोल्ट ट्रक बैटरी की सही देखभाल में नियमित सफाई और सही फिटमेंट शामिल है। लिवगार्ड की 24-वोल्ट ट्रक बैटरियाँ लंबी उम्र और विश्वसनीयता के लिए डिज़ाइन की गई हैं, जिससे नियमित रूप से देखभाल की आवश्यकता कम होती है।`,
     },
     "df814438-bb8d-441c-85b2-55609037be4f": {
         [Language.English]: `Will someone help me with my truck battery installation?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या कोई मेरी ट्रक बैटरी के स्थापना में मेरी मदद करेगा?`,
     },
     "e4e5ac1d-e5a5-4ae8-8a8b-3e05d9264d1b": {
-        [Language.English]: `In order to get your truck battery installed, please contact your nearest mechanic or dealer point. Use our <span class="tw-underline"> <a href="/dealer-for-inverters-and-batteries"> dealer locator </a> </span> to locator your nearest dealers within seconds.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `In order to get your truck battery installed, please contact your nearest mechanic or dealer point. Use our <a class="tw-underline" href="/dealer-for-inverters-and-batteries">Dealer Locator</a> to locate your nearest dealers within seconds.`,
+        [Language.Hindi]: `ट्रक बैटरी को स्थापित करवाने के लिए, कृपया अपने नजदीकी मैकेनिक या डीलर से संपर्क करें। हमारे <a class="tw-underline" href="/dealer-for-inverters-and-batteries">डीलर लोकेटर</a> का उपयोग करके मिनटों में अपने नजदीकी डीलर्स को ढूंढें।`,
     },
     "ad3d0c4f-7438-4436-b607-322798870bf8": {
         [Language.English]: `Does higher bus battery capacity mean a longer battery life for a bus?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एक बस के लिए, क्या ज़्यादा व्यावसायिक बैटरी वारंटी का मतलब ज़्यादा बैटरी आयु होता है?`,
     },
     "64eb212f-e988-4ec9-8cd9-c8af0bdb1f63": {
         [Language.English]: `Generally, a higher battery warranty means a better, and hassle-free lifetime of a bus and truck battery. Livguard bus and truck batteries come with the best in class warranty, of 24+24 months.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सामान्य रूप से, उच्च बैटरी वारंटी एक बस और ट्रक बैटरी के बेहतर और परेशानी मुक्त जीवन का संकेत करती है। लिवगार्ड बस और ट्रक बैटरी 24+24 महीने की बेहतरीन वारंटी के साथ आते हैं।`,
     },
     "a504cf0b-8c7c-4afe-b5e2-925f9576d1c0": {
         [Language.English]: `Humraahi`,
@@ -6621,68 +6638,64 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //Three Wheeler vernac strings start
     "aa7c13b1-5476-452b-aa90-6d19bf361db4": {
         [Language.English]: `Power on Wheels`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `शक्ति हर सवारी में`,
     },
     "fc06f9c9-c5a3-4631-a62b-3884075b1aa2": {
         [Language.English]: `Three-Wheeler Battery Solutions`,
-        [Language.Hindi]: `?????`,
-    },
-    "51532ae7-57b6-4c23-9622-ecfcd21e8985": {
-        [Language.English]: `Battery Solutions that power up your ride with Limitless energy, for a long and smooth performance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `3-पहिया बैटरी समाधान`,
     },
     "75dfe585-c7bc-4497-a8a7-23bb1ed11625": {
         [Language.English]: `<span class="lg-text-highlighted">Reliability</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">विश्वासनीयता</span>`,
     },
     "942ecb94-3de6-477e-9dea-5079f62a04c3": {
         [Language.English]: `You Can Experience`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `जो आप महसूस कर सकें`,
     },
     "c9209f83-6335-404e-ad8e-491d010741d3": {
         [Language.English]: `Smooth Start`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सहज शुरुआत`,
     },
     "267f262c-3030-43e4-bae7-b778518d7ee2": {
-        [Language.English]: `Car and SUV batteries built with Unique Active Material for seamless ignition, during every ride.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Three wheeler batteries built with Unique Active Material for seamless ignition, during every ride.`,
+        [Language.Hindi]: `अद्वितीय सक्रिय सामग्री से निर्मित 3-पहिया वाहन बैटरियां, जो हर बार एक सहज शुरुवात मुमकिन करती हैं।`,
     },
     "22d2b329-b855-4127-9e99-edb36347d88b": {
         [Language.English]: `Maintenance Free`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मैंटेनेंस मुक्त`,
     },
     "adf2ff19-2a54-4ca7-9b4d-d2881ad856fc": {
         [Language.English]: `Batteries made with Advance Calcium Technology for a smooth and maintenance-free battery life.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एडवांस कैल्शियम टेक्नोलॉजी से बनी बैटरियां, सरल और निर्बाध बैटरी जीवन के लिए।`,
     },
     "c31a4732-aa1f-4973-b2fd-f3b0371c2895": {
         [Language.English]: `Best In Class Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `श्रेष्ठ वारंटी`,
     },
     "3b7b22d2-54c3-4ad6-9a7d-e8fede699840": {
-        [Language.English]: `Experience unmatched performance for your car and SUV with peace of mind of our best-in-class warranty, for each Ah battery category`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Experience unmatched performance for your three wheeler with peace of mind of our best-in-class warranty, for each Ah battery category`,
+        [Language.Hindi]: `अपने 3-पहिया वाहन के लिए बेमिसाल प्रदर्शन का आनंद लें, हर Ah बैटरी श्रेणी के लिए हमारी सर्वश्रेष्ठ वारंटी के साथ।`,
     },
     "8575720d-0268-4a7d-8516-1edbe2d3ea83": {
         [Language.English]: `Long Battery Life`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लंबी बैटरी आयु`,
     },
     "a5df81a6-2f1a-4547-b08f-b5732df96e88": {
         [Language.English]: `Experience unparalleled longevity of batteries, with the use of Tough Radial Grid design to keep you moving always.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारे दमदार रेडियल ग्रिड डिज़ाइन के उपयोग से बैटरियों की लंबी आयु को अनुभव करें, जो आपको हमेशा चलते रहने में मदद करेगी।`,
     },
 
     "baedfb58-af7c-4126-baa3-63f5ad0ce156": {
         [Language.English]: `<span class="lg-text-highlighted">Three-Wheeler Batteries</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">3-पहिया बैटरी</span>`,
     },
     "836d0f37-0171-4ac9-b4c8-79bd9aaf0afc": {
         [Language.English]: `For Unmatched power`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बेमिसाल ताक़त के लिए`,
     },
     "4f1b53b9-36a8-4a0e-b693-4f92e8a1b32b": {
         [Language.English]: `Recommended`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सुझाया गया`,
     },
     "bd815d59-dd50-4f9f-85c3-dc769977e6c2": {
         [Language.English]: `Autoz LGM F0 AR32 R`,
@@ -6694,7 +6707,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8ef7eb7a-a46a-46b2-9479-cb31ce29ea98": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी`,
     },
     "cc1b08f2-9903-4bd2-bf8a-974d2a76c080": {
         [Language.English]: `24 + 24* Months`,
@@ -6702,7 +6715,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "28225ecc-5c09-4c69-a82a-0614dc248123": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्षमता`,
     },
     "75fec07e-0cd9-418b-900e-0990e945000e": {
         [Language.English]: `7 Ah`,
@@ -6710,7 +6723,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d71a4882-3a3c-4e2d-a884-071523e265d1": {
         [Language.English]: `Polarity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पोलारिटी`,
     },
     "7bd29c13-e15d-48bd-9e24-c63c2c60a63c": {
         [Language.English]: `R`,
@@ -6718,7 +6731,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ff09f4be-754d-49ed-95bb-9223ab5d383e": {
         [Language.English]: `Dimensions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आयाम`,
     },
     "81298034-bd2c-4ad2-99af-2c80b6ea07a8": {
         [Language.English]: `275(L) X 277(W) X 153(H) mm`,
@@ -6726,19 +6739,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d7631d6c-a568-464f-8411-e1840750556a": {
         [Language.English]: `Explore Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद देखें`,
     },
     "d06ea4a8-87f2-40b0-a235-bfae5e318be3": {
         [Language.English]: `Find the <span class="lg-text-highlighted">Right Battery</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `खोजें <span class="lg-text-highlighted">सही बैटरी</span>`,
     },
     "976354a4-d9b7-414f-a717-dcffa9018f98": {
         [Language.English]: `For Your Three Wheeler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने 3-पहिया वाहन के लिए`,
     },
     "b568d9fc-34b7-48ba-adaf-0c05c9e24168": {
         [Language.English]: `Equip your auto, tempo, or any other three-wheeler with the right battery that delivers effortless efficiency. Use our battery finder to find your ideal battery.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने ऑटो, टेंपो या किसी अन्य 3-पहिया वाहन को सही बैटरी से संचालित करें जो बिना किसी परेशानी के काम चले। हमारे बैटरी फाइंडर का उपयोग करके अपनी आदर्श बैटरी को खोजें, या अन्य विशेषताओं के लिए हमारे कैटलॉग को डाउनलोड करें।`,
     },
     "ca013e47-dc92-49c5-be2d-411b99f72797": {
         [Language.English]: `Buying Guide`,
@@ -6746,125 +6759,117 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d957d3ac-7468-48a8-84bd-b73e6c8e0f98": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "8262f4de-6523-4ea4-a68e-4df5cd684074": {
         [Language.English]: `Find My Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी बैटरी खोजें`,
     },
     "af9ad542-bdcc-4eb4-aa38-c87d36ec9bda": {
-        [Language.English]: `What should I consider before auto battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `What should I consider before buying an auto battery?`,
+        [Language.Hindi]: `ऑटो बैटरी लेने से पहले मुझे क्या विचार करना चाहिए?`,
     },
     "d1db1197-f5ee-4126-9fc2-a554820c24b4": {
         [Language.English]: `Acknowledging that auto-rickshaws have compact engines and dynamos, they need a battery that not only charges rapidly but also supports multiple starts throughout the day. Additionally, a battery with an extended warranty and a robust design is advantageous. With these considerations, the Livguard Autoz series emerges as the top choice for auto batteries in the market.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑटो रिक्शे के संक्षेप्त इंजन और डायनमो को मानते हुए, उन्हें एक ऐसी बैटरी की आवश्यकता है जो न केवल तेजी से चार्ज होती है बल्कि दिनभर कई बार चालू होने का समर्थन भी करती है। इसके अलावा, एक विस्तारित वारंटी और मजबूत डिज़ाइन वाली बैटरी भी फायदेमंद है। इन उपलब्धियों के साथ, लिवगार्ड Autoz सीरीज ऑटो बैटरियों के लिए शीर्ष विकल्प है।`,
     },
     "adddec59-1e50-4af6-a40f-a0b1144464d1": {
         [Language.English]: `Can extreme winter affect my three wheeler battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या ज़्यादा ठंड मेरी 3-पहिया बैटरी पे असर डाल सकती है?`,
     },
     "03ed45bf-cd92-4800-b855-c88e8b73e543": {
         [Language.English]: `Yes, extreme winter can impact battery performance. However, Livguard's three-wheeler batteries are designed with advanced technology to withstand harsh weather conditions, ensuring consistent performance and longer life.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हां, बहुत ठंडा मौसम वाहन की बैटरी के प्रदर्शन पर असर डाल सकता है। लेकिन लिवगार्ड के 3-पहिया वाहन बैटरियां उन्नत तकनीक के साथ आती हैं जो कठोर मौसम की स्थितियों का सामना करने के लिए बनाई गई हैं, जिससे निरंतर प्रदर्शन और लंबी उम्र सुनिश्चित होती है।`,
     },
     "87a69e85-3480-486c-babf-fb05e6936a76": {
         [Language.English]: `How often should I replace my three-wheeler battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मेरी 3-पहिया वाहन बैटरी को कितने समय के बाद बदलना चाहिए?`,
     },
     "18fced89-0dde-4bef-a1ec-7b3929eb9434": {
         [Language.English]: `The replacement of a battery for a three-wheeler depends on usage and maintenance. However, on average, it might need replacement every 2-3 years. To ensure optimum performance and longevity, choosing a reliable brand like Livguard, known for its durability and excellent service, is recommended.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `3-पहिया वाहन की बैटरी को बदलने की आवश्यकता उसके उपयोग और रख-रखाव पर निर्भर करती है। आमतौर पर, इसे 3-5 वर्षों में बदलना पड़ता है। बेहतर प्रदर्शन और लंबी उम्र के लिए, एक विश्वसनीय ब्रांड जैसे लिवगार्ड का चयन करना अच्छा होगा।`,
     },
     "c442cd80-c2c3-4c56-91a9-30530b22d5e6": {
         [Language.English]: `What are some signs that my three-wheeler battery needs replacing?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `तिपहिया वाहन की बैटरी को बदलने के कुछ संकेत क्या हैं?`,
     },
     "77fa3233-d479-405c-9984-052c8fb751bc": {
         [Language.English]: `Signs that your three-wheeler battery might need replacement include slow engine crank, difficulty in starting the vehicle, dimming headlights, and weak horn. For a hassle-free ride, consider Livguard's auto batteries, known for their reliable performance and long-lasting service.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपके पहिया वाहन की बैटरी बदलने के लक्षणों में शामिल है: गाड़ी शुरू करने में परेशानी, कम हो रही हेड लाइट, और कमज़ोर हॉर्न।एक सुविधाजनक सवारी के लिए लिवगार्ड की ऑटो बैटरी लेने के बारे में सोचें, जो एक भरोसेमंद प्रदर्शन और लंबी आयु प्रदान करती है।`,
     },
     "d760e95e-4074-4ec7-af0e-9c296cf4d41d": {
-        [Language.English]: `What is the typical lifespan of a three-wheeler battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Where can I buy Livguard's three-wheeler batteries?`,
+        [Language.Hindi]: `लिवगार्ड के 3-पहिया वाहन बैटरी को कहां से खरीद सकते हैं?`,
     },
     "83afccfb-5c2b-4cd8-893c-4a9757b630f6": {
-        [Language.English]: `The typical lifespan of a three-wheeler battery can vary, often lasting 3-5 years. However, Livguard Autoz series batteries, designed with advanced technology, deliver an extended lifespan along with superior performance and quick charging, enhancing the overall efficiency of your vehicle.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `You can easily find the ideal battery for your three-wheeler using our <a class="tw-underline" href="/battery-finder">Battery Finder</a>. Additionally, you can connect to your nearby dealers to get your three-wheeler battery for uninterrupted performance. Use our <a class="tw-underline" href="/dealer-for-inverters-and-batteries">Dealer Locator</a> to find your nearest dealers.`,
+        [Language.Hindi]: `आप आसानी से हमारे <a class="tw-underline" href="/battery-finder">बैटरी फाइंडर</a> का उपयोग करके अपने 3-पहिया वाहन के लिए सही बैटरी ढूंढ सकते हैं। इसके अलावा, आप बिना रुकावट के अपने नजदीकी डीलर से 3-पहिया वाहन बैटरी प्राप्त कर सकते हैं। हमारे <a class="tw-underline" href="/dealer-for-inverters-and-batteries">डीलर लोकेटर</a> का उपयोग करें और अपने नजदीकी डीलर को खोजें।`,
     },
 
     //E Rickshaw batteries vernac start
     "67f761e4-5c9d-4ef7-87fa-df19fc2b92aa": {
         [Language.English]: `Maximise Your Earnings With`,
-        [Language.Hindi]: `?????`,
-    },
-    "45e0486f-a7d7-407a-82d2-7435396fde97": {
-        [Language.English]: ` For Energizing Every Ride`,
-        [Language.Hindi]: `?????`,
-    },
-    "91c8d137-eccb-4a0f-9799-3e2340ac54f7": {
-        [Language.English]: `Make every journey power packed with the best E-Rickshaw battery for your ride`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बढ़ाएं अपनी कमाई`,
     },
     "3e08230a-fc5d-4191-abfa-6b6be76e983f": {
         [Language.English]: `<span class="lg-text-highlighted">Superior Features</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">उत्कृष्ट सुविधाएं</span>`,
     },
     "eb77dfed-047e-4fb7-bfb2-bbe06d128a93": {
         [Language.English]: `For A Supreme Performance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उच्चतम प्रदर्शन के लिए`,
     },
     "75c8e077-526b-4517-a52a-36a858dbb06e": {
         [Language.English]: `Maximum Mileage`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अधिकतम माइलेज`,
     },
     "61b03b16-b490-4ae2-95ff-ffd4ef994b9b": {
         [Language.English]: `Powering your e-rickshaw for an extended journey, maximizing every mile with our durable, long-lasting batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने ई-रिक्शा को एक लंबी यात्रा के लिए पूर्ण शक्ति प्रदान करें। हमारी टिकाऊ बैटरियों के साथ हर मील का उच्चतम लाभ उठाएं।`,
     },
     "d660f7e7-4945-4d60-ac65-ee35d44644c4": {
         [Language.English]: `Maximum Life`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अधिकतम जीवन`,
     },
     "ea91df06-eee3-4f24-bac2-b4d0484c9c26": {
         [Language.English]: `Unleash the longevity of your e-rickshaw battery with Livguard E-Shakti Powermaxx, providing maximum life for uninterrupted rides.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड ई-शक्ति पॉवरमैक्स के साथ अपने ए-रिक्शा की आयु बढ़ाएँ, जो बिना रुकावट के चलने के लिए अधिकतम जीवन प्रदान करती है।`,
     },
     "bbdf4cee-9f7c-475a-a464-ef1ef26204b8": {
-        [Language.English]: `Low- Maintenance`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Low-Maintenance`,
+        [Language.Hindi]: `कम मेंटेनेंस`,
     },
     "24233427-5ce6-4924-bea6-56eef727ef86": {
         [Language.English]: `Experience hassle-free ownership with Livguard e-rickshaw batteries, designed for low maintenance and worry-free performance.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड ई-रिक्शा बैटरी के साथ चिंता और परेशानी मुक्त सवारी अनुभव करें, जो कम मेंटेनेंस और चिंता मुक्त प्रदर्शन के लिए डिज़ाइन की गई है।`,
     },
     "8a8c6ad0-848e-4cdc-8570-3fc2d05abf5e": {
         [Language.English]: `Reliable`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विश्वसनीय`,
     },
     "2dd6ceca-eaa9-4b31-89a2-60d1b54a1237": {
         [Language.English]: `Trust in the reliability of Livguard e-rickshaw batteries, ensuring dependable power to keep you moving without a hitch.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड ई-रिक्शा बैटरी की विश्वसनीयता पर भरोसा रखें, जो आपको बिना किसी रुकावट के चलने के लिए भरोसेमंद बिजली सुनिश्चित करता है।`,
     },
     "8b08775f-905e-4826-a595-9001b888bead": {
         [Language.English]: `Faster Charging`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `गतिशील चार्जिंग`,
     },
     "48127946-a89e-46bc-95ec-1baf8e68b072": {
         [Language.English]: `Make every journey seamless with the faster charging feature and get more time to maximise your earnings with Livguard e-rickshaw batteries.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `तेज़ चार्जिंग के साथ अपनी हर सवारी को बनाएँ सहज, और पाएँ ज़्यादा समय एवं बेहतर कमाई के लिए अपने लिवगार्ड ए-रिक्शा बैटरी के साथ।`,
     },
     "368be9b9-37b1-4c94-9b54-9c7b8bbea351": {
-        [Language.English]: `<span class="lg-text-highlighted">Our Range</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `<span class="lg-text-highlighted">Our Range</span> of`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">श्रेणी देखें</span>`,
     },
     "e102bc0e-f831-4631-abb2-60f166440bbe": {
-        [Language.English]: `To Empower Your Growth`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `E-Rickshaw Batteries`,
+        [Language.Hindi]: `ई-रिक्शा बैटरी की`,
     },
     "3ae8e96f-5ed1-4f8c-8e2f-194f16674982": {
         [Language.English]: `Recommended`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सुझाया गया`,
     },
     "daa1c57b-8e64-4766-8c7b-e1cc4b7ad6af": {
         [Language.English]: `E-Shakti LG B0 ERFP 1500`,
@@ -6876,7 +6881,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b384b853-774d-4227-b7e5-03dd24f5f1aa": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी`,
     },
     "da734ae5-dad1-4f03-9c87-179fd1df47df": {
         [Language.English]: `24 Months`,
@@ -6884,7 +6889,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b6a49b1c-fa41-4958-a2ed-79f87707416c": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्षमता`,
     },
     "a40bbd47-d6bf-4e1c-8ab7-1287bb3c2836": {
         [Language.English]: `2000 VA / 24V`,
@@ -6892,7 +6897,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "2d4c7020-d295-4227-a8bf-c4ba7e047228": {
         [Language.English]: `Technology`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `तकनीक`,
     },
     "3778f571-6279-4606-87df-a2fa9de75495": {
         [Language.English]: `Longer Life`,
@@ -6900,7 +6905,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "151dfac3-66f4-4aa0-be1a-d92228015ee2": {
         [Language.English]: `Dimensions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आयाम`,
     },
     "898383a9-ce03-49b8-8089-2f97e944e57d": {
         [Language.English]: `275 x 320 x 275 mm`,
@@ -6908,27 +6913,27 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "ecd16719-acbe-4e6a-860b-7918b8f22367": {
         [Language.English]: `Explore Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद देखें`,
     },
     "98c90c88-6fc4-4786-b130-a52ce614d5d0": {
         [Language.English]: `Discover More`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अधिक जानें`,
     },
     "73095405-033a-4718-b6de-e4d0b6dbc0f6": {
         [Language.English]: `E-Rickshaw <span class="lg-text-highlighted">Video Guide</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा <span class="lg-text-highlighted">वीडियो गाइड</span>`,
     },
     "c52ecf6e-bc7d-4934-88d1-43660af8fe2d": {
         [Language.English]: `Choose the `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी ई-रिक्शा के लिए`,
     },
     "bdd593f6-18f6-47d2-af26-af2a71693731": {
         [Language.English]: `<span class="lg-text-highlighted">Right Battery</span> For You`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सही बैटरी</span> चुनें`,
     },
     "66e82d76-b469-46b4-87fe-0e2b1a73118e": {
         [Language.English]: `Find the suitable pick of e-rickshaw battery that fulfils your requirements with efficiency. Use our Buying Guide to get to know in detail about how you can buy your inverter and our Product Catalogue for product specifications`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी आवश्यकताओं को पूरा करने वाली उत्कृष्ट ई-रिक्शा बैटरी ढूंढें, जो दक्षता से काम करे। हमारे बैटरी फाइंडर का उपयोग करके अपनी आदर्श बैटरी को खोजें, या अन्य विशेषताओं के लिए हमारे कैटलॉग को डाउनलोड करें।`,
     },
     "c20eb3fa-8458-41e1-bd97-43b2fffd0d41": {
         [Language.English]: `Buying Guide`,
@@ -6936,11 +6941,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b49dbc60-f847-409f-bb7d-5af0301d3136": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "eab21892-bbf3-4c28-9d48-b98ff57f3f55": {
         [Language.English]: `Find My Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी बैटरी खोजें`,
     },
     "fcf882cd-32fe-4605-ae76-ccc436083dc8": {
         [Language.English]: `How long does an e-rickshaw battery backup typically last?`,
@@ -6984,15 +6989,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "713355d6-1d59-4ecb-af08-1e9a651bddc1": {
         [Language.English]: `Top <span class="lg-text-highlighted">Tractor Battery</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `Top <span class="lg-text-highlighted">ट्रैक्टर बैटरी</span>`,
     },
     "8993dcbc-2216-4dd2-954e-e8145571049f": {
         [Language.English]: `View More`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `और देखें`,
     },
     "ac9a30fb-5654-4692-9995-84c2dbe8301b": {
         [Language.English]: `Show Less`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कम देखे`,
     },
     "16052fa6-9c46-49f5-b3dc-a90ba4a0cd64": {
         [Language.English]: `Can an e-rickshaw charger recharge deeply discharged batteries?`,
@@ -7037,75 +7042,75 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //India Ops Page Vernac Strings Start
     "434a3b79-cd9d-47e9-8284-f23b7d677d97": {
         [Language.English]: `Livguard, with its widespread network of dealers, distributors, and service providers, aims to empower and deliver limitless energy experiences to all homes in India. Our manufacturing centers and excellence help us deliver uninterrupted power across the nation.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड, अपने व्यापक डीलर, वितरक, और सर्विस प्रोवाइडर्स के साथ भारत में सभी घरों को ऊर्जा से सशक्त करने और असीमित ऊर्जा अनुभव प्रदान करने का लक्ष्य रखता है। हमारे उत्कृष्ट निर्माण केन्द्र हमें राष्ट्र भर में बिना रुकावट ऊर्जा प्रदान करने में सहायता करते हैं।`,
     },
     "f0a9f643-18b1-4220-ab20-07882267fb84": {
         [Language.English]: `Our <span class="lg-text-highlighted">Energy</span> Solutions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारे <span class="lg-text-highlighted">ऊर्जा</span> समाधान`,
     },
     "eb3dd920-3d22-4d87-a269-b95b1c0d4d14": {
         [Language.English]: `Inverters`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर`,
     },
     "572d155d-bf16-45f3-9bac-66c905f3ad17": {
         [Language.English]: `Inverter Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर बैटरी`,
     },
     "329b0815-9513-4218-b6fb-7b6ef834b015": {
         [Language.English]: `Automotive Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरी`,
     },
     "f6791517-756d-46e8-b3b6-c05b8b2a9910": {
         [Language.English]: `Solar Solutions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सोलर समाधान`,
     },
     "94ef620f-270c-4196-92b4-58bf6993de50": {
         [Language.English]: `Other Accessories`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सहायक उपकरण`,
     },
     "1c837763-6546-4d29-a8cf-53ea73f3fe0b": {
         [Language.English]: `Why <span class="lg-text-highlighted">Livguard</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">लिवगार्ड</span> क्यों`,
     },
     "e461e21e-79be-4fc9-891c-725ff8dcd336": {
         [Language.English]: `As a key member of the esteemed SAR Group with a noteworthy 35-year legacy, Livguard has been consistently leading the way in delivering advanced energy solutions across India. Our innovative and comprehensive range of energy storage products including inverters, inverter batteries, solar solutions, automotive solutions, and e-rickshaw batteries, have earned the trust of millions of customers across the nation.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड गर्वनीय SAR ग्रुप का एक महत्वपूर्ण सदस्य है जिसकी 35 साल की महत्वपूर्ण विरासत है। हम सतत उन्नत ऊर्जा समाधानों की प्रवर्तन में भारत भर में आगे बढ़ रहे हैं। हमारे नवाचारी और व्यापक ऊर्जा संग्रहण उत्पाद, जिनमें इन्वर्टर, इन्वर्टर बैटरी, सोलर समाधान, ऑटोमोटिव समाधान, और ई-रिक्शा बैटरी शामिल हैं, ने देशभर में लाखों ग्राहकों का विश्वास जीता है।`,
     },
     "e416be0f-8181-43bb-9914-bd9fcf072388": {
-        [Language.English]: `10`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `21k+`,
+        [Language.Hindi]: `21k+`,
     },
     "8452789c-6e24-4998-af36-6e9c54dac50d": {
-        [Language.English]: `Manufacturing units`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Pincode network`,
+        [Language.Hindi]: ` पिनकोड नेटवर्क`,
     },
     "08480ce3-5f9e-4d09-910d-779b36d312d3": {
         [Language.English]: `200Mn+`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `200 मिलियन`,
     },
     "e81a4f23-4e59-4e14-88bf-a78fa13218e0": {
         [Language.English]: `Customers`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `से अधिक ग्राहक`,
     },
     "7ab1943f-7e7d-4fbe-8c67-67541b59d8dc": {
-        [Language.English]: `150+`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `300+`,
+        [Language.Hindi]: `300+`,
     },
     "36b96437-768d-44b7-9715-eb9658574b6d": {
         [Language.English]: `Products`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद`,
     },
     "2b763748-e9c4-4f29-9063-84844e38ab13": {
-        [Language.English]: `5000+`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `30000+ `,
+        [Language.Hindi]: `30000+ `,
     },
     "b002d357-ffa0-43d2-b9b9-ced844e6d0c5": {
         [Language.English]: `Dealer network`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `डीलर नेटवर्क`,
     },
     "c984cd4a-eae3-4584-a958-8b18d1df3f0e": {
         [Language.English]: `Our <span class="lg-text-highlighted">Head Office</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारा <span class="lg-text-highlighted">मुख्य कार्यालय</span>`,
     },
     "e512a33e-392f-4a62-a0d7-102b0b36dee2": {
         [Language.English]: `Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Residential Solar Solutions, we are bringing in a new dimension of smart energy products.`,
@@ -7121,7 +7126,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "b98270e9-5f07-47d8-9cd9-67235c9e92d7": {
         [Language.English]: `Our <span class="lg-text-highlighted">Manufacturing Centers</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारे <span class="lg-text-highlighted">निर्माण केंद्र</span>`,
     },
     "e522dad2-1dc3-429d-9837-aa30c9e4a38d": {
         [Language.English]: `Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Residential Solar Solutions, we are bringing in a new dimension of smart energy products.`,
@@ -7149,11 +7154,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "2f75c946-eefa-4173-ba70-2bf71894c373": {
         [Language.English]: `<span class="lg-text-highlighted">PAN India</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">पूरे भारत</span>`,
     },
     "75f36250-5f38-4b37-99a3-39caaee72b31": {
         [Language.English]: `Presence`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `में मौजूदगी`,
     },
     "202a7d42-c50e-4074-bb42-55cf01803a6f": {
         [Language.English]: `With a PAN India presence with 40+ service centers, Livguard is just one call away to cater to your energy storage related needs. We always keep your product satisfaction as our priority, and empower you with unlimited energy.`,
@@ -7161,287 +7166,296 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "56fb901a-105b-41f6-9f28-5352624665ea": {
         [Language.English]: `Your Guide to Finding`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">सही उत्पाद</span> चुनने के लिए`,
     },
     "2c808484-f637-4570-8825-b0e8d877a58f": {
         [Language.English]: `The <span class="lg-text-highlighted">Right Product</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपकी गाइड`,
     },
     "eb5b90de-47c1-423e-8f2c-9945498c0d5d": {
         [Language.English]: `Get to know about the range of energy storage solutions for your home and automotives that fulfil your requirements with efficiency. Through our catalogues, find details about the features, range and types of various products we offer.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने घर और ऑटोमोटिव के लिए ऊर्जा संग्रहण समाधान के विभिन्न उत्पादों के बारे में जानें, जो आपकी आवश्यकताओं को सहजता से पूरा करते हैं। हमारे कैटलॉग में, हमारे द्वारा प्रदान किए जाने वाले विभिन्न उत्पादों की विशेषताओं, रेंज और प्रकार के बारे में जानकारी प्राप्त करें।`,
     },
     "47f28213-0a21-4782-b006-cf696dec0758": {
         [Language.English]: `Download Catalogue`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कैटलॉग डाउनलोड करें`,
     },
     "7d4dc76d-c541-4f5c-af15-3ec0f0ef4487": {
         [Language.English]: `Download Catalogue for Automotive Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरी का कैटेलॉग डाउनलोड करें`,
     },
     "b3026d95-83f1-4957-82b0-80480b7a31e3": {
         [Language.English]: `Download Catalogue for Inverter Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इन्वर्टर बैटरी का कैटेलॉग डाउनलोड करें`,
     },
     "d82b18b5-075b-40f8-a295-142db690894b": {
         [Language.English]: `Download Catalogue for Home Inverter`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `होम इन्वर्टर का कैटेलॉग डाउनलोड करें`,
     },
     "3850de5b-b7ba-4b2a-863a-bfb9416da0e6": {
         [Language.English]: `Download Catalogue for Solar Solutions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सोलर समाधानों का कैटेलॉग डाउनलोड करें`,
     },
     "d1aa9371-f547-41b6-9d8a-650971f771f8": {
         [Language.English]: `Download Catalogue for Other Accessories`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अन्य उपकरणों का कैटेलॉग डाउनलोड करें`,
     },
 
     //International Ops Vernac Start
     "d1c50aa6-1529-4fe4-8e3b-b526888ec7e9": {
         [Language.English]: `Livguard`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `लिवगार्ड`,
     },
     "ac1d1b59-b34e-4bad-8b06-bf9de7999447": {
         [Language.English]: `Empowering Lives With Innovation`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `आधुनिकता से सशक्त जीवन के लिए`,
     },
     "2c463782-52de-4cf3-b55d-93bfce4e1ec1": {
-        [Language.English]: `Partner with Us`,
-        [Language.Hindi]: `????`,
+        [Language.English]: `Connect with Us`,
+        [Language.Hindi]: `जुड़िए हमसे`,
     },
     "a21ac9fc-8b0d-47cf-8624-d5a8b747e817": {
         [Language.English]: `<span class="lg-text-highlighted">International</span> Business Operations`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">अंतर्राष्ट्रीय</span> व्यापार संचालन`,
     },
     "ad28c51d-af5e-4e47-9c32-68313738a1f2": {
         [Language.English]: `With the support of our esteemed Business Partners, we have established our roots in many countries across the globe. Their cooperation has enabled us to seize opportunities in the Global Energy Storage Solutions Sector.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `अपने सम्मानित बिजनेस पार्टनर्स के सहयोग से, हमने दुनिया भर के कई देशों में अपनी जड़ें स्थापित की हैं। उनके सहयोग ने हमें वैश्विक ऊर्जा संग्रहण समाधान क्षेत्र में अवसरों का लाभ उठाने में सक्षम बनाया है।`,
     },
     "9ea95f50-fe69-4791-9592-beaa2e0653ce": {
         [Language.English]: `Why <span class="lg-text-highlighted">Livguard</span>`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">लिवगार्ड</span> क्यों`,
     },
     "24e6de69-c47d-4b2e-bc5b-635a9cbb31ff": {
         [Language.English]: `As a key member of the esteemed SAR Group with a noteworthy 35-year legacy, Livguard has been consistently leading the way in delivering advanced energy solutions across India. Our innovative and comprehensive range of energy storage products including inverters, inverter batteries, solar solutions, automotive solutions, and e-rickshaw batteries, have earned the trust of millions of customers across the nation.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `लिवगार्ड गर्वनीय SAR ग्रुप का एक महत्वपूर्ण सदस्य है जिसकी 35 साल की महत्वपूर्ण विरासत है। हम सतत उन्नत ऊर्जा समाधानों की प्रवर्तन में भारत भर में आगे बढ़ रहे हैं। हमारे नवाचारी और व्यापक ऊर्जा संग्रह उत्पाद, जिनमें इन्वर्टर, इन्वर्टर बैटरी, सोलर समाधान, ऑटोमोटिव समाधान, और ई-रिक्शा बैटरी शामिल हैं, ने देशभर में लाखों ग्राहकों का विश्वास जीता है।`,
     },
     "539abcc9-a3b3-4ba8-b0b7-9320c02921a9": {
         [Language.English]: `Our International Presence`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `हमारी अंतर्राष्ट्रीय उपस्थिति`,
     },
     "04aa014b-9343-44e4-b0a5-35efab1f87ca": {
         [Language.English]: `35+`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `35+`,
     },
     "9bb5760a-18e0-42bf-880d-6ddcc259dbc6": {
         [Language.English]: `Years of Legacy`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `सालों की विरासत`,
     },
     "142e6c8d-b760-494f-8bb6-3c7d1a1a8663": {
         [Language.English]: `35+`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `35+`,
     },
     "b491fad1-4bcd-4167-95d3-dfdf48769a67": {
         [Language.English]: `Countries&nbsp;& Counting`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `देशों में उपस्थित`,
     },
     "f2dd4264-0102-44f7-a3d8-4ed0747dc785": {
         [Language.English]: `200&nbsp;Mn+`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `200 मिलियन+`,
     },
     "b4a41fb9-4438-4760-954c-b92d5f752602": {
         [Language.English]: `Channel Partners`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `चैनल पार्टनर`,
     },
 
     "287da09c-577e-48c9-8bf8-afdde8dfeb7f": {
         [Language.English]: `<span class="lg-text-highlighted">Innovative</span> Solutions`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `हमारे <span class="lg-text-highlighted">ऊर्जा</span> समाधान सलूशन`,
     },
     "06daee92-6429-4732-996c-adc4de0153a5": {
         [Language.English]: `Inverters`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `इनवर्टर`,
     },
     "5c6e3030-2ce7-4f27-8f39-e75490428d22": {
         [Language.English]: `Visit our range of home inverters with sleek design made to bring unlimited flow of energy to your home. Backed by its unique design, pick the one that suits your home the best.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `आपके घर में ऊर्जा का असीमित प्रवाह लाने के लिए आकर्षक बनावट वाले होम इनवर्टर की हमारी श्रेणी पर जाएं। इसके मजबूत निर्माण के साथ, वह चुनें जो आपके होम लिए सबसे उपयुक्त हो।`,
     },
     "d94e8423-9a70-4d90-b717-e94047c0c6b1": {
         [Language.English]: `Inverter Batteries`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `इनवर्टर बैटरी`,
     },
     "ce1d109e-6aa7-4b43-851b-3dbfda2397ad": {
         [Language.English]: `With our wide range of strong inverter batteries backed with futuristic design and multiple features, experience the power of uninterrupted energy for your home without any hassles.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `उद्योग की सबसे पहली 3डी ग्रिड तकनीक के साथ, हमारी इनवर्टर बैटरी की श्रेणी आपके परिवार की पावर बैकअप आवश्यकताओं को कुशलतापूर्वक पूरा करने के लिए निर्मित की जाती है।`,
     },
     "8d1f020b-a79b-4452-ab2d-bc03e503e5b3": {
         [Language.English]: `Automotive Batteries`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरी`,
     },
     "e81a9284-9fc4-4e5d-aef7-099276a7ce4f": {
         [Language.English]: `Experience limitless energy with our wide range range of automotive batteries, made to empower your fast-paced lifestyle with high performing products.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरियों की हमारी विस्तृत श्रृंखला के साथ असीमित ऊर्जा का अनुभव करें, जो उच्च प्रदर्शन वाले उत्पादों के साथ आपकी तेज़-तर्रार जीवन शैली को सशक्त बनाने के लिए बनाई गई है।`,
     },
     "697b2970-79ca-49ca-8387-36f3cbbf0868": {
         [Language.English]: `Solar Solutions`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `सोलर समाधान`,
     },
     "3bc662fb-ad9e-4b3d-b0f7-f34bf25d85da": {
         [Language.English]: `Solutions made to fit your specific needs, precisely. We are the experts in Solar Rooftop Solutions, which equip us to always bring the best in class products for your needs.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `आपकी विशिष्ट आवश्यकताओं को पूरा करने के लिए लाये गये सटीक सलूशन। हम सोलर रूफटॉप सलूशन के एक्सपर्ट हैं, जो हमें हमेशा आपकी जरूरतों के लिए श्रेणी में सर्वश्रेष्ठ उत्पाद लाने के लिए तैयार करते हैं।`,
     },
     "a84171f3-8dac-4bf2-b944-cedf3d61b727": {
         [Language.English]: `Other Accessories`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `सहायक उपकरण`,
     },
     "48b882d5-db79-4f1d-910d-6b440979b230": {
         [Language.English]: `Explore accessories which perfectly compliment your products, with our curated range of choices. Built with the finest materials, these accessories will last long.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `हमारे सहायक उपकरणों की श्रेणी आपके घर की ज़रूरतों को भली भाँति समझ कर उनको बेहतर बनाते हैं । यह उपकरण श्रेष्ठ सामग्री से बने हैं जो सालों साल आपका साथ देंगे।`,
     },
     "992cc5ae-1060-41ec-8983-ac839e003d18": {
         [Language.English]: `Innovative Solutions`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `आधुनिक समाधान`,
     },
     "4a59bbb9-dee4-4a21-93f8-8c29e8f9fb54": {
         [Language.English]: `AI Charging`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `एआई चार्जिंग`,
     },
     "1c7984e1-27f7-4eda-9ddf-52c656e6429b": {
         [Language.English]: `The AI Charging in our inverters automatically reads the battery’s charging voltage, backup & charge percentage and charges according to the battery needs. It also prevents overcharging for enhanced battery life.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `हमारे इनवर्टर में एआई चार्जिंग स्वचालित रूप से बैटरी की चार्जिंग वोल्टेज, बैकअप और चार्ज प्रतिशत को पढ़ती है और बैटरी की जरूरतों के अनुसार चार्ज करती है। यह बैटरी की लाइफ बढ़ाने के लिए ज़रूरत से ज़्यादा चार्जिंग को भी रोकती है।`,
     },
     "096c8e9a-eac3-4ca4-be78-224491b022de": {
         [Language.English]: `CNT Technology`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `CNT तकनीक`,
     },
     "17109bcf-0684-4ea4-970c-19bae32418e5": {
         [Language.English]: `Batteries built with Carbon Nanotube Technology that helps in longer backup with better charge efficiency, and a better battery life`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `कार्बन नैनोट्यूब तकनीक से बनी बैटरियां जो बेहतर चार्ज दक्षता और बेहतर बैटरी जीवन के साथ लंबे समय तक बैकअप में मदद करती हैं।`,
     },
     "ff73906a-cbcc-49da-96ce-a199f6cdd0c4": {
         [Language.English]: `Best In Class Warranty`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `सर्वश्रेष्ठ वारंटी`,
     },
     "b1b4cca4-e29b-434e-9855-e135d9bdb85e": {
         [Language.English]: `Experience unmatched performance for your car and SUV with peace of mind of our best-in-class warranty, for each Ah battery category`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `अपनी कार और एसयूवी के लिए बेमिसाल प्रदर्शन का आनंद लें और हर Ah बैटरी श्रेणी के लिए हमारी श्रेष्ठ वारंटी के साथ शांति का आनंद उठाएं।`,
     },
     "fc500a9c-a4db-45d9-90ec-9e582b7e1650": {
         [Language.English]: `6 Wheel Tuffness`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `6 पहिया टफनेस`,
     },
     "c8a8008d-64ca-4dcd-93c6-79ba8d77c622": {
         [Language.English]: `Experience long life and performance with inverter trolleys for your home, empowered with 6 wheel Tuffness for support`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `अपने घर के लिए इनवर्टर ट्रॉली के साथ लंबे जीवन और प्रदर्शन का अनुभव करें, समर्थन के लिए 6 पहिया टफ़नेस के साथ।`,
     },
     "57d8b9dd-8e88-4656-996b-94b467c9e321": {
         [Language.English]: `Solar Rooftop Solution Expertise`,
-        [Language.Hindi]: `Go Solar and generate your own electricity with the experts. Get tailor-made solutions, which fit the needs of your home with higher savings on your electricity bills`,
+        [Language.Hindi]: `सोलर रूफटॉप समाधान विशेषज्ञता`,
+    },
+    "a72cbe3b-9abc-4e19-a789-dba48179cfe6": {
+        [Language.English]: `Go Solar and generate your own electricity with the experts. Get tailor-made solutions, which fit the needs of your home with higher savings on your electricity bills`,
+        [Language.Hindi]: `सोलर ऊर्जा अपनाएं और विशेषज्ञों के साथ अपनी खुद की बिजली बनाएं। हमारे साथ विशेष समाधान प्राप्त करें, जो आपके बिजली बिल पर अधिक बचत के साथ आपके घर की ज़रूरतों को पूरा करते हों।`,
     },
     "e8cf0cf1-7c32-4576-9cb9-9128c0d90ce8": {
         [Language.English]: `1988`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `1988`,
     },
     "8c6d06ec-e5a5-42d4-af83-67c9719cb313": {
         [Language.English]: `Mr Rakesh Malhotra, our founder and mentor, embarked on his journey to bring a change in the energy storage solutions space`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `हमारे संस्थापक और मार्गदर्शक श्री राकेश मल्होत्रा ​​ने ऊर्जा संग्रहण समाधान क्षेत्र में बदलाव लाने के लिए अपनी यात्रा शुरू की`,
     },
     "67726d9d-17c5-47a8-8257-749c0a9d9d2f": {
         [Language.English]: `2014`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `2014`,
     },
     "7f9e5d13-7aee-4b3d-a437-b56d3c5cd17c": {
         [Language.English]: `On 26th May, Livguard Energy Technology Pvt. Ltd. was formed offering energy storage solutions`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `26 मई को लिवगार्ड एनर्जी टेक्नोलॉजी प्रा.लि. लिमिटेड का गठन ऊर्जा संग्रहण समाधान की पेशकश के लिए किया गया`,
     },
     "f28f2dd3-2dc5-469e-ae81-da74f6d140ed": {
         [Language.English]: `2017`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `2017`,
     },
     "7fe6ddc2-67d3-4e35-bec2-56961675498f": {
         [Language.English]: `Akshay Kumar was introduced as the Brand Ambassador, and automotive batteries were relaunched`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `अक्षय कुमार को ब्रांड एंबेसडर के रूप में पेश किया गया और ऑटोमोटिव बैटरियां फिर से लॉन्च की गईं`,
     },
     "95bc00f0-d599-44dc-a807-6b4bc9338a73": {
         [Language.English]: `2018`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `2018`,
     },
     "3edfb06c-0460-493f-97da-bc9ff21a78f7": {
         [Language.English]: `Inverter and Inverter Battery solutions were added to the product portfolio for the people`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `लोगों के लिए उत्पाद पोर्टफोलियो में इन्वर्टर और इन्वर्टर बैटरी समाधान जोड़े गए`,
     },
     "47f1ef98-3b15-423b-b190-8a46bfa4d8f3": {
         [Language.English]: `2019`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `2019`,
     },
     "925184da-5c67-4e32-a491-5b2b1f214c47": {
         [Language.English]: `The simply amaZING four wheeler batteries were introduced, and Solar came into the picture`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `पहिया वाहनों के लिए amaZING बैटरी पेश की गई, और सोलर समाधान जानता के लिए प्रस्तुत किए गए`,
     },
     "5d614c09-822d-4e0a-a81e-bf55e607b656": {
         [Language.English]: `2020`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `2020`,
     },
     "87c78964-385a-4113-83c0-20b588fc6674": {
         [Language.English]: `Livguard Solar was launched which urged people to generate their own electricity with the experts`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `लिवगार्ड सोलर की शुरुआत हुई, जिसके तहत लोगों से एक्सपर्ट के साथ अपनी बिजली ख़ुद बनाने का प्रोत्साहन दिया गया`,
     },
     "4354e23a-20cb-4e51-9555-5d0b4de88dbb": {
         [Language.English]: `2022`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `2022`,
     },
     "e356d80b-8513-41c9-9c60-ab3a11e07cbf": {
         [Language.English]: `Livguard became the fastest-growing energy storage solutions brand in India and continues to empower lives.`,
-        [Language.Hindi]: `????`,
+        [Language.Hindi]: `लिवगार्ड भारत में सबसे तेजी से बढ़ने वाला ऊर्जा संग्रहण समाधान ब्रांड बन बना, और लाखों जीवनों को आज भी सशक्त बना रहा है।`,
     },
     "776ff25b-884a-49fe-95c3-14259b57457f": {
         [Language.English]: `How long does an e-rickshaw battery backup typically last?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "एक ई-रिक्शा बैटरी का बैकअप आम तौर पर कितना होता है?",
     },
     "d2911eda-5053-41b1-beef-31190f078898": {
         [Language.English]: `Typically, an e-rickshaw battery backup can last for around 70-140 km per charge depending on age and capacity of the battery. However, Livguard e-rickshaw batteries are designed for longer-lasting performance, providing extended backup to keep you moving.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "आम तौर पर, एक ई-रिक्शा बैटरी का बैकअप एक चार्ज पर लगभग 70-140 किलोमीटर तक हो सकता है जो बैटरी की उम्र और क्षमता पर निर्भर करता है। हालांकि, लिवगार्ड की ई-रिक्शा बैटरियां लंबे समय तक बेहतर प्रदर्शन के लिए डिज़ाइन की गई हैं, जो आपको लंबे समय तक संचालित रखने का समर्थन करती हैं।",
     },
     "66024269-4422-4f91-9438-3289aa23974b": {
-        [Language.English]: `When should i start looking for a new e-rickshaw battery?`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `When should I start looking for a new e-rickshaw battery?`,
+        [Language.Hindi]: "एक नई ई-रिक्शा बैटरी की खोज करने का समय कब होता है?",
     },
     "d7cf1178-d4a1-4ae8-8e99-1ae3f9c8cb4e": {
         [Language.English]: `Consider replacing your e-rickshaw battery when you notice slower speeds, reduced range, or frequent power losses. Livguard's e-rickshaw batteries, designed with advanced technology for maximum mileage and life, are a perfect replacement choice to ensure efficient performance.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "जब आप धीमी गति, कम दूरी तय होना, या बार-बार बिजली की हानि का अनुभव करते हैं, तो आपको अपनी ई-रिक्शा बैटरी को बदलने का विचार करना चाहिए। लिवगार्ड की ई-रिक्शा बैटरियों को उन्नत तकनीक के साथ डिज़ाइन किया गया है जो अधिक माइलेज और उम्र के साथ बेहतर प्रदर्शन सुनिश्चित करने के लिए एक परिपूर्ण प्रतिस्थापन विकल्प है।",
     },
     "3e059e92-d43a-40cc-aa7e-41406e08c588": {
         [Language.English]: `Which is the best e-rickshaw battery?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सबसे अच्छी ई-रिक्शा बैटरी कौनसी है?",
     },
     "e9a3a3eb-9d61-40c0-97f5-3c0631f07058": {
         [Language.English]: `The best e-rickshaw battery balances performance, durability, and affordability. Livguard e-rickshaw batteries stand out with their superior technology, high cranking power, enhanced safety standards, and extended battery life, making them a top choice for consistent, powerful performance.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "सबसे अच्छी ई-रिक्शा बैटरी प्रदर्शन, टिकाऊता और किफ़ायतीता को संतुलित करती है। लिवगार्ड ई-रिक्शा बैटरियों की उन्नत तकनीक, उच्च क्रैंकिंग पावर, बढ़ी हुई सुरक्षा मानक, और बढ़ी हुई बैटरी जीवन उन्हें एक सुस्त, शक्तिशाली प्रदर्शन के लिए शीर्ष विकल्प बनाते हैं।",
     },
     "57d2fe3b-cc4d-44d4-b2b0-114da19d9ee7": {
         [Language.English]: `How long can a 120Ah e-rickshaw battery last on a single charge?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "120Ah ई-रिक्शा बैटरी एक चार्ज पर कितने समय तक चल सकती है?",
     },
     "8eefb5af-6bcc-4d2f-abe8-f9c68f0220f6": {
         [Language.English]: `Typically, a 120Ah e-rickshaw battery can last quite long on a single charge depending on the usage and conditions. However, with Livguard's 120Ah e-rickshaw batteries, you can expect extended duration thanks to their superior design, advanced technology, and high energy density for consistent power supply.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "सामान्यतः, 120Ah ई-रिक्शा बैटरी एक चार्ज पर उपयोग और स्थितियों के अनुसार काफी देर तक चल सकती है। हालांकि, लिवगार्ड की 120Ah ई-रिक्शा बैटरियों के साथ आप उन्हें ज़्यादा लंबे समय के लिए उम्मीद कर सकते हैं क्योंकि इनमें उन्नत डिजाइन, उन्नत तकनीक, और उच्च ऊर्जा तकनीक है जो सतत शक्ति आपूर्ति के लिए मदद करता है।",
     },
     "dfaf9877-03ba-4cce-bd13-3404faf8ca9f": {
         [Language.English]: `How do I properly charge my e-rickshaw battery?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मैं अपनी ई-रिक्शा बैटरी को सही तरीके से कैसे चार्ज करूँ?",
     },
     "e1d62905-4e93-4b94-a0d3-db4774a9303e": {
         [Language.English]: `Properly charging your e-rickshaw battery involves a steady power source and ensuring complete charging cycles. Livguard's e-rickshaw batteries are designed for efficient charging, long life, and consistent power supply, ensuring your e-rickshaw performs optimally at all times with correct charging practices.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "अपनी ई-रिक्शा बैटरी को सही तरीके से चार्ज करने के लिए स्थिर बिजली स्रोत का उपयोग करें और पूरे चार्जिंग साइकिल का ध्यान रखें। लिवगार्ड की ई-रिक्शा बैटरी उच्च प्रदर्शन, लंबी उम्र, और सतत पावर सप्लाई के लिए डिज़ाइन की गई है, जिससे आपकी इ-रिक्शा सही चार्जिंग तकनीक के साथ सर्वश्रेष्ठ रूप से काम करती है।",
     },
     // Warranty Page Vernac Strings Start
     "8a3404ac-d12b-47f2-bc31-5d9411a55fde": {
         [Language.English]: `Warranty Registration`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी पंजीकरण`,
     },
     "e979cb3b-1a68-45bd-a7cd-0e20d389f91d": {
         [Language.English]: `Made Easy For You`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपके लिए आसान!`,
     },
     "e631b621-5214-4ef4-a2d6-1b6126137c00": {
         [Language.English]: `With Livguard as your energy partner, register your products easily and effortlessly. We are always available on call, chat and mail for you.`,
@@ -7449,139 +7463,139 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4c465a92-fb45-41f3-9fc5-dfed80962b12": {
         [Language.English]: `Experience <span class="lg-text-highlighted">Seamless Service</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अनुभव करें <span class="lg-text-highlighted">बेहतरीन सर्विस</span>`,
     },
     "dc2254fc-6ca8-49f7-a007-7e833db77009": {
-        [Language.English]: "With Livguard Warranties",
-        [Language.Hindi]: "",
+        [Language.English]: `With Livguard Warranties`,
+        [Language.Hindi]: `लिवगार्ड वारंटी के साथ`,
     },
     "7bd7f0d0-1ba0-43f9-82be-0d7f05c21578": {
-        [Language.English]: `Registering your warranty online is like having a helpful friend ready to support you. By registering your <span class="lg-text-body-bold">Livguard product's warranty</span> online, you ensure quick and efficient access to support, if and when needed. With Livguard as your energy partner, register your products easily and effortlessly. We are always available on call, chat and mail for you. It simplifies service requests, speeds up the resolution process, and serves as proof of purchase. Whether it is an <span class="lg-text-body-bold">inverter warranty, inverter battery warranty,</span> automotive battery warranty, stabilizer warranty, or any Livguard product, we make registration simple for you. Livguard offers two types of warranties - Flat and Pro Rata. Flat Warranty: A <span class="lg-text-body-bold">flat warranty</span> is a full-coverage warranty for a fixed period of time. This means that if a product fails or breaks down within the warranty period, the manufacturer or the company will repair or replace the product at no extra cost to you. Pro Rata Warranty: A <span class="lg-text-body-bold">pro rata warranty</span> offers coverage that reduces over time. After an initial period of flat warranty, during which the company will replace a faulty product, the pro rata period begins. In this phase, if the product fails, you'll have to pay a proportion of the replacement cost, calculated based on how long you've had the product.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Registering your warranty online is like having a helpful friend ready to support you. By registering your <span class="lg-text-body-bold">Livguard product's warranty</span> online, you ensure quick and efficient access to support, if and when needed. It simplifies service requests, speeds up the resolution process, and serves as proof of purchase. `,
+        [Language.Hindi]: `अपनी वारंटी ऑनलाइन पंजीकरण करना, आपके लिए एक सहायक दोस्त की तरह है जो आपकी सहायता के लिए तैयार रहता है। अपने <span class="lg-text-body-bold">लिवगार्ड उत्पाद की वारंटी</span> ऑनलाइन पंजीकरण करके, आप जरूरत पड़ने पर जल्द और कुशल सहायता तक पहुंच सुनिश्चित करते हैं। यह सेवा अनुरोधों को सरल बनाता है, समस्या के समाधान को तेज़ करता है, और खरीद का प्रमाण प्रदान करता है।`,
     },
     "6e06bc73-f6b0-4a28-9db8-ff032b6722ff": {
         [Language.English]: `Benefits of Online Warranty Registration`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑनलाइन वारंटी पंजीकरण के लाभ`,
     },
     "5f2ff78d-56a6-4f19-87d2-03342967850b": {
         [Language.English]: `Quick Registration`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `त्वरित पंजीकरण`,
     },
     "08cd30f4-21ca-442c-8533-0a0ea8519c3b": {
-        [Language.English]: `Paperless Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Online Warranty`,
+        [Language.Hindi]: `ऑनलाइन वारंटी`,
     },
     "a0e00e4e-7130-489c-9fe1-7a9fad0f3aa7": {
         [Language.English]: `Effortless Experience`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सहज अनुभव`,
     },
     "7ad4e46b-f080-4885-a39b-7b752906698f": {
         [Language.English]: `Benefits of Online Warranty Registration`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑनलाइन वारंटी पंजीकरण के लाभ`,
     },
     "4e6a2a00-461a-4407-a51e-ebee08a59f1f": {
-        [Language.English]: `You Can Also Register <span class="lg-text-highlighted">Warranty</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Other Ways `,
+        [Language.Hindi]: `अन्य तरीके `,
     },
     "94cc6e89-af38-4bdf-9c02-f666eb559837": {
-        [Language.English]: `Through Our Team of Experts`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `To Register Your <span class="lg-text-highlighted">Warranty</span>`,
+        [Language.Hindi]: `अपनी <span class="lg-text-highlighted">वारंटी</span> पंजीकृत करने के लिए`,
     },
     "995ba2bf-62b1-402f-a8d0-9928081e37c5": {
         [Language.English]: `Call us on our toll-free number to register`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पंजीकरण के लिए हमें हमारे टोल-फ्री नंबर पर कॉल करें:`,
     },
     "84b91d23-dc94-48a8-ac22-24fb97f95e4d": {
         [Language.English]: `Call Us`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमें कॉल करें`,
     },
     "399595dc-4684-42cb-bf32-e0ce0ba8fc28": {
         [Language.English]: `Send us a message to register your product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने उत्पाद को पंजीकृत करने के लिए हमें एक मेसेज भेजें`,
     },
     "793169c2-90d3-47a6-8d4e-ea93ae0ec10d": {
         [Language.English]: `Chat With Us`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमसे बात करें`,
     },
     "a92293f2-bba1-45c6-83f0-b6b757d4fc89": {
         [Language.English]: `Drop us a mail to get your product registered`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपने उत्पाद को पंजीकृत कराने के लिए हमें एक मेल भेजें`,
     },
     "86298c75-2db2-45aa-8b4d-67be07715e63": {
         [Language.English]: `Email Us`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमें मेल करें`,
     },
     "16deb412-ea49-403d-9f2d-b8279dabd5a7": {
         [Language.English]: `Reliable Service`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विश्वसनीय सर्विस`,
     },
     "1156ca19-8b0c-4c06-bd91-23e394bdee5f": {
         [Language.English]: `For Uninterrupted Power Supply`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `निरंतर ऊर्जा के लिए`,
     },
     "51d7f3dd-6922-4a86-8934-2eaf5ec55433": {
         [Language.English]: `Request A Service`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सर्विस अनुरोध करें`,
     },
     "b4c42c87-1ee1-4f06-8cff-abe7751a025c": {
         [Language.English]: `<span class="lg-text-highlighted">Register</span> In Minutes`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मिनटों में <span class="lg-text-highlighted">पंजीकरण करें</span>`,
     },
     "7ce4697b-82b4-47c3-944d-0c7edbcd1ccd": {
         [Language.English]: `Your Contact Number`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपका संपर्क नंबर`,
     },
     "74bef278-2e4e-4568-868b-7ce5d50df6e2": {
         [Language.English]: `Enter Contact Number`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपना मोबाइल नंबर डालें`,
     },
     "1e26fc77-d6ce-496f-8a43-b0ff4d3f1f7e": {
         [Language.English]: `Your Email`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपका नाम`,
     },
     "17b9c40e-9c7d-4a19-8202-b294967fdff8": {
         [Language.English]: `Enter Email`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी ईमेल डालें`,
     },
     "70c4b348-67de-4873-bb1e-8d060f7d98c8": {
         [Language.English]: `Your Name`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपका नाम`,
     },
     "5249c7c4-1840-410d-b6c7-f4c53ab8369a": {
         [Language.English]: `Enter Name`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपना नाम डालें`,
     },
     "53927c84-bd54-4a11-b284-7f3844f30c4e": {
         [Language.English]: `Your Pin Code`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपका पिन कोड`,
     },
     "a73f6868-bb95-4bc4-9911-aed2ae6cc695": {
         [Language.English]: `Enter Pin Code`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपना पिन कोड डालें`,
     },
     "5132b06f-9057-4e22-a21e-aca383247dda": {
         [Language.English]: `Your City`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपका शहर`,
     },
     "154d8f5a-9084-4860-b588-c17bb178226e": {
         [Language.English]: `Enter City`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपना शहर डालें`,
     },
     "a677f88a-dabc-45d5-8542-9954d0c7535b": {
         [Language.English]: `Your State`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आपका राज्य`,
     },
     "9fdfab81-7e99-4e76-8fbb-d1c3b634a735": {
         [Language.English]: `Enter State`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपना राज्य डालें`,
     },
     "79acc43f-692e-439a-ae40-75f7f0e60c95": {
         [Language.English]: `Next Step`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अगला कदम`,
     },
     "988b89be-d6ef-4008-9faf-c5b6cb3eea06": {
         [Language.English]: `+ Add Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `+ उत्पाद जोड़ें`,
     },
     "3060b50b-5b8c-4feb-9abe-4d18a51e39e1": {
         [Language.English]: `Product`,
@@ -7589,19 +7603,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "69e30a83-d3d3-4ff3-bba7-b56849edd3c0": {
         [Language.English]: `Product Type`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद प्रकार`,
     },
     "f0b96564-0f72-493f-8d69-11a797004751": {
         [Language.English]: `Serial Number`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सीरियल नंबर`,
     },
     "cc30e4da-6578-4fe7-8526-5ee7337a6515": {
         [Language.English]: `Enter Serial Number`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सीरियल नंबर दर्ज करें`,
     },
     "a678f917-a247-4e95-99f2-303db4d122c9": {
         [Language.English]: `Purchase Proof`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `खरीद का प्रमाण`,
     },
     "ae64dabe-c22a-429b-9868-5b19b57559a8": {
         [Language.English]: `Choose Image`,
@@ -7609,23 +7623,19 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a704f8f5-79db-437c-8f23-d64a634899a7": {
         [Language.English]: `Supported file types for purchase proof are JPG, JPEG, PNG and maximum allowed size is 1MB.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `समर्थित फ़ाइल प्रकार: JPG, JPEG, और PNG। अधिकतम अनुमत फ़ाइल आकार 1 MB है।`,
     },
     "7c3fd7d9-651f-4e02-803e-a5bf1efdc519": {
         [Language.English]: `Remove Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद हटाएँ`,
     },
     "46655054-3f4d-46b5-ad00-510a9f00de36": {
         [Language.English]: `Remove Product`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `उत्पाद हटाएँ`,
     },
     "b034be5d-2864-4ab3-bdac-d5a12e40e8d8": {
         [Language.English]: `Date of Birth`,
-        [Language.Hindi]: `?????`,
-    },
-    "b680144d-0d44-4f46-af80-dcacabae78de": {
-        [Language.English]: `Date, Month, Year`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `जन्मतिथि`,
     },
     "bf43b0f2-2e29-4290-a7a6-4fc1bb305c56": {
         [Language.English]: `Till then, show some love to our <br /> Social Handles!`,
@@ -7633,20 +7643,20 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "cf74f848-853c-493e-acc9-fb054f374e63": {
         [Language.English]: `Submit Date of Birth`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `जन्मतिथि सबमिट करें`,
     },
     "10fb7b8f-7d05-4bf3-9267-ea07410b3e49": {
         [Language.English]: `Hang on, you'll receive a call from our team soon. Meanwhile, fill in your date of birth to unlock some additional deals and perks`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सबर कीजिए, हमारी टीम आपसे जल्द ही संपर्क करेगी। तब तक के लिए, कृपया हमे अपनी जन्मतिथि प्रदान करें, ताकि हम आपको कुछ अनोखी डील और सुविधायें दे पाएँ।`,
     },
     "41bcbb30-f453-487a-be09-bdb22ac8e49c": {
         [Language.English]: `We'll reach out to you with some exciting deals and offers soon`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हम जल्द ही आपके पास कुछ रोमांचक सौदे और ऑफ़र्स के साथ संपर्क करेंगे।`,
     },
 
     "79c83c5f-5a33-4b6b-9b5f-789ee5d140a8": {
         [Language.English]: `In the <span class="lg-text-highlighted">News</span>`,
-        [Language.Hindi]: ``,
+        [Language.Hindi]: `<span class="lg-text-highlighted">खबरों</span> में`,
     },
     "f68e0a37-3c07-4c3e-b3ce-8b6fe60c826c": {
         [Language.English]: `“Best Livguard Inverters in India for Power Supply During Power Cuts”`,
@@ -7654,11 +7664,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "89fb5c95-3b83-4a5a-8bc9-aa810d620ee9": {
         [Language.English]: `Investors`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `निवेशक`,
     },
     "9119e503-aa95-4d61-8daa-323c666e9986": {
         [Language.English]: `<span class="lg-text-highlighted">Financials</span> at a Glance`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `एक नजर : <span class="lg-text-highlighted">वित्तीय जानकारी</span>`,
     },
     "6dbfd771-e134-4326-96d6-8c37b1827056": {
         [Language.English]: `Download`,
@@ -7666,23 +7676,23 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "a8b4f849-32eb-4bc1-b25e-69450d63cf61": {
         [Language.English]: `Building Trust`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `विश्वास निर्माण`,
     },
     "050b72f1-1e00-435b-a879-2c7da1cdabe0": {
         [Language.English]: `Our Governance Principles`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी शासन नीतियाँ`,
     },
     "1f335371-269e-4a18-ab21-c8aa8eaee078": {
         [Language.English]: `Empowering Communities:`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `समुदायों को सशक्त बनाना:`,
     },
     "fbdf2119-fb17-4ea8-8407-e3e4594c934c": {
         [Language.English]: `Our <span class="lg-text-highlighted">CSR Efforts</span>`,
-        [Language.Hindi]: "???????????",
+        [Language.Hindi]: `हमारे <span class="lg-text-highlighted">सीएसआर प्रयास</span>`,
     },
     "02044d34-919d-418c-8212-1293f03bcf2d": {
         [Language.English]: `<span class="lg-text-highlighted">Responsible Recycling</span> :Our Services`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">जिम्मेदार रीसायक्लिंग</span>: हमारी सेवाएं`,
     },
     "096664a2-a00d-44ac-bf4e-2af62103e246": {
         [Language.English]: `Laptops Recycled as per 2023`,
@@ -7702,31 +7712,31 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "93410e83-2080-4748-b66c-bb3152e48b0e": {
         [Language.English]: "Video Gallery",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वीडियो गैलरी`,
     },
     "7b821e90-174f-45a4-ba42-97566a0a09ae": {
         [Language.English]: `Our <span class="lg-text-highlighted">Video Gallery</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी <span class="lg-text-highlighted">वीडियो गैलरी</span>`,
     },
     "0465146e-0127-4109-9c83-f0fa9b81b878": {
         [Language.English]: "All",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सभी`,
     },
     "b80ff1bf-5d72-41c4-b1b7-20376cd9e43c": {
         [Language.English]: "Inverters",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `इनवर्टर`,
     },
     "41c87e2b-3640-42ee-85e0-80aad377ee8a": {
         [Language.English]: "Solar",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `सोलर`,
     },
     "d643ce5a-83e4-4026-9e9e-f1959175a6db": {
         [Language.English]: "Automotive",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ऑटोमोटिव`,
     },
     "ad195899-aa04-427f-b939-a88ecdb8650a": {
         [Language.English]: "E-Rickshaw",
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा`,
     },
     "210958fb-45d3-43f4-a010-f534cbc54902": {
         [Language.English]: `Recycling of <br />E-Waste`,
@@ -7755,7 +7765,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8f4b0d15-62bd-48ed-afed-1ba749177561": {
         [Language.English]: `<span class="lg-text-highlighted">Terms & Conditions</span>- Overview`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `<span class="lg-text-highlighted">नियम और शर्तें </span>- संक्षेप में`,
+    },
+    "731f1433-da78-405f-8bc5-e7351f120dd5": {
+        [Language.English]: `This website is operated by Livguard Batteries Pvt. Ltd. Throughout the site, the terms “we”, “us” and “our” refer to Livguard Batteries Pvt. Ltd. Livguard Batteries Pvt. Ltd. offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.`,
+        [Language.Hindi]: `यह वेबसाइट Livguard Batteries Pvt. Ltd. द्वारा संचालित की जाती है। साइट पर, "हम", "हमारा" और "हमारी" शब्द Livguard Batteries Pvt. Ltd. को संदर्भित करते हैं। Livguard Batteries Pvt. Ltd. इस वेबसाइट को प्रस्तुत करता है, जिसमें इस साइट पर उपलब्ध सभी जानकारी, उपकरण और सेवाएँ शामिल हैं, जो आपके, प्रयोक्ता के, सभी नियमों, शर्तों, नीतियों और यहां बताई गई सूचनाओं की स्वीकृति पर आधारित हैं।`,
     },
     "2dcaf5d9-964e-408d-9348-ac2a6f5aa28d": {
         [Language.English]:
@@ -7763,208 +7777,225 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]:
             "12, 13 और 14 अगस्त के दौरान लिवगार्ड द्वारा संचालित सोशल मीडिया स्वतंत्रता दिवस क्विज़ प्रतियोगिता के लिए निम्नलिखित नियम और शर्तें लागू हैं। प्रतियोगिताओं में भाग लेकर, आप उक्त नियमों और शर्तों से सहमत होते हैं।",
     },
-    // "2122f878-eff2-4af4-8510-94913a31665f": {
-    //     [Language.English]:
-    //         "By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content.",
-    //     [Language.Hindi]: "??????????",
-    // },
-    // "7936f9fd-37f1-462c-b128-a35148d65307": {
-    //     [Language.English]:
-    //         "Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.",
-    //     [Language.Hindi]: "??????????",
-    // },
-    // "f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079": {
-    //     [Language.English]:
-    //         "Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.",
-    //     [Language.Hindi]: "??????????",
-    // },
+    "2122f878-eff2-4af4-8510-94913a31665f": {
+        [Language.English]:
+            "By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content.",
+        [Language.Hindi]: `हमारी साइट पर जा कर और/या हमसे कुछ खरीदने पर, आप हमारी "सर्विस" में शामिल होते हैं और निम्नलिखित नियम और शर्तों ("सेवा की शर्तें", "नियम") से बंधने की सहमति देते हैं, जिसमें यहाँ संदर्भित और/या हाइपरलिंक द्वारा उपलब्ध अतिरिक्त नियम और शर्तें और नीतियाँ भी शामिल हैं। इन सेवा की शर्तों का लागू होना साइट के सभी प्रयोक्ताओं पर होता है, जिसमें बिना किसी प्रतिबंध के ब्राउज़र्स, विक्रेता, ग्राहक, व्यापारी, और/या सामग्री के योगदानकर्ता भी शामिल हैं।`,
+    },
+    "7936f9fd-37f1-462c-b128-a35148d65307": {
+        [Language.English]:
+            "Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.",
+        [Language.Hindi]: `कृपया हमारी वेबसाइट पर पहुँचाने या उपयोग करने से पहले इन सेवा की शर्तों को ध्यान से पढ़ें। साइट के किसी भी भाग पर पहुँचाने या उपयोग करने से आप इन सेवा की शर्तों से बंधने की सहमति देते हैं। अगर आप इस समझौते की सभी नियम और शर्तों से सहमत नहीं हैं, तो आप वेबसाइट तक पहुँच नहीं सकते या किसी सेवा का उपयोग नहीं कर सकते। अगर इन सेवा की शर्तों को एक प्रस्ताव माना जाता है, तो स्वीकृति स्पष्ट रूप से इन सेवा की शर्तों तक ही सीमित है।`,
+    },
+    "f0a60c22-e48c-49ae-bbc5-c2fbaa8a4079": {
+        [Language.English]:
+            "Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.",
+        [Language.Hindi]: `वर्तमान स्टोर में जोड़े गए नए उपकरणों या विशेषताओं पर भी सेवा की शर्तें लागू होंगी। आप इस पृष्ठ पर कभी भी सेवा की शर्तों का सबसे वर्तमान संस्करण समीक्षा कर सकते हैं। हमारे पास इन सेवा की शर्तों के किसी भी भाग को अद्यतन करने, बदलने या प्रतिस्थापित करने का अधिकार सुरक्षित है जो हम अपनी वेबसाइट पर अद्यतन और/या परिवर्तन पोस्ट करके कर सकते हैं। यह आपकी जिम्मेदारी है कि आप समय-समय पर इस पृष्ठ की जाँच करें। किसी भी परिवर्तन के पोस्ट होने के बाद वेबसाइट का उपयोग करना या उस तक पहुँचना उन परिवर्तनों की स्वीकृति है।`,
+    },
     "44121e27-31a6-4f36-b919-e897da7e6ff4": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Online Store Terms`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Online Store Terms`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>ऑनलाइन स्टोर की शर्तें`,
     },
     "b619e5ee-6ee2-4d16-910f-4c2889c941b0": {
         [Language.English]:
             "By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).You must not transmit any worms or viruses or any code of a destructive nature.A breach or violation of any of the Terms will result in an immediate termination of your Services.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "सेवा की शर्तों से सहमत होने पर, आप प्रतिनिधित्व करते हैं कि आप अपने राज्य या प्रदेश में अधिकतम आयु के हैं, या आप अपने राज्य या प्रदेश में अधिकतम आयु के हैं और आपने हमें सहमति दी है कि आपके लाभार्थी किसी भी कम उम्र के व्यक्ति को इस साइट का उपयोग करने की अनुमति दें। आप किसी भी अवैध या अनधिकृत उद्देश्य के लिए हमारे उत्पादों का उपयोग नहीं कर सकते हैं और आप सेवा का उपयोग करते समय अपने अधिकार क्षेत्र में किसी भी कानून का उल्लंघन नहीं कर सकते हैं (कॉपीराइट कानून सहित लेकिन सीमित नहीं)। आपको किसी भी कीट, वायरस या विनाशक प्रकृति के किसी भी कोड का प्रसार नहीं करना चाहिए। शर्तों की किसी भी उल्लंघन का परिणाम तुरंत आपकी सेवाओं का समापन होगा।",
     },
     "34f3e534-f601-41b4-b1a7-9e9a4d1e13e5": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>General Conditions`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>General Conditions`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>सामान्य शर्तें`,
     },
     "086f8701-8e5a-47bc-89b0-185ff2986841": {
         [Language.English]:
             " We reserve the right to refuse service to anyone for any reason at any time.You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. Credit card information is always encrypted during transfer over networks.You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the service is provided, without express written permission by us.The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "हमें किसी भी समय किसी भी कारण से किसी को सेवा देने से मना करने का अधिकार सुरक्षित है। आप समझते हैं कि आपकी सामग्री (क्रेडिट कार्ड की जानकारी को छोड़कर) अनगढ़ीत रूप में स्थानांतरित हो सकती है और इसमें (a) विभिन्न नेटवर्क पर संचार; और (b) जोड़ने वाले नेटवर्क या उपकरण की तकनीकी आवश्यकताओं के अनुसार समाज और अनुकूलित करने के परिवर्तन शामिल होते हैं। क्रेडिट कार्ड की जानकारी हमेशा नेटवर्क पर स्थानांतरित होते समय एन्क्रिप्टेड रहती है। आप सहमत हैं कि बिना हमारी प्रकट लिखित अनुमति के, सेवा, सेवा के उपयोग या सेवा तक पहुंच या वेबसाइट पर किसी भी संपर्क के किसी भी भाग को पुनः उत्पादित, डुप्लिकेट, प्रतिलिपि, बेचना, पुनः बेचना या शोषित करने का उपयोग नहीं करेंगे। इस समझौते में प्रयुक्त शीर्षक केवल सुविधा के लिए शामिल हैं और इन शर्तों को सीमित या प्रभावित नहीं करेंगे।",
     },
     "8cddd0be-4dd4-4bba-9ae0-69c0adee74b8": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Accuracy, Completeness and Timeliness of Information`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Accuracy, Completeness and Timeliness of Information`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>जानकारी की सटीकता, पूरता और समय पर होना`,
     },
     "f4d35c89-f150-4460-aca6-ce00dfb2d36a": {
         [Language.English]:
             "We are not responsible if information made available on this site is not accurate, complete or current. The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete or more timely sources of information. Any reliance on the material on this site is at your own risk.This site may contain certain historical information. Historical information, necessarily, is not current and is provided for your reference only. We reserve the right to modify the contents of this site at any time, but we have no obligation to update any information on our site. You agree that it is your responsibility to monitor changes to our site.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "यदि इस साइट पर उपलब्ध जानकारी सटीक, पूरी या वर्तमान में नहीं है, तो हम इसके लिए जिम्मेदार नहीं हैं। इस साइट पर दी गई सामग्री केवल सामान्य जानकारी के लिए प्रदान की जाती है और इसे निर्णय लेने के लिए एकमात्र आधार के रूप में उपयोग किया जाना चाहिए, बिना प्राथमिक, अधिक सटीक, अधिक पूर्ण या अधिक समय पर जानकारी के स्रोत की सलाह लिए। इस साइट की सामग्री पर निर्भर रहना आपकी खुद की जोखिम पर है। इस साइट में कुछ ऐतिहासिक जानकारी शामिल हो सकती है। ऐतिहासिक जानकारी, जरूरी रूप से, वर्तमान में नहीं है और यह केवल आपके संदर्भ के लिए प्रदान की जाती है। हमें इस साइट की सामग्री में किसी भी समय परिवर्तन करने का अधिकार सुरक्षित है, लेकिन हमारे पास हमारी साइट पर किसी भी जानकारी को अद्यतन करने का कोई प्रतिबद्धता नहीं है। आप सहमत हैं कि हमारी साइट में परिवर्तनों की निगरानी करना आपकी जिम्मेदारी है।",
     },
     "c506fce1-6d8d-41a9-bfc2-7bb5cb2d954a": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span> Modifications to the Service and Prices`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span> Modifications to the Service and Prices`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span> सेवा और मूल्य में बदलाव`,
     },
     "677f57ae-75b0-4440-aca1-3eb9cfe86407": {
         [Language.English]: `Prices for our products are subject to change without notice.<br />
         We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time. <br />
         We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `हमारे उत्पादों के मूल्य बिना सूचना के बदल सकते हैं।
+        हमें किसी भी समय, बिना सूचना दिए, सेवा (या इसके किसी भाग या सामग्री) को बदलने या बंद करने का अधिकार सुरक्षित है।
+        हम सेवा के किसी भी संशोधन, मूल्य परिवर्तन, सस्पेंशन या बंद होने के लिए आप या किसी तीसरे पक्ष को जिम्मेदार नहीं मानेंगे।`,
     },
     "e8c5a78d-46cd-405e-b3f8-fa1903a15a55": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Product of Services `,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Product of Services `,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> सेवाओं का उत्पाद `,
     },
     "04db7675-e412-4294-bfd0-24d54520d02c": {
         [Language.English]: `Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy. <br />
         We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate. <br />
         We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or services that we offer. All descriptions of products or product pricing are subject to change at anytime without notice, at the sole discretion of us. We reserve the right to discontinue any product at any time. Any offer for any product or service made on this site is void where prohibited. <br />
         We do not warrant that the quality of any products, services, information, or other material purchased or obtained by you will meet your expectations, or that any errors in the Service will be corrected.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `कुछ उत्पाद या सेवाएँ सिर्फ वेबसाइट के माध्यम से ऑनलाइन उपलब्ध हो सकती हैं। इन उत्पादों या सेवाओं की मात्रा सीमित हो सकती है और इन्हें हमारी वापसी नीति के अनुसार ही वापस या बदले जा सकता है।
+        हमने प्रयास किया है कि हमारे उत्पादों के रंग और चित्र को स्टोर पर संभवत: सटीक तरीके से प्रदर्शित किया जाए। हम यह नहीं गारंटी कर सकते कि आपके कंप्यूटर मॉनिटर के प्रदर्शन में किसी भी रंग की प्रदर्शन सटीक होगी।
+        हमें अधिकार है, लेकिन हम पर बंधन नहीं है, कि हम अपने उत्पादों या सेवाओं की बिक्री को किसी व्यक्ति, भौगोलिक क्षेत्र या अधिकृत क्षेत्र तक सीमित करें। हम इस अधिकार का प्रयोग प्रकरण-दर-प्रकरण आधार पर कर सकते हैं। हमें जो कुछ भी उत्पाद या सेवाएं हम प्रदान करते हैं, उनकी मात्रा को सीमित करने का अधिकार है। सभी उत्पाद विवरण या उत्पाद मूल्यवान की बदलाव का संभावना है बिना सूचना के किसी भी समय पर, हमारी अकेली विवेकाधिकार में। हम किसी भी उत्पाद को किसी भी समय बंद करने का अधिकार रखते हैं। इस साइट पर किसी भी उत्पाद या सेवा के लिए किया गया किसी भी प्रस्ताव को जहां पर प्रतिबंधित है, वह अमान्य है।
+        हम यह नहीं प्रमाणित करते कि आपके द्वारा खरीदे गए किसी भी उत्पाद, सेवाएँ, जानकारी, या अन्य सामग्री की गुणवत्ता आपकी उम्मीदों को पूरा करेगी, या कि सेवा में किसी भी त्रुटियों को सही किया जाएगा।`,
     },
     "8eb8744c-b87e-4fee-a31e-cb5cb0c05720": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Accuracy of Billing and Account information`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Accuracy of Billing and Account information`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>बिलिंग और खाता जानकारी की सटीकता`,
     },
     "da28284e-6a67-4d6b-ab94-88264a236dae": {
         [Language.English]:
             "We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household or per order. These restrictions may include orders placed by or under the same customer account, the same credit card, and/or orders that use the same billing and/or shipping address. In the event that we make a change to or cancel an order, we may attempt to notify you by contacting the e-mail and/or billing address/phone number provided at the time the order was made. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers or distributors.You agree to provide current, complete and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers and expiration dates, so that we can complete your transactions and contact you as needed.For more detail, please review our Returns Policy.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `हम किसी भी आदेश को अस्वीकार करने का अधिकार रखते हैं। हम, अपनी अकेली विवेकाधिकार में, व्यक्ति, घराना या प्रत्येक आदेश के अनुसार खरीदी गई मात्रा को सीमित या रद्द कर सकते हैं। इन प्रतिबंधों में उसी ग्राहक खाते, उसी क्रेडिट कार्ड और/या उसी बिलिंग और/या शिपिंग पते का उपयोग करके दिए गए आदेश शामिल हो सकते हैं। यदि हम किसी आदेश में परिवर्तन करते हैं या उसे रद्द करते हैं, तो हम आपको सूचित करने का प्रयास कर सकते हैं, जिस समय आदेश दिया गया था, उस समय प्रदान किए गए ई-मेल और/या बिलिंग पते/फोन नंबर के माध्यम से। हम ऐसे आदेश को सीमित या प्रतिबंधित करने का अधिकार रखते हैं, जो हमारी अकेली समझ में, डीलर्स, पुनः विक्रेता या वितरक द्वारा दिए गए होते हैं।आप सहमत होते हैं कि हमारे स्टोर पर की गई सभी खरीददारी के लिए आप वर्तमान, पूर्ण और सटीक खरीददारी और खाता जानकारी प्रदान करेंगे। आप सहमत होते हैं कि आप अपने खाता और अन्य जानकारी, आपके ईमेल पते और क्रेडिट कार्ड नंबर और समाप्ति तिथियां, को त्वरित रूप से अद्यतित करेंगे, ताकि हम आपके लेन-देन को पूरा कर सकें और आवश्यकता अनुसार आपसे संपर्क कर सकें।अधिक जानकारी के लिए, कृपया हमारी वापसी नीति की समीक्षा करें।`,
     },
     "a141932c-d082-4ea8-bd52-152d0172acff": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Optional Tools `,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Optional Tools `,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>वैकल्पिक उपकरण `,
     },
     "85802f96-057c-4bda-bbab-41bcaa744eb0": {
         [Language.English]:
             "We may provide you with access to third-party tools over which we neither monitor nor have any control nor input.You acknowledge and agree that we provide access to such tools ”as is” and “as available” without any warranties, representations or conditions of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools.Any use by you of optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s).We may also, in the future, offer new services and/or features through the website (including, the release of new tools and resources). Such new features and/or services shall also be subject to these Terms of Service.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `हम आपको तीसरे पक्ष के उपकरणों तक पहुंच प्रदान कर सकते हैं, जिन्हें हम न तो मानितर करते हैं और न ही उन पर किसी प्रकार का नियंत्रण या इनपुट होता है। आप मानते हैं और सहमत होते हैं कि हम ऐसे उपकरणों तक पहुंच "जैसा है" और "उपलब्ध है" के रूप में प्रदान करते हैं, बिना किसी प्रकार की वारंटी, प्रतिनिधित्व या शर्तों के, और बिना किसी प्रकार की समर्थन के। तीसरे पक्ष के वैकल्पिक उपकरणों के उपयोग से या संबंधित रूप में हमारी किसी भी प्रकार की जिम्मेदारी नहीं होगी। साइट के माध्यम से प्रदान किए गए वैकल्पिक उपकरणों का आपके द्वारा उपयोग पूरी तरह आपकी जोखिम और विवेकाधिकार में होगा और आपको यह सुनिश्चित करना चाहिए कि आप उस संबंधित तीसरे पक्ष प्रदाता(ओं) द्वारा प्रदान किए जा रहे उपकरणों की शर्तों से परिचित हैं और उसे मंजूरी देते हैं। हम भविष्य में भी, वेबसाइट के माध्यम से नई सेवाएँ और/या सुविधाएँ प्रदान कर सकते हैं (जिसमें नए उपकरण और संसाधनों की जारी होना शामिल है)। ऐसी नई सुविधाएँ और/या सेवाएँ भी इन सेवा की शर्तों के अधीन होंगी।`,
     },
 
     "8ba6e093-1965-478a-bebb-2ce8a976a7e4": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Third Party Links`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Third Party Links`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>तीसरे पक्ष के लिंक`,
     },
     "f4b935d3-198d-4799-9e63-bb9862c62409": {
         [Language.English]: `Certain content, products and services available via our Service may include materials from third-parties.Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties. <br />
     We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party's  policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `हमारी सेवा के माध्यम से उपलब्ध कुछ सामग्री, उत्पाद और सेवाएं तीसरे पक्ष के सामग्री से हो सकती हैं। इस साइट पर तीसरे पक्ष के लिंक आपको हमारे साथ संबद्ध नहीं होने वाली तीसरे पक्ष की वेबसाइटों पर ले जा सकते हैं। हम वेबसाइटों की सामग्री या सटीकता का मूल्यांकन या जाँचने के लिए जिम्मेदार नहीं हैं और हम ना तो किसी तीसरे पक्ष की सामग्री या वेबसाइटों, और ना ही किसी अन्य सामग्री, उत्पाद, या सेवाओं के लिए कोई जिम्मेदारी या दायित्व लेते हैं।
+
+        हम किसी भी तीसरे पक्ष की वेबसाइटों के साथ संबंधित किसी भी लेन-देन में सामग्री, सेवाएँ, संसाधन, सामग्री, या किसी अन्य लेन-देन के खरीददारी या उपयोग से संबंधित किसी भी हानि या क्षति के लिए जिम्मेदार नहीं हैं। कृपया तीसरे पक्ष की नीतियों और प्रथाओं की ध्यान से समीक्षा करें और सुनिश्चित करें कि आप उन्हें समझते हैं जब आप किसी लेन-देन में शामिल होते हैं। तीसरे पक्ष के उत्पादों से संबंधित शिकायतें, दावे, चिंताएं, या प्रश्न तीसरे पक्ष को दिए जाने चाहिए।`,
     },
     "507846b5-9418-4892-b2b5-edff14a15c51": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Comments, Feedback and Other Submissions `,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Comments, Feedback and Other Submissions `,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>उपयोगकर्ता टिप्पणियाँ, प्रतिक्रिया और अन्य प्रस्तुतियाँ `,
     },
     "1abda71d-9e0b-49d4-9966-49df5769e93e": {
         [Language.English]:
             "If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, 'comments'), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service.You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `यदि, हमारे अनुरोध पर, आप कुछ विशेष प्रस्तुतियाँ भेजते हैं (जैसे प्रतियोगिता प्रविष्टियाँ) या हमारे अनुरोध के बिना आप सर्जनात्मक विचार, सुझाव, प्रस्ताव, योजना, या अन्य सामग्री भेजते हैं, चाहे वह ऑनलाइन हो, ईमेल द्वारा, डाक द्वारा, या अन्यथा (सम्पूर्ण रूप में 'टिप्पणियाँ'), आप सहमत होते हैं कि हम, किसी भी समय, किसी भी प्रकार की प्रतिबंध के बिना, संपादित, प्रतिलिपि, प्रकाशित, वितरित, अनुवाद और अन्य तरीके से किसी भी माध्यम में आपके द्वारा हमें भेजी गई किसी भी टिप्पणी का उपयोग कर सकते हैं। हम पर कोई भी प्रतिबंध नहीं है (1) किसी भी टिप्पणी को गोपनीयता में बनाए रखने का; (2) किसी भी टिप्पणी के लिए मुआवजा चुकाने का; या (3) किसी भी टिप्पणी का जवाब देने का। हम, पर आवश्यकता नहीं है, लेकिन, निगरानी, संपादन या हटा सकते हैं वह सामग्री जो हम अपने एकल विवेक में तय करते हैं कि वे अवैध, अपमानजनक, धमकी भरा, अवमानना, अपमानित, अश्लील, या अन्य तरीके से आपत्तिजनक हैं या किसी पक्ष की बौद्धिक संपत्ति या इन सेवा की शर्तों का उल्लंघन करता है। आप सहमत होते हैं कि आपकी टिप्पणियाँ किसी तीसरे पक्ष के किसी भी अधिकार को उल्लंघन नहीं करेंगी, जिसमें कॉपीराइट, ट्रेडमार्क, गोपनीयता, व्यक्तित्व या अन्य व्यक्तिगत या संपत्ति का अधिकार शामिल है। आप आगे सहमत होते हैं कि आपकी टिप्पणियाँ मानहानिकर, या अन्य तरह से अवैध, उपहास्य या अश्लील सामग्री नहीं होगी, और इसमें किसी कंप्यूटर वायरस या अन्य मैलवेयर नहीं होगा जो सेवा या किसी संबंधित वेबसाइट के संचालन को प्रभावित कर सकता है। आप गलत ईमेल पते का उपयोग नहीं कर सकते, स्वयं के अलावा किसी और की बहकाव में नहीं आ सकते, या हमें या तीसरे पक्ष को किसी भी टिप्पणी की उत्पत्ति के बारे में भ्रांत करने का प्रयास नहीं कर सकते। आप अपनी की गई किसी भी टिप्पणी और उसकी सटीकता के लिए पूरी तरह से जिम्मेदार हैं। हम किसी भी आपके द्वारा पोस्ट की गई टिप्पणी या किसी तीसरे पक्ष द्वारा पोस्ट की गई टिप्पणी के लिए कोई जिम्मेदारी नहीं लेते हैं और उसपर कोई दायित्व नहीं लेते हैं।`,
     },
     "ef253e42-d84f-44bf-9516-43ea3810563c": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Personal Information`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Personal Information`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>व्यक्तिगत जानकारी`,
     },
     "e917e6fd-9d24-4031-bee1-68e7b19877f8": {
         [Language.English]: "Your submission of personal information through the store is governed by our Privacy Policy.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "आपके द्वारा स्टोर के माध्यम से व्यक्तिगत जानकारी हमारी गोपनीयता नीति के अनुसार प्रभावित होती है।",
     },
     "28f8227f-c1a6-4376-88e7-0bfff6a5a8db": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Errors, Inaccuracies and Omissions Errors`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Errors, Inaccuracies and Omissions Errors`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>गलतियाँ, अधूरी जानकारी और छूटे हुए हिस्से`,
     },
     "db22183d-e38b-4d36-9dbd-1e2235e09ee2": {
         [Language.English]: `Occasionally there may be information on our site or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice (including after you have submitted your order).<br />
     We undertake no obligation to update, amend or clarify information in the Service or on any related website, including without limitation, pricing information, except as required by law. No specified update or refresh date applied in the Service or on any related website, should be taken to indicate that all information in the Service or on any related website has been modified or updated.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "कभी-कभी हमारी साइट या सेवा में ऐसी जानकारी हो सकती है जिसमें मुद्रण गलतियाँ, अशुद्धियाँ या छूटे हुए हिस्से होते हैं, जो उत्पाद विवरण, मूल्य, प्रचार, प्रस्ताव, उत्पाद शिपिंग शुल्क, पारिवहन समय और उपलब्धता से संबंधित हो सकते हैं। अगर सेवा या किसी संबंधित वेबसाइट में कोई जानकारी गलत है, तो हमें बिना पूर्व सूचना दिए (आपके आर्डर को प्रस्तुत करने के बाद भी) गलतियाँ, अशुद्धियाँ या छूटे हुए हिस्से को सही करने, जानकारी बदलने या अद्यतित करने और आर्डर रद्द करने का अधिकार सुरक्षित है। हम पर कोई प्रतिबद्धता नहीं है कि हम सेवा में या किसी संबंधित वेबसाइट पर जानकारी को अद्यतित करें, संशोधित करें या स्पष्ट करें, मूल्य जानकारी सहित, जब तक कानून द्वारा आवश्यक नहीं हो। सेवा में या किसी संबंधित वेबसाइट पर लागू होने वाली किसी विशिष्ट अद्यतन या ताजगी दिनांक को ऐसा माना नहीं जाना चाहिए कि सेवा में या किसी संबंधित वेबसाइट पर की गई सभी जानकारी को संशोधित या अद्यतित किया गया है।",
     },
     "a13e2f28-5049-4032-bb25-cb70035f7eb2": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Prohibited Uses`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Prohibited Uses`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>वर्जित उपयोग`,
     },
     "bce2466f-c797-4faa-b6d1-1837739aa55d": {
         [Language.English]:
             "In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the site or its content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability; (f) to submit false or misleading information; (g) to upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Service or of any related website, other websites, or the Internet; (h) to collect or track the personal information of others; (i) to spam, phish, pharm, pretext, spider, crawl, or scrape; (j) for any obscene or immoral purpose; or (k) to interfere with or circumvent the security features of the Service or any related website, other websites, or the Internet. We reserve the right to terminate your use of the Service or any related website for violating any of the prohibited uses.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `टर्म्स ऑफ सर्विस में निर्दिष्ट अन्य प्रतिबंधों के अतिरिक्त, आप साइट या इसकी सामग्री का उपयोग करने से निषेधित हैं: (1) किसी भी अवैध उद्देश्य के लिए; (2) दूसरों को किसी भी अवैध कार्यों में प्रदर्शन या भाग लेने के लिए प्रेरित करने के लिए; (3) किसी भी अंतर्राष्ट्रीय, संघीय, प्रांतीय या राज्यीय विनियमन, नियम, कानून या स्थानीय अधिसूचना का उल्लंघन करने के लिए; (4) हमारे बौद्धिक संपदा अधिकारों या अन्य के बौद्धिक संपदा अधिकारों का उल्लंघन करने के लिए; (5) लिंग, यौन प्रावृत्ति, धर्म, जातिवाद, जाति, आयु, राष्ट्रीय मूल, या विकलांगता के आधार पर परेशान करने, उत्पीड़न, अपमान, हानि, बदनाम, तिरस्कृत, धमकाने या भेदभाव करने के लिए; (6) गलत या भ्रांतिपूर्ण जानकारी प्रस्तुत करने के लिए; (7) वायरस या किसी अन्य प्रकार के हानिकारक कोड अपलोड या प्रेषित करना जो सेवा, संबंधित वेबसाइट, अन्य वेबसाइट, या इंटरनेट की कार्यक्षमता या संचालन को प्रभावित कर सकता है; (8) दूसरों की व्यक्तिगत जानकारी को इकट्ठा या ट्रैक करने के लिए; (9) स्पैम, फिशिंग, फार्मिंग, प्रीटेक्स्ट, स्पाइडर, क्रॉल, या स्क्रैप करने के लिए; (10) किसी अश्लील या अनैतिक उद्देश्य के लिए; या (11) सेवा, संबंधित वेबसाइट, अन्य वेबसाइट, या इंटरनेट की सुरक्षा सुविधाओं को बाधित या चक्रित करने के लिए। हम आपके सेवा या किसी संबंधित वेबसाइट का उपयोग समाप्त करने का अधिकार सुरक्षित रखते हैं अगर आप किसी भी प्रतिबंधित उपयोग में उल्लंघन करते हैं।`,
     },
     "b0f9c01f-a82d-45a7-8546-685567cd7591": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>Disclaimer of Warranties; Limitations of Liability`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>Disclaimer of Warranties; Limitations of Liability`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>वारंटी की अस्वीकृति; दायित्व की सीमाएँ`,
     },
     "7dba2dc9-b153-4216-bbf6-d965332c0e12": {
         [Language.English]:
             "We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free.We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable.You agree that from time to time we may remove the service for indefinite periods of time or cancel the service at any time, without notice to you.You expressly agree that your use of, or inability to use, the service is at your sole risk. The service and all products and services delivered to you through the service are (except as expressly stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement.In no case shall Livguard Batteries Pvt. Ltd., our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the service or any content (or product) posted, transmitted, or otherwise made available via the service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `हम गारंटी नहीं देते, प्रतिनिधित्व नहीं करते या वारंटी नहीं देते कि हमारी सेवा का उपयोग अविरोधित, समय पर, सुरक्षित या त्रुटि-मुक्त होगा। हम वारंटी नहीं देते कि सेवा के उपयोग से प्राप्त परिणाम सटीक या विश्वसनीय होंगे। आप सहमत होते हैं कि समय-समय पर हम अनिश्चित समय के लिए सेवा को हटा सकते हैं या किसी भी समय सेवा को रद्द कर सकते हैं, आपको सूचना दिए बिना। आप स्पष्ट रूप से सहमत होते हैं कि सेवा का उपयोग करने में, या उपयोग नहीं कर पाने में, आपका जोखिम आपका खुद का है। सेवा और सभी उत्पाद और सेवाएं जो सेवा के माध्यम से आपको प्रदान की जाती हैं (हमारे द्वारा स्पष्ट रूप से कहे जाने वाले के रूप में) 'जैसा है' और 'उपलब्ध है' के रूप में आपके उपयोग के लिए प्रदान की जाती हैं, बिना किसी प्रतिनिधित्व, वारंटी या किसी भी प्रकार की शर्तें, चाहे वह स्पष्ट रूप से हो या अनुमानित, जिसमें सभी अनुमानित वारंटी या शर्तें शामिल हैं जैसे मार्चेंटेबिलिटी, मार्चेंटेबल गुणवत्ता, विशेष उद्देश्य के लिए योग्यता, स्थायित्व, शीर्षक, और गैर उल्लंघन। किसी भी स्थिति में लिवगार्ड बैटरीज प्रा. लिमिटेड, हमारे निदेशक, अधिकारी, कर्मचारी, सहयोगी, प्रतिनिधि, ठेकेदार, इंटर्न्स, आपूर्तिकर्ता, सेवा प्रदाता या लाइसेंस प्रदाता किसी भी चोट, हानि, दावा, या किसी भी प्रकार के सीधे, अप्रत्यक्ष, परिप्रेक्ष्य, दंडात्मक, विशेष, या परिणामी हानि के लिए जिम्मेदार नहीं होंगे, जैसे कि लाभ, राजस्व, बचत, डेटा की हानि, प्रतिस्थापन लागत, या किसी समान हानि, चाहे यह समझौता, दोष (लापरवाही सहित), सख्त जिम्मेदारी पर आधारित हो, सेवा का उपयोग करके प्राप्त किए गए किसी भी उत्पाद के उपयोग से उत्थित हो, या सेवा या किसी उत्पाद के उपयोग से संबंधित किसी भी अन्य दावे से, जैसे कि किसी सामग्री में किसी भी त्रुटियों या चूक के लिए, या सेवा के उपयोग के परिणामस्वरूप उत्थित होने वाली किसी भी प्रकार की हानि के लिए, भले ही उनकी संभावना की सलाह दी गई हो। क्योंकि कुछ राज्य या क्षेत्र अनुयायी या परिणामी हानियों की सीमा या बाहरीकरण की अनुमति नहीं देते हैं, इस प्रकार के राज्यों या क्षेत्रों में, हमारी जिम्मेदारी कानून द्वारा अनुमत अधिकतम सीमा तक सीमित होगी।`,
     },
     "3b74dadf-3333-4c76-acbd-5c1ecd7deb7f": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 14 </span>Indemnification`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 14 </span>Indemnification`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 14 </span>भरपाई`,
     },
     "e3304f79-e46e-4eef-aebb-f57b637f2b14": {
         [Language.English]:
             "You agree to indemnify, defend and hold harmless Livguard Batteries Pvt. Ltd. and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "आप सहमत हैं कि लिवगार्ड बैटरीज प्रा. लिमिटेड और हमारे प्राथमिक, उप-कंपनियां, सहयोगी, साझेदार, अधिकारी, निदेशक, एजेंट, ठेकेदार, लाइसेंसदाता, सेवा प्रदाता, उप-ठेकेदार, प्रदाता, इंटर्न्स और कर्मचारियों को किसी भी दावे या मांग से सुरक्षित रखने, बचाव करने और बरी करने के लिए बचाव करते हैं, जिसमें यथासम्भव वकीलों की शुल्क भी शामिल होती है, किसी तीसरे पक्ष द्वारा इन सेवा की शर्तों या दस्तावेजों की उल्लंघन के कारण या उससे उत्पन्न होने वाले, जिसमें वे संदर्भ द्वारा शामिल होते हैं, या आपके किसी कानून या तीसरे पक्ष के अधिकारों की उल्लंघन के कारण।",
     },
     "a7084225-0803-48c7-b01a-a4afbf547313": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 15 </span>Severability`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 15 </span>Severability`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 15 </span>विच्छेदनीयता`,
     },
     "e9700119-8143-4956-81dc-fa03ff519f80": {
         [Language.English]:
             "In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not affect the validity and enforceability of any other remaining provisions.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "यदि इन सेवा की शर्तों की कोई प्रावधान अवैध, रिक्त या अक्षम ठहराया जाता है, तो ऐसा प्रावधान फिर भी लागू होने वाले कानून द्वारा अधिकतम सीमा तक प्रवर्तन योग्य होगा, और अक्षम भाग को इन सेवा की शर्तों से पृथक होने के रूप में माना जाएगा, ऐसा निर्धारण अन्य शेष प्रावधानों की मान्यता और प्रवर्तन योग्यता पर प्रभाव नहीं डालेगा।",
     },
     "5f5fc2cb-35c1-4f59-8974-5fcb014eb17f": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 16 </span>Termination`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 16 </span>Termination`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 16 </span>अंतिम समाप्ति`,
     },
     "9394bd5d-8e93-41b3-ac77-993ceb0ded94": {
         [Language.English]: `The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.<br />
     These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no
     longer wish to use our Services, or when you cease using our site.<br />
     If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination; and/or accordingly may deny you access to our Services (or any part thereof).`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `यदि हमारे एकमात्र निर्णय में आप विफल रहते हैं, या हमें संदेह है कि आप सेवा की इन शर्तों के किसी भी नियम या प्रावधान का पालन करने में विफल रहे हैं, तो हम बिना किसी सूचना के किसी भी समय इस समझौते को समाप्त कर सकते हैं और आप देय सभी राशियों के लिए उत्तरदायी रहेंगे। समाप्ति की तारीख तक और इसमें शामिल; और/या तदनुसार आपको हमारी सेवाओं (या उसके किसी भाग) तक पहुंच से वंचित कर सकता है।`,
     },
     "c484926d-4b74-49b7-a48c-6de59678fdf6": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 17 </span>Entire Agreement`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 17 </span>Entire Agreement`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 17 </span>सम्पूर्ण समझौता`,
     },
     "4519b623-bbc3-4576-a1b9-26c6254dd47e": {
         [Language.English]: `The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute a waiver of such right or provision.<br />
     These Terms of Service and any policies or operating rules posted by us on this site or in respect to The Service constitutes the entire agreement and understanding
     between you and us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications and proposals, whether oral or written, between you and us (including, but not limited to, any prior versions of the Terms of Service).<br />
     Any ambiguities in the interpretation of these Terms of Service shall not be construed against the drafting party.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `सेवा की इन शर्तों के किसी भी अधिकार या प्रावधान का प्रयोग करने या लागू करने में हमारी विफलता ऐसे अधिकार या प्रावधान की छूट नहीं होगी। हमारे द्वारा इस साइट पर या सेवा के संदर्भ में पोस्ट की गई किसी भी नीतियों या संचालन नियमों और आपके और हमारे बीच में सेवा का उपयोग करने के लिए सम्पूर्ण समझौता और समझ बनता है, आपके और हमारे बीच किसी भी पूर्व या समकालीन समझौतों, संचार और प्रस्तावों को प्रतिस्थापित करता है, चाहे वह मौखिक हो या लिखित, (इसमें शामिल है, लेकिन सीमित नहीं है, सेवा की शर्तों के किसी भी पूर्व संस्करणों के लिए)।
+        इन सेवा की शर्तों की व्याख्या में किसी भी अस्पष्टता को प्रस्तुत पक्ष के खिलाफ नहीं समझा जाएगा।`,
     },
     "1af3f0bb-75d3-4d8f-8661-a03e8d9c569d": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 18 </span>Governing LAW `,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 18 </span>Governing LAW `,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 18 </span>नियामक कानून `,
     },
     "c27d7e42-b4a3-4e93-8c2d-c7d12cd6010e": {
         [Language.English]:
             "These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of India and  jurisdiction of Jaipur, Rajasthan",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "इन सेवा की शर्तों और किसी भी अलग समझौतों द्वारा जिसमें हम आपको सेवाएँ प्रदान करते हैं, उन्हें भारत के कानूनों के अनुसार और जयपुर, राजस्थान के अधिकार क्षेत्र में व्याख्या और लागू किया जाएगा।",
     },
     "3f67f49f-92ab-434c-b9eb-8d4e9d75a115": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 19 </span>Changes to Terms of Service`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 19 </span>Changes to Terms of Service`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 19 </span>सेवा की शर्तों में परिवर्तन`,
     },
     "34a39f63-6f7d-430d-9c6c-7eefe5e9bf33": {
         [Language.English]: `You can review the most current version of the Terms of Service at any time at this page.<br />
     We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting updates and changes to our website. It is your
     responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes to these
     Terms of Service constitutes acceptance of those changes.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `"आप इस पृष्ठ पर किसी भी समय सेवा की शर्तों के नवीनतम संस्करण की समीक्षा कर सकते हैं।
+        हम अपनी वेबसाइट पर अपडेट और बदलाव पोस्ट करके सेवा की इन शर्तों के किसी भी हिस्से को अपडेट करने, बदलने या बदलने का अधिकार अपने विवेक पर सुरक्षित रखते हैं। परिवर्तनों के लिए समय-समय पर हमारी वेबसाइट की जाँच करना आपकी ज़िम्मेदारी है। सेवा की शर्तों में किसी भी बदलाव की पोस्टिंग के बाद हमारी वेबसाइट या सेवा का आपका निरंतर उपयोग या उस तक पहुंच उन परिवर्तनों की स्वीकृति मानी जाएगी।
+        "`,
     },
     "508d2a70-f673-4119-8776-4405f6987780": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 20 </span>Contact Information`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 20 </span>Contact Information`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 20 </span>संपर्क जानकारी`,
     },
     "82ce1187-230a-4182-9090-a0a42cc54ef0": {
         [Language.English]: "Questions about the Terms of Service should be sent to us at deepak.jha@heka.in.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "टर्म्स ऑफ सर्विस के बारे में प्रश्न हमें deepak.jha@heka.in पर भेजे जाने चाहिए।",
     },
     //Privacy-policies Page Vernac strings start
     "e1cd45c9-6258-4cfa-939f-92e24c409063": {
@@ -7976,7 +8007,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `?????`,
     },
     "58639d61-0980-400d-acca-4c01949569d3": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Privacy Policies - Introduction</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Privacy Policies - Introduction</div>`,
         [Language.Hindi]: "??????",
     },
     "c308c1f4-5547-42b0-9831-98ac935f3b58": {
@@ -7993,7 +8024,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "77df2f43-d38d-4524-955c-812a42cf4809": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Important Terms</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Important Terms</div>`,
         [Language.Hindi]: "??????",
     },
     "5b04d6ba-1efb-436a-aa96-86fbee88cd6b": {
@@ -8010,7 +8041,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "82fcfc12-378e-49e6-afbe-86ee7abdbf75": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Types of User Information</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Types of User Information</div>`,
         [Language.Hindi]: "??????",
     },
     "278c0506-592e-479f-9ad7-192639505c60": {
@@ -8034,7 +8065,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "f99dd265-19b4-4c6c-9bdf-e821028a7f1c": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Modes of  Collection of User Information</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Modes of  Collection of User Information</div>`,
         [Language.Hindi]: "??????",
     },
     "cb8a9e2c-c122-4364-8df0-1ca85b2cdbce": {
@@ -8046,7 +8077,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "3ecc9b2a-3c63-474d-9030-b127f167e154": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span>Purpose of Collection and Usage of Information</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span>Purpose of Collection and Usage of Information</div>`,
         [Language.Hindi]: "??????",
     },
     "5b343f4f-5f88-4052-a854-03625bd47d69": {
@@ -8118,7 +8149,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "d27c24dd-40a2-4373-99b3-eb71ccfc2b98": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Disclosure and Retention of User Information</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span>Disclosure and Retention of User Information</div>`,
         [Language.Hindi]: "??????",
     },
     "cd391409-5d57-498e-9257-9ab02d05a788": {
@@ -8151,7 +8182,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "4300717a-09da-44b8-84fd-48618c687ec1": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Disclosure and Retention of User Information</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span>Disclosure and Retention of User Information</div>`,
         [Language.Hindi]: "??????",
     },
     "fd29f53e-96c6-4038-8427-9115cb09ecc3": {
@@ -8160,7 +8191,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "????????",
     },
     "36b37274-7ff0-4d9f-bfb2-b2739985310d": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Accuracy and Protection of Personal Information</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span>Accuracy and Protection of Personal Information</div>`,
         [Language.Hindi]: "??????",
     },
     "d4254721-b706-42b5-ad43-58078e4494cb": {
@@ -8168,7 +8199,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "????????",
     },
     "02baf425-5186-4904-8021-9fdcddfb2866": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Discretion and the Choice to Opt 0ut</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span>User Discretion and the Choice to Opt 0ut</div>`,
         [Language.Hindi]: "??????",
     },
     "b331829c-16c8-4530-92b0-05dde534174c": {
@@ -8178,7 +8209,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "????????",
     },
     "26a57e61-ba7d-4b5d-a6f5-37e2a942baae": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Grievance Officer</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span>Grievance Officer</div>`,
         [Language.Hindi]: "??????",
     },
     "5af772f4-4767-4d8d-94be-d19bd8f09270": {
@@ -8191,7 +8222,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "????????",
     },
     "f9017529-2e06-448b-9fac-60b3ebe9f5f8": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Update to this Privacy Policy</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span>Update to this Privacy Policy</div>`,
         [Language.Hindi]: "??????",
     },
     "8b508a55-0b04-4454-b098-e863009e45e4": {
@@ -8199,7 +8230,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "????????",
     },
     "1827dab4-34e9-4f0f-97f3-e6e576aea81e": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Governing Law</div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Governing Law</div>`,
         [Language.Hindi]: "??????",
     },
     "86954c62-c133-43bf-8551-5799f57650e4": {
@@ -8209,51 +8240,55 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     //Sales Return Policy
     "661b01b0-1ac1-49ce-af95-39777ff6a99c": {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "बिक्री वापसी नीति",
     },
     "74cd145f-e021-4f2d-81e4-3bdd4cbcf891": {
         [Language.English]: `Sales <span class="lg-text-highlighted">Return Policy </span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बिक्री <span class="lg-text-highlighted">वापसी नीति</span>`,
     },
     "d57d1a75-b578-4caa-8966-a13ab6146b20": {
         [Language.English]: "The Buyer should verify the Product upon its receipt.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ग्राहक को उत्पाद की प्राप्त होने पर उसका विश्लेषण करना चाहिए",
     },
     "f30c51d9-5f1c-429b-865a-adb5062e9d55": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Return of Product with Cause</div>`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Return of Product with Cause</div>`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>कारण सहित उत्पाद की वापसी</div>`,
     },
     "559ec70e-f4ad-48ef-8fd0-31778c9ca07a": {
         [Language.English]:
             "The Buyer shall be permitted to return a Product with manufacturing defects/ tempered packaging provided the Buyer informs about the same within 3(Three) days of delivery by getting in touch with the Customer Care service team on their Toll free number for Livguard Installation & Service 18001025551 or on their e-mail id livserv@sar-group.com. In case the shipment/ manufacturer's packaging is tampered, then it is recommended that the same is not opened and should be returned in the same condition.",
-        [Language.Hindi]: "????",
+        [Language.Hindi]:
+            "खरीदार को विनिर्माण दोष/टेम्पर्ड पैकेजिंग वाले उत्पाद को वापस करने की अनुमति दी जाएगी, बशर्ते कि खरीदार लिवगार्ड इंस्टॉलेशन और सेवा के लिए उनके टोल फ्री नंबर पर ग्राहक सेवा टीम से संपर्क करके डिलीवरी के 3 (तीन) दिनों के भीतर इसके बारे में सूचित करे, 18001025551 या उनकी ई-मेल आईडी livserv@sar-group.com पर। यदि शिपमेंट/निर्माता की पैकेजिंग से छेड़छाड़ की गई है, तो यह अनुशंसा की जाती है कि उसे खोला न जाए और उसी स्थिति में वापस कर दिया जाए।",
     },
     "3a5323eb-1863-4778-af39-b75a7f027144": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Return of Product without Cause</div>`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Return of Product without Cause</div>`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>कारण सहित उत्पाद की वापसी</div>`,
     },
     "56bba6ff-0903-41ab-8921-b7f9f178be2d": {
         [Language.English]:
             "The Buyer shall be permitted to return a Product with manufacturing defects/ tempered packaging provided the Buyer informs about the same within 3(Three) days of delivery by getting in touch with the Customer Care service team on their Toll free number for Livguard Installation & Service 18001025551 or on their e-mail id livserv@sar-group.com. In case the shipment/ manufacturer's packaging is tampered, then it is recommended that the same is not opened and should be returned in the same condition.",
-        [Language.Hindi]: "????",
+        [Language.Hindi]:
+            "खरीदार को विनिर्माण दोष/टेम्पर्ड पैकेजिंग वाले उत्पाद को वापस करने की अनुमति दी जाएगी, बशर्ते कि खरीदार लिवगार्ड इंस्टॉलेशन और सेवा के लिए उनके टोल फ्री नंबर पर ग्राहक सेवा टीम से संपर्क करके डिलीवरी के 3 (तीन) दिनों के भीतर इसके बारे में सूचित करे, 18001025551 या उनकी ई-मेल आईडी livserv@sar-group.com पर। यदि शिपमेंट/निर्माता की पैकेजिंग से छेड़छाड़ की गई है, तो यह अनुशंसा की जाती है कि उसे खोला न जाए और उसी स्थिति में वापस कर दिया जाए।",
     },
     "dfa7ddd9-0a82-4e34-bad3-5d007af442ab": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>The Products can be returned only before installation.</div>`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>The Products can be returned only before installation.</div>`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>उत्पाद केवल इंस्टालेशन से पहले ही वापस किये जा सकते हैं।</div>`,
     },
     "e87b74a4-6ad4-4afb-9128-6c96107329f6": {
         [Language.English]:
             "In case a Product is delivered in the wrong quantity, colour, model and/or size or when the Product is significantly different from the description given on the Website, an endeavour shall be made to help the Buyer affect a return within 3(Three) days of the delivery of such a Product.",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "यदि उत्पाद गलत मात्रा, रंग, मॉडल, और/या आकार में डिलीवर होता है या जब उत्पाद वेबसाइट पर दी गई विवरण से सामर्थ्यपूर्ण रूप से भिन्न होता है, तो एक प्रयास किया जाएगा कि खरीदार को इस तरह के उत्पाद को डिलीवरी के 3 (तीन) दिन के भीतर वापस करने में मदद की जाए।",
     },
     "c648db7a-2882-40b6-8bb4-c6f5e9a25ded": {
         [Language.English]: "The Product shall not be allowed to be returned if the Product ID/Serial No. is tampered and/or when the original packaging of the product is not available.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "यदि उत्पाद का आईडी / सीरियल नंबर टैम्पर किया गया है और/या जब उत्पाद की मूल पैकेजिंग उपलब्ध नहीं है, तो उत्पाद को वापस नहीं किया जाएगा।",
     },
     "2f62912e-e64c-4b2d-bcb5-39c7647850f7": {
         [Language.English]:
             "Refund will be made to the Buyer once the return is accepted by Livguard. For pre-paid orders, the refund will be processed within 7(Seven) to 10(Ten) working days. For Cash-on-Delivery orders the refund shall be processed within 10(Ten) to 12(Twelve) working days.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "जब लिवगार्ड द्वारा वापसी स्वीकृत होती है, तो खरीदार को उत्पाद की मूल राशि वापस की जाएगी। प्री-पेड आर्डर के लिए, रिफंड 7 (सात) से 10 (दस) कामकाजी दिनों के भीतर प्रोसेस होगा। कैश-ऑन-डिलीवरी आर्डर्स के लिए रिफंड 10 (दस) से 12 (बारह) कामकाजी दिनों के भीतर प्रोसेस किया जाएगा।",
     },
     // CSR Page Vernac strings start
     "09b7690d-2117-461b-8a05-110dc4319240": {
@@ -8261,73 +8296,77 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "",
     },
     "b0e9add2-cb81-4ba8-a38b-ee9ac0734225": {
-        [Language.English]: `<div class = "tw-text-center"> At Livguard, our dedication to Corporate Social Responsibility (CSR) underpins our commitment to our stakeholders - within and beyond our community, reaching out wherever there's a need. Our aspiration is to bring about positive change by enhancing lives in our communities. We contribute to four fundamental domains of societal progress: nurturing education, fostering healthcare, boosting livelihoods, and promoting environmental sustainability.</div>`,
-        [Language.Hindi]: "????????????",
+        [Language.English]: `<div class = "tw-text-center">At Livguard, our dedication to Corporate Social Responsibility (CSR) underpins our commitment to our stakeholders - within and beyond our community, reaching out wherever there's a need. Our aspiration is to bring about positive change by enhancing lives in our communities. We contribute to four fundamental domains of societal progress: nurturing education, fostering healthcare, boosting livelihoods, and promoting environmental sustainability.</div>`,
+        [Language.Hindi]: `<div class="tw-text-center">लिवगार्ड में, कॉरपोरेट सोशल रिस्पॉन्सिबिलिटी (सीएसआर) के प्रति हमारा समर्पण हमारे हितधारकों के प्रति हमारी प्रतिबद्धता को रेखांकित करता है - हमारे समुदाय के भीतर और बाहर, जहां भी जरूरत हो वहां पहुंचना। हमारी आकांक्षा हमारे समुदायों में जीवन को बेहतर बनाकर सकारात्मक बदलाव लाना है। हम सामाजिक प्रगति के चार मूलभूत क्षेत्रों में योगदान करते हैं: शिक्षा का पोषण, स्वास्थ्य देखभाल को बढ़ावा देना, आजीविका को बढ़ावा देना और पर्यावरणीय स्थिरता को बढ़ावा देना।`,
     },
     "9b48da94-c77c-433d-a704-12c87673d23a": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">Promotion of Education</div>`,
-        [Language.Hindi]: "??????????",
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">Promotion of Education</div>`,
+        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">शिक्षा का प्रचार</div>`,
     },
     "998c7be8-35d4-4f1e-ba7c-b1ead3af22ae": {
         [Language.English]:
             "Education forms the foundation of any society. It's a crucial area of focus for Livguard, as we believe in empowering individuals with knowledge to create their own opportunities. Providing quality education and ensuring its accessibility to all are key steps towards a prosperous, informed society.",
-        [Language.Hindi]: "????",
+        [Language.Hindi]:
+            "शिक्षा समाज का आधार है। यह लिवगार्ड के लिए एक महत्वपूर्ण क्षेत्र है, क्योंकि हम ज्ञान से व्यक्तियों को सशक्त बनाने में विश्वास करते हैं, ताकि वे अपने खुद के अवसर बना सकें। उच्च गुणवत्ता वाली शिक्षा प्रदान करना और इसे सभी के लिए उपलब्ध कराना समृद्ध, जागरूक समाज की ओर महत्वपूर्ण कदम है।",
     },
     "7ecc798a-b004-4363-b6c4-109b214a9c56": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">Promotion of Healthcare</div>`,
-        [Language.Hindi]: "??????????",
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">Promotion of Healthcare</div>`,
+        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">स्वास्थ्य सेवा का प्रचार</div>`,
     },
     "714cb12b-e61e-45cc-8bf5-efe8f05313f6": {
         [Language.English]:
             "Healthcare is a basic right and a crucial factor in improving the quality of life. Livguard is committed to promoting healthcare as it directly impacts the wellbeing of communities. We focus on improving health facilities, raising awareness about diseases, and ensuring that medical assistance is available to all.",
-        [Language.Hindi]: "????",
+        [Language.Hindi]:
+            "स्वास्थ्य सेवा एक मूलाधिकार है और जीवन की गुणवत्ता में सुधार करने में एक महत्वपूर्ण कारक है। लिवगार्ड स्वास्थ्य सेवा को बढ़ावा देने के प्रति समर्पित है, क्योंकि यह सीधे समुदायों के स्वास्थ्य पर प्रभाव डालता है। हम स्वास्थ्य सुविधाओं को सुधारने, बीमारियों के बारे में जागरूकता बढ़ाने और सभी को चिकित्सा सहायता के लिए उपलब्ध कराने पर ध्यान केंद्रित करते हैं।",
     },
     "69e2dcc3-d054-4201-91f2-0d615de566db": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold">Promotion of Livelihood</div>`,
-        [Language.Hindi]: "??????????",
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">Promotion of Livelihood</div>`,
+        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold !tw-text-secondary-900-dark">आजीविका का प्रचार</div>`,
     },
     "4fdfc3c9-3c2d-4b98-9a6c-8da1a66b2c88": {
         [Language.English]:
             "Empowering individuals economically forms the crux of societal growth. Livguard promotes livelihood by enabling skill development, providing employment opportunities and supporting self-employment schemes. This aids in creating an economically secure and self-sufficient society.",
-        [Language.Hindi]: "????",
+        [Language.Hindi]:
+            "व्यक्तियों को आर्थिक रूप से सशक्त बनाना समाजिक विकास की मूल बात है। लिवगार्ड कौशल विकास को समर्थन देने, रोजगार के अवसर प्रदान करने में विश्वास रखता है, और स्वरोजगार योजनाओं का समर्थन करके जीविका को प्रोत्साहित करता है। इससे आर्थिक रूप से सुरक्षित और स्वावलंबी समाज का निर्माण होता है।",
     },
     "4415a7de-a118-45ab-beaf-095576d3d2dc": {
-        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold tw-text-center">Environmental Sustainability</div>`,
-        [Language.Hindi]: "??????????",
+        [Language.English]: `<div class="lg-text-highlighted lg-text-body-bold tw-text-center !tw-text-secondary-900-dark">Environmental Sustainability</div>`,
+        [Language.Hindi]: `<div class="lg-text-highlighted lg-text-body-bold tw-text-center !tw-text-secondary-900-dark">पर्यावरणीय स्थिरता</div>`,
     },
     "06174709-99f2-4a5e-8db2-e499622975dc": {
         [Language.English]:
             "Livguard believes that preserving our environment is crucial for the survival and wellbeing of future generations. We promote practices that contribute to sustainability, from waste management to promoting renewable sources of energy. Our aim is to help build a world where development and environmental preservation go hand in hand.",
-        [Language.Hindi]: "????",
+        [Language.Hindi]:
+            "लिवगार्ड यह मानता है कि हमारे पर्वाह भविष्य की सुरक्षा और कल्याण के लिए महत्वपूर्ण है। हम प्रकृति के संरक्षण के लिए प्रयास करते हैं, कचरा प्रबंधन से लेकर नवीनीकरणीय ऊर्जा स्रोतों को प्रोत्साहित करने तक। हमारा उद्देश्य एक ऐसी दुनिया का निर्माण करना है जहां विकास और पर्यावरण संरक्षण एक साथ चलते हैं।",
     },
     "8a7e10ee-cde7-461f-9392-22301c8474a1": {
         [Language.English]: `Our <span class="lg-text-highlighted">CSR Vision</span>`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `हमारा <span class="lg-text-highlighted">सीएसआर नेतृत्व</span>`,
     },
     "d304550b-a5f6-41d8-8db6-8dae4f68b0af": {
         [Language.English]: `The CSR philosophy we've described above shapes Livguard's strategy to achieve our CSR goals. We've marked out four key areas where we aim to increase our CSR actions. These areas cover our target locations and other areas in need, all of them working towards the same goal for maximum impact.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "हमने ऊपर वर्णित सीएसआर दर्शनाओं के अनुसार लिवगार्ड की रणनीति को तय किया है जिससे हम अपने सीएसआर लक्ष्यों को प्राप्त करते हैं। हमने चार प्रमुख क्षेत्रों को चिह्नित किया है जहां हम अपने सीएसआर कार्रवाईयों को बढ़ाने का उद्देश्य रखते हैं। ये क्षेत्र हमारे लक्ष्य स्थलों को शामिल करते हैं और अन्य जगहों को भी शामिल करते हैं, जो सभी एक ही लक्ष्य की दिशा में काम कर रहे हैं ताकि प्रभाव अधिकतम हो सके।",
     },
     "423d9fb0-8f59-4a7c-94e6-6eae3e78ec46": {
         [Language.English]: `CSR in Action: <span class="lg-text-highlighted">Our Projects</span>`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `सीएसआर कार्रवाई में: <span class="lg-text-highlighted">हमारे परियोजनाएं</span>`,
     },
     "9ffed122-9c1f-4e60-8d86-543812ebe4b5": {
         [Language.English]: `Bringing a change with our impactful and persistent efforts for a better society`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "एक बेहतर समाज के लिए हमारे प्रभावशील और लगातार प्रयासों से एक परिवर्तन लाना।",
     },
     "040d0fed-8daf-4463-bbb1-c732b22995ec": {
         [Language.English]: "Project Svachhand ",
-        [Language.Hindi]: "????",
+        [Language.Hindi]: "प्रोजेक्ट स्वच्छंद",
     },
     "3cf2dca9-b278-4047-888a-c7f950364512": {
         [Language.English]: "Promotion of Education",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "शिक्षा का प्रचार",
     },
     "3f15697a-6dcf-48b5-b244-cb2337ea3e79": {
-        [Language.English]:
-            "Under Project Svachhand Livguard donated and installed sanitary napkin vending machines and incinerators in 100 Schools and colleges of Himachal Pradesh, which will benefit more than 6000 adolescent girls, and young college going women. Amid the rising concern over high school drop-out rate of girls due to menstrual hygiene issues and to promote safe and hygienic-sanitary practices among them, sanitary pad vending and incinerator machines are being installed in school premises of Solan and Una District of Himachal Pradesh.",
-        [Language.Hindi]: "??????",
+        [Language.English]: `Livguard Energy Technologies Pvt. Ltd. launched the notable "Project Svachhand" aimed at improving menstrual hygiene management in schools across Solan, Una, and Kangra districts of Himachal Pradesh. This initiative, which involves the installation of sanitary napkin vending machines and incinerators in 83 Senior Secondary Schools, is based on the recommendations of District Education Officers and a concerning UNICEF study revealing 71% of Indian adolescent girls lack awareness about menstruation until they experience it, causing many to drop out of school. "Project Svachhand" is aimed to positively impact over 15,000 school-going girls, promoting uninterrupted education.`,
+        [Language.Hindi]: `लिवगार्ड एनर्जी टेक्नोलॉजीज प्रा॰ लि॰ ने उत्तर प्रदेश के सोलन, ऊना और कांगड़ा जिलों के स्कूलों में मासिक धर्म की स्वच्छंदता प्रबंधन को सुधारने के लिए महत्वपूर्ण "प्रोजेक्ट स्वच्छंद" की शुरुआत की। यह पहल, जिसमें 83 वरिष्ठ माध्यमिक विद्यालयों में सेनेटरी नैपकिन वेंडिंग मशीन और जलाने वाले भस्मकारी का स्थापना शामिल है, जिला शिक्षा अधिकारियों के सुझावों पर आधारित है और एक चिंता जनक यूनिसेफ अध्ययन के अनुसार 71% भारतीय किशोरी लड़कियों को मासिक धर्म के बारे में जागरूकता की कमी है जब तक उन्हें अनुभव नहीं होता है, जिसके कारण कई लड़कियां विद्यालय छोड़ देती हैं। "प्रोजेक्ट स्वच्छंद" का उद्देश्य लगभग 15,000 स्कूल जाने वाली लड़कियों पर सकारात्मक प्रभाव डालना है, जो अविच्छिन्न शिक्षा को प्रोत्साहित करेगा।`,
     },
     "d1f7806b-96e5-4763-95e4-1904a3394ce8": {
         [Language.English]: "COVID Response",
@@ -8335,7 +8374,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d263a415-1139-4e5b-a809-09594a14f078": {
         [Language.English]: "Promotion of Healthcare",
-        [Language.Hindi]: "?????????",
+        [Language.Hindi]: "स्वास्थ्य सेवा का प्रचार",
     },
     "759ad098-736a-4d83-8d5e-cd743006f1f9": {
         [Language.English]:
@@ -8348,7 +8387,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "67cd40f9-6d45-4005-84a0-b00e97de8c82": {
         [Language.English]: "Promotion of Livelihood",
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: "आजीविका का प्रचार",
     },
     "49372a39-5011-4426-abff-3ccd5bca1a1b": {
         [Language.English]: `Livguard in partnership with NGO partner Nazariya Foundation, established “Swabiman-Skilling Centre” for economically marginalized and gender minority section ” to improve the livelihoods of 40 disadvantaged trans men ,trans women and other needy individuals from Delhi.Objective of the program is to enable the trainees to avail employment in organized sector with an aim to double the monthly income with increased knowledge and improved skills on trade/craftsmanship.
@@ -8360,41 +8399,40 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "871e1887-2b27-49b5-8dea-1dc093f8ca96": {
         [Language.English]: "Green Campus Project",
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: "ग्रीन कैंपस कार्यक्रम",
     },
     "a3aec8ec-b853-4a86-9cd4-dd09c7153b84": {
         [Language.English]: "Environmental Sustainability",
         [Language.Hindi]: "????????",
     },
     "71949a30-ffab-4c86-90b8-44a88b27d9df": {
-        [Language.English]: `The green campus initiative by Livguard aimed at creating awareness among school students on waste management and transforming school campuses to “Zero Waste Campus” in Baddi and Mubarikpur of Himachal Pradesh.<br />
-    Under this project Livguard in consultation of NGO“ Waste Warriors” transformed Govt. Senior Secondary School, Baddi and Govt. Model Senior Secondary School, Amb, Una to Green Campus. The project included establishing waste management system in school, assisting the school staff and students to shift operations and minds towards generating zero waste through source reduction, recycling, composting, and food recovery. The project impacted 1741 students and 80 school teachers/staffs.`,
-        [Language.Hindi]: "????????",
+        [Language.English]: `As part of Livguard Batteries' ongoing CSR initiative, we collaborated with the Waste Warriors Society in FY 22-23 to transform four schools in the Kangra and Solan districts of Himachal Pradesh into Zero Waste Campuses. This ambitious project involved the establishment of a comprehensive solid waste management system, encompassing awareness campaigns, behavioural modification, infrastructure development, and operations planning. The goal was to equip both students and school administration with the knowledge and capabilities to independently manage the operations upon completion of the project. Through 28 insightful learning sessions, we impacted over 1800 students and engaged more than 150 teachers in this transformative journey.`,
+        [Language.Hindi]: `लिवगार्ड बैटरीज की चल रही सीएसआर पहल के हिस्से के रूप में, हमने हिमाचल प्रदेश के कांगड़ा और सोलन जिलों के चार स्कूलों को जीरो वेस्ट कैंपस में बदलने के लिए वित्त वर्ष 22-23 में वेस्ट वॉरियर्स सोसाइटी के साथ सहयोग किया। यह महत्वपूर्ण प्रोजेक्ट एक व्यापक कचरा प्रबंधन प्रणाली की स्थापना को सम्मिलित करता है, जिसमें जागरूकता अभियान, आचार्य बदलाव, अवसंरचना विकास, और संचालन योजना शामिल है। इस प्रोजेक्ट का उद्देश्य था कि प्रोजेक्ट के समाप्त होने पर छात्रों और स्कूल प्रशासन को ज्ञान और क्षमताएं प्रदान की जाएं ताकि वे स्वतंत्र रूप से संचालन को संभाल सकें। 28 सूक्ष्मज्ञान सत्रों के माध्यम से, हमने इस परिवर्तनात्मक यात्रा में 1800 से अधिक छात्रों और 150 से अधिक शिक्षकों को प्रभावित किया।`,
     },
     "0eeb2d2b-6dca-47bb-b5a8-05453bf8c91c": {
         [Language.English]: `Livguard <span class="lg-text-highlighted">Energy Technologies</span> Pvt Ltd`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `लिवगार्ड <span class="lg-text-highlighted">एनर्जी टेक्नोलॉजीज</span> प्राइवेट लिमिटेड`,
     },
     "fccd6c6b-9f47-4862-9464-4592c9a14c84": {
         [Language.English]: `Composition of <span class="lg-text-highlighted">CSR committee</span>`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `<span class="lg-text-highlighted">सीएसआर समिति</span> की संरचना`,
     },
     "e1fa0021-2310-4c6a-a221-9025e3b35ed7": {
         [Language.English]: "CSR Policy",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "सीएसआर नीति",
     },
     "dd1fd5f5-12e4-4c37-b41d-969150aa721a": {
         [Language.English]: `CSR project for F.Y. 2022-23`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वर्ष 2022-23 के सीएसआर योजना",
     },
     "2b6ccacf-093d-48d2-b29c-e5d1c537f3c1": {
         [Language.English]: `Livguard <span class="lg-text-highlighted">Batteries</span> Pvt Ltd`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: `लिवगार्ड <span class="lg-text-highlighted">बैटरीज</span> प्राइवेट लिमिटेड`,
     },
     //E-waste-Management Page Vernac strings start
     "bda064ee-6cc6-43f7-a7cb-8f14d9e050d9": {
         [Language.English]: `Leading the Charge`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `मुख्य भूमिका`,
     },
     "62e1fe47-ba14-4849-892b-f9443de6f1d7": {
         [Language.English]: `Let us help you find the battery you need`,
@@ -8402,11 +8440,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "d8fab0ad-803f-4cfc-85d3-bb2f2df4b102": {
         [Language.English]: `Connect with Us`,
-        [Language.Hindi]: "??????????????",
+        [Language.Hindi]: "जुड़िए हमसे",
     },
     "e7e9c51a-f71f-45dc-9607-93bd3236c6b5": {
         [Language.English]: `Understanding E-Waste Management`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `समझिए ई-वेस्ट मैनेजमेंट`,
     },
     "6df4af6d-4a94-4dd2-83a4-298ac4a56ac7": {
         [Language.English]: `E-waste is a popular, informal name for electronic products nearing the end of their "useful life." Mobile Phones, Smart Phones, Feature phone, I Phones, Laptop, Desktop, Thin Clients, Air Conditioners,E-waste is a popular, informal name for electronic products nearing the end of their "useful life." Mobile Phones, Smart Phones, Feature phone, I Phones, Laptop, Desktop, Thin Clients,  See More`,
@@ -8447,11 +8485,12 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "8eb39f08-e6ac-49e8-b7cb-7b1b56a98891": {
         [Language.English]: `Why E-waste management`,
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट क्यों?",
     },
     "91e2cda0-4afb-49e8-9772-8c4aa4cd246a": {
         [Language.English]: `At Livguard, we recognize e-waste as both a challenge and an opportunity. Harnessing the rich potential within electronic waste, we strive to recover valuable resources, reducing environmental harm and creating a sustainable cycle. With effective e-waste management, we aim to protect our ecosystem and public health, all while contributing to a greener future.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड में, हम ई-कचरे को एक चुनौती और एक अवसर दोनों के रूप में मानते हैं। इलेक्ट्रॉनिक कचरे के भीतर समृद्ध क्षमता का उपयोग करते हुए, हम मूल्यवान संसाधनों को पुनर्प्राप्त करने, पर्यावरणीय नुकसान को कम करने और एक स्थायी चक्र बनाने का प्रयास करते हैं। प्रभावी ई-वेस्ट मैनेजमेंट के साथ, हमारा लक्ष्य हरित भविष्य में योगदान करते हुए अपने पारिस्थितिकी तंत्र और सार्वजनिक स्वास्थ्य की रक्षा करना है।",
     },
     "0ed9d4ea-8be2-4402-9cc9-6d9a07e96c43": {
         [Language.English]: `1`,
@@ -8459,19 +8498,22 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "fc71fe6d-a26c-4873-beb5-a16fe8fc7174": {
         [Language.English]: `Resource Conservation`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "संसाधन संरक्षण",
     },
     "b494b200-dfd0-406c-8256-b1f655ca9066": {
         [Language.English]: `Extracting valuable materials like aluminum, copper, gold, and silver from e-waste not only reduces the need for mining but also saves energy. Livguard actively participates in this form of resource conservation, promoting sustainability and reducing environmental impact.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "ई-कचरे से एल्यूमीनियम, तांबा, सोना और चांदी जैसी मूल्यवान सामग्री निकालने से न केवल खनन की आवश्यकता कम होती है बल्कि ऊर्जा की भी बचत होती है। लिवगार्ड इस प्रकार के संसाधन संरक्षण, स्थिरता को बढ़ावा देने और पर्यावरणीय प्रभाव को कम करने में सक्रिय रूप से भाग लेता है।",
     },
     "d2f89a76-0b86-4232-bea7-4c289826a2c1": {
         [Language.English]: `E-waste contains hazardous materials that can harm our soil and water. By ensuring safe recycling, Livguard minimizes the potential for harmful substances to leach into the environment, protecting our surroundings and promoting ecological health.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "ई-कचरे में खतरनाक सामग्रियां होती हैं जो हमारी मिट्टी और पानी को नुकसान पहुंचा सकती हैं। सुरक्षित पुनर्चक्रण सुनिश्चित करके, लिवगार्ड पर्यावरण में हानिकारक पदार्थों के प्रवेश की संभावना को कम करता है, हमारे परिवेश की रक्षा करता है और पारिस्थितिक स्वास्थ्य को बढ़ावा देता है।",
     },
     "24b72e2e-abdd-48ae-ba2b-f60489dedf5e": {
         [Language.English]: `Reusing and refurbishing electronic equipment can offer significant benefits to the community. By donating these items, we provide ready-to-use resources to those in need, fostering a sense of community empowerment and helping to close the digital divide.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "इलेक्ट्रॉनिक उपकरणों का पुन: उपयोग और नवीनीकरण, समुदाय को महत्वपूर्ण लाभ प्रदान कर सकता है। इन वस्तुओं को दान करके, हम जरूरतमंद लोगों को उपयोग के लिए तैयार संसाधन प्रदान करते हैं, सामुदायिक सशक्तिकरण की भावना को बढ़ावा देते हैं और डिजिटल विभाजन को बंद करने में मदद करते हैं।",
     },
     "b452610b-4e19-4d8a-a5c7-c42e7440a3e4": {
         [Language.English]: `2`,
@@ -8479,7 +8521,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "c67dd066-2f26-4073-af46-c66a4cdd21c5": {
         [Language.English]: `Environment Protection`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "पर्यावरण संरक्षण",
     },
     "17bc8148-f2ed-4026-8074-ce2ca1013b4d": {
         [Language.English]: `3`,
@@ -8487,7 +8529,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "06e30da0-63f4-43d6-beb5-8fe3b7af9a33": {
         [Language.English]: `Community Empowerment`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सामुदायिक सशक्तिकरण",
     },
     "c0322003-0090-4b07-867b-e9a14cab8b06": {
         [Language.English]: `Responsible Recycling: <span class="lg-text-highlighted">Our Services</span>`,
@@ -8555,11 +8597,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6c5422c4-c98a-4035-9e9d-7977366e50f3": {
         [Language.English]: "Creating Waves of Impact",
-        [Language.Hindi]: "?????????",
+        [Language.Hindi]: "प्रभाव की लहरें बनाना",
     },
     "1eaa68c5-42b8-497e-bf30-220999dcc61a": {
-        [Language.English]: "Awareness programs of recycler EWRI. Reach out to us on our toll-free number 18001025679 in case of any queries.",
-        [Language.Hindi]: "?????????",
+        [Language.English]: `Awareness programs of recycler EWRI.<br /> Reach out to us on our toll-free number 18001025679 in case of any queries.`,
+        [Language.Hindi]: `रिसाइक्लर EWRI के जागरूकता कार्यक्रम। <br /> किसी भी प्रश्न के मामले में हमारे टोल-फ्री नंबर 18001025679 पर हमसे संपर्क करें।`,
     },
     "3f4e8b92-f79d-4e48-b731-98c0652e3ba0": {
         [Language.English]: "Can we charge a dead car battery?",
@@ -8631,19 +8673,21 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "4eb87934-841c-4c9f-898e-3bfbac44f2a2": {
         [Language.English]: "in E-Waste Management",
-        [Language.Hindi]: "????????????",
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट में",
     },
     "320a319c-7aa8-4289-b46a-8d58e8542fb1": {
         [Language.English]: "Connect with Us",
-        [Language.Hindi]: "????????",
+        [Language.Hindi]: "जुड़िए हमसे",
     },
     "97498b14-b629-4e6e-81a3-6a480bdd6652": {
         [Language.English]: `Livguard Energy Technologies Pvt Ltd is a leading energy solutions provider with a strong presence in the Indian market. The company specializes in manufacturing, distributing, and marketing a wide range of innovative and reliable power backup and energy storage solutions.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड एनर्जी टेक्नोलॉजीज प्राइवेट लिमिटेड एक प्रमुख ऊर्जा समाधान प्रदाता है जिसकी भारतीय बाजार में मजबूत प्रस्तुति है। कंपनी ने विभिन्न प्रकार के नवाचारी और विश्वसनीय पावर बैकअप और ऊर्जा संग्रहण समाधानों के उत्पादन, वितरण और विपणन में विशेषज्ञता प्राप्त की है।",
     },
     "528dd262-635a-43cf-ab1e-e6a7fc5a052b": {
-        [Language.English]: `Livguard Batteries Pvt Ltd's mission is to provide reliable and cutting-edge battery solutions that empower individuals, businesses, and industries to thrive in a world driven by energy needs. The company envisions becoming a global leader in battery technology,`,
-        [Language.Hindi]: "???????",
+        [Language.English]: `Livguard Batteries Pvt Ltd's mission is to provide reliable and cutting-edge battery solutions that empower individuals, businesses, and industries to thrive in a world driven by energy needs. The company envisions becoming a global leader in battery technology.`,
+        [Language.Hindi]:
+            "लिवगार्ड बैटरीज प्राइवेट लिमिटेड का मिशन विश्वासनीय और नवाचारी बैटरी समाधान प्रदान करना है जो व्यक्तियों, व्यापारों और उद्योगों को ऊर्जा की आवश्यकताओं द्वारा प्रेरित दुनिया में सफलता प्राप्त करने की क्षमता प्रदान करता है। कंपनी का दृष्टिकोण वैश्विक रूप से बैटरी प्रौद्योगिकी में नेतृत्व प्राप्त करने की है।",
     },
 
     "78317eea-9cd0-482b-988e-76272191a87d": {
@@ -8651,8 +8695,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `<span class="lg-text-highlighted">नियम और शर्तें</span> - सोशल मीडिया`,
     },
     "42beb18b-af8a-471c-bc79-4e227a144728": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Eligibility`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>योग्यता`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>Eligibility`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 1 </span>योग्यता`,
     },
     "396e58f7-ced3-4234-b823-ed5d1876acc9": {
         [Language.English]:
@@ -8660,8 +8704,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "लिवगार्ड सोशल मीडिया प्रतियोगिता सभी 18 और उससे अधिक आयु वाले भारत में निवास करने वाले प्रतिभागियों के लिए खुली है। यदि किसी प्रतिभागी की पात्रता में संदेह होता है, ",
     },
     "03a0d75d-4a8e-4467-8920-3dcd8754d532": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Entry Requirements`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>प्रवेश आवश्यकताऎं`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>Entry Requirements`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 2 </span>प्रवेश आवश्यकताऎं`,
     },
     "fc7cc648-ad54-41f7-97bd-a8d9436198b7": {
         [Language.English]: `To enter the contest, participants must do the following:<br>
@@ -8680,8 +8724,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         - शीर्ष तीन कहानियां आधिकारिक लिवगार्ड हैंडल पर दोबारा शेयर की जाएँगी।`,
     },
     "4fd59896-0e7e-4941-9f45-533eee7d3d58": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Entry Deadline`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>प्रवेश की अंतिम तिथि`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>Entry Deadline`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 3 </span>प्रवेश की अंतिम तिथि`,
     },
     "a3c2f2c2-f763-4448-bde7-05df14f33b02": {
         [Language.English]: `All entries must be submitted within 48 hours of publishing the contest (GMT+5:30) to be considered valid.<br>
@@ -8690,8 +8734,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         प्रतियोगिता घोषणा में निर्धारित समयसीमा के बाद प्राप्त प्रविष्टियाँ अवैध, अमान्य और अनुकूल मानी जाएँगी।`,
     },
     "afbb26d7-3eab-470d-93a7-09ebcbb9241b": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Prize Details`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>पुरस्कार विवरण`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>Prize Details`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 4 </span>पुरस्कार विवरण`,
     },
     "d5128079-075b-4e7b-9c09-c99ace37c173": {
         [Language.English]: `The contest will have 3 winners, each receiving Livguard's Akshay Kumar bobblehead figurines and Amazon vouchers worth Rs. 500 as rewards for the contest. The prizes are non-transferable and cannot be exchanged for cash or other products.<br>
@@ -8700,16 +8744,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `प्रतियोगिता में 3 विजेता होंगे, प्रत्येक को लिवगार्ड की अक्षय कुमार बॉबलहेड मूर्तियाँ और 500 रुपए के अमेज़न वाउचर पुरस्कार के रूप में मिलेंगे। पुरस्कार गैर-हस्तांतरणीय हैं और इन्हें नकद या अन्य उत्पादों के बदले नहीं दिया जा सकता। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार होता है। परितुष्टि गैर-हस्तांतरणीय और गैर-वापसी है। यदि किसी कारणवश निर्धारित प्रतिपुष्टि अनुपलब्ध हो जाती है, तो लिवगार्ड को अपने एकल और पूर्ण विवेक के आधार पर प्रतिपुष्टि को रद्द करने का अधिकार रखता है, लिवगार्ड को अधिकाधिक मूल्यवान समान प्रतिपुष्टि के लिए किसी भाग को या पूरे प्रतिपुष्टि को समान मूल्यवान या उच्च मूल्यवान से प्रतिस्थानित करने का अधिकार है।`,
     },
     "1dcc125e-a230-4df4-93de-7729ac296b0a": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Winner Selection`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> विजेता चयन`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> Winner Selection`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 5 </span> विजेता चयन`,
     },
     "344eda0b-5cba-4d61-b0b6-36f09b7b4b09": {
         [Language.English]: `The selection of winners for any contest is up to the discretion of Livguard. The selection would solely be based on the participation of the audience in the contests and challenges held. Livguard will not be responsible for and will not consider incomplete or incorrect entries. Livguard is not responsible for entries that are sent to but not received by Livguard for any reason.`,
         [Language.Hindi]: `किसी भी प्रतियोगिता के लिए विजेताओं का चयन लिवगार्ड के विवेक पर निर्भर है। चयन पूरी तरह से आयोजित प्रतियोगिताओं और चुनौतियों में दर्शकों की भागीदारी पर आधारित होगा। लिवगार्ड अपूर्ण या गलत प्रविष्टियों के लिए ज़िम्मेदार नहीं होगा और उन पर विचार नहीं करेगा। लिवगार्ड उन प्रविष्टियों के लिए ज़िम्मेदार नहीं है जो लिवगार्ड को भेजी गई हैं लेकिन किसी भी कारण से प्राप्त नहीं हुई हैं।`,
     },
     "eedccb31-f56d-4745-9cf8-9d5a7596df5f": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> Winner Notification`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> विजेता अधिसूचना`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> Winner Notification`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 6 </span> विजेता अधिसूचना`,
     },
     "f3fac268-6cf3-4e6f-b1af-69b32ed06748": {
         [Language.English]:
@@ -8717,8 +8761,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "विजेताओं को सोशल मीडिया प्लेटफॉर्म पर सीधे संदेश के माध्यम से सूचित किया जाएगा। उन्हें अपने पुरस्कार का दावा करने के लिए अधिसूचना के 48 घंटों के भीतर जवाब देना होगा।",
     },
     "e98b6392-6416-4deb-a9d2-907d5e9085e9": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> Publicity and Content Usage`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> प्रचार और उपयोग`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> Publicity and Content Usage`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 7 </span> प्रचार और उपयोग`,
     },
     "fbe27bfc-b4e6-415e-9da6-03f32b0fa49f": {
         [Language.English]:
@@ -8727,24 +8771,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
             "प्रतियोगिता में भाग लेकर, प्रतिभागी लिवगार्ड को प्रतियोगिता या लिवगार्ड के उत्पादों से संबंधित प्रचार उद्देश्यों के लिए अपनी सबमिट की गई सामग्री (उपयोगकर्ता नाम, फोटो और वीडियो सहित) का उपयोग करने की अनुमति देते हैं। प्रतियोगी स्वीकार करते हैं कि जिन टिप्पणियों या रेटिंग्स से वे असहमत हैं या जिनके बारे में नाखुश हैं, उन्हें प्रकाशित किया जा सकता है या अन्यथा उन सामग्रियों से संबद्ध किया जा सकता है जो वे लिवगार्ड को सबमिट करते हैं। लिवगार्ड को सामग्री सबमिट करके, आप सामग्री के संबंध में अपनी किसी भी गोपनीयता अपेक्षा को छोड़ देते हैं।",
     },
     "903c88c4-6eee-42cb-85ab-d1b7e781d162": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> Compliance with Platform Rules`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> प्लेटफ़ॉर्म नियमों का अनुपालन`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> Compliance with Platform Rules`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 8 </span> प्लेटफ़ॉर्म नियमों का अनुपालन`,
     },
     "c0455240-1838-4886-9320-6e41ea6c7519": {
         [Language.English]: "Participants must adhere to the rules and guidelines of the social media platform on which they are entering the contest.",
         [Language.Hindi]: `प्रतिभागियों को उस सोशल मीडिया प्लेटफॉर्म के नियमों और दिशानिर्देशों का पालन करना होगा जिस पर वे प्रतियोगिता में प्रवेश कर रहे हैं।`,
     },
     "f63831d0-7292-4301-8c0d-0f5dc08dcad2": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> Compliance with Local Laws`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> स्थानीय कानूनों का अनुपालन`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> Compliance with Local Laws`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 9 </span> स्थानीय कानूनों का अनुपालन`,
     },
     "4e308bc4-78ed-44d6-95a0-307d4cfee4e3": {
         [Language.English]: "Participants must comply with all applicable laws and regulations in India.",
         [Language.Hindi]: "प्रतिभागियों को भारत में सभी लागू कानूनों और विनियमों का पालन करना होगा।",
     },
     "fc6abbbc-ea85-41ec-99bb-486c523c034b": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> Liability and Indemnification`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> दायित्व और क्षतिपूर्ति`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> Liability and Indemnification`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 10 </span> दायित्व और क्षतिपूर्ति`,
     },
     "83c6a3f5-0834-41e6-a3eb-42f2d9edffcf": {
         [Language.English]:
@@ -8752,16 +8796,16 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `लिवगार्ड प्रतियोगिता या पुरस्कारों से संबंधित किसी भी मुद्दे के लिए ज़िम्मेदार नहीं है। प्रतियोगिता में प्रवेश करके, प्रतिभागी किसी भी दावे या देनदारियों से लिवगार्ड को हानिरहित रखने और क्षतिपूर्ति करने के लिए सहमत होते हैं। न तो लिवगार्ड और न ही उसके अधिकारी, निदेशक, कर्मचारी, एजेंट, उत्तराधिकारी या नियुक्त व्यक्ति किसी विजेता द्वारा संतुष्टि के उपयोग के परिणामस्वरूप होने वाली किसी भी वारंटी, लागत, क्षति, चोट या किसी अन्य दावे के लिए उत्तरदायी होंगे। HCIL द्वारा प्रचारित किसी भी प्रतियोगिता के संबंध में या उससे होने वाले किसी भी नुकसान के लिए लिवगार्ड उत्तरदायी नहीं है।`,
     },
     "264cae06-3f7f-4ad5-8739-4fc63a6cc75e": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> Modification or Termination`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> संशोधन या समाप्ति`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> Modification or Termination`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 11 </span> संशोधन या समाप्ति`,
     },
     "e93e6803-0cca-43a1-938f-01a3532b85ca": {
         [Language.English]: "Livguard reserves the right to modify, suspend, or terminate the contest at any time without prior notice.",
         [Language.Hindi]: `लिवगार्ड के पास बिना किसी पूर्व सूचना के किसी भी समय प्रतियोगिता को संशोधित करने, निलंबित करने या समाप्त करने का अधिकार सुरक्षित है।`,
     },
     "2b476886-b220-48e5-a652-a57b1d8468eb": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> Privacy Policy`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> गोपनीयता नीति`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> Privacy Policy`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span> गोपनीयता नीति`,
     },
     "248da7de-43d7-4119-b3fe-d6aad629490c": {
         [Language.English]:
@@ -8769,7 +8813,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: `जब प्रतियोगी इस प्रतियोगिता में भाग लेते हैं, तो उन्होंने अपनी सहमति दी है कि उनका डेटा (नाम, ईमेल आईडी, मोबाइल नंबर आदि) लिवगार्ड द्वारा आयोजित प्रचार और बाजार अनुसंधान के उद्देश्यों के लिए संसाधित किया जाएगा। आपकी जानकारी के उपयोग के बारे में अधिक जानकारी के लिए , आप यहां जा सकते हैं: *गोपनीयता नीति पृष्ठ लिंक जोड़ें*`,
     },
     "d1c03a96-ee2f-450d-975c-1c8d6a7d72dc": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Privacy Policy`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 12 </span>Privacy Policy`,
         [Language.Hindi]: "??????",
     },
     "2cad8f0d-2668-4a3e-95ae-892f3ce53689": {
@@ -8778,8 +8822,8 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         [Language.Hindi]: "??????",
     },
     "8d833cfb-bef1-4119-b0fc-7b0d7948ca89": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span> Contact Information`,
-        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span> संपर्क जानकारी`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span> Contact Information`,
+        [Language.Hindi]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span> संपर्क जानकारी`,
     },
     "15e2d1a3-ff2c-4d82-929a-7d8044d249b1": {
         [Language.English]: "For any questions or concerns regarding the contest, participants can contact Livguard at marketing@livguard.com or send a DM as well.",
@@ -8791,92 +8835,103 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "32f80d9c-f431-45c9-9791-4fae42e9a37d": {
         [Language.English]: `Inverters`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "इनवर्टर",
     },
     "a8d7b8ac-859d-4c52-ab5f-3dbc5e310af9": {
         [Language.English]: `Visit our range of home inverters with sleek design made to bring unlimited flow of energy to your home. Backed by its unique design, pick the one that suits your home the best.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "आपके घर में ऊर्जा का असीमित प्रवाह लाने के लिए आकर्षक बनावट वाले होम इनवर्टर की हमारी श्रेणी पर जाएं। इसके मजबूत निर्माण के साथ, वह चुनें जो आपके होम लिए सबसे उपयुक्त हो।",
     },
     "9c7f2168-03a6-4d44-8a52-829135aab8fb": {
         [Language.English]: `With our wide range of strong inverter batteries backed with futuristic design and multiple features, experience the power of uninterrupted energy for your home without any hassles.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "उद्योग की सबसे पहली 3डी ग्रिड तकनीक के साथ, हमारी इनवर्टर बैटरी की श्रेणी आपके परिवार की पावर बैकअप आवश्यकताओं को कुशलतापूर्वक पूरा करने के लिए निर्मित की जाती है।",
     },
     "81c86672-33a4-4aae-80e8-da18b67ecdbc": {
         [Language.English]: `Experience limitless energy with our wide range range of automotive batteries, made to empower your fast-paced lifestyle with high performing products.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "ऑटोमोटिव बैटरियों की हमारी विस्तृत श्रृंखला के साथ असीमित ऊर्जा का अनुभव करें, जो उच्च प्रदर्शन वाले उत्पादों के साथ आपकी तेज़-तर्रार जीवन शैली को सशक्त बनाने के लिए बनाई गई है।",
     },
     "164717a3-598c-477c-99b9-cf2f40646026": {
         [Language.English]: `Solutions made to fit your specific needs, precisely. We are the experts in Solar Rooftop Solutions, which equip us to always bring the best in class products for your needs.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "आपकी विशिष्ट आवश्यकताओं को पूरा करने के लिए लाये गये सटीक सलूशन। हम सोलर रूफटॉप सलूशन के एक्सपर्ट हैं, जो हमें हमेशा आपकी जरूरतों के लिए श्रेणी में सर्वश्रेष्ठ उत्पाद लाने के लिए तैयार करते हैं।",
     },
     "ef976dde-0707-440e-b576-c3722ca507a2": {
         [Language.English]: `Explore accessories which perfectly compliment your products, with our curated range of choices. Built with the finest materials, these accessories will last long.`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "हमारे सहायक उपकरणों की श्रेणी आपके घर की ज़रूरतों को भली भाँति समझ कर उनको बेहतर बनाते हैं । यह उपकरण श्रेष्ठ सामग्री से बने हैं जो सालों साल आपका साथ देंगे।",
     },
     "edc62a50-a3c7-4f6f-b5dc-e7fbad46a0aa": {
         [Language.English]:
             "E-waste, short for electronic waste, is the term used to describe old or discarded electronic devices at the end of their functional lives. Items such as smartphones, laptops, desktop computers, air conditioners, TVs, refrigerators, and washing machines fall into this category. Many of these gadgets can be given a second life through reuse, refurbishment, or recycling.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "ई-वेस्ट, यानी इलेक्ट्रॉनिक अपशिष्ट, उन पुराने या छोड़े गए इलेक्ट्रॉनिक उपकरणों को वर्णित करने के लिए एक शब्द है जिनकी कार्यक्षम जीवन अवधि समाप्त हो गई है। स्मार्टफोन, लैपटॉप, डेस्कटॉप कंप्यूटर, एयर कंडीशनर, टीवी, रेफ्रिजरेटर और वॉशिंग मशीन जैसे उपकरण इस श्रेणी में आते हैं। इनमें से कई उपकरणों को पुनः उपयोग, पुनर्निर्माण या पुनः चक्रण के माध्यम से एक दूसरे जीवन दिलाया जा सकता है।",
     },
     "d86ceedf-2c18-4e72-bd6e-f680b3aa3e24": {
         [Language.English]:
             "However, the ever-increasing production of e-waste has become a global concern. Even though e-waste is a source of valuable materials like aluminium, copper, gold, and silver, it also harbours harmful elements such as cadmium, lead, and mercury. Without adequate knowledge and disposal practices, e-waste can end up in landfills, potentially leaking toxic substances into our air, water, and soil. This can create significant health and environmental risks. It's crucial that we understand and manage e-waste effectively to minimize its damaging effects on our world.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लेकिन, ई-वेस्ट अपनी बढ़ती हुई उत्पादन से एक वैश्विक चिंता बन गई है। हालांकि ई-वेस्ट अलूमिनियम, कॉपर, सोना और चांदी जैसे मूल्यवान सामग्रियों का स्रोत होता है, यह कैडमियम, लीड और मर्क्यूरी जैसे हानिकारक तत्वों को भी धारण करता है। पर्याप्त जानकारी और निपटान प्रथाओं के बिना, ई-वेस्ट जलीय सामग्रियों को भूमिगत डिब्बों में भरने का काम कर सकता है, जो हमारे वायु, जल और मिट्टी में हानिकारक पदार्थ छोड़ सकता है। यह महत्वपूर्ण है कि हम ई-वेस्ट को सही तरीके से समझें और प्रबंधित करें ताकि इसके दुष्प्रभावों को हमारे विश्व पर कम किया जा सके।",
     },
     "41446f5c-546d-4b87-b68f-09909f0ac67d": {
         [Language.English]:
             "Under the Ministry of Environment, Forest and Climate Change guidelines, Government of India, E-Waste (Management) Rules, 2016; LIVGUARD BATTERIES PVT LTD stands committed to implementing E-Waste Rules.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "पर्यावरण, वन और जलवायु परिवर्तन मंत्रालय के मार्गदर्शन के तहत, भारत सरकार, ई-वेस्ट (मैनेजमेंट) नियम, 2016 के तहत; लिवगार्ड बैटरीज प्राइवेट लिमिटेड ई-वेस्ट नियमों का पालन करने के लिए क़ायम है।",
     },
     "c26dd37a-78dc-46b8-8fd9-5a7f5b9c9e54": {
         [Language.English]:
             "At LIVGUARD BATTERIES PVT LTD, we're deeply aware of the urgent need to promote the recycling of all salvageable and valuable materials from e-waste to protect our increasingly depleted natural resources. We believe recycling end-of-life products is crucial to optimize resource utilization and minimize landfill burdens. With this sense of responsibility, we've entered a strategic partnership with one of the premier, authorized e-waste recyclers, E-WASTE RECYCLERS INDIA. This collaboration is intended to aid our customers in responsibly disposing their e-waste products at the end of their lifecycle.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड बैटरीज प्राइवेट लिमिटेड में, हम गहराई से जानते हैं कि ई-वेस्ट से सभी रक्षक और मूल्यवान सामग्री को पुनः प्राप्त करने की तत्काल आवश्यकता है ताकि हम अपने तेजी से समाप्त होते जा रहे प्राकृतिक संसाधनों की सुरक्षा कर सकें। हम मानते हैं कि उत्पादों को अंतिम दौर की पुनर्चक्रण करना संसाधन उपयोग को अनुकूलित करने और भूमि में बोझ कम करने के लिए महत्वपूर्ण है। इस जिम्मेदारी की भावना के साथ, हमने एक रणनीतिक साझेदारी बनाई है एक प्रमुख, अधिकृत ई-वेस्ट रीसाइक्लर, ई-वेस्ट रीसाइकलर्स इंडिया के साथ। इस सहयोग का उद्देश्य है कि हमारे ग्राहकों को उनके उत्पादों को जिम्मेदारीपूर्ण रूप से उनके जीवनकाल के अंत में इस्तेमाल करने के बाद उन्हें सही तरीके से ई-वेस्ट उत्पादों को निपटाने में मदद मिल सके।",
     },
     "0b25ac7a-871b-4b2e-931e-c1d1164b7cbd": {
         [Language.English]: "What is E-waste and why is it important to manage it?",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "ई-वेस्ट क्या है और इसका मैनेजमेंट करना क्यों महत्वपूर्ण है?",
     },
     "1ba46bef-05f1-4822-b635-55f50b3cc38c": {
         [Language.English]:
             "E-waste refers to discarded electronic or electrical devices. It's vital to manage E-waste to prevent harmful environmental impacts. At Livguard, we prioritize E-waste management by collaborating with authorized recyclers to ensure responsible recycling of our products at end-of-life, thus aiding environmental conservation.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "ई-कचरे का तात्पर्य बेकार पड़े इलेक्ट्रॉनिक या विद्युत उपकरणों से है। हानिकारक पर्यावरणीय प्रभावों को रोकने के लिए ई-कचरे का मैनेजमेंट करना महत्वपूर्ण है। लिवगार्ड में, हम अपने उत्पादों की जीवन के अंत में जिम्मेदार रीसाइक्लिंग सुनिश्चित करने के लिए अधिकृत रीसाइक्लर्स के साथ सहयोग करके ई-अपशिष्ट मैनेजमेंट को प्राथमिकता देते हैं, जिससे पर्यावरण संरक्षण में सहायता मिलती है।",
     },
     "788de904-c62e-4e0a-af30-5da5d0286361": {
         [Language.English]: "What does Livguard do to manage E-waste?",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "ई-कचरे के मैनेजमेंट के लिए लिवगार्ड क्या करता है?",
     },
     "ffe8fb10-e2ab-475f-8e91-efed3cc2ca8a": {
         [Language.English]:
             "Livguard proactively addresses E-waste management by partnering with certified recyclers. We facilitate the safe disposal of our products after their end-of-life. We believe this not only conserves natural resources, but also minimizes landfill, emphasizing our commitment to environmental sustainability.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड प्रमाणित रिसाइक्लर्स के साथ साझेदारी करके ई-वेस्ट मैनेजमेंट को सक्रिय रूप से संबोधित करता है। हम अपने उत्पादों का जीवनकाल समाप्त होने के बाद उनके सुरक्षित निपटान की सुविधा प्रदान करते हैं। हमारा मानना ​​है कि यह न केवल प्राकृतिक संसाधनों का संरक्षण करता है, बल्कि पर्यावरणीय स्थिरता के प्रति हमारी प्रतिबद्धता पर जोर देते हुए लैंडफिल को भी कम करता है।",
     },
     "ae97ad8d-44e1-465d-b6f1-aa2867de6a99": {
         [Language.English]: "How can I contribute to E-waste management as a Livguard customer?",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "मैं लिवगार्ड ग्राहक के रूप में ई-वेस्ट मैनेजमेंट में कैसे योगदान दे सकता हूं?",
     },
     "9490b60b-7dd9-4ddf-b052-105b0f267a0c": {
         [Language.English]:
             "As a Livguard customer, you play a vital role in E-waste management by ensuring that your old Livguard products are disposed of responsibly. You can take them to our collection centers or authorized recycling partners. This helps in conserving natural resources and preventing environmental damage.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड ग्राहक के रूप में, आप अपने सहयोग से ई-वेस्ट मैनेजमेंट में महत्वपूर्ण भूमिका निभाते हैं। आप उपयुक्त वस्तुओं को हमारे संग्रह केंद्रों या अधिकृत रीसाइक्लिंग भागीदारों के पास ले जा सकते हैं। इससे प्राकृतिक संसाधनों के संरक्षण और पर्यावरणीय क्षति को रोकने में मदद मिलती है।",
     },
     "040a3fb1-bc00-422c-8169-36017f5108dd": {
         [Language.English]: "How does Livguard ensure data safety during E-waste recycling?",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "लिवगार्ड ई-वेस्ट पुनर्चक्रण के दौरान डेटा सुरक्षा कैसे सुनिश्चित करता है?",
     },
     "98756773-9cd8-47e2-973f-9dbe2bffff71": {
         [Language.English]:
             "Livguard, in partnership with authorized E-waste recyclers, ensures all data-bearing devices are handled with utmost care. Data is wiped or physically destroyed as part of the recycling process, ensuring complete data safety and adherence to data protection regulations.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड, अधिकृत ई-वेस्ट रिसाइक्लर्स के साथ साझेदारी में, यह सुनिश्चित करता है कि सभी डेटा-असर वाले उपकरणों को अत्यधिक सावधानी से संभाला जाए। रीसाइक्लिंग प्रक्रिया के हिस्से के रूप में डेटा को मिटा दिया जाता है या भौतिक रूप से नष्ट कर दिया जाता है, जिससे पूर्ण डेटा सुरक्षा और डेटा सुरक्षा नियमों का पालन सुनिश्चित होता है।",
     },
     "d063752e-9fed-44f2-bed3-5c128b955ced": {
         [Language.English]: "How does Livguard's E-waste management benefit the environment?",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "लिवगार्ड के ई-वेस्ट मैनेजमेंट से पर्यावरण को कैसे लाभ होता है?",
     },
     "1dd8e8a8-f9ac-42de-bbf6-dff02440d916": {
         [Language.English]:
             "Livguard's E-waste management actively aids in reducing landfill waste and conserves natural resources. By promoting recycling, we ensure harmful substances from E-waste don't leak into the environment, contributing to a healthier planet and sustainable future.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]:
+            "लिवगार्ड का ई-वेस्ट मैनेजमेंट सक्रिय रूप से लैंडफिल कचरे को कम करने में सहायता करता है और प्राकृतिक संसाधनों का संरक्षण करता है। पुनर्चक्रण को बढ़ावा देकर, हम यह सुनिश्चित करते हैं कि ई-कचरे से हानिकारक पदार्थ पर्यावरण में न जाएं, जिससे हम एक स्वस्थ ग्रह और टिकाऊ भविष्य में योगदान कर सकें।",
     },
     "0fc1ad43-da71-4c4b-b96d-dae763f48bf8": {
         [Language.English]: "Livguard Batteries Pvt. Ltd, Village:- Shivpur Mahal, P.O:- Mabarikpur, Tehsil:- Amb, Dish:-UNA, H.P:- 177202",
@@ -8900,24 +8955,24 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "155aff4b-cf5b-4505-aa8e-79bfc71ee080": {
         [Language.English]: "How to find the best two-wheeler battery?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "2-पहिया वाहन के लिए सर्वोत्तम बैटरी कैसे चुनें",
     },
     "7bd1fce8-1fe0-444a-946f-929ff649e51a": {
         [Language.English]:
             "When it comes to two-wheeler batteries, quality is the most important thing to consider. Livguard excels in manufacturing robust and reliable two-wheeler batteries. Our 2W Batteries are designed to offer superior performance and zero maintenance.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `जब बात 2-पहिया  बैटरी की होती है, तो गुणवत्ता सबसे महत्वपूर्ण बात है। लिवगार्ड 2-पहिया बैटरी के निर्माण में उत्कृष्टता दिखाता है। हमारी <a class="tw-underline" href="/two-wheeler-batteries">2-पहिया बैटरी</a> उच्च प्रदर्शन और मेंटेनेंस मुक्त आती हैं।`,
     },
     "dc74bd52-60c0-48a8-9be1-aae8e8b86f48": {
         [Language.English]: "Which battery is best for bikes?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "कौन सी बैटरी बाइक के लिए सबसे अच्छी है?",
     },
     "2f406215-26f7-4455-a693-e34bb075d033": {
         [Language.English]: `Livguard’s range of <a href="/product/lgzhhtz4" class="tw-underline">MoRide batteries</a> is the best for bikes. They are high-performance two-wheeler batteries designed to deliver a power-packed ride through the narrow lanes and tough terrains of India. Livguard MoRide two-wheeler batteries offer more cranking power, more consistent performance and more battery life.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `लिवगार्ड की <a href="/product/lgzhhtz4" class="tw-underline">MoRide बैटरी</a> बाइकों के लिए सबसे अच्छी है। यह उच्च प्रदर्शन वाली दो-पहिया वाहन बैटरी है जो भारत की पतली गलियों और कठिन भूमि में एक शक्तिशाली सवारी प्रदान करने के लिए डिज़ाइन की गई है। लिवगार्ड MoRide दो-पहिया वाहन बैटरी अधिक क्रैंकिंग पावर, निरंतर प्रदर्शन, और अधिक बैटरी लाइफ प्रदान करती है।`,
     },
     "3cf70e58-d2db-4521-9d8c-08462e15991d": {
         [Language.English]: "What is the life of a two-wheeler bike battery?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "दो-पहिया वाहन बाइक बैटरी का जीवनकाल कितना होता है?",
     },
     "acb12340-7b82-42e4-b2be-b6b2902a9a29": {
         [Language.English]: `An average two-wheeler bike battery lasts between 3-4 years depending upon the usage. There are many factors that affect the batteries’ lifecycle. Such as:<br />
@@ -8925,11 +8980,15 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         - Leaky circuit<br />
         - Heat and vibration<br />
         Livguards range of Two-wheeler batteries are made to power your ride with better performance and efficiency.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `औसतन, दो-पहिया वाहन बाइक बैटरी का जीवनकाल 3-4 वर्ष के बीच होता है जो उपयोग पर निर्भर करता है। इसमें कई कारक जीवनकाल को प्रभावित करते हैं। जैसे:<br>
+        - खराब वोल्टेज रेगुलेटर<br>
+        - बिगड़ा हुआ सर्किट<br>
+        - गरमी और दहन<br>
+        Livguard के <a class="tw-underline" href="/two-wheeler-batteries">दो-पहिया वाहन बैटरी</a> आपके राइड को बेहतर प्रदर्शन और दक्षता के साथ चलाने के लिए बनाई गई हैं।`,
     },
     "90ecdaa7-2d21-4ca1-a903-df431141b206": {
         [Language.English]: "How can I improve my bike battery life?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मैं अपनी बाइक बैटरी का जीवनकाल कैसे सुधार सकता हूँ?",
     },
     "e558485f-f064-47a8-9285-9421d401f4a0": {
         [Language.English]: `A few careful steps and guidelines can extend the life of your bike’s battery by several years. These include:<br />
@@ -8937,51 +8996,58 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
         - Keep the battery charged<br />
         - Clean your battery<br />
         Livguard’s range of <a href="/product/lgzhhtz4" class="tw-underline">MoRide batteries</a> is the best for bikes. They offer more cranking power, more consistent performance and more battery life. They are easy to handle and low on maintenance.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `कुछ सावधानीपूर्वक कदम और दिशा-निर्देश आपकी बाइक की बैटरी का जीवनकाल कई वर्षों तक बढ़ा सकते हैं। इनमें शामिल हैं:<br>
+        - सही बैटरी का उपयोग करें<br>
+        - बैटरी को चार्ज में रखें<br>
+        - अपनी बैटरी को साफ करें<br>
+        Livguard के <a href="/product/lgzhhtz4" class="tw-underline">MoRide बैटरी रेंज</a> बाइक के लिए सबसे अच्छे हैं। ये बैटरी को अधिक क्रैंकिंग पावर, सतत प्रदर्शन और अधिक बैटरी लाइफ देते हैं।`,
     },
     "fa8685b7-b634-4480-af54-afb41c3d1fba": {
         [Language.English]: "How do I choose right battery for my 2 Wheeler?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मेरे दो-पहिये वाहन के लिए सही बैटरी कैसे चुनूं?",
     },
     "d965a9bf-b309-4e09-8e63-636e6ff449bf": {
         [Language.English]: `For your two-wheeler ride, you should look for a battery that offers a smooth performance in the long run, for a hassle free ownership. Use our <a href="/battery-finder" class="tw-underline">Battery Finder</a> to find the ideal battery for your two-wheeler.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `आपके दो-पहिये वाहन के लिए, आपको एक ऐसी बैटरी चुननी चाहिए जो आपको लंबे समय तक सहज और तकनीकी समस्याएं मुक्त रहने की सुविधा प्रदान करे। हमारे <a href="/battery-finder" class="tw-underline">बैटरी फाइंडर</a> का उपयोग करें और अपने दो-पहिये वाहन के लिए आदर्श बैटरी ढूंढें।`,
     },
     "7a4063da-8367-4e3a-b134-e718454ecc6f": {
         [Language.English]: `Can I use HKVA inverter for fridge?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्या मैं फ्रिज के लिए HKVA इनवर्टर का उपयोग कर सकता हूँ?",
     },
     "7ccc15cd-6901-40e3-9cfb-fdfb9c40ad69": {
         [Language.English]: `Yes you can opt for Livguard HKVA inverter depending on the power requirement of the Fridge.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हां, आप फ्रिज की बिजली की आवश्यकता के आधार पर लिवगार्ड HKVA इनवर्टर का विकल्प चुन सकते हैं।",
     },
     "0d653fa7-c5a0-41f5-9913-74f8992c2f5d": {
         [Language.English]: `Can I run an AC on HKVA inverter?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "क्या मैं HKVA इनवर्टर पर एसी चला सकता हूँ?",
     },
     "76b40f18-bc9e-4555-a602-9b6d41bd272d": {
         [Language.English]: `Yes, depending on the AC load (tonnage), You can choose the ideal Livguard Heavy Duty Inverter, designed specially to take care of the surge current arising due to switching ON of the AC compressor. Take a look Livguard's range of inverters to empower your home with Limitless energy.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "हां, एसी लोड (टन भार) के आधार पर, आप आदर्श लिवगार्ड हेवी ड्यूटी इनवर्टर चुन सकते हैं, जो विशेष रूप से एसी कंप्रेसर को चालू करने के कारण उत्पन्न होने वाले सर्ज करंट की देखभाल के लिए डिज़ाइन किया गया है। अपने घर को असीमित ऊर्जा से सशक्त बनाने के लिए लिवगार्ड के इनवर्टर रेंज पर एक नज़र डालें।",
     },
     "3a8dace5-1bf6-455b-ac77-a9d9a8bf6e2e": {
         [Language.English]: `What happens if you overload an inverter?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "यदि आप इनवर्टर को ओवरलोड कर दें तो क्या होगा?",
     },
     "9634b330-e9b8-446e-96e8-28d907f531db": {
         [Language.English]: `The most common reason for a power overload is when the inverter reaches its peak power output. The MCB trips whenever there is overload, which can be switched back on by bringing the load as per the inverter's load-carrying capacity. Livguard power inverters are designed for stable power delivery with Dual MCB protection to ensure the safety of your equipment and appliances.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "पावर ओवरलोड का सबसे आम कारण तब होता है जब इनवर्टर अपने चरम पावर आउटपुट पर पहुंच जाता है। जब भी ओवरलोड होता है तो एमसीबी ट्रिप हो जाती है, जिसे इनवर्टर की भार वहन क्षमता के अनुसार लोड लाकर वापस चालू किया जा सकता है। लिवगार्ड हेवी ड्यूटी इनवर्टर आपके उपकरण और उपकरणों की सुरक्षा सुनिश्चित करने के लिए दोहरी एमसीबी सुरक्षा के साथ स्थिर बिजली वितरण के लिए डिज़ाइन किए गए हैं।",
     },
     "5e58c065-0b92-41ce-911d-368a94065ab2": {
         [Language.English]: `What appliances can be operated on Livguard’s high-capacity inverters at home?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "घर पर लिवगार्ड के उच्च क्षमता वाले इनवर्टर पर कौन से उपकरण संचालित किए जा सकते हैं?",
     },
     "2b7f86b0-dd77-42c9-9c3e-9a40b26713fa": {
         [Language.English]: `The various appliances that can be operated on Livguard’s high-capacity inverters include a fridge, AC, washing machine, microwave, steam iron etc. at home. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]:
+            "लिवगार्ड के उच्च क्षमता वाले इनवर्टर पर जिन विभिन्न उपकरणों को संचालित किया जा सकता है उनमें घर पर फ्रिज, एसी, वॉशिंग मशीन, माइक्रोवेव, स्टीम आयरन आदि शामिल हैं। लिवगार्ड हेवी ड्यूटी इनवर्टर आपके उपकरण और उपकरणों की सुरक्षा सुनिश्चित करने के लिए स्थिर बिजली वितरण के लिए डिज़ाइन किए गए हैं।",
     },
     "ac088cfa-86ce-44b6-9305-2a30f27784a5": {
         [Language.English]: `What are high-capacity inverters?`,
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "उच्च क्षमता वाले इनवर्टर क्या हैं?",
     },
     "39a21be9-ccf8-44c2-82d5-7488001d7c50": {
         [Language.English]: `Livguard’s “ih-verter” systems are an ideal option to run heavy load appliances. They are a cohesive power backup system that produces pure sinewave output at all places, when and where it's needed. Livguard power inverters are designed for stable power delivery to ensure the safety of your equipment and appliances.`,
@@ -8994,143 +9060,150 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     "9267f56d-1d86-406c-bdda-0d56188cafb8": {
         [Language.English]:
             "The following terms and conditions are applicable for any Social Media contests or challenges run by Livguard across any channel.  By participating in the contests, you agree to the said terms and conditions.",
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: `लिवगार्ड के "ih-वर्टर" सिस्टम भारी भार वाले उपकरणों को चलाने के लिए एक आदर्श विकल्प हैं। वे एक समेकित पावर बैकअप सिस्टम हैं जो सभी स्थानों पर, जब और जहां इसकी आवश्यकता होती है, शुद्ध साइनवेव आउटपुट उत्पन्न करता है। लिवगार्ड हेवी ड्यूटी इनवर्टर आपके उपकरण और उपकरणों की सुरक्षा सुनिश्चित करने के लिए स्थिर बिजली वितरण के लिए डिज़ाइन किए गए हैं।`,
     },
     "cc8f5274-ab27-4dd9-9958-9be9d1b58a4b": {
         [Language.English]: "Inverters",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "इनवर्टर",
     },
     "38190d9c-d8b4-4694-abd5-8a1b2a907644": {
         [Language.English]: "AI Charging",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "एआई चार्जिंग",
     },
     "968f95c6-391c-4752-8f0a-6a130d7247d3": {
         [Language.English]:
             "The AI Charging in our inverters automatically reads the battery’s charging voltage, backup & charge percentage and charges according to the battery needs. It also prevents overcharging for enhanced battery life.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "हमारे इनवर्टर में एआई चार्जिंग स्वचालित रूप से बैटरी की चार्जिंग वोल्टेज, बैकअप और चार्ज प्रतिशत को पढ़ती है और बैटरी की जरूरतों के अनुसार चार्ज करती है। यह बैटरी की लाइफ बढ़ाने के लिए ज़रूरत से ज़्यादा चार्जिंग को भी रोकती है।",
     },
     "819dd6dc-90d2-4bfd-a73a-6904481af9ad": {
         [Language.English]: "CNT Technology",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "CNT तकनीक",
     },
     "df905ecc-8efa-412a-bb7b-930aaef64ffe": {
         [Language.English]: "Batteries built with Carbon Nanotube Technology that helps in longer backup with better charge efficiency, and a better battery life",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "कार्बन नैनोट्यूब तकनीक से बनी बैटरियां जो बेहतर चार्ज दक्षता और बेहतर बैटरी जीवन के साथ लंबे समय तक बैकअप में मदद करती हैं।",
     },
     "b3226570-cafa-42c9-8b1c-8f3affdf73f7": {
         [Language.English]: "Best In Class Warranty",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सर्वश्रेष्ठ वारंटी",
     },
     "bd4bfc08-3225-4aaa-b04f-a0d1285aac7a": {
         [Language.English]: "Experience unmatched performance for your car and SUV with peace of mind of our best-in-class warranty, for each Ah battery category",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "अपनी कार और एसयूवी के लिए बेमिसाल प्रदर्शन का आनंद लें और हर Ah बैटरी श्रेणी के लिए हमारी श्रेष्ठ वारंटी के साथ शांति का आनंद उठाएं।",
     },
     "964dbdf4-8b00-4471-9227-29d5d218d156": {
         [Language.English]: "6 Wheel Tuffness ",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "6 पहिया टफनेस",
     },
     "1dbef3f7-a5f0-4ea4-859a-4c2e90bcfbe1": {
         [Language.English]: "Experience long life and performance with inverter trolleys for your home, empowered with 6 wheel Tuffness for support",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "अपने घर के लिए इनवर्टर ट्रॉली के साथ लंबे जीवन और प्रदर्शन का अनुभव करें, समर्थन के लिए 6 पहिया टफ़नेस के साथ।",
     },
     "f7a491bf-8c0a-45d3-88bb-af15728d30e7": {
         [Language.English]: "Solar Rooftop Solution Expertise",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सोलर रूफटॉप समाधान विशेषज्ञता",
     },
     "ca9d5613-8878-48e3-9bf3-bf7b2d09f52c": {
         [Language.English]: "Go Solar and generate your own electricity with the experts. Get tailor-made solutions, which fit the needs of your home with higher savings on your electricity bills",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "सोलर ऊर्जा अपनाएं और विशेषज्ञों के साथ अपनी खुद की बिजली बनाएं। हमारे साथ विशेष समाधान प्राप्त करें, जो आपके बिजली बिल पर अधिक बचत के साथ आपके घर की ज़रूरतों को पूरा करते हों।",
     },
     "21748a0f-e0be-44cd-923a-11ae935b45eb": {
         [Language.English]: `Enhanced Battery Life`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "उन्नत बैटरी जीवन",
     },
     "82f2e4a8-15fb-4550-99f8-2fc0237de6d8": {
         [Language.English]: `Experience extended battery life with Livguard's e-rickshaw charger, which results in maximising your earnings`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `लिवगार्ड के ई-रिक्शा चार्जर के साथ विस्तारित बैटरी जीवन का अनुभव करें, जिसके परिणामस्वरूप आपकी कमाई अधिकतम होगी।`,
     },
     "b36f8113-ef64-414d-b594-6bb905020b19": {
         [Language.English]: `Consumes Less Electricity`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "कम बिजली की खपत",
     },
     "0d3152bf-e182-4056-94b4-e8db4de162fb": {
         [Language.English]: `Livguard's range of e-rickshaw chargers consume less electricity, making your rides not just eco-friendly, but also pocket-friendly.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "लिवगार्ड के ई-रिक्शा चार्जर की रेंज कम बिजली की खपत करती है, जो आपकी सवारी को न केवल पर्यावरण-अनुकूल बनाती है, बल्कि जेब के अनुकूल भी बनाती है।",
     },
     "b2b7631c-eef1-4fbd-9220-5fcf78963f22": {
         [Language.English]: `Consumes Less Water`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "कम पानी की खपत",
     },
     "0a9f62b4-59aa-4928-ae6f-2a2b9ac00504": {
         [Language.English]: `Our chargers consume less water, for reduction of your maintenance costs`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "आपके मेंटेनेंस की लागत को कम करने के लिए हमारे चार्जर कम पानी की खपत करते हैं।",
     },
     "b51fbf4d-1863-4023-8f74-56da965cc2d6": {
         [Language.English]: `Overcharge Protection`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ओवरचार्ज सुरक्षा",
     },
     "9ad07919-0bfe-452d-866a-ae6230941971": {
         [Language.English]: `Chargers made with built-in overcharge protection, to prevent battery damage and ensure reliable performance.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "बैटरी की क्षति को रोकने और विश्वसनीय प्रदर्शन सुनिश्चित करने के लिए, अंतर्निहित ओवरचार्ज सुरक्षा के साथ बनाए गए चार्जर।",
     },
     "d1559042-37b6-400d-8c27-8bf1ff82dcbf": {
-        [Language.English]: `Charge Even in Low Input Voltage`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `Low Voltage Charging`,
+        [Language.Hindi]: "कम वोल्टेज चार्जिंग",
     },
     "8fda5ab6-83c8-4373-b253-4aa6db78f4c1": {
         [Language.English]: `Experience hassle-free charging with chargers that charge even during low input voltages, ensuring your journey never stops.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ऐसे चार्जर के साथ परेशानी मुक्त चार्जिंग का अनुभव करें जो कम इनपुट वोल्टेज के दौरान भी चार्ज होता है, यह सुनिश्चित करता है कि आपकी यात्रा कभी न रुके।",
     },
     "16dd3897-b1b3-4de7-92f0-f602d56b2b7f": {
         [Language.English]: `Deep Discharge Charging`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "डीप डिस्चार्ज चार्जिंग",
     },
     "9361ff0a-c2ac-4582-b8fd-cc9273f05058": {
         [Language.English]: `Get the experience of seamless charging, which charges batteries even when they are deeply discharged for an uninterrupted ride`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "निर्बाध चार्जिंग का अनुभव प्राप्त करें, जो निर्बाध सवारी के लिए गहराई से डिस्चार्ज होने पर भी बैटरी को चार्ज करता है।",
     },
     "cbf6a50a-ad52-4a12-b18d-022d92cb3197": {
         [Language.English]: `Can an e-rickshaw charger recharge deeply discharged batteries?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "क्या ई-रिक्शा चार्जर गहराई से डिस्चार्ज हुई बैटरियों को रिचार्ज कर सकता है?",
     },
     "babe2b57-3281-4fdb-8bf1-f0a884606b9d": {
         [Language.English]: `E-rickshaw chargers can recharge deeply discharged batteries, but using the right charger is vital. Livguard's e-rickshaw battery chargers, designed with advanced technology, adeptly handle deeply discharged batteries, ensuring longevity & optimum performance of battery.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "ई-रिक्शा चार्जर गहराई से डिस्चार्ज हो चुकी बैटरियों को रिचार्ज कर सकते हैं, लेकिन सही चार्जर का उपयोग करना महत्वपूर्ण है। उन्नत तकनीक के साथ डिज़ाइन किए गए लिवगार्ड के ई-रिक्शा बैटरी चार्जर, गहराई से डिस्चार्ज होने वाली बैटरियों को कुशलता से संभालते हैं, जिससे बैटरी की लंबी उम्र और इष्टतम प्रदर्शन सुनिश्चित होता है।",
     },
     "44e50e4b-ca63-441d-87c0-0f9a8162ede8": {
         [Language.English]: `Can I use any charger for my e-rickshaw battery?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "क्या मैं अपनी ई-रिक्शा की बैटरी के लिए किसी चार्जर का उपयोग कर सकता हूँ?",
     },
     "b25238bd-2ec4-47ce-9fef-5eb81fc64442": {
         [Language.English]: `You should use e-rickshaw charger based on your battery's capacity and the profile of the charger; otherwise, it can impact the performance and life of the battery and charger. Livguard's e-rickshaw chargers are engineered for energy efficiency, providing optimal charging without consuming excess electricity.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "आपको अपनी बैटरी की क्षमता और चार्जर की प्रोफ़ाइल के आधार पर ई-रिक्शा चार्जर का उपयोग करना चाहिए; अन्यथा, यह बैटरी और चार्जर के प्रदर्शन और जीवन को प्रभावित कर सकता है। लिवगार्ड के ई-रिक्शा चार्जर ऊर्जा दक्षता के लिए इंजीनियर किए गए हैं, जो अतिरिक्त बिजली की खपत किए बिना इष्टतम चार्जिंग प्रदान करते हैं।",
     },
     "5d8cc48e-949d-42ff-aa09-990bae6dcc0e": {
         [Language.English]: `How can I maximize the performance of my e-rickshaw battery?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मैं अपनी ई-रिक्शा बैटरी के प्रदर्शन को अधिकतम कैसे कर सकता हूँ?",
     },
     "03c46b7e-91c1-4c05-bd48-690da4852dfb": {
         [Language.English]: `To maximise the performance of your e-rickshaw battery, you should select the recommended charger for your battery based on its capacity. Additionally, proper maintenance in terms of water top-up, timely cleaning, etc should be taken care of.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "अपनी ई-रिक्शा बैटरी के प्रदर्शन को अधिकतम करने के लिए, आपको अपनी बैटरी की क्षमता के आधार पर उसके लिए अनुशंसित चार्जर का चयन करना चाहिए। इसके अतिरिक्त, पानी टॉप-अप, समय पर सफाई आदि के उचित मेंटेनेंस का ध्यान रखा जाना चाहिए।",
     },
     "db6d4483-e8d0-4bb4-9b91-e6c200968032": {
         [Language.English]: `Who can I contact for E-Rickshaw charger repairing?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ई-रिक्शा चार्जर की मरम्मत के लिए मैं किससे संपर्क कर सकता हूं?",
     },
     "37cc5a33-96d2-4d33-81c5-f3b380aab4c2": {
         [Language.English]: `For any repairs concerning your Livguard e-rickshaw charger, it's best to contact to your Livguard dealer. They can provide necessary guidance and arrange for a qualified technician to address the issue.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "आपके लिवगार्ड ई-रिक्शा चार्जर से संबंधित किसी भी मरम्मत के लिए, अपने लिवगार्ड डीलर से संपर्क करना सबसे अच्छा है। वे आवश्यक मार्गदर्शन प्रदान कर सकते हैं और समस्या के समाधान के लिए एक योग्य तकनीशियन की व्यवस्था कर सकते हैं।",
     },
     "712e2131-84e1-4fa6-85f7-db2f539c3de6": {
         [Language.English]: `What E-Rickshaw battery charger specifications should I look for before buying?`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "खरीदने से पहले मुझे ई-रिक्शा बैटरी चार्जर की कौन सी विशिष्टताएँ देखनी चाहिए?",
     },
     "a8ff0bbf-9b37-4430-b382-9104fb459027": {
         [Language.English]: `Before purchasing an e-rickshaw battery charger, you should look for features like automatic cut-off, equalization capability, and your battery capacity (Amps). Choosing a Livguard e-rickshaw charger assures you of all these specifications and more, offering a secure and efficient charging experience.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "ई-रिक्शा बैटरी चार्जर खरीदने से पहले, आपको स्वचालित कट-ऑफ, इक्वलाइज़ेशन क्षमता और अपनी बैटरी क्षमता (एम्प्स) जैसी सुविधाओं पर ध्यान देना चाहिए। लिवगार्ड ई-रिक्शा चार्जर चुनना आपको इन सभी विशिष्टताओं और बहुत कुछ का आश्वासन देता है, एक सुरक्षित और कुशल चार्जिंग अनुभव प्रदान करता है।",
     },
     "51d356d0-fd9e-4821-9d40-e4b5941a347d": {
-        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-text-highlighted tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>Whatsapp Privacy Policy  </div>`,
+        [Language.English]: `<div class="lg-text-title1 tw-grid tw-grid-cols-[3rem_minmax(0,1fr)] tw-items-center  tw-gap-1"><span class ="lg-bg-primary-500 tw-text-secondary-900-dark tw-rounded-full tw-w-[2.625rem] tw-h-[2.625rem] tw-grid tw-justify-center tw-items-center tw-text-center"> 13 </span>Whatsapp Privacy Policy  </div>`,
         [Language.Hindi]: "??????",
     },
     "21b9fed2-0f6c-4f09-8558-a9ceeadb82b5": {
@@ -9180,163 +9253,167 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "306e1020-9ae2-467a-b761-ad45d235b707": {
         [Language.English]: "Range",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "श्रेणी",
     },
     "713dcf1c-e56f-4cc8-8196-7cc7094baeb4": {
         [Language.English]: "Model",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मॉडल",
     },
     "2f6077a8-553c-491d-967a-819dd2fd9a2a": {
         [Language.English]: "Weight (with wheels)",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "वज़न (पहियों के साथ)",
     },
     "989926cd-1e5a-45c0-bf0c-7b4a3048d3fb": {
         [Language.English]: "Dimensions",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "आयाम",
     },
     "4c6fccf0-2b50-4b41-b2a7-db93be1a7c60": {
         [Language.English]: "Voltage Range",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "वोल्टेज रेंज",
     },
     "5f779720-c57f-4e67-ae7f-5605f86b9e6b": {
         [Language.English]: "Connection Type",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "कनेक्शन का टाइप",
     },
     "48437a5b-ca95-4bf8-bf26-c899b11b6c87": {
         [Language.English]: "Weight",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "वज़न",
     },
     "7c917657-140b-4406-93de-a64702394135": {
         [Language.English]: "Dimensions",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "आयाम",
     },
     "90fd7093-85d7-4ad6-841f-292c5f387777": {
         [Language.English]: `Our <span class="lg-text-highlighted">Journey</span>`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारा <span class="lg-text-highlighted">सफ़र</span>`,
     },
     "b5397d56-d5b3-4697-a419-6502cdd1ff81": {
         [Language.English]: `We've found`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमें आपके वाहन के लिए`,
     },
     "7cfaf737-8887-4f28-936f-014215c0dda7": {
         [Language.English]: `result(s) for your vehicle!`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `परिणाम मिला है!/मिले हैं!`,
     },
     "e7c60040-8fbd-4296-82ce-9ab85cc9bbea": {
         [Language.English]: `Here's the selection of Livguard batteries tailored to your specific needs. Discover the ideal Livguard battery for your `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `पाइए`,
+    },
+    "14dc2eb0-2c97-40c7-ba8f-aead0e174deb": {
+        [Language.English]: ``,
+        [Language.Hindi]: ` आपकी अपनी ज़रूरतों के लिए। अपनी सवारी के लिए उपयुक्त बैटरी का चयन करें।`,
     },
     "e4a95b5e-9495-4bce-b698-423e7fccb03b": {
         [Language.English]: `Two Wheeler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `2-पहिया बैटरी`,
     },
     "b569ea15-be7b-422b-a6ef-3c09a1b8328d": {
         [Language.English]: `Three Wheeler`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `3-पहिया बैटरी`,
     },
     "a7498cb8-76c9-412c-9b22-9688dbc22a9f": {
         [Language.English]: `Bus and Truck`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बस और ट्रक की बैटरी`,
     },
     "8ced0bb9-9332-424e-9936-02cf3c70c5d5": {
         [Language.English]: `Tractor`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ट्रैक्टर बैटरी`,
     },
     "63f6e470-37b2-4e2f-b3e7-6a790ca81f2f": {
         [Language.English]: `E-Rickshaw`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा बैटरी`,
     },
     "ff60ee99-085d-40f1-b9bd-3c8e3ee185ea": {
         [Language.English]: `Car and SUV`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `गाड़ी और SUV बैटरी`,
     },
     "2e8cc29a-b2ca-4363-90d8-aba062f1d5fb": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्षमता`,
     },
     "05c55898-5398-4058-86d3-2d0002a1b3d4": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वारंटी`,
     },
     "d718f6ae-3052-448c-b6ef-95d7c3f5a15d": {
         [Language.English]: `Discover the Right Battery`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ढूँढें सही बैटरी विकल्प`,
     },
     "c60d4c86-6b68-41d5-b0da-5a6e3930a6f2": {
         [Language.English]: `That Energises Your Vehicle`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `जो आपके वाहन को ऊर्जा दे`,
     },
     "f4ee26db-08ea-4ba9-bc13-2521db5f77f3": {
         [Language.English]: `Navigate India's tough terrains with Livguard MoRide, the high-performance two-wheeler batteries engineered for daily commutes. With advanced Lead-Calcium Technology for instant starts, our batteries combat vibrations and promise reliable power even after infrequent use.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड मोराइड, उच्च प्रदर्शन वाली टू-व्हीलर बैटरियों के साथ भारत के कठिन रास्तों को आसानी से पार करें, जो दैनिक यात्राओं के लिए विकसित की गई हैं। एडवांस लीड-कैल्शियम टेक्नोलॉजी के साथ इन बैटरियों में तुरंत प्रारंभ करने की क्षमता होती है, और ये आपको आंतरिक घबराहट के बावजूद स्थायी शक्ति की गारंटी देते हैं।`,
     },
     "036a7530-0494-482b-ac33-a573aac2f709": {
         [Language.English]: `Boost your profitability with Livguard, designed for auto-rickshaws with superior casing to resist corrosion and vibrations. Our batteries offer high-cranking power, a larger amp-hour capacity for reliable starts, and a unique grid design for better recharging capability. For a cost-effective solution that stands up to daily runs and city traffic, choose Livguard AutoZ`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `अपनी लाभदायकता बढ़ाएँ लिवगार्ड बैटरी के साथ, जो ऑटो रिक्शा के लिए बेहतर आवरण के साथ ज़ंग और कंपन को दूर रखती हैं। हमारी बैटरी ज़्यादा क्रैंकिंग क्षमता, ज़्यादा ऐम्पेयर घंटे की क्षमता बेहतर शुरुवात ले लिए, और एक नायाब ग्रिड ढाँचे से बनी हैं बेहतर चार्ज क्षमता के लिए। रोज़मर्रा के कामों के लिए लिवगार्ड की Autoz बैटरी देखें।`,
     },
     "d2c179b9-349f-49b8-b470-4f3b706390da": {
         [Language.English]: `Livguard's truck and bus batteries are equipped to endure tough terrains and climates, delivering reliable starting power and extensive electronic equipment support. Crafted with advanced technology, they're known for high cranking efficiency, low maintenance, superior safety standards, and a robust structure for longevity.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड की बस और ट्रक बैटरियां कठिन भू-भाग और मौसम का सामना करने के लिए तैयार हैं, जो विश्वसनीय प्रारंभिक पावर और विस्तृत इलेक्ट्रॉनिक उपकरण समर्थन प्रदान करती हैं। आधुनिक तकनीक के साथ तैयार की गई ये बैटरी उच्च क्रैंकिंग क्षमता, कम रखरखाव, उत्कृष्ट सुरक्षा मानक और टिकाऊ संरचना के लिए जानी जाती हैं।`,
     },
     "cab68356-f58b-4622-9c94-780ca35b59dd": {
         [Language.English]: `Livguard delivers robust, durable batteries designed to keep tractors running in all weather types. These batteries are designed for low maintenance, high cranking efficiency, safety, and long life. Tailored to enhance both the performance and overall productivity of the tractor, Livguard proudly supports India's agricultural sector with reliable, high-performing tractor batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड विभिन्न मौसम के तथा कठिन भू-भागों में ट्रैक्टरों को चलाने के लिए मजबूत और टिकाऊ बैटरियां प्रदान करता है। यह बैटरियां कम मेंटेनेंस वाली होती हैं, जो उच्च क्रैंकिंग प्रदर्शन, सुरक्षा और लंबी उम्र के लिए डिज़ाइन किए गए हैं। यह ट्रैक्टर के प्रदर्शन और उत्पादकता को बढ़ाने के लिए तैयार किए गए हैं। लिवगार्ड गर्व के साथ भारत के कृषि क्षेत्र का समर्थन करता है साथ ही विश्वसनीय और उच्च प्रदर्शन वाली ट्रैक्टर बैटरियां प्रदान करता है।`,
     },
     "c470557b-4e08-431f-ba57-dcddf29e94b1": {
         [Language.English]: `Livguard's advanced car and SUV batteries are designed to meet the growing power requirements of modern vehicles with extensive electronic equipment. Our maintenance-free batteries offer years of reliable service, reducing the risks of roadside breakdowns due to battery failures.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड की उन्नत गाड़ी और SUV बैटरियां आधुनिक वाहनों की बढ़ती हुई शक्ति आवश्यकताओं को पूरा करने के लिए डिज़ाइन की गई हैं जो विस्तृत इलेक्ट्रॉनिक उपकरणों के साथ होते हैं। हमारी बिना मेंटेनेंस वाली बैटरियां वर्षों तक विश्वसनीय सेवा प्रदान करती हैं, जिससे बैटरी के खराब होने के कारण रास्ते में ब्रेकडाउन के जोखिम को कम किया जा सकता है।`,
     },
     "7aa2ee99-5add-44a3-b1dd-3568e718af37": {
         [Language.English]: `Livguard's e-rickshaw batteries ensure dependable performance and longevity, ideal for high-demand usage. Designed to combat frequent start-stops and high vibrations, these batteries are low-maintenance and offer high cranking power. Enjoy smoother, uninterrupted rides with Livguard, and enhance your e-rickshaw's overall efficiency and productivity.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `लिवगार्ड की ई-रिक्शा बैटरियां विश्वसनीय प्रदर्शन और दीर्घकालिकता सुनिश्चित करती हैं, जो उच्च डिमांड वाले उपयोग के लिए आदर्श हैं। यह बैटरियां आवृत्त स्टार्ट-स्टॉप और ऊँची दहशतों का सामना करने के लिए डिज़ाइन की गई हैं, जो कम रखरखाव की होती हैं और उच्च क्रैंकिंग पावर प्रदान करती हैं। लिवगार्ड के साथ आनंददायक, बिना रुकावट के सफर का आनंद लें और अपने ई-रिक्शा की कुल सक्रियता और उत्पादकता को बढ़ाएं।`,
     },
     "ef4b4319-56f5-40c4-876a-35ff1d1e02d8": {
         [Language.English]: `Explore Our Product Range`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `हमारी उत्पाद श्रेणी देखें`,
     },
     "6c5df4f9-c8bd-4725-8267-cc67c1e65feb": {
         [Language.English]: `What factors should I consider when choosing a battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बैटरी चुनते समय कौन-कौन सी बातें ध्यान में रखनी चाहिए?`,
     },
     "bbe1fe9e-db3f-47a9-8966-2e620d35d460": {
-        [Language.English]: `When choosing a battery, consider its compatibility, capacity, quality, and warranty. Livguard offers a wide range of batteries that are designed to be compatible with various devices, have high capacities for sustained power supply, are manufactured with high-quality standards, and come with warranties for peace of mind. Use our Battery Finder to get the right fit for you.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `When choosing a battery, consider its compatibility, capacity, quality, and warranty. Livguard offers a wide range of batteries that are designed to be compatible with various devices, have high capacities for sustained power supply, are manufactured with high-quality standards, and come with warranties for peace of mind. Use our <a href="#" class="tw-underline">Battery Finder</a> to get the right fit for you.`,
+        [Language.Hindi]: `बैटरी चुनते समय, उसकी संगतता, क्षमता, गुणवत्ता, और वारंटी को ध्यान में रखें। लिवगार्ड बैटरियों की विशेषता है कि वे विभिन्न डिवाइसों के संगत होते हैं, सतत शक्ति आपूर्ति के लिए उच्च क्षमता वाले होते हैं, उच्च गुणवत्ता के मानकों से निर्मित होते हैं, और शांति के लिए वारंटी के साथ आते हैं। हमारे <a href="#" class="tw-underline">बैटरी फाइंडर</a> का उपयोग करके अपने लिए सही बैटरी चुनें।`,
     },
     "8e43c85e-b25f-401f-83bd-cb0083ab4ae5": {
         [Language.English]: `Can the same battery model fit different vehicle types?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `क्या एक ही बैटरी मॉडल विभिन्न प्रकार के वाहनों में फिट हो सकता है?`,
     },
     "f8376afd-334a-4ad2-b9af-d2e0637bf1aa": {
         [Language.English]: `Generally, batteries are specific to vehicle types based on their power requirements and physical size. However, some battery models might fit multiple similar vehicle types. With our battery finder tool that helps you find the perfect fit for your specific vehicle, ensuring optimal performance and longevity.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `आम तौर पर, बैटरी वाहन के प्रकार के आधार पर विशेष होती हैं, जिनमें उनकी शक्ति आवश्यकताएं और भौतिक आकार शामिल होते हैं। हालांकि, कुछ बैटरी मॉडल एक ही प्रकार के विभिन्न वाहनों के साथ संगत हो सकते हैं। हमारे बैटरी फाइंडर टूल के साथ, आप अपने विशिष्ट वाहन के लिए सही फिट खोज सकते हैं, जो आपको उत्कृष्ट प्रदर्शन और दीर्घकालिकता सुनिश्चित करता है।`,
     },
     "36fed918-e880-4b8c-afb6-66f1a2e6fdd1": {
         [Language.English]: `How do vehicle specifications impact the choice of battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वाहन की विशिष्टताएँ बैटरी की पसंद को कैसे प्रभावित करती हैं?`,
     },
     "e304fd7e-b654-43ab-b396-9ac850df846b": {
-        [Language.English]: `Vehicle specifications significantly affect battery choice as different vehicles have unique power needs and space constraints. Livguard's diverse range of batteries caters to these specific requirements, ensuring optimal compatibility and performance. Our Battery Finder tool can help you select the right battery based on your vehicle's specifications.`,
-        [Language.Hindi]: `?????`,
+        [Language.English]: `Vehicle specifications significantly affect battery choice as different vehicles have unique power needs and space constraints. Livguard's diverse range of batteries caters to these specific requirements, ensuring optimal compatibility and performance. Our <a href="#" class="tw-underline">Battery Finder tool can help you select the right battery based on your vehicle's specifications.`,
+        [Language.Hindi]: `वाहन की विशेषताओं बैटरी की पसंद को महत्वपूर्ण रूप से प्रभावित करती हैं क्योंकि विभिन्न वाहनों की अलग-अलग बिजली की ज़रूरतें और जगह की कमी होती है। लिवगार्ड की बैटरियों की विविध रेंज इन विशिष्ट आवश्यकताओं को पूरा करती है, जिससे अनुकूलता और प्रदर्शन सुनिश्चित होता है। हमारा <a href="#" class="tw-underline">बैटरी फ़ाइंड</a> टूल आपके वाहन की विशेषताओं के आधार पर सही बैटरी चुनने में आपकी सहायता कर सकता है।`,
     },
     "e922ab6c-96e4-4f6f-9536-49a66592ce1a": {
         [Language.English]: `How can I tell if my vehicle needs a new battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मैं कैसे बता सकता हूं कि मेरे वाहन को नई बैटरी की आवश्यकता है?`,
     },
     "b8b8b211-3092-4f5f-98df-f74f28aa1b21": {
         [Language.English]: `Some common signs that your vehicle may need a new battery include slow engine start, dim headlights, and frequent jump-starts. Livguard offers a comprehensive range of automotive batteries, designed to deliver reliable performance over their lifespan.`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `कुछ सामान्य संकेत जो बताते हैं कि आपके वाहन को नई बैटरी की आवश्यकता हो सकती है, उनमें धीमी इंजन स्टार्ट, मंद हेडलाइट्स और बार-बार जम्प-स्टार्ट शामिल हैं। लिवगार्ड ऑटोमोटिव बैटरियों की एक विस्तृत श्रृंखला प्रदान करता है, जो उनके जीवनकाल में विश्वसनीय प्रदर्शन प्रदान करने के लिए डिज़ाइन की गई है।`,
     },
     "5b8bcbfe-df7a-4df6-b45d-1f541c2934e5": {
         [Language.English]: `What are the signs of a failing battery?`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ख़राब बैटरी के लक्षण क्या हैं?`,
     },
     "f1b65223-4013-403e-8991-79be559dd397": {
         [Language.English]: `Signs of a failing battery often include slow engine start, dimming headlights, frequent need for jump-starts, or an illuminated battery warning light. Livguard's range of robust batteries is designed to minimize these issues and ensure a smooth, dependable power supply for your vehicle. `,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ख़राब बैटरी के संकेतों में अक्सर धीमी गति से इंजन स्टार्ट होना, हेडलाइट्स का मंद होना, जंप-स्टार्ट की बार-बार आवश्यकता होना, या एक प्रबुद्ध बैटरी चेतावनी लाइट शामिल होती है। लिवगार्ड की मजबूत बैटरियों की रेंज इन समस्याओं को कम करने और आपके वाहन के लिए सुचारू, भरोसेमंद बिजली आपूर्ति सुनिश्चित करने के लिए डिज़ाइन की गई है।`,
     },
     "ef1a6048-3009-4268-b127-2affbacad4e1": {
         [Language.English]: `E-Rickshaw Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा की बैटरी`,
     },
     "2d8630fa-9bd5-4ca7-aa34-aeaa48f79a49": {
         [Language.English]: `Testimonials`,
@@ -9344,210 +9421,217 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "6c28b053-fb02-4e4f-8a8c-c12e13b26a6b": {
         [Language.English]: "Why should I register my warranty online?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मुझे अपनी वारंटी ऑनलाइन क्यों पंजीकृत करनी चाहिए?",
     },
     "193ae870-2a1b-43dc-8976-c8d1ffac716e": {
         [Language.English]:
             "Online warranty registration provides an easy way to track and manage your Livguard product's warranty. It ensures quick service in case of any technical glitches and allows you to avail benefits of any promotional offers. With Livguard, online warranty registration is a simple, user-friendly process designed to extend our reliable support to our customers.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "ऑनलाइन वारंटी पंजीकरण आपके लिवगार्ड उत्पाद की वारंटी को ट्रैक और प्रबंधित करने का एक आसान तरीका प्रदान करता है। यह किसी भी तकनीकी खराबी के मामले में तुरंत सेवा सुनिश्चित करता है और आपको किसी भी प्रमोशनल ऑफर का लाभ उठाने की अनुमति देता है। लिवगार्ड के साथ, ऑनलाइन वारंटी पंजीकरण एक सरल, उपयोगकर्ता-अनुकूल प्रक्रिया है जिसे हमारे ग्राहकों को विश्वसनीय समर्थन देने के लिए बनाया किया गया है।",
     },
     "117094f1-4ea2-4f22-9bf6-b20b644a6564": {
         [Language.English]: "How do I register my warranty with Livguard?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मैं लिवगार्ड के साथ अपनी वारंटी कैसे पंजीकृत करूं?",
     },
     "09563cfb-01e9-42a4-b0e7-231b595c71c0": {
         [Language.English]: `Registering your warranty with Livguard is a simple process. Visit our website and find the 'Warranty Registration' page. Fill in the required details such as product type, model, purchase date, etc and submit. This will ensure your product is registered for warranty and you can enjoy timely and efficient service support. You can also call us - <a href="tel:+91 1800-1025-551" class="tw-underline">+91 1800-1025-551</a>, or send us a "Hi" on WhatsApp - <a href="https://wa.me/7428191000" class="tw-underline">+91 7428191000</a> for service-related queries.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `लिवगार्ड के साथ अपनी वारंटी पंजीकृत करना एक सरल प्रक्रिया है। हमारी वेबसाइट पर जाएँ और 'वारंटी पंजीकरण' पृष्ठ ढूंढें। आवश्यक विवरण जैसे उत्पाद प्रकार, मॉडल, खरीद तिथि आदि भरें और सबमिट करें। इससे यह सुनिश्चित होगा कि आपका उत्पाद वारंटी के लिए पंजीकृत है और आप समय पर और कुशल सेवा सहायता का आनंद ले सकते हैं। आप हमें कॉल भी कर सकते हैं - <a href="tel:+91 1800-1025-551" class="tw-underline">+91 1800-1025-551</a>, या सेवा से संबंधित प्रश्नों के लिए हमें व्हाट्सएप - <a href="https://wa.me/7428191000" class="tw-underline">+91 7428191000</a> पर "नमस्ते" भेजें।`,
     },
     "c202866a-f6b2-4896-8f6c-9c5031e19a3c": {
         [Language.English]: "What does the warranty cover?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "वारंटी में क्या-क्या शामिल है?",
     },
     "daddd312-ee59-4332-a260-1650057bbc98": {
         [Language.English]: `Livguard's warranty typically covers any manufacturing defects or failures that occur under normal usage conditions. This includes defects in materials or workmanship. However, it's important to note that the warranty does not cover damages caused by mishandling, incorrect installation, or failure to follow the recommended maintenance procedures. Always refer to the specific warranty terms provided with your Livguard product for detailed information.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "लिवगार्ड की वारंटी आम तौर पर सामान्य उपयोग की शर्तों के तहत होने वाले किसी भी विनिर्माण दोष या विफलता को कवर करती है। इसमें सामग्री या कारीगरी में दोष शामिल हैं। हालाँकि, यह ध्यान रखना महत्वपूर्ण है कि वारंटी गलत संचालन, गलत स्थापना, या अनुशंसित मेंटेनेंस प्रक्रियाओं का पालन करने में विफलता के कारण होने वाले नुकसान को कवर नहीं करती है। विस्तृत जानकारी के लिए हमेशा अपने लिवगार्ड उत्पाद के साथ प्रदान की गई विशिष्ट वारंटी शर्तों को देखें।",
     },
     "1b52a6be-e8ae-415a-913a-ec5c882e70d3": {
         [Language.English]: "Will my warranty be valid if I move to a different location?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "यदि मैं किसी भिन्न स्थान पर चला जाऊं तो क्या मेरी वारंटी वैध होगी?",
     },
     "8d2ef3a8-7ebf-4e1d-9d3e-35e69168d3ab": {
         [Language.English]:
             "Yes, your Livguard warranty remains valid even if you relocate. Livguard's warranty is tied to the product itself and not the location of purchase. However, you may need to update your contact details online to ensure any necessary service or communication is directed appropriately.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "हां, आपके स्थानांतरित होने पर भी आपकी लिवगार्ड वारंटी वैध रहती है। लिवगार्ड की वारंटी उत्पाद से जुड़ी होती है न कि खरीद के स्थान से। हालाँकि, किसी भी आवश्यक सेवा या संचार को उचित रूप से निर्देशित करने के लिए आपको अपने संपर्क विवरण ऑनलाइन अपडेट करने की आवश्यकता हो सकती है।",
     },
     "f87ac2d7-a88e-4183-9b63-eabf706a7bce": {
         [Language.English]: "How long after purchase can I register the warranty?",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "खरीद के कितने समय बाद मैं वारंटी पंजीकृत कर सकता हूँ?",
     },
     "3fbca4dc-48bf-44df-836c-ff8f24e08063": {
         [Language.English]:
             "It is advisable to register your product's warranty as soon as you buy it, latest within 30 days of the purchase. You can get easy online warranty registration for your product at ease.",
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "यह सलाह दी जाती है कि जैसे ही आप अपने उत्पाद को खरीदें, उसकी वारंटी को खरीदारी के 30 दिनों के भीतर पंजीकृत कर लें। आप अपने उत्पाद के लिए आसानी से ऑनलाइन वारंटी पंजीकरण प्राप्त कर सकते हैं।",
     },
     "a122d087-2b57-483a-b339-5b04e6cc1008": {
         [Language.English]: `School Infrastructure Development`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "स्कूल अवसरग्रहण विकास",
     },
     "c4f4e7d8-b77b-4019-95cb-4561d220092b": {
         [Language.English]: `Livguard Batteries Pvt Ltd. (LBPL) passionately supports the cause of education, helping in unlocking opportunities for high-quality learning experiences. We've made significant contributions towards the infrastructural enhancement of five government schools in Solan and Una, providing facilities such as clean drinking water, upgraded toilets, and new desks. Additionally, we've facilitated the establishment of an indoor Kabaddi stadium. These improved facilities are positively impacting over 3400 students, contributing to a better learning environment.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "लिवगार्ड बैटरीज प्रा॰ लि॰ (एलबीपीएल) शिक्षा के क्षेत्र में सकारात्मक समर्थन करती है, और उच्च गुणवत्ता के शिक्षा अनुभव के लिए अवसरों को खोलने में मदद करती है। हमने सोलन और ऊना के पांच सरकारी स्कूलों के अधिकारिक बदलाव के लिए महत्वपूर्ण योगदान दिया है, जिनमें स्वच्छ पीने के पानी, उन्नत शौचालय, और नई बैठकें जैसी सुविधाएं शामिल हैं। साथ ही, हमने एक इंडोर कबड्डी स्टेडियम की स्थापना को सुगम बनाया है। ये सुधारित सुविधाएं 3400 से अधिक छात्रों पर सकारात्मक प्रभाव डाल रही हैं और एक बेहतर शिक्षा वातावरण के योगदान कर रहीं हैं।",
     },
     "8d6883c0-0ca6-47b8-bf07-8c18a2187e9c": {
         [Language.English]: `Infrastructure upgradation of Government Health Centre`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सरकारी स्वास्थ्य केंद्र का बुनियादी ढांचा उन्नयन",
     },
     "5c6965a4-2d78-49b3-b6d7-037baed79001": {
         [Language.English]: `Under its CSR initiative, Livguard Batteries Pvt Ltd. (LBPL) significantly enhanced the infrastructure of the Government Health Sub-Centre in Manpura, Solan. Improvements included drinkable water facilities, secured campus surroundings, seating provisions for patients, and comprehensive building repairs. Thanks to these developments, the center effectively serves the needs of around 15,000+ patients yearly from surrounding villages.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "अपने सीएसआर पहल के तहत, लिवगार्ड बैटरीज प्रा॰ लि॰ (एलबीपीएल) ने मानपुरा, सोलन में सरकारी हेल्थ सब-सेंटर के बुनियादी सुधार किए। सुधार में पानी की सुविधा, सुरक्षित परिसर, रोगियों के लिए आसन स्थान, और प्रासंगिक भवन सुधार शामिल थे। इन सुधारों के कारण, सेंटर वर्षभर में लगभग 15,000+ गाँवों के आस-पास के रोगियों की आवश्यकताओं की सकारात्मक तरीके से सेवा कर रहा है।",
     },
     "8f25886f-84c1-4103-84d9-5dcd0a966da7": {
         [Language.English]: `Project Svachhand`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "प्रोजेक्ट स्वच्छंद",
     },
     "d2c06ff7-d1a4-4f67-85fe-d7e8cd2bce5b": {
         [Language.English]: `Livguard Energy Technologies Pvt. Ltd. launched the notable "Project Svachhand" aimed at improving menstrual hygiene management in schools across Solan, Una, and Kangra districts of Himachal Pradesh. This initiative, which involves the installation of sanitary napkin vending machines and incinerators in 83 Senior Secondary Schools, is based on the recommendations of District Education Officers and a concerning UNICEF study revealing 71% of Indian adolescent girls lack awareness about menstruation until they experience it, causing many to drop out of school."Project Svachhand" is aimed to positively impact over 15,000 school-going girls, promoting uninterrupted education.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `लिवगार्ड एनर्जी टेक्नोलॉजीज प्रा॰ लि॰ ने उत्तर प्रदेश के सोलन, ऊना और कांगड़ा जिलों के स्कूलों में मासिक धर्म की स्वच्छंदता प्रबंधन को सुधारने के लिए महत्वपूर्ण "प्रोजेक्ट स्वच्छंद" की शुरुआत की। यह पहल, जिसमें 83 वरिष्ठ माध्यमिक विद्यालयों में सेनेटरी नैपकिन वेंडिंग मशीन और जलाने वाले भस्मकारी का स्थापना शामिल है, जिला शिक्षा अधिकारियों के सुझावों पर आधारित है और एक चिंता जनक यूनिसेफ अध्ययन के अनुसार 71% भारतीय किशोरी लड़कियों को मासिक धर्म के बारे में जागरूकता की कमी है जब तक उन्हें अनुभव नहीं होता है, जिसके कारण कई लड़कियां विद्यालय छोड़ देती हैं। "प्रोजेक्ट स्वच्छंद" का उद्देश्य लगभग 15,000 स्कूल जाने वाली लड़कियों पर सकारात्मक प्रभाव डालना है, जो अविच्छिन्न शिक्षा को प्रोत्साहित करेगा।`,
     },
     "0e69eb5a-a6eb-412e-a3b4-3462849b30ce": {
-        [Language.English]: `EV Technicain’s Training Project`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `EV Technician’s Training Project`,
+        [Language.Hindi]: "ईवी टेक्नीशन का प्रशिक्षण प्रोजेक्ट",
     },
     "6cf33ef3-328a-4ca5-b1bf-45cbe24eeefc": {
         [Language.English]: `Livguard Batteries joined hands with non-profit organizations, "Synergie" and "ASDC", to launch a project aimed at "Upskilling Two & Three-wheeler Mechanics as EV Technicians". This initiative was designed to safeguard and uplift the livelihoods of 600 mechanics by enhancing their skills to work as EV repair and service technicians. Comprehensive training, blending theory and practical elements, was conducted at fully equipped centers in Noida, Agra, and Firozabad, Uttar Pradesh. Upon successful completion of the program, participants were accredited with certificates from a recognized agency and provided with free EV toolkits, facilitating their journey into electronic vehicle repair.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: `लिवगार्ड बैटरीज़ ने गैर-लाभकारी संगठनों, "सिनर्जी" और "एएसडीसी" के साथ हाथ मिलाया, जिसका उद्देश्य "ईवी तकनीशियनों के रूप में दोपहिया और तिपहिया वाहन यांत्रिकी को उन्नत करना" था। यह पहल ईवी मरम्मत और सेवा तकनीशियनों के रूप में काम करने के लिए 600 यांत्रिकी के कौशल को बढ़ाकर उनकी आजीविका की सुरक्षा और उत्थान के लिए डिज़ाइन की गई थी। व्यापक प्रशिक्षण, सिद्धांत और व्यावहारिक तत्वों का सम्मिश्रण, उत्तर प्रदेश के नोएडा, आगरा और फिरोजाबाद में पूरी तरह से सुसज्जित केंद्रों पर आयोजित किया गया था। कार्यक्रम के सफल समापन पर, प्रतिभागियों को एक मान्यता प्राप्त एजेंसी से प्रमाणपत्र दिए गए और मुफ्त ईवी टूलकिट प्रदान किए गए, जिससे इलेक्ट्रॉनिक वाहन मरम्मत में उनका सफ़र आसान हो गया।`,
     },
     "705025d8-3bd7-44fa-9ab6-26d4c002d7fd": {
         [Language.English]: `Green Campus Program`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ग्रीन कैंपस कार्यक्रम",
     },
     "4796d842-e26d-4ea1-9cd6-f6686b5458ad": {
         [Language.English]: `As part of Livguard Batteries' ongoing CSR initiative, we collaborated with the Waste Warriors Society in FY 22-23 to transform four schools in the Kangra and Solan districts of Himachal Pradesh into Zero Waste Campuses. This ambitious project involved the establishment of a comprehensive solid waste management system, encompassing awareness campaigns, behavioural modification, infrastructure development, and operations planning. The goal was to equip both students and school administration with the knowledge and capabilities to independently manage the operations upon completion of the project. Through 28 insightful learning sessions, we impacted over 1800 students and engaged more than 150 teachers in this transformative journey.`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]:
+            "लिवगार्ड बैटरीज की चल रही सीएसआर पहल के हिस्से के रूप में, हमने हिमाचल प्रदेश के कांगड़ा और सोलन जिलों के चार स्कूलों को जीरो वेस्ट कैंपस में बदलने के लिए वित्त वर्ष 22-23 में वेस्ट वॉरियर्स सोसाइटी के साथ सहयोग किया। यह महत्वपूर्ण प्रोजेक्ट एक व्यापक कचरा प्रबंधन प्रणाली की स्थापना को सम्मिलित करता है, जिसमें जागरूकता अभियान, आचार्य बदलाव, अवसंरचना विकास, और संचालन योजना शामिल है। इस प्रोजेक्ट का उद्देश्य था कि प्रोजेक्ट के समाप्त होने पर छात्रों और स्कूल प्रशासन को ज्ञान और क्षमताएं प्रदान की जाएं ताकि वे स्वतंत्र रूप से संचालन को संभाल सकें। 28 सूक्ष्मज्ञान सत्रों के माध्यम से, हमने इस परिवर्तनात्मक यात्रा में 1800 से अधिक छात्रों और 150 से अधिक शिक्षकों को प्रभावित किया।",
     },
     "d4c20c34-f47f-4fbf-bdfb-b04c242d6b6d": {
-        [Language.English]: `Promotion of Health`,
-        [Language.Hindi]: "??????",
+        [Language.English]: `Promotion of Healthcare`,
+        [Language.Hindi]: "स्वास्थ्य सेवा का प्रचार",
     },
     "f4dc779b-6680-4c34-8e60-5283b21a8ab5": {
         [Language.English]: `Promotion of Livelihood`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "आजीविका का प्रचार",
     },
     "9d9729a9-368b-4ffd-be0b-af85eaec59bf": {
         [Language.English]: `Environmental Sustainability`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "पर्यावरणीय स्थिरता",
     },
     "f26397f8-a9be-49e3-972a-34265e3f6441": {
         [Language.English]: `Pricing`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मूल्य निर्धारण",
     },
     "00b3925b-f76c-4e9c-af7a-3f576c40495f": {
         [Language.English]: `All`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सभी",
     },
     "23b3d10a-0b8b-4548-bc62-45a1a8d904b7": {
         [Language.English]: `Inverter`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "इनवर्टर",
     },
     "36637a65-77fc-4ac5-b2bf-becde2c644b9": {
         [Language.English]: `Inverter Battery`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "इनवर्टर बैटरी",
     },
     "c47a38b3-1db8-46b9-99ec-bfd0bdb3bf03": {
         [Language.English]: `Automotive Batteries`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ऑटोमोटिव बैटरी",
     },
     "92d367ab-37e5-4127-aefa-b6098c835c07": {
         [Language.English]: `Solar`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सोलर",
     },
     "5756948e-5b22-4ea5-958c-b7f78b8a223d": {
         [Language.English]: `Accessories & Other Batteries`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "सहायक उपकरण",
     },
     "d601a330-dff5-4a63-ac15-b3ad27428b54": {
         [Language.English]: `Filters`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "फिल्टर्स",
     },
     "c1ce8369-9ae0-4d33-aba7-85b0414ffaa3": {
         [Language.English]: `Price Range`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मूल्य सीमा",
     },
     "10cb3115-ba0a-4e30-af0b-de71d6240f73": {
         [Language.English]: `Your Pin Code`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "आपका पिन कोड",
     },
     "de42afeb-0e61-47c6-917f-db597603506a": {
         [Language.English]: `Enter Your Pin Code`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "अपना पिन कोड डालें",
     },
     "261ddd0c-6c3c-40e5-a899-e07dee17d221": {
         [Language.English]: `Select Brand`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ब्रांड चुनें",
     },
     "f5207071-fe8f-462d-bbf6-19cd5db04407": {
         [Language.English]: `Select Model`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "मॉडल चुनें",
     },
     "8bbfc17d-9232-4f80-8758-6a4a1b98a122": {
         [Language.English]: `Select Fuel Type`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "ईंधन प्रकार चुनें",
     },
     "d0a88af5-fba8-43cd-bda5-813e7363db53": {
         [Language.English]: `Connect With Us`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "जुड़िए हमसे",
     },
     "968b8d68-221e-401e-9876-095dc769f912": {
         [Language.English]: "Car and SUV Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "गाड़ी और SUV बैटरी",
     },
     "f46c6878-8d56-46f7-bfa0-f01c7a604436": {
         [Language.English]: "Two Wheeler Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "2-पहिया बैटरी",
     },
     "5888e217-c7c5-4951-9e72-7527c0702882": {
         [Language.English]: "CSR",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व",
     },
     "873561ca-02f7-45e3-8b98-80df5f7de86d": {
         [Language.English]: "E-Waste Management",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
     },
     "eea36080-325b-43d9-a29a-84e5bb4e3612": {
         [Language.English]: "Privacy Policy",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "गोपनीयता नीति",
     },
     "43953acd-0fe3-40a8-a307-297f4bb7124b": {
         [Language.English]: "Sales Return Policy",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बिक्री वापसी नीति",
     },
     "10963071-3787-457b-a98b-79067ec8a07c": {
         [Language.English]: "Terms and Conditions",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "नियम और शर्तें",
     },
     "da7484cc-f689-4649-8a7a-5c4fab3b0a0f": {
         [Language.English]: "Video Gallery",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वीडियो गैलरी",
     },
     "5a1d25fa-a3af-4cab-9cdf-43b6f0675973": {
         [Language.English]: "Tractor Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ट्रैक्टर बैटरी",
     },
     "530f4898-7fd2-474b-809b-905a2b722d83": {
         [Language.English]: "Bus and Truck Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बस और ट्रक की बैटरी",
     },
     "9ca81248-816e-4978-90b0-34b4d0dd69e9": {
         [Language.English]: "E-Rickshaw Charger",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-रिक्शा चार्जर",
     },
     "b8b98109-dcab-45bf-873e-db9da7c798eb": {
         [Language.English]: "E-Rickshaw Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "ई-रिक्शा की बैटरी",
     },
     "6596ffc6-6377-4446-92b9-4cac254af278": {
         [Language.English]: "Inverter Trolley",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "इनवर्टर ट्राली",
     },
     "273b847e-61e5-4a66-8c6d-a0539da153e2": {
         [Language.English]: "Stabilizer",
@@ -9555,31 +9639,31 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "3d7d661c-5848-4670-a0bb-3990374c7303": {
         [Language.English]: "India Ops",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "भारतीय कार्यप्रणाली",
     },
     "b7f2abd0-ae79-46a6-b8bb-72224f16ad05": {
         [Language.English]: "Global Ops",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वैश्विक कार्यप्रणाली",
     },
     "59cc9aaf-ed88-4639-9fb4-634aeac22825": {
         [Language.English]: "Governance",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "शासन",
     },
     "6baac105-c0e8-4412-90cd-802739069c52": {
-        [Language.English]: "Investor",
-        [Language.Hindi]: "?????",
+        [Language.English]: "Investors",
+        [Language.Hindi]: "निवेशक",
     },
     "5ec9401e-43ed-47cd-a0f9-3ef981780ca1": {
         [Language.English]: "Three Wheeler Batteries",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "3-पहिया बैटरी",
     },
     "237533ce-d6ab-4735-8064-14567ca50a48": {
         [Language.English]: "Warranty",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "वारंटी",
     },
     "d36bc5a4-9718-4e25-bc26-1a8c4853d9b1": {
         [Language.English]: "High capacity Inverters",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
     },
     "14ea2ec8-f4b9-4b8a-8aff-384750bc010a": {
         [Language.English]: "Lithium Battery",
@@ -9587,11 +9671,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "62fd3993-d903-4d1b-b008-07be08fbfdef": {
         [Language.English]: "Battery Finder",
-        [Language.Hindi]: "?????",
+        [Language.Hindi]: "बैटरी खोजक",
     },
     "8c207582-8a8a-4995-bd70-2a7c555bd50a": {
         [Language.English]: `Capacity`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "क्षमता",
     },
     "dad4f195-43c3-4844-b78a-e122b1bfba21": {
         [Language.English]: `< 100 Ah`,
@@ -9611,23 +9695,23 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "872214aa-3d2c-4a10-935b-257b5dbde56f": {
         [Language.English]: `Warranty`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "वारंटी",
     },
     "3078ed43-6580-4fbf-a6d9-773638087e13": {
         [Language.English]: `< 18 Months`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "<span 18 महीने",
     },
     "be9cbbd6-b37d-479d-af08-433917c1be45": {
         [Language.English]: `18 Months - 36 Months`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "18 महीने - 36 महीने",
     },
     "a79c530a-6bc9-4e8a-ba62-1add8f44b43b": {
         [Language.English]: `36 Months - 48 Months`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "36 महीने - 48 महीने",
     },
     "9a6339ee-db8e-4c8b-9e2b-228d049ef726": {
         [Language.English]: `> 48 Months`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "> 48 महीने",
     },
     "b5fa862c-0c81-4c6e-ad0c-d49d3473d6d4": {
         [Language.English]: `Governance Page`,
@@ -9635,11 +9719,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "11eba4f7-13aa-45bd-93bd-31d98b72531a": {
         [Language.English]: `Select Dealer`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "डीलर चुनें",
     },
     "76bb0c30-c244-4815-b68d-a1780f8c697e": {
         [Language.English]: `Select Your Dealer`,
-        [Language.Hindi]: "??????",
+        [Language.Hindi]: "अपना डीलर चुनें",
     },
     "6645babc-8e36-4cdb-8271-16caff597f22": {
         [Language.English]: "Dealer Locator",
@@ -9687,11 +9771,11 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
 
     "cbff5c39-b943-438a-b015-e71287f37b93": {
         [Language.English]: `Download Catalogue for High Capacity Inverters`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर का कैटेलॉग डाउनलोड करें",
     },
     "ccfce5e6-08ac-44b9-84ad-ef7891d7661b": {
         [Language.English]: `Price under updation`,
-        [Language.Hindi]: "???????",
+        [Language.Hindi]: "मूल्य अपडेट हो रहा है",
     },
     "b017acfd-f8a0-4285-aba8-d7c2ee4a09c2": {
         [Language.English]: `Xtra`,
@@ -9727,7 +9811,7 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "070dc123-0784-470f-b9d1-8a46ad3c5b81": {
         [Language.English]: `Sales Return Policy`,
-        [Language.Hindi]: `सेल्स वापसी नीति`,
+        [Language.Hindi]: `बिक्री वापसी नीति`,
     },
     "615fec41-accc-4091-b2c9-fcd74e9d280e": {
         [Language.English]: `Segment`,
@@ -9735,54 +9819,1843 @@ const vernacularStrings: {[textContentPiece: string]: {[language: Language]: str
     },
     "79ca88c3-d0b9-480e-b3fb-e4c3c9e173cb": {
         [Language.English]: `Car & SUV Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `गाड़ी और SUV बैटरी`,
     },
     "559bff04-3f2e-441b-a600-bae6ecea7215": {
         [Language.English]: `Two Wheeler Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `2-पहिया बैटरी`,
     },
     "d739952a-bc92-4908-a7bb-fe5142e5af1a": {
         [Language.English]: `Three Wheeler Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `3-पहिया बैटरी`,
     },
     "57d6fed3-4516-477b-820b-308281f873ff": {
         [Language.English]: `Bus and Truck Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बस और ट्रक की बैटरी`,
     },
     "04f5292b-9d2c-49aa-a358-f6c108c4b381": {
         [Language.English]: `Tractor Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ट्रैक्टर बैटरी`,
     },
     "6789787b-6622-4016-832b-86c0180bcc67": {
         [Language.English]: `E-Rickshaw Batteries`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `ई-रिक्शा की बैटरी`,
     },
     "b6b548ef-74b3-4aaa-81a4-be225b88ace9": {
         [Language.English]: `Terms and Conditions`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `नियम और शर्तें`,
     },
     "8bbd3952-3ad1-46de-afa5-b79c841b3378": {
         [Language.English]: `Privacy Policy`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `गोपनीयता नीति`,
     },
     "93e0fa70-2449-4565-a741-ea91931b2864": {
         [Language.English]: `Sales Return Policy`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `बिक्री वापसी नीति`,
     },
     "096a9841-f21e-4920-adc9-1bcb10a4f35f": {
         [Language.English]: `Presence in India`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `भारत में उपस्थिति`,
     },
     "df025538-0d6a-4954-aba0-4234b2d34565": {
         [Language.English]: `International Presence`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `वैश्विक उपस्थिति`,
     },
     "c13afdef-ed06-4b83-be72-772fbb7a5706": {
         [Language.English]: `Pricing`,
-        [Language.Hindi]: `?????`,
+        [Language.Hindi]: `मूल्य निर्धारण`,
     },
     "2ab590ad-712c-420c-8315-896e4be9a0ac": {
         [Language.English]: `Battery Finder`,
+        [Language.Hindi]: `बैटरी खोजक`,
+    },
+    "c5054f84-2266-408e-87f1-bf4cce619706": {
+        [Language.English]: `We use cookies (and similar techniques) on our site to improve the experience for you, enabling you to benefit from social sharing functionality (for Facebook, Instagram, etc.) and to tailor messages that are relevant to you (on our site, and others). They also help us understand how our site is being used. Read our <a href="privacy-policy" class="lg-link">Privacy Policy</a> for details. By clicking "Accept" you consent to our use of cookies.`,
+        [Language.Hindi]: `हम आपके अनुभव को बेहतर बनाने के लिए हमारी साइट पर कुकीज़ (और इसी तरह की तकनीकों) का उपयोग करते हैं, जिससे आप सामाजिक साझाकरण कार्यक्षमता (फेसबुक, इंस्टाग्राम इत्यादि के लिए) से लाभ उठा सकते हैं और उन संदेशों को तैयार कर सकते हैं जो आपके लिए प्रासंगिक हैं (हमारी साइट पर, और अन्य)। वे हमें यह समझने में भी मदद करते हैं कि हमारी साइट का उपयोग कैसे किया जा रहा है। "स्वीकार करें" पर क्लिक करके आप कुकीज़ के हमारे उपयोग के लिए सहमति देते हैं।`,
+    },
+    "286eb099-4488-4fa6-a2aa-23132972a9de": {
+        [Language.English]: `Got it`,
+        [Language.Hindi]: `ठीक है`,
+    },
+    "642467c3-8136-4523-b231-fa5aae9a075a": {
+        [Language.English]: `Home Solutions`,
+        [Language.Hindi]: `घर के लिए समाधान`,
+    },
+    "e9624c2c-a16e-4f56-88a2-3e2710461b14": {
+        [Language.English]: `Automotive Solutions`,
+        [Language.Hindi]: `ऑटोमोटिव समाधान`,
+    },
+    "b2d29598-d1f2-4766-a1ea-20d0fe9dd2f9": {
+        [Language.English]: `Inverter`,
+        [Language.Hindi]: `इनवर्टर`,
+    },
+    "2257b2c1-280c-49a6-9399-8abd4847993f": {
+        [Language.English]: `Home Inverter`,
+        [Language.Hindi]: `होम इनवर्टर`,
+    },
+    "a6d509fa-dc46-498b-b363-fbf309c70449": {
+        [Language.English]: `High Capacity Inverter`,
+        [Language.Hindi]: `हाय-कैपेसिटी इनवर्टर`,
+    },
+    "824433d9-6781-46ab-afa1-a863ebef7038": {
+        [Language.English]: `Load Calculator`,
+        [Language.Hindi]: `घर का लोड कैलकुलेटर`,
+    },
+    "e31c0b34-e22a-4cf2-a890-15a7356188d1": {
+        [Language.English]: `Trolley`,
+        [Language.Hindi]: `ट्राली`,
+    },
+    "3618f17b-d59c-430d-99c0-a238adaea4e4": {
+        [Language.English]: `Inverter Battery`,
+        [Language.Hindi]: `इनवर्टर बैटरी`,
+    },
+    "a6959df7-9540-429b-aad3-9e875f281167": {
+        [Language.English]: `Load Calculator`,
+        [Language.Hindi]: `लोड कैलकुलेटर`,
+    },
+    "33975412-a9dc-4a70-85af-335732d3a135": {
+        [Language.English]: `Inverter Batteries`,
+        [Language.Hindi]: `इनवर्टर बैटरी`,
+    },
+    "4b90a927-4cc2-46de-8118-1aa103534ba6": {
+        [Language.English]: `Automotive Battery`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरी`,
+    },
+    "3be9fa84-b556-42a0-95d8-093c1254891a": {
+        [Language.English]: `Two Wheeler`,
+        [Language.Hindi]: `2-पहिया`,
+    },
+    "c844f792-12c7-470d-87cf-317f70d4799a": {
+        [Language.English]: `Three Wheeler`,
+        [Language.Hindi]: `3-पहिया`,
+    },
+    "23384cb7-5097-4db3-964c-3010ed24ea63": {
+        [Language.English]: `Passenger Vehicle`,
+        [Language.Hindi]: `यात्री वाहन`,
+    },
+    "8c1ffd32-d901-4cae-b508-1ac6498f84f9": {
+        [Language.English]: `Commercial Vehicle`,
+        [Language.Hindi]: `व्यापारिक वाहन`,
+    },
+    "fbbc862d-69ec-4906-8f81-7e139dcdf047": {
+        [Language.English]: `Farm Vehicle`,
+        [Language.Hindi]: `खेत वाहन`,
+    },
+    "8c1d602c-9b8c-42db-a63f-da5e63490357": {
+        [Language.English]: `E-Rickshaw`,
+        [Language.Hindi]: `ई-रिक्शा`,
+    },
+    "7d99e64e-9019-4cb3-9331-c5232bf040df": {
+        [Language.English]: `Battery Finder`,
+        [Language.Hindi]: `बैटरी खोजक`,
+    },
+    "380adfbe-cb27-4b22-b601-db704a8d13ce": {
+        [Language.English]: `E-Mobility`,
+        [Language.Hindi]: `?????`,
+    },
+    "10a057de-1158-4f8b-8186-48571a720fc5": {
+        [Language.English]: `Lithium Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "ac7ae8d2-3f3c-49a6-a6db-e8cbb8b3ed07": {
+        [Language.English]: `DC-DC`,
+        [Language.Hindi]: `?????`,
+    },
+    "7596543b-c504-4ca0-817d-fc7f5dcefea7": {
+        [Language.English]: `Controllers`,
+        [Language.Hindi]: `?????`,
+    },
+    "8ccc369c-daa0-47d7-a568-1752d660d737": {
+        [Language.English]: `Motor`,
+        [Language.Hindi]: `?????`,
+    },
+    "b42973cc-d1f0-4ddb-aba7-a030b7398ccb": {
+        [Language.English]: `Charger`,
+        [Language.Hindi]: `?????`,
+    },
+    "e720a43a-b9cc-4925-9dcb-e37abb16ac28": {
+        [Language.English]: `BMS/IoT*`,
+        [Language.Hindi]: `?????`,
+    },
+    "ba80271b-d0ce-4762-b82c-96c984f3d55c": {
+        [Language.English]: `Others`,
+        [Language.Hindi]: `अन्य`,
+    },
+    "dc3dacb5-baa4-4fa3-8d27-a4b87fcd0158": {
+        [Language.English]: `E-Rickshaw Charger`,
+        [Language.Hindi]: `ई-रिक्शा चार्जर`,
+    },
+    "3a186513-50e2-4738-8d17-0f8691fa7b1c": {
+        [Language.English]: `Solar Solutions`,
+        [Language.Hindi]: `सोलर समाधान`,
+    },
+    "d5cf31f9-8ae3-48e5-afae-067d2844400f": {
+        [Language.English]: `Solutions`,
+        [Language.Hindi]: `समाधान`,
+    },
+    "9b76016a-c05d-4687-899f-aa6157ebc51c": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: `सोलर बचत कैलकुलेटर`,
+    },
+    "267b476e-74fa-4648-a5f8-8129bbfaa8ce": {
+        [Language.English]: `LivMonitor App`,
+        [Language.Hindi]: `?????`,
+    },
+    "6d5d47a4-ef2f-40c4-b364-1b4f96d47af9": {
+        [Language.English]: `Solar Battery`,
+        [Language.Hindi]: `सोलर बैटरी`,
+    },
+    "e45100e2-66ca-4476-9822-c37e64ae5356": {
+        [Language.English]: `Understanding Solar`,
+        [Language.Hindi]: `समझिए सोलर`,
+    },
+    // "f1d3fff0-6f22-4b2c-b891-8f1304c583a7": {
+    //     [Language.English]: `Find my battery`,
+    //     [Language.Hindi]: `अपनी बैटरी खोजें`,
+    // },
+    "f996231c-b2f6-41f8-82bb-dea49b2c9a3d": {
+        [Language.English]: `Solar Inverter`,
+        [Language.Hindi]: `सोलर इनवर्टर`,
+    },
+    "f9e6a204-a3e8-4725-b7f2-c03231a28813": {
+        [Language.English]: `Off-Grid Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "c6c9f0ec-ff71-4a10-9bc6-5dbde9ef8a81": {
+        [Language.English]: `On-Grid Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "ebb7642d-4c02-426e-83c0-06acd292ec33": {
+        [Language.English]: `Hybrid Inverter`,
+        [Language.Hindi]: `?????`,
+    },
+    "b78fac32-d1d1-4775-ad04-de991106a491": {
+        [Language.English]: `Solar Panels`,
+        [Language.Hindi]: `?????`,
+    },
+    "53d8effd-c423-465b-b273-b2e6ab17020a": {
+        [Language.English]: `Polycrystalline Solar Panel`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea7d6d75-5e3f-4ad7-a72b-10e9e9449618": {
+        [Language.English]: `Mono PERC Solar Panel`,
+        [Language.Hindi]: `?????`,
+    },
+    "6fc7c58e-1eb3-4600-a449-daaa702eb619": {
+        [Language.English]: `Mono PERC Half Cut Solar Panel`,
+        [Language.Hindi]: `?????`,
+    },
+    "cd9df738-ed03-4cf5-8440-c15ee171ee0f": {
+        [Language.English]: `Charger Controller / SMU`,
+        [Language.Hindi]: `चार्जर कंट्रोलर / एसएमयू`,
+    },
+    "f5986d46-458c-4fde-9516-56dee3d6d94b": {
+        [Language.English]: `Charger Controller`,
+        [Language.Hindi]: `चार्जर कंट्रोलर`,
+    },
+    "4e6fe38c-6d65-4fa0-a321-72eb79c840aa": {
+        [Language.English]: `Solar Management Unit`,
+        [Language.Hindi]: `सोलर मैनेजमेंट यूनिट`,
+    },
+    "7596edad-f993-41bf-a344-577762691d53": {
+        [Language.English]: `Solar Street Light`,
+        [Language.Hindi]: `सोलर स्ट्रीट लाईट`,
+    },
+    "54c5d2f5-501d-4bbe-bbde-f8ea37fa1f21": {
+        [Language.English]: `Accessories`,
+        [Language.Hindi]: `सहायक उपकरण`,
+    },
+    "8fa18bba-da04-43ad-aba1-9b0192f4a9db": {
+        [Language.English]: `AC-DB`,
+        [Language.Hindi]: `?????`,
+    },
+    "f9f3bfd2-74d3-4e42-8b0f-3ef0ecd469a9": {
+        [Language.English]: `DC-DB`,
+        [Language.Hindi]: `?????`,
+    },
+    "dac9e320-4f31-4ea0-8cbc-742f69286b2f": {
+        [Language.English]: `Zero Export Device`,
+        [Language.Hindi]: `?????`,
+    },
+    "32fe5fcc-99bb-4dad-a0e5-feb4b9e3963a": {
+        [Language.English]: `Monitoring Device`,
+        [Language.Hindi]: `?????`,
+    },
+    "b137744d-bc16-4100-afb4-8d3c2fb07793": {
+        [Language.English]: `Shopping Tools`,
+        [Language.Hindi]: `खरीदारी उपकरण`,
+    },
+    "c577a2cf-745c-40b6-a9fa-cb1ef88d7cd3": {
+        [Language.English]: `Check Price`,
+        [Language.Hindi]: `कीमत जाँचे`,
+    },
+    "f008f7bb-e106-4e04-8654-8f3e1d517979": {
+        [Language.English]: `Offers`,
+        [Language.Hindi]: `ऑफर्स`,
+    },
+    "739577f2-3578-4eaf-8b45-8b3de3372aa9": {
+        [Language.English]: `Home Load Calculator`,
+        [Language.Hindi]: `घर का लोड कैलकुलेटर`,
+    },
+    "0476c521-6376-4411-ba07-10ab93e5982f": {
+        [Language.English]: `Automotive Battery Finder`,
+        [Language.Hindi]: `ऑटोमोटिव बैटरी खोजें`,
+    },
+    "454a8070-92b6-419a-af59-6f6253283c07": {
+        [Language.English]: `Download brochures`,
+        [Language.Hindi]: `?????`,
+    },
+    "1a1fc6c9-a8b2-4ae7-9154-9999e251449c": {
+        [Language.English]: `Owners`,
+        [Language.Hindi]: `मालिक`,
+    },
+    "96e824a1-876e-42ec-a9b5-2f68fea3a6d3": {
+        [Language.English]: `Service`,
+        [Language.Hindi]: `सर्विस`,
+    },
+    "4f0455d6-1f64-4f56-9cea-3d1655b10c5c": {
+        [Language.English]: `Warranty registration`,
+        [Language.Hindi]: `वारंटी पंजीकरण`,
+    },
+    "86de9899-69e7-4cca-bc82-4f2e9efe405a": {
+        [Language.English]: `Dealer Locator`,
+        [Language.Hindi]: `डीलर ढूँढें`,
+    },
+    "ff7689df-232c-4839-a1ef-2d7fa388c667": {
+        [Language.English]: `About us`,
+        [Language.Hindi]: `हमारे बारे में`,
+    },
+    "96c7b4e3-edf0-4ec8-aa70-67f7ee2ef73a": {
+        [Language.English]: `Contact us`,
+        [Language.Hindi]: `हमसे संपर्क करें`,
+    },
+    "902ff240-2339-4be5-98f0-741f1162f27f": {
+        [Language.English]: `Company`,
+        [Language.Hindi]: `कंपनी`,
+    },
+    "06bdee07-e0a5-418c-8aab-90a5debb6b61": {
+        [Language.English]: `Check Price`,
+        [Language.Hindi]: "कीमत जाँचे",
+    },
+    "a934d750-a5a0-4b8b-b343-e6af45966c63": {
+        [Language.English]: `Offers`,
+        [Language.Hindi]: "ऑफर्स",
+    },
+    "095a8a44-87c6-454e-8b5f-abed73e54c54": {
+        [Language.English]: `Download brochures`,
+        [Language.Hindi]: "?????",
+    },
+    "be39d262-3769-4f4c-8d54-3ed7d6500101": {
+        [Language.English]: `Load Calculator - Home`,
+        [Language.Hindi]: "लोड कैलकुलेटर - होम",
+    },
+    "09d8b17e-501d-4fcd-8371-930579ff3265": {
+        [Language.English]: `Battery Finder - Automotive`,
+        [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
+    },
+    "1ab892b7-3762-49a6-a36b-205ed0980f2a": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
+    },
+    "7a2b7f51-c58b-4f43-bdf4-881209fe2acd": {
+        [Language.English]: `Blogs`,
+        [Language.Hindi]: "ब्लॉग",
+    },
+    "eb4e6810-b019-4d59-94b2-41351f268590": {
+        [Language.English]: `Shopping Tools`,
+        [Language.Hindi]: "खरीदारी उपकरण",
+    },
+    "bf233b5c-c4e0-4161-aa37-8d0eba708d4c": {
+        [Language.English]: `Company`,
+        [Language.Hindi]: "कंपनी",
+    },
+    "8c28a7c5-2e4e-4708-bd33-80358a9acaf2": {
+        [Language.English]: `About Us`,
+        [Language.Hindi]: "हमारे बारे में",
+    },
+    "121206cf-56f5-443a-a624-21cfe2d38070": {
+        [Language.English]: `India Operations`,
+        [Language.Hindi]: "भारत संचालन",
+    },
+    "453c92b4-5576-4452-a2ce-92586e5eda28": {
+        [Language.English]: `Global Operations`,
+        [Language.Hindi]: "वैश्विक संचालन",
+    },
+    "1acc9d47-614a-4fc6-8f8e-ab8d6ebc1ae6": {
+        [Language.English]: `Corporate Social Responsibility`,
+        [Language.Hindi]: "कॉर्पोरेट सामाजिक उत्तरदायित्व",
+    },
+    "636ca3f4-627f-48c3-9f1b-d3490094d536": {
+        [Language.English]: `E-Waste Management`,
+        [Language.Hindi]: "ई-वेस्ट मैनेजमेंट",
+    },
+    "69838ae8-eb67-4ea5-9179-990db737a138": {
+        [Language.English]: `Governance`,
+        [Language.Hindi]: "शासन",
+    },
+    "fc828855-64e1-4be5-b95f-bee9fe4a3262": {
+        [Language.English]: `Dealer Locator`,
+        [Language.Hindi]: "डीलर ढूँढें",
+    },
+    "35178fbf-bc7e-4b8b-a49a-17bff7feaa18": {
+        [Language.English]: `Dealer Near Me`,
+        [Language.Hindi]: "मेरे निकट डीलर",
+    },
+    "c54ca3ff-b15f-445a-8e7b-c85985e5d355": {
+        [Language.English]: `Customer Policies`,
+        [Language.Hindi]: "ग्राहक नीतियां",
+    },
+    "0c031708-7b42-4db6-ac33-902a7f0492f5": {
+        [Language.English]: `Terms & Conditions`,
+        [Language.Hindi]: "नियम और शर्तें",
+    },
+    "286aa9a0-fadc-4b90-b967-3d300307fdbe": {
+        [Language.English]: `Sales Return Policy`,
+        [Language.Hindi]: "बिक्री वापसी नीति",
+    },
+    "dd2edb48-b8fa-4f95-b0a0-5581ec7e8ad6": {
+        [Language.English]: `Privacy policy`,
+        [Language.Hindi]: "गोपनीयता नीति",
+    },
+    "31850c84-bfb5-42cb-b470-489a351c2d99": {
+        [Language.English]: `Support`,
+        [Language.Hindi]: "सहायता",
+    },
+    "f1ab4d68-c36d-4484-851d-58a6c48bc4ee": {
+        [Language.English]: `Contact Us`,
+        [Language.Hindi]: "हमसे संपर्क करें",
+    },
+    "4316557c-1532-401f-8030-390ea9bf4790": {
+        [Language.English]: `Customer Care`,
+        [Language.Hindi]: "?????",
+    },
+    "5d9b749d-0a6e-42a2-abbb-bc2e441bb655": {
+        [Language.English]: `Feedback`,
+        [Language.Hindi]: "?????",
+    },
+    "90920b9e-0139-4f28-a126-1768bc703953": {
+        [Language.English]: `FAQ's`,
+        [Language.Hindi]: "?????",
+    },
+    "6d46ed34-f819-4c0a-a7ca-29ac67f6486b": {
+        [Language.English]: `Media & Gallery`,
+        [Language.Hindi]: "मीडिया और गैलरी",
+    },
+    "ff612253-40bd-4b64-b93d-955ff8097afd": {
+        [Language.English]: `Videos`,
+        [Language.Hindi]: "वीडियो",
+    },
+    "b58e0802-9926-42c7-8b21-b9bcac8f895f": {
+        [Language.English]: `Testimonials`,
+        [Language.Hindi]: "?????",
+    },
+    "bfaf5f70-76d6-41fe-b11a-bf91f00af887": {
+        [Language.English]: `Downloads`,
+        [Language.Hindi]: "?????",
+    },
+    "639fd244-9283-4467-b186-6ee26321127b": {
+        [Language.English]: `Get In Touch`,
+        [Language.Hindi]: "संपर्क करें",
+    },
+    "22156ff3-a4a5-4d59-ab0c-902c21b667f9": {
+        [Language.English]: `Plot No. 221, Phase-I, Udyog Vihar, Gurgaon 122016 Haryana, India`,
+        [Language.Hindi]: "?????",
+    },
+    "1f8b2070-1c48-4396-999d-3195c96cabd7": {
+        [Language.English]: `Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "89f3948f-ec87-4fd9-aaf7-b7ee99b2d900": {
+        [Language.English]: `Home Inverter`,
+        [Language.Hindi]: "होम इनवर्टर",
+    },
+    "4b6c134b-096e-49cf-9e12-d53c0e3cf059": {
+        [Language.English]: `High Capacity Inverter`,
+        [Language.Hindi]: "हाय-कैपेसिटी इनवर्टर",
+    },
+    "0e58360b-6e83-47da-a0c5-afca55819e50": {
+        [Language.English]: `Load Calculator`,
+        [Language.Hindi]: "लोड कैलकुलेटर",
+    },
+    "f76f3bd2-566f-44fe-bedb-c66cdfc42a0e": {
+        [Language.English]: `Inverter Trolley`,
+        [Language.Hindi]: "इनवर्टर ट्राली",
+    },
+    "5e7fac2e-dfcc-4fde-90ac-99fec03abb21": {
+        [Language.English]: `Inverter Battery`,
+        [Language.Hindi]: "इनवर्टर बैटरी",
+    },
+    "3b12adfb-c368-4141-bd61-b15487af1696": {
+        [Language.English]: `Battery Trolley`,
+        [Language.Hindi]: "?????",
+    },
+    "27a6ac19-b8ed-43e6-927a-562bf232d8d6": {
+        [Language.English]: `Two Wheeler Battery`,
+        [Language.Hindi]: "2-पहिया बैटरी",
+    },
+    "b56af9ea-2d7d-45e5-8886-d4a367bc7e89": {
+        [Language.English]: `Three Wheeler Battery`,
+        [Language.Hindi]: "3-पहिया बैटरी",
+    },
+    "fa4d03f8-1288-4254-8af9-6135a878df8e": {
+        [Language.English]: `Passenger Vehicle Battery`,
+        [Language.Hindi]: "यात्री वाहन बैटरी",
+    },
+    "831ac44b-7d9d-472f-8377-a700b9bd6596": {
+        [Language.English]: `Commercial Vehicle Battery`,
+        [Language.Hindi]: "व्यापारिक वाहन बैटरी",
+    },
+    "10a9d622-6fcc-4689-9fdb-d245d46a491e": {
+        [Language.English]: `Farm Vehicle Battery`,
+        [Language.Hindi]: "खेत वाहन बैटरी",
+    },
+    "8aea3499-6fc0-40b3-b7fe-93f8504e9d7e": {
+        [Language.English]: `E-Rickshaw Battery`,
+        [Language.Hindi]: "ई-रिक्शा बैटरी",
+    },
+    "54504980-d98c-4f68-a7cc-bf716ecb905d": {
+        [Language.English]: `Battery Finder - Automotive`,
+        [Language.Hindi]: "ऑटोमोटिव बैटरी खोजें",
+    },
+    "4f427a78-8c4f-4c36-833f-545a0d2a775d": {
+        [Language.English]: `E-Rickshaw Charger`,
+        [Language.Hindi]: "ई-रिक्शा चार्जर",
+    },
+    "e233aa7a-2374-4239-8653-db42cdae6e0d": {
+        [Language.English]: `Power Solutions`,
+        [Language.Hindi]: "ऊर्जा समाधान",
+    },
+    "c5d478da-fd36-446a-aae6-1bfe13607be1": {
+        [Language.English]: `Solar Saving Calculator`,
+        [Language.Hindi]: "सोलर बचत कैलकुलेटर",
+    },
+    "1bb35c7d-3856-46ef-a49e-cd0241c6f828": {
+        [Language.English]: `LivMonitor App*`,
+        [Language.Hindi]: "?????",
+    },
+    "6017a74c-fd49-4086-892d-e0548e7c7e51": {
+        [Language.English]: `Solar Battery`,
+        [Language.Hindi]: "सोलर बैटरी",
+    },
+    "f3ba3cad-77ef-4a58-9760-2ef4cd33bb11": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "d1df7722-e72b-4c08-94d9-5e8adc4d5a93": {
+        [Language.English]: `Solar Inverter`,
+        [Language.Hindi]: "सोलर इनवर्टर",
+    },
+    "f262e016-6ca4-44af-a202-a3ab02100dbb": {
+        [Language.English]: `Off-Grid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "ea124d83-7e89-4cdf-b968-fc241583ce35": {
+        [Language.English]: `On-Grid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "05b8415f-616b-4aed-8c0b-fd31305c6026": {
+        [Language.English]: `Hybrid Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "2f4de646-0e7c-424f-bcd4-52deb4003705": {
+        [Language.English]: `Solar Panels`,
+        [Language.Hindi]: "?????",
+    },
+    "369e90db-f15f-4ec7-834f-46e460f1e0fd": {
+        [Language.English]: `Polycrystalline Solar Panel`,
+        [Language.Hindi]: "?????",
+    },
+    "e9218e48-d0fa-40b4-9189-39e4d37c847d": {
+        [Language.English]: `Mono PERC Solar Panel`,
+        [Language.Hindi]: "?????",
+    },
+    "e02353bf-c629-4104-8b43-6fe8a43610cc": {
+        [Language.English]: `Mono PERC Half Cut Solar Panel`,
+        [Language.Hindi]: "?????",
+    },
+    "d590735a-b2e3-4e86-a9e6-7a3991bd8956": {
+        [Language.English]: `Charger Controller / SMU`,
+        [Language.Hindi]: "चार्जर कंट्रोलर / एसएमयू",
+    },
+    "f12df3fc-ddaf-4809-b2dc-d34c218db76f": {
+        [Language.English]: `Solar Management Unit`,
+        [Language.Hindi]: "सोलर मैनेजमेंट यूनिट",
+    },
+    "93c283cc-941d-4382-aabb-67f017dd119b": {
+        [Language.English]: `Solar Street Light`,
+        [Language.Hindi]: "सोलर स्ट्रीट लाईट",
+    },
+    "3387d316-f651-4fec-82e4-8b25c923a1b2": {
+        [Language.English]: `AC-DB`,
+        [Language.Hindi]: "?????",
+    },
+    "8641e5e9-7f63-49a8-9586-30d0be4a8e98": {
+        [Language.English]: `DC-DB`,
+        [Language.Hindi]: "?????",
+    },
+    "d000e8b7-9e75-48b2-a131-39864fe80130": {
+        [Language.English]: `Zero Export Device`,
+        [Language.Hindi]: "?????",
+    },
+    "58860329-bf1a-40c4-ba47-6103a0b013db": {
+        [Language.English]: `Monitoring Device`,
+        [Language.Hindi]: "?????",
+    },
+    "b9996d74-d519-40a8-bbad-b27d3479236b": {
+        [Language.English]: `Solar Solutions`,
+        [Language.Hindi]: "सोलर समाधान",
+    },
+    "ee76a8f5-ba19-4a3e-ad60-67de3b59a6d2": {
+        [Language.English]: `Energy Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "9fc64723-0e15-4211-983a-ba03cf9a4d41": {
+        [Language.English]: `Top`,
+        [Language.Hindi]: "?????",
+    },
+    "ccf268de-2880-455f-9cc3-bdc066866b2c": {
+        [Language.English]: `One of a Kind`,
+        [Language.Hindi]: "?????",
+    },
+    "02e2e193-5c13-4674-93cb-02d15e2b71da": {
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: "?????",
+    },
+    "bc9269a0-800f-4adf-ac22-d866887da9f4": {
+        [Language.English]: `Find My Dealer`,
+        [Language.Hindi]: "?????",
+    },
+    "01553562-bafd-4ad3-a18c-7b6cc113f03f": {
+        [Language.English]: `Our Social Handles`,
+        [Language.Hindi]: "?????",
+    },
+    "ab5df361-c4a5-4f3a-b26e-21eff3cb23bc": {
+        [Language.English]: `Testimonials`,
+        [Language.Hindi]: "?????",
+    },
+    "3479de37-c724-4254-a536-acf8c8de4c20": {
+        [Language.English]: `FAQs`,
+        [Language.Hindi]: "?????",
+    },
+    "30174373-893d-4b43-82e5-30969f80385b": {
+        [Language.English]: `In The News`,
+        [Language.Hindi]: "?????",
+    },
+    "3011d264-9e86-4df5-a284-154c88e54209": {
+        [Language.English]: `CSR`,
+        [Language.Hindi]: "?????",
+    },
+    "8bb57774-d155-41f1-bf07-6906c1026203": {
+        [Language.English]: `Meant To Last`,
+        [Language.Hindi]: "?????",
+    },
+    "32d2e95f-02b6-49fe-b1c3-cee4542e202b": {
+        [Language.English]: `Our Batteries`,
+        [Language.Hindi]: "?????",
+    },
+    "0620b5a6-a7bb-4d55-84fb-6a3202439edb": {
+        [Language.English]: `Our Suggestions`,
+        [Language.Hindi]: "?????",
+    },
+    "5270f2b4-c38b-45b7-8dac-0434f3e7bfcf": {
+        [Language.English]: `Suggested Combos`,
+        [Language.Hindi]: "?????",
+    },
+    "4364581e-7ad6-4f87-9c83-66bf480d3fab": {
+        [Language.English]: `Plan Your Power`,
+        [Language.Hindi]: "?????",
+    },
+    "eb553bbb-e1af-4d2a-923a-096c297441e2": {
+        [Language.English]: `Livguard Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "fdb7fec0-6865-44e5-a84c-73b11f76c326": {
+        [Language.English]: `Choose Your Inverter`,
+        [Language.Hindi]: "?????",
+    },
+    "1048c716-f3d1-4740-90b8-99e7d1e3b80d": {
+        [Language.English]: `Who We Are`,
+        [Language.Hindi]: "?????",
+    },
+    "b1387a67-2e83-4f5f-b794-3cf1c7bc61fd": {
+        [Language.English]: `Meet Our Leaders`,
+        [Language.Hindi]: "?????",
+    },
+    "591ebee7-9d2d-416f-8942-29e3840cc4c4": {
+        [Language.English]: `Our Operations`,
+        [Language.Hindi]: "?????",
+    },
+    "35610704-9140-46c7-a510-9365b19f837d": {
+        [Language.English]: `Our Values`,
+        [Language.Hindi]: "?????",
+    },
+    "fe6d299f-3f6a-44fe-9b3a-877ff0d423d2": {
+        [Language.English]: `Empowered By SAR`,
+        [Language.Hindi]: "?????",
+    },
+    "b907dc0e-a480-49e8-ae9d-3943d5d3c69e": {
+        [Language.English]: `Superior Features`,
+        [Language.Hindi]: "उत्कृष्ट सुविधा",
+    },
+    "a2f95300-c1a1-45f4-a151-3f4b81b66e39": {
+        [Language.English]: `Our Range`,
+        [Language.Hindi]: "हमारी श्रेणी",
+    },
+    "5401aff8-4337-470a-8d9d-7da5591a1118": {
+        [Language.English]: `Find My Battery`,
+        [Language.Hindi]: "अपनी बैटरी खोजें",
+    },
+    "68d32e0c-2f0b-4686-b208-c4ff6c633bd5": {
+        [Language.English]: `Automotive-Batteries`,
+        [Language.Hindi]: "?????",
+    },
+    "5fdd2cb0-7333-4a30-998c-7bdef3e2319d": {
+        [Language.English]: `Battery Picks`,
+        [Language.Hindi]: "?????",
+    },
+    "96713da3-cefd-4b58-9fb7-eca758ca2214": {
+        [Language.English]: `We Are Listening`,
+        [Language.Hindi]: "?????",
+    },
+    "7ec2537f-9154-4f04-a3ad-d7a33fa78494": {
+        [Language.English]: `Click Connect`,
+        [Language.Hindi]: "?????",
+    },
+    "8fc9ce3b-96c8-4ed0-aa3e-f479d5f0d762": {
+        [Language.English]: `CSR Journey`,
+        [Language.Hindi]: "?????",
+    },
+    "8adac62a-bc43-4744-aa00-339d0624248f": {
+        [Language.English]: `Our Vision`,
+        [Language.Hindi]: "?????",
+    },
+    "e2178aa3-294f-4cf6-a5c4-eecdd2b63217": {
+        [Language.English]: `Our Projects`,
+        [Language.Hindi]: "?????",
+    },
+    "6eaa372b-cfbe-434f-8dfb-cf31db5a1f35": {
+        [Language.English]: `CSR Commitee`,
+        [Language.Hindi]: "?????",
+    },
+    "ac4503ae-ef14-4618-900a-7cfe181b3e45": {
+        [Language.English]: `Superior Features`,
+        [Language.Hindi]: "उत्कृष्ट सुविधा",
+    },
+    "f455acf2-de2a-48bb-afa1-c1b400f1fc09": {
+        [Language.English]: `Our Range`,
+        [Language.Hindi]: "हमारी श्रेणी",
+    },
+    "067bdc8d-d3a5-4f85-b579-4655b69b6a16": {
+        [Language.English]: `Video Guide`,
+        [Language.Hindi]: "वीडियो गाइड",
+    },
+    "361b437f-a453-40f8-8ea5-1d89d31ed8aa": {
+        [Language.English]: `E Rickshaw Charger`,
+        [Language.Hindi]: "?????",
+    },
+    "6024f455-325b-4981-bb40-0dd3b35c6446": {
+        [Language.English]: `Unmatched Performance`,
+        [Language.Hindi]: "?????",
+    },
+    "86aa4572-0487-4dcd-a8fd-bcf887b6e296": {
+        [Language.English]: `Featured Products`,
+        [Language.Hindi]: "विशेष उत्पाद",
+    },
+    "afef1fab-9606-4ee8-b11c-d9aad18a9cf0": {
+        [Language.English]: `E Rickshaw Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "3b3c4911-9f88-4c2b-a7e9-255c83f18ebd": {
+        [Language.English]: `Understanding E Waste Management`,
+        [Language.Hindi]: "?????",
+    },
+    "49f87968-94f3-4a60-8afa-830ef171f29b": {
+        [Language.English]: `Why E Waste Management`,
+        [Language.Hindi]: "?????",
+    },
+    "789b2fd5-46ee-4b76-b2a4-a73074021f6a": {
+        [Language.English]: `Waves Of Impact`,
+        [Language.Hindi]: "प्रभाव की लहरें",
+    },
+    "4dfaa3c8-918c-46d3-a2a7-865f2ac6a9b7": {
+        [Language.English]: `Testimonials`,
+        [Language.Hindi]: "?????",
+    },
+    "fd6848f1-04eb-4f76-845f-e56d93835de6": {
+        [Language.English]: `Inverter and Battery Combo`,
+        [Language.Hindi]: "इनवर्टर और बैटरी कॉम्बो",
+    },
+    "a80664dd-7225-4870-9254-dc4ae03ecbc8": {
+        [Language.English]: `<span class="lg-text-highlighted">Inverter and Battery Combo</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर और बैटरी कॉम्बो</span> से`,
+    },
+    "88365f6c-f815-461c-8dc2-7b6b51ebc61a": {
+        [Language.English]: `<span class="lg-text-highlighted">Tractor Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ट्रैक्टर बैटरी</span> से`,
+    },
+    "bc58eec8-4bcf-4539-8a63-fbb7f40b1718": {
+        [Language.English]: `<span class="lg-text-highlighted">Car And SUV Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">गाड़ी और SUV बैटरी</span> से`,
+    },
+    "7ac7ba45-39e6-44a8-88a1-9e6f74d19f9d": {
+        [Language.English]: `<span class="lg-text-highlighted">Home Inverter</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">होम इनवर्टर</span> से`,
+    },
+    "e55064a2-1958-4dbd-88c2-4174886c1164": {
+        [Language.English]: `<span class="lg-text-highlighted">High Capacity Inverter</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">हाय-कैपेसिटी इनवर्टर</span> से`,
+    },
+    "46ede266-bd2f-44bc-b18e-05380293c4a4": {
+        [Language.English]: `<span class="lg-text-highlighted">Inverter Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर बैटरी</span> से`,
+    },
+    "305a3a77-0276-46aa-883c-68951e32dac1": {
+        [Language.English]: `<span class="lg-text-highlighted">Two Wheeler Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">2-पहिया बैटरी</span> से`,
+    },
+    "cba7f5de-c5ef-4fd7-a5d0-187da1bda0d9": {
+        [Language.English]: `<span class="lg-text-highlighted">Three Wheeler Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">3-पहिया बैटरी</span> से`,
+    },
+    "c7c35500-944e-40b6-9dd0-8d4d8b55fdae": {
+        [Language.English]: `<span class="lg-text-highlighted">Commercial Vehicle Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">व्यापारिक वाहन बैटरी</span> से`,
+    },
+    "afbac94d-3beb-4bee-9dbf-fb3561fabcee": {
+        [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Battery</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">ई-रिक्शा बैटरी</span> से`,
+    },
+    "12ad1435-4d7e-4208-a4a8-621772455013": {
+        [Language.English]: `<span class="lg-text-highlighted">Inverter Trolley</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted">इनवर्टर ट्राली</span> से`,
+    },
+    "ccad5a29-0772-48cd-9ef7-cf443b5a9657": {
+        [Language.English]: `<span class="lg-text-highlighted">E Rickshaw Charger</span> For You`,
+        [Language.Hindi]: `उचित <span class="lg-text-highlighted"></span> से`,
+    },
+    "f73b94be-d44a-48f8-a1b7-623071cf1fe0": {
+        [Language.English]: `Energy Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "adfcccd0-8c11-4545-8773-5ff7fe6f6215": {
+        [Language.English]: `Meets Expertise`,
+        [Language.Hindi]: "?????",
+    },
+    "11372be1-3074-49ea-aaf7-ec9d0b3ca48e": {
+        [Language.English]: `Reliable Power`,
+        [Language.Hindi]: "?????",
+    },
+    "556945af-1937-475d-8e41-0bea36fb1a86": {
+        [Language.English]: `Limitless Energy`,
+        [Language.Hindi]: "?????",
+    },
+    "8d7859c7-a9d9-44e9-a854-d43697bc3abd": {
+        [Language.English]: `Power Planner`,
+        [Language.Hindi]: "?????",
+    },
+    "b708a357-961a-4b28-afec-1e538023a140": {
+        [Language.English]: `Livguard Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "e0e7bba0-3200-4edf-870d-4c03a86ce636": {
+        [Language.English]: `Our Combos`,
+        [Language.Hindi]: "?????",
+    },
+    "e543a55b-6744-49a7-8d5f-6cf2641ca056": {
+        [Language.English]: `Watch Digital Film`,
+        [Language.Hindi]: "?????",
+    },
+    "0778c1ff-2e3c-4773-889f-6f01e0e58f0e": {
+        [Language.English]: `Battery Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "1f5379fc-7cc5-40f6-8715-6a86a77073cc": {
+        [Language.English]: `Our Top Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "a70a34a0-4f68-4ff6-9bc5-3000c1191f7d": {
+        [Language.English]: `Why Livguard Combo`,
+        [Language.Hindi]: "?????",
+    },
+    "9dc9953c-6891-4dd0-a5f2-70eafce21303": {
+        [Language.English]: `Star Products`,
+        [Language.Hindi]: "?????",
+    },
+
+    "d4e9cca1-8968-4759-b83b-0e5b5354934e": {
+        [Language.English]: "Explore Products",
+        [Language.Hindi]: "इनवर्टर देखें",
+    },
+    "b59605a7-e182-46d3-a704-9c492604dfc4": {
+        [Language.English]: "International Business Oprations",
+        [Language.Hindi]: "????",
+    },
+    "16d054b7-e1e8-4a21-b9b9-b99c4ec7ad97": {
+        [Language.English]: `Why Livguard`,
+        [Language.Hindi]: `????`,
+    },
+    "3d9d6727-c879-4b32-a9d0-829ac636f865": {
+        [Language.English]: `Innovative Solutions`,
+        [Language.Hindi]: `आधुनिक समाधान`,
+    },
+    "6791d4aa-ae4c-4145-a535-b0bec4de6d64": {
+        [Language.English]: `Our Journey`,
+        [Language.Hindi]: `?????`,
+    },
+    "16248ec0-c540-495b-9340-724bc296c3cf": {
+        [Language.English]: `CSR Efforts`,
+        [Language.Hindi]: `सीएसआर प्रयास`,
+    },
+    "b2a44a66-bdca-45c5-b848-a103cc193da4": {
+        [Language.English]: `Financials at a Glance`,
+        [Language.Hindi]: `एक नजर वित्तीय जानकारी</span>`,
+    },
+    "57e5cba3-9ffe-47dd-b584-1a8f2f8aaf8b": {
+        [Language.English]: `Experience High Power`,
+        [Language.Hindi]: `अनुभव करें उच्च शक्ति`,
+    },
+    "4c457900-7da0-4e38-ad3f-732e9ab35335": {
+        [Language.English]: `Heavy Duty Inverters`,
+        [Language.Hindi]: `हेवी ड्यूटी इनवर्टर`,
+    },
+    "2223a612-f480-45b4-86fb-d5d02dc1a69d": {
+        [Language.English]: `Your Guide to Finding The Right Inverter`,
+        [Language.Hindi]: `??????`,
+    },
+    "bd35a39d-092b-4a59-bb3b-6f60086a9e01": {
+        [Language.English]: `Our Head Office`,
+        [Language.Hindi]: `हमारा मुख्य कार्यालय`,
+    },
+    "ed9a0f62-e79d-49e0-a10f-784e4587a699": {
+        [Language.English]: `Our Regional Office`,
+        [Language.Hindi]: `????`,
+    },
+    "cc0aca43-72cc-446a-9a6c-8243c3364c7b": {
+        [Language.English]: `Strength And Stability`,
+        [Language.Hindi]: `????`,
+    },
+    "59edff64-f0e3-4d70-be9a-14f568f43f2f": {
+        [Language.English]: `Your Power Your Choice`,
+        [Language.Hindi]: `????`,
+    },
+    "c7712522-8ed0-4081-b015-bad7c20015a1": {
+        [Language.English]: `Best Offers`,
+        [Language.Hindi]: `????`,
+    },
+    "20672940-27d8-4e36-a37e-cdabf2bfedb1": {
+        [Language.English]: `Effortless Services`,
+        [Language.Hindi]: `????`,
+    },
+    "91a2a7a5-561e-4fd7-bb9f-76969e89b296": {
+        [Language.English]: `Request A Service`,
+        [Language.Hindi]: `सर्विस अनुरोध करें`,
+    },
+    "8241d91a-5895-4c2f-bb29-81f1d508f4f9": {
+        [Language.English]: `Connect`,
+        [Language.Hindi]: `कनेक्ट`,
+    },
+    "c00d2678-dc68-4ded-99aa-4612742a4542": {
+        [Language.English]: `Stabilizers for Home`,
+        [Language.Hindi]: "?????",
+    },
+    "c5937b05-1396-4be3-a508-6478d48700aa": {
+        [Language.English]: `Choose the Best Stabilizer`,
+        [Language.Hindi]: "?????",
+    },
+    "fdbf482e-5a9b-42b3-a012-95b00e93e2dc": {
+        [Language.English]: `Reliabiality`,
+        [Language.Hindi]: "विश्वसनीयता",
+    },
+    "a72629ee-930b-4f47-9d31-f630e2db0709": {
+        [Language.English]: `Find the Right Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "1dfc8abe-6cb9-4413-8a90-5223ebdbd4d1": {
+        [Language.English]: `Top Tractor Batteries`,
+        [Language.Hindi]: "?????",
+    },
+    "08f36f74-4395-4e7f-b301-c02e0e7862f8": {
+        [Language.English]: `Choose the Right Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "e8d7fe5b-5e59-4f65-aae6-5871d080cf20": {
+        [Language.English]: `Our Picks`,
+        [Language.Hindi]: "?????",
+    },
+    "5543107e-a9d0-476c-95fd-6d4bb7336373": {
+        [Language.English]: `Choose Your Ideal Battery`,
+        [Language.Hindi]: "?????",
+    },
+    "ee900aeb-0671-433a-93cc-115b6b6801b6": {
+        [Language.English]: `Seamless Service`,
+        [Language.Hindi]: "निरंतर सर्विस",
+    },
+    "2a231443-40bf-48b5-b482-147609bb9d63": {
+        [Language.English]: `Reliable Service`,
+        [Language.Hindi]: "?????",
+    },
+    "a5ee9b69-adfe-49ac-9256-cff986b899b7": {
+        [Language.English]: `Register in Minutes`,
+        [Language.Hindi]: "?????",
+    },
+    "cd1f1433-8736-4f1d-a5e6-927e59a02ec2": {
+        [Language.English]: `Product Specification`,
+        [Language.Hindi]: "?????",
+    },
+    "abea43c2-a4ec-471c-ad0b-7f3cf8e42cb3": {
+        [Language.English]: `Product Description`,
+        [Language.Hindi]: "?????",
+    },
+    "4e366b86-4e66-47f4-99ef-6a33dc519099": {
+        [Language.English]: `Suggested Products`,
+        [Language.Hindi]: "?????",
+    },
+    "5b6a1674-797b-430e-a1d0-19a052886b10": {
+        [Language.English]: `Visit Website`,
+        [Language.Hindi]: "वेबसाइट पर जाएं",
+    },
+    "58790af6-e242-4064-9f92-8c7af56524f9": {
+        [Language.English]: `Calling all Detectives!`,
+        [Language.Hindi]: "?????",
+    },
+    "474f66f2-b713-4581-85de-39cad89f813f": {
+        [Language.English]: `Earn Exciting <span class="lg-text-primary-500">Rewards</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "a8794019-66aa-4fa3-bd6d-4376e703626e": {
+        [Language.English]: `The mischievous energy thief 'Natwarlal' is on the move with an inverter and battery combo! Help us in this quest to find and catch him. Follow the clues, unmask the mystery, and seize unique rewards along the way!`,
+        [Language.Hindi]: "?????",
+    },
+    "850e8c45-a6a4-428b-9e11-4acd93205160": {
+        [Language.English]: `<span class="tw-font-semibold">Where is Natwarlal?</span> He is hiding somewhere on the website, with the stolen inverter and battery. Catch him before he escapes!`,
+        [Language.Hindi]: "?????",
+    },
+    "af17ff8e-ce85-491e-ba24-b430a512162a": {
+        [Language.English]: `Find Natwarlal`,
+        [Language.Hindi]: "?????",
+    },
+    "6b3b89fd-ba28-481a-86ee-8932e25ef249": {
+        [Language.English]: `<span class="lg-text-primary-500">Amazing!</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "9d0d2fb1-93ce-40e7-ae8a-afd396c7159f": {
+        [Language.English]: `Your detective skills found the <span class="tw-font-bold">stolen inverter</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "011c1d97-5ae2-4392-b789-a422bc75b9ee": {
+        [Language.English]: `Continue Your Quest`,
+        [Language.Hindi]: "?????",
+    },
+    "773cc962-c03e-4643-9f7b-bb9d6eeab67b": {
+        [Language.English]: `You have <span class="tw-font-semibold">15 minutes</span> to redeem your first reward!`,
+        [Language.Hindi]: "?????",
+    },
+    "4c03ff14-2235-45bd-a773-cf027c81fd86": {
+        [Language.English]: `Copy the code below`,
+        [Language.Hindi]: "?????",
+    },
+    "8e337c72-d495-4840-9fcc-3670a8e9bd83": {
+        [Language.English]: `Comment your code under the Livguard Treasure Hunt post`,
+        [Language.Hindi]: "?????",
+    },
+    "10f2f51f-a177-48ec-be50-990650be4f59": {
+        [Language.English]: `Tag 3 friends along the code`,
+        [Language.Hindi]: "?????",
+    },
+    "bc3184f6-0f40-4633-bca8-1e9c2c21852a": {
+        [Language.English]: `Continue`,
+        [Language.Hindi]: "?????",
+    },
+    "e8190da2-de31-41e3-a749-f3e77acc2807": {
+        [Language.English]: `Press <span class="tw-font-bold">"Continue"</span> to get more rewards`,
+        [Language.Hindi]: "?????",
+    },
+    "a71eedc4-b0f8-46b3-88d1-c7427315de8c": {
+        [Language.English]: `Copy`,
+        [Language.Hindi]: "?????",
+    },
+    "eee1a98d-b9ab-4ee5-bde6-bcb2cdc26ece": {
+        [Language.English]: `Copied`,
+        [Language.Hindi]: "?????",
+    },
+    "6dd8ca3b-6542-4fc4-81ce-6183b8359ec5": {
+        [Language.English]: `Natwarlal is still on the move!`,
+        [Language.Hindi]: "?????",
+    },
+    "99a6da97-c8bf-4ce3-b95a-611ec00c880a": {
+        [Language.English]: `Follow him`,
+        [Language.Hindi]: "?????",
+    },
+    "23992b81-60ed-4164-9e5c-91dcc6752f39": {
+        [Language.English]: `Second Clue: Find Natwarlal with the stolen inverter battery and end the quest.`,
+        [Language.Hindi]: "?????",
+    },
+    "7ec1488f-530c-40b6-a86b-dc2ea8840310": {
+        [Language.English]: `Uh-oh! Natwarlal just took the inverter battery and he's off to the Load Calculator. Hurry! Spot him before he makes it home with our product! Ready for the chase?`,
+        [Language.Hindi]: "?????",
+    },
+    "3e9f691e-f760-4691-b6d8-85733ce4d416": {
+        [Language.English]: `Catch Natwarlal`,
+        [Language.Hindi]: "?????",
+    },
+    "e6419d6a-b775-4e93-81e5-9a18b1a1c809": {
+        [Language.English]: `Victory!`,
+        [Language.Hindi]: "?????",
+    },
+    "fb5b1b3a-a82c-4968-a9da-25b3cd9d62db": {
+        [Language.English]: `You successfully found the <span class="tw-font-bold">stolen inverter battery</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "f34a013d-dc49-425b-bc87-984766a35a2d": {
+        [Language.English]: `You can now claim your reward`,
+        [Language.Hindi]: "?????",
+    },
+    "78b0281f-e8cf-4b38-82c0-23382b168795": {
+        [Language.English]: `Claim Now`,
+        [Language.Hindi]: "?????",
+    },
+    "79436419-5a42-4720-be85-19bc0b46c7bb": {
+        [Language.English]: `Your Name`,
+        [Language.Hindi]: "?????",
+    },
+    "fe032013-d1e7-45d7-9c0c-d289c5f80c52": {
+        [Language.English]: `Your Email`,
+        [Language.Hindi]: "?????",
+    },
+    "b24cf3a3-c834-487e-8ca3-5f78e02a267e": {
+        [Language.English]: `Your Mobile`,
+        [Language.Hindi]: "?????",
+    },
+    "3942668d-37f8-4964-ac34-5eaef54e3f77": {
+        [Language.English]: `Username`,
+        [Language.Hindi]: "?????",
+    },
+    "88d4bc6f-64ee-4910-8b1e-27ad5aea32c1": {
+        [Language.English]: `Coupon Code`,
+        [Language.Hindi]: "?????",
+    },
+    "2a9b9149-ae09-452b-b02d-8ab5b8850557": {
+        [Language.English]: `Submit Now`,
+        [Language.Hindi]: "?????",
+    },
+    "29a1dc30-0f20-4075-b14e-52197e83f059": {
+        [Language.English]: `Perfect!`,
+        [Language.Hindi]: "?????",
+    },
+    "1a109702-9407-4945-aa54-acde384ace7a": {
+        [Language.English]: `Your detective skills found the <span class="tw-font-bold">inverter & battery!</span>`,
+        [Language.Hindi]: "?????",
+    },
+    "37118df1-c2d2-4cbb-af54-288487236384": {
+        [Language.English]: `Your efforts deserve another amazing reward!`,
+        [Language.Hindi]: "?????",
+    },
+    "38d347bc-e85b-46f2-82a0-dd41a118daaf": {
+        [Language.English]: `Our team will reach out to you with your reward shortly.`,
+        [Language.Hindi]: "?????",
+    },
+    "69d20806-45ec-42e0-951e-54a4d0f46b14": {
+        [Language.English]: `More About Livguard`,
+        [Language.Hindi]: "?????",
+    },
+    "b65da678-f08a-46fd-ae2a-b2df56391d4d": {
+        [Language.English]: `Welcome to Livguard - Your Premier Destination for Inverter Batteries and More`,
+        [Language.Hindi]: "?????",
+    },
+    "74a5eaf0-dc22-4227-8c5c-c1ee276a56bf": {
+        [Language.English]: `If you're in search of the best inverter battery to keep your home, office, or industrial setup powered during outages, Livguard has you covered with an extensive range of inverter batteries at competitive prices. Whether you need a mini inverter for your home office or a high-capacity 200Ah battery for industrial use, we offer top-quality products that cater to all your power backup needs.`,
+        [Language.Hindi]: "?????",
+    },
+    "573743ba-bd29-40fc-80e6-cd6fa1ce085f": {
+        [Language.English]: `Our Inverter Battery Range:`,
+        [Language.Hindi]: "?????",
+    },
+    "474e6e60-db1c-4c7e-b158-caf6a2425ee8": {
+        [Language.English]: `Inverter Batteries for Home and Office: Find the perfect inverter for home, office, or shop use with Livguard. We offer a variety of options, including tubular batteries and 150Ah battery choices like short tubular and tall tubular, ensuring that your workspaces stay powered up efficiently.`,
+        [Language.Hindi]: "?????",
+    },
+    "2f15fc7f-1e7f-4a5d-a97b-899fdb3062f3": {
+        [Language.English]: `Best Inverter Battery: At Livguard, we take pride in providing the best inverter batteries on the market. Our extensive selection ensures you get the ideal combination of performance and value.`,
+        [Language.Hindi]: "?????",
+    },
+    "8756b065-a52e-46d2-adfb-bc8ce1df4823": {
+        [Language.English]: `Inverter Shops Near Me: Locate Livguard inverter batteries at stores near you. Our wide distribution network ensures that you can easily find inverter dealers nearby, whether for office or industrial use.`,
+        [Language.Hindi]: "?????",
+    },
+    "53da8188-f07f-45dc-82fd-5ce27696264c": {
+        [Language.English]: `Inverters for Offices: Need a compact power solution for your office or shop? Explore our range of mini inverters that are perfect for small spaces and low-power requirements.`,
+        [Language.Hindi]: "?????",
+    },
+    "3bce3717-9177-40a1-8099-179e3f142d0a": {
+        [Language.English]: `High-Capacity Batteries for Industrial Use: For those with higher power needs in industrial settings, our 200Ah batteries are a reliable choice. Get the best inverter with a battery for your industrial applications.`,
+        [Language.Hindi]: "?????",
+    },
+    "ae660408-b213-4060-9059-3b53544297fa": {
+        [Language.English]: `Sine Wave Inverters for Office and Industrial Use: Experience smooth and consistent power output with our sine wave inverters, ideal for sensitive electronic devices in office and industrial environments.`,
+        [Language.Hindi]: "?????",
+    },
+    "6a5d55f0-21cd-47a8-8f9d-7c0e1ec61e95": {
+        [Language.English]: `Hybrid Inverters for Office and Industrial Settings: Looking for a versatile solution for your office or industrial space? Consider our hybrid inverters that integrate solar power and grid electricity seamlessly.`,
+        [Language.Hindi]: "?????",
+    },
+    "a5d385c8-e00d-4be5-826d-5bd117552929": {
+        [Language.English]: `Why Choose Livguard:`,
+        [Language.Hindi]: "?????",
+    },
+    "ba2310a2-9823-4536-8697-1cc83da9aa39": {
+        [Language.English]: `Quality Assurance: Livguard is synonymous with quality. Our inverter batteries are built to last, ensuring long-term reliability and performance in both office and industrial settings.`,
+        [Language.Hindi]: "?????",
+    },
+    "c174476d-747e-44a8-8af6-41a6e5f26c92": {
+        [Language.English]: `Wide Variety for Office and Industrial Needs: No matter your specific requirements, we have an inverter and battery combination that fits your office or industrial power backup needs.`,
+        [Language.Hindi]: "?????",
+    },
+    "9285e6dc-7554-4b8d-b83b-1c462f3b315a": {
+        [Language.English]: `Expert Guidance: Our knowledgeable staff can guide you in selecting the perfect inverter and battery setup for your office, shop, or industrial setup.`,
+        [Language.Hindi]: "?????",
+    },
+    "7da9aca6-1493-44e1-9a51-e79f9b4be665": {
+        [Language.English]: `Competitive Prices: We offer competitive inverter battery prices, ensuring you get the best value for your money, whether it's for your office or industrial use.`,
+        [Language.Hindi]: "?????",
+    },
+    "f6ee6026-c1bc-4814-aaca-86b62c56080f": {
+        [Language.English]: `Find the Right Inverter Battery for Your Office or Industrial Space:`,
+        [Language.Hindi]: "?????",
+    },
+    "2d795937-f920-49a8-b19d-6cb8073d4db3": {
+        [Language.English]: `Livguard's extensive range of inverter batteries, including 150Ah and 200Ah options, ensures that you find the perfect fit for your office, shop, or industrial power backup needs. Whether it's for backup power in your office, shop, or industrial facility, we have the solution.`,
+        [Language.Hindi]: "?????",
+    },
+    "65b60823-257a-4725-99a7-77ce25e91288": {
+        [Language.English]: `Explore Our Products for Office and Industrial Use:`,
+        [Language.Hindi]: "?????",
+    },
+    "0a491c8b-0c8a-406c-a482-89b144758687": {
+        [Language.English]: `Tubular Batteries: Discover the durability and performance of our tubular batteries, designed for long-lasting power backup in office and industrial settings.`,
+        [Language.Hindi]: "?????",
+    },
+    "af744aeb-e34f-45e3-9372-27b08e600fbc": {
+        [Language.English]: `Online Inverter & Inverter Battery Shopping: Shop online at Livguard from the comfort of your office or home, and we'll deliver your chosen inverter battery right to your doorstep.`,
+        [Language.Hindi]: "?????",
+    },
+    "dfa119d7-cdb6-46b8-83c4-9883e5a092b6": {
+        [Language.English]: `Inverter Battery Accessories: Find inverter battery boxes, converters, and other accessories to complement your power setup, whether it's for your office, shop, or industrial facility.`,
+        [Language.Hindi]: "?????",
+    },
+    "c842a2c6-1a3b-488e-a3ad-a668f45de854": {
+        [Language.English]: `Experience Uninterrupted Power in Your Office or Industrial Space with Livguard:`,
+        [Language.Hindi]: "?????",
+    },
+    "5956a05a-dd59-4e9a-aa1d-48aa55f236f5": {
+        [Language.English]: `Don't let power interruptions disrupt your work. Livguard's inverter batteries are your reliable source of backup power for your office, shop, or industrial setup. Explore our range today and ensure uninterrupted power when you need it the most.`,
+        [Language.Hindi]: "?????",
+    },
+    "86526c6c-8a27-4e06-b4fa-da1b82cc3967": {
+        [Language.English]: `Livguard Solar - Your Comprehensive Destination for Power Solutions`,
+        [Language.Hindi]: "?????",
+    },
+    "797afe89-61fe-487d-924e-2975a3e29b34": {
+        [Language.English]: `Are you searching for the best inverter battery, solar solutions, automotive batteries, or E-mobility products for your home, office, or industrial needs? Look no further! Livguard offers a diverse range of high-quality power solutions, ensuring uninterrupted power supply in any setting.`,
+        [Language.Hindi]: "?????",
+    },
+    "86184562-2338-4444-a867-bcabc36fd280": {
+        [Language.English]: `Our Comprehensive Product Range:`,
+        [Language.Hindi]: "?????",
+    },
+    "fdbebfc5-96cd-4191-934b-e7e89e58d702": {
+        [Language.English]: `Top-Notch Solar Solutions: Harness the power of the sun with our cutting-edge solar products. From solar panels to solar inverters and batteries, we offer complete solar solutions for residential, commercial, and industrial applications.`,
+        [Language.Hindi]: "?????",
+    },
+    "f9523785-9cb1-4f13-a127-f7a5b579510b": {
+        [Language.English]: `Automotive Batteries: Livguard provides high-performance automotive batteries suitable for cars, trucks, and other vehicles. Our automotive batteries ensure reliable power on the road.`,
+        [Language.Hindi]: "?????",
+    },
+    "da5cb87b-923e-40a1-b390-c3a5d28240d6": {
+        [Language.English]: `E-mobility Products for a Sustainable Future: Embrace the future of mobility with Livguard's E-mobility products. From electric vehicle batteries to charging solutions, we contribute to a sustainable transportation ecosystem.`,
+        [Language.Hindi]: "?????",
+    },
+    "7e6f0e05-9a06-4a17-9f8c-3cbf7dc65cf9": {
+        [Language.English]: `Why Choose Livguard Solar:`,
+        [Language.Hindi]: "?????",
+    },
+    "71defc8f-1ed1-4932-838c-96f54b881195": {
+        [Language.English]: `Quality Assured: Livguard is synonymous with top-notch quality. Our products, including inverter batteries, solar solutions, automotive batteries, and E-mobility products, are built to last and perform consistently.`,
+        [Language.Hindi]: "?????",
+    },
+    "1c938afb-620f-4fa7-b810-a0620654761c": {
+        [Language.English]: `Wide Variety for Every Need: Whether you need an inverter battery for your home office, a solar solution for your industrial facility, or an automotive battery for your vehicle, Livguard offers diverse options tailored to your requirements.`,
+        [Language.Hindi]: "?????",
+    },
+    "b0a7b74d-f238-4b96-8a8d-95eb3890620c": {
+        [Language.English]: `Expert Guidance: Count on our knowledgeable staff to assist you in selecting the perfect power solution for your specific needs, whether it's for home, office, or industrial use.`,
+        [Language.Hindi]: "?????",
+    },
+    "4a719966-301a-4806-b94e-c7ab92349a1b": {
+        [Language.English]: `Competitive Pricing: We provide competitive prices across our product range, ensuring you receive the best value for your investment, no matter your application.`,
+        [Language.Hindi]: "?????",
+    },
+    "2f3afb31-1745-461a-b06c-b6f82dad8007": {
+        [Language.English]: `Finding the Right Power & Solar Solution:`,
+        [Language.Hindi]: "?????",
+    },
+    "29323849-e8a8-4a1c-9ef9-792453e5aab3": {
+        [Language.English]: `Livguard's extensive product range ensures you find the ideal power & solar solution for your home, office, or industrial space. Whether you require backup power, solar energy solutions, automotive batteries, or E-mobility products, we have you covered.`,
+        [Language.Hindi]: "?????",
+    },
+    "2105f9c8-df34-4807-97d6-eb502582c907": {
+        [Language.English]: `Explore Our Offerings:`,
+        [Language.Hindi]: "?????",
+    },
+    "27e83276-648e-44cb-8025-ebd5cfffa066": {
+        [Language.English]: `Online Shopping Convenience: Shop online at Livguard from the comfort of your home or office, and we'll deliver your chosen Solar solution right to your doorstep.`,
+        [Language.Hindi]: "?????",
+    },
+    "20d810c2-8da8-4505-917a-26f1ccbd3dc2": {
+        [Language.English]: `Accessories and Charging Solutions: Find essential accessories and charging solutions to complement your power setup, ensuring smooth operations in your chosen application.`,
+        [Language.Hindi]: "?????",
+    },
+    "618931ac-9e6c-4492-b9d1-2243eabbb2b6": {
+        [Language.English]: `Experience Uninterrupted Power with Livguard:`,
+        [Language.Hindi]: "?????",
+    },
+    "ef416060-345e-45c1-a6cb-763e9e6a12b7": {
+        [Language.English]: `Don't let power interruptions disrupt your daily life, work, or industrial processes. Livguard's power solutions, including inverter batteries, solar products, automotive batteries, and E-mobility solutions, are your reliable sources of energy. Explore our range today and ensure uninterrupted power when you need it the most.`,
+        [Language.Hindi]: "?????",
+    },
+    "8fd0b5be-f173-41dd-b9d3-3deddb5c11ba": {
+        [Language.English]: `Tailor made solutions to fit your exact requirements`,
+        [Language.Hindi]: `?????`,
+    },
+    "25fd206a-06bb-4672-a35f-1399865203d4": {
+        [Language.English]: `Long lasting installation`,
+        [Language.Hindi]: `?????`,
+    },
+    "d791b39f-14fd-4c40-8433-ec925424664f": {
+        [Language.English]: `24X7 monitoring through app`,
+        [Language.Hindi]: `?????`,
+    },
+    "e37bfec4-dc83-429c-9a67-7071555b9e59": {
+        [Language.English]: `One click service support`,
+        [Language.Hindi]: `?????`,
+    },
+    "304bb4e0-bdb6-4262-962d-38e6a7da770c": {
+        [Language.English]: `<span class="lg-text-highlighted">Benefits</span> of Solar`,
+        [Language.Hindi]: `?????`,
+    },
+    "cdd10c2f-5e3b-422c-82a0-0bab45cdc28b": {
+        [Language.English]: `Reduce your electricity Bill`,
+        [Language.Hindi]: `?????`,
+    },
+    "afd8b2c4-4569-40e8-80c8-51cbdaf216aa": {
+        [Language.English]: `Renewable energy contribute to a Greener Planet to avoid natural disaster`,
+        [Language.Hindi]: `?????`,
+    },
+    "99f54955-32c7-4a5e-adb0-042ff473e4b6": {
+        [Language.English]: `Protection against rising Electricity cost`,
+        [Language.Hindi]: `?????`,
+    },
+    "773154e0-c198-4bbe-8217-b32405b19f49": {
+        [Language.English]: `Lower maintenance cost compare to other electricity generation system`,
+        [Language.Hindi]: `?????`,
+    },
+    "9b537612-c051-4b32-8430-ac84431b06da": {
+        [Language.English]: `Noise free, easy to maintain`,
+        [Language.Hindi]: `?????`,
+    },
+    "0306168f-91be-4091-8a51-8b714976fd51": {
+        [Language.English]: `Natural cooling due to roof mounted solar Panels`,
+        [Language.Hindi]: `?????`,
+    },
+    "80c6554e-9b6f-40a0-b2d1-66dc980523eb": {
+        [Language.English]: `Answer to your big Question`,
+        [Language.Hindi]: `?????`,
+    },
+    "ea9fdf49-ad11-4d5a-9a12-73dc0de5d1f1": {
+        [Language.English]: `Should I Get Solar?`,
+        [Language.Hindi]: `?????`,
+    },
+    "8b2953ed-b530-499e-a3fe-92e64d0bba76": {
+        [Language.English]: `1 BHK Home`,
+        [Language.Hindi]: `?????`,
+    },
+    "f900391f-bcad-4185-adf2-ec61b74662fe": {
+        [Language.English]: `2 BHK Home`,
+        [Language.Hindi]: `?????`,
+    },
+    "fb4c3130-3c4e-4f47-984d-977afcdd8380": {
+        [Language.English]: `3 BHK Home`,
+        [Language.Hindi]: `?????`,
+    },
+    "c9ab50c2-797b-45e5-af4d-91b3a9b475d0": {
+        [Language.English]: `Area Required`,
+        [Language.Hindi]: `?????`,
+    },
+    "f863e274-dbb8-4d2f-8afb-f0e855d66600": {
+        [Language.English]: `*Ideal system size. Final solution post site survey`,
+        [Language.Hindi]: `?????`,
+    },
+    "cca0be55-8a1e-414a-bedf-4503980a95f1": {
+        [Language.English]: `Your Monthly Bill <span class="tw-text-primary-500-light">with Solar</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "ec96e9b6-7bba-4a4f-915c-c8134c03fbb5": {
+        [Language.English]: `Your Monthly Savnig <span class="tw-text-primary-500-light">with Solar</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "6940b06d-192b-4c64-a38d-39c08ba585ec": {
+        [Language.English]: `Your Solar System Can generate`,
+        [Language.Hindi]: `?????`,
+    },
+    "b9d9380d-e638-47f6-8a9f-3c9aa6c5d485": {
+        [Language.English]: `of your <span class="tw-text-primary-500-light">Energy Consumption</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "6db60a24-510a-443d-a7e4-9de505a047ac": {
+        [Language.English]: `Your Lifetime Saving`,
+        [Language.Hindi]: `?????`,
+    },
+    "f2dcb78d-2566-465a-ac08-df42e2ed8a45": {
+        [Language.English]: `Your Estimate For Solar Solution`,
+        [Language.Hindi]: `?????`,
+    },
+    "1228daec-fb96-4fa6-8760-818d97a7cf83": {
+        [Language.English]: `Payback`,
+        [Language.Hindi]: `?????`,
+    },
+    "673c90b0-b6fb-4ddd-9e0e-b8f6e1abdbae": {
+        [Language.English]: `Return on Investment`,
+        [Language.Hindi]: `?????`,
+    },
+    "549aaae6-7b4f-4bea-8f89-4254d36fb069": {
+        [Language.English]: `Your Solar System Can Generate <span class="tw-text-primary-500-light lg-text-title2">85%</span> of Your Energy Consumption`,
+        [Language.Hindi]: `?????`,
+    },
+    "378c005c-263e-436e-a034-1e8b4b121f50": {
+        [Language.English]: `Impact on Environment`,
+        [Language.Hindi]: `?????`,
+    },
+    "4723e954-2c41-42a9-ab54-69f518c422fd": {
+        [Language.English]: `CO2 Emissions Mitigated`,
+        [Language.Hindi]: `?????`,
+    },
+    "3dfa0f92-bb81-4e09-9f25-92ad66afa93b": {
+        [Language.English]: `Trees Added`,
+        [Language.Hindi]: `?????`,
+    },
+    "3280fde0-f2d3-4627-b829-5956d59109a3": {
+        [Language.English]: `Calculate My Savings`,
+        [Language.Hindi]: `?????`,
+    },
+    "6a1cc5f2-af32-474c-8676-6b851064daa1": {
+        [Language.English]: `Livguard <span class="lg-text-highlighted">Solar Diaries</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "865b7e53-039d-4ecc-9958-97f2527aecf7": {
+        [Language.English]: `Rakesh Kansal`,
+        [Language.Hindi]: `?????`,
+    },
+    "8841827d-7aeb-4047-83ec-c4efd56a8586": {
+        [Language.English]: `A solar solution built for expert performance and extra savings`,
+        [Language.Hindi]: `?????`,
+    },
+    "0602f1f2-b5aa-4f3e-b9c0-8e73dda79c19": {
+        [Language.English]: `Being involved in the dairy business in Bikaner, Rajasthan, I was thinking about switching to solar for some time. After multiple enquiries about the right solar solution, one of my close friends advised me about the Livguard expert solar solution. Paying attention to his suggestion, I decided to install a 3KWp residential on-grid solar solution at home.`,
+        [Language.Hindi]: `?????`,
+    },
+    "c0caac80-005c-4acf-aa47-0262d063f5c5": {
+        [Language.English]: `After making the first call with team Livguard, they guided me properly and helped in necessary government approvals and civil work. The entire installation process was a seamless experience due to the active team involvement.`,
+        [Language.Hindi]: `?????`,
+    },
+    "5a609ab9-7e6b-4707-8973-3cfe855555db": {
+        [Language.English]: `Talking about the expert performance of my solar solution, it is generating around 12-13 units of electricity every day along with my less electricity bill. I am extremely satisfied with its overall working and it is clearly a true value for money.`,
+        [Language.Hindi]: `?????`,
+    },
+    "2f603908-119c-43b4-b4d3-8b372ed3828b": {
+        [Language.English]: `Overall Satisfaction`,
+        [Language.Hindi]: `?????`,
+    },
+    "68f6bb6e-b78e-4b1d-86d3-8eb004ee22cf": {
+        [Language.English]: `How Our <span class="lg-text-highlighted tw-whitespace-nowrap">Solar Experts Deliver?</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "2768e014-aad2-4622-a7e0-39cd685d5be9": {
+        [Language.English]: `Using the decades of research in the energy space, we not only build the best in class products but also recommend the right fit as per your needs and budget- a skillset that is rare to find. Our cost effective solar installations run effortlessly with minimum maintenance, providing a clean and effective energy solution to our clients.`,
+        [Language.Hindi]: `?????`,
+    },
+    "1059a000-dbab-47e4-b0cd-93544b69bb2e": {
+        [Language.English]: `Residential Projects`,
+        [Language.Hindi]: `?????`,
+    },
+    "b62c72cb-60bb-4b9f-b595-f3676d094c51": {
+        [Language.English]: `Commercial Projects`,
+        [Language.Hindi]: `?????`,
+    },
+    "63860595-70df-4712-9a6c-e6e33d10a914": {
+        [Language.English]: `5 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "a3d089fc-43a3-43ff-a3c2-707b0f2fcaf9": {
+        [Language.English]: `Abha Rawat , Lucknow, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "06ebf062-5f30-493d-b9d1-66a76e1f01a3": {
+        [Language.English]: `10 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "b9e3baef-45fa-4393-96da-3f9601c9294e": {
+        [Language.English]: `Anil Kapoor, Gwalior, MP`,
+        [Language.Hindi]: `?????`,
+    },
+    "c1a8f49a-ea90-4afc-8d58-dcd44d636095": {
+        [Language.English]: `20 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "85586cdb-f74e-45bf-8a62-760b2ceebd27": {
+        [Language.English]: `Mumukshu Bhawan, Varanasi, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "2983a6e2-3c39-4c79-bc38-68eeeb9179e8": {
+        [Language.English]: `50 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "5fb6dae9-e71a-4bcd-930d-f011e443edf9": {
+        [Language.English]: `Mewar University, Gaziabad, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "a11142cf-bb40-464e-8c8f-98b61b7490ba": {
+        [Language.English]: `20 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "dde60104-112a-4410-ac02-8a8cad238964": {
+        [Language.English]: `Unnao Development Authority, Unnao, UP`,
+        [Language.Hindi]: `?????`,
+    },
+    "ef03ae52-e01e-43ce-9d96-361aa4076400": {
+        [Language.English]: `7.5 KW, Solar PV Plant`,
+        [Language.Hindi]: `?????`,
+    },
+    "329095b3-25a6-469f-a8bb-4cf67670f963": {
+        [Language.English]: `GAIL, Haryana`,
+        [Language.Hindi]: `?????`,
+    },
+    "ca0ebdba-61a5-4385-9013-2b8b234dc798": {
+        [Language.English]: `How <span class="lg-text-highlighted">Livguard</span> Stands Apart`,
+        [Language.Hindi]: `?????`,
+    },
+    "9e8c1d8a-6814-443a-be82-9e59b278386d": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Success Stories</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "a4807688-807d-40e8-a710-84364086a4ed": {
+        [Language.English]: `About <br/><span class="lg-text-highlighted">Livguard Solar</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "ecbb4510-50c9-41e4-89be-576378f00266": {
+        [Language.English]: `With a remarkable vision and foresight for the growing energy solutions industry, today the brand boasts of an incredible legacy of 30 years. Powered by passion and fuelled by innovation, Livguard has established itself as a strong player in the energy solution space in India. With our offerings in automotive batteries, Inverters and Inverter Batteries, Stabilizers, Solar Solutions, we are bringing in a new dimension of smart energy products.`,
+        [Language.Hindi]: `?????`,
+    },
+    "3a4ebae0-bd7e-4c9c-8cf1-9575437fa8a4": {
+        [Language.English]: `Join Expo`,
+        [Language.Hindi]: `?????`,
+    },
+    "0877ced7-a85d-4005-8c7c-4300c5ac19da": {
+        [Language.English]: `Solar Solution for Small Commercials`,
+        [Language.Hindi]: `?????`,
+    },
+    "70e5d67b-ad2d-4ac8-96ad-3e384d7d299a": {
+        [Language.English]: `<span class="lg-text-highlighted">Key Highlights</span> Of The REI EXPO 2023 with Livguard`,
+        [Language.Hindi]: `?????`,
+    },
+    "78a4d9e3-73bb-4730-baeb-f919d8142cdc": {
+        [Language.English]: `Solar Solutions for Industries`,
+        [Language.Hindi]: `?????`,
+    },
+    "38028f16-3ded-4d92-8374-ed03005ba2d9": {
+        [Language.English]: `Residential Solar Solution`,
+        [Language.Hindi]: `?????`,
+    },
+    "82986ede-25e4-4dfc-b17e-08b4bf792ab7": {
+        [Language.English]: `Energy Storage System (ESS)`,
+        [Language.Hindi]: `?????`,
+    },
+    "8f25eea9-7b97-42d2-8152-1ebf67c2e849": {
+        [Language.English]: `Service`,
+        [Language.Hindi]: `?????`,
+    },
+    "28b1f0d5-c206-45ad-9673-5b2d93e1e1b5": {
+        [Language.English]: `Gallery`,
+        [Language.Hindi]: `?????`,
+    },
+    "d1a5c759-8829-414c-81f9-49983b2ec16e": {
+        [Language.English]: `Our <span class="lg-text-highlighted">Products & Services</span>`,
+        [Language.Hindi]: `?????`,
+    },
+    "1e937877-23fb-4cef-9f70-aba46b1491f3": {
+        [Language.English]: `What <span class="lg-text-highlighted">Our Customers</span> Say About Us`,
+        [Language.Hindi]: `?????`,
+    },
+    "ad74b4d0-ec97-493a-8f69-2c9025a84dc2": {
+        [Language.English]: "Phone Number",
+        [Language.Hindi]: "मोबाइल नंबर",
+    },
+    "10b102a7-4be9-4832-9240-f747cf81a855": {
+        [Language.English]: "Please Enter Your Mobile Number",
+        [Language.Hindi]: "कृपया अपना मोबाइल नंबर डालें",
+    },
+    "6801bb72-ee1d-42ae-8f4a-a08848f267fa": {
+        [Language.English]: "Name",
+        [Language.Hindi]: "नाम",
+    },
+    "7ce2eaa7-4d46-4f80-80d2-b91b81085a49": {
+        [Language.English]: "Please Enter Your Name",
+        [Language.Hindi]: "कृपया अपना नाम डालें",
+    },
+    "e7117c35-13c8-4282-98d3-f5c955238da8": {
+        [Language.English]: "Email",
+        [Language.Hindi]: "ई-मेल",
+    },
+    "29ca1701-2fb9-49ec-a4d6-3af793c194b1": {
+        [Language.English]: "Please Enter Your Email",
+        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
+    },
+    "4af1d7d6-25cb-4bfe-b3f3-efc6fbf991e1": {
+        [Language.English]: "Organisation",
+        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
+    },
+    "2f91bf98-978c-4534-864b-b49790ab4b6f": {
+        [Language.English]: "Please Enter Your Mobile Organisation",
+        [Language.Hindi]: "कृपया अपनी ई-मेल डालें",
+    },
+    "1daf5d8c-9c04-4345-a0f2-7ee5b05b629e": {
+        [Language.English]: "Indian Expo Centre, Greater Noida",
+        [Language.Hindi]: "??????",
+    },
+    "b6d8dfb6-5b39-4a18-9329-14b7b5599c67": {
+        [Language.English]: `Find us at <span class="lgs-text-gradient" style="font-family: stencil">Renewable Energy Expo</span> 2023`,
+        [Language.Hindi]: "??????",
+    },
+    "247863ed-0f07-4278-89f8-485c1a1d4f00": {
+        [Language.English]: "We are Exhibiting at REI expo this year with our advanced products, cutting edge technology, and expert support at every step of you.",
+        [Language.Hindi]: "??????",
+    },
+    "9bda580e-5bbd-4c5f-9354-1ac2b4f93913": {
+        [Language.English]: "October 2023",
+        [Language.Hindi]: "??????",
+    },
+    "fb5dcae7-729f-44ac-9877-e57eb921e71c": {
+        [Language.English]: "4th to 6th",
+        [Language.Hindi]: "??????",
+    },
+    "afd8d1a0-c28e-424d-8d0f-01d30e0017e8": {
+        [Language.English]: "Stand no.",
+        [Language.Hindi]: "??????",
+    },
+    "86815d1a-3e79-4965-9417-bfc3705cbcde": {
+        [Language.English]: "10.166",
+        [Language.Hindi]: "??????",
+    },
+    "578a2977-c953-42a1-9866-4a9cc7d79202": {
+        [Language.English]: "Find us at REI",
+        [Language.Hindi]: "हमें REI में खोजें",
+    },
+    "0e9460fa-70dc-46e6-a7e9-eb390658befe": {
+        [Language.English]: `<span class="lg-text-highlighted">Reach Out</span> For Any Query`,
+        [Language.Hindi]: `?????`,
+    },
+    "f9a8c47e-852e-42c5-9942-9991eb7773e8": {
+        [Language.English]: `Contact us`,
+        [Language.Hindi]: "?????",
+    },
+    "f6b3804e-752e-46bd-aef0-c5421a9110f7": {
+        [Language.English]: `Submit`,
+        [Language.Hindi]: `?????`,
+    },
+    "64794c5f-21b8-49a8-9ad8-4bd9ed02c221": {
+        [Language.English]: `Solar Street Lights`,
+        [Language.Hindi]: `?????`,
+    },
+    "036fe73d-7d0c-4221-ae1d-3101139338c6": {
+        [Language.English]: `Solar Battery`,
+        [Language.Hindi]: `?????`,
+    },
+    "fe5908ec-3337-4b25-814d-1324313fa03d": {
+        [Language.English]: `Off-Grid Inverters`,
+        [Language.Hindi]: `?????`,
+    },
+    "03ccdaa3-1eaf-4ffa-8851-aab6ab979092": {
+        [Language.English]: `SOLCULATOR®`,
+        [Language.Hindi]: "?????",
+    },
+    "feb2e012-474a-4ad1-a166-335db53d222f": {
+        [Language.English]: `Charge Controller/SMU`,
+        [Language.Hindi]: `?????`,
+    },
+    "9cafbfcc-4dc4-4a85-a168-bebb2bebcb84": {
+        [Language.English]: `Hybrid Inverters`,
+        [Language.Hindi]: `?????`,
+    },
+    "3cb60479-da6d-462c-879c-5a1b510630a4": {
+        [Language.English]: `GMB Dealer Locator`,
+        [Language.Hindi]: `GMB डीलर ढूंढें`,
+    },
+    "a92d2d4c-be7d-4b41-8f8f-32ad2e427a3a": {
+        [Language.English]: `Till then, shower some love on our Social <b>Handles</b>`,
+        [Language.Hindi]: "?????",
+    },
+    "f5a76b54-fbf2-4ae1-91a2-e61a0cf06541": {
+        [Language.English]: `<span class="lg-text-highlighted">Social Media</span> Feed`,
+        [Language.Hindi]: "?????",
+    },
+    "a96ea06b-50d5-4cc6-be0c-abfc5d8dac0d": {
+        [Language.English]: `Facebook`,
+        [Language.Hindi]: "?????",
+    },
+    "a6fcf6d7-0527-4ada-8c13-203a0986437a": {
+        [Language.English]: `Instagram`,
+        [Language.Hindi]: "?????",
+    },
+    "64f7cb15-0cf3-4ee1-876c-250408c8dcc6": {
+        [Language.English]: `X (formerly Twitter)`,
+        [Language.Hindi]: "?????",
+    },
+    "f3e7ee9a-6310-49fd-b839-2d9908ff104a": {
+        [Language.English]: `AG`,
+        [Language.Hindi]: `????`,
+    },
+    "2032253c-afd1-41e5-9b25-516daa8b8d18": {
+        [Language.English]: `Gujarat`,
+        [Language.Hindi]: `????`,
+    },
+    "dc3676da-4762-4731-ba15-6fae0a60dfd8": {
+        [Language.English]: `Happy Customer AG Joins Livguard's 2 Cr+ Family!`,
+        [Language.Hindi]: `????`,
+    },
+    "c74c645b-7c6b-47c8-8ddc-a7f9c6bc5f94": {
+        [Language.English]: `Mrunal Maya Mohanty`,
+        [Language.Hindi]: `????`,
+    },
+    "1b042682-79c2-4f08-8155-2f7668844609": {
+        [Language.English]: `Telangana`,
+        [Language.Hindi]: `????`,
+    },
+    "d9619759-9a53-470a-a956-fb6d51f18951": {
+        [Language.English]: `Happy Customer Review: Mrunal Joins Livguard Family!`,
+        [Language.Hindi]: `????`,
+    },
+    "3eb9cad0-bbd1-4dad-967f-1073a6adaf2e": {
+        [Language.English]: `Rohit Singh`,
+        [Language.Hindi]: `????`,
+    },
+    "f66aed4d-418d-4d55-8ab0-6548030e3af6": {
+        [Language.English]: `Rohit Singh's 2-Year Livguard Inverter & Battery Experience | Join Our Satisfied Livguard Family!`,
+        [Language.Hindi]: `????`,
+    },
+    "986605b0-30a0-433b-ac6a-10e8deba3063": {
+        [Language.English]: `Delhi`,
+        [Language.Hindi]: `????`,
+    },
+    "676de8c8-861f-48d7-9111-5fc01c2aae76": {
+        [Language.English]: `Touseef Ahmad`,
+        [Language.Hindi]: `????`,
+    },
+    "f21fbe4a-86f4-4ab8-a0fb-37ae42578b29": {
+        [Language.English]: `From Installation to Savings: Touseef Ahmed's Livguard Solar Journey`,
+        [Language.Hindi]: `????`,
+    },
+    "df0d4329-4cb4-4a4b-a23c-84ad9c7ed2dd": {
+        [Language.English]: `Uttar Pradesh`,
+        [Language.Hindi]: `????`,
+    },
+    "92471019-483f-4429-8234-42df112baa9c": {
+        [Language.English]: `Shravan Pathak`,
+        [Language.Hindi]: `????`,
+    },
+    "607cc572-1388-4e27-9c1b-80f38e7a2173": {
+        [Language.English]: `Madhya Pradesh`,
+        [Language.Hindi]: `????`,
+    },
+    "41d5f089-f510-4e71-934d-7ccddcb97aef": {
+        [Language.English]: `Livguard Customer Spotlight: Shravan's Year of Reliability`,
+        [Language.Hindi]: `????`,
+    },
+    "ecc2a101-772c-4fcb-a2c3-586d13f19ed2": {
+        [Language.English]: `Smita Singh`,
+        [Language.Hindi]: `????`,
+    },
+    "ce6c76b0-217b-45f7-a388-8aba61437ae0": {
+        [Language.English]: `Livguard On Grid Solar | 10KW On Grid Solar System | Solar Panels For Home | On Grid Solar System`,
+        [Language.Hindi]: `????`,
+    },
+    "e6fc8d59-9517-4499-bfc5-857986597848": {
+        [Language.English]: `Touseef Ahmed`,
+        [Language.Hindi]: `????`,
+    },
+    "1614092f-20cb-4aa8-8286-32b713e295cb": {
+        [Language.English]: `From Installation to Savings: Touseef Ahmed's Livguard Solar Journey`,
+        [Language.Hindi]: `????`,
+    },
+    "4f13dc23-7b2e-40ff-91ce-301cd8d82096": {
+        [Language.English]: `Anil`,
+        [Language.Hindi]: `????`,
+    },
+    "4a14b5c9-567e-4e8a-a677-395e94e53300": {
+        [Language.English]: `Uninterrupted Power with Livguard: Lighting Up Lives Across India!`,
+        [Language.Hindi]: `????`,
+    },
+    "2a4ae964-e66a-4d30-a63a-31409941b4c8": {
+        [Language.English]: `Ashique`,
+        [Language.Hindi]: `????`,
+    },
+    "8a4d79a9-cafb-4d8b-8728-93635a6f77fd": {
+        [Language.English]: `Customer Spotlight: Ashique MK's Thriving Solar Journey with Livguard!`,
+        [Language.Hindi]: `????`,
+    },
+    "643c1563-8e87-419b-bab3-b5aba48a287f": {
+        [Language.English]: `Deepak Kumar`,
+        [Language.Hindi]: `????`,
+    },
+    "6224275a-5742-404b-9a36-ade2c73fa3f6": {
+        [Language.English]: `From Issue to Solution: Deepak Kumar's Livguard Battery Testimonial!`,
+        [Language.Hindi]: `????`,
+    },
+    "b19e5cee-bb1f-43c3-800c-2111e3daa16b": {
+        [Language.English]: `Kalu Fouzdar`,
+        [Language.Hindi]: `????`,
+    },
+    "5663c56f-07d1-4b58-9321-5e0cbc26eee2": {
+        [Language.English]: `Kalu Fouzdar Shares His Exceptional Experience with Livguard!`,
+        [Language.Hindi]: `????`,
+    },
+    "77291687-8e86-4a62-9f58-b1b85ea18cea": {
+        [Language.English]: `Khempal Singh`,
+        [Language.Hindi]: `????`,
+    },
+    "0fc85540-fa81-4814-86b3-1e1b6b7d5b84": {
+        [Language.English]: `Empowering Lives: Khempal Singh Livguard Testimonial!`,
+        [Language.Hindi]: `????`,
+    },
+    "f80e57d8-a4bc-4a77-b4b7-2933b54a4d59": {
+        [Language.English]: `Nagender Choudhury`,
+        [Language.Hindi]: `????`,
+    },
+    "f6a385b5-b45e-4350-9d0b-2b309e8f6c03": {
+        [Language.English]: `Where Quality Meets Satisfaction: Nagender Chowdhry Testimonial`,
+        [Language.Hindi]: `????`,
+    },
+    "4b1b2126-7ed2-4a31-98d8-74158e31022f": {
+        [Language.English]: `Combos`,
+        [Language.Hindi]: `?????`,
+    },
+    "7e54165c-1ab3-4284-8a68-7db0515f1c66": {
+        [Language.English]: `Inverter and Battery Combo`,
+        [Language.Hindi]: `?????`,
+    },
+    "af709c5d-4066-419b-b775-17a43a234c9f": {
+        [Language.English]: `Events`,
+        [Language.Hindi]: `?????`,
+    },
+    "72516e54-5c6d-4723-a2b9-06ed6d3ae2c3": {
+        [Language.English]: `REI`,
         [Language.Hindi]: `?????`,
     },
 };

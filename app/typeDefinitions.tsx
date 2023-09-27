@@ -131,6 +131,7 @@ export type Dealer = {
     longitude: number;
     // stateCode: string;
     area: string;
+    gmbLink?: string;
 };
 
 export type ContactUsLead = {

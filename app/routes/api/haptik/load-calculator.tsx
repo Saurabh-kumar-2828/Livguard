@@ -7,11 +7,13 @@ import {getRequiredEnvironmentVariableNew} from "~/global-common-typescript/serv
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {propertyTemplatesNewUi} from "~/routes/load-calculator/index.types";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {getMetadataForImage} from "~/utilities";
 
 type LoaderData = LoadCalculatorOutputs;
 
 export const loader: LoaderFunction = async ({request, params}) => {
+    const userPreferences = await getUserPreferencesFromCookiesAndUrlSearchParameters(request);
     const authorization = safeParse(getStringFromUnknown, request.headers.get("Authorization"));
     if (authorization != `Bearer ${getRequiredEnvironmentVariableNew("HAPTIK_API_TOKEN")}`) {
         return new Response("Authorization error: 1f293705-48ee-4da6-b3c5-7f6c84d027fc", {
@@ -29,11 +31,14 @@ export const loader: LoaderFunction = async ({request, params}) => {
         });
     }
 
-    const loadCalculatorOutputs = await getLoadCalculatorOutputs({
-        property: propertyTemplatesNewUi[propertyType],
-        averageConsumption: 0.5,
-        backupHours: 4,
-    });
+    const loadCalculatorOutputs = await getLoadCalculatorOutputs(
+        {
+            property: propertyTemplatesNewUi[propertyType],
+            averageConsumption: 0.5,
+            backupHours: 4,
+        },
+        userPreferences,
+    );
 
     if (loadCalculatorOutputs.recommendedBatteries != null) {
         loadCalculatorOutputs.recommendedBatteries = loadCalculatorOutputs.recommendedBatteries.map((battery) => {

@@ -1,8 +1,10 @@
 import {logBackendError} from "~/global-common-typescript/server/logging.server";
+import {Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getErrorFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {getCurrentIsoTimestamp} from "~/global-common-typescript/utilities/utilities";
 
 export async function sendDataToFreshsales(
+    leadId: Uuid,
     formResponse: {mobile_number?: string; first_name?: string; email?: string; city?: string; otpVerified?: boolean},
     utmParameters: {[searchParameter: string]: string},
     pageUrl: string,
@@ -21,6 +23,7 @@ export async function sendDataToFreshsales(
             cf_fclid: utmParameters["fbclid"] != null ? utmParameters["fbclid"] : "",
             cf_otp_verified: formResponse.otpVerified,
             cf_page_url: pageUrl,
+            cf_contact_id: `w: ${leadId}`,
         },
         created_at: getCurrentIsoTimestamp(),
     };

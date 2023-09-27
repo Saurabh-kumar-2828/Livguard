@@ -14,6 +14,7 @@ import {emailIdValidationPattern, phoneNumberValidationPattern} from "~/global-c
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
+import {getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export type OrmActionData = {
@@ -61,6 +62,7 @@ export const action: ActionFunction = async ({request, params}) => {
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
+    pageUrl: string;
 };
 
 export const loader: LoaderFunction = async ({request}) => {
@@ -69,16 +71,18 @@ export const loader: LoaderFunction = async ({request}) => {
         throw userPreferences;
     }
 
+    const pageUrl = getUrlFromRequest(request);
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: "/orm-tracking",
+        pageUrl: pageUrl,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
     const actionData = useActionData() as OrmActionData;
     const [refreshForm, setRefreshForm] = useState(false);
 
@@ -105,6 +109,7 @@ export default function () {
                 utmParameters={utmSearchParameters}
                 showContactCtaButton={false}
                 showSearchOption={false}
+                pageUrl={pageUrl}
             >
                 <ContactForm
                     userPreferences={userPreferences}

@@ -1,6 +1,7 @@
 export default function () {
     return (
         <div>
-            COMMIT_ID        </div>
+            COMMIT_ID
+        </div>
     )
 }

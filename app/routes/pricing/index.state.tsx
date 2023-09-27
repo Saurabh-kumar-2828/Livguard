@@ -166,7 +166,6 @@ function calculateFilteredProducts(
 
             const productPrice = product[1][userPreferences.language].price;
             if (productPrice == null) return false;
-            console.log(minPrice, productPrice, maxPrice);
             if (productPrice >= minPrice && productPrice <= maxPrice) return true;
 
             return false;

@@ -2,7 +2,8 @@ import {CheckCircleIcon, ChevronDoubleDownIcon, XCircleIcon} from "@heroicons/re
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import type {FetcherWithComponents} from "@remix-run/react";
 import {Link, useFetcher} from "@remix-run/react";
-import {useEffect, useReducer, useRef, useState} from "react";
+import {useEffect, useReducer, useRef, useState, useContext} from "react";
+import {useInView} from "react-intersection-observer";
 import {useLoaderData} from "react-router";
 import {toast} from "react-toastify";
 import {Accordion} from "~/components/accordian";
@@ -10,48 +11,33 @@ import {ContactForm} from "~/components/contactUsForm";
 import {ContactFormSuccess} from "~/components/contactUsFormSuccess";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FaqSectionInternal} from "~/components/faqs";
 import {CoverImage} from "~/components/images/coverImage";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {ComboCarousel} from "~/components/jodiCarousel";
 import {StickyLandingPageBottomBar} from "~/components/landingPageBottomBar";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider, type Uuid} from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {EnergySolutions, TransformingLives} from "~/routes";
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
-import {QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
+import {ContactFormSection, PowerPlanner, QualityMeetsExpertise} from "~/routes/campaigns/energy-storage-solution";
 import type {FormStateInputs, FormStateInputsAction} from "~/routes/lead-form.state";
 import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormState} from "~/routes/lead-form.state";
 import {PowerPlannerTeaser} from "~/routes/load-calculator";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Best in Class Livgaurd Home Inverters and Batteries",
-//             description: "Power up your home with long-lasting Livguard smart inverters and inverter batteries. Explore our wide range of energy storage solutions",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "श्रेणी में सर्वश्रेष्ठ लिवगर्ड होम इनवर्टर और बैटरी देखे",
-//             description: "लंबे समय तक चलने वाले लिवगार्ड स्मार्ट इनवर्टर और इनवर्टर बैटरी से अपने घर को ऊर्जा दें। ऊर्जा संग्रहण समाधानों की हमारी विस्तृत श्रृंखला का अन्वेषण करें",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/campaigns/inverter-and-battery/"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -91,7 +77,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -140,7 +126,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/terms-and-conditions/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -174,6 +160,8 @@ export default function () {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <>
             <CampaignPageScaffold
@@ -184,35 +172,36 @@ export default function () {
                 showContactCtaButton={false}
                 showSearchOption={true}
                 pageUrl={pageUrl}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <LandingPage
-                    userPreferences={userPreferences}
-                    pageUrl={pageUrl}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <LandingPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </CampaignPageScaffold>
 
             <StickyLandingPageBottomBar userPreferences={userPreferences} />
-
-            {/* <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "Inverter and Battery Combo",
-                            "url": "https://www.livguard.com/campaigns/inverter-and-battery-jodi/",
-                            "logo": "",
-                            "sameAs": ""
-                        }
-                    `,
-                }}
-            /> */}
         </>
     );
 }
 
-function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
+function LandingPage({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
     const fetcher = useFetcher();
     const otpFetcher = useFetcher();
     const leadId = useRef<Uuid>(generateUuid());
@@ -277,6 +266,8 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <div className="tw-grid tw-grid-rows-1 tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,1fr),minmax(0,1fr)] tw-gap-x-1 tw-align-stretch">
             <HeroSection
@@ -291,14 +282,11 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                 pageUrl={pageUrl}
             />
 
-            <VerticalSpacer className="tw-row-start-2 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
+            <VerticalSpacer className="tw-row-start-2 lg:tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-h-10 lg:tw-h-20" />
 
-            <div
-                className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
-                id="contact-us-form-mobile"
-            >
-                {!formStateInputs.formSuccessfullySubmitted ? (
-                    <ContactForm
+            {isScreenSizeBelow && (
+                <>
+                    <ContactFormSection
                         userPreferences={userPreferences}
                         fetcher={fetcher}
                         otpFetcher={otpFetcher}
@@ -307,71 +295,96 @@ function LandingPage({userPreferences, pageUrl}: {userPreferences: UserPreferenc
                         dispatch={dispatch}
                         leadId={leadId.current}
                         pageUrl={pageUrl}
+                        className="tw-row-start-3 tw-col-start-1 lg:tw-hidden"
                     />
-                ) : (
-                    <ContactFormSuccess userPreferences={userPreferences} />
-                )}
-            </div>
+                </>
+            )}
 
             <VerticalSpacer className="tw-row-start-4 tw-col-start-1 tw-h-10 lg:tw-hidden" />
 
             <EnergySolutions
                 userPreferences={userPreferences}
-                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-3 lg:tw-col-start-1 lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-5 tw-col-start-1 lg:tw-row-start-4 lg:tw-col-start-1 lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-6 lg:tw-row-start-[4] lg:tw-col-span-full lg:tw-h-20 tw-h-10" />
+            <VerticalSpacer className="tw-row-start-6 lg:tw-row-start-[5] lg:tw-col-span-full lg:tw-h-20 tw-h-10" />
 
-            <div className="tw-grid tw-grid-rows-[auto,auto,auto] tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-row-start-7 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full">
-                <ComboSection
-                    userPreferences={userPreferences}
-                    className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
-                />
+            {isScreenSizeBelow && (
+                <>
+                    <div className="tw-grid tw-grid-rows-[auto,auto,auto] tw-grid-cols-1 lg:tw-grid-rows-1 lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-row-start-7 tw-col-start-1 lg:tw-row-start-5 lg:tw-col-span-full">
+                        <ComboSection
+                            userPreferences={userPreferences}
+                            className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                        />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-hidden" />
+                        <VerticalSpacer className="tw-h-10 tw-row-start-2 lg:tw-hidden" />
 
-                <WhyLivguardCombo
-                    userPreferences={userPreferences}
-                    className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
-                />
-            </div>
+                        <WhyLivguardCombo
+                            userPreferences={userPreferences}
+                            className="tw-row-start-3 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                        />
+                    </div>
 
-            <VerticalSpacer className="tw-row-start-[8] tw-h-10 lg:tw-row-start-[6] lg:tw-col-span-full lg:tw-h-20" />
+                    <VerticalSpacer className="tw-row-start-[8] tw-h-10 lg:tw-row-start-[6] lg:tw-col-span-full lg:tw-h-20" />
 
-            <PowerPlannerTeaser
-                userPreferences={userPreferences}
-                className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[120px]"
-            />
+                    <PowerPlanner
+                        userPreferences={userPreferences}
+                        className="tw-row-start-9 tw-col-start-1 lg:tw-row-start-7 lg:tw-col-span-full lg:tw-px-[120px]"
+                    />
+                </>
+            )}
 
             <VerticalSpacer className="tw-row-start-[10] tw-col-start-1 tw-h-10 lg:tw-row-start-[8] lg:tw-col-span-full lg:tw-h-20" />
 
             <QualityMeetsExpertise
                 userPreferences={userPreferences}
-                className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-3 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                className="tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full lg:tw-row-start-4 lg:tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
             />
+            {!isScreenSizeBelow && (
+                <>
+                    <div className="tw-grid tw-grid-rows-1 tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] tw-col-start-1 tw-row-start-6 lg:tw-col-span-full">
+                        <ComboSection
+                            userPreferences={userPreferences}
+                            className="tw-row-start-1 tw-col-start-1 lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                        />
 
-            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-20" />
+                        <WhyLivguardCombo
+                            userPreferences={userPreferences}
+                            className="tw-row-start-1 tw-col-start-2 lg:tw-pr-[72px] xl:tw-pr-[120px]"
+                        />
+                    </div>
+
+                    <VerticalSpacer className="tw-row-start-[7] lg:tw-col-span-full lg:tw-h-20" />
+
+                    <PowerPlanner
+                        userPreferences={userPreferences}
+                        className="tw-col-start-1 tw-row-start-8 lg:tw-col-span-full lg:tw-px-[120px]"
+                    />
+                </>
+            )}
+
+            <VerticalSpacer className="tw-row-start-[12] tw-col-start-1 tw-h-10 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-h-20" />
 
             <ExploreStarProducts
                 userPreferences={userPreferences}
-                className="tw-row-start-[13] tw-col-start-1 lg:tw-row-start-[9] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-[13] tw-col-start-1 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 tw-h-10 lg:tw-row-start-[10] lg:tw-col-span-full lg:tw-h-20" />
+            <VerticalSpacer className="tw-row-start-[14] tw-col-start-1 tw-h-10 lg:tw-row-start-[11] lg:tw-col-span-full lg:tw-h-20" />
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[11] lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px]"
+                className="tw-row-start-[15] tw-col-start-1 lg:tw-row-start-[12] lg:tw-col-span-full lg:tw-pl-[72px] xl:tw-pl-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[16] tw-col-start-1 tw-h-10 lg:tw-row-start-[12] lg:tw-col-span-full lg:tw-h-20" />
+            <VerticalSpacer className="tw-row-start-[16] tw-col-start-1 tw-h-10 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-h-20" />
 
             <FaqSection
                 userPreferences={userPreferences}
-                className="tw-row-start-[17] tw-col-start-1 lg:tw-row-start-[13] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
+                className="tw-row-start-[17] tw-col-start-1 lg:tw-row-start-[14] lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
-            <VerticalSpacer className="tw-row-start-[18] tw-col-start-1 tw-h-10 lg:tw-row-start-[14] lg:tw-col-span-full lg:tw-h-20" />
+            <VerticalSpacer className="tw-row-start-[18] tw-col-start-1 tw-h-10 lg:tw-row-start-[15] lg:tw-col-span-full lg:tw-h-20" />
         </div>
     );
 }
@@ -399,12 +412,25 @@ function HeroSection({
     leadId: Uuid;
     pageUrl: string;
 }) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-h-[calc(100vh-var(--lg-header-height)-var(--lg-mobile-ui-height)-7.5rem)] lg:tw-h-[calc(100vh-9rem)] tw-min-h-[calc(100vw*7/16)] tw-grid tw-grid-rows-[1.5rem_3rem_minmax(0,1fr)_auto_0.5rem_auto_1rem_auto_1rem_minmax(0,1fr)_auto_1.5rem] tw-justify-items-center tw-text-center lg:tw-text-left tw-relative lg:tw-grid-cols-2 tw-isolate",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <CoverImage
                 relativePath="/livguard/landing-pages/2/hero_image.jpg"
@@ -483,7 +509,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             keySpecifications: [
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification1Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification2Content", userPreferences.language)}`,
@@ -491,7 +517,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification3Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/inverter_capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J1Specification4Content", userPreferences.language)}`,
@@ -506,7 +532,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             keySpecifications: [
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification1Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification2Content", userPreferences.language)}`,
@@ -514,7 +540,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification3Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/inverter_capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J2Specification4Content", userPreferences.language)}`,
@@ -529,7 +555,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             keySpecifications: [
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification1Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification2Content", userPreferences.language)}`,
@@ -537,14 +563,14 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification3Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/inverter_capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J3Specification4Content", userPreferences.language)}`,
                     keySpecificationIconRelativePath: "/livguard/icons/technology.png",
                 },
             ],
-            jodiImageRelativePath: "/livguard/products/super-life-combo/thumbnail.png",
+            comboImageRelativePath: "/livguard/products/super-life-combo/thumbnail.png",
         },
         {
             title: `${getVernacularString("landingPage2S4J4Title", userPreferences.language)}`,
@@ -552,7 +578,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             keySpecifications: [
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification1Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/waranty.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/home-warranty.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification2Content", userPreferences.language)}`,
@@ -560,7 +586,7 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification3Content", userPreferences.language)}`,
-                    keySpecificationIconRelativePath: "/livguard/icons/inverter_capacity.png",
+                    keySpecificationIconRelativePath: "/livguard/inverter-batteries/4/inverter-capacity.svg",
                 },
                 {
                     keySpecificationContent: `${getVernacularString("landingPage2S4J4Specification4Content", userPreferences.language)}`,
@@ -570,9 +596,23 @@ export function ComboSection({userPreferences, className}: {userPreferences: Use
             comboImageRelativePath: "/livguard/products/urban-combo/thumbnail.png",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-top-combo": {
+                humanReadableName: getVernacularString("1f5379fc-7cc5-40f6-8715-6a86a77073cc", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center", className)}
+            id="our-top-combo"
+            ref={sectionRef}
+        >
             <div className="tw-block lg:tw-hidden">
                 <div className="lg-text-headline lg-px-screen-edge">
                     <DefaultTextAnimation>
@@ -615,9 +655,23 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
             highlighted: false,
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "why-livguard-combo": {
+                humanReadableName: getVernacularString("a70a34a0-4f68-4ff6-9bc5-3000c1191f7d", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-h-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-h-full", className)}
+            id="why-livguard-combo"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col lg:tw-h-[89%]">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S5HT1", userPreferences.language)}} />
@@ -631,7 +685,10 @@ export function WhyLivguardCombo({userPreferences, className}: {userPreferences:
                         <ItemBuilder
                             items={sectionData}
                             itemBuilder={(item, itemIndex) => (
-                                <div className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}>
+                                <div
+                                    key={itemIndex}
+                                    className={`tw-col-start-${itemIndex + 1} lg-bg-secondary-100 tw-rounded-lg tw-p-3 lg:tw-px-6 tw-flex tw-flex-col tw-justify-center`}
+                                >
                                     <div className="tw-flex tw-items-center tw-justify-center">
                                         <FixedWidthImage
                                             relativePath={item.image}
@@ -727,9 +784,23 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
             bestSeller: true,
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "star-products": {
+                humanReadableName: getVernacularString("9dc9953c-6891-4dd0-a5f2-70eafce21303", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
+            id="star-products"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("landingPage2S7HT1", userPreferences.language)}} />
@@ -743,9 +814,11 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
                         items={sectionData}
                         itemBuilder={(product, productIndex) => (
                             <DefaultElementAnimation key={productIndex}>
-                                <div className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-bg-secondary-100 tw-rounded-lg`}>
+                                <div className={`tw-row-start-${productIndex / 2 + 1} tw-col-start-${(productIndex % 2) + 1} lg-card tw-rounded-lg`}>
                                     <div className="tw-flex tw-flex-col tw-justify-between tw-relative tw-px-3">
-                                        {product.bestSeller && <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 tw-pt-[2px]"> Best Seller </div>}
+                                        {product.bestSeller && (
+                                            <div className="tw-absolute tw-right-0 tw-top-0 lg-text-icon tw-px-2 tw-rounded-tr-lg lg-bg-primary-500 tw-pt-[2px] tw-text-white"> Best Seller </div>
+                                        )}
 
                                         <VerticalSpacer className="tw-h-8" />
 
@@ -772,78 +845,35 @@ export function ExploreStarProducts({userPreferences, className}: {userPreferenc
 }
 
 export function FaqSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const faqs = [
+        {
+            question: "landingPage2Q1Q",
+            answer: "landingPage2Q1A",
+        },
+        {
+            question: "landingPage2Q2Q",
+            answer: "landingPage2Q2A",
+        },
+        {
+            question: "landingPage2Q3Q",
+            answer: "landingPage2Q3A",
+        },
+        {
+            question: "landingPage2Q4Q",
+            answer: "landingPage2Q4A",
+        },
+        {
+            question: "landingPage2Q5Q",
+            answer: "landingPage2Q5A",
+        },
+    ];
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
-            <div className="tw-grid tw-grid-rows-[auto,minmax(0,1fr),auto] lg:tw-grid-rows-[auto,minmax(0,1fr)] lg:tw-grid-cols-[minmax(0,2fr),minmax(0,3fr)] tw-gap-y-4">
-                <div className="tw-row-start-1 lg:tw-row-start-1 lg:tw-col-start-1 tw-flex tw-flex-col">
-                    <div className="lg-text-headline tw-text-center lg:tw-text-left">
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T1", userPreferences.language)}} />
-                        <div dangerouslySetInnerHTML={{__html: getVernacularString("homeS9H1T2", userPreferences.language)}} />
-                    </div>
-
-                    <VerticalSpacer className="tw-h-4" />
-
-                    <div className="lg-text-body tw-text-center lg:tw-text-left">
-                        <div>{getVernacularString("homeS9T2P1", userPreferences.language)}</div>
-                        <div>{getVernacularString("homeS9T2P2", userPreferences.language)}</div>
-                    </div>
-                </div>
-
-                <div className="tw-row-start-2 lg:tw-row-start-1 lg:tw-col-start-2 lg:tw-row-span-full tw-flex tw-flex-col tw-gap-y-3">
-                    <ItemBuilder
-                        items={[
-                            {
-                                question: "landingPage2Q1Q",
-                                answer: "landingPage2Q1A",
-                            },
-                            {
-                                question: "landingPage2Q2Q",
-                                answer: "landingPage2Q2A",
-                            },
-                            {
-                                question: "landingPage2Q3Q",
-                                answer: "landingPage2Q3A",
-                            },
-                            {
-                                question: "landingPage2Q4Q",
-                                answer: "landingPage2Q4A",
-                            },
-                            {
-                                question: "landingPage2Q5Q",
-                                answer: "landingPage2Q5A",
-                            },
-                        ]}
-                        itemBuilder={(item, itemIndex) => (
-                            <Accordion
-                                title={getVernacularString(item.question, userPreferences.language)}
-                                panelItem={
-                                    <div
-                                        className="lg-text-secondary-900"
-                                        key={itemIndex}
-                                    >
-                                        <div dangerouslySetInnerHTML={{__html: getVernacularString(item.answer, userPreferences.language)}} />
-                                    </div>
-                                }
-                                key={itemIndex}
-                            />
-                        )}
-                    />
-                </div>
-
-                <div className="tw-row-start-3 lg:tw-row-start-2 lg:tw-col-start-1 lg-text-body tw-text-center lg:tw-text-left lg:tw-w-[25rem]">
-                    <div>{getVernacularString("homeS9T3P1", userPreferences.language)}</div>
-                    <div>
-                        {getVernacularString("homeS9T3P2", userPreferences.language)}{" "}
-                        <a
-                            href="tel:18001025551"
-                            className="tw-underline"
-                        >
-                            {getVernacularString("homeS9T3P3", userPreferences.language)}
-                        </a>{" "}
-                        {getVernacularString("homeS9T3P4", userPreferences.language)}
-                    </div>
-                </div>
-            </div>
+        <div className={concatenateNonNullStringsWithSpaces("", className)}>
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className={className}
+            />
         </div>
     );
 }

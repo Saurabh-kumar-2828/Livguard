@@ -1,66 +1,41 @@
-import React, {useEffect, useRef, useState} from "react";
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
-import {Form, Link, useActionData, useFetcher, useLoaderData} from "@remix-run/react";
 import {Dialog, Transition} from "@headlessui/react";
-import {toast} from "react-toastify";
-import {useResizeDetector} from "react-resize-detector";
+import type {ActionFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {json} from "@remix-run/node";
+import {Form, Link, useActionData, useFetcher, useLoaderData} from "@remix-run/react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import {X} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
+import {useResizeDetector} from "react-resize-detector";
+import {toast} from "react-toastify";
+import {verifyOtp} from "~/backend/authentication.server";
+import {insertServiceRequests} from "~/backend/dealer.server";
+import {sendDataToFreshsales} from "~/backend/freshsales.server";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
+import {FaqSectionInternal} from "~/components/faqs";
+import {FixedWidthImage} from "~/components/images/fixedWidthImage";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {emailIdValidationPattern, indianPhoneNumberValidationPattern, pinCodeValidationPattern} from "~/global-common-typescript/utilities/validationPatterns";
-import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
-import {insertServiceRequests} from "~/backend/dealer.server";
-import {FixedWidthImage} from "~/components/images/fixedWidthImage";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {CoverImage} from "~/components/images/coverImage";
-import {PageScaffold} from "~/components/pageScaffold";
-import {TestimonialsCarousel} from "~/components/testimonialsCarousel";
-import {FaqSectionInternal} from "~/components/faqs";
-import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, Theme, UserPreferences} from "~/typeDefinitions";
-import {getVernacularString} from "~/vernacularProvider";
-import {appendSpaceToString, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getFormSelectProductItems} from "~/routes/contact-us";
-import {HiddenFormField} from "~/global-common-typescript/components/hiddenFormField";
-import {verifyOtp} from "~/backend/authentication.server";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-import {FullWidthImage} from "~/components/images/fullWidthImage";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/service",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
-//             description: "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
-//             "og:title": "लिवगार्ड सेवाएं - आपकी बिजली की आवश्यकताओं के लिए विश्वसनीय समाधान",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/service",
-//             "og:description": "लिवगार्ड सेवाएं प्रदान करती हैं विश्वसनीय और प्रभावी समाधान जो आपके घरेलू और औद्योगिक आवश्यकताओं को सुनिश्चित करते हैं। विशेषज्ञ समाधान के लिए हमसे संपर्क करें।",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/service"}];
-// };
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
+import {getFormSelectProductItems} from "~/routes/contact-us";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language, Theme} from "~/typeDefinitions";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -100,7 +75,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/service/service-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -154,7 +129,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/service/service-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -234,7 +209,9 @@ export const action: ActionFunction = async ({request, params}) => {
 
     const utmParametersDecoded = JSON.parse(utmParameters);
 
-    const insertResult = await insertServiceRequests(generateUuid(), {
+    const leadId = generateUuid();
+
+    const insertResult = await insertServiceRequests(leadId, {
         issueDetails: issueDetails,
         product: product,
         contactNumber: contactNumber,
@@ -255,6 +232,16 @@ export const action: ActionFunction = async ({request, params}) => {
         return json(actionData);
     }
 
+    const pageUrl = getUrlFromRequest(request);
+
+    const freshsalesResult = await sendDataToFreshsales(leadId, {mobile_number: contactNumber, first_name: name, email: emailId, city: city, otpVerified: true}, utmParametersDecoded, pageUrl);
+    if (freshsalesResult instanceof Error) {
+        const actionData: ActionData = {
+            error: "Error in submitting form! Error code: 0177ace3-f07e-454a-a27f-f210d67702a9",
+        };
+        return json(actionData);
+    }
+
     const actionData: ActionData = {
         error: null,
     };
@@ -267,6 +254,7 @@ export default () => {
     const actionData = useActionData() as ActionData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -280,40 +268,31 @@ export default () => {
                     {contentId: "84ec1aea-1f61-4508-ae92-cd3647247ef1", link: "/"},
                     {contentId: "9672b1a1-0713-48e3-98a2-17322eda6ff2", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <ServicesPage
-                    userPreferences={userPreferences}
-                    actionData={actionData}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <ServicesPage
+                        userPreferences={userPreferences}
+                        actionData={actionData}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
-
-            {/* {
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            {
-
-                                "@type": "SiteNavigationElement",
-                                "name": "Service",
-                                "url": "https://www.livguard.com/contact-us",
-                                "telephone": "+91 92056-67999",
-                                "contactType": "",
-                                "streetAddress": "SAR Group Plot No. 221, Udyog Vihar Phase 1, Sector 20",
-                                "addressLocality": "Gurugram",
-                                "addressRegion": "Haryana",
-                                "postalCode": "122016",
-                                "addressCountry": "India",
-                                "E-mail": "marketing@livguard.com, export@sar-group.com"
-                            }`,
-                    }}
-                ></script>
-            } */}
         </>
     );
 };
 
-function ServicesPage({userPreferences, actionData}: {userPreferences: UserPreferences; actionData: {error: string | null}}) {
+function ServicesPage({
+    userPreferences,
+    actionData,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    actionData: {error: string | null};
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -322,7 +301,7 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <EffortlessService
                     userPreferences={userPreferences}
@@ -340,7 +319,7 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
 
                 <RequestAService
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 tw-max-w-7xl lg:lg-px-screen-edge-2 tw-mx-auto tw-justify-center lg:tw-col-span-full"
+                    className="tw-row-start-7 tw-max-w-4xl lg:lg-px-screen-edge-2 tw-mx-auto tw-justify-center lg:tw-col-span-full"
                     actionData={actionData}
                 />
 
@@ -375,6 +354,17 @@ function ServicesPage({userPreferences, actionData}: {userPreferences: UserPrefe
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -382,6 +372,8 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_5rem_2rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -401,6 +393,18 @@ function HeroSection({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function EffortlessService({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "effortless-services": {
+                humanReadableName: getVernacularString("20672940-27d8-4e36-a37e-cdabf2bfedb1", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     function ReadMore({text, className}: {text: string; className?: string}) {
         const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
         const [isReadMore, setIsReadMore] = useState(false);
@@ -463,7 +467,11 @@ function EffortlessService({userPreferences, className}: {userPreferences: UserP
 
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_auto_1rem_auto_1.25rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[auto_auto_1rem_auto_1.25rem_auto_minmax(0,1fr)] lg-px-screen-edge-2", className)}
+                id="effortless-services"
+                ref={sectionRef}
+            >
                 <div
                     dangerouslySetInnerHTML={{__html: getVernacularString("2cc7bf42-cb40-4316-8429-f65309b51501", userPreferences.language)}}
                     className="tw-row-start-1 lg-text-headline tw-text-center tw-mb-1"
@@ -501,6 +509,18 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
     const [serviceRequestFormSelectedProduct, setServiceRequestFormSelectedProduct] = useState<null | number>(null);
 
     const productItems = getFormSelectProductItems(userPreferences.language);
+
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "request-a-service": {
+                humanReadableName: getVernacularString("91a2a7a5-561e-4fd7-bb9f-76969e89b296", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     useEffect(() => {
         if (actionData != null) {
@@ -554,39 +574,32 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                 clearTimeout(timeoutId);
             }
             let timeout = setTimeout(() => {
-                console.log("action dispatching", resendTimeOut);
                 setResendTimeOut((prev) => prev - 1);
             }, 1000);
             setTimeoutId(timeout);
         }
     }, [resendTimeOut]);
 
-    const resetOtpState = () => {
-        setShowOtpButton(false);
-        setShowOtpField(false);
-        setInvalidOtp(false);
-        setIsOtpResent(false);
-        setResendTimeOut(0);
-        setName("");
-        setPhoneNumber("");
-    };
-
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left tw-h-full", className)}>
-            <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row tw-justify-center lg:tw-justify-left tw-w-full", className)}
+            id="request-a-service"
+            ref={sectionRef}
+        >
+            <div className="tw-row-start-1 lg-text-headline tw-text-center tw-w-full">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("58490cb1-5f27-4f67-98d3-939b5a3b9b10", userPreferences.language))}} />
-            </DefaultTextAnimation>
+            </div>
 
             <VerticalSpacer className="tw-h-4 tw-row-start-2" />
 
-            <div className="tw-row-start-4 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0">
-                <div className="tw-overflow-hidden tw-h-full">
-                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-h-full">
+            <div className="tw-row-start-4 tw-col-span-full lg-px-screen-edge-2 lg:tw-px-0 tw-w-full">
+                <div className="tw-overflow-hidden tw-h-full tw-w-full">
+                    <div className="tw-grid tw-grid-flow-col tw-auto-cols-[100%] tw-items-stretch tw-h-full tw-w-full">
                         <div className="tw-grid tw-grid-glow-rows tw-h-full">
                             {!isServiceRequestFormSubmitted ? (
                                 <Form
                                     method="post"
-                                    className="tw-grid tw-grid-flow-row tw-gap-x-4"
+                                    className="tw-grid tw-grid-flow-row tw-gap-x-4 tw-w-full"
                                 >
                                     <div className="tw-grid tw-grid-flow-col tw-gap-2">
                                         <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">{getVernacularString("1cc00f3b-4b94-4e16-bc4f-a0337877d25e", userPreferences.language)}</div>
@@ -602,7 +615,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
-                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2">
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("43e7ced0-33d1-46a2-ab06-4e50dae64256", userPreferences.language)}
@@ -639,7 +652,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
-                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2">
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("6a37e3ee-a8a6-4999-9494-80465aaad48d", userPreferences.language)}
@@ -741,8 +754,8 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                                                     otpFieldRef.current.focus();
                                                                 }
                                                                 const data = new FormData();
-                                                                data.append("phoneNumber", name);
-                                                                data.append("name", phoneNumber);
+                                                                data.append("phoneNumber", phoneNumber);
+                                                                data.append("name", name);
                                                                 otpFetcher.submit(data, {method: "post", action: "/resend-otp"});
                                                             }}
                                                         >
@@ -810,7 +823,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
-                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2 tw-items-start">
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4 tw-items-start">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("31241b10-2784-43df-a2ea-a614c9ef7468", userPreferences.language)}
@@ -843,7 +856,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 
                                     <VerticalSpacer className="tw-h-4 lg:tw-col-span-full" />
 
-                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-2 tw-items-start">
+                                    <div className="tw-grid lg:tw-grid-cols-2 tw-gap-4 tw-items-start">
                                         <div className="lg:tw-col-start-1 tw-grid tw-grid-flow-row tw-gap-2">
                                             <div className="lg-text-body lg-text-secondary-900 tw-row-start-1">
                                                 {getVernacularString("d8a55222-554d-48c5-a638-118f37baf66b", userPreferences.language)}
@@ -924,7 +937,7 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
                                     </button>
                                 </Form>
                             ) : (
-                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)_4.5rem] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-px-16">
+                                <div className="tw-grid tw-grid-rows-[4.5rem_auto_2rem_auto_2rem_auto_minmax(0,1fr)_4.5rem] tw-w-full tw-h-full tw-rounded-lg tw-border lg-border-secondary-700 tw-justify-center tw-px-16 tw-w-full">
                                     <div className="tw-row-start-2 tw-w-full tw-grid tw-justify-center">
                                         <FixedWidthImage
                                             relativePath="/livguard/icons/confirmation.png"
@@ -954,6 +967,17 @@ function RequestAService({userPreferences, className, actionData}: {userPreferen
 function ClickConnectPowerUpSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const [isContactUsDialogOpen, setIsContactUsDialogOpen] = useState(false);
     const [dialogOptions, setDialogOptions] = useState<{dialogType: string; headerTextContentId: string}>({dialogType: "", headerTextContentId: "call-us"});
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            connect: {
+                humanReadableName: getVernacularString("d0a88af5-fba8-43cd-bda5-813e7363db53", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     function CallUsCard() {
         return (
@@ -1045,7 +1069,11 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
     }
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row", className)}
+            id="connect"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-row-start-1 lg-text-headline tw-text-center">
                 <div dangerouslySetInnerHTML={{__html: appendSpaceToString(getVernacularString("3ed955c3-a090-4862-9132-e08af40bc379", userPreferences.language))}} />
             </DefaultTextAnimation>
@@ -1074,14 +1102,10 @@ function ClickConnectPowerUpSection({userPreferences, className}: {userPreferenc
                 <VerticalSpacer className="tw-h-2 lg:tw-h-6 tw-row-start-3 lg:tw-hidden" />
 
                 <div className="lg:tw-row-start-4 lg:tw-col-start-2 tw-w-full tw-max-w-[10rem] lg:tw-max-w-[unset] tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-[4rem_8rem] tw-justify-center lg:tw-items-center tw-gap-x-4 tw-gap-y-4">
-                    <FullWidthImage
-                        relativePath={`/livguard/service/3/1-${userPreferences.theme == Theme.Light ? "light" : "dark"}.png`}
-                    />
+                    <FullWidthImage relativePath={`/livguard/service/3/1-${userPreferences.theme == Theme.Light ? "light" : "dark"}.png`} />
 
                     <a href="https://play.google.com/store/apps/details?id=com.sar.mylivserv">
-                        <FullWidthImage
-                            relativePath={`/livguard/service/3/2-${userPreferences.theme == Theme.Light ? "light" : "dark"}.png`}
-                        />
+                        <FullWidthImage relativePath={`/livguard/service/3/2-${userPreferences.theme == Theme.Light ? "light" : "dark"}.png`} />
                     </a>
                 </div>
             </div>
@@ -1246,9 +1270,24 @@ function ContactUsDialog({
 }
 
 function Testimonials({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            testimonials: {
+                humanReadableName: getVernacularString("4dfaa3c8-918c-46d3-a2a7-865f2ac6a9b7", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <>
-            <div className={className}>
+            <div
+                className={className}
+                id="testimonials"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div>{getVernacularString("74058229-5e75-4efe-833c-18009f248c6a", userPreferences.language)}</div>
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("afe86242-a8aa-4955-8951-516c560fc956", userPreferences.language)}} />
@@ -1264,6 +1303,7 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
                                 <EmbeddedYoutubeVideo
                                     id="rVC-ncTBhls"
                                     style={{aspectRatio: "560/315"}}
+                                    className="tw-rounded-lg"
                                 />
                             ),
                             name: `${getVernacularString("review1Name", userPreferences.language)}`,
@@ -1312,6 +1352,17 @@ function Testimonials({userPreferences, className}: {userPreferences: UserPrefer
 
 function WarrantyBanner({userPreferences, className}: {userPreferences: UserPreferences; className: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            warranty: {
+                humanReadableName: getVernacularString("872214aa-3d2c-4a10-935b-257b5dbde56f", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
         <div
@@ -1319,6 +1370,8 @@ function WarrantyBanner({userPreferences, className}: {userPreferences: UserPref
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_auto_1rem_auto_2.5rem] lg:tw-grid-rows-[minmax(0,1fr)_auto_auto_1.25rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
                 className,
             )}
+            id="warranty"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full ">
                 {isScreenSizeBelow == null ? null : (

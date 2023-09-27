@@ -1,44 +1,20 @@
-import {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction, json} from "@remix-run/node";
-import {useActionData, useLoaderData, useSearchParams} from "@remix-run/react";
-import {insertServiceRequests} from "~/backend/dealer.server";
-import {HeaderComponent} from "~/components/headerComponent";
-import {PageScaffold} from "~/components/pageScaffold";
-import {getStringFromUnknown, safeParse} from "~/global-common-typescript/utilities/typeValidationUtilities";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
-import {CoverImage} from "~/components/images/coverImage";
+import type {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import {useLoaderData} from "@remix-run/react";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {useResizeDetector} from "react-resize-detector";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/terms-and-condition",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "?????",
-//             description: "?????",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
     if (userPreferences.language == Language.English) {
@@ -46,18 +22,19 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "http://localhost:3050/privacy-policy",
+                href: "https://www.livguard.com/privacy-policy",
             },
             {
                 title: "Privacy Policy | Livguard",
             },
             {
                 name: "description",
-                content: "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
+                content:
+                    "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
             },
             {
                 property: "og:url",
-                content: "http://localhost:3050/privacy-policy",
+                content: "https://www.livguard.com/privacy-policy",
             },
             {
                 property: "og:title",
@@ -65,7 +42,8 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:description",
-                content: "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
+                content:
+                    "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
             },
             {
                 property: "og:site_name",
@@ -77,7 +55,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -85,26 +63,28 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "http://localhost:3050/privacy-policy"
+                href: "https://www.livguard.com/privacy-policy",
             },
             {
-                title: "????????",
+                title: "Privacy Policy | Livguard",
             },
             {
                 name: "description",
-                content: "???????????",
+                content:
+                    "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
             },
             {
                 property: "og:url",
-                content: "http://localhost:3050/privacy-policy",
+                content: "https://www.livguard.com/privacy-policy",
             },
             {
                 property: "og:title",
-                content: "??????????",
+                content: "Privacy Policy | Livguard",
             },
             {
                 property: "og:description",
-                content: "?????????",
+                content:
+                    "LIVGUARD Technologies Private Limited, is a company registered under the Companies Act, 2013, having its registered office at WZ-106/101, Rajouri Garden Extension, West Delhi, New Delhi-110027.",
             },
             {
                 property: "og:site_name",
@@ -116,7 +96,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -162,12 +142,10 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
-                breadcrumbs={
-                    [
-                        {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                        {contentId: "eea36080-325b-43d9-a29a-84e5bb4e3612", link: "#"},
-                    ]
-                }
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "eea36080-325b-43d9-a29a-84e5bb4e3612", link: "#"},
+                ]}
             >
                 <PrivacyPolicyPage userPreferences={userPreferences} />
             </PageScaffold>

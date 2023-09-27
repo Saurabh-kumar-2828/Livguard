@@ -1,42 +1,19 @@
-import {PageScaffold} from "~/components/pageScaffold";
-import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
-import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-import {getVernacularString} from "~/vernacularProvider";
-import {CoverImage} from "~/components/images/coverImage";
-import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
-import {useResizeDetector} from "react-resize-detector";
-import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LinksFunction, LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
-import {parseClassName} from "react-toastify/dist/utils";
+import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
+import {FullWidthImage} from "~/components/images/fullWidthImage";
+import {PageScaffold} from "~/components/pageScaffold";
+import { getAbsolutePathForRelativePath } from "~/global-common-typescript/components/images/growthJockeyImage";
+import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import { ImageCdnProvider } from "~/global-common-typescript/typeDefinitions";
+import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
+import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
-import { FullWidthImage } from "~/components/images/fullWidthImage";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Livguard Services - Reliable Solutions for Your Power Needs",
-//             description: "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:title": "Livguard Services - Reliable Solutions for Your Power Needs",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/terms-and-condition",
-//             "og:description": "Get reliable and effective Livguard services that ensure seamless performance of your automotive, home, and industrial needs. Contact us for expert solutions.",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "?????",
-//             description: "?????",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
+import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -45,18 +22,19 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "http://localhost:3050/sales-return-policy",
+                href: "https://www.livguard.com/sales-return-policy",
             },
             {
                 title: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard",
             },
             {
                 name: "description",
-                content: "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
+                content:
+                    "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
             },
             {
                 property: "og:url",
-                content: "http://localhost:3050/sales-return-policy",
+                content: "https://www.livguard.com/sales-return-policy",
             },
             {
                 property: "og:title",
@@ -64,7 +42,8 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:description",
-                content: "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
+                content:
+                    "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
             },
             {
                 property: "og:site_name",
@@ -76,7 +55,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -84,26 +63,28 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "http://localhost:3050/sales-return-policy"
+                href: "https://www.livguard.com/sales-return-policy",
             },
             {
-                title: "??????????",
+                title: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard",
             },
             {
                 name: "description",
-                content: "?????????",
+                content:
+                    "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
             },
             {
                 property: "og:url",
-                content: "http://localhost:3050/sales-return-policy",
+                content: "https://www.livguard.com/sales-return-policy",
             },
             {
                 property: "og:title",
-                content: "",
+                content: "Inverter, Car Battery, Solar Panel at Best Price in India - Livguard",
             },
             {
                 property: "og:description",
-                content: "????????????????",
+                content:
+                    "Get the best inverter for your home today. With unlimited energy power up your spaces. Livguard's wide range of inverters are especially built to deliver high performance in our fast paced lives..",
             },
             {
                 property: "og:site_name",
@@ -115,7 +96,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -161,12 +142,10 @@ export default () => {
                 showMobileMenuIcon={true}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
-                breadcrumbs={
-                    [
-                        {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                        {contentId: "43953acd-0fe3-40a8-a307-297f4bb7124b", link: "#"},
-                    ]
-                }
+                breadcrumbs={[
+                    {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
+                    {contentId: "43953acd-0fe3-40a8-a307-297f4bb7124b", link: "#"},
+                ]}
             >
                 <SalesReturnPolicypage userPreferences={userPreferences} />
             </PageScaffold>
@@ -223,7 +202,7 @@ function SalesReturnPolicy({userPreferences, className}: {userPreferences: UserP
         <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
             <div className="tw-grid tw-grid-flow-row tw-gap-2">
                 <div
-                    className="lg-text-headline"
+                    className="lg-text-headline lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("74cd145f-e021-4f2d-81e4-3bdd4cbcf891", userPreferences.language)}}
                 ></div>
                 <div className="lg-text-title2  lg-text-secondary-900">{getVernacularString("d57d1a75-b578-4caa-8966-a13ab6146b20", userPreferences.language)}</div>
@@ -232,38 +211,38 @@ function SalesReturnPolicy({userPreferences, className}: {userPreferences: UserP
             <VerticalSpacer className="tw-h-[1.5rem]" />
 
             <div
-                className="lg-text-headline"
+                className="lg-text-headline lg-text-secondary-900"
                 dangerouslySetInnerHTML={{__html: getVernacularString("f30c51d9-5f1c-429b-865a-adb5062e9d55", userPreferences.language)}}
             ></div>
 
             <VerticalSpacer className="tw-h-3" />
 
-            <div className="lg-text-body tw-pl-[3rem]">{getVernacularString("559ec70e-f4ad-48ef-8fd0-31778c9ca07a", userPreferences.language)}</div>
+            <div className="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">{getVernacularString("559ec70e-f4ad-48ef-8fd0-31778c9ca07a", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-[1.5rem]" />
 
             <div
-                className="lg-text-headline"
+                className="lg-text-headline lg-text-secondary-900"
                 dangerouslySetInnerHTML={{__html: getVernacularString("3a5323eb-1863-4778-af39-b75a7f027144", userPreferences.language)}}
             ></div>
 
             <VerticalSpacer className="tw-h-3" />
 
-            <div className="lg-text-body tw-pl-[3rem]">{getVernacularString("56bba6ff-0903-41ab-8921-b7f9f178be2d", userPreferences.language)}</div>
+            <div className="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">{getVernacularString("56bba6ff-0903-41ab-8921-b7f9f178be2d", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-[1.5rem]" />
 
             <div className="tw-grid tw-grid-flow-rows tw-gap-3">
                 <div
-                    className="lg-text-headline"
+                    className="lg-text-headline lg-text-secondary-900"
                     dangerouslySetInnerHTML={{__html: getVernacularString("dfa7ddd9-0a82-4e34-bad3-5d007af442ab", userPreferences.language)}}
                 ></div>
 
-                <div className="lg-text-body tw-pl-[3rem]">{getVernacularString("e87b74a4-6ad4-4afb-9128-6c96107329f6", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">{getVernacularString("e87b74a4-6ad4-4afb-9128-6c96107329f6", userPreferences.language)}</div>
 
-                <div className="lg-text-body tw-pl-[3rem]">{getVernacularString("c648db7a-2882-40b6-8bb4-c6f5e9a25ded", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">{getVernacularString("c648db7a-2882-40b6-8bb4-c6f5e9a25ded", userPreferences.language)}</div>
 
-                <div className="lg-text-body tw-pl-[3rem]">{getVernacularString("2f62912e-e64c-4b2d-bcb5-39c7647850f7", userPreferences.language)}</div>
+                <div className="lg-text-body lg-text-secondary-900 tw-pl-[3rem]">{getVernacularString("2f62912e-e64c-4b2d-bcb5-39c7647850f7", userPreferences.language)}</div>
             </div>
         </div>
     );

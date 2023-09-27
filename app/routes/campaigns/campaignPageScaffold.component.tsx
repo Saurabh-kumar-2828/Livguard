@@ -1,5 +1,9 @@
+import {CookieDialog} from "~/components/cookieDialog";
 import {CampaignFooterComponent} from "~/components/footers/campaignFooterComponent";
 import {HeaderComponent} from "~/components/headerComponent";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import type {UserPreferences} from "~/typeDefinitions";
 
 export function CampaignPageScaffold({
@@ -12,6 +16,7 @@ export function CampaignPageScaffold({
     showContactCtaButton,
     showSearchOption,
     pageUrl,
+    secondaryNavigationController,
 }: {
     userPreferences: UserPreferences;
     children: any;
@@ -24,7 +29,9 @@ export function CampaignPageScaffold({
     showContactCtaButton: boolean;
     showSearchOption: boolean;
     pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
 }) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
             {/* tw-grid tw-grid-rows-[auto_1fr_auto] tw-grid-flow-col tw-min-h-screen */}
@@ -42,6 +49,7 @@ export function CampaignPageScaffold({
                 {children}
                 <div className="tw-flex-grow" />
 
+                {secondaryNavigationController?.sections && <SecondaryNavigation secondaryNavigationController={secondaryNavigationController} />}
                 {/* <VerticalSpacer className="tw-h-[5rem] lg:tw-h-[10rem]" /> */}
 
                 <CampaignFooterComponent
@@ -74,6 +82,8 @@ export function CampaignPageScaffold({
                 />
                 {/* /Suppress Haptik on campaign pages */}
             </div>
+
+            <CookieDialog userPreferences={userPreferences} />
         </>
     );
 }

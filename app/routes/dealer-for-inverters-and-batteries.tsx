@@ -1,6 +1,6 @@
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import type {ActionFunction, LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
-import {Form, useActionData, useFetcher, useTransition} from "@remix-run/react";
+import {Form, Link, useActionData, useFetcher, useTransition} from "@remix-run/react";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 import {Facebook, Instagram, Linkedin, Twitter, X, Youtube} from "react-bootstrap-icons";
 import {useLoaderData} from "react-router";
@@ -16,7 +16,7 @@ import {EmptyFlexFiller} from "~/global-common-typescript/components/emptyFlexFi
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
-import type {Uuid} from "~/global-common-typescript/typeDefinitions";
+import {ImageCdnProvider, type Uuid} from "~/global-common-typescript/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, generateUuid} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
@@ -27,42 +27,10 @@ import {FormStateInputsActionType, FormStateInputsReducer, createInitialFormStat
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {Dealer, UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {StickyBottomBar} from "~/components/bottomBar";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Dealer Locator | Find Livguard inverter battery shop near you",
-//             description: "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
-//             "og:title": "Dealer Locator | Find Livguard inverter battery shop near you",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-//             "og:description": "Locate authorized dealers near you to easily purchase Livguard Inverters and Inverter batteries. Contact the Livguard customer care number for enquiry",
-//             "og:type": "website",
-//             "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
-//             description: "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
-//             "og:title": "डीलर लोकेटर | नज़दीकी लिवगार्ड इनवर्टर बैटरी की दुकान खोजें",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/dealer-for-inverters-and-batteries",
-//             "og:description": "लिवगार्ड इनवर्टर और इन्वर्टर बैटरी आसानी से खरीदने के लिए अपने आस-पास अधिकृत डीलरों का पता लगाएं। सहायता के लिए लिवगार्ड ग्राहक सेवा नंबर पर संपर्क करें",
-//             "og:type": "product",
-//             "og:image": "https://files.growthjockey.com/livguard/icons/logo-light.svg",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/dealer-for-inverters-and-batteries/"}];
-// };
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -102,7 +70,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://files.growthjockey.com/livguard/icons/logo-light.svg",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
             {
                 "script:ld+json": {
@@ -179,7 +147,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://files.growthjockey.com/livguard/icons/logo-light.svg",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/common/og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -315,52 +283,6 @@ export default function () {
             </div> */}
 
             <StickyBottomBar userPreferences={userPreferences} />
-            {/*
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": 1,
-                                    "name": "LivGuard",
-                                    "item": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        " https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "ListItem",
-                                    "position": 2,
-                                    "name": "Dealer Locator",
-                                    "item": "https://www.livguard.com/inverter-batteries",
-                                    "description": "Find the Livguard dealer near you"
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Livguard",
-                                    "url": "https://www.livguard.com/",
-                                    "description": " We Are One of A Kind With Livguard, you are always in trusted hands. In just 9 years, Livguard has become the fastest-growing Energy Storage Solutions brand. Our zeal to develop a complete and connected ecosystem of happy customers, committed partners, & the best quality every time has made us the choice of people nationwide.",
-                                    "image": [
-                                        "https://files.growthjockey.com/livguard/icons/logo-dark.svg"
-                                    ]
-                                },
-                                {
-                                    "@type": "SiteNavigationElement",
-                                    "name": "Dealer Locator",
-                                    "url": "https://www.livguard.com/inverter-batteries",
-                                    "description": "Find the Livguard dealer near you"
-                                }
-                            ]
-                        }
-                    `,
-                }}
-            /> */}
         </div>
     );
 }
@@ -525,7 +447,7 @@ export function DealerLocatorPage({
                                         <React.Fragment key={dealerIndex}>
                                             <DefaultElementAnimation>
                                                 <div
-                                                    className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full"
+                                                    className="tw-flex tw-flex-col tw-text-left lg-bg-secondary-100 tw-rounded-lg tw-p-4 tw-h-full lg-card"
                                                     key={dealerIndex}
                                                 >
                                                     <div className="lg-text-title1">{dealer.name}</div>
@@ -542,17 +464,31 @@ export function DealerLocatorPage({
 
                                                     <VerticalSpacer className="tw-h-4" />
 
-                                                    <div className="tw-flex tw-flex-row tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
+                                                    <div className="tw-overflow-hidden tw-flex tw-flex-col sm:tw-flex-row tw-gap-y-2 sm:tw-gap-x-2 tw-justify-center tw-p-2 tw-px-4 lg:tw-items-end">
                                                         {/* <button
                                                         type="button"
                                                         className="tw-bg-gradient-to-r tw-from-[#F25F60] tw-to-[#EB2A2B] tw-rounded-3xl tw-p-2 tw-px-4"
                                                     >
                                                         Enquire Now
                                                     </button> */}
+                                                        {dealer.gmbLink == null ? null : (
+                                                            <Link
+                                                                className="lg-cta-outline-button tw-text-center tw-relative tw-group tw-transition tw-duration-200 hover:tw-border-y-2 hover:tw-border-x-2 hover:tw-px-[3rem] hover:tw-h-full tw-grid tw-place-items-center tw-box-border"
+                                                                to={dealer.gmbLink}
+                                                                target="_blank"
+                                                            >
+                                                                <div className="tw-absolute tw-h-[calc(100%+4px)] tw-w-[calc(100%+4px)] -tw-left-[2px] tw-top-0 tw-rounded-full tw-inset-0 tw-m-auto tw-opacity-0 group-hover:tw-opacity-100 tw-duration-200 tw-ease-in lg-cta-button-gradient"></div>
+                                                                <button className="tw-text-center tw-relative tw-duration-200 group-hover:tw-text-secondary-900-dark tw-grid tw-place-items-center">
+                                                                    {getVernacularString("5b6a1674-797b-430e-a1d0-19a052886b10", userPreferences.language)}
+                                                                </button>
+                                                            </Link>
+                                                        )}
+
                                                         <ContactUsCta
                                                             userPreferences={userPreferences}
                                                             textVernacId="landingPageBottomBarT2"
-                                                            className="tw-z-10 lg:tw-place-self-end"
+                                                            className="tw-z-10 lg:tw-place-self-end max-sm:tw-w-full"
+                                                            buttonClassName="tw-border-y-2 tw-border-transparent max-sm:tw-w-full"
                                                             utmParameters={utmParameters}
                                                             pageUrl={pageUrl}
                                                         />
@@ -2679,14 +2615,14 @@ function GoogleMapView({dealerList}: {dealerList: Array<Dealer> | null}) {
                     center={mapCenter}
                     zoom={zoomLevel}
                 >
-                    {dealerList == null || dealerList.length == 0 ?
-                        // defaultDealerList.map((dealer, dealerIndex) => (
-                        //       <MarkerF
-                        //           position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
-                        //           key={dealerIndex}
-                        //       />
-                        //   ))
-                        null
+                    {dealerList == null || dealerList.length == 0
+                        ? // defaultDealerList.map((dealer, dealerIndex) => (
+                          //       <MarkerF
+                          //           position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}
+                          //           key={dealerIndex}
+                          //       />
+                          //   ))
+                          null
                         : dealerList.map((dealer, dealerIndex) => (
                               <MarkerF
                                   position={{lat: Number(dealer.latitude), lng: Number(dealer.longitude)}}

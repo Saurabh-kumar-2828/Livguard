@@ -215,9 +215,21 @@
         @apply tw-text-new-background-500-light dark:tw-text-new-background-500-dark;
     }
 
+    .lg-bg-new-background-border-500 {
+        @apply tw-bg-new-background-border-500-light dark:tw-bg-new-background-border-500-dark;
+    }
+
     .lg-card {
-        @apply tw-text-new-foreground-500-light dark:tw-text-new-foreground-500-dark tw-border tw-border-solid tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-rounded-lg;
+        @apply tw-text-new-foreground-500-light dark:tw-text-new-foreground-500-dark tw-border tw-border-solid tw-border-new-background-border-500-light dark:tw-border-new-background-border-500-dark tw-rounded-lg lg-card-light-theme-shadow dark:lg-card-dark-theme-shadow;
+    }
+
+    .lg-card-light-theme-shadow {
         box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03);
+    }
+
+    .lg-card-dark-theme-shadow {
+        box-shadow: 8px 11px 15px #0000000d, 0 2px 12px #0000000d, 0 0 6px 4px #00000008;
+        border-width: 2px;
     }
 
     .lg\:lg-card {
@@ -577,7 +589,7 @@
 
     /* TODO: Remove */
     .lg-card-shadow {
-        box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03)
+        box-shadow: 8px 11px 15px 0px rgba(13, 13, 13, 0.05), 0px 2px 12px 0px rgba(13, 13, 13, 0.05), 0px 0px 6px 4px rgba(255, 255, 255, 0.03);
     }
 
     /* TODO: Remove */
@@ -608,7 +620,7 @@
     .lg-about-us-banner-text-gradient {
         background: linear-gradient(88deg, rgba(24, 26, 28, 0.83) 0%, rgba(24, 26, 28, 0) 100%);
     }
-    
+
     .lg-cta-outline-button-category-section-transition-ops {
         background: transparent;
         transition: background 0.2s linear;
@@ -619,5 +631,36 @@
         padding: 12px 16px;
         border: 2px 0px;
         background: linear-gradient(90deg, #f25f60 0%, #eb2a2b 100%);
+    }
+
+    .lg-hi-in .lg-text-highlighted {
+        @apply tw-leading-loose tw-py-2;
+    }
+
+    .lg-link {
+        @apply hover:tw-text-primary-500-light hover:tw-decoration-primary-500-light tw-underline tw-underline-offset-2;
+    }
+
+    .lg-sticky-bottom-bar-shadow {
+        box-shadow: 0px 1px 8px 1px rgb(133 133 133 / 30%);
+    }
+
+    .border-style-initial {
+        border-style: initial;
+    }
+
+    .svg-icon-primary-color {
+        filter: brightness(0) saturate(100%) invert(17%) sepia(84%) saturate(3283%) hue-rotate(346deg) brightness(107%) contrast(91%);
+    }
+
+    .lgs-text-gradient {
+        background: linear-gradient(to right, #75aa43, #75aa43, #00a8b7, #75aa43);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    .instagram-media {
+        position: static !important;
     }
 }

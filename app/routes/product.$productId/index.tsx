@@ -1,9 +1,10 @@
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Response} from "@remix-run/node";
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {CircleFill, StarFill} from "react-bootstrap-icons";
+import {useInView} from "react-intersection-observer";
 import {useLoaderData} from "react-router";
-import {ProductCardComponent, SocialHandles} from "~/components/category/common";
+import {SocialHandles} from "~/components/category/common";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FixedWidthImage} from "~/components/images/fixedWidthImage";
@@ -11,19 +12,26 @@ import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import {ProductInfoCarousel} from "~/components/productInfoCarousel";
+import {ProductCardTwoDetails} from "~/components/reusable-components/productCardTwoDetails";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {getNonEmptyStringFromUnknown} from "~/global-common-typescript/utilities/typeValidationUtilities";
 import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
-import type {ProductDetails, ProductDetailsRecommendedProduct} from "~/productData";
+import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import type {ProductDetails} from "~/productData";
 import {ProductType, allProductDetails} from "~/productData";
 import {ContactUsCta, DealerLocator, FaqSection, TransformingLives} from "~/routes";
 import {ChooseBestInverterBattery} from "~/routes/__category/inverter-batteries";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getBreadcrumbsConditionally, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {addVernacularString, getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -62,15 +70,30 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
         },
         {
             property: "og:image",
-            content: getMetadataForImage(`/livguard/products/${loaderData.productData.slug}/thumbnail.png`).finalUrl,
+            content: getAbsolutePathForRelativePath(getMetadataForImage(`/livguard/products/${loaderData.productData.slug}/thumbnail.png`).finalUrl, ImageCdnProvider.Bunny, null, null),
+        },
+        {
+            "script:ld+json": loaderData.productData.metadata.schema,
         },
     ];
+};
+
+type RecommendedProducts = {
+    slug: string;
+    productType: ProductType;
+    productName: string;
+    productPrice: string | null;
+    specification1Icon: string;
+    specification1: string;
+    specification2Icon: string;
+    specification2: string;
 };
 
 type LoaderData = {
     userPreferences: UserPreferences;
     redirectTo: string;
     productData: ProductDetails;
+    recommendedProducts: Array<RecommendedProducts>;
     pageUrl: string;
 };
 
@@ -87,18 +110,35 @@ export const loader: LoaderFunction = async ({request, params}) => {
         throw new Response(null, {status: 404});
     }
 
+    const recommendedProductsSlug = productData[userPreferences.language].recommendedProducts.map((data) => data.slug);
+
+    const recommendedProducts: Array<RecommendedProducts> = recommendedProductsSlug.map((slug) => {
+        return {
+            slug: slug,
+            productType: allProductDetails[slug][userPreferences.language].type,
+            productName: allProductDetails[slug][userPreferences.language].humanReadableModelNumber,
+            productPrice: allProductDetails[slug][userPreferences.language].price == null ? null : `${allProductDetails[slug][userPreferences.language].price}`,
+            specification1Icon: allProductDetails[slug][userPreferences.language].productIcons[1].icon,
+            specification1: allProductDetails[slug][userPreferences.language].productIcons[1].text,
+            specification2Icon: allProductDetails[slug][userPreferences.language].productIcons[0].icon,
+            specification2: allProductDetails[slug][userPreferences.language].productIcons[0].text,
+        };
+    });
+
+    // console.log(recommendedProducts)
     const loaderData: LoaderData = {
         userPreferences: userPreferences,
         redirectTo: getRedirectToUrlFromRequest(request),
         productData: productData[userPreferences.language],
         pageUrl: getUrlFromRequest(request),
+        recommendedProducts: recommendedProducts,
     };
 
     return loaderData;
 };
 
 export default function () {
-    const {userPreferences, redirectTo, productData, pageUrl} = useLoaderData() as LoaderData;
+    const {userPreferences, redirectTo, productData, pageUrl, recommendedProducts} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
 
@@ -112,7 +152,9 @@ export default function () {
         [Language.English]: modelNumber,
         [Language.Hindi]: modelNumber,
     });
-    // /Hack
+
+    const conditionalBreadcrumb = getBreadcrumbsConditionally(productData.type, productData.subType);
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -124,37 +166,29 @@ export default function () {
                 pageUrl={pageUrl}
                 breadcrumbs={[
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
-                    productData.type == ProductType.inverter
-                        ? {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
-                        : productData.type == ProductType.battery
-                        ? {contentId: "09b8631b-98e0-4ae8-bafb-65bb57001872", link: "/inverter-batteries"}
-                        : productData.type == ProductType.combo
-                        ? {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"}
-                        : {contentId: "377e65a0-631b-4188-b63a-7ae3661bbe85", link: "/inverter-for-home"},
+                    {contentId: conditionalBreadcrumb.contentId, link: conditionalBreadcrumb.link},
                     // TODO: Somehow get this to work
                     // {contentId: getSingletonValueOrNull(productData.specifications.filter(specification => specification.title == "Model Number"))?.value ?? "7f1b0663-3535-464c-86c9-78967d00dcc8", link: "#"},
                     {contentId: breadcrumbLastContentId, link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <ProductPage
-                    userPreferences={userPreferences}
-                    productData={productData}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <ProductPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        productData={productData}
+                        pageUrl={pageUrl}
+                        recommendedProducts={recommendedProducts}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
                 userPreferences={userPreferences}
                 utmParameters={utmSearchParameters}
                 pageUrl={pageUrl}
-            />
-
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: productData.metadata.schema,
-                }}
             />
         </>
     );
@@ -163,16 +197,22 @@ export default function () {
 function ProductPage({
     userPreferences,
     productData,
+    recommendedProducts,
     utmParameters,
     pageUrl,
+    secondaryNavigationController,
 }: {
     userPreferences: UserPreferences;
     productData: ProductDetails;
+    recommendedProducts: Array<RecommendedProducts>;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
 }) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <VerticalSpacer className="tw-h-10" />
@@ -213,7 +253,7 @@ function ProductPage({
 
             <TransformingLives
                 userPreferences={userPreferences}
-                className="lg:tw-pl-[72px] xl:tw-pl-[120px] tw-max-w-7xl tw-mx-auto"
+                className="!tw-w-full tw-col-start-1 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
@@ -238,7 +278,7 @@ function ProductPage({
 
             <SuggestedProducts
                 userPreferences={userPreferences}
-                recommendedProducts={productData.recommendedProducts}
+                recommendedProducts={recommendedProducts}
                 className="lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
             />
 
@@ -278,9 +318,24 @@ function ProductInfo({
     pageUrl: string;
 }) {
     const [mainImageIndex, setMainImageIndex] = useState(0);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge tw-max-w-7xl tw-mx-auto", className)}
+            id="top"
+            ref={sectionRef}
+        >
             <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[minmax(0,4fr),minmax(0,3fr)] lg:tw-grid-rows-1 tw-justify-items-center tw-text-center tw-gap-2">
                 <div className="tw-grid tw-grid-cols-1 tw-grid-rows-[minmax(0,1fr),auto] lg:tw-grid-cols-[auto,minmax(0,1fr)] lg:tw-grid-rows-1 tw-row-start-1 lg:tw-col-start-1 tw-gap-2 tw-w-full">
                     <div className="tw-row-start-1 lg:tw-col-start-2 lg:tw-pr-10">
@@ -361,6 +416,18 @@ function ProductInfo({
 }
 
 function ProductSpecifications({userPreferences, productDetails, className}: {userPreferences: UserPreferences; productDetails: ProductDetails; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            specification: {
+                humanReadableName: getVernacularString("cd1f1433-8736-4f1d-a5e6-927e59a02ec2", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     const [selectedTab, setSelectedTab] = useState("specifications");
 
     const getDataFromProductDetails = (tab: string) => {
@@ -396,7 +463,11 @@ function ProductSpecifications({userPreferences, productDetails, className}: {us
     }
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-gap-4", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-flex tw-flex-col tw-gap-4", className)}
+            id="specification"
+            ref={sectionRef}
+        >
             <div className="lg-px-screen-edge">
                 <div
                     className={concatenateNonNullStringsWithSpaces(
@@ -470,8 +541,23 @@ function ProductDescription({
     productDescription: {description: string; images: Array<{image: string}>};
     className: string;
 }) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            description: {
+                humanReadableName: getVernacularString("abea43c2-a4ec-471c-ad0b-7f3cf8e42cb3", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge tw-flex-tw-flex-col", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge tw-flex-tw-flex-col", className)}
+            id="description"
+            ref={sectionRef}
+        >
             <div className="lg-text-headline tw-text-center">{getVernacularString("productPageProductDescription", userPreferences.language)}</div>
 
             <VerticalSpacer className="tw-h-6" />
@@ -586,9 +672,24 @@ function ProductRating({userPreferences, reviews, className}: {userPreferences: 
     );
 }
 
-function SuggestedProducts({userPreferences, recommendedProducts, className}: {userPreferences: UserPreferences; recommendedProducts: Array<ProductDetailsRecommendedProduct>; className: string}) {
+function SuggestedProducts({userPreferences, recommendedProducts, className}: {userPreferences: UserPreferences; recommendedProducts: Array<RecommendedProducts>; className: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "suggested-products": {
+                humanReadableName: getVernacularString("4e366b86-4e66-47f4-99ef-6a33dc519099", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge", className)}
+            id="suggested-products"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col">
                 <div className="lg-text-headline tw-text-center">
                     <DefaultTextAnimation>
@@ -607,9 +708,18 @@ function SuggestedProducts({userPreferences, recommendedProducts, className}: {u
                             className={`lg-bg-secondary-100 tw-rounded-lg`}
                             key={recommendedProductIndex}
                         >
-                            <ProductCardComponent
-                                recommendedProduct={recommendedProduct}
-                                key={recommendedProductIndex}
+                            <ProductCardTwoDetails
+                                slug={recommendedProduct.slug}
+                                productType={recommendedProduct.productType}
+                                exploreProduct={true}
+                                isBestSeller={false}
+                                imageRelativeUrl={`/livguard/products/${recommendedProduct.slug}/thumbnail.png`}
+                                productName={recommendedProduct.productName}
+                                productPrice={recommendedProduct.productPrice}
+                                specification1Icon={recommendedProduct.specification1Icon}
+                                specification1={recommendedProduct.specification1}
+                                specification2Icon={recommendedProduct.specification2Icon}
+                                specification2={recommendedProduct.specification2}
                                 userPreferences={userPreferences}
                             />
                         </div>

@@ -13,12 +13,12 @@ import {EmbeddedYoutubeVideo} from "~/components/embeddedYoutubeVideo";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, Theme, UserPreferences} from "~/typeDefinitions";
 import {getVernacularString} from "~/vernacularProvider";
-import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {CarouselStyle5} from "~/components/carouselStyle5";
 import {FullWidthImage} from "~/components/images/simpleFullWidthImage";
 import {CarouselStyle3} from "~/components/carouselStyle3";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import {getAbsolutePathForRelativePath} from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ImageCdnProvider} from "~/global-common-typescript/typeDefinitions";
 import {FormSelectComponent} from "~/livguard-common-typescript/scratchpad";
@@ -28,39 +28,10 @@ import {ProductType, allProductDetails} from "~/productData";
 import {ProductAndCategoryBottomBar} from "~/components/productAndCategoryBottomBar";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {DealerLocator} from "~/routes";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Efficiency in Every Move with Livguard E-Rickshaw Batteries",
-//             description: "Power your e-rickshaw with the best battery for supreme performance. Maximize mileage, life, and reliability. Low-maintenance and faster charging",
-//             "og:title": "Efficiency in Every Move with Livguard E-Rickshaw Batteries",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/e-rickshaw-batteries",
-//             "og:description": "Power your e-rickshaw with the best battery for supreme performance. Maximize mileage, life, and reliability. Low-maintenance and faster charging",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड ई-रिक्शा बैटरी के साथ हर चाल में कार्यक्षमता",
-//             description: "श्रेष्ठ प्रदर्शन के लिए अपने ई-रिक्शा को सबसे अच्छी बैटरी से संचालित करें। यात्रा, उम्र, और विश्वसनीयता को अधिकतम करें। कम रखरखाव और तेज़ चार्जिंग से लाभ उठाएं",
-//             "og:title": "लिवगार्ड ई-रिक्शा बैटरी के साथ हर चाल में कार्यक्षमता",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/e-rickshaw-batteries",
-//             "og:description": "श्रेष्ठ प्रदर्शन के लिए अपने ई-रिक्शा को सबसे अच्छी बैटरी से संचालित करें। यात्रा, उम्र, और विश्वसनीयता को अधिकतम करें। कम रखरखाव और तेज़ चार्जिंग से लाभ उठाएं",
-//             "og:type": "Product",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/e-rickshaw-batteries"}];
-// };
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {useInView} from "react-intersection-observer";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -100,7 +71,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/e-rickshaw-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -139,7 +110,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-rickshaw-batteries/e-rickshaw-batteries-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -173,6 +144,7 @@ export default () => {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
     return (
         <>
             <PageScaffold
@@ -185,8 +157,16 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "b8b98109-dcab-45bf-873e-db9da7c798eb", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <ERickshawBatteriesPage userPreferences={userPreferences} />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <ERickshawBatteriesPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
 
             <ProductAndCategoryBottomBar
@@ -198,7 +178,20 @@ export default () => {
     );
 };
 
-function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPreferences}) {
+function ERickshawBatteriesPage({
+    userPreferences,
+    utmParameters,
+    pageUrl,
+    secondaryNavigationController,
+}: {
+    userPreferences: UserPreferences;
+    utmParameters: {
+        [searchParameter: string]: string;
+    };
+    pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
+}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center">
@@ -206,35 +199,33 @@ function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPrefere
                     userPreferences={userPreferences}
                     className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full"
                 />
-
-                <VerticalSpacer className="tw-h-10 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <SuperiorFeatures
                     userPreferences={userPreferences}
-                    className="tw-row-start-3 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-4 tw-col-start-1 lg-px-screen-edge-2 lg:tw-px-0 tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-4 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-5 tw-col-start-1 lg:tw-col-span-full" />
 
                 <OurRangeToEmpowerYourGrowth
                     userPreferences={userPreferences}
-                    className="tw-row-start-5 tw-col-start-1 lg:tw-col-span-full tw-w-full"
+                    className="tw-row-start-6 tw-col-start-1 lg:tw-col-span-full tw-w-full"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-7 tw-col-start-1 lg:tw-col-span-full" />
 
                 <DiscoverMore
                     userPreferences={userPreferences}
-                    className="tw-row-start-7 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-8 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-8 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-9 tw-col-start-1 lg:tw-col-span-full" />
 
-                <div className="tw-row-start-9 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
-                    <DealerLocator
+                <div className="tw-row-start-10 tw-grid lg:tw-grid-cols-[minmax(0,1fr)_minmax(0,2fr)] tw-col-span-full lg:lg-px-screen-edge-2 tw-gap-x-5 tw-max-w-7xl tw-mx-auto">
+                    <DealerLocatorSection
                         userPreferences={userPreferences}
                         className="tw-row-start-5 lg:tw-col-start-1 lg:tw-h-full"
-                        showCtaButton={true}
                     />
 
                     <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-6 lg:tw-col-start-1 lg:tw-col-span-full lg:tw-hidden" />
@@ -245,22 +236,22 @@ function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPrefere
                     />
                 </div>
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[10] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[11] tw-col-start-1 lg:tw-col-span-full" />
 
                 <FaqSection
                     userPreferences={userPreferences}
-                    className="tw-row-start-[11] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl"
+                    className="tw-row-start-[12] lg:tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[12] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full" />
 
                 <SocialHandles
                     userPreferences={userPreferences}
                     heading={{text1: "b0a3aa40-4b00-4bdd-88e0-67085fafa92b", text2: `c0f802cc-902b-4328-b631-a3fad8fc7d18`}}
-                    className="tw-row-start-[13] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
+                    className="tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full lg:tw-px-[72px] xl:tw-px-[120px] tw-gap-[1rem] tw-max-w-7xl tw-mx-auto"
                 />
 
-                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[14] tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-[15] tw-col-start-1 lg:tw-col-span-full" />
             </div>
         </>
     );
@@ -268,13 +259,25 @@ function ERickshawBatteriesPage({userPreferences}: {userPreferences: UserPrefere
 
 function HeroSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[2rem_auto_0.5rem_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_0.5rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left lg:tw-grid-cols-2",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full tw-col-span-full tw-h-full tw-w-full tw-relative">
                 {isScreenSizeBelow == null ? null : (
@@ -350,10 +353,24 @@ function SuperiorFeatures({userPreferences, className}: {userPreferences: UserPr
             imageRelativePath: "/livguard/e-rickshaw-batteries/2/fast-charging.jpg",
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "superior-features": {
+                humanReadableName: getVernacularString("ac4503ae-ef14-4618-900a-7cfe181b3e45", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <>
-            <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}>
+            <div
+                className={concatenateNonNullStringsWithSpaces("tw-w-full lg:tw-col-span-full", className)}
+                id="superior-features"
+                ref={sectionRef}
+            >
                 <DefaultTextAnimation className="tw-flex tw-flex-col tw-items-center lg-text-headline lg:lg-px-screen-edge-2 lg:tw-pl-0 lg:tw-pr-0 tw-text-center lg:tw-text-left">
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("3e08230a-fc5d-4191-abfa-6b6be76e983f", userPreferences.language)}} />
                     <div dangerouslySetInnerHTML={{__html: getVernacularString("eb77dfed-047e-4fb7-bfb2-bbe06d128a93", userPreferences.language)}} />
@@ -430,9 +447,23 @@ function OurRangeToEmpowerYourGrowth({userPreferences, className}: {userPreferen
             productType: ProductType.automotiveBattery,
         },
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "our-range": {
+                humanReadableName: getVernacularString("f455acf2-de2a-48bb-afa1-c1b400f1fc09", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full tw-grid tw-grid-flow-row lg-bg-our-suggestions", className)}
+            id="our-range"
+            ref={sectionRef}
+        >
             <VerticalSpacer className="tw-h-6 lg:tw-h-10" />
 
             <div
@@ -580,8 +611,23 @@ function BatteryCard({
 }
 
 function DiscoverMore({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "video-guide": {
+                humanReadableName: getVernacularString("067bdc8d-d3a5-4f85-b579-4655b69b6a16", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg-px-screen-edge-2", className)}
+            id="video-guide"
+            ref={sectionRef}
+        >
             <DefaultTextAnimation className="tw-place-self-center">
                 <div className="lg-text-headline">{getVernacularString("98c90c88-6fc4-4786-b130-a52ce614d5d0", userPreferences.language)}</div>
             </DefaultTextAnimation>
@@ -603,8 +649,23 @@ function DiscoverMore({userPreferences, className}: {userPreferences: UserPrefer
 }
 
 function ChooseTheRightBattery({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "e-rickshaw-charger": {
+                humanReadableName: getVernacularString("361b437f-a453-40f8-8ea5-1d89d31ed8aa", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_minmax(0,1fr)] ", className)}
+            id="e-rickshaw-charger"
+            ref={sectionRef}
+        >
             <div
                 className="tw-row-start-2 tw-text-center lg-text-headline"
                 dangerouslySetInnerHTML={{__html: getVernacularString("c52ecf6e-bc7d-4934-88d1-43660af8fe2d", userPreferences.language)}}
@@ -670,13 +731,14 @@ function FaqSection({userPreferences, className}: {userPreferences: UserPreferen
             answer: "e1d62905-4e93-4b94-a0d3-db4774a9303e",
         },
     ];
-
     return (
-        <FaqSectionInternal
-            faqs={faqs}
-            userPreferences={userPreferences}
-            className={className}
-        />
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-h-full", className)}>
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className=""
+            />
+        </div>
     );
 }
 
@@ -695,9 +757,23 @@ function SocialHandles({userPreferences, heading, className}: {userPreferences: 
             style={{aspectRatio: "560/315"}}
         />,
     ];
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            testimonials: {
+                humanReadableName: getVernacularString("ab5df361-c4a5-4f3a-b26e-21eff3cb23bc", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("[@media(max-width:1024px)]:lg-px-screen-edge tw-w-full tw-max-w-7xl tw-mx-auto", className)}
+            id="testimonials"
+            ref={sectionRef}
+        >
             <div className="tw-flex tw-flex-col lg-bg-secondary-100 tw-rounded-lg tw-text-center lg-px-screen-edge lg:tw-hidden">
                 <VerticalSpacer className="tw-h-4 lg:tw-hidden" />
 
@@ -954,5 +1030,31 @@ export function FilterDialog({
                 </div>
             </LivguardDialog>
         </>
+    );
+}
+
+function DealerLocatorSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "find-my-dealer": {
+                humanReadableName: getVernacularString("bc9269a0-800f-4adf-ac22-d866887da9f4", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+    return (
+        <div
+            className={concatenateNonNullStringsWithSpaces("", className)}
+            id="find-my-dealer"
+            ref={sectionRef}
+        >
+            <DealerLocator
+                userPreferences={userPreferences}
+                showCtaButton={true}
+            />
+        </div>
     );
 }

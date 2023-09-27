@@ -18,44 +18,16 @@ import {concatenateNonNullStringsWithSpaces, getIntegerArrayOfLength} from "~/gl
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import {Language, UserPreferences} from "~/typeDefinitions";
-import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {appendSpaceToString, getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 import {ContactUsCta} from ".";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Leading the Charge in E-Waste Management | Livguard",
-//             description: "Discover Livguard's innovative approach to e-waste management. Reclaiming valuable resources and creating a positive impact on the environment",
-//             "og:title": "Leading the Charge in E-Waste Management | Livguard",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/e-waste-management",
-//             "og:description": "Discover Livguard's innovative approach to e-waste management. Reclaiming valuable resources and creating a positive impact on the environment",
-//             "og:type": "Website",
-//             "og:image": "",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "ई-वेस्ट प्रबंधन में अग्रणी | लिवगार्ड",
-//             description: "लिवगार्ड के ई-वेस्ट प्रबंधन के नए और अभिनवीय प्रस्तावना की खोज करें। मूल्यवान संसाधनों को पुनर्प्राप्ति करके और पर्यावरण पर सकारात्मक प्रभाव बनाकर।",
-//             "og:title": "ई-वेस्ट प्रबंधन में अग्रणी | लिवगार्ड",
-//             "og:site_name": "Livguard",
-//             "og:url": "https://www.livguard.com/e-waste-management",
-//             "og:description": "लिवगार्ड के ई-वेस्ट प्रबंधन के नए और अभिनवीय प्रस्तावना की खोज करें। मूल्यवान संसाधनों को पुनर्प्राप्ति करके और पर्यावरण पर सकारात्मक प्रभाव बनाकर।",
-//             "og:type": "website",
-//             "og:image": "",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/e-waste-management"}];
-// };
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import {useContext, useEffect} from "react";
+import {useInView} from "react-intersection-observer";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -95,7 +67,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-waste-management/e-waste-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -134,7 +106,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/e-waste-management/e-waste-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -168,6 +140,8 @@ export default () => {
 
     const utmSearchParameters = useUtmSearchParameters();
 
+    const secondaryNavigationController = useSecondaryNavigationController();
+
     return (
         <>
             <PageScaffold
@@ -180,12 +154,16 @@ export default () => {
                     {contentId: "cfab263f-0175-43fb-91e5-fccc64209d36", link: "/"},
                     {contentId: "873561ca-02f7-45e3-8b98-80df5f7de86d", link: "#"},
                 ]}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <EwasteManagementPage
-                    userPreferences={userPreferences}
-                    utmParameters={utmSearchParameters}
-                    pageUrl={pageUrl}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <EwasteManagementPage
+                        userPreferences={userPreferences}
+                        utmParameters={utmSearchParameters}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </>
     );
@@ -195,13 +173,16 @@ function EwasteManagementPage({
     userPreferences,
     utmParameters,
     pageUrl,
+    secondaryNavigationController,
 }: {
     userPreferences: UserPreferences;
     utmParameters: {
         [searchParameter: string]: string;
     };
     pageUrl: string;
+    secondaryNavigationController?: SecondaryNavigationController;
 }) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
     return (
         <div>
             <HeroSection
@@ -209,7 +190,6 @@ function EwasteManagementPage({
                 utmParameters={utmParameters}
                 pageUrl={pageUrl}
             />
-
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <Introduction
@@ -242,18 +222,17 @@ function EwasteManagementPage({
 
             <AwarenessPrograms userPreferences={userPreferences} />
 
-            <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
+            {/* <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
             <HappyUser
                 className=""
                 userPreferences={userPreferences}
-            />
+            /> */}
 
             <VerticalSpacer className="tw-h-10 lg:tw-h-20" />
 
-            <SocialHandles
+            <SocialHandlesSection
                 userPreferences={userPreferences}
-                heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
                 className="lg:tw-px-[72px] xl:tw-px-[120px]"
             />
 
@@ -283,13 +262,25 @@ function HeroSection({
     pageUrl: string;
 }) {
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:tw-grid-rows-[minmax(0,1fr)_auto_1rem_auto_minmax(0,1fr)] tw-text-center lg:tw-text-left tw-items-center md:tw-items-start tw-relative",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 tw-col-start-1 tw-row-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -325,8 +316,23 @@ function HeroSection({
 }
 
 function Introduction({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "understanding-e-waste-management": {
+                humanReadableName: getVernacularString("3b3c4911-9f88-4c2b-a7e9-255c83f18ebd", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}
+            id="understanding-e-waste-management"
+            ref={sectionRef}
+        >
             <div className="lg-text-headline tw-text-center">{getVernacularString("e7e9c51a-f71f-45dc-9607-93bd3236c6b5", userPreferences.language)}</div>
             <VerticalSpacer className="tw-h-[1rem]" />
             <div className="lg-text-body ">{getVernacularString("edc62a50-a3c7-4f6f-b5dc-e7fbad46a0aa", userPreferences.language)}</div>
@@ -342,8 +348,23 @@ function Introduction({userPreferences, className}: {userPreferences: UserPrefer
 
 function WhyEwaste({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const {width: containerWidth, height: containerHeight, ref} = useResizeDetector();
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "why-e-waste-management": {
+                humanReadableName: getVernacularString("49f87968-94f3-4a60-8afa-830ef171f29b", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-w-full lg-px-screen-edge-2", className)}
+            id="why-e-waste-management"
+            ref={sectionRef}
+        >
             <div
                 className="tw-w-full"
                 ref={ref}
@@ -706,14 +727,50 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
         {
             image: "/livguard/e-waste-management/7/3.png",
         },
+        {
+            image: "/livguard/e-waste-management/7/1.png",
+        },
+        {
+            image: "/livguard/e-waste-management/7/2.png",
+        },
+        {
+            image: "/livguard/e-waste-management/7/3.png",
+        },
+        {
+            image: "/livguard/e-waste-management/7/1.png",
+        },
+        {
+            image: "/livguard/e-waste-management/7/2.png",
+        },
+        {
+            image: "/livguard/e-waste-management/7/3.png",
+        },
     ];
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "waves-of-impact": {
+                humanReadableName: getVernacularString("789b2fd5-46ee-4b76-b2a4-a73074021f6a", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("", className)}
+            id="waves-of-impact"
+            ref={sectionRef}
+        >
             <div className="lg-text-headline tw-text-center">{getVernacularString("6c5422c4-c98a-4035-9e9d-7977366e50f3", userPreferences.language)}</div>
-            <div className="lg-text-body tw-text-center">{getVernacularString("1eaa68c5-42b8-497e-bf30-220999dcc61a", userPreferences.language)}</div>
+            <div
+                className="lg-text-body tw-text-center"
+                dangerouslySetInnerHTML={{__html: getVernacularString("1eaa68c5-42b8-497e-bf30-220999dcc61a", userPreferences.language)}}
+            />{" "}
             <VerticalSpacer className="tw-h-6" />
             <CarouselStyle4
-                chevronButtonsDivisionFactor={3}
+                chevronButtonsDivisionFactor={5}
                 items={items.map((item, itemIndex) => {
                     return (
                         <div
@@ -731,154 +788,12 @@ function AwarenessPrograms({userPreferences, className}: {userPreferences: UserP
     );
 }
 
-export function HappyUser({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
-    const testimonials = [
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review1Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review1State", userPreferences.language)}`,
-            message: `${getVernacularString("review1Message", userPreferences.language)}`,
-            productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-            productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review2Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review2State", userPreferences.language)}`,
-            message: `${getVernacularString("review2Message", userPreferences.language)}`,
-            productImage: "/livguard/products/urban-combo/thumbnail.png",
-            productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review3Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review3State", userPreferences.language)}`,
-            message: `${getVernacularString("review3Message", userPreferences.language)}`,
-            productImage: "/livguard/products/lgs1100i/thumbnail.png",
-            productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review4Name", userPreferences.language)}`,
-            rating: 4,
-            state: `${getVernacularString("review4State", userPreferences.language)}`,
-            message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "/livguard/products/urban-combo/thumbnaill.png",
-            productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review1Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review1State", userPreferences.language)}`,
-            message: `${getVernacularString("review1Message", userPreferences.language)}`,
-            productImage: "/livguard/products/peace-of-mind-combo/thumbnail.png",
-            productName: `${getVernacularString("review1ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review2Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review2State", userPreferences.language)}`,
-            message: `${getVernacularString("review2Message", userPreferences.language)}`,
-            productImage: "/livguard/products/urban-combo/thumbnaill.png",
-            productName: `${getVernacularString("review2ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review3Name", userPreferences.language)}`,
-            rating: 5,
-            state: `${getVernacularString("review3State", userPreferences.language)}`,
-            message: `${getVernacularString("review3Message", userPreferences.language)}`,
-            productImage: "/livguard/products/lgs1100i/thumbnail.png",
-            productName: `${getVernacularString("review3ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review4Name", userPreferences.language)}`,
-            rating: 4,
-            state: `${getVernacularString("review4State", userPreferences.language)}`,
-            message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "/livguard/products/urban-combo/thumbnail.png",
-            productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
-        },
-        {
-            svgIcon: "/livguard/e-waste-management/8/testominal1.png",
-            name: `${getVernacularString("review4Name", userPreferences.language)}`,
-            rating: 4,
-            state: `${getVernacularString("review4State", userPreferences.language)}`,
-            message: `${getVernacularString("review4Message", userPreferences.language)}`,
-            productImage: "/livguard/products/urban-combo/thumbnail.png",
-            productName: `${getVernacularString("review4ProductName", userPreferences.language)}`,
-        },
-    ];
+function SocialHandlesSection({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     return (
-        <div className={className}>
-            <div className="lg-text-headline tw-text-center">
-                <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("eba7b1df-230e-4a24-9af0-03d357c63bd7", userPreferences.language)}} />
-                </DefaultTextAnimation>
-                <DefaultTextAnimation>
-                    <div dangerouslySetInnerHTML={{__html: getVernacularString("95604516-fdf0-40f3-b168-2e5c2d7dd976", userPreferences.language)}} />
-                </DefaultTextAnimation>
-            </div>
-
-            <VerticalSpacer className="tw-h-8" />
-            <CarouselStyle4
-                chevronButtonsDivisionFactor={3}
-                items={testimonials.map((testimonials, testimonialsIndex) => {
-                    return (
-                        <div
-                            className="tw-h-full tw-max-w-[21rem]"
-                            key={testimonialsIndex}
-                        >
-                            <div className="tw-grid tw-grid-cols-[minmax(0,1fr)_auto] tw-grid-rows-[auto_minmax(0,1fr)] tw-p-3 tw-pt-5 tw-gap-x-2 tw-gap-y-2 tw-justify-center tw-items-start lg-card tw-h-full !tw-w-max-[20rem]">
-                                <div className="tw-col-start-1 tw-row-start-1 tw-flex tw-flex-col tw-gap-1 tw-justify-start">
-                                    <div className="tw-grid tw-grid-cols-[auto_minmax(0,1fr)] tw-gap-4">
-                                        <div className="tw-col-start-1">
-                                            <img
-                                                src={getAbsolutePathForRelativePath(getMetadataForImage(testimonials.svgIcon).finalUrl, ImageCdnProvider.Bunny, null, null)}
-                                                className={concatenateNonNullStringsWithSpaces("")}
-                                            />
-                                        </div>
-                                        <div className="tw-col-start-2">
-                                            <div className="lg-text-title1">{testimonials.name}</div>
-                                            <div className="lg-text-body-bold">{testimonials.state}</div>
-                                            <div className="tw-flex tw-flex-row tw-gap-[2px] ">
-                                                <ItemBuilder
-                                                    items={getIntegerArrayOfLength(5)}
-                                                    itemBuilder={(_, itemIndex) => (
-                                                        <StarFill
-                                                            className={concatenateNonNullStringsWithSpaces(
-                                                                "tw-w-4 tw-h-4",
-                                                                itemIndex < testimonials.rating ? "lg-text-primary-500" : "lg-text-secondary-100",
-                                                            )}
-                                                            key={itemIndex}
-                                                        />
-                                                    )}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tw-col-start-2 tw-row-start-1 tw-justify-end tw-flex">
-                                    <FixedWidthImage
-                                        relativePath={testimonials.productImage}
-                                        width="100px"
-                                    />
-                                </div>
-                                <div className="tw-col-start-1 tw-col-span-2 tw-row-start-2 tw-h-full tw-w-full ">
-                                    <div className="lg-text-body tw-text-left tw-flex-1">{testimonials.message}</div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
-                slidesContainerClassName="tw-auto-cols-max"
-                controlsContainerClassName="!tw-justify-center !tw-gap-x-4"
+        <div className={concatenateNonNullStringsWithSpaces("", className)}>
+            <SocialHandles
+                userPreferences={userPreferences}
+                heading={{text1: "homeS11H1T1", text2: "homeS11H1T2"}}
             />
         </div>
     );
@@ -907,12 +822,13 @@ export function FaqQuestion({userPreferences, className}: {userPreferences: User
             answer: "1dd8e8a8-f9ac-42de-bbf6-dff02440d916",
         },
     ];
-
     return (
-        <FaqSectionInternal
-            faqs={faqs}
-            userPreferences={userPreferences}
-            className={className}
-        />
+        <div className={concatenateNonNullStringsWithSpaces("tw-w-full tw-h-full", className)}>
+            <FaqSectionInternal
+                faqs={faqs}
+                userPreferences={userPreferences}
+                className=""
+            />
+        </div>
     );
 }

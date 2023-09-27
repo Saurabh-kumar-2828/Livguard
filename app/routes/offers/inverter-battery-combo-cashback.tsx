@@ -1,4 +1,4 @@
-import {LinksFunction, LoaderFunction, MetaFunction, V2_MetaFunction} from "@remix-run/node";
+import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {useLoaderData} from "@remix-run/react";
 import {useState} from "react";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
@@ -6,29 +6,9 @@ import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSe
 import {CampaignPageScaffold} from "~/routes/campaigns/campaignPageScaffold.component";
 import {HeroSection, OfferContactUsDialog, StepsToAvailCashback, TermsAndConditions} from "~/routes/offers/inverter-and-battery-jodi";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
-import {Language, UserPreferences} from "~/typeDefinitions";
+import type {UserPreferences} from "~/typeDefinitions";
+import {Language} from "~/typeDefinitions";
 import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
-
-// export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
-//     const userPreferences: UserPreferences = data.userPreferences;
-//     if (userPreferences.language == Language.English) {
-//         return {
-//             title: "Buy Inverter & Inverter Battery Combo from Livguard and get Cashback",
-//             description: "Experience an uninterrupted summer with Livguard Inverter and Battery combo and get cashback of up to Rs. 1500 with some easy steps. Limited Period Offer!!",
-//         };
-//     } else if (userPreferences.language == Language.Hindi) {
-//         return {
-//             title: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
-//             description: "लिवगार्ड इन्वर्टर और बैटरी कॉम्बो के साथ गर्मी के मौसम को परेशानी मुक्त बनाएँ और रुपये 1500 तक का कैशबैक प्राप्त करें कुछ आसान चरणों के साथ। सीमित अवधि का ऑफर!!",
-//         };
-//     } else {
-//         throw Error(`Undefined language ${userPreferences.language}`);
-//     }
-// };
-
-// export const links: LinksFunction = () => {
-//     return [{rel: "canonical", href: "https://www.livguard.com/offers/inverter-battery-combo-cashback"}];
-// };
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
     const userPreferences: UserPreferences = loaderData.userPreferences;
@@ -76,7 +56,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             {
                 tagName: "link",
                 rel: "canonical",
-                href: "https://www.livguard.com/offers/inverter-battery-combo-cashback"
+                href: "https://www.livguard.com/offers/inverter-battery-combo-cashback",
             },
             {
                 title: "लिवगार्ड से इन्वर्टर और इन्वर्टर बैटरी कॉम्बो खरीदें और कैशबैक प्राप्त करें",
@@ -159,15 +139,6 @@ export default function () {
             </CampaignPageScaffold>
 
             {/* <StickyBottomBar userPreferences={userPreferences} /> */}
-
-            {/* <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: `
-
-                    `,
-                }}
-            /> */}
         </>
     );
 }
@@ -210,8 +181,3 @@ function LandingPage({
         </div>
     );
 }
-
-
-
-
-

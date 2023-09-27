@@ -17,7 +17,7 @@ export function ProductAndCategoryBottomBar({userPreferences, utmParameters, pag
     }
 
     return (
-        <div className="lg:tw-hidden tw-sticky tw-bottom-0 lg-bg-secondary-300 tw-rounded-t-lg tw-grid tw-grid-cols-4 tw-py-[0.8125rem] tw-text-center tw-px-2 tw-z-50">
+        <div className="lg:tw-hidden tw-sticky tw-bottom-0 lg-bg-secondary-100 lg-card lg-sticky-bottom-bar-shadow tw-rounded-t-lg tw-grid tw-grid-cols-4 tw-py-[0.8125rem] tw-text-center tw-px-2 tw-z-[63]">
             <div className="tw-flex tw-flex-col tw-items-center tw-gap-y-2">
                 <Link
                     to="/dealer-for-inverters-and-batteries"

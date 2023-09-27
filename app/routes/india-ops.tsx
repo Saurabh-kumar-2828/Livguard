@@ -1,23 +1,30 @@
 import {Menu} from "@headlessui/react";
 import type {LoaderFunction, V2_MetaFunction} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
+import {useEffect, useContext} from "react";
+import {useInView} from "react-intersection-observer";
 import {CarouselStyle4} from "~/components/carouselStyle4";
 import {DefaultElementAnimation} from "~/components/defaultElementAnimation";
 import {DefaultImageAnimation} from "~/components/defaultImageAnimation";
 import {DefaultTextAnimation} from "~/components/defaultTextAnimation";
 import {FullWidthImage} from "~/components/images/fullWidthImage";
 import {PageScaffold} from "~/components/pageScaffold";
+import {SecondaryNavigation} from "~/components/secondaryNavigation";
+import {SecondaryNavigationControllerContext} from "~/contexts/secondaryNavigationControllerContext";
+import { getAbsolutePathForRelativePath } from "~/global-common-typescript/components/images/growthJockeyImage";
 import {ItemBuilder} from "~/global-common-typescript/components/itemBuilder";
 import {VerticalSpacer} from "~/global-common-typescript/components/verticalSpacer";
+import { ImageCdnProvider } from "~/global-common-typescript/typeDefinitions";
 import {concatenateNonNullStringsWithSpaces} from "~/global-common-typescript/utilities/utilities";
 import {useUtmSearchParameters} from "~/global-common-typescript/utilities/utmSearchParameters";
 import {useEmblaCarouselWithIndex} from "~/hooks/useEmblaCarouselWithIndex";
 import useIsScreenSizeBelow from "~/hooks/useIsScreenSizeBelow";
+import {SecondaryNavigationController, useSecondaryNavigationController} from "~/hooks/useSecondaryNavigationController";
 import {ContactUsCta, DealerLocator} from "~/routes";
 import {getUserPreferencesFromCookiesAndUrlSearchParameters} from "~/server/utilities.server";
 import type {UserPreferences} from "~/typeDefinitions";
 import {Language} from "~/typeDefinitions";
-import {getRedirectToUrlFromRequest, getUrlFromRequest} from "~/utilities";
+import {getMetadataForImage, getRedirectToUrlFromRequest, getUrlFromRequest, secondaryNavThreshold} from "~/utilities";
 import {getVernacularString} from "~/vernacularProvider";
 
 export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) => {
@@ -58,7 +65,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/india-ops/india-ops-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else if (userPreferences.language == Language.Hindi) {
@@ -97,7 +104,7 @@ export const meta: V2_MetaFunction = ({data: loaderData}: {data: LoaderData}) =>
             },
             {
                 property: "og:image",
-                content: "https://growthjockey.imgix.net/livguard/home/3/2.jpg?w=764.140625",
+                content: `${getAbsolutePathForRelativePath(getMetadataForImage("/livguard/india-ops/india-ops-og-banner.jpg").finalUrl, ImageCdnProvider.Bunny, 764, null)}`,
             },
         ];
     } else {
@@ -130,6 +137,7 @@ export default () => {
     const {userPreferences, redirectTo, pageUrl} = useLoaderData() as LoaderData;
 
     const utmSearchParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useSecondaryNavigationController();
 
     return (
         <>
@@ -143,17 +151,23 @@ export default () => {
                     {contentId: "3d7d661c-5848-4670-a0bb-3990374c7303", link: "#"},
                 ]}
                 pageUrl={pageUrl}
+                secondaryNavigationController={secondaryNavigationController}
             >
-                <IndiaOpsPage
-                    userPreferences={userPreferences}
-                    pageUrl={pageUrl}
-                />
+                <SecondaryNavigationControllerContext.Provider value={secondaryNavigationController}>
+                    <IndiaOpsPage
+                        userPreferences={userPreferences}
+                        pageUrl={pageUrl}
+                        secondaryNavigationController={secondaryNavigationController}
+                    />
+                </SecondaryNavigationControllerContext.Provider>
             </PageScaffold>
         </>
     );
 };
 
-function IndiaOpsPage({userPreferences, pageUrl}: {userPreferences: UserPreferences; pageUrl: string}) {
+function IndiaOpsPage({userPreferences, pageUrl, secondaryNavigationController}: {userPreferences: UserPreferences; pageUrl: string; secondaryNavigationController?: SecondaryNavigationController}) {
+    const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+
     return (
         <>
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-x-16 tw-items-start tw-justify-center tw-bg-secondary-100-light dark:tw-bg-background-500-dark">
@@ -163,7 +177,7 @@ function IndiaOpsPage({userPreferences, pageUrl}: {userPreferences: UserPreferen
                     pageUrl={pageUrl}
                 />
 
-                <VerticalSpacer className="tw-h-4 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
+                <VerticalSpacer className="tw-h-10 lg:tw-h-20 tw-row-start-2 tw-col-start-1 lg:tw-col-span-full" />
 
                 <div className="tw-row-start-3 tw-col-start-1 lg:tw-col-span-full tw-w-full tw-max-w-7xl tw-mx-auto lg:lg-px-screen-edge-2 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-grid-flow-row lg:tw-gap-x-20">
                     <HeadOffice
@@ -232,6 +246,17 @@ function IndiaOpsPage({userPreferences, pageUrl}: {userPreferences: UserPreferen
 function HeroSection({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
     const utmParameters = useUtmSearchParameters();
     const isScreenSizeBelow = useIsScreenSizeBelow(1024);
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            top: {
+                humanReadableName: getVernacularString("9fc64723-0e15-4211-983a-ba03cf9a4d41", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         // <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-flow-row lg:tw-max-h-[fit] tw-text-center", className)}>
         //     <div className="tw-row-start-1 tw-col-start-1 lg:tw-col-span-full">
@@ -256,6 +281,8 @@ function HeroSection({userPreferences, className, pageUrl}: {userPreferences: Us
                 "tw-aspect-square lg:tw-aspect-[1280/380] tw-grid tw-grid-cols-1 lg:tw-grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] tw-grid-rows-[auto_1rem_auto] tw-items-center tw-text-center",
                 className,
             )}
+            id="top"
+            ref={sectionRef}
         >
             <div className="tw-row-start-1 lg:tw-row-span-full tw-row-span-2 tw-col-start-1 tw-col-span-full">
                 {isScreenSizeBelow == null ? null : (
@@ -317,7 +344,17 @@ function PowerThatEmpowersLives({
 
 function EnergySolutions({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
     const {emblaRef, emblaApi, selectedIndex} = useEmblaCarouselWithIndex({loop: true});
-
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "energy-solutions": {
+                humanReadableName: getVernacularString("f73b94be-d44a-48f8-a1b7-623071cf1fe0", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
@@ -325,6 +362,7 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
                 className,
             )}
             id="energy-solutions"
+            ref={sectionRef}
         >
             <h2 className="lg-px-screen-edge lg-text-headline tw-text-center tw-row-start-1 tw-col-start-1 tw-col-span-full lg:tw-row-start-1 lg:tw-col-start-2">
                 <DefaultTextAnimation>
@@ -501,12 +539,25 @@ function EnergySolutions({userPreferences, className}: {userPreferences: UserPre
 }
 
 function WhyLivguard({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "why-livguard": {
+                humanReadableName: getVernacularString("16d054b7-e1e8-4a21-b9b9-b99c4ec7ad97", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
         <div
             className={concatenateNonNullStringsWithSpaces(
                 "tw-grid tw-grid-flow-row tw-place-items-center lg:tw-grid-rows-[max-content_1.5rem_max-content_2.5rem_max-content] lg:tw-items-start lg-px-screen-edge-2 lg:tw-px-0",
                 className,
             )}
+            id="why-livguard"
+            ref={sectionRef}
         >
             <DefaultTextAnimation>
                 <div
@@ -546,8 +597,23 @@ function WhyLivguard({userPreferences, className}: {userPreferences: UserPrefere
 }
 
 function HeadOffice({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "head-office": {
+                humanReadableName: getVernacularString("bd35a39d-092b-4a59-bb3b-6f60086a9e01", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0 tw-h-full", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0 tw-h-full", className)}
+            id="head-office"
+            ref={sectionRef}
+        >
             <div className="tw-grid tw-py-8 tw-px-4 tw-grid-flow-row tw-place-items-center lg:tw-auto-rows-max lg:tw-items-start lg-bg-secondary-100 lg-ops-pages-shadow tw-rounded-lg tw-h-full">
                 <DefaultTextAnimation>
                     <div
@@ -583,6 +649,17 @@ function HeadOffice({userPreferences, className}: {userPreferences: UserPreferen
 }
 
 function RegionalOffices({userPreferences, className}: {userPreferences: UserPreferences; className?: string}) {
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "regional-office": {
+                humanReadableName: getVernacularString("ed9a0f62-e79d-49e0-a10f-784e4587a699", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
     const offices = [
         {
             imageRelativeUrl: "/livguard/india-ops/5/1.jpg",
@@ -602,7 +679,11 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
     ];
 
     return (
-        <div className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}>
+        <div
+            className={concatenateNonNullStringsWithSpaces("lg-px-screen-edge-2 lg:tw-px-0", className)}
+            id="regional-office"
+            ref={sectionRef}
+        >
             <div className="tw-rounded-lg tw-py-8 tw-px-4 lg-bg-secondary-100 lg-ops-pages-shadow tw-grid tw-grid-flow-row tw-auto-rows-auto tw-h-full tw-w-full">
                 <DefaultElementAnimation className="tw-px-3">
                     <div
@@ -649,9 +730,28 @@ function RegionalOffices({userPreferences, className}: {userPreferences: UserPre
 
 function ChooseTheRightInverter({userPreferences, className, pageUrl}: {userPreferences: UserPreferences; className?: string; pageUrl: string}) {
     const utmParameters = useUtmSearchParameters();
+    const secondaryNavigationController = useContext(SecondaryNavigationControllerContext);
+    const {ref: sectionRef, inView: sectionInView} = useInView({threshold: secondaryNavThreshold});
+    useEffect(() => {
+        secondaryNavigationController.setSections((previousSections) => ({
+            ...previousSections,
+            "your-guide": {
+                humanReadableName: getVernacularString("2223a612-f480-45b4-86fb-d5d02dc1a69d", userPreferences.language),
+                isCurrentlyVisible: sectionInView,
+            },
+        }));
+    }, [sectionRef, sectionInView]);
+
     return (
-        <div className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_auto_minmax(0,1fr)]", className)}>
-            <div className="tw-row-start-2 tw-text-center lg-text-headline">{getVernacularString("56fb901a-105b-41f6-9f28-5352624665ea", userPreferences.language)}</div>
+        <div
+            className={concatenateNonNullStringsWithSpaces("tw-grid tw-grid-rows-[minmax(0,1fr)_auto_auto_1rem_auto_1rem_auto_auto_minmax(0,1fr)]", className)}
+            id="your-guide"
+            ref={sectionRef}
+        >
+            <div
+                className="tw-row-start-2 tw-text-center lg-text-headline"
+                dangerouslySetInnerHTML={{__html: getVernacularString("56fb901a-105b-41f6-9f28-5352624665ea", userPreferences.language)}}
+            />
             <div
                 className="tw-row-start-3 tw-text-center lg-text-headline"
                 dangerouslySetInnerHTML={{__html: getVernacularString("2c808484-f637-4570-8825-b0e8d877a58f", userPreferences.language)}}
@@ -714,7 +814,7 @@ function DownloadCatalogueButton({userPreferences, className}: {userPreferences:
             {/* <Menu.Button className="lg-cta-outline-button lg-cta-outline-button-category-section-transition tw-w-fit">
                 {getVernacularString("47f28213-0a21-4782-b006-cf696dec0758", userPreferences.language)}
             </Menu.Button> */}
-            <Menu.Button className="lg-cta-outline-button lg-cta-outline-button-category-section-transition-ops tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4">
+            <Menu.Button className="tw-w-max lg-cta-outline-button lg-cta-outline-button-category-section-transition-ops tw-py-3 tw-rounded-full tw-grid tw-grid-cols-[auto_1rem_auto_minmax(0,1fr)] tw-group tw-h-full tw-px-4">
                 <img
                     className="tw-row-start-1 tw-col-start-1 tw-h-4 tw-w-4 lg:tw-h-6 lg:tw-w-6 tw-place-self-center tw-transition-colors tw-duration-200 group-hover:tw-brightness-0 group-hover:tw-invert"
                     src="https://files.growthjockey.com/livguard/icons/stabilizer/download-catalogue.svg"
